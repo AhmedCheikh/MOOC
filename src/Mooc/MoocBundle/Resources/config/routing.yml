@@ -1,0 +1,19 @@
+mooc_mooc_homepage:
+    path:     /
+    defaults: { _controller: MoocMoocBundle:Default:index }
+
+mooc_mooc_contact:
+    path:     /contact
+    defaults: { _controller: MoocMoocBundle:Contact:send }
+
+mooc_mooc_about:
+    path:     /about
+    defaults: { _controller: MoocMoocBundle:About:info }
+    
+mooc_mooc_listecour:
+    path:     /listecour
+    defaults: { _controller: MoocMoocBundle:Cour:affichecour}
+
+mooc_mooc_listeformateur:
+    path:     /listeformateur
+    defaults: { _controller: MoocMoocBundle:Formateur:afficheformateur}

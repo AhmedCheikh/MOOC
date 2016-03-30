@@ -1,0 +1,5 @@
+_assetic:
+    resource: .
+    type: assetic
+_app:
+    resource: 'C:\wamp\www\Mooc_Web\Mooc_Web\app/config/routing_dev.yml'
