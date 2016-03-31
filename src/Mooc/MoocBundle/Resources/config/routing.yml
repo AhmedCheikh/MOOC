@@ -17,3 +17,19 @@ mooc_mooc_listecour:
 mooc_mooc_listeformateur:
     path:     /listeformateur
     defaults: { _controller: MoocMoocBundle:Formateur:afficheformateur}
+
+mooc_mooc_logformateur:
+    path:     /loginformateur
+    defaults: { _controller: MoocMoocBundle:Formateur:loginformateur} 
+
+mooc_mooc_inscritformateur:
+    path:     /inscriptionformateur
+    defaults: { _controller: MoocMoocBundle:Formateur:inscriptionformateur} 
+
+mooc_mooc_log_out_formateur:
+    path:     /logoutformateur
+    defaults: { _controller: MoocMoocBundle:Formateur:logoutformateur} 
+
+mooc_mooc_acceuilformateur:
+    path:     /acceuilformateur
+    defaults: { _controller: MoocMoocBundle:Formateur:acceuilformateur} 

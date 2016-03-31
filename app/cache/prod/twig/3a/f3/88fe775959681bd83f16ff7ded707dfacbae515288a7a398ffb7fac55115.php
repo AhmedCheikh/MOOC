@@ -36,156 +36,171 @@ class __TwigTemplate_3af388fe775959681bd83f16ff7ded707dfacbae515288a7a398ffb7fac
     public function block_container($context, array $blocks = array())
     {
         // line 4
-        echo "
-<div class=\"slider_wrapper\">
-\t\t\t<div id=\"camera_wrap\" class=\"\">
-\t\t\t\t<div data-src=\"";
-        // line 7
+        echo "<div id='cssmenu'>
+<ul>
+   <li class='active'><a href='#'>Connectez vous</a>
+      <ul>
+         <li><a href='#'>Vous etes Organisme</a> </li>
+         <li><a href='";
+        // line 9
+        echo $this->env->getExtension('routing')->getPath("mooc_mooc_logformateur");
+        echo "'>Vous etes Formateur</a></li>
+         <li><a href='#'>Vous etes Apprenant</a></li>
+      </ul>
+   </li>
+  
+</ul>
+</div>
+    
+    <div class=\"slider_wrapper\"> 
+        <div id=\"camera_wrap\" class=\"\">
+            <div data-src=\"";
+        // line 19
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/images/slide.jpg"), "html", null, true);
         echo "\"></div>
-\t\t\t\t<div data-src=\"";
-        // line 8
+            <div data-src=\"";
+        // line 20
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/images/slide1.jpg"), "html", null, true);
         echo "\"></div>
-\t\t\t\t<div data-src=\"";
-        // line 9
+            <div data-src=\"";
+        // line 21
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/images/slide2.jpg"), "html", null, true);
         echo "\"></div>
-                                <div data-src=\"";
-        // line 10
+            <div data-src=\"";
+        // line 22
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/images/slide3.jpg"), "html", null, true);
         echo "\"></div>
-                                <div data-src=\"";
-        // line 11
+            <div data-src=\"";
+        // line 23
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/images/slide4.jpg"), "html", null, true);
         echo "\"></div>
-\t\t\t</div>
-\t\t</div>
-\t\t<div class=\"container_12\">
-\t\t\t<div class=\"grid_12\">
-\t\t\t\t<div class=\"slogan\">
-\t\t\t\t\tBienvenue Sur la meilleur platforme d'apprentissage en ligne <br>
-\t\t\t\t\t<a href=\"#\" class=\"btn\">more</a>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t</div>
-\t\t<div class=\"container_12\">
-\t\t\t<section class=\"grid\" id=\"grid\">
-\t\t\t\t<a href=\"#\" data-path-hover=\"m 180,70.57627 -180,0 L 0,0 180,0 z\">
-\t\t\t\t\t<figure>
-\t\t\t\t\t\t<svg viewBox=\"0 0 180 320\" preserveAspectRatio=\"none\"><path d=\"M 180,160 0,262 0,0 180,0 z\"/></svg>
-\t\t\t\t\t\t<figcaption>
-\t\t\t\t\t\t<div class=\"title\">Tutoriels Gratuit</div>
-\t\t\t\t\t\t</figcaption>
-\t\t\t\t\t</figure>
-\t\t\t\t\t<span>more</span>
-\t\t\t\t</a>
-\t\t\t\t<a href=\"#\" data-path-hover=\"m 180,70.57627 -180,0 L 0,0 180,0 z\">
-\t\t\t\t\t<figure>
-\t\t\t\t\t\t<svg viewBox=\"0 0 180 320\" preserveAspectRatio=\"none\"><path d=\"M 180,160 0,262 0,0 180,0 z\"/></svg>
-\t\t\t\t\t\t<figcaption>
-\t\t\t\t\t\t\t<div class=\"title\">Certification</div>
-\t\t\t\t\t\t</figcaption>
-\t\t\t\t\t</figure>
-\t\t\t\t\t<span>more</span>
-\t\t\t\t</a>
-\t\t\t\t<a href=\"#\" data-path-hover=\"m 180,70.57627 -180,0 L 0,0 180,0 z\">
-\t\t\t\t\t<figure>
-\t\t\t\t\t\t<svg viewBox=\"0 0 180 320\" preserveAspectRatio=\"none\"><path d=\"M 180,160 0,262 0,0 180,0 z\"/></svg>
-\t\t\t\t\t\t<figcaption>
-\t\t\t\t\t\t<div class=\"title\">Evaluation</div>
-\t\t\t\t\t\t</figcaption>
-\t\t\t\t\t</figure>
-\t\t\t\t\t<span>more</span>
-\t\t\t\t</a>
-\t\t\t\t<a href=\"#\" data-path-hover=\"m 180,70.57627 -180,0 L 0,0 180,0 z\">
-\t\t\t\t\t<figure>
-\t\t\t\t\t\t<svg viewBox=\"0 0 180 320\" preserveAspectRatio=\"none\"><path d=\"M 180,160 0,262 0,0 180,0 z\"/></svg>
-\t\t\t\t\t\t<figcaption>
-\t\t\t\t\t\t<div class=\"title\">Cours Suivie</div>
-\t\t\t\t\t\t</figcaption>
-\t\t\t\t\t</figure>
-\t\t\t\t\t<span>more</span>
-\t\t\t\t</a>
-\t\t\t</section>
-\t\t</div>
-<!--==============================Content=================================-->
-\t\t<div class=\"content\"><div class=\"ic\">More Website Templates @ TemplateMonster.com - February 24, 2014!</div>
-\t\t\t<div class=\"container_12\">
-\t\t\t\t<div class=\"grid_6\">
-\t\t\t\t\t<img src=\"";
-        // line 66
+        </div>
+    </div>
+    <div class=\"container_12\">
+        <div class=\"grid_12\">
+            <div class=\"slogan\">
+                Bienvenue Sur la meilleur platforme d'apprentissage en ligne <br>
+                <a href=\"#\" class=\"btn\">more</a>
+            </div>
+        </div>
+    </div>
+    <div class=\"container_12\">
+        <section class=\"grid\" id=\"grid\">
+            <a href=\"#\" data-path-hover=\"m 180,70.57627 -180,0 L 0,0 180,0 z\">
+                <figure>
+                    <svg viewBox=\"0 0 180 320\" preserveAspectRatio=\"none\"><path d=\"M 180,160 0,262 0,0 180,0 z\"/></svg>
+                    <figcaption>
+                        <div class=\"title\">Tutoriels Gratuit</div>
+                    </figcaption>
+                </figure>
+                <span>more</span>
+            </a>
+            <a href=\"#\" data-path-hover=\"m 180,70.57627 -180,0 L 0,0 180,0 z\">
+                <figure>
+                    <svg viewBox=\"0 0 180 320\" preserveAspectRatio=\"none\"><path d=\"M 180,160 0,262 0,0 180,0 z\"/></svg>
+                    <figcaption>
+                        <div class=\"title\">Certification</div>
+                    </figcaption>
+                </figure>
+                <span>more</span>
+            </a>
+            <a href=\"#\" data-path-hover=\"m 180,70.57627 -180,0 L 0,0 180,0 z\">
+                <figure>
+                    <svg viewBox=\"0 0 180 320\" preserveAspectRatio=\"none\"><path d=\"M 180,160 0,262 0,0 180,0 z\"/></svg>
+                    <figcaption>
+                        <div class=\"title\">Evaluation</div>
+                    </figcaption>
+                </figure>
+                <span>more</span>
+            </a>
+            <a href=\"#\" data-path-hover=\"m 180,70.57627 -180,0 L 0,0 180,0 z\">
+                <figure>
+                    <svg viewBox=\"0 0 180 320\" preserveAspectRatio=\"none\"><path d=\"M 180,160 0,262 0,0 180,0 z\"/></svg>
+                    <figcaption>
+                        <div class=\"title\">Cours Suivie</div>
+                    </figcaption>
+                </figure>
+                <span>more</span>
+            </a>
+        </section>
+    </div>
+    <!--==============================Content=================================-->
+    <div class=\"content\"><div class=\"ic\">More Website Templates @ TemplateMonster.com - February 24, 2014!</div>
+        <div class=\"container_12\">
+            <div class=\"grid_6\">
+                <img src=\"";
+        // line 78
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/images/page1_img1.jpg"), "html", null, true);
         echo "\" alt=\"\" class=\"img_inner fleft\">
-\t\t\t\t\t<div class=\"extra_wrapper\">
-\t\t\t\t\t\t<div class=\"title1\">We Work for You!</div>
-\t\t\t\t\t\t<p>If you want to download this <span class=\"col3\"><a href=\"http://blog.templatemonster.com/free-website-templates/\" rel=\"dofollow\">freebie</a></span>, visit TemplateMonster blog.</p>
-\t\t\t\t\t\tWant to find more themes of this kind? Go to <span class=\"col3\"><a href=\"http://www.templatemonster.com/properties/topic/business-services/\" rel=\"nofollow\">Business and Services</a></span> website templates.
-\t\t\t\t\t</div>
-\t\t\t\t\t<div class=\"clear cl1\"></div>
-\t\t\t\t\tIn mollis erat mattisy neque facilisis, sit amet ultricieser erarutrum. Cras facilisis, nulla vel viverra auctor, leo magna sodales felis, quis
-\t\t\t\t</div>
-\t\t\t\t<div class=\"grid_3\">
-\t\t\t\t\t<div class=\"block1\">
-\t\t\t\t\t\t<div class=\"title\">20 <span>Years of Experience</span></div>
-\t\t\t\t\t\tIn mollis erat matt nequemer facilameteserylerarutrum. Cras facilisis, nulla
-\t\t\t\t\t\t<br>
-\t\t\t\t\t\t<a href=\"#\" class=\"btn bt1\">more</a>
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t\t<div class=\"grid_3 ver\">
-\t\t\t\t\t<div class=\"block1\">
-\t\t\t\t\t\t<div class=\"title\">18 <span>Partner Programs</span></div>
-\t\t\t\t\t\tCras facilisis, nulla vel viverra auctor, leo magna sodaleel alesuada nibh odio ulit
-\t\t\t\t\t\t<br>
-\t\t\t\t\t\t<a href=\"#\" class=\"btn bt1\">more</a>
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t</div>
-\t\t<div class=\"gray_block\">
-\t\t\t<div class=\"container_12\">
-\t\t\t\t<div class=\"grid_4\">
-\t\t\t\t\t<div class=\"block2\">
-\t\t\t\t\t\t<time datetime=\"2014-01-01\"><span class=\"col1\">18</span>january</time>
-\t\t\t\t\t\t<div class=\"\">
-\t\t\t\t\t\t\t<div class=\"extra_wrapper\">
-\t\t\t\t\t\t\t\t<div class=\"title col1\"><a href=\"#\">Etiam dui ero laoretsiter golyn</a></div>
-\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t\t<div class=\"clear\"></div>
-\t\t\t\t\t\t<p>Vivamus at magna non nunc tristiq oncus. Aliquam nibh ante, egestas id dicttuser</p>
-\t\t\t\t\t\t<a href=\"#\" class=\"col1\">read more</a>
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t\t<div class=\"grid_4\">
-\t\t\t\t\t<div class=\"block2\">
-\t\t\t\t\t\t<time datetime=\"2014-01-01\"><span class=\"col1\">21</span>january</time>
-\t\t\t\t\t\t<div class=\"\">
-\t\t\t\t\t\t\t<div class=\"extra_wrapper\">
-\t\t\t\t\t\t\t\t<div class=\"title col1\"><a href=\"#\">Hom dui erosi laorufeiter milyno</a></div>
-\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t\t<div class=\"clear\"></div>
-\t\t\t\t\t\t<p>Non nunc tristique ous. Aliqum nibh ante, egestas id dictumctuser liberoraesnt</p>
-\t\t\t\t\t\t<a href=\"#\" class=\"col1\">read more</a>
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t\t<div class=\"grid_4\">
-\t\t\t\t\t<div class=\"block2\">
-\t\t\t\t\t\t<time datetime=\"2014-01-01\"><span class=\"col1\">12</span>february</time>
-\t\t\t\t\t\t<div class=\"\">
-\t\t\t\t\t\t\t<div class=\"extra_wrapper\">
-\t\t\t\t\t\t\t\t<div class=\"title col1\"><a href=\"#\">Joui eros, laorulberer golyno</a></div>
-\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t\t<div class=\"clear\"></div>
-\t\t\t\t\t\t<p>Vivamus at magna non nunc tristique os. Aliquam nibh ante, egestas id dicuser</p>
-\t\t\t\t\t\t<a href=\"#\" class=\"col1\">read more</a>
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t</div>
+                <div class=\"extra_wrapper\">
+                    <div class=\"title1\">We Work for You!</div>
+                    <p>If you want to download this <span class=\"col3\"><a href=\"http://blog.templatemonster.com/free-website-templates/\" rel=\"dofollow\">freebie</a></span>, visit TemplateMonster blog.</p>
+                    Want to find more themes of this kind? Go to <span class=\"col3\"><a href=\"http://www.templatemonster.com/properties/topic/business-services/\" rel=\"nofollow\">Business and Services</a></span> website templates.
+                </div>
+                <div class=\"clear cl1\"></div>
+                In mollis erat mattisy neque facilisis, sit amet ultricieser erarutrum. Cras facilisis, nulla vel viverra auctor, leo magna sodales felis, quis
+            </div>
+            <div class=\"grid_3\">
+                <div class=\"block1\">
+                    <div class=\"title\">20 <span>Years of Experience</span></div>
+                    In mollis erat matt nequemer facilameteserylerarutrum. Cras facilisis, nulla
+                    <br>
+                    <a href=\"#\" class=\"btn bt1\">more</a>
+                </div>
+            </div>
+            <div class=\"grid_3 ver\">
+                <div class=\"block1\">
+                    <div class=\"title\">18 <span>Partner Programs</span></div>
+                    Cras facilisis, nulla vel viverra auctor, leo magna sodaleel alesuada nibh odio ulit
+                    <br>
+                    <a href=\"#\" class=\"btn bt1\">more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=\"gray_block\">
+        <div class=\"container_12\">
+            <div class=\"grid_4\">
+                <div class=\"block2\">
+                    <time datetime=\"2014-01-01\"><span class=\"col1\">18</span>january</time>
+                    <div class=\"\">
+                        <div class=\"extra_wrapper\">
+                            <div class=\"title col1\"><a href=\"#\">Etiam dui ero laoretsiter golyn</a></div>
+                        </div>
+                    </div>
+                    <div class=\"clear\"></div>
+                    <p>Vivamus at magna non nunc tristiq oncus. Aliquam nibh ante, egestas id dicttuser</p>
+                    <a href=\"#\" class=\"col1\">read more</a>
+                </div>
+            </div>
+            <div class=\"grid_4\">
+                <div class=\"block2\">
+                    <time datetime=\"2014-01-01\"><span class=\"col1\">21</span>january</time>
+                    <div class=\"\">
+                        <div class=\"extra_wrapper\">
+                            <div class=\"title col1\"><a href=\"#\">Hom dui erosi laorufeiter milyno</a></div>
+                        </div>
+                    </div>
+                    <div class=\"clear\"></div>
+                    <p>Non nunc tristique ous. Aliqum nibh ante, egestas id dictumctuser liberoraesnt</p>
+                    <a href=\"#\" class=\"col1\">read more</a>
+                </div>
+            </div>
+            <div class=\"grid_4\">
+                <div class=\"block2\">
+                    <time datetime=\"2014-01-01\"><span class=\"col1\">12</span>february</time>
+                    <div class=\"\">
+                        <div class=\"extra_wrapper\">
+                            <div class=\"title col1\"><a href=\"#\">Joui eros, laorulberer golyno</a></div>
+                        </div>
+                    </div>
+                    <div class=\"clear\"></div>
+                    <p>Vivamus at magna non nunc tristique os. Aliquam nibh ante, egestas id dicuser</p>
+                    <a href=\"#\" class=\"col1\">read more</a>
+                </div>
+            </div>
+        </div>
+    </div>
 ";
     }
 
@@ -201,6 +216,6 @@ class __TwigTemplate_3af388fe775959681bd83f16ff7ded707dfacbae515288a7a398ffb7fac
 
     public function getDebugInfo()
     {
-        return array (  118 => 66,  60 => 11,  56 => 10,  52 => 9,  48 => 8,  44 => 7,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  133 => 78,  75 => 23,  71 => 22,  67 => 21,  63 => 20,  59 => 19,  46 => 9,  39 => 4,  36 => 3,  11 => 1,);
     }
 }

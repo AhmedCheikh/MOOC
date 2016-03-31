@@ -96,13 +96,14 @@ class __TwigTemplate_e0430ca22d772ca4e4ea1ab1a2cfd1d8a3019a2d56e4321754ffdf51375
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/js/snap.svg-min.js"), "html", null, true);
         echo "\"></script>
                 
+             
                 
                 
                 
   
 \t\t<!--[if (gt IE 9)|!(IE)]><!-->
 \t\t<script src=\"";
-        // line 31
+        // line 32
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/js/jquery.mobile.customized.min.js"), "html", null, true);
         echo "\"></script>
 \t\t<!--<![endif]-->
@@ -142,7 +143,7 @@ class __TwigTemplate_e0430ca22d772ca4e4ea1ab1a2cfd1d8a3019a2d56e4321754ffdf51375
 \t\t\t<div class=\"container_12\">
 \t\t\t\t<div class=\"grid_12\">
 \t\t\t\t\t<h1><a href=\"index.html\"><img src=\"";
-        // line 68
+        // line 69
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/images/logo.png"), "html", null, true);
         echo "\" alt=\"Boo House\"></a></h1>
 \t\t\t\t\t<div class=\"menu_block\">
@@ -150,24 +151,24 @@ class __TwigTemplate_e0430ca22d772ca4e4ea1ab1a2cfd1d8a3019a2d56e4321754ffdf51375
 \t\t\t\t\t\t\t<a href=\"#\" class=\"bt-menu-trigger\"><span>Menu</span></a>
 \t\t\t\t\t\t\t<ul>
 \t\t\t\t\t\t\t\t<li class=\"current bt-icon\"><a href=\"";
-        // line 73
+        // line 74
         echo $this->env->getExtension('routing')->getPath("mooc_mooc_homepage");
         echo "\">Acceuil</a></li>
 \t\t\t\t\t\t\t\t<li class=\"bt-icon\"><a href=\"";
-        // line 74
+        // line 75
         echo $this->env->getExtension('routing')->getPath("mooc_mooc_about");
         echo "\">à propos</a></li>
 \t\t\t\t\t\t\t\t<li class=\"bt-icon\"><a href=\"";
-        // line 75
+        // line 76
         echo $this->env->getExtension('routing')->getPath("mooc_mooc_listecour");
         echo "\">Liste cours</a></li>
 \t\t\t\t\t\t\t\t<li class=\"bt-icon\"><a href=\"";
-        // line 76
+        // line 77
         echo $this->env->getExtension('routing')->getPath("mooc_mooc_listeformateur");
         echo "\">formateur</a></li>
 \t\t\t\t\t\t\t\t<li class=\"bt-icon\"><a href=\"index-4.html\">organisme</a></li>
 \t\t\t\t\t\t\t\t<li class=\"bt-icon\"><a href=\"";
-        // line 78
+        // line 79
         echo $this->env->getExtension('routing')->getPath("mooc_mooc_contact");
         echo "\">contact</a></li>
 \t\t\t\t\t\t\t</ul>
@@ -180,7 +181,7 @@ class __TwigTemplate_e0430ca22d772ca4e4ea1ab1a2cfd1d8a3019a2d56e4321754ffdf51375
 \t\t</header>
         <!--==============================header=================================-->                                
          ";
-        // line 88
+        // line 89
         $this->displayBlock('container', $context, $blocks);
         echo "                            
         <!--==============================footer=================================-->
@@ -252,6 +253,6 @@ class __TwigTemplate_e0430ca22d772ca4e4ea1ab1a2cfd1d8a3019a2d56e4321754ffdf51375
 
     public function getDebugInfo()
     {
-        return array (  184 => 88,  171 => 78,  166 => 76,  162 => 75,  158 => 74,  154 => 73,  146 => 68,  106 => 31,  96 => 24,  92 => 23,  88 => 22,  84 => 21,  80 => 20,  76 => 19,  72 => 18,  68 => 17,  64 => 16,  60 => 15,  55 => 13,  51 => 12,  47 => 11,  43 => 10,  39 => 9,  35 => 8,  31 => 7,  27 => 6,  20 => 1,);
+        return array (  185 => 89,  172 => 79,  167 => 77,  163 => 76,  159 => 75,  155 => 74,  147 => 69,  107 => 32,  96 => 24,  92 => 23,  88 => 22,  84 => 21,  80 => 20,  76 => 19,  72 => 18,  68 => 17,  64 => 16,  60 => 15,  55 => 13,  51 => 12,  47 => 11,  43 => 10,  39 => 9,  35 => 8,  31 => 7,  27 => 6,  20 => 1,);
     }
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Mooc\MoocBundle\Entity\Cours" table="cours">
+    <indexes>
+      <index name="fk_courrr" columns="idQuiz"/>
+      <index name="fk_for" columns="cinformateur"/>
+    </indexes>
+    <id name="idcours" type="integer" column="idcours">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nomCours" type="string" column="nom_cours" length="255" nullable="true"/>
+    <field name="description" type="string" column="description" length="255" nullable="true"/>
+    <field name="difficulte" type="string" column="difficulte" length="45" nullable="true"/>
+    <field name="objectif" type="string" column="objectif" length="255" nullable="true"/>
+    <field name="video" type="string" column="video" length="255" nullable="true"/>
+    <field name="etatvideo" type="integer" column="etatVideo" nullable="true"/>
+    <many-to-one field="idquiz" target-entity="Quiz">
+      <join-columns>
+        <join-column name="idQuiz" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="cinformateur" target-entity="Formateur">
+      <join-columns>
+        <join-column name="cinformateur" referenced-column-name="cin"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
