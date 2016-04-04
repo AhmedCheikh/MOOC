@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Mooc\MoocBundle\Entity\Formateur;
 use Mooc\MoocBundle\Modals\LoginFormateur;
+use Mooc\MoocBundle\Entity\Cours;
 
 /**
  * Description of FormateurController
@@ -18,12 +19,16 @@ class FormateurController extends Controller {
 
         return $this->render('MoocMoocBundle:Formateur:afficheformateur.html.twig');
     }
-    
-    public function acceuilformateurAction() {
 
-        return $this->render('MoocMoocBundle:Formateur:acceuilformateur.html.twig');
+    public function acceuilformateurAction($prenom, $name) {
+
+//              $url = $request->getUri();
+//              if ($url == 'http://localhost/Mooc_Web/web/app_dev.php/acceuilformateur') {
+//              return $this->render('MoocMoocBundle:Formateur:loginformateur.html.twig');
+//              }
+        return $this->render('MoocMoocBundle:Formateur:acceuilformateur.html.twig', array('name' => $name, 'prenom' => $prenom));
     }
-    
+
     public function loginformateurAction(Request $request) {
         $session = $this->getRequest()->getSession();
         $em = $this->getDoctrine()->getManager();
@@ -46,7 +51,10 @@ class FormateurController extends Controller {
                     $loginformateur->setPassword($password);
                     $session->set('loginformateur', $loginformateur);
                 }
-                return $this->render('MoocMoocBundle:Formateur:acceuilformateur.html.twig', array('name' => $formateur->getNom(),'prenom'=>$formateur->getPrenom()));
+
+
+                return $this->redirect($this->generateUrl('mooc_mooc_acceuilformateur', array('name' => $formateur->getNom(), 'prenom' => $formateur->getPrenom())));
+//                return $this->render('MoocMoocBundle:Formateur:acceuilformateur.html.twig', array('name' => $formateur->getNom(),'prenom'=>$formateur->getPrenom()));
             } else {
                 return $this->render('MoocMoocBundle:Formateur:loginformateur.html.twig', array('name' => 'Authentification échoué'));
             }
@@ -56,9 +64,9 @@ class FormateurController extends Controller {
                 $login = $loginformateur->getLogin();
                 $password = $loginformateur->getPassword();
                 $formateur = $repository->findOneBy(array('login' => $login, 'password' => $password));
-                 if ($formateur) {
-                   return $this->render('MoocMoocBundle:Formateur:acceuilformateur.html.twig', array('name' => $formateur->getNom(),'prenom'=>$formateur->getPrenom()));  
-                 }
+                if ($formateur) {
+                    return $this->render('MoocMoocBundle:Formateur:acceuilformateur.html.twig', array('name' => $formateur->getNom(), 'prenom' => $formateur->getPrenom()));
+                }
             }
             return $this->render('MoocMoocBundle:Formateur:loginformateur.html.twig');
         }
@@ -99,5 +107,48 @@ class FormateurController extends Controller {
         $session->clear();
         return $this->render('MoocMoocBundle:Formateur:loginformateur.html.twig');
     }
+
+    public function publiercourAction(Request $request,$prenom,$name) {
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('MoocMoocBundle:Formateur');
+        $frm = $repository->findOneBy(array('nom' => $name, 'prenom' => $prenom));
+        if ($request->getMethod() == 'POST') {
+            
+            $nom_cours = $request->get('nom_cours');
+            $cinformateurIndex = $request->get('cinformateurIndex');
+            $idQuizIndex = $request->get('idQuizIndex');
+            $description = $request->get('description');
+            $difficulte = $request->get('difficulte');
+            $objectif = $request->get('objectif');
+            $video = $request->get('video');
+            $etatVideo = $request->get('etatVideo');
+            
+            $cour = new Cours();
+            
+            $cour->setNomCours($nomCours);
+            $cour->setCinformateur($cinformateur);
+            $cour->setIdquiz($idQuizIndex);
+            $cour->setDescription($description);
+            $cour->setDifficulte($difficulte);
+            $cour->setVideo($video);
+            $cour->setVideo($video);
+            $cour->setEtatvideo($etatvideo);
+
+            
+            $em->persist($cour);
+            $em->flush();
+        }
+        return $this->render('MoocMoocBundle:Formateur:publiercour.html.twig', array('name' => $frm->getNom(), 'prenom' => $frm->getPrenom()));
+
+    }
     
+    public function listecourformateurAction($prenom,$name) {
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('MoocMoocBundle:Formateur');
+        $frm = $repository->findOneBy(array('nom' => $name, 'prenom' => $prenom));
+        
+        return $this->render('MoocMoocBundle:Formateur:listecourformateur.html.twig', array('name' => $frm->getNom(), 'prenom' => $frm->getPrenom()));
+
+    }
+
 }

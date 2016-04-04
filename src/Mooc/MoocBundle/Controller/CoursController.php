@@ -13,7 +13,7 @@ class CoursController extends Controller {
          $repository = $this->getDoctrine()
                 ->getManager()
                 ->getRepository('MoocMoocBundle:Cours');
-        $listeCours = $repository->chercherTout();
+        $listeCours = $repository->findAll();
        
         return $this->render('MoocMoocBundle:Cours:affichecours.html.twig',array('listeCours' => $listeCours));
     }
@@ -22,7 +22,7 @@ class CoursController extends Controller {
         $repository = $this->getDoctrine()
                 ->getManager()
                 ->getRepository('MoocMoocBundle:Cours');
-        $cours = $repository->chercher($id);
+        $cours = $repository->find($id);
         if (NULL === $cours) {
             return new Response('Cours inéxistant !!');
         } else {

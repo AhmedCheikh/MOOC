@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Mooc\MoocBundle\Entity\Invitation" table="invitation">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nomExp" type="string" column="nom_exp" length="45" nullable="false"/>
+    <field name="nomDes" type="string" column="nom_des" length="45" nullable="false"/>
+    <field name="dateInvit" type="date" column="date_invit" nullable="true"/>
+    <field name="dateConfi" type="date" column="date_confi" nullable="true"/>
+    <field name="dateVue" type="date" column="date_vue" nullable="true"/>
+    <field name="etat" type="integer" column="etat" nullable="true"/>
+  </entity>
+</doctrine-mapping>
