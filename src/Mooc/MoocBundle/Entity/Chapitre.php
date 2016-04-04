@@ -64,7 +64,7 @@ class Chapitre
      *
      * @ORM\ManyToOne(targetEntity="Cours")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idcours", referencedColumnName="idcours")
+     *   @ORM\JoinColumn(name="idcours", referencedColumnName="idcours", onDelete="CASCADE")
      * })
      */
     private $idcours;

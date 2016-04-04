@@ -247,7 +247,6 @@ class appDevDebugProjectContainer extends Container
             'translation.writer' => 'getTranslation_WriterService',
             'translator' => 'getTranslatorService',
             'translator.default' => 'getTranslator_DefaultService',
-            'translator.selector' => 'getTranslator_SelectorService',
             'translator_listener' => 'getTranslatorListenerService',
             'twig' => 'getTwigService',
             'twig.controller.exception' => 'getTwig_Controller_ExceptionService',
@@ -755,7 +754,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_metadata_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_default_3367d5f0454021691b579520967c2ec2922f2b974c667119c40ddabad3495f57');
+        $instance->setNamespace('sf2orm_default_fe17d8e4255b9618918e2bd00b68a4430f7628722a230e3c6248f936281c4fb3');
 
         return $instance;
     }
@@ -772,7 +771,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_query_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_default_3367d5f0454021691b579520967c2ec2922f2b974c667119c40ddabad3495f57');
+        $instance->setNamespace('sf2orm_default_fe17d8e4255b9618918e2bd00b68a4430f7628722a230e3c6248f936281c4fb3');
 
         return $instance;
     }
@@ -789,7 +788,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_result_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_default_3367d5f0454021691b579520967c2ec2922f2b974c667119c40ddabad3495f57');
+        $instance->setNamespace('sf2orm_default_fe17d8e4255b9618918e2bd00b68a4430f7628722a230e3c6248f936281c4fb3');
 
         return $instance;
     }
@@ -804,7 +803,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getEasyadmin_ConfiguratorService()
     {
-        return $this->services['easyadmin.configurator'] = new \JavierEguiluz\Bundle\EasyAdminBundle\Configuration\Configurator(array('entities' => array('Formateur' => array('actions' => array(0 => 'edit', 1 => 'search'), 'class' => 'Mooc\\MoocBundle\\Entity\\Formateur', 'label' => 'Formateurs', 'list' => array('title' => 'Liste des formateurs', 'fields' => array('cin' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'cin', 'scale' => 0, 'length' => 8, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'cin', 'id' => true, 'property' => 'cin'), 'nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'prenom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'prenom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'prenom', 'property' => 'prenom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'avatar' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Photo', 'type' => 'image', 'fieldType' => 'textarea', 'dataType' => 'image', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_image.html.twig', 'type_options' => array(), 'fieldName' => 'avatar', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'avatar', 'property' => 'avatar', 'base_path' => 'http://localhost/Mooc_web/web/img/avatar/'), 'cv' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'CV', 'type' => 'blob', 'fieldType' => 'textarea', 'dataType' => 'blob', 'virtual' => false, 'sortable' => true, 'template' => 'easy_admin/Formateur/cv.html.twig', 'type_options' => array(), 'fieldName' => 'cv', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'cv', 'property' => 'cv', 'base_path' => '/file/cv'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Valide', 'type' => 'toggle', 'fieldType' => 'integer', 'dataType' => 'toggle', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_toggle.html.twig', 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat')), 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => '', 'css_class' => ' action-show', 'icon' => 'search'), 'delete' => array('name' => 'delete', 'type' => 'method', 'label' => '', 'css_class' => 'text-danger action-delete', 'icon' => 'trash'), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'css_class' => 'text-primary action-edit', 'icon' => NULL), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'action.new', 'css_class' => 'btn btn-primary action-new', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'action.search', 'css_class' => ' action-search', 'icon' => NULL))), 'name' => 'Formateur', 'edit' => array('fields' => array('nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'prenom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'prenom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'prenom', 'property' => 'prenom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'login' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'login', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'login', 'property' => 'login'), 'password' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'password', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'password', 'property' => 'password')), 'form_options' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'css_class' => 'btn btn-default action-delete', 'icon' => 'trash-o'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'css_class' => 'btn btn-secondary action-list', 'icon' => NULL))), 'new' => array('fields' => array('nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'prenom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'prenom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'prenom', 'property' => 'prenom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'login' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'login', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'login', 'property' => 'login'), 'password' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'password', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'password', 'property' => 'password')), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'css_class' => 'btn btn-secondary action-list', 'icon' => NULL))), 'search' => array('fields' => array('cin' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'cin', 'scale' => 0, 'length' => 8, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'cin', 'id' => true, 'property' => 'cin'), 'nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'prenom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'prenom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'prenom', 'property' => 'prenom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'login' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'login', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'login', 'property' => 'login'))), 'show' => array('fields' => array('cin' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'cin', 'scale' => 0, 'length' => 8, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'cin', 'id' => true, 'property' => 'cin'), 'nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'prenom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'prenom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'prenom', 'property' => 'prenom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_integer.html.twig', 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'avatar' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'blob', 'fieldType' => 'textarea', 'dataType' => 'blob', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/label_undefined.html.twig', 'type_options' => array(), 'fieldName' => 'avatar', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'avatar', 'property' => 'avatar'), 'cv' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'blob', 'fieldType' => 'textarea', 'dataType' => 'blob', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/label_undefined.html.twig', 'type_options' => array(), 'fieldName' => 'cv', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'cv', 'property' => 'cv'), 'login' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'login', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'login', 'property' => 'login'), 'password' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'password', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'password', 'property' => 'password')), 'actions' => array('edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'css_class' => 'btn btn-primary action-edit', 'icon' => 'edit'), 'delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'css_class' => 'btn btn-default action-delete', 'icon' => 'trash-o'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'css_class' => 'btn btn-secondary action-list', 'icon' => NULL))), 'disabled_actions' => array(), 'primary_key_field_name' => 'cin', 'properties' => array('cin' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'cin', 'scale' => 0, 'length' => 8, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'cin', 'id' => true, 'property' => 'cin'), 'nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'prenom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'prenom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'prenom', 'property' => 'prenom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'avatar' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'blob', 'fieldType' => 'textarea', 'dataType' => 'blob', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'avatar', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'avatar', 'property' => 'avatar'), 'cv' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'blob', 'fieldType' => 'textarea', 'dataType' => 'blob', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'cv', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'cv', 'property' => 'cv'), 'login' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'login', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'login', 'property' => 'login'), 'password' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'password', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'password', 'property' => 'password')), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'menu' => '@EasyAdmin/default/menu.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'exception' => '@EasyAdmin/default/exception.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'Cours' => array('class' => 'Mooc\\MoocBundle\\Entity\\Cours', 'name' => 'Cours', 'label' => 'Cours', 'edit' => array('fields' => array('nomCours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nomCours', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom_cours', 'property' => 'nomCours'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'difficulte' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'difficulte', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'difficulte', 'property' => 'difficulte'), 'objectif' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'objectif', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'objectif', 'property' => 'objectif'), 'video' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'video', 'scale' => 0, 'length' => 100, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'video', 'property' => 'video'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'idquiz' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'idquiz', 'joinColumns' => array(0 => array('name' => 'idQuiz', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'id')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Quiz', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('idQuiz' => 'id'), 'joinColumnFieldNames' => array('idQuiz' => 'idQuiz'), 'targetToSourceKeyColumns' => array('id' => 'idQuiz'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'idquiz'), 'cinformateur' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'cinformateur', 'joinColumns' => array(0 => array('name' => 'cinformateur', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'cin')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('cinformateur' => 'cin'), 'joinColumnFieldNames' => array('cinformateur' => 'cinformateur'), 'targetToSourceKeyColumns' => array('cin' => 'cinformateur'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'cinformateur')), 'form_options' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'css_class' => 'btn btn-default action-delete', 'icon' => 'trash-o'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'css_class' => 'btn btn-secondary action-list', 'icon' => NULL))), 'list' => array('fields' => array('idcours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_integer.html.twig', 'type_options' => array(), 'fieldName' => 'idcours', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'idcours', 'id' => true, 'property' => 'idcours'), 'nomCours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'nomCours', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom_cours', 'property' => 'nomCours'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'difficulte' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'difficulte', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'difficulte', 'property' => 'difficulte'), 'objectif' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'objectif', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'objectif', 'property' => 'objectif'), 'video' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'video', 'scale' => 0, 'length' => 100, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'video', 'property' => 'video'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_integer.html.twig', 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat')), 'actions' => array('edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'css_class' => 'text-primary action-edit', 'icon' => NULL), 'delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'css_class' => 'text-danger action-delete', 'icon' => NULL), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'action.new', 'css_class' => 'btn btn-primary action-new', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'action.search', 'css_class' => ' action-search', 'icon' => NULL))), 'new' => array('fields' => array('nomCours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nomCours', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom_cours', 'property' => 'nomCours'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'difficulte' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'difficulte', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'difficulte', 'property' => 'difficulte'), 'objectif' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'objectif', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'objectif', 'property' => 'objectif'), 'video' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'video', 'scale' => 0, 'length' => 100, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'video', 'property' => 'video'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'idquiz' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'idquiz', 'joinColumns' => array(0 => array('name' => 'idQuiz', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'id')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Quiz', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('idQuiz' => 'id'), 'joinColumnFieldNames' => array('idQuiz' => 'idQuiz'), 'targetToSourceKeyColumns' => array('id' => 'idQuiz'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'idquiz'), 'cinformateur' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'cinformateur', 'joinColumns' => array(0 => array('name' => 'cinformateur', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'cin')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('cinformateur' => 'cin'), 'joinColumnFieldNames' => array('cinformateur' => 'cinformateur'), 'targetToSourceKeyColumns' => array('cin' => 'cinformateur'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'cinformateur')), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'css_class' => 'btn btn-secondary action-list', 'icon' => NULL))), 'search' => array('fields' => array('idcours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'idcours', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'idcours', 'id' => true, 'property' => 'idcours'), 'nomCours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nomCours', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom_cours', 'property' => 'nomCours'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'difficulte' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'difficulte', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'difficulte', 'property' => 'difficulte'), 'objectif' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'objectif', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'objectif', 'property' => 'objectif'), 'video' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'video', 'scale' => 0, 'length' => 100, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'video', 'property' => 'video'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'))), 'show' => array('fields' => array('idcours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_integer.html.twig', 'type_options' => array(), 'fieldName' => 'idcours', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'idcours', 'id' => true, 'property' => 'idcours'), 'nomCours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'nomCours', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom_cours', 'property' => 'nomCours'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'difficulte' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'difficulte', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'difficulte', 'property' => 'difficulte'), 'objectif' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'objectif', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'objectif', 'property' => 'objectif'), 'video' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'video', 'scale' => 0, 'length' => 100, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'video', 'property' => 'video'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_integer.html.twig', 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'idquiz' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_association.html.twig', 'type_options' => array(), 'fieldName' => 'idquiz', 'joinColumns' => array(0 => array('name' => 'idQuiz', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'id')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Quiz', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('idQuiz' => 'id'), 'joinColumnFieldNames' => array('idQuiz' => 'idQuiz'), 'targetToSourceKeyColumns' => array('id' => 'idQuiz'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'idquiz'), 'cinformateur' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_association.html.twig', 'type_options' => array(), 'fieldName' => 'cinformateur', 'joinColumns' => array(0 => array('name' => 'cinformateur', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'cin')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('cinformateur' => 'cin'), 'joinColumnFieldNames' => array('cinformateur' => 'cinformateur'), 'targetToSourceKeyColumns' => array('cin' => 'cinformateur'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'cinformateur')), 'actions' => array('edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'css_class' => 'btn btn-primary action-edit', 'icon' => 'edit'), 'delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'css_class' => 'btn btn-default action-delete', 'icon' => 'trash-o'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'css_class' => 'btn btn-secondary action-list', 'icon' => NULL))), 'disabled_actions' => array(), 'primary_key_field_name' => 'idcours', 'properties' => array('idcours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'idcours', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'idcours', 'id' => true, 'property' => 'idcours'), 'nomCours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nomCours', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom_cours', 'property' => 'nomCours'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'difficulte' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'difficulte', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'difficulte', 'property' => 'difficulte'), 'objectif' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'objectif', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'objectif', 'property' => 'objectif'), 'video' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'video', 'scale' => 0, 'length' => 100, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'video', 'property' => 'video'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'idquiz' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'idquiz', 'joinColumns' => array(0 => array('name' => 'idQuiz', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'id')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Quiz', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('idQuiz' => 'id'), 'joinColumnFieldNames' => array('idQuiz' => 'idQuiz'), 'targetToSourceKeyColumns' => array('id' => 'idQuiz'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'idquiz'), 'cinformateur' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'cinformateur', 'joinColumns' => array(0 => array('name' => 'cinformateur', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'cin')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('cinformateur' => 'cin'), 'joinColumnFieldNames' => array('cinformateur' => 'cinformateur'), 'targetToSourceKeyColumns' => array('cin' => 'cinformateur'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'cinformateur')), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'menu' => '@EasyAdmin/default/menu.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'exception' => '@EasyAdmin/default/exception.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig'))), 'site_name' => 'MOO<i><font color="grey">Comité</font></i>', 'design' => array('assets' => array('css' => array(), 'js' => array(), 'favicon' => array('path' => 'favicon.ico', 'mime_type' => 'image/x-icon')), 'theme' => 'default', 'color_scheme' => 'dark', 'brand_color' => '#205081', 'form_theme' => array(0 => '@EasyAdmin/form/bootstrap_3_horizontal_layout.html.twig'), 'menu' => array(0 => array('entity' => 'Formateur', 'label' => 'Formateurs', 'icon' => 'fa-chevron-circle-right', 'children' => array(), 'default' => false, 'target' => false, 'menu_index' => 0, 'submenu_index' => -1, 'type' => 'entity', 'params' => array()), 1 => array('entity' => 'Cours', 'label' => 'Cours', 'icon' => 'fa-chevron-circle-right', 'children' => array(), 'default' => false, 'target' => false, 'menu_index' => 1, 'submenu_index' => -1, 'type' => 'entity', 'params' => array())), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'menu' => '@EasyAdmin/default/menu.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'exception' => '@EasyAdmin/default/exception.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'formats' => array('date' => 'Y-m-d', 'time' => 'H:i:s', 'datetime' => 'F j, Y H:i'), 'disabled_actions' => array(), 'list' => array('actions' => array(), 'max_results' => 15), 'edit' => array('actions' => array()), 'new' => array('actions' => array()), 'show' => array('actions' => array()), 'default_entity_name' => 'Formateur', 'default_menu_item' => NULL, 'homepage' => array('route' => 'easyadmin', 'params' => array('action' => 'list', 'entity' => 'Formateur'))), $this->get('property_accessor'));
+        return $this->services['easyadmin.configurator'] = new \JavierEguiluz\Bundle\EasyAdminBundle\Configuration\Configurator(array('design' => array('menu' => array(0 => array('entity' => 'Formateur', 'icon' => 'fa-group', 'children' => array(), 'default' => false, 'target' => false, 'menu_index' => 0, 'submenu_index' => -1, 'type' => 'entity', 'label' => 'Formateurs', 'params' => array()), 1 => array('entity' => 'Cours', 'icon' => 'fa-book', 'children' => array(), 'default' => false, 'target' => false, 'menu_index' => 1, 'submenu_index' => -1, 'type' => 'entity', 'label' => 'Cours', 'params' => array()), 2 => array('label' => 'Frontend', 'url' => 'http://localhost/Mooc_web/web/app_dev.php/', 'icon' => 'fa-home', 'children' => array(), 'default' => false, 'target' => false, 'menu_index' => 2, 'submenu_index' => -1, 'type' => 'link')), 'theme' => 'default', 'color_scheme' => 'dark', 'brand_color' => '#205081', 'form_theme' => array(0 => '@EasyAdmin/form/bootstrap_3_horizontal_layout.html.twig'), 'assets' => array('css' => array(), 'js' => array(), 'favicon' => array('path' => 'favicon.ico', 'mime_type' => 'image/x-icon')), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'menu' => '@EasyAdmin/default/menu.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'exception' => '@EasyAdmin/default/exception.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'site_name' => 'MOO<i><font color="grey">Comité</font></i>', 'entities' => array('Formateur' => array('class' => 'Mooc\\MoocBundle\\Entity\\Formateur', 'label' => 'Formateurs', 'list' => array('title' => 'Liste des formateurs', 'fields' => array('cin' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'cin', 'scale' => 0, 'length' => 8, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'cin', 'id' => true, 'property' => 'cin'), 'nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'prenom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'prenom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'prenom', 'property' => 'prenom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'avatar' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Photo', 'type' => 'image', 'fieldType' => 'text', 'dataType' => 'image', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_image.html.twig', 'type_options' => array(), 'fieldName' => 'avatar', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'avatar', 'property' => 'avatar', 'base_path' => 'http://localhost/Mooc_web/web/img/avatar/'), 'cv' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'CV', 'type' => 'blob', 'fieldType' => 'textarea', 'dataType' => 'blob', 'virtual' => false, 'sortable' => true, 'template' => 'easy_admin/Formateur/cv.html.twig', 'type_options' => array(), 'fieldName' => 'cv', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'cv', 'property' => 'cv', 'base_path' => '/file/cv'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Valide', 'type' => 'toggle', 'fieldType' => 'integer', 'dataType' => 'toggle', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_toggle.html.twig', 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat')), 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => '', 'css_class' => ' action-show', 'icon' => 'search'), 'delete' => array('name' => 'delete', 'type' => 'method', 'label' => '', 'css_class' => 'text-danger action-delete', 'icon' => 'trash'), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => '', 'css_class' => 'text-primary action-edit', 'icon' => 'pencil', 'class' => ''), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'action.new', 'css_class' => 'btn btn-primary action-new', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'action.search', 'css_class' => ' action-search', 'icon' => NULL))), 'show' => array('fields' => array('cin' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'cin', 'scale' => 0, 'length' => 8, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'cin', 'id' => true, 'property' => 'cin'), 'nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'prenom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'prenom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'prenom', 'property' => 'prenom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_integer.html.twig', 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'avatar' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'avatar', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'avatar', 'property' => 'avatar'), 'cv' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'blob', 'fieldType' => 'textarea', 'dataType' => 'blob', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/label_undefined.html.twig', 'type_options' => array(), 'fieldName' => 'cv', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'cv', 'property' => 'cv'), 'login' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'login', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'login', 'property' => 'login'), 'password' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'password', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'password', 'property' => 'password')), 'actions' => array('edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'css_class' => 'btn btn-primary action-edit', 'icon' => 'edit'), 'delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'css_class' => 'btn btn-default action-delete', 'icon' => 'trash-o'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'css_class' => 'btn btn-secondary action-list', 'icon' => NULL))), 'fields' => array(0 => array('property' => 'avatar', 'type' => 'image', 'label' => 'Photo', 'base_path' => 'http://localhost/Mooc_web/web/img/avatar/'), 1 => 'nom', 2 => 'prenom', 3 => 'email', 4 => array('property' => 'cv', 'label' => 'CV', 'template' => 'cv.html.twig', 'base_path' => '/file/cv'), 5 => array('property' => 'etat', 'type' => 'toggle', 'label' => 'Valide')), 'name' => 'Formateur', 'edit' => array('fields' => array('nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'prenom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'prenom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'prenom', 'property' => 'prenom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'avatar' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'avatar', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'avatar', 'property' => 'avatar'), 'login' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'login', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'login', 'property' => 'login'), 'password' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'password', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'password', 'property' => 'password')), 'form_options' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'css_class' => 'btn btn-default action-delete', 'icon' => 'trash-o'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'css_class' => 'btn btn-secondary action-list', 'icon' => NULL))), 'new' => array('fields' => array('nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'prenom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'prenom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'prenom', 'property' => 'prenom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'avatar' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'avatar', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'avatar', 'property' => 'avatar'), 'login' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'login', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'login', 'property' => 'login'), 'password' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'password', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'password', 'property' => 'password')), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'css_class' => 'btn btn-secondary action-list', 'icon' => NULL))), 'search' => array('fields' => array('cin' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'cin', 'scale' => 0, 'length' => 8, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'cin', 'id' => true, 'property' => 'cin'), 'nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'prenom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'prenom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'prenom', 'property' => 'prenom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'avatar' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'avatar', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'avatar', 'property' => 'avatar'), 'login' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'login', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'login', 'property' => 'login'))), 'disabled_actions' => array(), 'primary_key_field_name' => 'cin', 'properties' => array('cin' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'cin', 'scale' => 0, 'length' => 8, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'cin', 'id' => true, 'property' => 'cin'), 'nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'prenom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'prenom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'prenom', 'property' => 'prenom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'avatar' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'avatar', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'avatar', 'property' => 'avatar'), 'cv' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'blob', 'fieldType' => 'textarea', 'dataType' => 'blob', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'cv', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'cv', 'property' => 'cv'), 'login' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'login', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'login', 'property' => 'login'), 'password' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'password', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'password', 'property' => 'password')), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'menu' => '@EasyAdmin/default/menu.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'exception' => '@EasyAdmin/default/exception.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'Cours' => array('class' => 'Mooc\\MoocBundle\\Entity\\Cours', 'list' => array('title' => 'Liste des cours à valider', 'fields' => array('nomCours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'nomCours', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom_cours', 'property' => 'nomCours'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'difficulte' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'difficulte', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'difficulte', 'property' => 'difficulte'), 'objectif' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'objectif', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'objectif', 'property' => 'objectif'), 'cinformateur' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Formateur', 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_association.html.twig', 'type_options' => array(), 'fieldName' => 'cinformateur', 'joinColumns' => array(0 => array('name' => 'cinformateur', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'cin')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('cinformateur' => 'cin'), 'joinColumnFieldNames' => array('cinformateur' => 'cinformateur'), 'targetToSourceKeyColumns' => array('cin' => 'cinformateur'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'cinformateur'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Etat', 'type' => 'toggle', 'fieldType' => 'integer', 'dataType' => 'toggle', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_toggle.html.twig', 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat')), 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => '', 'css_class' => ' action-show', 'icon' => 'search'), 'delete' => array('name' => 'delete', 'type' => 'method', 'label' => '', 'css_class' => 'text-danger action-delete', 'icon' => 'trash'), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => '', 'css_class' => 'text-primary action-edit', 'icon' => 'pencil', 'class' => ''), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'action.new', 'css_class' => 'btn btn-primary action-new', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'action.search', 'css_class' => ' action-search', 'icon' => NULL))), 'name' => 'Cours', 'label' => 'Cours', 'edit' => array('fields' => array('nomCours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nomCours', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom_cours', 'property' => 'nomCours'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'difficulte' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'difficulte', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'difficulte', 'property' => 'difficulte'), 'objectif' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'objectif', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'objectif', 'property' => 'objectif'), 'video' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'video', 'scale' => 0, 'length' => 100, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'video', 'property' => 'video'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'idquiz' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'idquiz', 'joinColumns' => array(0 => array('name' => 'idQuiz', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'id')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Quiz', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('idQuiz' => 'id'), 'joinColumnFieldNames' => array('idQuiz' => 'idQuiz'), 'targetToSourceKeyColumns' => array('id' => 'idQuiz'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'idquiz'), 'cinformateur' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'cinformateur', 'joinColumns' => array(0 => array('name' => 'cinformateur', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'cin')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('cinformateur' => 'cin'), 'joinColumnFieldNames' => array('cinformateur' => 'cinformateur'), 'targetToSourceKeyColumns' => array('cin' => 'cinformateur'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'cinformateur')), 'form_options' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'css_class' => 'btn btn-default action-delete', 'icon' => 'trash-o'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'css_class' => 'btn btn-secondary action-list', 'icon' => NULL))), 'new' => array('fields' => array('nomCours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nomCours', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom_cours', 'property' => 'nomCours'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'difficulte' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'difficulte', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'difficulte', 'property' => 'difficulte'), 'objectif' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'objectif', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'objectif', 'property' => 'objectif'), 'video' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'video', 'scale' => 0, 'length' => 100, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'video', 'property' => 'video'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'idquiz' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'idquiz', 'joinColumns' => array(0 => array('name' => 'idQuiz', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'id')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Quiz', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('idQuiz' => 'id'), 'joinColumnFieldNames' => array('idQuiz' => 'idQuiz'), 'targetToSourceKeyColumns' => array('id' => 'idQuiz'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'idquiz'), 'cinformateur' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'cinformateur', 'joinColumns' => array(0 => array('name' => 'cinformateur', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'cin')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('cinformateur' => 'cin'), 'joinColumnFieldNames' => array('cinformateur' => 'cinformateur'), 'targetToSourceKeyColumns' => array('cin' => 'cinformateur'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'cinformateur')), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'css_class' => 'btn btn-secondary action-list', 'icon' => NULL))), 'search' => array('fields' => array('idcours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'idcours', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'idcours', 'id' => true, 'property' => 'idcours'), 'nomCours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nomCours', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom_cours', 'property' => 'nomCours'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'difficulte' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'difficulte', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'difficulte', 'property' => 'difficulte'), 'objectif' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'objectif', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'objectif', 'property' => 'objectif'), 'video' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'video', 'scale' => 0, 'length' => 100, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'video', 'property' => 'video'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'))), 'show' => array('fields' => array('idcours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_integer.html.twig', 'type_options' => array(), 'fieldName' => 'idcours', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'idcours', 'id' => true, 'property' => 'idcours'), 'nomCours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'nomCours', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom_cours', 'property' => 'nomCours'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'difficulte' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'difficulte', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'difficulte', 'property' => 'difficulte'), 'objectif' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'objectif', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'objectif', 'property' => 'objectif'), 'video' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'video', 'scale' => 0, 'length' => 100, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'video', 'property' => 'video'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_integer.html.twig', 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'idquiz' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_association.html.twig', 'type_options' => array(), 'fieldName' => 'idquiz', 'joinColumns' => array(0 => array('name' => 'idQuiz', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'id')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Quiz', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('idQuiz' => 'id'), 'joinColumnFieldNames' => array('idQuiz' => 'idQuiz'), 'targetToSourceKeyColumns' => array('id' => 'idQuiz'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'idquiz'), 'cinformateur' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_association.html.twig', 'type_options' => array(), 'fieldName' => 'cinformateur', 'joinColumns' => array(0 => array('name' => 'cinformateur', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'cin')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('cinformateur' => 'cin'), 'joinColumnFieldNames' => array('cinformateur' => 'cinformateur'), 'targetToSourceKeyColumns' => array('cin' => 'cinformateur'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'cinformateur')), 'actions' => array('edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'css_class' => 'btn btn-primary action-edit', 'icon' => 'edit'), 'delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'css_class' => 'btn btn-default action-delete', 'icon' => 'trash-o'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'css_class' => 'btn btn-secondary action-list', 'icon' => NULL))), 'disabled_actions' => array(), 'primary_key_field_name' => 'idcours', 'properties' => array('idcours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'idcours', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'idcours', 'id' => true, 'property' => 'idcours'), 'nomCours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nomCours', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom_cours', 'property' => 'nomCours'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'difficulte' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'difficulte', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'difficulte', 'property' => 'difficulte'), 'objectif' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'objectif', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'objectif', 'property' => 'objectif'), 'video' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'video', 'scale' => 0, 'length' => 100, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'video', 'property' => 'video'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'idquiz' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'idquiz', 'joinColumns' => array(0 => array('name' => 'idQuiz', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'id')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Quiz', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('idQuiz' => 'id'), 'joinColumnFieldNames' => array('idQuiz' => 'idQuiz'), 'targetToSourceKeyColumns' => array('id' => 'idQuiz'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'idquiz'), 'cinformateur' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'cinformateur', 'joinColumns' => array(0 => array('name' => 'cinformateur', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'cin')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('cinformateur' => 'cin'), 'joinColumnFieldNames' => array('cinformateur' => 'cinformateur'), 'targetToSourceKeyColumns' => array('cin' => 'cinformateur'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'cinformateur')), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'menu' => '@EasyAdmin/default/menu.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'exception' => '@EasyAdmin/default/exception.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig'))), 'formats' => array('date' => 'Y-m-d', 'time' => 'H:i:s', 'datetime' => 'F j, Y H:i'), 'disabled_actions' => array(), 'list' => array('actions' => array(), 'max_results' => 15), 'edit' => array('actions' => array()), 'new' => array('actions' => array()), 'show' => array('actions' => array()), 'default_entity_name' => 'Formateur', 'default_menu_item' => NULL, 'homepage' => array('route' => 'easyadmin', 'params' => array('action' => 'list', 'entity' => 'Formateur'))), $this->get('property_accessor'));
     }
 
     /**
@@ -3206,11 +3205,11 @@ class appDevDebugProjectContainer extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return \Symfony\Component\Translation\IdentityTranslator A Symfony\Component\Translation\IdentityTranslator instance.
+     * @return \Symfony\Component\Translation\LoggingTranslator A Symfony\Component\Translation\LoggingTranslator instance.
      */
     protected function getTranslatorService()
     {
-        return $this->services['translator'] = new \Symfony\Component\Translation\IdentityTranslator($this->get('translator.selector'));
+        return $this->services['translator'] = new \Symfony\Component\Translation\LoggingTranslator($this->get('translator.default'), $this->get('monolog.logger.translation'));
     }
 
     /**
@@ -3223,7 +3222,181 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getTranslator_DefaultService()
     {
-        return $this->services['translator.default'] = new \Symfony\Bundle\FrameworkBundle\Translation\Translator($this, $this->get('translator.selector'), array('translation.loader.php' => array(0 => 'php'), 'translation.loader.yml' => array(0 => 'yml'), 'translation.loader.xliff' => array(0 => 'xlf', 1 => 'xliff'), 'translation.loader.po' => array(0 => 'po'), 'translation.loader.mo' => array(0 => 'mo'), 'translation.loader.qt' => array(0 => 'ts'), 'translation.loader.csv' => array(0 => 'csv'), 'translation.loader.res' => array(0 => 'res'), 'translation.loader.dat' => array(0 => 'dat'), 'translation.loader.ini' => array(0 => 'ini'), 'translation.loader.json' => array(0 => 'json')), array('cache_dir' => (__DIR__.'/translations'), 'debug' => true));
+        $this->services['translator.default'] = $instance = new \Symfony\Bundle\FrameworkBundle\Translation\Translator($this, new \Symfony\Component\Translation\MessageSelector(), array('translation.loader.php' => array(0 => 'php'), 'translation.loader.yml' => array(0 => 'yml'), 'translation.loader.xliff' => array(0 => 'xlf', 1 => 'xliff'), 'translation.loader.po' => array(0 => 'po'), 'translation.loader.mo' => array(0 => 'mo'), 'translation.loader.qt' => array(0 => 'ts'), 'translation.loader.csv' => array(0 => 'csv'), 'translation.loader.res' => array(0 => 'res'), 'translation.loader.dat' => array(0 => 'dat'), 'translation.loader.ini' => array(0 => 'ini'), 'translation.loader.json' => array(0 => 'json')), array('cache_dir' => (__DIR__.'/translations'), 'debug' => true));
+
+        $instance->setFallbackLocales(array(0 => 'en'));
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.af.xlf'), 'af', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ar.xlf'), 'ar', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.az.xlf'), 'az', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.bg.xlf'), 'bg', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ca.xlf'), 'ca', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.cs.xlf'), 'cs', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.cy.xlf'), 'cy', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.da.xlf'), 'da', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.de.xlf'), 'de', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.el.xlf'), 'el', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.en.xlf'), 'en', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.es.xlf'), 'es', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.et.xlf'), 'et', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.eu.xlf'), 'eu', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fa.xlf'), 'fa', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fi.xlf'), 'fi', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fr.xlf'), 'fr', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.gl.xlf'), 'gl', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.he.xlf'), 'he', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hr.xlf'), 'hr', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hu.xlf'), 'hu', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hy.xlf'), 'hy', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.id.xlf'), 'id', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.it.xlf'), 'it', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ja.xlf'), 'ja', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.lb.xlf'), 'lb', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.lt.xlf'), 'lt', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.mn.xlf'), 'mn', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.nb.xlf'), 'nb', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.nl.xlf'), 'nl', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.no.xlf'), 'no', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pl.xlf'), 'pl', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pt.xlf'), 'pt', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pt_BR.xlf'), 'pt_BR', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ro.xlf'), 'ro', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ru.xlf'), 'ru', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sk.xlf'), 'sk', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sl.xlf'), 'sl', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sq.xlf'), 'sq', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sr_Cyrl.xlf'), 'sr_Cyrl', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sr_Latn.xlf'), 'sr_Latn', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sv.xlf'), 'sv', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.th.xlf'), 'th', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.tr.xlf'), 'tr', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.uk.xlf'), 'uk', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.vi.xlf'), 'vi', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.zh_CN.xlf'), 'zh_CN', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.zh_TW.xlf'), 'zh_TW', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ar.xlf'), 'ar', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.az.xlf'), 'az', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.bg.xlf'), 'bg', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ca.xlf'), 'ca', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.cs.xlf'), 'cs', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.da.xlf'), 'da', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.de.xlf'), 'de', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.el.xlf'), 'el', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.en.xlf'), 'en', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.es.xlf'), 'es', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.et.xlf'), 'et', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.eu.xlf'), 'eu', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fa.xlf'), 'fa', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fi.xlf'), 'fi', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fr.xlf'), 'fr', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.gl.xlf'), 'gl', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.he.xlf'), 'he', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hr.xlf'), 'hr', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hu.xlf'), 'hu', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hy.xlf'), 'hy', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.id.xlf'), 'id', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.it.xlf'), 'it', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ja.xlf'), 'ja', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lb.xlf'), 'lb', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lt.xlf'), 'lt', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lv.xlf'), 'lv', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.mn.xlf'), 'mn', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.nb.xlf'), 'nb', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.nl.xlf'), 'nl', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pl.xlf'), 'pl', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pt.xlf'), 'pt', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pt_BR.xlf'), 'pt_BR', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ro.xlf'), 'ro', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ru.xlf'), 'ru', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sk.xlf'), 'sk', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sl.xlf'), 'sl', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sr_Cyrl.xlf'), 'sr_Cyrl', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sr_Latn.xlf'), 'sr_Latn', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sv.xlf'), 'sv', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.uk.xlf'), 'uk', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.zh_CN.xlf'), 'zh_CN', 'validators');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.ar.xlf'), 'ar', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.az.xlf'), 'az', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.bg.xlf'), 'bg', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.ca.xlf'), 'ca', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.cs.xlf'), 'cs', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.da.xlf'), 'da', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.de.xlf'), 'de', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.el.xlf'), 'el', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.en.xlf'), 'en', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.es.xlf'), 'es', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.fa.xlf'), 'fa', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.fr.xlf'), 'fr', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.gl.xlf'), 'gl', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.he.xlf'), 'he', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.hr.xlf'), 'hr', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.hu.xlf'), 'hu', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.id.xlf'), 'id', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.it.xlf'), 'it', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.ja.xlf'), 'ja', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.lb.xlf'), 'lb', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.lt.xlf'), 'lt', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.nl.xlf'), 'nl', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.no.xlf'), 'no', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.pl.xlf'), 'pl', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.pt_BR.xlf'), 'pt_BR', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.pt_PT.xlf'), 'pt_PT', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.ro.xlf'), 'ro', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.ru.xlf'), 'ru', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.sk.xlf'), 'sk', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.sl.xlf'), 'sl', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.sr_Cyrl.xlf'), 'sr_Cyrl', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.sr_Latn.xlf'), 'sr_Latn', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.sv.xlf'), 'sv', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.th.xlf'), 'th', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.tr.xlf'), 'tr', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.ua.xlf'), 'ua', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.vi.xlf'), 'vi', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.zh_CN.xlf'), 'zh_CN', 'security');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\src\\Mooc\\MoocBundle/Resources/translations\\messages.fr.xlf'), 'fr', 'messages');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.bg.xlf'), 'bg', 'EasyAdminBundle');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.ca.xlf'), 'ca', 'EasyAdminBundle');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.cs.xlf'), 'cs', 'EasyAdminBundle');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.de.xlf'), 'de', 'EasyAdminBundle');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.en.xlf'), 'en', 'EasyAdminBundle');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.es.xlf'), 'es', 'EasyAdminBundle');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.eu.xlf'), 'eu', 'EasyAdminBundle');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.fr.xlf'), 'fr', 'EasyAdminBundle');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.it.xlf'), 'it', 'EasyAdminBundle');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.nl.xlf'), 'nl', 'EasyAdminBundle');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.pl.xlf'), 'pl', 'EasyAdminBundle');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.pt.xlf'), 'pt', 'EasyAdminBundle');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.ro.xlf'), 'ro', 'EasyAdminBundle');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.ru.xlf'), 'ru', 'EasyAdminBundle');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.sl.xlf'), 'sl', 'EasyAdminBundle');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.sv.xlf'), 'sv', 'EasyAdminBundle');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.tr.xlf'), 'tr', 'EasyAdminBundle');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.bg.xlf'), 'bg', 'messages');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.ca.xlf'), 'ca', 'messages');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.cs.xlf'), 'cs', 'messages');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.de.xlf'), 'de', 'messages');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.en.xlf'), 'en', 'messages');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.es.xlf'), 'es', 'messages');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.eu.xlf'), 'eu', 'messages');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.fr.xlf'), 'fr', 'messages');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.it.xlf'), 'it', 'messages');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.nl.xlf'), 'nl', 'messages');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.pl.xlf'), 'pl', 'messages');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.pt.xlf'), 'pt', 'messages');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.ro.xlf'), 'ro', 'messages');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.ru.xlf'), 'ru', 'messages');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.sl.xlf'), 'sl', 'messages');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.sv.xlf'), 'sv', 'messages');
+        $instance->addResource('xlf', ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.tr.xlf'), 'tr', 'messages');
+        $instance->addResource('yml', ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/translations\\VichUploaderBundle.ar.yml'), 'ar', 'VichUploaderBundle');
+        $instance->addResource('yml', ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/translations\\VichUploaderBundle.de.yml'), 'de', 'VichUploaderBundle');
+        $instance->addResource('yml', ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/translations\\VichUploaderBundle.en.yml'), 'en', 'VichUploaderBundle');
+        $instance->addResource('yml', ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/translations\\VichUploaderBundle.es.yml'), 'es', 'VichUploaderBundle');
+        $instance->addResource('yml', ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/translations\\VichUploaderBundle.fr.yml'), 'fr', 'VichUploaderBundle');
+        $instance->addResource('yml', ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/translations\\VichUploaderBundle.pl.yml'), 'pl', 'VichUploaderBundle');
+        $instance->addResource('yml', ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/translations\\VichUploaderBundle.ru.yml'), 'ru', 'VichUploaderBundle');
+        $instance->addResource('yml', ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/translations\\VichUploaderBundle.uk.yml'), 'uk', 'VichUploaderBundle');
+
+        return $instance;
     }
 
     /**
@@ -3478,7 +3651,7 @@ class appDevDebugProjectContainer extends Container
         if ($lazyLoad) {
             $container = $this;
 
-            return $this->services['vich_uploader.download_handler'] = new VichUploaderBundleHandlerDownloadHandler_00000000087dec03000000005c1b98ca40adef88e1ce7356ec78729336304f7b(
+            return $this->services['vich_uploader.download_handler'] = new VichUploaderBundleHandlerDownloadHandler_0000000046adfbb80000000051b8e5b8e5d7e14eba4acd3b4a4595b7b8aa674d(
                 function (&$wrappedInstance, \ProxyManager\Proxy\LazyLoadingInterface $proxy) use ($container) {
                     $wrappedInstance = $container->getVichUploader_DownloadHandlerService(false);
 
@@ -3598,7 +3771,7 @@ class appDevDebugProjectContainer extends Container
         if ($lazyLoad) {
             $container = $this;
 
-            return $this->services['vich_uploader.upload_handler'] = new VichUploaderBundleHandlerUploadHandler_00000000087dec04000000005c1b98ca40adef88e1ce7356ec78729336304f7b(
+            return $this->services['vich_uploader.upload_handler'] = new VichUploaderBundleHandlerUploadHandler_0000000046adfba30000000051b8e5b8e5d7e14eba4acd3b4a4595b7b8aa674d(
                 function (&$wrappedInstance, \ProxyManager\Proxy\LazyLoadingInterface $proxy) use ($container) {
                     $wrappedInstance = $container->getVichUploader_UploadHandlerService(false);
 
@@ -3887,23 +4060,6 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the 'translator.selector' service.
-     *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return \Symfony\Component\Translation\MessageSelector A Symfony\Component\Translation\MessageSelector instance.
-     */
-    protected function getTranslator_SelectorService()
-    {
-        return $this->services['translator.selector'] = new \Symfony\Component\Translation\MessageSelector();
-    }
-
-    /**
      * Gets the 'vich_uploader.metadata_reader' service.
      *
      * This service is shared.
@@ -4185,6 +4341,7 @@ class appDevDebugProjectContainer extends Container
             'profiler.storage.username' => '',
             'profiler.storage.password' => '',
             'profiler.storage.lifetime' => 86400,
+            'translator.logging' => true,
             'router.class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\Router',
             'router.request_context.class' => 'Symfony\\Component\\Routing\\RequestContext',
             'routing.loader.class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\DelegatingLoader',
@@ -4607,12 +4764,113 @@ class appDevDebugProjectContainer extends Container
             'sensio_framework_extra.converter.datetime.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Request\\ParamConverter\\DateTimeParamConverter',
             'sensio_framework_extra.view.listener.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\TemplateListener',
             'easyadmin.config' => array(
+                'design' => array(
+                    'menu' => array(
+                        0 => array(
+                            'entity' => 'Formateur',
+                            'icon' => 'fa-group',
+                            'children' => array(
+
+                            ),
+                            'default' => false,
+                            'target' => false,
+                            'menu_index' => 0,
+                            'submenu_index' => -1,
+                            'type' => 'entity',
+                            'label' => 'Formateurs',
+                            'params' => array(
+
+                            ),
+                        ),
+                        1 => array(
+                            'entity' => 'Cours',
+                            'icon' => 'fa-book',
+                            'children' => array(
+
+                            ),
+                            'default' => false,
+                            'target' => false,
+                            'menu_index' => 1,
+                            'submenu_index' => -1,
+                            'type' => 'entity',
+                            'label' => 'Cours',
+                            'params' => array(
+
+                            ),
+                        ),
+                        2 => array(
+                            'label' => 'Frontend',
+                            'url' => 'http://localhost/Mooc_web/web/app_dev.php/',
+                            'icon' => 'fa-home',
+                            'children' => array(
+
+                            ),
+                            'default' => false,
+                            'target' => false,
+                            'menu_index' => 2,
+                            'submenu_index' => -1,
+                            'type' => 'link',
+                        ),
+                    ),
+                    'theme' => 'default',
+                    'color_scheme' => 'dark',
+                    'brand_color' => '#205081',
+                    'form_theme' => array(
+                        0 => '@EasyAdmin/form/bootstrap_3_horizontal_layout.html.twig',
+                    ),
+                    'assets' => array(
+                        'css' => array(
+
+                        ),
+                        'js' => array(
+
+                        ),
+                        'favicon' => array(
+                            'path' => 'favicon.ico',
+                            'mime_type' => 'image/x-icon',
+                        ),
+                    ),
+                    'templates' => array(
+                        'layout' => '@EasyAdmin/default/layout.html.twig',
+                        'menu' => '@EasyAdmin/default/menu.html.twig',
+                        'edit' => '@EasyAdmin/default/edit.html.twig',
+                        'list' => '@EasyAdmin/default/list.html.twig',
+                        'new' => '@EasyAdmin/default/new.html.twig',
+                        'show' => '@EasyAdmin/default/show.html.twig',
+                        'exception' => '@EasyAdmin/default/exception.html.twig',
+                        'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig',
+                        'paginator' => '@EasyAdmin/default/paginator.html.twig',
+                        'field_array' => '@EasyAdmin/default/field_array.html.twig',
+                        'field_association' => '@EasyAdmin/default/field_association.html.twig',
+                        'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig',
+                        'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig',
+                        'field_date' => '@EasyAdmin/default/field_date.html.twig',
+                        'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig',
+                        'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig',
+                        'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig',
+                        'field_float' => '@EasyAdmin/default/field_float.html.twig',
+                        'field_guid' => '@EasyAdmin/default/field_guid.html.twig',
+                        'field_id' => '@EasyAdmin/default/field_id.html.twig',
+                        'field_image' => '@EasyAdmin/default/field_image.html.twig',
+                        'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig',
+                        'field_integer' => '@EasyAdmin/default/field_integer.html.twig',
+                        'field_object' => '@EasyAdmin/default/field_object.html.twig',
+                        'field_raw' => '@EasyAdmin/default/field_raw.html.twig',
+                        'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig',
+                        'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig',
+                        'field_string' => '@EasyAdmin/default/field_string.html.twig',
+                        'field_text' => '@EasyAdmin/default/field_text.html.twig',
+                        'field_time' => '@EasyAdmin/default/field_time.html.twig',
+                        'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig',
+                        'label_empty' => '@EasyAdmin/default/label_empty.html.twig',
+                        'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig',
+                        'label_null' => '@EasyAdmin/default/label_null.html.twig',
+                        'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig',
+                    ),
+                ),
+                'site_name' => 'MOO<i><font color="grey">Comité</font></i>',
                 'entities' => array(
                     'Formateur' => array(
-                        'actions' => array(
-                            0 => 'edit',
-                            1 => 'search',
-                        ),
                         'class' => 'Mooc\\MoocBundle\\Entity\\Formateur',
                         'label' => 'Formateurs',
                         'list' => array(
@@ -4717,7 +4975,7 @@ class appDevDebugProjectContainer extends Container
                                     'help' => NULL,
                                     'label' => 'Photo',
                                     'type' => 'image',
-                                    'fieldType' => 'textarea',
+                                    'fieldType' => 'text',
                                     'dataType' => 'image',
                                     'virtual' => false,
                                     'sortable' => true,
@@ -4777,7 +5035,7 @@ class appDevDebugProjectContainer extends Container
                                     'scale' => 0,
                                     'length' => NULL,
                                     'unique' => false,
-                                    'nullable' => false,
+                                    'nullable' => true,
                                     'precision' => 0,
                                     'columnName' => 'etat',
                                     'property' => 'etat',
@@ -4801,9 +5059,10 @@ class appDevDebugProjectContainer extends Container
                                 'edit' => array(
                                     'name' => 'edit',
                                     'type' => 'method',
-                                    'label' => 'action.edit',
+                                    'label' => '',
                                     'css_class' => 'text-primary action-edit',
-                                    'icon' => NULL,
+                                    'icon' => 'pencil',
+                                    'class' => '',
                                 ),
                                 'new' => array(
                                     'name' => 'new',
@@ -4819,6 +5078,263 @@ class appDevDebugProjectContainer extends Container
                                     'css_class' => ' action-search',
                                     'icon' => NULL,
                                 ),
+                            ),
+                        ),
+                        'show' => array(
+                            'fields' => array(
+                                'cin' => array(
+                                    'css_class' => '',
+                                    'format' => NULL,
+                                    'help' => NULL,
+                                    'label' => NULL,
+                                    'type' => 'string',
+                                    'fieldType' => 'text',
+                                    'dataType' => 'string',
+                                    'virtual' => false,
+                                    'sortable' => true,
+                                    'template' => '@EasyAdmin/default/field_string.html.twig',
+                                    'type_options' => array(
+
+                                    ),
+                                    'fieldName' => 'cin',
+                                    'scale' => 0,
+                                    'length' => 8,
+                                    'unique' => false,
+                                    'nullable' => false,
+                                    'precision' => 0,
+                                    'columnName' => 'cin',
+                                    'id' => true,
+                                    'property' => 'cin',
+                                ),
+                                'nom' => array(
+                                    'css_class' => '',
+                                    'format' => NULL,
+                                    'help' => NULL,
+                                    'label' => NULL,
+                                    'type' => 'string',
+                                    'fieldType' => 'text',
+                                    'dataType' => 'string',
+                                    'virtual' => false,
+                                    'sortable' => true,
+                                    'template' => '@EasyAdmin/default/field_string.html.twig',
+                                    'type_options' => array(
+
+                                    ),
+                                    'fieldName' => 'nom',
+                                    'scale' => 0,
+                                    'length' => 45,
+                                    'unique' => false,
+                                    'nullable' => false,
+                                    'precision' => 0,
+                                    'columnName' => 'nom',
+                                    'property' => 'nom',
+                                ),
+                                'prenom' => array(
+                                    'css_class' => '',
+                                    'format' => NULL,
+                                    'help' => NULL,
+                                    'label' => NULL,
+                                    'type' => 'string',
+                                    'fieldType' => 'text',
+                                    'dataType' => 'string',
+                                    'virtual' => false,
+                                    'sortable' => true,
+                                    'template' => '@EasyAdmin/default/field_string.html.twig',
+                                    'type_options' => array(
+
+                                    ),
+                                    'fieldName' => 'prenom',
+                                    'scale' => 0,
+                                    'length' => 45,
+                                    'unique' => false,
+                                    'nullable' => false,
+                                    'precision' => 0,
+                                    'columnName' => 'prenom',
+                                    'property' => 'prenom',
+                                ),
+                                'email' => array(
+                                    'css_class' => '',
+                                    'format' => NULL,
+                                    'help' => NULL,
+                                    'label' => NULL,
+                                    'type' => 'string',
+                                    'fieldType' => 'text',
+                                    'dataType' => 'string',
+                                    'virtual' => false,
+                                    'sortable' => true,
+                                    'template' => '@EasyAdmin/default/field_string.html.twig',
+                                    'type_options' => array(
+
+                                    ),
+                                    'fieldName' => 'email',
+                                    'scale' => 0,
+                                    'length' => 45,
+                                    'unique' => false,
+                                    'nullable' => false,
+                                    'precision' => 0,
+                                    'columnName' => 'email',
+                                    'property' => 'email',
+                                ),
+                                'etat' => array(
+                                    'css_class' => '',
+                                    'format' => NULL,
+                                    'help' => NULL,
+                                    'label' => NULL,
+                                    'type' => 'integer',
+                                    'fieldType' => 'integer',
+                                    'dataType' => 'integer',
+                                    'virtual' => false,
+                                    'sortable' => true,
+                                    'template' => '@EasyAdmin/default/field_integer.html.twig',
+                                    'type_options' => array(
+
+                                    ),
+                                    'fieldName' => 'etat',
+                                    'scale' => 0,
+                                    'length' => NULL,
+                                    'unique' => false,
+                                    'nullable' => true,
+                                    'precision' => 0,
+                                    'columnName' => 'etat',
+                                    'property' => 'etat',
+                                ),
+                                'avatar' => array(
+                                    'css_class' => '',
+                                    'format' => NULL,
+                                    'help' => NULL,
+                                    'label' => NULL,
+                                    'type' => 'string',
+                                    'fieldType' => 'text',
+                                    'dataType' => 'string',
+                                    'virtual' => false,
+                                    'sortable' => true,
+                                    'template' => '@EasyAdmin/default/field_string.html.twig',
+                                    'type_options' => array(
+
+                                    ),
+                                    'fieldName' => 'avatar',
+                                    'scale' => 0,
+                                    'length' => NULL,
+                                    'unique' => false,
+                                    'nullable' => true,
+                                    'precision' => 0,
+                                    'columnName' => 'avatar',
+                                    'property' => 'avatar',
+                                ),
+                                'cv' => array(
+                                    'css_class' => '',
+                                    'format' => NULL,
+                                    'help' => NULL,
+                                    'label' => NULL,
+                                    'type' => 'blob',
+                                    'fieldType' => 'textarea',
+                                    'dataType' => 'blob',
+                                    'virtual' => false,
+                                    'sortable' => true,
+                                    'template' => '@EasyAdmin/default/label_undefined.html.twig',
+                                    'type_options' => array(
+
+                                    ),
+                                    'fieldName' => 'cv',
+                                    'scale' => 0,
+                                    'length' => NULL,
+                                    'unique' => false,
+                                    'nullable' => true,
+                                    'precision' => 0,
+                                    'columnName' => 'cv',
+                                    'property' => 'cv',
+                                ),
+                                'login' => array(
+                                    'css_class' => '',
+                                    'format' => NULL,
+                                    'help' => NULL,
+                                    'label' => NULL,
+                                    'type' => 'string',
+                                    'fieldType' => 'text',
+                                    'dataType' => 'string',
+                                    'virtual' => false,
+                                    'sortable' => true,
+                                    'template' => '@EasyAdmin/default/field_string.html.twig',
+                                    'type_options' => array(
+
+                                    ),
+                                    'fieldName' => 'login',
+                                    'scale' => 0,
+                                    'length' => 45,
+                                    'unique' => false,
+                                    'nullable' => false,
+                                    'precision' => 0,
+                                    'columnName' => 'login',
+                                    'property' => 'login',
+                                ),
+                                'password' => array(
+                                    'css_class' => '',
+                                    'format' => NULL,
+                                    'help' => NULL,
+                                    'label' => NULL,
+                                    'type' => 'string',
+                                    'fieldType' => 'text',
+                                    'dataType' => 'string',
+                                    'virtual' => false,
+                                    'sortable' => true,
+                                    'template' => '@EasyAdmin/default/field_string.html.twig',
+                                    'type_options' => array(
+
+                                    ),
+                                    'fieldName' => 'password',
+                                    'scale' => 0,
+                                    'length' => 45,
+                                    'unique' => false,
+                                    'nullable' => false,
+                                    'precision' => 0,
+                                    'columnName' => 'password',
+                                    'property' => 'password',
+                                ),
+                            ),
+                            'actions' => array(
+                                'edit' => array(
+                                    'name' => 'edit',
+                                    'type' => 'method',
+                                    'label' => 'action.edit',
+                                    'css_class' => 'btn btn-primary action-edit',
+                                    'icon' => 'edit',
+                                ),
+                                'delete' => array(
+                                    'name' => 'delete',
+                                    'type' => 'method',
+                                    'label' => 'action.delete',
+                                    'css_class' => 'btn btn-default action-delete',
+                                    'icon' => 'trash-o',
+                                ),
+                                'list' => array(
+                                    'name' => 'list',
+                                    'type' => 'method',
+                                    'label' => 'action.list',
+                                    'css_class' => 'btn btn-secondary action-list',
+                                    'icon' => NULL,
+                                ),
+                            ),
+                        ),
+                        'fields' => array(
+                            0 => array(
+                                'property' => 'avatar',
+                                'type' => 'image',
+                                'label' => 'Photo',
+                                'base_path' => 'http://localhost/Mooc_web/web/img/avatar/',
+                            ),
+                            1 => 'nom',
+                            2 => 'prenom',
+                            3 => 'email',
+                            4 => array(
+                                'property' => 'cv',
+                                'label' => 'CV',
+                                'template' => 'cv.html.twig',
+                                'base_path' => '/file/cv',
+                            ),
+                            5 => array(
+                                'property' => 'etat',
+                                'type' => 'toggle',
+                                'label' => 'Valide',
                             ),
                         ),
                         'name' => 'Formateur',
@@ -4911,10 +5427,33 @@ class appDevDebugProjectContainer extends Container
                                     'scale' => 0,
                                     'length' => NULL,
                                     'unique' => false,
-                                    'nullable' => false,
+                                    'nullable' => true,
                                     'precision' => 0,
                                     'columnName' => 'etat',
                                     'property' => 'etat',
+                                ),
+                                'avatar' => array(
+                                    'css_class' => '',
+                                    'format' => NULL,
+                                    'help' => NULL,
+                                    'label' => NULL,
+                                    'type' => 'string',
+                                    'fieldType' => 'text',
+                                    'dataType' => 'string',
+                                    'virtual' => false,
+                                    'sortable' => true,
+                                    'template' => NULL,
+                                    'type_options' => array(
+
+                                    ),
+                                    'fieldName' => 'avatar',
+                                    'scale' => 0,
+                                    'length' => NULL,
+                                    'unique' => false,
+                                    'nullable' => true,
+                                    'precision' => 0,
+                                    'columnName' => 'avatar',
+                                    'property' => 'avatar',
                                 ),
                                 'login' => array(
                                     'css_class' => '',
@@ -5072,10 +5611,33 @@ class appDevDebugProjectContainer extends Container
                                     'scale' => 0,
                                     'length' => NULL,
                                     'unique' => false,
-                                    'nullable' => false,
+                                    'nullable' => true,
                                     'precision' => 0,
                                     'columnName' => 'etat',
                                     'property' => 'etat',
+                                ),
+                                'avatar' => array(
+                                    'css_class' => '',
+                                    'format' => NULL,
+                                    'help' => NULL,
+                                    'label' => NULL,
+                                    'type' => 'string',
+                                    'fieldType' => 'text',
+                                    'dataType' => 'string',
+                                    'virtual' => false,
+                                    'sortable' => true,
+                                    'template' => NULL,
+                                    'type_options' => array(
+
+                                    ),
+                                    'fieldName' => 'avatar',
+                                    'scale' => 0,
+                                    'length' => NULL,
+                                    'unique' => false,
+                                    'nullable' => true,
+                                    'precision' => 0,
+                                    'columnName' => 'avatar',
+                                    'property' => 'avatar',
                                 ),
                                 'login' => array(
                                     'css_class' => '',
@@ -5250,10 +5812,33 @@ class appDevDebugProjectContainer extends Container
                                     'scale' => 0,
                                     'length' => NULL,
                                     'unique' => false,
-                                    'nullable' => false,
+                                    'nullable' => true,
                                     'precision' => 0,
                                     'columnName' => 'etat',
                                     'property' => 'etat',
+                                ),
+                                'avatar' => array(
+                                    'css_class' => '',
+                                    'format' => NULL,
+                                    'help' => NULL,
+                                    'label' => NULL,
+                                    'type' => 'string',
+                                    'fieldType' => 'text',
+                                    'dataType' => 'string',
+                                    'virtual' => false,
+                                    'sortable' => true,
+                                    'template' => NULL,
+                                    'type_options' => array(
+
+                                    ),
+                                    'fieldName' => 'avatar',
+                                    'scale' => 0,
+                                    'length' => NULL,
+                                    'unique' => false,
+                                    'nullable' => true,
+                                    'precision' => 0,
+                                    'columnName' => 'avatar',
+                                    'property' => 'avatar',
                                 ),
                                 'login' => array(
                                     'css_class' => '',
@@ -5277,241 +5862,6 @@ class appDevDebugProjectContainer extends Container
                                     'precision' => 0,
                                     'columnName' => 'login',
                                     'property' => 'login',
-                                ),
-                            ),
-                        ),
-                        'show' => array(
-                            'fields' => array(
-                                'cin' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'cin',
-                                    'scale' => 0,
-                                    'length' => 8,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'cin',
-                                    'id' => true,
-                                    'property' => 'cin',
-                                ),
-                                'nom' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'nom',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'nom',
-                                    'property' => 'nom',
-                                ),
-                                'prenom' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'prenom',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'prenom',
-                                    'property' => 'prenom',
-                                ),
-                                'email' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'email',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'email',
-                                    'property' => 'email',
-                                ),
-                                'etat' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'integer',
-                                    'fieldType' => 'integer',
-                                    'dataType' => 'integer',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_integer.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'etat',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'etat',
-                                    'property' => 'etat',
-                                ),
-                                'avatar' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'blob',
-                                    'fieldType' => 'textarea',
-                                    'dataType' => 'blob',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/label_undefined.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'avatar',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'avatar',
-                                    'property' => 'avatar',
-                                ),
-                                'cv' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'blob',
-                                    'fieldType' => 'textarea',
-                                    'dataType' => 'blob',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/label_undefined.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'cv',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'cv',
-                                    'property' => 'cv',
-                                ),
-                                'login' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'login',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'login',
-                                    'property' => 'login',
-                                ),
-                                'password' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'password',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'password',
-                                    'property' => 'password',
-                                ),
-                            ),
-                            'actions' => array(
-                                'edit' => array(
-                                    'name' => 'edit',
-                                    'type' => 'method',
-                                    'label' => 'action.edit',
-                                    'css_class' => 'btn btn-primary action-edit',
-                                    'icon' => 'edit',
-                                ),
-                                'delete' => array(
-                                    'name' => 'delete',
-                                    'type' => 'method',
-                                    'label' => 'action.delete',
-                                    'css_class' => 'btn btn-default action-delete',
-                                    'icon' => 'trash-o',
-                                ),
-                                'list' => array(
-                                    'name' => 'list',
-                                    'type' => 'method',
-                                    'label' => 'action.list',
-                                    'css_class' => 'btn btn-secondary action-list',
-                                    'icon' => NULL,
                                 ),
                             ),
                         ),
@@ -5631,7 +5981,7 @@ class appDevDebugProjectContainer extends Container
                                 'scale' => 0,
                                 'length' => NULL,
                                 'unique' => false,
-                                'nullable' => false,
+                                'nullable' => true,
                                 'precision' => 0,
                                 'columnName' => 'etat',
                                 'property' => 'etat',
@@ -5641,9 +5991,9 @@ class appDevDebugProjectContainer extends Container
                                 'format' => NULL,
                                 'help' => NULL,
                                 'label' => NULL,
-                                'type' => 'blob',
-                                'fieldType' => 'textarea',
-                                'dataType' => 'blob',
+                                'type' => 'string',
+                                'fieldType' => 'text',
+                                'dataType' => 'string',
                                 'virtual' => false,
                                 'sortable' => true,
                                 'template' => NULL,
@@ -5769,6 +6119,216 @@ class appDevDebugProjectContainer extends Container
                     ),
                     'Cours' => array(
                         'class' => 'Mooc\\MoocBundle\\Entity\\Cours',
+                        'list' => array(
+                            'title' => 'Liste des cours à valider',
+                            'fields' => array(
+                                'nomCours' => array(
+                                    'css_class' => '',
+                                    'format' => NULL,
+                                    'help' => NULL,
+                                    'label' => NULL,
+                                    'type' => 'string',
+                                    'fieldType' => 'text',
+                                    'dataType' => 'string',
+                                    'virtual' => false,
+                                    'sortable' => true,
+                                    'template' => '@EasyAdmin/default/field_string.html.twig',
+                                    'type_options' => array(
+
+                                    ),
+                                    'fieldName' => 'nomCours',
+                                    'scale' => 0,
+                                    'length' => 255,
+                                    'unique' => false,
+                                    'nullable' => false,
+                                    'precision' => 0,
+                                    'columnName' => 'nom_cours',
+                                    'property' => 'nomCours',
+                                ),
+                                'description' => array(
+                                    'css_class' => '',
+                                    'format' => NULL,
+                                    'help' => NULL,
+                                    'label' => NULL,
+                                    'type' => 'string',
+                                    'fieldType' => 'text',
+                                    'dataType' => 'string',
+                                    'virtual' => false,
+                                    'sortable' => true,
+                                    'template' => '@EasyAdmin/default/field_string.html.twig',
+                                    'type_options' => array(
+
+                                    ),
+                                    'fieldName' => 'description',
+                                    'scale' => 0,
+                                    'length' => 255,
+                                    'unique' => false,
+                                    'nullable' => false,
+                                    'precision' => 0,
+                                    'columnName' => 'description',
+                                    'property' => 'description',
+                                ),
+                                'difficulte' => array(
+                                    'css_class' => '',
+                                    'format' => NULL,
+                                    'help' => NULL,
+                                    'label' => NULL,
+                                    'type' => 'string',
+                                    'fieldType' => 'text',
+                                    'dataType' => 'string',
+                                    'virtual' => false,
+                                    'sortable' => true,
+                                    'template' => '@EasyAdmin/default/field_string.html.twig',
+                                    'type_options' => array(
+
+                                    ),
+                                    'fieldName' => 'difficulte',
+                                    'scale' => 0,
+                                    'length' => 45,
+                                    'unique' => false,
+                                    'nullable' => false,
+                                    'precision' => 0,
+                                    'columnName' => 'difficulte',
+                                    'property' => 'difficulte',
+                                ),
+                                'objectif' => array(
+                                    'css_class' => '',
+                                    'format' => NULL,
+                                    'help' => NULL,
+                                    'label' => NULL,
+                                    'type' => 'string',
+                                    'fieldType' => 'text',
+                                    'dataType' => 'string',
+                                    'virtual' => false,
+                                    'sortable' => true,
+                                    'template' => '@EasyAdmin/default/field_string.html.twig',
+                                    'type_options' => array(
+
+                                    ),
+                                    'fieldName' => 'objectif',
+                                    'scale' => 0,
+                                    'length' => 255,
+                                    'unique' => false,
+                                    'nullable' => false,
+                                    'precision' => 0,
+                                    'columnName' => 'objectif',
+                                    'property' => 'objectif',
+                                ),
+                                'cinformateur' => array(
+                                    'css_class' => '',
+                                    'format' => NULL,
+                                    'help' => NULL,
+                                    'label' => 'Formateur',
+                                    'type' => 'association',
+                                    'fieldType' => 'entity',
+                                    'dataType' => 'association',
+                                    'virtual' => false,
+                                    'sortable' => true,
+                                    'template' => '@EasyAdmin/default/field_association.html.twig',
+                                    'type_options' => array(
+
+                                    ),
+                                    'fieldName' => 'cinformateur',
+                                    'joinColumns' => array(
+                                        0 => array(
+                                            'name' => 'cinformateur',
+                                            'unique' => false,
+                                            'nullable' => true,
+                                            'onDelete' => NULL,
+                                            'columnDefinition' => NULL,
+                                            'referencedColumnName' => 'cin',
+                                        ),
+                                    ),
+                                    'cascade' => array(
+
+                                    ),
+                                    'inversedBy' => NULL,
+                                    'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur',
+                                    'fetch' => 2,
+                                    'mappedBy' => NULL,
+                                    'isOwningSide' => true,
+                                    'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours',
+                                    'isCascadeRemove' => false,
+                                    'isCascadePersist' => false,
+                                    'isCascadeRefresh' => false,
+                                    'isCascadeMerge' => false,
+                                    'isCascadeDetach' => false,
+                                    'sourceToTargetKeyColumns' => array(
+                                        'cinformateur' => 'cin',
+                                    ),
+                                    'joinColumnFieldNames' => array(
+                                        'cinformateur' => 'cinformateur',
+                                    ),
+                                    'targetToSourceKeyColumns' => array(
+                                        'cin' => 'cinformateur',
+                                    ),
+                                    'orphanRemoval' => false,
+                                    'associationType' => 2,
+                                    'property' => 'cinformateur',
+                                ),
+                                'etat' => array(
+                                    'css_class' => '',
+                                    'format' => NULL,
+                                    'help' => NULL,
+                                    'label' => 'Etat',
+                                    'type' => 'toggle',
+                                    'fieldType' => 'integer',
+                                    'dataType' => 'toggle',
+                                    'virtual' => false,
+                                    'sortable' => true,
+                                    'template' => '@EasyAdmin/default/field_toggle.html.twig',
+                                    'type_options' => array(
+
+                                    ),
+                                    'fieldName' => 'etat',
+                                    'scale' => 0,
+                                    'length' => NULL,
+                                    'unique' => false,
+                                    'nullable' => true,
+                                    'precision' => 0,
+                                    'columnName' => 'etat',
+                                    'property' => 'etat',
+                                ),
+                            ),
+                            'actions' => array(
+                                'show' => array(
+                                    'name' => 'show',
+                                    'type' => 'method',
+                                    'label' => '',
+                                    'css_class' => ' action-show',
+                                    'icon' => 'search',
+                                ),
+                                'delete' => array(
+                                    'name' => 'delete',
+                                    'type' => 'method',
+                                    'label' => '',
+                                    'css_class' => 'text-danger action-delete',
+                                    'icon' => 'trash',
+                                ),
+                                'edit' => array(
+                                    'name' => 'edit',
+                                    'type' => 'method',
+                                    'label' => '',
+                                    'css_class' => 'text-primary action-edit',
+                                    'icon' => 'pencil',
+                                    'class' => '',
+                                ),
+                                'new' => array(
+                                    'name' => 'new',
+                                    'type' => 'method',
+                                    'label' => 'action.new',
+                                    'css_class' => 'btn btn-primary action-new',
+                                    'icon' => NULL,
+                                ),
+                                'search' => array(
+                                    'name' => 'search',
+                                    'type' => 'method',
+                                    'label' => 'action.search',
+                                    'css_class' => ' action-search',
+                                    'icon' => NULL,
+                                ),
+                            ),
+                        ),
                         'name' => 'Cours',
                         'label' => 'Cours',
                         'edit' => array(
@@ -6032,202 +6592,6 @@ class appDevDebugProjectContainer extends Container
                                     'type' => 'method',
                                     'label' => 'action.list',
                                     'css_class' => 'btn btn-secondary action-list',
-                                    'icon' => NULL,
-                                ),
-                            ),
-                        ),
-                        'list' => array(
-                            'fields' => array(
-                                'idcours' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'integer',
-                                    'fieldType' => 'integer',
-                                    'dataType' => 'integer',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_integer.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'idcours',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'idcours',
-                                    'id' => true,
-                                    'property' => 'idcours',
-                                ),
-                                'nomCours' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'nomCours',
-                                    'scale' => 0,
-                                    'length' => 255,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'nom_cours',
-                                    'property' => 'nomCours',
-                                ),
-                                'description' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'description',
-                                    'scale' => 0,
-                                    'length' => 255,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'description',
-                                    'property' => 'description',
-                                ),
-                                'difficulte' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'difficulte',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'difficulte',
-                                    'property' => 'difficulte',
-                                ),
-                                'objectif' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'objectif',
-                                    'scale' => 0,
-                                    'length' => 255,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'objectif',
-                                    'property' => 'objectif',
-                                ),
-                                'video' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'video',
-                                    'scale' => 0,
-                                    'length' => 100,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'video',
-                                    'property' => 'video',
-                                ),
-                                'etat' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'integer',
-                                    'fieldType' => 'integer',
-                                    'dataType' => 'integer',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_integer.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'etat',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'etat',
-                                    'property' => 'etat',
-                                ),
-                            ),
-                            'actions' => array(
-                                'edit' => array(
-                                    'name' => 'edit',
-                                    'type' => 'method',
-                                    'label' => 'action.edit',
-                                    'css_class' => 'text-primary action-edit',
-                                    'icon' => NULL,
-                                ),
-                                'delete' => array(
-                                    'name' => 'delete',
-                                    'type' => 'method',
-                                    'label' => 'action.delete',
-                                    'css_class' => 'text-danger action-delete',
-                                    'icon' => NULL,
-                                ),
-                                'new' => array(
-                                    'name' => 'new',
-                                    'type' => 'method',
-                                    'label' => 'action.new',
-                                    'css_class' => 'btn btn-primary action-new',
-                                    'icon' => NULL,
-                                ),
-                                'search' => array(
-                                    'name' => 'search',
-                                    'type' => 'method',
-                                    'label' => 'action.search',
-                                    'css_class' => ' action-search',
                                     'icon' => NULL,
                                 ),
                             ),
@@ -7260,98 +7624,6 @@ class appDevDebugProjectContainer extends Container
                         ),
                     ),
                 ),
-                'site_name' => 'MOO<i><font color="grey">Comité</font></i>',
-                'design' => array(
-                    'assets' => array(
-                        'css' => array(
-
-                        ),
-                        'js' => array(
-
-                        ),
-                        'favicon' => array(
-                            'path' => 'favicon.ico',
-                            'mime_type' => 'image/x-icon',
-                        ),
-                    ),
-                    'theme' => 'default',
-                    'color_scheme' => 'dark',
-                    'brand_color' => '#205081',
-                    'form_theme' => array(
-                        0 => '@EasyAdmin/form/bootstrap_3_horizontal_layout.html.twig',
-                    ),
-                    'menu' => array(
-                        0 => array(
-                            'entity' => 'Formateur',
-                            'label' => 'Formateurs',
-                            'icon' => 'fa-chevron-circle-right',
-                            'children' => array(
-
-                            ),
-                            'default' => false,
-                            'target' => false,
-                            'menu_index' => 0,
-                            'submenu_index' => -1,
-                            'type' => 'entity',
-                            'params' => array(
-
-                            ),
-                        ),
-                        1 => array(
-                            'entity' => 'Cours',
-                            'label' => 'Cours',
-                            'icon' => 'fa-chevron-circle-right',
-                            'children' => array(
-
-                            ),
-                            'default' => false,
-                            'target' => false,
-                            'menu_index' => 1,
-                            'submenu_index' => -1,
-                            'type' => 'entity',
-                            'params' => array(
-
-                            ),
-                        ),
-                    ),
-                    'templates' => array(
-                        'layout' => '@EasyAdmin/default/layout.html.twig',
-                        'menu' => '@EasyAdmin/default/menu.html.twig',
-                        'edit' => '@EasyAdmin/default/edit.html.twig',
-                        'list' => '@EasyAdmin/default/list.html.twig',
-                        'new' => '@EasyAdmin/default/new.html.twig',
-                        'show' => '@EasyAdmin/default/show.html.twig',
-                        'exception' => '@EasyAdmin/default/exception.html.twig',
-                        'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig',
-                        'paginator' => '@EasyAdmin/default/paginator.html.twig',
-                        'field_array' => '@EasyAdmin/default/field_array.html.twig',
-                        'field_association' => '@EasyAdmin/default/field_association.html.twig',
-                        'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig',
-                        'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig',
-                        'field_date' => '@EasyAdmin/default/field_date.html.twig',
-                        'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig',
-                        'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig',
-                        'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig',
-                        'field_float' => '@EasyAdmin/default/field_float.html.twig',
-                        'field_guid' => '@EasyAdmin/default/field_guid.html.twig',
-                        'field_id' => '@EasyAdmin/default/field_id.html.twig',
-                        'field_image' => '@EasyAdmin/default/field_image.html.twig',
-                        'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig',
-                        'field_integer' => '@EasyAdmin/default/field_integer.html.twig',
-                        'field_object' => '@EasyAdmin/default/field_object.html.twig',
-                        'field_raw' => '@EasyAdmin/default/field_raw.html.twig',
-                        'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig',
-                        'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig',
-                        'field_string' => '@EasyAdmin/default/field_string.html.twig',
-                        'field_text' => '@EasyAdmin/default/field_text.html.twig',
-                        'field_time' => '@EasyAdmin/default/field_time.html.twig',
-                        'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig',
-                        'label_empty' => '@EasyAdmin/default/label_empty.html.twig',
-                        'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig',
-                        'label_null' => '@EasyAdmin/default/label_null.html.twig',
-                        'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig',
-                    ),
-                ),
                 'formats' => array(
                     'date' => 'Y-m-d',
                     'time' => 'H:i:s',
@@ -7503,23 +7775,23 @@ class appDevDebugProjectContainer extends Container
     }
 }
 
-class VichUploaderBundleHandlerDownloadHandler_00000000087dec03000000005c1b98ca40adef88e1ce7356ec78729336304f7b extends \Vich\UploaderBundle\Handler\DownloadHandler implements \ProxyManager\Proxy\VirtualProxyInterface
+class VichUploaderBundleHandlerDownloadHandler_0000000046adfbb80000000051b8e5b8e5d7e14eba4acd3b4a4595b7b8aa674d extends \Vich\UploaderBundle\Handler\DownloadHandler implements \ProxyManager\Proxy\VirtualProxyInterface
 {
 
     /**
      * @var \Closure|null initializer responsible for generating the wrapped object
      */
-    private $valueHolder5702aabd3e799640956014 = null;
+    private $valueHolder5702fbdf8787f616378161 = null;
 
     /**
      * @var \Closure|null initializer responsible for generating the wrapped object
      */
-    private $initializer5702aabd3e874478305511 = null;
+    private $initializer5702fbdf878be563226086 = null;
 
     /**
      * @var bool[] map of public properties of the parent class
      */
-    private static $publicProperties5702aabd3e617531227785 = array(
+    private static $publicProperties5702fbdf877fe524922648 = array(
         
     );
 
@@ -7528,9 +7800,9 @@ class VichUploaderBundleHandlerDownloadHandler_00000000087dec03000000005c1b98ca4
      */
     public function downloadObject($object, $field, $className = null, $fileName = null)
     {
-        $this->initializer5702aabd3e874478305511 && $this->initializer5702aabd3e874478305511->__invoke($this->valueHolder5702aabd3e799640956014, $this, 'downloadObject', array('object' => $object, 'field' => $field, 'className' => $className, 'fileName' => $fileName), $this->initializer5702aabd3e874478305511);
+        $this->initializer5702fbdf878be563226086 && $this->initializer5702fbdf878be563226086->__invoke($this->valueHolder5702fbdf8787f616378161, $this, 'downloadObject', array('object' => $object, 'field' => $field, 'className' => $className, 'fileName' => $fileName), $this->initializer5702fbdf878be563226086);
 
-        return $this->valueHolder5702aabd3e799640956014->downloadObject($object, $field, $className, $fileName);
+        return $this->valueHolder5702fbdf8787f616378161->downloadObject($object, $field, $className, $fileName);
     }
 
     /**
@@ -7540,7 +7812,7 @@ class VichUploaderBundleHandlerDownloadHandler_00000000087dec03000000005c1b98ca4
      */
     public function __construct($initializer)
     {
-        $this->initializer5702aabd3e874478305511 = $initializer;
+        $this->initializer5702fbdf878be563226086 = $initializer;
     }
 
     /**
@@ -7548,16 +7820,16 @@ class VichUploaderBundleHandlerDownloadHandler_00000000087dec03000000005c1b98ca4
      */
     public function & __get($name)
     {
-        $this->initializer5702aabd3e874478305511 && $this->initializer5702aabd3e874478305511->__invoke($this->valueHolder5702aabd3e799640956014, $this, '__get', array('name' => $name), $this->initializer5702aabd3e874478305511);
+        $this->initializer5702fbdf878be563226086 && $this->initializer5702fbdf878be563226086->__invoke($this->valueHolder5702fbdf8787f616378161, $this, '__get', array('name' => $name), $this->initializer5702fbdf878be563226086);
 
-        if (isset(self::$publicProperties5702aabd3e617531227785[$name])) {
-            return $this->valueHolder5702aabd3e799640956014->$name;
+        if (isset(self::$publicProperties5702fbdf877fe524922648[$name])) {
+            return $this->valueHolder5702fbdf8787f616378161->$name;
         }
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5702aabd3e799640956014;
+            $targetObject = $this->valueHolder5702fbdf8787f616378161;
 
             $backtrace = debug_backtrace(false);
             trigger_error('Undefined property: ' . get_parent_class($this) . '::$' . $name . ' in ' . $backtrace[0]['file'] . ' on line ' . $backtrace[0]['line'], \E_USER_NOTICE);
@@ -7565,7 +7837,7 @@ class VichUploaderBundleHandlerDownloadHandler_00000000087dec03000000005c1b98ca4
             return;
         }
 
-        $targetObject = $this->valueHolder5702aabd3e799640956014;
+        $targetObject = $this->valueHolder5702fbdf8787f616378161;
         $accessor = function & () use ($targetObject, $name) {
             return $targetObject->$name;
         };
@@ -7583,18 +7855,18 @@ class VichUploaderBundleHandlerDownloadHandler_00000000087dec03000000005c1b98ca4
      */
     public function __set($name, $value)
     {
-        $this->initializer5702aabd3e874478305511 && $this->initializer5702aabd3e874478305511->__invoke($this->valueHolder5702aabd3e799640956014, $this, '__set', array('name' => $name, 'value' => $value), $this->initializer5702aabd3e874478305511);
+        $this->initializer5702fbdf878be563226086 && $this->initializer5702fbdf878be563226086->__invoke($this->valueHolder5702fbdf8787f616378161, $this, '__set', array('name' => $name, 'value' => $value), $this->initializer5702fbdf878be563226086);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5702aabd3e799640956014;
+            $targetObject = $this->valueHolder5702fbdf8787f616378161;
 
             return $targetObject->$name = $value;;
             return;
         }
 
-        $targetObject = $this->valueHolder5702aabd3e799640956014;
+        $targetObject = $this->valueHolder5702fbdf8787f616378161;
         $accessor = function & () use ($targetObject, $name, $value) {
             return $targetObject->$name = $value;
         };
@@ -7611,18 +7883,18 @@ class VichUploaderBundleHandlerDownloadHandler_00000000087dec03000000005c1b98ca4
      */
     public function __isset($name)
     {
-        $this->initializer5702aabd3e874478305511 && $this->initializer5702aabd3e874478305511->__invoke($this->valueHolder5702aabd3e799640956014, $this, '__isset', array('name' => $name), $this->initializer5702aabd3e874478305511);
+        $this->initializer5702fbdf878be563226086 && $this->initializer5702fbdf878be563226086->__invoke($this->valueHolder5702fbdf8787f616378161, $this, '__isset', array('name' => $name), $this->initializer5702fbdf878be563226086);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5702aabd3e799640956014;
+            $targetObject = $this->valueHolder5702fbdf8787f616378161;
 
             return isset($targetObject->$name);;
             return;
         }
 
-        $targetObject = $this->valueHolder5702aabd3e799640956014;
+        $targetObject = $this->valueHolder5702fbdf8787f616378161;
         $accessor = function () use ($targetObject, $name) {
             return isset($targetObject->$name);
         };
@@ -7639,18 +7911,18 @@ class VichUploaderBundleHandlerDownloadHandler_00000000087dec03000000005c1b98ca4
      */
     public function __unset($name)
     {
-        $this->initializer5702aabd3e874478305511 && $this->initializer5702aabd3e874478305511->__invoke($this->valueHolder5702aabd3e799640956014, $this, '__unset', array('name' => $name), $this->initializer5702aabd3e874478305511);
+        $this->initializer5702fbdf878be563226086 && $this->initializer5702fbdf878be563226086->__invoke($this->valueHolder5702fbdf8787f616378161, $this, '__unset', array('name' => $name), $this->initializer5702fbdf878be563226086);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5702aabd3e799640956014;
+            $targetObject = $this->valueHolder5702fbdf8787f616378161;
 
             unset($targetObject->$name);;
             return;
         }
 
-        $targetObject = $this->valueHolder5702aabd3e799640956014;
+        $targetObject = $this->valueHolder5702fbdf8787f616378161;
         $accessor = function () use ($targetObject, $name) {
             unset($targetObject->$name);
         };
@@ -7664,16 +7936,16 @@ class VichUploaderBundleHandlerDownloadHandler_00000000087dec03000000005c1b98ca4
 
     public function __clone()
     {
-        $this->initializer5702aabd3e874478305511 && $this->initializer5702aabd3e874478305511->__invoke($this->valueHolder5702aabd3e799640956014, $this, '__clone', array(), $this->initializer5702aabd3e874478305511);
+        $this->initializer5702fbdf878be563226086 && $this->initializer5702fbdf878be563226086->__invoke($this->valueHolder5702fbdf8787f616378161, $this, '__clone', array(), $this->initializer5702fbdf878be563226086);
 
-        $this->valueHolder5702aabd3e799640956014 = clone $this->valueHolder5702aabd3e799640956014;
+        $this->valueHolder5702fbdf8787f616378161 = clone $this->valueHolder5702fbdf8787f616378161;
     }
 
     public function __sleep()
     {
-        $this->initializer5702aabd3e874478305511 && $this->initializer5702aabd3e874478305511->__invoke($this->valueHolder5702aabd3e799640956014, $this, '__sleep', array(), $this->initializer5702aabd3e874478305511);
+        $this->initializer5702fbdf878be563226086 && $this->initializer5702fbdf878be563226086->__invoke($this->valueHolder5702fbdf8787f616378161, $this, '__sleep', array(), $this->initializer5702fbdf878be563226086);
 
-        return array('valueHolder5702aabd3e799640956014');
+        return array('valueHolder5702fbdf8787f616378161');
     }
 
     public function __wakeup()
@@ -7685,7 +7957,7 @@ class VichUploaderBundleHandlerDownloadHandler_00000000087dec03000000005c1b98ca4
      */
     public function setProxyInitializer(\Closure $initializer = null)
     {
-        $this->initializer5702aabd3e874478305511 = $initializer;
+        $this->initializer5702fbdf878be563226086 = $initializer;
     }
 
     /**
@@ -7693,7 +7965,7 @@ class VichUploaderBundleHandlerDownloadHandler_00000000087dec03000000005c1b98ca4
      */
     public function getProxyInitializer()
     {
-        return $this->initializer5702aabd3e874478305511;
+        return $this->initializer5702fbdf878be563226086;
     }
 
     /**
@@ -7701,7 +7973,7 @@ class VichUploaderBundleHandlerDownloadHandler_00000000087dec03000000005c1b98ca4
      */
     public function initializeProxy()
     {
-        return $this->initializer5702aabd3e874478305511 && $this->initializer5702aabd3e874478305511->__invoke($this->valueHolder5702aabd3e799640956014, $this, 'initializeProxy', array(), $this->initializer5702aabd3e874478305511);
+        return $this->initializer5702fbdf878be563226086 && $this->initializer5702fbdf878be563226086->__invoke($this->valueHolder5702fbdf8787f616378161, $this, 'initializeProxy', array(), $this->initializer5702fbdf878be563226086);
     }
 
     /**
@@ -7709,7 +7981,7 @@ class VichUploaderBundleHandlerDownloadHandler_00000000087dec03000000005c1b98ca4
      */
     public function isProxyInitialized()
     {
-        return null !== $this->valueHolder5702aabd3e799640956014;
+        return null !== $this->valueHolder5702fbdf8787f616378161;
     }
 
     /**
@@ -7717,29 +7989,29 @@ class VichUploaderBundleHandlerDownloadHandler_00000000087dec03000000005c1b98ca4
      */
     public function getWrappedValueHolderValue()
     {
-        return $this->valueHolder5702aabd3e799640956014;
+        return $this->valueHolder5702fbdf8787f616378161;
     }
 
 
 }
 
-class VichUploaderBundleHandlerUploadHandler_00000000087dec04000000005c1b98ca40adef88e1ce7356ec78729336304f7b extends \Vich\UploaderBundle\Handler\UploadHandler implements \ProxyManager\Proxy\VirtualProxyInterface
+class VichUploaderBundleHandlerUploadHandler_0000000046adfba30000000051b8e5b8e5d7e14eba4acd3b4a4595b7b8aa674d extends \Vich\UploaderBundle\Handler\UploadHandler implements \ProxyManager\Proxy\VirtualProxyInterface
 {
 
     /**
      * @var \Closure|null initializer responsible for generating the wrapped object
      */
-    private $valueHolder5702aabd443eb299025854 = null;
+    private $valueHolder5702fbdf89f30441371330 = null;
 
     /**
      * @var \Closure|null initializer responsible for generating the wrapped object
      */
-    private $initializer5702aabd44464516820145 = null;
+    private $initializer5702fbdf89f6a077802325 = null;
 
     /**
      * @var bool[] map of public properties of the parent class
      */
-    private static $publicProperties5702aabd44320896544942 = array(
+    private static $publicProperties5702fbdf89ec1209738279 = array(
         
     );
 
@@ -7748,9 +8020,9 @@ class VichUploaderBundleHandlerUploadHandler_00000000087dec04000000005c1b98ca40a
      */
     public function upload($obj, $fieldName)
     {
-        $this->initializer5702aabd44464516820145 && $this->initializer5702aabd44464516820145->__invoke($this->valueHolder5702aabd443eb299025854, $this, 'upload', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5702aabd44464516820145);
+        $this->initializer5702fbdf89f6a077802325 && $this->initializer5702fbdf89f6a077802325->__invoke($this->valueHolder5702fbdf89f30441371330, $this, 'upload', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5702fbdf89f6a077802325);
 
-        return $this->valueHolder5702aabd443eb299025854->upload($obj, $fieldName);
+        return $this->valueHolder5702fbdf89f30441371330->upload($obj, $fieldName);
     }
 
     /**
@@ -7758,9 +8030,9 @@ class VichUploaderBundleHandlerUploadHandler_00000000087dec04000000005c1b98ca40a
      */
     public function inject($obj, $fieldName)
     {
-        $this->initializer5702aabd44464516820145 && $this->initializer5702aabd44464516820145->__invoke($this->valueHolder5702aabd443eb299025854, $this, 'inject', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5702aabd44464516820145);
+        $this->initializer5702fbdf89f6a077802325 && $this->initializer5702fbdf89f6a077802325->__invoke($this->valueHolder5702fbdf89f30441371330, $this, 'inject', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5702fbdf89f6a077802325);
 
-        return $this->valueHolder5702aabd443eb299025854->inject($obj, $fieldName);
+        return $this->valueHolder5702fbdf89f30441371330->inject($obj, $fieldName);
     }
 
     /**
@@ -7768,9 +8040,9 @@ class VichUploaderBundleHandlerUploadHandler_00000000087dec04000000005c1b98ca40a
      */
     public function clean($obj, $fieldName)
     {
-        $this->initializer5702aabd44464516820145 && $this->initializer5702aabd44464516820145->__invoke($this->valueHolder5702aabd443eb299025854, $this, 'clean', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5702aabd44464516820145);
+        $this->initializer5702fbdf89f6a077802325 && $this->initializer5702fbdf89f6a077802325->__invoke($this->valueHolder5702fbdf89f30441371330, $this, 'clean', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5702fbdf89f6a077802325);
 
-        return $this->valueHolder5702aabd443eb299025854->clean($obj, $fieldName);
+        return $this->valueHolder5702fbdf89f30441371330->clean($obj, $fieldName);
     }
 
     /**
@@ -7778,9 +8050,9 @@ class VichUploaderBundleHandlerUploadHandler_00000000087dec04000000005c1b98ca40a
      */
     public function remove($obj, $fieldName)
     {
-        $this->initializer5702aabd44464516820145 && $this->initializer5702aabd44464516820145->__invoke($this->valueHolder5702aabd443eb299025854, $this, 'remove', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5702aabd44464516820145);
+        $this->initializer5702fbdf89f6a077802325 && $this->initializer5702fbdf89f6a077802325->__invoke($this->valueHolder5702fbdf89f30441371330, $this, 'remove', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5702fbdf89f6a077802325);
 
-        return $this->valueHolder5702aabd443eb299025854->remove($obj, $fieldName);
+        return $this->valueHolder5702fbdf89f30441371330->remove($obj, $fieldName);
     }
 
     /**
@@ -7790,7 +8062,7 @@ class VichUploaderBundleHandlerUploadHandler_00000000087dec04000000005c1b98ca40a
      */
     public function __construct($initializer)
     {
-        $this->initializer5702aabd44464516820145 = $initializer;
+        $this->initializer5702fbdf89f6a077802325 = $initializer;
     }
 
     /**
@@ -7798,16 +8070,16 @@ class VichUploaderBundleHandlerUploadHandler_00000000087dec04000000005c1b98ca40a
      */
     public function & __get($name)
     {
-        $this->initializer5702aabd44464516820145 && $this->initializer5702aabd44464516820145->__invoke($this->valueHolder5702aabd443eb299025854, $this, '__get', array('name' => $name), $this->initializer5702aabd44464516820145);
+        $this->initializer5702fbdf89f6a077802325 && $this->initializer5702fbdf89f6a077802325->__invoke($this->valueHolder5702fbdf89f30441371330, $this, '__get', array('name' => $name), $this->initializer5702fbdf89f6a077802325);
 
-        if (isset(self::$publicProperties5702aabd44320896544942[$name])) {
-            return $this->valueHolder5702aabd443eb299025854->$name;
+        if (isset(self::$publicProperties5702fbdf89ec1209738279[$name])) {
+            return $this->valueHolder5702fbdf89f30441371330->$name;
         }
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5702aabd443eb299025854;
+            $targetObject = $this->valueHolder5702fbdf89f30441371330;
 
             $backtrace = debug_backtrace(false);
             trigger_error('Undefined property: ' . get_parent_class($this) . '::$' . $name . ' in ' . $backtrace[0]['file'] . ' on line ' . $backtrace[0]['line'], \E_USER_NOTICE);
@@ -7815,7 +8087,7 @@ class VichUploaderBundleHandlerUploadHandler_00000000087dec04000000005c1b98ca40a
             return;
         }
 
-        $targetObject = $this->valueHolder5702aabd443eb299025854;
+        $targetObject = $this->valueHolder5702fbdf89f30441371330;
         $accessor = function & () use ($targetObject, $name) {
             return $targetObject->$name;
         };
@@ -7833,18 +8105,18 @@ class VichUploaderBundleHandlerUploadHandler_00000000087dec04000000005c1b98ca40a
      */
     public function __set($name, $value)
     {
-        $this->initializer5702aabd44464516820145 && $this->initializer5702aabd44464516820145->__invoke($this->valueHolder5702aabd443eb299025854, $this, '__set', array('name' => $name, 'value' => $value), $this->initializer5702aabd44464516820145);
+        $this->initializer5702fbdf89f6a077802325 && $this->initializer5702fbdf89f6a077802325->__invoke($this->valueHolder5702fbdf89f30441371330, $this, '__set', array('name' => $name, 'value' => $value), $this->initializer5702fbdf89f6a077802325);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5702aabd443eb299025854;
+            $targetObject = $this->valueHolder5702fbdf89f30441371330;
 
             return $targetObject->$name = $value;;
             return;
         }
 
-        $targetObject = $this->valueHolder5702aabd443eb299025854;
+        $targetObject = $this->valueHolder5702fbdf89f30441371330;
         $accessor = function & () use ($targetObject, $name, $value) {
             return $targetObject->$name = $value;
         };
@@ -7861,18 +8133,18 @@ class VichUploaderBundleHandlerUploadHandler_00000000087dec04000000005c1b98ca40a
      */
     public function __isset($name)
     {
-        $this->initializer5702aabd44464516820145 && $this->initializer5702aabd44464516820145->__invoke($this->valueHolder5702aabd443eb299025854, $this, '__isset', array('name' => $name), $this->initializer5702aabd44464516820145);
+        $this->initializer5702fbdf89f6a077802325 && $this->initializer5702fbdf89f6a077802325->__invoke($this->valueHolder5702fbdf89f30441371330, $this, '__isset', array('name' => $name), $this->initializer5702fbdf89f6a077802325);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5702aabd443eb299025854;
+            $targetObject = $this->valueHolder5702fbdf89f30441371330;
 
             return isset($targetObject->$name);;
             return;
         }
 
-        $targetObject = $this->valueHolder5702aabd443eb299025854;
+        $targetObject = $this->valueHolder5702fbdf89f30441371330;
         $accessor = function () use ($targetObject, $name) {
             return isset($targetObject->$name);
         };
@@ -7889,18 +8161,18 @@ class VichUploaderBundleHandlerUploadHandler_00000000087dec04000000005c1b98ca40a
      */
     public function __unset($name)
     {
-        $this->initializer5702aabd44464516820145 && $this->initializer5702aabd44464516820145->__invoke($this->valueHolder5702aabd443eb299025854, $this, '__unset', array('name' => $name), $this->initializer5702aabd44464516820145);
+        $this->initializer5702fbdf89f6a077802325 && $this->initializer5702fbdf89f6a077802325->__invoke($this->valueHolder5702fbdf89f30441371330, $this, '__unset', array('name' => $name), $this->initializer5702fbdf89f6a077802325);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5702aabd443eb299025854;
+            $targetObject = $this->valueHolder5702fbdf89f30441371330;
 
             unset($targetObject->$name);;
             return;
         }
 
-        $targetObject = $this->valueHolder5702aabd443eb299025854;
+        $targetObject = $this->valueHolder5702fbdf89f30441371330;
         $accessor = function () use ($targetObject, $name) {
             unset($targetObject->$name);
         };
@@ -7914,16 +8186,16 @@ class VichUploaderBundleHandlerUploadHandler_00000000087dec04000000005c1b98ca40a
 
     public function __clone()
     {
-        $this->initializer5702aabd44464516820145 && $this->initializer5702aabd44464516820145->__invoke($this->valueHolder5702aabd443eb299025854, $this, '__clone', array(), $this->initializer5702aabd44464516820145);
+        $this->initializer5702fbdf89f6a077802325 && $this->initializer5702fbdf89f6a077802325->__invoke($this->valueHolder5702fbdf89f30441371330, $this, '__clone', array(), $this->initializer5702fbdf89f6a077802325);
 
-        $this->valueHolder5702aabd443eb299025854 = clone $this->valueHolder5702aabd443eb299025854;
+        $this->valueHolder5702fbdf89f30441371330 = clone $this->valueHolder5702fbdf89f30441371330;
     }
 
     public function __sleep()
     {
-        $this->initializer5702aabd44464516820145 && $this->initializer5702aabd44464516820145->__invoke($this->valueHolder5702aabd443eb299025854, $this, '__sleep', array(), $this->initializer5702aabd44464516820145);
+        $this->initializer5702fbdf89f6a077802325 && $this->initializer5702fbdf89f6a077802325->__invoke($this->valueHolder5702fbdf89f30441371330, $this, '__sleep', array(), $this->initializer5702fbdf89f6a077802325);
 
-        return array('valueHolder5702aabd443eb299025854');
+        return array('valueHolder5702fbdf89f30441371330');
     }
 
     public function __wakeup()
@@ -7935,7 +8207,7 @@ class VichUploaderBundleHandlerUploadHandler_00000000087dec04000000005c1b98ca40a
      */
     public function setProxyInitializer(\Closure $initializer = null)
     {
-        $this->initializer5702aabd44464516820145 = $initializer;
+        $this->initializer5702fbdf89f6a077802325 = $initializer;
     }
 
     /**
@@ -7943,7 +8215,7 @@ class VichUploaderBundleHandlerUploadHandler_00000000087dec04000000005c1b98ca40a
      */
     public function getProxyInitializer()
     {
-        return $this->initializer5702aabd44464516820145;
+        return $this->initializer5702fbdf89f6a077802325;
     }
 
     /**
@@ -7951,7 +8223,7 @@ class VichUploaderBundleHandlerUploadHandler_00000000087dec04000000005c1b98ca40a
      */
     public function initializeProxy()
     {
-        return $this->initializer5702aabd44464516820145 && $this->initializer5702aabd44464516820145->__invoke($this->valueHolder5702aabd443eb299025854, $this, 'initializeProxy', array(), $this->initializer5702aabd44464516820145);
+        return $this->initializer5702fbdf89f6a077802325 && $this->initializer5702fbdf89f6a077802325->__invoke($this->valueHolder5702fbdf89f30441371330, $this, 'initializeProxy', array(), $this->initializer5702fbdf89f6a077802325);
     }
 
     /**
@@ -7959,7 +8231,7 @@ class VichUploaderBundleHandlerUploadHandler_00000000087dec04000000005c1b98ca40a
      */
     public function isProxyInitialized()
     {
-        return null !== $this->valueHolder5702aabd443eb299025854;
+        return null !== $this->valueHolder5702fbdf89f30441371330;
     }
 
     /**
@@ -7967,7 +8239,7 @@ class VichUploaderBundleHandlerUploadHandler_00000000087dec04000000005c1b98ca40a
      */
     public function getWrappedValueHolderValue()
     {
-        return $this->valueHolder5702aabd443eb299025854;
+        return $this->valueHolder5702fbdf89f30441371330;
     }
 
 

@@ -2,10 +2,11 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: comite.yml }
 
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -87,23 +88,5 @@ vich_uploader:
             uri_prefix: %app.path.formateur_cv%
             upload_destination: %kernel.root_dir%/../web/file/cv
     
-easy_admin:
-    entities:
-        Formateur :
-            actions: ['edit', 'search']
-            class: Mooc\MoocBundle\Entity\Formateur
-            label: 'Formateurs'
-            
-            list : 
-                title: "Liste des formateurs"
-                fields: ['cin', 'nom', 'prenom', 'email',{ property: 'avatar', type: 'image',label: 'Photo', base_path: 'http://localhost/Mooc_web/web/img/avatar/' },{property: 'cv' , label: 'CV',template: 'cv.html.twig', base_path: %app.path.formateur_cv%  }{ property: 'etat', type: 'toggle', label: 'Valide' }]
-                actions:
-                    - { name: 'show', label: '', icon: 'search' }
-                    - { name: 'delete', label: '', icon: 'trash' }
-        
-        
-        Cours : 
-            class : Mooc\MoocBundle\Entity\Cours
-         
-    site_name: 'MOO<i><font color="grey">Comité</font></i>'
+
         

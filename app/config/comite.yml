@@ -1,0 +1,34 @@
+easy_admin:
+    design: 
+        menu: 
+            - { entity: 'Formateur', icon: 'group' }
+            - { entity: 'Cours', icon: 'book' }
+            - { label: 'Frontend', url: 'http://localhost/Mooc_web/web/app_dev.php/', icon: 'home' }
+    site_name: 'MOO<i><font color="grey">Comité</font></i>'
+    entities:
+        Formateur :
+            class: Mooc\MoocBundle\Entity\Formateur
+            label: 'Formateurs'
+            
+            list : 
+                title: "Liste des formateurs"
+                fields: ['cin', 'nom', 'prenom', 'email',{ property: 'avatar', type: 'image',label: 'Photo', base_path: 'http://localhost/Mooc_web/web/img/avatar/' },{property: 'cv' , label: 'CV',template: 'cv.html.twig', base_path: %app.path.formateur_cv%  }{ property: 'etat', type: 'toggle', label: 'Valide' }]
+                actions:
+                    - { name: 'show', label: '', icon: 'search' }
+                    - { name: 'delete', label: '', icon: 'trash' }
+                    - { name: edit, type: method, label: '', class: '', icon: pencil }
+            
+                
+            show :
+            fields: [{property: 'avatar', type: 'image',label: 'Photo', base_path: 'http://localhost/Mooc_web/web/img/avatar/'},'nom', 'prenom', 'email',{property: 'cv' , label: 'CV',template: 'cv.html.twig', base_path: %app.path.formateur_cv%  },{ property: 'etat', type: 'toggle', label: 'Valide' }]
+            
+        Cours :
+            class : Mooc\MoocBundle\Entity\Cours
+            list : 
+                title: "Liste des cours à valider"
+                fields: ['nomCours','description','difficulte','objectif',{property: 'cinformateur', label: 'Formateur'},{property: 'etat', label: 'Etat' , type: 'toggle'}]
+                actions:
+                
+                    - { name: 'show', label: '', icon: 'search' }
+                    - { name: 'delete', label: '', icon: 'trash' }
+                    - { name: edit, type: method, label: '', class: '', icon: pencil }
