@@ -64,10 +64,10 @@ class Formateur extends \Mooc\MoocBundle\Entity\Formateur implements \Doctrine\O
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'nom', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'prenom', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'email', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'etat', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'avatar', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'cv', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'login', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'password', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'cin'];
+            return ['__isInitialized__', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'cin', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'nom', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'prenom', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'email', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'etat', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'avatar', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'cv', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'login', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'password'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'nom', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'prenom', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'email', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'etat', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'avatar', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'cv', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'login', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'password', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'cin'];
+        return ['__isInitialized__', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'cin', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'nom', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'prenom', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'email', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'etat', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'avatar', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'cv', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'login', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Formateur' . "\0" . 'password'];
     }
 
     /**
@@ -176,12 +176,16 @@ class Formateur extends \Mooc\MoocBundle\Entity\Formateur implements \Doctrine\O
     /**
      * {@inheritDoc}
      */
-    public function setNom($nom)
+    public function getCin()
     {
+        if ($this->__isInitialized__ === false) {
+            return  parent::getCin();
+        }
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNom', [$nom]);
 
-        return parent::setNom($nom);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCin', []);
+
+        return parent::getCin();
     }
 
     /**
@@ -198,34 +202,12 @@ class Formateur extends \Mooc\MoocBundle\Entity\Formateur implements \Doctrine\O
     /**
      * {@inheritDoc}
      */
-    public function setPrenom($prenom)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPrenom', [$prenom]);
-
-        return parent::setPrenom($prenom);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function getPrenom()
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPrenom', []);
 
         return parent::getPrenom();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setEmail($email)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEmail', [$email]);
-
-        return parent::setEmail($email);
     }
 
     /**
@@ -242,34 +224,12 @@ class Formateur extends \Mooc\MoocBundle\Entity\Formateur implements \Doctrine\O
     /**
      * {@inheritDoc}
      */
-    public function setEtat($etat)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEtat', [$etat]);
-
-        return parent::setEtat($etat);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function getEtat()
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEtat', []);
 
         return parent::getEtat();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setAvatar($avatar)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAvatar', [$avatar]);
-
-        return parent::setAvatar($avatar);
     }
 
     /**
@@ -286,34 +246,12 @@ class Formateur extends \Mooc\MoocBundle\Entity\Formateur implements \Doctrine\O
     /**
      * {@inheritDoc}
      */
-    public function setCv($cv)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCv', [$cv]);
-
-        return parent::setCv($cv);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function getCv()
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCv', []);
 
         return parent::getCv();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setLogin($login)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLogin', [$login]);
-
-        return parent::setLogin($login);
     }
 
     /**
@@ -330,17 +268,6 @@ class Formateur extends \Mooc\MoocBundle\Entity\Formateur implements \Doctrine\O
     /**
      * {@inheritDoc}
      */
-    public function setPassword($password)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPassword', [$password]);
-
-        return parent::setPassword($password);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function getPassword()
     {
 
@@ -352,27 +279,100 @@ class Formateur extends \Mooc\MoocBundle\Entity\Formateur implements \Doctrine\O
     /**
      * {@inheritDoc}
      */
-    public function getCin()
-    {
-        if ($this->__isInitialized__ === false) {
-            return  parent::getCin();
-        }
-
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCin', []);
-
-        return parent::getCin();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function setCin($cin)
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCin', [$cin]);
 
         return parent::setCin($cin);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setNom($nom)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNom', [$nom]);
+
+        return parent::setNom($nom);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setPrenom($prenom)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPrenom', [$prenom]);
+
+        return parent::setPrenom($prenom);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setEmail($email)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEmail', [$email]);
+
+        return parent::setEmail($email);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setEtat($etat)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEtat', [$etat]);
+
+        return parent::setEtat($etat);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAvatar($avatar)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAvatar', [$avatar]);
+
+        return parent::setAvatar($avatar);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setCv($cv)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCv', [$cv]);
+
+        return parent::setCv($cv);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setLogin($login)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLogin', [$login]);
+
+        return parent::setLogin($login);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setPassword($password)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPassword', [$password]);
+
+        return parent::setPassword($password);
     }
 
 }

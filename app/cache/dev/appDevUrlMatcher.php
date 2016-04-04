@@ -148,9 +148,9 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         if (0 === strpos($pathinfo, '/l')) {
             if (0 === strpos($pathinfo, '/liste')) {
-                // mooc_mooc_listecour
-                if ($pathinfo === '/listecour') {
-                    return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\CourController::affichecourAction',  '_route' => 'mooc_mooc_listecour',);
+                // mooc_mooc_listecours
+                if ($pathinfo === '/listecours') {
+                    return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\CoursController::affichecoursAction',  '_route' => 'mooc_mooc_listecours',);
                 }
 
                 // mooc_mooc_listeformateur

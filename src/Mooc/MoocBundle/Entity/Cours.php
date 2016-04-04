@@ -6,246 +6,154 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Cours
+ *
+ * @ORM\Table(name="cours", indexes={@ORM\Index(name="fk_courrr", columns={"idQuiz"}), @ORM\Index(name="fk_for", columns={"cinformateur"})})
+ * @ORM\Entity(repositoryClass="Mooc\MoocBundle\Entity\CoursRepository")
  */
 class Cours
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="idcours", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idcours;
+
+    /**
      * @var string
+     *
+     * @ORM\Column(name="nom_cours", type="string", length=255, nullable=false)
      */
     private $nomCours;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255, nullable=false)
      */
     private $description;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="difficulte", type="string", length=45, nullable=false)
      */
     private $difficulte;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="objectif", type="string", length=255, nullable=false)
      */
     private $objectif;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="video", type="string", length=100, nullable=true)
      */
     private $video;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="etat", type="integer", nullable=true)
      */
-    private $etatvideo;
+    private $etat;
 
     /**
-     * @var integer
-     */
-    private $idcours;
-
-    /**
-     * @var \Mooc\MoocBundle\Entity\Quiz
+     * @var \Quiz
+     *
+     * @ORM\ManyToOne(targetEntity="Quiz")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idQuiz", referencedColumnName="id")
+     * })
      */
     private $idquiz;
 
     /**
-     * @var \Mooc\MoocBundle\Entity\Formateur
+     * @var \Formateur
+     *
+     * @ORM\ManyToOne(targetEntity="Formateur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="cinformateur", referencedColumnName="cin")
+     * })
      */
     private $cinformateur;
 
-
-    /**
-     * Set nomCours
-     *
-     * @param string $nomCours
-     * @return Cours
-     */
-    public function setNomCours($nomCours)
-    {
-        $this->nomCours = $nomCours;
-
-        return $this;
-    }
-
-    /**
-     * Get nomCours
-     *
-     * @return string 
-     */
-    public function getNomCours()
-    {
-        return $this->nomCours;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Cours
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set difficulte
-     *
-     * @param string $difficulte
-     * @return Cours
-     */
-    public function setDifficulte($difficulte)
-    {
-        $this->difficulte = $difficulte;
-
-        return $this;
-    }
-
-    /**
-     * Get difficulte
-     *
-     * @return string 
-     */
-    public function getDifficulte()
-    {
-        return $this->difficulte;
-    }
-
-    /**
-     * Set objectif
-     *
-     * @param string $objectif
-     * @return Cours
-     */
-    public function setObjectif($objectif)
-    {
-        $this->objectif = $objectif;
-
-        return $this;
-    }
-
-    /**
-     * Get objectif
-     *
-     * @return string 
-     */
-    public function getObjectif()
-    {
-        return $this->objectif;
-    }
-
-    /**
-     * Set video
-     *
-     * @param string $video
-     * @return Cours
-     */
-    public function setVideo($video)
-    {
-        $this->video = $video;
-
-        return $this;
-    }
-
-    /**
-     * Get video
-     *
-     * @return string 
-     */
-    public function getVideo()
-    {
-        return $this->video;
-    }
-
-    /**
-     * Set etatvideo
-     *
-     * @param integer $etatvideo
-     * @return Cours
-     */
-    public function setEtatvideo($etatvideo)
-    {
-        $this->etatvideo = $etatvideo;
-
-        return $this;
-    }
-
-    /**
-     * Get etatvideo
-     *
-     * @return integer 
-     */
-    public function getEtatvideo()
-    {
-        return $this->etatvideo;
-    }
-
-    /**
-     * Get idcours
-     *
-     * @return integer 
-     */
-    public function getIdcours()
-    {
+    function getIdcours() {
         return $this->idcours;
     }
 
-    /**
-     * Set idquiz
-     *
-     * @param \Mooc\MoocBundle\Entity\Quiz $idquiz
-     * @return Cours
-     */
-    public function setIdquiz(\Mooc\MoocBundle\Entity\Quiz $idquiz = null)
-    {
-        $this->idquiz = $idquiz;
-
-        return $this;
+    function getNomCours() {
+        return $this->nomCours;
     }
 
-    /**
-     * Get idquiz
-     *
-     * @return \Mooc\MoocBundle\Entity\Quiz 
-     */
-    public function getIdquiz()
-    {
+    function getDescription() {
+        return $this->description;
+    }
+
+    function getDifficulte() {
+        return $this->difficulte;
+    }
+
+    function getObjectif() {
+        return $this->objectif;
+    }
+
+    function getVideo() {
+        return $this->video;
+    }
+
+    function getEtat() {
+        return $this->etat;
+    }
+
+    function getIdquiz() {
         return $this->idquiz;
     }
 
-    /**
-     * Set cinformateur
-     *
-     * @param \Mooc\MoocBundle\Entity\Formateur $cinformateur
-     * @return Cours
-     */
-    public function setCinformateur(\Mooc\MoocBundle\Entity\Formateur $cinformateur = null)
-    {
-        $this->cinformateur = $cinformateur;
-
-        return $this;
-    }
-
-    /**
-     * Get cinformateur
-     *
-     * @return \Mooc\MoocBundle\Entity\Formateur 
-     */
-    public function getCinformateur()
-    {
+    function getCinformateur() {
         return $this->cinformateur;
     }
+
+    function setIdcours($idcours) {
+        $this->idcours = $idcours;
+    }
+
+    function setNomCours($nomCours) {
+        $this->nomCours = $nomCours;
+    }
+
+    function setDescription($description) {
+        $this->description = $description;
+    }
+
+    function setDifficulte($difficulte) {
+        $this->difficulte = $difficulte;
+    }
+
+    function setObjectif($objectif) {
+        $this->objectif = $objectif;
+    }
+
+    function setVideo($video) {
+        $this->video = $video;
+    }
+
+    function setEtat($etat) {
+        $this->etat = $etat;
+    }
+
+    function setIdquiz(\Quiz $idquiz) {
+        $this->idquiz = $idquiz;
+    }
+
+    function setCinformateur(\Formateur $cinformateur) {
+        $this->cinformateur = $cinformateur;
+    }
+
+
 }

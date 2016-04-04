@@ -64,10 +64,10 @@ class Quiz extends \Mooc\MoocBundle\Entity\Quiz implements \Doctrine\ORM\Proxy\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'titre', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'type', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'etat', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'id'];
+            return ['__isInitialized__', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'id', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'titre', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'type', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'etat'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'titre', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'type', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'etat', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'id'];
+        return ['__isInitialized__', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'id', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'titre', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'type', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'etat'];
     }
 
     /**
@@ -176,12 +176,16 @@ class Quiz extends \Mooc\MoocBundle\Entity\Quiz implements \Doctrine\ORM\Proxy\P
     /**
      * {@inheritDoc}
      */
-    public function setTitre($titre)
+    public function getId()
     {
+        if ($this->__isInitialized__ === false) {
+            return (int)  parent::getId();
+        }
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTitre', [$titre]);
 
-        return parent::setTitre($titre);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
+
+        return parent::getId();
     }
 
     /**
@@ -198,34 +202,12 @@ class Quiz extends \Mooc\MoocBundle\Entity\Quiz implements \Doctrine\ORM\Proxy\P
     /**
      * {@inheritDoc}
      */
-    public function setType($type)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setType', [$type]);
-
-        return parent::setType($type);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function getType()
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getType', []);
 
         return parent::getType();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setEtat($etat)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEtat', [$etat]);
-
-        return parent::setEtat($etat);
     }
 
     /**
@@ -242,16 +224,45 @@ class Quiz extends \Mooc\MoocBundle\Entity\Quiz implements \Doctrine\ORM\Proxy\P
     /**
      * {@inheritDoc}
      */
-    public function getId()
+    public function setId($id)
     {
-        if ($this->__isInitialized__ === false) {
-            return (int)  parent::getId();
-        }
 
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setId', [$id]);
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
+        return parent::setId($id);
+    }
 
-        return parent::getId();
+    /**
+     * {@inheritDoc}
+     */
+    public function setTitre($titre)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTitre', [$titre]);
+
+        return parent::setTitre($titre);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setType($type)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setType', [$type]);
+
+        return parent::setType($type);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setEtat($etat)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEtat', [$etat]);
+
+        return parent::setEtat($etat);
     }
 
 }

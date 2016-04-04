@@ -6,78 +6,61 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Question
+ *
+ * @ORM\Table(name="question", indexes={@ORM\Index(name="fk_quest", columns={"idquiz"})})
+ * @ORM\Entity
  */
 class Question
 {
     /**
-     * @var string
-     */
-    private $question;
-
-    /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
-     * @var \Mooc\MoocBundle\Entity\Quiz
+     * @var string
+     *
+     * @ORM\Column(name="question", type="string", length=255, nullable=false)
+     */
+    private $question;
+
+    /**
+     * @var \Quiz
+     *
+     * @ORM\ManyToOne(targetEntity="Quiz")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idquiz", referencedColumnName="id")
+     * })
      */
     private $idquiz;
 
-
-    /**
-     * Set question
-     *
-     * @param string $question
-     * @return Question
-     */
-    public function setQuestion($question)
-    {
-        $this->question = $question;
-
-        return $this;
-    }
-
-    /**
-     * Get question
-     *
-     * @return string 
-     */
-    public function getQuestion()
-    {
-        return $this->question;
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
+    function getId() {
         return $this->id;
     }
 
-    /**
-     * Set idquiz
-     *
-     * @param \Mooc\MoocBundle\Entity\Quiz $idquiz
-     * @return Question
-     */
-    public function setIdquiz(\Mooc\MoocBundle\Entity\Quiz $idquiz = null)
-    {
-        $this->idquiz = $idquiz;
-
-        return $this;
+    function getQuestion() {
+        return $this->question;
     }
 
-    /**
-     * Get idquiz
-     *
-     * @return \Mooc\MoocBundle\Entity\Quiz 
-     */
-    public function getIdquiz()
-    {
+    function getIdquiz() {
         return $this->idquiz;
     }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function setQuestion($question) {
+        $this->question = $question;
+    }
+
+    function setIdquiz(\Quiz $idquiz) {
+        $this->idquiz = $idquiz;
+    }
+
+
 }

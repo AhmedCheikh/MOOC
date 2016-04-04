@@ -6,78 +6,58 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Admin
+ *
+ * @ORM\Table(name="admin")
+ * @ORM\Entity
  */
 class Admin
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
      * @var string
+     *
+     * @ORM\Column(name="login", type="string", length=45, nullable=false)
      */
     private $login;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=45, nullable=false)
      */
     private $password;
 
-    /**
-     * @var integer
-     */
-    private $id;
-
-
-    /**
-     * Set login
-     *
-     * @param string $login
-     * @return Admin
-     */
-    public function setLogin($login)
-    {
-        $this->login = $login;
-
-        return $this;
+    function getId() {
+        return $this->id;
     }
 
-    /**
-     * Get login
-     *
-     * @return string 
-     */
-    public function getLogin()
-    {
+    function getLogin() {
         return $this->login;
     }
 
-    /**
-     * Set password
-     *
-     * @param string $password
-     * @return Admin
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string 
-     */
-    public function getPassword()
-    {
+    function getPassword() {
         return $this->password;
     }
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
+    function setId($id) {
+        $this->id = $id;
     }
+
+    function setLogin($login) {
+        $this->login = $login;
+    }
+
+    function setPassword($password) {
+        $this->password = $password;
+    }
+
+
 }

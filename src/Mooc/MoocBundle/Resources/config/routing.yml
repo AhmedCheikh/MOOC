@@ -10,10 +10,10 @@ mooc_mooc_about:
     path:     /about
     defaults: { _controller: MoocMoocBundle:About:info }
     
-mooc_mooc_listecour:
-    path:     /listecour
-    defaults: { _controller: MoocMoocBundle:Cour:affichecour}
-
+mooc_mooc_listecours:
+    path:     /listecours
+    defaults: { _controller: MoocMoocBundle:Cours:affichecours}
+    
 mooc_mooc_listeformateur:
     path:     /listeformateur
     defaults: { _controller: MoocMoocBundle:Formateur:afficheformateur}

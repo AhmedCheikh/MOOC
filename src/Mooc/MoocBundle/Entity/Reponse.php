@@ -6,106 +6,76 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Reponse
+ *
+ * @ORM\Table(name="reponse", indexes={@ORM\Index(name="fk_questt", columns={"idquestion"})})
+ * @ORM\Entity
  */
 class Reponse
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="etat", type="integer", nullable=false)
      */
     private $etat;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="rep", type="string", length=255, nullable=false)
      */
-    private $reponse;
+    private $rep;
 
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
-     * @var \Mooc\MoocBundle\Entity\Question
+     * @var \Question
+     *
+     * @ORM\ManyToOne(targetEntity="Question")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idquestion", referencedColumnName="id")
+     * })
      */
     private $idquestion;
 
-
-    /**
-     * Set etat
-     *
-     * @param integer $etat
-     * @return Reponse
-     */
-    public function setEtat($etat)
-    {
-        $this->etat = $etat;
-
-        return $this;
-    }
-
-    /**
-     * Get etat
-     *
-     * @return integer 
-     */
-    public function getEtat()
-    {
-        return $this->etat;
-    }
-
-    /**
-     * Set reponse
-     *
-     * @param string $reponse
-     * @return Reponse
-     */
-    public function setReponse($reponse)
-    {
-        $this->reponse = $reponse;
-
-        return $this;
-    }
-
-    /**
-     * Get reponse
-     *
-     * @return string 
-     */
-    public function getReponse()
-    {
-        return $this->reponse;
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
+    function getId() {
         return $this->id;
     }
 
-    /**
-     * Set idquestion
-     *
-     * @param \Mooc\MoocBundle\Entity\Question $idquestion
-     * @return Reponse
-     */
-    public function setIdquestion(\Mooc\MoocBundle\Entity\Question $idquestion = null)
-    {
-        $this->idquestion = $idquestion;
-
-        return $this;
+    function getEtat() {
+        return $this->etat;
     }
 
-    /**
-     * Get idquestion
-     *
-     * @return \Mooc\MoocBundle\Entity\Question 
-     */
-    public function getIdquestion()
-    {
+    function getRep() {
+        return $this->rep;
+    }
+
+    function getIdquestion() {
         return $this->idquestion;
     }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function setEtat($etat) {
+        $this->etat = $etat;
+    }
+
+    function setRep($rep) {
+        $this->rep = $rep;
+    }
+
+    function setIdquestion(\Question $idquestion) {
+        $this->idquestion = $idquestion;
+    }
+
+
 }

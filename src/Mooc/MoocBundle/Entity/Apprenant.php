@@ -6,190 +6,118 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Apprenant
+ *
+ * @ORM\Table(name="apprenant")
+ * @ORM\Entity
  */
 class Apprenant
 {
     /**
      * @var string
+     *
+     * @ORM\Column(name="cin", type="string", length=8, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $cin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=45, nullable=false)
      */
     private $nom;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="prenom", type="string", length=45, nullable=false)
      */
     private $prenom;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=45, nullable=false)
      */
     private $email;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="avatar", type="blob", nullable=true)
      */
     private $avatar;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="login", type="string", length=45, nullable=false)
      */
     private $login;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=45, nullable=false)
      */
     private $password;
 
-    /**
-     * @var string
-     */
-    private $cin;
-
-
-    /**
-     * Set nom
-     *
-     * @param string $nom
-     * @return Apprenant
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-
-        return $this;
+    function getCin() {
+        return $this->cin;
     }
 
-    /**
-     * Get nom
-     *
-     * @return string 
-     */
-    public function getNom()
-    {
+    function getNom() {
         return $this->nom;
     }
 
-    /**
-     * Set prenom
-     *
-     * @param string $prenom
-     * @return Apprenant
-     */
-    public function setPrenom($prenom)
-    {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    /**
-     * Get prenom
-     *
-     * @return string 
-     */
-    public function getPrenom()
-    {
+    function getPrenom() {
         return $this->prenom;
     }
 
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return Apprenant
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string 
-     */
-    public function getEmail()
-    {
+    function getEmail() {
         return $this->email;
     }
 
-    /**
-     * Set avatar
-     *
-     * @param string $avatar
-     * @return Apprenant
-     */
-    public function setAvatar($avatar)
-    {
-        $this->avatar = $avatar;
-
-        return $this;
-    }
-
-    /**
-     * Get avatar
-     *
-     * @return string 
-     */
-    public function getAvatar()
-    {
+    function getAvatar() {
         return $this->avatar;
     }
 
-    /**
-     * Set login
-     *
-     * @param string $login
-     * @return Apprenant
-     */
-    public function setLogin($login)
-    {
-        $this->login = $login;
-
-        return $this;
-    }
-
-    /**
-     * Get login
-     *
-     * @return string 
-     */
-    public function getLogin()
-    {
+    function getLogin() {
         return $this->login;
     }
 
-    /**
-     * Set password
-     *
-     * @param string $password
-     * @return Apprenant
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string 
-     */
-    public function getPassword()
-    {
+    function getPassword() {
         return $this->password;
     }
 
-    /**
-     * Get cin
-     *
-     * @return string 
-     */
-    public function getCin()
-    {
-        return $this->cin;
+    function setCin($cin) {
+        $this->cin = $cin;
     }
+
+    function setNom($nom) {
+        $this->nom = $nom;
+    }
+
+    function setPrenom($prenom) {
+        $this->prenom = $prenom;
+    }
+
+    function setEmail($email) {
+        $this->email = $email;
+    }
+
+    function setAvatar($avatar) {
+        $this->avatar = $avatar;
+    }
+
+    function setLogin($login) {
+        $this->login = $login;
+    }
+
+    function setPassword($password) {
+        $this->password = $password;
+    }
+
+
 }

@@ -159,7 +159,7 @@ class __TwigTemplate_f2af324ba7235df444b6661177ddfe3204a65bd6ac65ca7b16f72497263
         echo "\">à propos</a></li>
 \t\t\t\t\t\t\t\t<li class=\"bt-icon\"><a href=\"";
         // line 75
-        echo $this->env->getExtension('routing')->getPath("mooc_mooc_listecour");
+        echo $this->env->getExtension('routing')->getPath("mooc_mooc_listecours");
         echo "\">Liste cours</a></li>
 \t\t\t\t\t\t\t\t<li class=\"bt-icon\"><a href=\"";
         // line 76
@@ -329,7 +329,7 @@ class __TwigTemplate_f2af324ba7235df444b6661177ddfe3204a65bd6ac65ca7b16f72497263
 /* 							<ul>*/
 /* 								<li class="current bt-icon"><a href="{{path('mooc_mooc_homepage')}}">Acceuil</a></li>*/
 /* 								<li class="bt-icon"><a href="{{path('mooc_mooc_about')}}">à propos</a></li>*/
-/* 								<li class="bt-icon"><a href="{{path('mooc_mooc_listecour')}}">Liste cours</a></li>*/
+/* 								<li class="bt-icon"><a href="{{path('mooc_mooc_listecours')}}">Liste cours</a></li>*/
 /* 								<li class="bt-icon"><a href="{{path('mooc_mooc_listeformateur')}}">formateur</a></li>*/
 /* 								<li class="bt-icon"><a href="index-4.html">organisme</a></li>*/
 /* 								<li class="bt-icon"><a href="{{path('mooc_mooc_contact')}}">contact</a></li>*/

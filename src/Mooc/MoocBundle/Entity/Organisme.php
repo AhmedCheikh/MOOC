@@ -6,274 +6,208 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Organisme
+ *
+ * @ORM\Table(name="organisme")
+ * @ORM\Entity
  */
 class Organisme
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="idorganisme", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idorganisme;
+
+    /**
      * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=45, nullable=false)
      */
     private $nom;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=45, nullable=false)
      */
     private $email;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="siteweb", type="string", length=45, nullable=true)
      */
     private $siteweb;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="adresse", type="string", length=100, nullable=false)
      */
     private $adresse;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="telephone", type="string", length=10, nullable=true)
      */
     private $telephone;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     private $description;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="document", type="blob", nullable=true)
      */
     private $document;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="logo", type="blob", nullable=true)
      */
     private $logo;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="login", type="string", length=45, nullable=false)
+     */
+    private $login;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=45, nullable=false)
+     */
+    private $password;
+
+    /**
      * @var integer
-     */
-    private $idorganisme;
-
-    /**
-     * @var \Mooc\MoocBundle\Entity\Utilisateur
-     */
-    private $iduser;
-
-
-    /**
-     * Set nom
      *
-     * @param string $nom
-     * @return Organisme
+     * @ORM\Column(name="etat", type="integer", nullable=true)
      */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
+    private $etat;
 
     /**
-     * Get nom
+     * @var string
      *
-     * @return string 
+     * @ORM\Column(name="complete", type="string", length=20, nullable=false)
      */
-    public function getNom()
-    {
-        return $this->nom;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return Organisme
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string 
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set siteweb
-     *
-     * @param string $siteweb
-     * @return Organisme
-     */
-    public function setSiteweb($siteweb)
-    {
-        $this->siteweb = $siteweb;
-
-        return $this;
-    }
-
-    /**
-     * Get siteweb
-     *
-     * @return string 
-     */
-    public function getSiteweb()
-    {
-        return $this->siteweb;
-    }
-
-    /**
-     * Set adresse
-     *
-     * @param string $adresse
-     * @return Organisme
-     */
-    public function setAdresse($adresse)
-    {
-        $this->adresse = $adresse;
-
-        return $this;
-    }
-
-    /**
-     * Get adresse
-     *
-     * @return string 
-     */
-    public function getAdresse()
-    {
-        return $this->adresse;
-    }
-
-    /**
-     * Set telephone
-     *
-     * @param string $telephone
-     * @return Organisme
-     */
-    public function setTelephone($telephone)
-    {
-        $this->telephone = $telephone;
-
-        return $this;
-    }
-
-    /**
-     * Get telephone
-     *
-     * @return string 
-     */
-    public function getTelephone()
-    {
-        return $this->telephone;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Organisme
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set document
-     *
-     * @param string $document
-     * @return Organisme
-     */
-    public function setDocument($document)
-    {
-        $this->document = $document;
-
-        return $this;
-    }
-
-    /**
-     * Get document
-     *
-     * @return string 
-     */
-    public function getDocument()
-    {
-        return $this->document;
-    }
-
-    /**
-     * Set logo
-     *
-     * @param string $logo
-     * @return Organisme
-     */
-    public function setLogo($logo)
-    {
-        $this->logo = $logo;
-
-        return $this;
-    }
-
-    /**
-     * Get logo
-     *
-     * @return string 
-     */
-    public function getLogo()
-    {
-        return $this->logo;
-    }
-
-    /**
-     * Get idorganisme
-     *
-     * @return integer 
-     */
-    public function getIdorganisme()
-    {
+    private $complete;
+    function getIdorganisme() {
         return $this->idorganisme;
     }
 
-    /**
-     * Set iduser
-     *
-     * @param \Mooc\MoocBundle\Entity\Utilisateur $iduser
-     * @return Organisme
-     */
-    public function setIduser(\Mooc\MoocBundle\Entity\Utilisateur $iduser = null)
-    {
-        $this->iduser = $iduser;
-
-        return $this;
+    function getNom() {
+        return $this->nom;
     }
 
-    /**
-     * Get iduser
-     *
-     * @return \Mooc\MoocBundle\Entity\Utilisateur 
-     */
-    public function getIduser()
-    {
-        return $this->iduser;
+    function getEmail() {
+        return $this->email;
     }
+
+    function getSiteweb() {
+        return $this->siteweb;
+    }
+
+    function getAdresse() {
+        return $this->adresse;
+    }
+
+    function getTelephone() {
+        return $this->telephone;
+    }
+
+    function getDescription() {
+        return $this->description;
+    }
+
+    function getDocument() {
+        return $this->document;
+    }
+
+    function getLogo() {
+        return $this->logo;
+    }
+
+    function getLogin() {
+        return $this->login;
+    }
+
+    function getPassword() {
+        return $this->password;
+    }
+
+    function getEtat() {
+        return $this->etat;
+    }
+
+    function getComplete() {
+        return $this->complete;
+    }
+
+    function setIdorganisme($idorganisme) {
+        $this->idorganisme = $idorganisme;
+    }
+
+    function setNom($nom) {
+        $this->nom = $nom;
+    }
+
+    function setEmail($email) {
+        $this->email = $email;
+    }
+
+    function setSiteweb($siteweb) {
+        $this->siteweb = $siteweb;
+    }
+
+    function setAdresse($adresse) {
+        $this->adresse = $adresse;
+    }
+
+    function setTelephone($telephone) {
+        $this->telephone = $telephone;
+    }
+
+    function setDescription($description) {
+        $this->description = $description;
+    }
+
+    function setDocument($document) {
+        $this->document = $document;
+    }
+
+    function setLogo($logo) {
+        $this->logo = $logo;
+    }
+
+    function setLogin($login) {
+        $this->login = $login;
+    }
+
+    function setPassword($password) {
+        $this->password = $password;
+    }
+
+    function setEtat($etat) {
+        $this->etat = $etat;
+    }
+
+    function setComplete($complete) {
+        $this->complete = $complete;
+    }
+
+
+
 }

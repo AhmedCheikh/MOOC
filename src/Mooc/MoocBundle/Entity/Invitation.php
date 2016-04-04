@@ -6,190 +6,118 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Invitation
+ *
+ * @ORM\Table(name="invitation")
+ * @ORM\Entity
  */
 class Invitation
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
      * @var string
+     *
+     * @ORM\Column(name="nom_exp", type="string", length=45, nullable=false)
      */
     private $nomExp;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="nom_des", type="string", length=45, nullable=false)
      */
     private $nomDes;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="date_invit", type="date", nullable=false)
      */
     private $dateInvit;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="date_confi", type="date", nullable=false)
      */
     private $dateConfi;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="date_vue", type="date", nullable=false)
      */
     private $dateVue;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="etat", type="integer", nullable=false)
      */
     private $etat;
 
-    /**
-     * @var integer
-     */
-    private $id;
-
-
-    /**
-     * Set nomExp
-     *
-     * @param string $nomExp
-     * @return Invitation
-     */
-    public function setNomExp($nomExp)
-    {
-        $this->nomExp = $nomExp;
-
-        return $this;
+    function getId() {
+        return $this->id;
     }
 
-    /**
-     * Get nomExp
-     *
-     * @return string 
-     */
-    public function getNomExp()
-    {
+    function getNomExp() {
         return $this->nomExp;
     }
 
-    /**
-     * Set nomDes
-     *
-     * @param string $nomDes
-     * @return Invitation
-     */
-    public function setNomDes($nomDes)
-    {
-        $this->nomDes = $nomDes;
-
-        return $this;
-    }
-
-    /**
-     * Get nomDes
-     *
-     * @return string 
-     */
-    public function getNomDes()
-    {
+    function getNomDes() {
         return $this->nomDes;
     }
 
-    /**
-     * Set dateInvit
-     *
-     * @param \DateTime $dateInvit
-     * @return Invitation
-     */
-    public function setDateInvit($dateInvit)
-    {
-        $this->dateInvit = $dateInvit;
-
-        return $this;
-    }
-
-    /**
-     * Get dateInvit
-     *
-     * @return \DateTime 
-     */
-    public function getDateInvit()
-    {
+    function getDateInvit() {
         return $this->dateInvit;
     }
 
-    /**
-     * Set dateConfi
-     *
-     * @param \DateTime $dateConfi
-     * @return Invitation
-     */
-    public function setDateConfi($dateConfi)
-    {
-        $this->dateConfi = $dateConfi;
-
-        return $this;
-    }
-
-    /**
-     * Get dateConfi
-     *
-     * @return \DateTime 
-     */
-    public function getDateConfi()
-    {
+    function getDateConfi() {
         return $this->dateConfi;
     }
 
-    /**
-     * Set dateVue
-     *
-     * @param \DateTime $dateVue
-     * @return Invitation
-     */
-    public function setDateVue($dateVue)
-    {
-        $this->dateVue = $dateVue;
-
-        return $this;
-    }
-
-    /**
-     * Get dateVue
-     *
-     * @return \DateTime 
-     */
-    public function getDateVue()
-    {
+    function getDateVue() {
         return $this->dateVue;
     }
 
-    /**
-     * Set etat
-     *
-     * @param integer $etat
-     * @return Invitation
-     */
-    public function setEtat($etat)
-    {
-        $this->etat = $etat;
-
-        return $this;
-    }
-
-    /**
-     * Get etat
-     *
-     * @return integer 
-     */
-    public function getEtat()
-    {
+    function getEtat() {
         return $this->etat;
     }
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
+    function setId($id) {
+        $this->id = $id;
     }
+
+    function setNomExp($nomExp) {
+        $this->nomExp = $nomExp;
+    }
+
+    function setNomDes($nomDes) {
+        $this->nomDes = $nomDes;
+    }
+
+    function setDateInvit(\DateTime $dateInvit) {
+        $this->dateInvit = $dateInvit;
+    }
+
+    function setDateConfi(\DateTime $dateConfi) {
+        $this->dateConfi = $dateConfi;
+    }
+
+    function setDateVue(\DateTime $dateVue) {
+        $this->dateVue = $dateVue;
+    }
+
+    function setEtat($etat) {
+        $this->etat = $etat;
+    }
+
+
 }

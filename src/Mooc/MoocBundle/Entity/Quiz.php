@@ -6,106 +6,73 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Quiz
+ *
+ * @ORM\Table(name="quiz")
+ * @ORM\Entity
  */
 class Quiz
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
      * @var string
+     *
+     * @ORM\Column(name="titre", type="string", length=255, nullable=false)
      */
     private $titre;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="type", type="integer", nullable=false)
      */
     private $type;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="etat", type="integer", nullable=false)
      */
     private $etat;
 
-    /**
-     * @var integer
-     */
-    private $id;
-
-
-    /**
-     * Set titre
-     *
-     * @param string $titre
-     * @return Quiz
-     */
-    public function setTitre($titre)
-    {
-        $this->titre = $titre;
-
-        return $this;
+    function getId() {
+        return $this->id;
     }
 
-    /**
-     * Get titre
-     *
-     * @return string 
-     */
-    public function getTitre()
-    {
+    function getTitre() {
         return $this->titre;
     }
 
-    /**
-     * Set type
-     *
-     * @param integer $type
-     * @return Quiz
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return integer 
-     */
-    public function getType()
-    {
+    function getType() {
         return $this->type;
     }
 
-    /**
-     * Set etat
-     *
-     * @param integer $etat
-     * @return Quiz
-     */
-    public function setEtat($etat)
-    {
-        $this->etat = $etat;
-
-        return $this;
-    }
-
-    /**
-     * Get etat
-     *
-     * @return integer 
-     */
-    public function getEtat()
-    {
+    function getEtat() {
         return $this->etat;
     }
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
+    function setId($id) {
+        $this->id = $id;
     }
+
+    function setTitre($titre) {
+        $this->titre = $titre;
+    }
+
+    function setType($type) {
+        $this->type = $type;
+    }
+
+    function setEtat($etat) {
+        $this->etat = $etat;
+    }
+
+
 }
