@@ -37,6 +37,33 @@ class Question
      * })
      */
     private $idquiz;
+    function getId() {
+        return $this->id;
+    }
+
+    function getQuestion() {
+        return $this->question;
+    }
+
+    function getIdquiz() {
+        return $this->idquiz;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+        return $this;
+    }
+
+    function setQuestion($question) {
+        $this->question = $question;
+        return $this;
+    }
+
+    function setIdquiz(\Quiz $idquiz) {
+        $this->idquiz = $idquiz;
+        return $this;
+    }
+
 
 
 }

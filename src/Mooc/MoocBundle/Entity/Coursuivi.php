@@ -69,5 +69,68 @@ class Coursuivi
      */
     private $idCours;
 
+    function getCommentaire() {
+        return $this->commentaire;
+    }
+
+    function getNote() {
+        return $this->note;
+    }
+
+    function getDateDebut() {
+        return $this->dateDebut;
+    }
+
+    function getAppreciation() {
+        return $this->appreciation;
+    }
+
+    function getIdcoursuivi() {
+        return $this->idcoursuivi;
+    }
+
+    function getCinapprenant() {
+        return $this->cinapprenant;
+    }
+
+    function getIdCours() {
+        return $this->idCours;
+    }
+
+    function setCommentaire($commentaire) {
+        $this->commentaire = $commentaire;
+        return $this;
+    }
+
+    function setNote($note) {
+        $this->note = $note;
+        return $this;
+    }
+
+    function setDateDebut(\DateTime $dateDebut) {
+        $this->dateDebut = $dateDebut;
+        return $this;
+    }
+
+    function setAppreciation($appreciation) {
+        $this->appreciation = $appreciation;
+        return $this;
+    }
+
+    function setIdcoursuivi($idcoursuivi) {
+        $this->idcoursuivi = $idcoursuivi;
+        return $this;
+    }
+
+    function setCinapprenant(\Apprenant $cinapprenant) {
+        $this->cinapprenant = $cinapprenant;
+        return $this;
+    }
+
+    function setIdCours(\Cours $idCours) {
+        $this->idCours = $idCours;
+        return $this;
+    }
+
 
 }

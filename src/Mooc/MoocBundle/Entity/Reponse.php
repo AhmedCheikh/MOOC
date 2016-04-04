@@ -44,6 +44,42 @@ class Reponse
      * })
      */
     private $idquestion;
+    function getId() {
+        return $this->id;
+    }
+
+    function getEtat() {
+        return $this->etat;
+    }
+
+    function getRep() {
+        return $this->rep;
+    }
+
+    function getIdquestion() {
+        return $this->idquestion;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+        return $this;
+    }
+
+    function setEtat($etat) {
+        $this->etat = $etat;
+        return $this;
+    }
+
+    function setRep($rep) {
+        $this->rep = $rep;
+        return $this;
+    }
+
+    function setIdquestion(\Question $idquestion) {
+        $this->idquestion = $idquestion;
+        return $this;
+    }
+
 
 
 }

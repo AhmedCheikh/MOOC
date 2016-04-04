@@ -104,6 +104,123 @@ class Organisme
      * @ORM\Column(name="complete", type="string", length=20, nullable=false)
      */
     private $complete;
+    function getIdorganisme() {
+        return $this->idorganisme;
+    }
+
+    function getNom() {
+        return $this->nom;
+    }
+
+    function getEmail() {
+        return $this->email;
+    }
+
+    function getSiteweb() {
+        return $this->siteweb;
+    }
+
+    function getAdresse() {
+        return $this->adresse;
+    }
+
+    function getTelephone() {
+        return $this->telephone;
+    }
+
+    function getDescription() {
+        return $this->description;
+    }
+
+    function getDocument() {
+        return $this->document;
+    }
+
+    function getLogo() {
+        return $this->logo;
+    }
+
+    function getLogin() {
+        return $this->login;
+    }
+
+    function getPassword() {
+        return $this->password;
+    }
+
+    function getEtat() {
+        return $this->etat;
+    }
+
+    function getComplete() {
+        return $this->complete;
+    }
+
+    function setIdorganisme($idorganisme) {
+        $this->idorganisme = $idorganisme;
+        return $this;
+    }
+
+    function setNom($nom) {
+        $this->nom = $nom;
+        return $this;
+    }
+
+    function setEmail($email) {
+        $this->email = $email;
+        return $this;
+    }
+
+    function setSiteweb($siteweb) {
+        $this->siteweb = $siteweb;
+        return $this;
+    }
+
+    function setAdresse($adresse) {
+        $this->adresse = $adresse;
+        return $this;
+    }
+
+    function setTelephone($telephone) {
+        $this->telephone = $telephone;
+        return $this;
+    }
+
+    function setDescription($description) {
+        $this->description = $description;
+        return $this;
+    }
+
+    function setDocument($document) {
+        $this->document = $document;
+        return $this;
+    }
+
+    function setLogo($logo) {
+        $this->logo = $logo;
+        return $this;
+    }
+
+    function setLogin($login) {
+        $this->login = $login;
+        return $this;
+    }
+
+    function setPassword($password) {
+        $this->password = $password;
+        return $this;
+    }
+
+    function setEtat($etat) {
+        $this->etat = $etat;
+        return $this;
+    }
+
+    function setComplete($complete) {
+        $this->complete = $complete;
+        return $this;
+    }
+
 
 
 }
