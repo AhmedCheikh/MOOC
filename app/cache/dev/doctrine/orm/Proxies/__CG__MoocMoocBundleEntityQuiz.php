@@ -64,10 +64,10 @@ class Quiz extends \Mooc\MoocBundle\Entity\Quiz implements \Doctrine\ORM\Proxy\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'id', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'titre', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'type', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'etat'];
+            return ['__isInitialized__', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'id', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'titre', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'type'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'id', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'titre', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'type', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'etat'];
+        return ['__isInitialized__', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'id', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'titre', '' . "\0" . 'Mooc\\MoocBundle\\Entity\\Quiz' . "\0" . 'type'];
     }
 
     /**
@@ -213,17 +213,6 @@ class Quiz extends \Mooc\MoocBundle\Entity\Quiz implements \Doctrine\ORM\Proxy\P
     /**
      * {@inheritDoc}
      */
-    public function getEtat()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEtat', []);
-
-        return parent::getEtat();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function setId($id)
     {
 
@@ -252,17 +241,6 @@ class Quiz extends \Mooc\MoocBundle\Entity\Quiz implements \Doctrine\ORM\Proxy\P
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setType', [$type]);
 
         return parent::setType($type);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setEtat($etat)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEtat', [$etat]);
-
-        return parent::setEtat($etat);
     }
 
 }

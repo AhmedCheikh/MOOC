@@ -35,13 +35,6 @@ class Quiz
      */
     private $type;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="etat", type="integer", nullable=false)
-     */
-    private $etat;
-
     function getId() {
         return $this->id;
     }
@@ -54,25 +47,21 @@ class Quiz
         return $this->type;
     }
 
-    function getEtat() {
-        return $this->etat;
-    }
-
     function setId($id) {
         $this->id = $id;
+        return $this;
     }
 
     function setTitre($titre) {
         $this->titre = $titre;
+        return $this;
     }
 
     function setType($type) {
         $this->type = $type;
+        return $this;
     }
 
-    function setEtat($etat) {
-        $this->etat = $etat;
-    }
 
 
 }

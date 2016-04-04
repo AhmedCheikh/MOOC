@@ -121,39 +121,50 @@ class Cours
 
     function setIdcours($idcours) {
         $this->idcours = $idcours;
+        return $this;
     }
 
     function setNomCours($nomCours) {
         $this->nomCours = $nomCours;
+        return $this;
     }
 
     function setDescription($description) {
         $this->description = $description;
+        return $this;
     }
 
     function setDifficulte($difficulte) {
         $this->difficulte = $difficulte;
+        return $this;
     }
 
     function setObjectif($objectif) {
         $this->objectif = $objectif;
+        return $this;
     }
 
     function setVideo($video) {
         $this->video = $video;
+        return $this;
     }
 
     function setEtat($etat) {
         $this->etat = $etat;
+        return $this;
     }
 
     function setIdquiz(\Quiz $idquiz) {
         $this->idquiz = $idquiz;
+        return $this;
     }
 
     function setCinformateur(\Formateur $cinformateur) {
         $this->cinformateur = $cinformateur;
+        return $this;
     }
+
+
 
 
 }

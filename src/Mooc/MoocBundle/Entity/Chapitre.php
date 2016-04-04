@@ -43,13 +43,6 @@ class Chapitre
     private $objectif;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="etat", type="integer", nullable=false)
-     */
-    private $etat;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="video", type="string", length=255, nullable=true)
@@ -92,10 +85,6 @@ class Chapitre
         return $this->objectif;
     }
 
-    function getEtat() {
-        return $this->etat;
-    }
-
     function getVideo() {
         return $this->video;
     }
@@ -110,34 +99,37 @@ class Chapitre
 
     function setId($id) {
         $this->id = $id;
+        return $this;
     }
 
     function setTitre($titre) {
         $this->titre = $titre;
+        return $this;
     }
 
     function setPresentation($presentation) {
         $this->presentation = $presentation;
+        return $this;
     }
 
     function setObjectif($objectif) {
         $this->objectif = $objectif;
-    }
-
-    function setEtat($etat) {
-        $this->etat = $etat;
+        return $this;
     }
 
     function setVideo($video) {
         $this->video = $video;
+        return $this;
     }
 
     function setIdquiz(\Quiz $idquiz) {
         $this->idquiz = $idquiz;
+        return $this;
     }
 
     function setIdcours(\Cours $idcours) {
         $this->idcours = $idcours;
+        return $this;
     }
 
 

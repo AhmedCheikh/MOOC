@@ -32,5 +32,30 @@ class CoursController extends Controller {
             return new Response($rep);
         }
     }
+    
+    public function deleteAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $cours = $em->getRepository('MoocMoocBundle:Cours')->find($id);
+        $em->remove($cours);
+        $em->flush();
+        return $this->redirect($this->generateUrl('mooc_mooc_listecourformateur'));
+    }
+    
+     public function updateCoursAction($id) {
 
-}
+        return $this->render('MoocMoocBundle:Formateur:updateCours.html.twig', array('id' => $id));
+    }
+    
+    
+    public function testChercherCoursFormateurAction($cin)
+    {
+    $repository = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('MoocMoocBundle:Cours');
+        $cours = $repository->findBy($cin);
+       
+            return $this->render('MoocMoocBundle:Formateur:listecourformateur.html.twig',array('Cours' => $cours));
+        }
+    }
+    
+

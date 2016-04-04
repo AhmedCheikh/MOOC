@@ -31,5 +31,45 @@ mooc_mooc_log_out_formateur:
     defaults: { _controller: MoocMoocBundle:Formateur:logoutformateur} 
 
 mooc_mooc_acceuilformateur:
-    path:     /acceuilformateur
+    path:     /acceuilformateur/{name}/{prenom}
     defaults: { _controller: MoocMoocBundle:Formateur:acceuilformateur} 
+    
+mooc_mooc_publiercourformateur:
+    path:     /publiercour/{name}/{prenom}
+    defaults: { _controller: MoocMoocBundle:Formateur:publiercour} 
+    
+mooc_mooc_listecourformateur:
+    path:     /listecourformateur/{name}/{prenom}
+    defaults: { _controller: MoocMoocBundle:Formateur:listecourformateur}  
+    
+mooc_mooc_listechapitre:
+    path:     /listechapitres
+    defaults: { _controller: MoocMoocBundle:Chapitre:affichelistChapitres}
+    
+mooc_mooc_PasserQuizNonChrono:
+    path:     /PasserQuizNonChro
+    defaults: { _controller: MoocMoocBundle:quiz:passerQuizChro}
+    
+mooc_mooc_Ajouter_chapitre:
+    path:     /AjouterChapitre
+    defaults: { _controller: MoocMoocBundle:Chapitre:ajouterChapitre}
+   
+mooc_mooc_Modifier_chapitre:
+    path:     /ModifierChapitre/{idchapitre}
+    defaults: { _controller: MoocMoocBundle:Chapitre:modifierChapitre}
+    
+mooc_mooc_Ajouter_quiz:
+    path:     /AjouterQuiz
+    defaults: { _controller: MoocMoocBundle:Quiz:ajouterQuiz}
+    
+mooc_mooc_Ajouter_question:
+    path:     /AjouterQuestion/{idquiz}
+    defaults: { _controller: MoocMoocBundle:Question:ajouterQuestion}
+    
+mooc_mooc_delCours:
+    path:     /DeleteCours/{id}
+    defaults: { _controller: MoocMoocBundle:Cours:delete}
+    
+mooc_mooc_updateCours:
+    path:     /UpdateCours/{id}
+    defaults: { _controller: MoocMoocBundle:Cours:update}

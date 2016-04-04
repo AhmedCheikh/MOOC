@@ -8,7 +8,7 @@
         <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
         <link rel="shortcut icon" href="{{asset('bundles/moocmooc/css/profilformateur/img/favicon.png')}}">
 
-        <title>Creative - Bootstrap Admin Template</title>
+        <title>Profil formateur</title>
 
         <!-- Bootstrap CSS -->    
 
@@ -315,20 +315,20 @@
                             </a>
                         </li>
                         <li class="sub-menu">
-                            <a href="javascript:;" class="">
+                            <a href="{{path('mooc_mooc_publiercourformateur', {'prenom':prenom,'name':name})}}" class="">
                                 <i class="icon_document_alt"></i>
                                 <span>Publier Cours</span>
                                 <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
                         </li>       
                         <li class="sub-menu">
-                            <a href="javascript:;" class="">
+                            <a href="{{path('mooc_mooc_listecourformateur', {'prenom':prenom,'name':name})}}" class="">
                                 <i class="icon_desktop"></i>
                                 <span>Liste Cour</span>
                                 <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
                             <ul class="sub">
-                                <li><a class="" href="general.html">Chapitre</a></li>
+                                <li><a class="" href="{{path('mooc_mooc_listechapitre')}}">Chapitre</a></li>
                                 <li><a class="" href="buttons.html">Vidéos</a></li>
                                 <li><a class="" href="grids.html">Présentation</a></li>
                             </ul>
@@ -376,6 +376,9 @@
 
                     <!-- Today status end -->
 
+                   
+
+                    
                     <br><br>
                 </section>
             </section>

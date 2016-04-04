@@ -56,53 +56,5 @@ class Comite
      */
     private $password;
 
-    function getCin() {
-        return $this->cin;
-    }
-
-    function getNom() {
-        return $this->nom;
-    }
-
-    function getPrenom() {
-        return $this->prenom;
-    }
-
-    function getEmail() {
-        return $this->email;
-    }
-
-    function getLogin() {
-        return $this->login;
-    }
-
-    function getPassword() {
-        return $this->password;
-    }
-
-    function setCin($cin) {
-        $this->cin = $cin;
-    }
-
-    function setNom($nom) {
-        $this->nom = $nom;
-    }
-
-    function setPrenom($prenom) {
-        $this->prenom = $prenom;
-    }
-
-    function setEmail($email) {
-        $this->email = $email;
-    }
-
-    function setLogin($login) {
-        $this->login = $login;
-    }
-
-    function setPassword($password) {
-        $this->password = $password;
-    }
-
 
 }

@@ -76,7 +76,6 @@ class Formateur
      * @ORM\Column(name="password", type="string", length=45, nullable=false)
      */
     private $password;
-
     function getCin() {
         return $this->cin;
     }
@@ -115,39 +114,49 @@ class Formateur
 
     function setCin($cin) {
         $this->cin = $cin;
+        return $this;
     }
 
     function setNom($nom) {
         $this->nom = $nom;
+        return $this;
     }
 
     function setPrenom($prenom) {
         $this->prenom = $prenom;
+        return $this;
     }
 
     function setEmail($email) {
         $this->email = $email;
+        return $this;
     }
 
     function setEtat($etat) {
         $this->etat = $etat;
+        return $this;
     }
 
     function setAvatar($avatar) {
         $this->avatar = $avatar;
+        return $this;
     }
 
     function setCv($cv) {
         $this->cv = $cv;
+        return $this;
     }
 
     function setLogin($login) {
         $this->login = $login;
+        return $this;
     }
 
     function setPassword($password) {
         $this->password = $password;
+        return $this;
     }
+
 
 
 }

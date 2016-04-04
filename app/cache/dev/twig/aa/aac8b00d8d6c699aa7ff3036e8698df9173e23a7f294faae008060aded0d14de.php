@@ -29,7 +29,7 @@ class __TwigTemplate_b69cb2bc4094b5d3cd5c2d3515afb2d011d0b895c5be5716ba1f6e4207a
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/favicon.png"), "html", null, true);
         echo "\">
 
-        <title>Creative - Bootstrap Admin Template</title>
+        <title>Profil formateur</title>
 
         <!-- Bootstrap CSS -->    
 
@@ -404,20 +404,29 @@ class __TwigTemplate_b69cb2bc4094b5d3cd5c2d3515afb2d011d0b895c5be5716ba1f6e4207a
                             </a>
                         </li>
                         <li class=\"sub-menu\">
-                            <a href=\"javascript:;\" class=\"\">
+                            <a href=\"";
+        // line 318
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_publiercourformateur", array("prenom" => (isset($context["prenom"]) ? $context["prenom"] : $this->getContext($context, "prenom")), "name" => (isset($context["name"]) ? $context["name"] : $this->getContext($context, "name")))), "html", null, true);
+        echo "\" class=\"\">
                                 <i class=\"icon_document_alt\"></i>
                                 <span>Publier Cours</span>
                                 <span class=\"menu-arrow arrow_carrot-right\"></span>
                             </a>
                         </li>       
                         <li class=\"sub-menu\">
-                            <a href=\"javascript:;\" class=\"\">
+                            <a href=\"";
+        // line 325
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_listecourformateur", array("prenom" => (isset($context["prenom"]) ? $context["prenom"] : $this->getContext($context, "prenom")), "name" => (isset($context["name"]) ? $context["name"] : $this->getContext($context, "name")))), "html", null, true);
+        echo "\" class=\"\">
                                 <i class=\"icon_desktop\"></i>
                                 <span>Liste Cour</span>
                                 <span class=\"menu-arrow arrow_carrot-right\"></span>
                             </a>
                             <ul class=\"sub\">
-                                <li><a class=\"\" href=\"general.html\">Chapitre</a></li>
+                                <li><a class=\"\" href=\"";
+        // line 331
+        echo $this->env->getExtension('routing')->getPath("mooc_mooc_listechapitre");
+        echo "\">Chapitre</a></li>
                                 <li><a class=\"\" href=\"buttons.html\">Vidéos</a></li>
                                 <li><a class=\"\" href=\"grids.html\">Présentation</a></li>
                             </ul>
@@ -465,6 +474,9 @@ class __TwigTemplate_b69cb2bc4094b5d3cd5c2d3515afb2d011d0b895c5be5716ba1f6e4207a
 
                     <!-- Today status end -->
 
+                   
+
+                    
                     <br><br>
                 </section>
             </section>
@@ -474,132 +486,132 @@ class __TwigTemplate_b69cb2bc4094b5d3cd5c2d3515afb2d011d0b895c5be5716ba1f6e4207a
 
         <!-- javascripts -->
         <script src=\"";
-        // line 387
+        // line 390
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 388
+        // line 391
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery-ui-1.10.4.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 389
+        // line 392
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery-1.8.3.min.js"), "html", null, true);
         echo "\"></script>
         <script type=\"text/javascript\" src=\"";
-        // line 390
+        // line 393
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery-ui-1.9.2.custom.min.js"), "html", null, true);
         echo "\"></script>
         <!-- bootstrap -->
         <script src=\"";
-        // line 392
+        // line 395
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
         <!-- nice scroll -->
         <script src=\"";
-        // line 394
+        // line 397
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.scrollTo.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 395
+        // line 398
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.nicescroll.js"), "html", null, true);
         echo "\" type=\"text/javascript\"></script>
         <!-- charts scripts -->
         <script src=\"";
-        // line 397
+        // line 400
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/assets/jquery-knob/js/jquery.knob.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 398
+        // line 401
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.sparkline.js"), "html", null, true);
         echo "\" type=\"text/javascript\"></script>
         <script src=\"";
-        // line 399
+        // line 402
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 400
+        // line 403
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/owl.carousel.js"), "html", null, true);
         echo "\" ></script>
         <!-- jQuery full calendar -->
         <<script src=\"";
-        // line 402
+        // line 405
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/fullcalendar.min.js"), "html", null, true);
         echo "\"></script> <!-- Full Google Calendar - Calendar -->
         <script src=\"";
-        // line 403
+        // line 406
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/assets/fullcalendar/fullcalendar/fullcalendar.js"), "html", null, true);
         echo "\"></script>
         <!--script for this page only-->
         <script src=\"";
-        // line 405
+        // line 408
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/calendar-custom.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 406
+        // line 409
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.rateit.min.js"), "html", null, true);
         echo "\"></script>
         <!-- custom select -->
         <script src=\"";
-        // line 408
+        // line 411
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.customSelect.min.js"), "html", null, true);
         echo "\" ></script>
         <script src=\"";
-        // line 409
+        // line 412
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/assets/chart-master/Chart.js"), "html", null, true);
         echo "\"></script>
 
         <!--custome script for all page-->
         <script src=\"";
-        // line 412
+        // line 415
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/scripts.js"), "html", null, true);
         echo "\"></script>
         <!-- custom script for this page-->
         <script src=\"";
-        // line 414
+        // line 417
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/sparkline-chart.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 415
+        // line 418
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/easy-pie-chart.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 416
+        // line 419
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery-jvectormap-1.2.2.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 417
+        // line 420
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery-jvectormap-world-mill-en.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 418
+        // line 421
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/xcharts.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 419
+        // line 422
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.autosize.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 420
+        // line 423
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.placeholder.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 421
+        // line 424
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/gdp-data.js"), "html", null, true);
         echo "\"></script>\t
         <script src=\"";
-        // line 422
+        // line 425
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/morris.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 423
+        // line 426
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/sparklines.js"), "html", null, true);
         echo "\"></script>\t
         <script src=\"";
-        // line 424
+        // line 427
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/charts.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 425
+        // line 428
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.slimscroll.min.js"), "html", null, true);
         echo "\"></script>
         <script>
@@ -667,7 +679,7 @@ class __TwigTemplate_b69cb2bc4094b5d3cd5c2d3515afb2d011d0b895c5be5716ba1f6e4207a
 
     public function getDebugInfo()
     {
-        return array (  603 => 425,  599 => 424,  595 => 423,  591 => 422,  587 => 421,  583 => 420,  579 => 419,  575 => 418,  571 => 417,  567 => 416,  563 => 415,  559 => 414,  554 => 412,  548 => 409,  544 => 408,  539 => 406,  535 => 405,  530 => 403,  526 => 402,  521 => 400,  517 => 399,  513 => 398,  509 => 397,  504 => 395,  500 => 394,  495 => 392,  490 => 390,  486 => 389,  482 => 388,  478 => 387,  380 => 292,  360 => 277,  355 => 275,  286 => 209,  271 => 197,  256 => 185,  241 => 173,  101 => 36,  97 => 35,  93 => 34,  89 => 33,  85 => 32,  81 => 31,  76 => 29,  72 => 28,  67 => 26,  62 => 24,  58 => 23,  53 => 21,  49 => 20,  43 => 17,  38 => 15,  29 => 9,  19 => 1,);
+        return array (  615 => 428,  611 => 427,  607 => 426,  603 => 425,  599 => 424,  595 => 423,  591 => 422,  587 => 421,  583 => 420,  579 => 419,  575 => 418,  571 => 417,  566 => 415,  560 => 412,  556 => 411,  551 => 409,  547 => 408,  542 => 406,  538 => 405,  533 => 403,  529 => 402,  525 => 401,  521 => 400,  516 => 398,  512 => 397,  507 => 395,  502 => 393,  498 => 392,  494 => 391,  490 => 390,  428 => 331,  419 => 325,  409 => 318,  380 => 292,  360 => 277,  355 => 275,  286 => 209,  271 => 197,  256 => 185,  241 => 173,  101 => 36,  97 => 35,  93 => 34,  89 => 33,  85 => 32,  81 => 31,  76 => 29,  72 => 28,  67 => 26,  62 => 24,  58 => 23,  53 => 21,  49 => 20,  43 => 17,  38 => 15,  29 => 9,  19 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -680,7 +692,7 @@ class __TwigTemplate_b69cb2bc4094b5d3cd5c2d3515afb2d011d0b895c5be5716ba1f6e4207a
 /*         <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">*/
 /*         <link rel="shortcut icon" href="{{asset('bundles/moocmooc/css/profilformateur/img/favicon.png')}}">*/
 /* */
-/*         <title>Creative - Bootstrap Admin Template</title>*/
+/*         <title>Profil formateur</title>*/
 /* */
 /*         <!-- Bootstrap CSS -->    */
 /* */
@@ -987,20 +999,20 @@ class __TwigTemplate_b69cb2bc4094b5d3cd5c2d3515afb2d011d0b895c5be5716ba1f6e4207a
 /*                             </a>*/
 /*                         </li>*/
 /*                         <li class="sub-menu">*/
-/*                             <a href="javascript:;" class="">*/
+/*                             <a href="{{path('mooc_mooc_publiercourformateur', {'prenom':prenom,'name':name})}}" class="">*/
 /*                                 <i class="icon_document_alt"></i>*/
 /*                                 <span>Publier Cours</span>*/
 /*                                 <span class="menu-arrow arrow_carrot-right"></span>*/
 /*                             </a>*/
 /*                         </li>       */
 /*                         <li class="sub-menu">*/
-/*                             <a href="javascript:;" class="">*/
+/*                             <a href="{{path('mooc_mooc_listecourformateur', {'prenom':prenom,'name':name})}}" class="">*/
 /*                                 <i class="icon_desktop"></i>*/
 /*                                 <span>Liste Cour</span>*/
 /*                                 <span class="menu-arrow arrow_carrot-right"></span>*/
 /*                             </a>*/
 /*                             <ul class="sub">*/
-/*                                 <li><a class="" href="general.html">Chapitre</a></li>*/
+/*                                 <li><a class="" href="{{path('mooc_mooc_listechapitre')}}">Chapitre</a></li>*/
 /*                                 <li><a class="" href="buttons.html">Vidéos</a></li>*/
 /*                                 <li><a class="" href="grids.html">Présentation</a></li>*/
 /*                             </ul>*/
@@ -1048,6 +1060,9 @@ class __TwigTemplate_b69cb2bc4094b5d3cd5c2d3515afb2d011d0b895c5be5716ba1f6e4207a
 /* */
 /*                     <!-- Today status end -->*/
 /* */
+/*                    */
+/* */
+/*                     */
 /*                     <br><br>*/
 /*                 </section>*/
 /*             </section>*/
