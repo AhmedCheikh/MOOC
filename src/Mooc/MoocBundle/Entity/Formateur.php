@@ -45,14 +45,14 @@ class Formateur
     /**
      * @var integer
      *
-     * @ORM\Column(name="etat", type="integer", nullable=false)
+     * @ORM\Column(name="etat", type="integer", nullable=true)
      */
     private $etat;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="avatar", type="blob", nullable=true)
+     * @ORM\Column(name="avatar", type="string", nullable=true)
      */
     private $avatar;
 
