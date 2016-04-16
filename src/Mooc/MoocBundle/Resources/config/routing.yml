@@ -1,0 +1,118 @@
+mooc_mooc_homepage:
+    path:     /
+    defaults: { _controller: MoocMoocBundle:Default:index }
+
+mooc_mooc_contact:
+    path:     /contact
+    defaults: { _controller: MoocMoocBundle:Contact:send }
+
+mooc_mooc_about:
+    path:     /about
+    defaults: { _controller: MoocMoocBundle:About:info }
+    
+mooc_mooc_listecours:
+    path:     /listecours
+    defaults: { _controller: MoocMoocBundle:Cours:affichecours}
+    
+mooc_mooc_listeformateur:
+    path:     /listeformateur
+    defaults: { _controller: MoocMoocBundle:Formateur:afficheformateur}
+
+mooc_mooc_logformateur:
+    path:     /loginformateur
+    defaults: { _controller: MoocMoocBundle:Formateur:loginformateur} 
+
+mooc_mooc_inscritformateur:
+    path:     /inscriptionformateur
+    defaults: { _controller: MoocMoocBundle:Formateur:inscriptionformateur} 
+
+mooc_mooc_log_out_formateur:
+    path:     /logoutformateur
+    defaults: { _controller: MoocMoocBundle:Formateur:logoutformateur} 
+
+mooc_mooc_acceuilformateur:
+    path:     /acceuilformateur/{name}/{prenom}
+    defaults: { _controller: MoocMoocBundle:Formateur:acceuilformateur} 
+    
+mooc_mooc_publiercourformateur:
+    path:     /publiercour/{name}/{prenom}
+    defaults: { _controller: MoocMoocBundle:Formateur:publiercour} 
+    
+mooc_mooc_listecourformateur:
+    path:     /listecourformateur/{name}/{prenom}
+    defaults: { _controller: MoocMoocBundle:Formateur:listecourformateur}  
+    
+mooc_mooc_listechapitre:
+    path:     /listechapitres
+    defaults: { _controller: MoocMoocBundle:Chapitre:affichelistChapitres}
+    
+mooc_mooc_PasserQuizNonChrono:
+    path:     /PasserQuizNonChro
+    defaults: { _controller: MoocMoocBundle:quiz:passerQuizChro}
+    
+mooc_mooc_Ajouter_chapitre:
+    path:     /AjouterChapitre
+    defaults: { _controller: MoocMoocBundle:Chapitre:ajouterChapitre}
+   
+mooc_mooc_Modifier_chapitre:
+    path:     /ModifierChapitre/{idchapitre}
+    defaults: { _controller: MoocMoocBundle:Chapitre:modifierChapitre}
+    
+mooc_mooc_Ajouter_quiz:
+    path:     /AjouterQuiz
+    defaults: { _controller: MoocMoocBundle:Quiz:ajouterQuiz}
+    
+mooc_mooc_Ajouter_question:
+    path:     /AjouterQuestion/{idquiz}
+    defaults: { _controller: MoocMoocBundle:Question:ajouterQuestion}
+    
+mooc_mooc_delCours:
+    path:     /DeleteCours/{id}
+    defaults: { _controller: MoocMoocBundle:Cours:delete}
+    
+mooc_mooc_updateCours:
+    path:     /UpdateCours/{id}
+    defaults: { _controller: MoocMoocBundle:Cours:update}
+    
+mooc_espace_apprenant:
+    path:   /espaceapprenant
+    defaults: { _controller: MoocMoocBundle:Apprenant:EspaceApprenant}
+    
+mooc_accueil_apprenant:
+    path:   /accueilapprenant/{login}
+    defaults: { _controller: MoocMoocBundle:Apprenant:acceuilApprenant}   
+    
+mooc_cours_apprenant:
+    path:   /CoursApprenant/{login}
+    defaults: { _controller: MoocMoocBundle:Apprenant:CoursApprenant}
+    
+mooc_chercher_cours_apprenant:
+    path:   /ChercherCours/{login}
+    defaults: { _controller: MoocMoocBundle:Apprenant:ChercherCoursApprenant}
+    
+mooc_login_apprenant:
+    path:     /loginApprenant
+    defaults: { _controller: MoocMoocBundle:Apprenant:loginApprenant}
+mooc_log_out_apprenant:
+    path:     /logoutApprenant
+    defaults: { _controller: MoocMoocBundle:Apprenant:logoutApprenant}
+    
+mooc_inscription_apprenant:
+    path:     /inscriptionApprenant
+    defaults: { _controller: MoocMoocBundle:Apprenant:inscriptionApprenant}
+    
+mooc_editer_profil_apprenant:
+    path:     /accueilapprenant/{login}
+    defaults: { _controller: MoocMoocBundle:Apprenant:editerProfil}
+    
+mooc_supprimer_cours_apprenant:
+    path:     /{id}/{login}
+    defaults: { _controller: MoocMoocBundle:Apprenant:supprimer}
+    
+mooc_suivre_cour_apprenant:
+    path:     /{login}/{id}/{id2}
+    defaults: { _controller: MoocMoocBundle:Apprenant:suivreCours}
+mooc_ajout_apprenant:
+    path:     /ajout
+    defaults: { _controller: MoocMoocBundle:Apprenant:ajout}    
+    
