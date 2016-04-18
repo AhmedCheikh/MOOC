@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Formateur
  *
  * @ORM\Table(name="formateur")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Mooc\MoocBundle\Entity\FormateurRepository")
  */
 class Formateur
 {

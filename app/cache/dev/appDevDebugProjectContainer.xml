@@ -20,6 +20,7 @@
       <parameter key="MoocMoocBundle">Mooc\MoocBundle\MoocMoocBundle</parameter>
       <parameter key="EasyAdminBundle">JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle</parameter>
       <parameter key="VichUploaderBundle">Vich\UploaderBundle\VichUploaderBundle</parameter>
+      <parameter key="AvanzuAdminThemeBundle">Avanzu\AdminThemeBundle\AvanzuAdminThemeBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -37,7 +38,7 @@
     <parameter key="mailer_host">127.0.0.1</parameter>
     <parameter key="mailer_user">null</parameter>
     <parameter key="mailer_password">null</parameter>
-    <parameter key="locale">en</parameter>
+    <parameter key="locale">fr</parameter>
     <parameter key="secret">ThisTokenIsNotSoSecretChangeIt</parameter>
     <parameter key="app.path.formateur_images">/img/avatar</parameter>
     <parameter key="app.path.formateur_cv">/file/cv</parameter>
@@ -93,7 +94,7 @@
     <parameter key="kernel.http_method_override">true</parameter>
     <parameter key="kernel.trusted_hosts" type="collection"/>
     <parameter key="kernel.trusted_proxies" type="collection"/>
-    <parameter key="kernel.default_locale">en</parameter>
+    <parameter key="kernel.default_locale">fr</parameter>
     <parameter key="session.class">Symfony\Component\HttpFoundation\Session\Session</parameter>
     <parameter key="session.flashbag.class">Symfony\Component\HttpFoundation\Session\Flash\FlashBag</parameter>
     <parameter key="session.attribute_bag.class">Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag</parameter>
@@ -209,7 +210,7 @@
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
-    <parameter key="router.resource">C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev/assetic/routing.yml</parameter>
+    <parameter key="router.resource">C:\xampp\htdocs\MOOC_3A2_Web\app/config/routing_dev.yml</parameter>
     <parameter key="router.cache_class_prefix">appDev</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
@@ -324,20 +325,22 @@
     <parameter key="twig.form.renderer.class">Symfony\Bridge\Twig\Form\TwigRenderer</parameter>
     <parameter key="twig.translation.extractor.class">Symfony\Bridge\Twig\Translation\TwigExtractor</parameter>
     <parameter key="twig.exception_listener.class">Symfony\Component\HttpKernel\EventListener\ExceptionListener</parameter>
-    <parameter key="twig.controller.exception.class">Symfony\Bundle\TwigBundle\Controller\ExceptionController</parameter>
+    <parameter key="twig.controller.exception.class">Avanzu\AdminThemeBundle\Controller\ExceptionController</parameter>
     <parameter key="twig.controller.preview_error.class">Symfony\Bundle\TwigBundle\Controller\PreviewErrorController</parameter>
     <parameter key="twig.exception_listener.controller">twig.controller.exception:showAction</parameter>
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
+      <parameter>AvanzuAdminThemeBundle:layout:form-theme.html.twig</parameter>
     </parameter>
     <parameter key="debug.templating.engine.twig.class">Symfony\Bundle\TwigBundle\Debug\TimedTwigEngine</parameter>
     <parameter key="twig.options" type="collection">
+      <parameter key="form_themes" type="collection">
+        <parameter>form_div_layout.html.twig</parameter>
+        <parameter>AvanzuAdminThemeBundle:layout:form-theme.html.twig</parameter>
+      </parameter>
       <parameter key="debug">true</parameter>
       <parameter key="strict_variables">true</parameter>
       <parameter key="exception_controller">twig.controller.exception:showAction</parameter>
-      <parameter key="form_themes" type="collection">
-        <parameter>form_div_layout.html.twig</parameter>
-      </parameter>
       <parameter key="autoescape" type="collection">
         <parameter>Symfony\Bundle\TwigBundle\TwigDefaultEscapingStrategy</parameter>
         <parameter>guess</parameter>
@@ -453,14 +456,16 @@
     <parameter key="assetic.value_supplier.class">Symfony\Bundle\AsseticBundle\DefaultValueSupplier</parameter>
     <parameter key="assetic.node.paths" type="collection"/>
     <parameter key="assetic.cache_dir">C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev/assetic</parameter>
-    <parameter key="assetic.bundles" type="collection"/>
+    <parameter key="assetic.bundles" type="collection">
+      <parameter>AvanzuAdminThemeBundle</parameter>
+    </parameter>
     <parameter key="assetic.twig_extension.class">Symfony\Bundle\AsseticBundle\Twig\AsseticExtension</parameter>
     <parameter key="assetic.twig_formula_loader.class">Assetic\Extension\Twig\TwigFormulaLoader</parameter>
     <parameter key="assetic.helper.dynamic.class">Symfony\Bundle\AsseticBundle\Templating\DynamicAsseticHelper</parameter>
     <parameter key="assetic.helper.static.class">Symfony\Bundle\AsseticBundle\Templating\StaticAsseticHelper</parameter>
     <parameter key="assetic.php_formula_loader.class">Symfony\Bundle\AsseticBundle\Factory\Loader\AsseticHelperFormulaLoader</parameter>
     <parameter key="assetic.debug">true</parameter>
-    <parameter key="assetic.use_controller">true</parameter>
+    <parameter key="assetic.use_controller">false</parameter>
     <parameter key="assetic.enable_profiler">false</parameter>
     <parameter key="assetic.read_from">C:\xampp\htdocs\MOOC_3A2_Web\app/../web</parameter>
     <parameter key="assetic.write_to">C:\xampp\htdocs\MOOC_3A2_Web\app/../web</parameter>
@@ -472,11 +477,6 @@
     <parameter key="assetic.reactjsx.bin">/usr/bin/jsx</parameter>
     <parameter key="assetic.filter.cssrewrite.class">Assetic\Filter\CssRewriteFilter</parameter>
     <parameter key="assetic.twig_extension.functions" type="collection"/>
-    <parameter key="assetic.controller.class">Symfony\Bundle\AsseticBundle\Controller\AsseticController</parameter>
-    <parameter key="assetic.routing_loader.class">Symfony\Bundle\AsseticBundle\Routing\AsseticLoader</parameter>
-    <parameter key="assetic.cache.class">Assetic\Cache\FilesystemCache</parameter>
-    <parameter key="assetic.use_controller_worker.class">Symfony\Bundle\AsseticBundle\Factory\Worker\UseControllerWorker</parameter>
-    <parameter key="assetic.request_listener.class">Symfony\Bundle\AsseticBundle\EventListener\RequestListener</parameter>
     <parameter key="doctrine_cache.apc.class">Doctrine\Common\Cache\ApcCache</parameter>
     <parameter key="doctrine_cache.apcu.class">Doctrine\Common\Cache\ApcuCache</parameter>
     <parameter key="doctrine_cache.array.class">Doctrine\Common\Cache\ArrayCache</parameter>
@@ -598,6 +598,7 @@
     <parameter key="sensio_framework_extra.view.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener</parameter>
     <parameter key="easyadmin.config" type="collection">
       <parameter key="design" type="collection">
+        <parameter key="brand_color">#3C8DBC</parameter>
         <parameter key="menu" type="collection">
           <parameter type="collection">
             <parameter key="entity">Formateur</parameter>
@@ -637,7 +638,6 @@
         </parameter>
         <parameter key="theme">default</parameter>
         <parameter key="color_scheme">dark</parameter>
-        <parameter key="brand_color">#205081</parameter>
         <parameter key="form_theme" type="collection">
           <parameter>@EasyAdmin/form/bootstrap_3_horizontal_layout.html.twig</parameter>
         </parameter>
@@ -2036,251 +2036,16 @@
               </parameter>
             </parameter>
           </parameter>
-          <parameter key="name">Cours</parameter>
-          <parameter key="label">Cours</parameter>
-          <parameter key="edit" type="collection">
+          <parameter key="form" type="collection">
             <parameter key="fields" type="collection">
-              <parameter key="nomCours" type="collection">
-                <parameter key="css_class"></parameter>
-                <parameter key="format">null</parameter>
-                <parameter key="help">null</parameter>
-                <parameter key="label">null</parameter>
-                <parameter key="type">string</parameter>
-                <parameter key="fieldType">text</parameter>
-                <parameter key="dataType">string</parameter>
-                <parameter key="virtual">false</parameter>
-                <parameter key="sortable">true</parameter>
-                <parameter key="template">null</parameter>
-                <parameter key="type_options" type="collection"/>
-                <parameter key="fieldName">nomCours</parameter>
-                <parameter key="scale">0</parameter>
-                <parameter key="length">255</parameter>
-                <parameter key="unique">false</parameter>
-                <parameter key="nullable">false</parameter>
-                <parameter key="precision">0</parameter>
-                <parameter key="columnName">nom_cours</parameter>
-                <parameter key="property">nomCours</parameter>
-              </parameter>
-              <parameter key="description" type="collection">
-                <parameter key="css_class"></parameter>
-                <parameter key="format">null</parameter>
-                <parameter key="help">null</parameter>
-                <parameter key="label">null</parameter>
-                <parameter key="type">string</parameter>
-                <parameter key="fieldType">text</parameter>
-                <parameter key="dataType">string</parameter>
-                <parameter key="virtual">false</parameter>
-                <parameter key="sortable">true</parameter>
-                <parameter key="template">null</parameter>
-                <parameter key="type_options" type="collection"/>
-                <parameter key="fieldName">description</parameter>
-                <parameter key="scale">0</parameter>
-                <parameter key="length">255</parameter>
-                <parameter key="unique">false</parameter>
-                <parameter key="nullable">false</parameter>
-                <parameter key="precision">0</parameter>
-                <parameter key="columnName">description</parameter>
-                <parameter key="property">description</parameter>
-              </parameter>
-              <parameter key="difficulte" type="collection">
-                <parameter key="css_class"></parameter>
-                <parameter key="format">null</parameter>
-                <parameter key="help">null</parameter>
-                <parameter key="label">null</parameter>
-                <parameter key="type">string</parameter>
-                <parameter key="fieldType">text</parameter>
-                <parameter key="dataType">string</parameter>
-                <parameter key="virtual">false</parameter>
-                <parameter key="sortable">true</parameter>
-                <parameter key="template">null</parameter>
-                <parameter key="type_options" type="collection"/>
-                <parameter key="fieldName">difficulte</parameter>
-                <parameter key="scale">0</parameter>
-                <parameter key="length">45</parameter>
-                <parameter key="unique">false</parameter>
-                <parameter key="nullable">false</parameter>
-                <parameter key="precision">0</parameter>
-                <parameter key="columnName">difficulte</parameter>
-                <parameter key="property">difficulte</parameter>
-              </parameter>
-              <parameter key="objectif" type="collection">
-                <parameter key="css_class"></parameter>
-                <parameter key="format">null</parameter>
-                <parameter key="help">null</parameter>
-                <parameter key="label">null</parameter>
-                <parameter key="type">string</parameter>
-                <parameter key="fieldType">text</parameter>
-                <parameter key="dataType">string</parameter>
-                <parameter key="virtual">false</parameter>
-                <parameter key="sortable">true</parameter>
-                <parameter key="template">null</parameter>
-                <parameter key="type_options" type="collection"/>
-                <parameter key="fieldName">objectif</parameter>
-                <parameter key="scale">0</parameter>
-                <parameter key="length">255</parameter>
-                <parameter key="unique">false</parameter>
-                <parameter key="nullable">false</parameter>
-                <parameter key="precision">0</parameter>
-                <parameter key="columnName">objectif</parameter>
-                <parameter key="property">objectif</parameter>
-              </parameter>
-              <parameter key="video" type="collection">
-                <parameter key="css_class"></parameter>
-                <parameter key="format">null</parameter>
-                <parameter key="help">null</parameter>
-                <parameter key="label">null</parameter>
-                <parameter key="type">string</parameter>
-                <parameter key="fieldType">text</parameter>
-                <parameter key="dataType">string</parameter>
-                <parameter key="virtual">false</parameter>
-                <parameter key="sortable">true</parameter>
-                <parameter key="template">null</parameter>
-                <parameter key="type_options" type="collection"/>
-                <parameter key="fieldName">video</parameter>
-                <parameter key="scale">0</parameter>
-                <parameter key="length">100</parameter>
-                <parameter key="unique">false</parameter>
-                <parameter key="nullable">true</parameter>
-                <parameter key="precision">0</parameter>
-                <parameter key="columnName">video</parameter>
-                <parameter key="property">video</parameter>
-              </parameter>
-              <parameter key="etat" type="collection">
-                <parameter key="css_class"></parameter>
-                <parameter key="format">null</parameter>
-                <parameter key="help">null</parameter>
-                <parameter key="label">null</parameter>
-                <parameter key="type">integer</parameter>
-                <parameter key="fieldType">integer</parameter>
-                <parameter key="dataType">integer</parameter>
-                <parameter key="virtual">false</parameter>
-                <parameter key="sortable">true</parameter>
-                <parameter key="template">null</parameter>
-                <parameter key="type_options" type="collection"/>
-                <parameter key="fieldName">etat</parameter>
-                <parameter key="scale">0</parameter>
-                <parameter key="length">null</parameter>
-                <parameter key="unique">false</parameter>
-                <parameter key="nullable">true</parameter>
-                <parameter key="precision">0</parameter>
-                <parameter key="columnName">etat</parameter>
-                <parameter key="property">etat</parameter>
-              </parameter>
-              <parameter key="idquiz" type="collection">
-                <parameter key="css_class"></parameter>
-                <parameter key="format">null</parameter>
-                <parameter key="help">null</parameter>
-                <parameter key="label">null</parameter>
-                <parameter key="type">association</parameter>
-                <parameter key="fieldType">entity</parameter>
-                <parameter key="dataType">association</parameter>
-                <parameter key="virtual">false</parameter>
-                <parameter key="sortable">true</parameter>
-                <parameter key="template">null</parameter>
-                <parameter key="type_options" type="collection"/>
-                <parameter key="fieldName">idquiz</parameter>
-                <parameter key="joinColumns" type="collection">
-                  <parameter type="collection">
-                    <parameter key="name">idQuiz</parameter>
-                    <parameter key="unique">false</parameter>
-                    <parameter key="nullable">true</parameter>
-                    <parameter key="onDelete">null</parameter>
-                    <parameter key="columnDefinition">null</parameter>
-                    <parameter key="referencedColumnName">id</parameter>
-                  </parameter>
-                </parameter>
-                <parameter key="cascade" type="collection"/>
-                <parameter key="inversedBy">null</parameter>
-                <parameter key="targetEntity">Mooc\MoocBundle\Entity\Quiz</parameter>
-                <parameter key="fetch">2</parameter>
-                <parameter key="mappedBy">null</parameter>
-                <parameter key="isOwningSide">true</parameter>
-                <parameter key="sourceEntity">Mooc\MoocBundle\Entity\Cours</parameter>
-                <parameter key="isCascadeRemove">false</parameter>
-                <parameter key="isCascadePersist">false</parameter>
-                <parameter key="isCascadeRefresh">false</parameter>
-                <parameter key="isCascadeMerge">false</parameter>
-                <parameter key="isCascadeDetach">false</parameter>
-                <parameter key="sourceToTargetKeyColumns" type="collection">
-                  <parameter key="idQuiz">id</parameter>
-                </parameter>
-                <parameter key="joinColumnFieldNames" type="collection">
-                  <parameter key="idQuiz">idQuiz</parameter>
-                </parameter>
-                <parameter key="targetToSourceKeyColumns" type="collection">
-                  <parameter key="id">idQuiz</parameter>
-                </parameter>
-                <parameter key="orphanRemoval">false</parameter>
-                <parameter key="associationType">2</parameter>
-                <parameter key="property">idquiz</parameter>
-              </parameter>
-              <parameter key="cinformateur" type="collection">
-                <parameter key="css_class"></parameter>
-                <parameter key="format">null</parameter>
-                <parameter key="help">null</parameter>
-                <parameter key="label">null</parameter>
-                <parameter key="type">association</parameter>
-                <parameter key="fieldType">entity</parameter>
-                <parameter key="dataType">association</parameter>
-                <parameter key="virtual">false</parameter>
-                <parameter key="sortable">true</parameter>
-                <parameter key="template">null</parameter>
-                <parameter key="type_options" type="collection"/>
-                <parameter key="fieldName">cinformateur</parameter>
-                <parameter key="joinColumns" type="collection">
-                  <parameter type="collection">
-                    <parameter key="name">cinformateur</parameter>
-                    <parameter key="unique">false</parameter>
-                    <parameter key="nullable">true</parameter>
-                    <parameter key="onDelete">null</parameter>
-                    <parameter key="columnDefinition">null</parameter>
-                    <parameter key="referencedColumnName">cin</parameter>
-                  </parameter>
-                </parameter>
-                <parameter key="cascade" type="collection"/>
-                <parameter key="inversedBy">null</parameter>
-                <parameter key="targetEntity">Mooc\MoocBundle\Entity\Formateur</parameter>
-                <parameter key="fetch">2</parameter>
-                <parameter key="mappedBy">null</parameter>
-                <parameter key="isOwningSide">true</parameter>
-                <parameter key="sourceEntity">Mooc\MoocBundle\Entity\Cours</parameter>
-                <parameter key="isCascadeRemove">false</parameter>
-                <parameter key="isCascadePersist">false</parameter>
-                <parameter key="isCascadeRefresh">false</parameter>
-                <parameter key="isCascadeMerge">false</parameter>
-                <parameter key="isCascadeDetach">false</parameter>
-                <parameter key="sourceToTargetKeyColumns" type="collection">
-                  <parameter key="cinformateur">cin</parameter>
-                </parameter>
-                <parameter key="joinColumnFieldNames" type="collection">
-                  <parameter key="cinformateur">cinformateur</parameter>
-                </parameter>
-                <parameter key="targetToSourceKeyColumns" type="collection">
-                  <parameter key="cin">cinformateur</parameter>
-                </parameter>
-                <parameter key="orphanRemoval">false</parameter>
-                <parameter key="associationType">2</parameter>
-                <parameter key="property">cinformateur</parameter>
-              </parameter>
-            </parameter>
-            <parameter key="form_options" type="collection"/>
-            <parameter key="actions" type="collection">
-              <parameter key="delete" type="collection">
-                <parameter key="name">delete</parameter>
-                <parameter key="type">method</parameter>
-                <parameter key="label">action.delete</parameter>
-                <parameter key="css_class">btn btn-default action-delete</parameter>
-                <parameter key="icon">trash-o</parameter>
-              </parameter>
-              <parameter key="list" type="collection">
-                <parameter key="name">list</parameter>
-                <parameter key="type">method</parameter>
-                <parameter key="label">action.list</parameter>
-                <parameter key="css_class">btn btn-secondary action-list</parameter>
-                <parameter key="icon">null</parameter>
-              </parameter>
+              <parameter>nomCours</parameter>
+              <parameter>description</parameter>
+              <parameter>difficulte</parameter>
+              <parameter>objectif</parameter>
             </parameter>
           </parameter>
+          <parameter key="name">Cours</parameter>
+          <parameter key="label">Cours</parameter>
           <parameter key="new" type="collection">
             <parameter key="fields" type="collection">
               <parameter key="nomCours" type="collection">
@@ -2367,7 +2132,21 @@
                 <parameter key="columnName">objectif</parameter>
                 <parameter key="property">objectif</parameter>
               </parameter>
-              <parameter key="video" type="collection">
+            </parameter>
+            <parameter key="form_options" type="collection"/>
+            <parameter key="actions" type="collection">
+              <parameter key="list" type="collection">
+                <parameter key="name">list</parameter>
+                <parameter key="type">method</parameter>
+                <parameter key="label">action.list</parameter>
+                <parameter key="css_class">btn btn-secondary action-list</parameter>
+                <parameter key="icon">null</parameter>
+              </parameter>
+            </parameter>
+          </parameter>
+          <parameter key="edit" type="collection">
+            <parameter key="fields" type="collection">
+              <parameter key="nomCours" type="collection">
                 <parameter key="css_class"></parameter>
                 <parameter key="format">null</parameter>
                 <parameter key="help">null</parameter>
@@ -2379,135 +2158,88 @@
                 <parameter key="sortable">true</parameter>
                 <parameter key="template">null</parameter>
                 <parameter key="type_options" type="collection"/>
-                <parameter key="fieldName">video</parameter>
+                <parameter key="fieldName">nomCours</parameter>
                 <parameter key="scale">0</parameter>
-                <parameter key="length">100</parameter>
+                <parameter key="length">255</parameter>
                 <parameter key="unique">false</parameter>
-                <parameter key="nullable">true</parameter>
+                <parameter key="nullable">false</parameter>
                 <parameter key="precision">0</parameter>
-                <parameter key="columnName">video</parameter>
-                <parameter key="property">video</parameter>
+                <parameter key="columnName">nom_cours</parameter>
+                <parameter key="property">nomCours</parameter>
               </parameter>
-              <parameter key="etat" type="collection">
+              <parameter key="description" type="collection">
                 <parameter key="css_class"></parameter>
                 <parameter key="format">null</parameter>
                 <parameter key="help">null</parameter>
                 <parameter key="label">null</parameter>
-                <parameter key="type">integer</parameter>
-                <parameter key="fieldType">integer</parameter>
-                <parameter key="dataType">integer</parameter>
+                <parameter key="type">string</parameter>
+                <parameter key="fieldType">text</parameter>
+                <parameter key="dataType">string</parameter>
                 <parameter key="virtual">false</parameter>
                 <parameter key="sortable">true</parameter>
                 <parameter key="template">null</parameter>
                 <parameter key="type_options" type="collection"/>
-                <parameter key="fieldName">etat</parameter>
+                <parameter key="fieldName">description</parameter>
                 <parameter key="scale">0</parameter>
-                <parameter key="length">null</parameter>
+                <parameter key="length">255</parameter>
                 <parameter key="unique">false</parameter>
-                <parameter key="nullable">true</parameter>
+                <parameter key="nullable">false</parameter>
                 <parameter key="precision">0</parameter>
-                <parameter key="columnName">etat</parameter>
-                <parameter key="property">etat</parameter>
+                <parameter key="columnName">description</parameter>
+                <parameter key="property">description</parameter>
               </parameter>
-              <parameter key="idquiz" type="collection">
+              <parameter key="difficulte" type="collection">
                 <parameter key="css_class"></parameter>
                 <parameter key="format">null</parameter>
                 <parameter key="help">null</parameter>
                 <parameter key="label">null</parameter>
-                <parameter key="type">association</parameter>
-                <parameter key="fieldType">entity</parameter>
-                <parameter key="dataType">association</parameter>
+                <parameter key="type">string</parameter>
+                <parameter key="fieldType">text</parameter>
+                <parameter key="dataType">string</parameter>
                 <parameter key="virtual">false</parameter>
                 <parameter key="sortable">true</parameter>
                 <parameter key="template">null</parameter>
                 <parameter key="type_options" type="collection"/>
-                <parameter key="fieldName">idquiz</parameter>
-                <parameter key="joinColumns" type="collection">
-                  <parameter type="collection">
-                    <parameter key="name">idQuiz</parameter>
-                    <parameter key="unique">false</parameter>
-                    <parameter key="nullable">true</parameter>
-                    <parameter key="onDelete">null</parameter>
-                    <parameter key="columnDefinition">null</parameter>
-                    <parameter key="referencedColumnName">id</parameter>
-                  </parameter>
-                </parameter>
-                <parameter key="cascade" type="collection"/>
-                <parameter key="inversedBy">null</parameter>
-                <parameter key="targetEntity">Mooc\MoocBundle\Entity\Quiz</parameter>
-                <parameter key="fetch">2</parameter>
-                <parameter key="mappedBy">null</parameter>
-                <parameter key="isOwningSide">true</parameter>
-                <parameter key="sourceEntity">Mooc\MoocBundle\Entity\Cours</parameter>
-                <parameter key="isCascadeRemove">false</parameter>
-                <parameter key="isCascadePersist">false</parameter>
-                <parameter key="isCascadeRefresh">false</parameter>
-                <parameter key="isCascadeMerge">false</parameter>
-                <parameter key="isCascadeDetach">false</parameter>
-                <parameter key="sourceToTargetKeyColumns" type="collection">
-                  <parameter key="idQuiz">id</parameter>
-                </parameter>
-                <parameter key="joinColumnFieldNames" type="collection">
-                  <parameter key="idQuiz">idQuiz</parameter>
-                </parameter>
-                <parameter key="targetToSourceKeyColumns" type="collection">
-                  <parameter key="id">idQuiz</parameter>
-                </parameter>
-                <parameter key="orphanRemoval">false</parameter>
-                <parameter key="associationType">2</parameter>
-                <parameter key="property">idquiz</parameter>
+                <parameter key="fieldName">difficulte</parameter>
+                <parameter key="scale">0</parameter>
+                <parameter key="length">45</parameter>
+                <parameter key="unique">false</parameter>
+                <parameter key="nullable">false</parameter>
+                <parameter key="precision">0</parameter>
+                <parameter key="columnName">difficulte</parameter>
+                <parameter key="property">difficulte</parameter>
               </parameter>
-              <parameter key="cinformateur" type="collection">
+              <parameter key="objectif" type="collection">
                 <parameter key="css_class"></parameter>
                 <parameter key="format">null</parameter>
                 <parameter key="help">null</parameter>
                 <parameter key="label">null</parameter>
-                <parameter key="type">association</parameter>
-                <parameter key="fieldType">entity</parameter>
-                <parameter key="dataType">association</parameter>
+                <parameter key="type">string</parameter>
+                <parameter key="fieldType">text</parameter>
+                <parameter key="dataType">string</parameter>
                 <parameter key="virtual">false</parameter>
                 <parameter key="sortable">true</parameter>
                 <parameter key="template">null</parameter>
                 <parameter key="type_options" type="collection"/>
-                <parameter key="fieldName">cinformateur</parameter>
-                <parameter key="joinColumns" type="collection">
-                  <parameter type="collection">
-                    <parameter key="name">cinformateur</parameter>
-                    <parameter key="unique">false</parameter>
-                    <parameter key="nullable">true</parameter>
-                    <parameter key="onDelete">null</parameter>
-                    <parameter key="columnDefinition">null</parameter>
-                    <parameter key="referencedColumnName">cin</parameter>
-                  </parameter>
-                </parameter>
-                <parameter key="cascade" type="collection"/>
-                <parameter key="inversedBy">null</parameter>
-                <parameter key="targetEntity">Mooc\MoocBundle\Entity\Formateur</parameter>
-                <parameter key="fetch">2</parameter>
-                <parameter key="mappedBy">null</parameter>
-                <parameter key="isOwningSide">true</parameter>
-                <parameter key="sourceEntity">Mooc\MoocBundle\Entity\Cours</parameter>
-                <parameter key="isCascadeRemove">false</parameter>
-                <parameter key="isCascadePersist">false</parameter>
-                <parameter key="isCascadeRefresh">false</parameter>
-                <parameter key="isCascadeMerge">false</parameter>
-                <parameter key="isCascadeDetach">false</parameter>
-                <parameter key="sourceToTargetKeyColumns" type="collection">
-                  <parameter key="cinformateur">cin</parameter>
-                </parameter>
-                <parameter key="joinColumnFieldNames" type="collection">
-                  <parameter key="cinformateur">cinformateur</parameter>
-                </parameter>
-                <parameter key="targetToSourceKeyColumns" type="collection">
-                  <parameter key="cin">cinformateur</parameter>
-                </parameter>
-                <parameter key="orphanRemoval">false</parameter>
-                <parameter key="associationType">2</parameter>
-                <parameter key="property">cinformateur</parameter>
+                <parameter key="fieldName">objectif</parameter>
+                <parameter key="scale">0</parameter>
+                <parameter key="length">255</parameter>
+                <parameter key="unique">false</parameter>
+                <parameter key="nullable">false</parameter>
+                <parameter key="precision">0</parameter>
+                <parameter key="columnName">objectif</parameter>
+                <parameter key="property">objectif</parameter>
               </parameter>
             </parameter>
             <parameter key="form_options" type="collection"/>
             <parameter key="actions" type="collection">
+              <parameter key="delete" type="collection">
+                <parameter key="name">delete</parameter>
+                <parameter key="type">method</parameter>
+                <parameter key="label">action.delete</parameter>
+                <parameter key="css_class">btn btn-default action-delete</parameter>
+                <parameter key="icon">trash-o</parameter>
+              </parameter>
               <parameter key="list" type="collection">
                 <parameter key="name">list</parameter>
                 <parameter key="type">method</parameter>
@@ -3286,6 +3018,19 @@
       </parameter>
     </parameter>
     <parameter key="vich_uploader.file_injector.class">Vich\UploaderBundle\Injector\FileInjector</parameter>
+    <parameter key="avanzu_admin_theme.bower_bin">/usr/local/bin/bower</parameter>
+    <parameter key="avanzu_admin_theme.navbar_user_listener.class">Avanzu\AdminThemeBundle\EventListener\NavbarShowUserDemoListener</parameter>
+    <parameter key="avanzu_admin_theme.navbar_task_listener.class">Avanzu\AdminThemeBundle\EventListener\NavbarTaskListDemoListener</parameter>
+    <parameter key="avanzu_admin_theme.navbar_notify_listener.class">Avanzu\AdminThemeBundle\EventListener\NavbarNotificationListDemoListener</parameter>
+    <parameter key="avanzu_admin_theme.navbar_msg_listener.class">Avanzu\AdminThemeBundle\EventListener\NavbarMessageListDemoListener</parameter>
+    <parameter key="avanzu_admin_theme.setup_menu_listener.class">Avanzu\AdminThemeBundle\EventListener\SidebarSetupMenuDemoListener</parameter>
+    <parameter key="avanzu_admin_theme.exception_controller.class">Avanzu\AdminThemeBundle\Controller\ExceptionController</parameter>
+    <parameter key="avanzu_admin_theme.widget_extension.class">Avanzu\AdminThemeBundle\Twig\WidgetExtension</parameter>
+    <parameter key="avanzu_admin_theme.theme_manager.class">Avanzu\AdminThemeBundle\Theme\ThemeManager</parameter>
+    <parameter key="avanzu_admin_theme.setup_theme_listener.class">Avanzu\AdminThemeBundle\EventListener\SetupThemeListener</parameter>
+    <parameter key="avanzu_admin_theme.dependency_resolver.class"></parameter>
+    <parameter key="avanzu_admin_theme.css_base"></parameter>
+    <parameter key="avanzu_admin_theme.lte_admin"></parameter>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -3379,7 +3124,7 @@
     </service>
     <service id="locale_listener" class="Symfony\Component\HttpKernel\EventListener\LocaleListener">
       <tag name="kernel.event_subscriber"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <argument type="service" id="router" on-invalid="ignore"/>
       <argument type="service" id="request_stack"/>
     </service>
@@ -3556,7 +3301,7 @@
       </argument>
       <call method="setFallbackLocales">
         <argument type="collection">
-          <argument>en</argument>
+          <argument>fr</argument>
         </argument>
       </call>
       <call method="addResource">
@@ -5302,15 +5047,6 @@
           </call>
           <call method="addLoader">
             <argument type="service">
-              <service class="Symfony\Bundle\AsseticBundle\Routing\AsseticLoader" public="false">
-                <tag name="routing.loader"/>
-                <argument type="service" id="assetic.asset_manager"/>
-                <argument type="collection"/>
-              </service>
-            </argument>
-          </call>
-          <call method="addLoader">
-            <argument type="service">
               <service class="Symfony\Component\Routing\Loader\AnnotationDirectoryLoader" public="false">
                 <tag name="routing.loader"/>
                 <argument type="service" id="file_locator"/>
@@ -5393,18 +5129,26 @@
         <argument>0</argument>
       </call>
       <call method="addListenerService">
-        <argument>kernel.request</argument>
-        <argument type="collection">
-          <argument>assetic.request_listener</argument>
-          <argument>onKernelRequest</argument>
-        </argument>
-        <argument>0</argument>
-      </call>
-      <call method="addListenerService">
         <argument>easy_admin.post_initialize</argument>
         <argument type="collection">
           <argument>easyadmin.listener.request_post_initialize</argument>
           <argument>initializeRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>kernel.controller</argument>
+        <argument type="collection">
+          <argument>avanzu_admin_theme.setup_theme_listener</argument>
+          <argument>onKernelController</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument>avanzu_admin_theme.context_listener</argument>
+          <argument>onRequest</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -5857,12 +5601,13 @@
     <service id="twig" class="Twig_Environment">
       <argument type="service" id="twig.loader"/>
       <argument type="collection">
+        <argument key="form_themes" type="collection">
+          <argument>form_div_layout.html.twig</argument>
+          <argument>AvanzuAdminThemeBundle:layout:form-theme.html.twig</argument>
+        </argument>
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
         <argument key="exception_controller">twig.controller.exception:showAction</argument>
-        <argument key="form_themes" type="collection">
-          <argument>form_div_layout.html.twig</argument>
-        </argument>
         <argument key="autoescape" type="collection">
           <argument>Symfony\Bundle\TwigBundle\TwigDefaultEscapingStrategy</argument>
           <argument>guess</argument>
@@ -5971,6 +5716,7 @@
                   <service class="Symfony\Bridge\Twig\Form\TwigRendererEngine" public="false">
                     <argument type="collection">
                       <argument>form_div_layout.html.twig</argument>
+                      <argument>AvanzuAdminThemeBundle:layout:form-theme.html.twig</argument>
                     </argument>
                   </service>
                 </argument>
@@ -5994,9 +5740,11 @@
             <tag name="assetic.templating.twig"/>
             <argument type="service" id="assetic.asset_factory"/>
             <argument type="service" id="templating.name_parser"/>
-            <argument>true</argument>
+            <argument>false</argument>
             <argument type="collection"/>
-            <argument type="collection"/>
+            <argument type="collection">
+              <argument>AvanzuAdminThemeBundle</argument>
+            </argument>
             <argument type="service">
               <service class="Symfony\Bundle\AsseticBundle\DefaultValueSupplier" public="false">
                 <argument type="service" id="service_container"/>
@@ -6031,6 +5779,9 @@
         </argument>
       </call>
       <call method="addExtension">
+        <argument type="service" id="avanzu_admin_theme.widget_extension.class"/>
+      </call>
+      <call method="addExtension">
         <argument type="service">
           <service class="Symfony\Bridge\Twig\Extension\DumpExtension" public="false">
             <tag name="twig.extension"/>
@@ -6049,6 +5800,10 @@
         <argument>app</argument>
         <argument type="service" id="templating.globals"/>
       </call>
+      <call method="addGlobal">
+        <argument>admin_theme</argument>
+        <argument type="service" id="avanzu_admin_theme.theme_manager"/>
+      </call>
     </service>
     <service id="twig.translation.extractor" class="Symfony\Bridge\Twig\Translation\TwigExtractor">
       <tag name="translation.extractor" alias="twig"/>
@@ -6060,7 +5815,7 @@
       <argument>twig.controller.exception:showAction</argument>
       <argument type="service" id="monolog.logger.request" on-invalid="null"/>
     </service>
-    <service id="twig.controller.exception" class="Symfony\Bundle\TwigBundle\Controller\ExceptionController">
+    <service id="twig.controller.exception" class="Avanzu\AdminThemeBundle\Controller\ExceptionController">
       <argument type="service" id="twig"/>
       <argument>true</argument>
     </service>
@@ -6117,6 +5872,11 @@
     <service id="assetic.asset_manager" class="Assetic\Factory\LazyAssetManager">
       <argument type="service" id="assetic.asset_factory"/>
       <argument type="collection">
+        <argument key="config" type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Loader\ConfigurationLoader" public="false">
+            <tag name="assetic.formula_loader" alias="config"/>
+          </service>
+        </argument>
         <argument key="twig" type="service">
           <service class="Assetic\Factory\Loader\CachedFormulaLoader" public="false">
             <tag name="assetic.formula_loader" alias="twig"/>
@@ -6138,6 +5898,200 @@
           </service>
         </argument>
       </argument>
+      <call method="addResource">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\ConfigurationResource" public="false">
+            <tag name="assetic.formula_resource" loader="config"/>
+            <argument type="collection">
+              <argument key="modernizr_js" type="collection">
+                <argument type="collection">
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/modernizr/modernizr.js</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection"/>
+              </argument>
+              <argument key="common_js" type="collection">
+                <argument type="collection">
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/jquery/dist/jquery.js</argument>
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/jquery-ui/jquery-ui.js</argument>
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/underscore/underscore.js</argument>
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/backbone/backbone.js</argument>
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/marionette/lib/backbone.marionette.js</argument>
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/bootstrap/dist/js/bootstrap.min.js</argument>
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/bootbox/bootbox.js</argument>
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/js/dialogs.js</argument>
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/js/namespace.js</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection"/>
+              </argument>
+              <argument key="tools_js" type="collection">
+                <argument type="collection">
+                  <argument>@common_js</argument>
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/momentjs/moment.js</argument>
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/holderjs/holder.js</argument>
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/spinjs/spin.js</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection"/>
+              </argument>
+              <argument key="admin_lte_js" type="collection">
+                <argument type="collection">
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/adminlte/plugins/bootstrap-slider/bootstrap-slider.js</argument>
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/adminlte/plugins/datatables/jquery.dataTables.js</argument>
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/adminlte/plugins/datatables/dataTables.bootstrap.js</argument>
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/adminlte/plugins/slimScroll/jquery.slimscroll.js</argument>
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/js/adminLTE.js</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection"/>
+              </argument>
+              <argument key="admin_lte_css" type="collection">
+                <argument type="collection">
+                  <argument>bundles/avanzuadmintheme/vendor/adminlte/bootstrap/css/bootstrap.min.css</argument>
+                  <argument>bundles/avanzuadmintheme/vendor/adminlte/plugins/bootstrap-slider/slider.css</argument>
+                  <argument>bundles/avanzuadmintheme/vendor/adminlte/plugins/datatables/dataTables.bootstrap.css</argument>
+                  <argument>bundles/avanzuadmintheme/vendor/fontawesome/css/font-awesome.min.css</argument>
+                  <argument>bundles/avanzuadmintheme/vendor/ionicons/css/ionicons.min.css</argument>
+                  <argument>bundles/avanzuadmintheme/vendor/adminlte/dist/css/AdminLTE.css</argument>
+                  <argument>bundles/avanzuadmintheme/vendor/adminlte/dist/css/skins/_all-skins.css</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection"/>
+              </argument>
+              <argument key="admin_lte_forms_js" type="collection">
+                <argument type="collection">
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/adminlte/plugins/colorpicker/bootstrap-colorpicker.js</argument>
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/adminlte/plugins/daterangepicker/daterangepicker.js</argument>
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/adminlte/plugins/timepicker/bootstrap-timepicker.js</argument>
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/adminlte/plugins/input-mask/jquery.inputmask.js</argument>
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/adminlte/plugins/iCheck/icheck.js</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection"/>
+              </argument>
+              <argument key="admin_lte_forms_css" type="collection">
+                <argument type="collection">
+                  <argument>bundles/avanzuadmintheme/vendor/adminlte/plugins/colorpicker/bootstrap-colorpicker.css</argument>
+                  <argument>bundles/avanzuadmintheme/vendor/adminlte/plugins/daterangepicker/daterangepicker-bs3.css</argument>
+                  <argument>bundles/avanzuadmintheme/vendor/adminlte/plugins/timepicker/bootstrap-timepicker.css</argument>
+                  <argument>bundles/avanzuadmintheme/vendor/adminlte/plugins/iCheck/all.css</argument>
+                  <argument>bundles/avanzuadmintheme/vendor/adminlte/plugins/iCheck/square/_all.css</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection"/>
+              </argument>
+              <argument key="admin_lte_wysiwyg" type="collection">
+                <argument type="collection">
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection"/>
+              </argument>
+              <argument key="admin_lte_wysiwyg_css" type="collection">
+                <argument type="collection">
+                  <argument>bundles/avanzuadmintheme/vendor/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection"/>
+              </argument>
+              <argument key="admin_lte_morris" type="collection">
+                <argument type="collection">
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/adminlte/plugins/morris/morris.js</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection"/>
+              </argument>
+              <argument key="admin_lte_morris_css" type="collection">
+                <argument type="collection">
+                  <argument>bundles/avanzuadmintheme/vendor/adminlte/plugins/morris/morris.css</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection"/>
+              </argument>
+              <argument key="admin_lte_flot" type="collection">
+                <argument type="collection">
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/adminlte/plugins/flot/*</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection"/>
+              </argument>
+              <argument key="admin_lte_calendar" type="collection">
+                <argument type="collection">
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/vendor/fullcalendar/dist/fullcalendar.min.js</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection"/>
+              </argument>
+              <argument key="admin_lte_calendar_css" type="collection">
+                <argument type="collection">
+                  <argument>bundles/avanzuadmintheme/vendor/fullcalendar/dist/fullcalendar.css</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection"/>
+              </argument>
+              <argument key="avatar_img" type="collection">
+                <argument type="collection">
+                  <argument>@AvanzuAdminThemeBundle/Resources/public/img/avatar.png</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection"/>
+              </argument>
+              <argument key="admin_lte_all" type="collection">
+                <argument type="collection">
+                  <argument>@tools_js</argument>
+                  <argument>@admin_lte_forms_js</argument>
+                  <argument>@admin_lte_wysiwyg</argument>
+                  <argument>@admin_lte_morris</argument>
+                  <argument>@admin_lte_calendar</argument>
+                  <argument>@admin_lte_js</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection"/>
+              </argument>
+              <argument key="admin_lte_all_css" type="collection">
+                <argument type="collection">
+                  <argument>@admin_lte_css</argument>
+                  <argument>@admin_lte_forms_css</argument>
+                  <argument>@admin_lte_wysiwyg_css</argument>
+                  <argument>@admin_lte_calendar_css</argument>
+                  <argument>@admin_lte_morris_css</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection"/>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>config</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+            <tag name="assetic.templating.twig"/>
+            <tag name="assetic.formula_resource" loader="twig"/>
+            <argument type="collection">
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>AvanzuAdminThemeBundle</argument>
+                  <argument>C:\xampp\htdocs\MOOC_3A2_Web\app/Resources/AvanzuAdminThemeBundle/views</argument>
+                  <argument>/\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>AvanzuAdminThemeBundle</argument>
+                  <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\avanzu\admin-theme-bundle/Resources/views</argument>
+                  <argument>/\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>twig</argument>
+      </call>
       <call method="addResource">
         <argument type="service">
           <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
@@ -6162,29 +6116,9 @@
       </argument>
       <argument>C:\xampp\htdocs\MOOC_3A2_Web\app/../web</argument>
       <argument>true</argument>
-      <call method="addWorker">
-        <argument type="service">
-          <service class="Symfony\Bundle\AsseticBundle\Factory\Worker\UseControllerWorker" public="false">
-            <tag name="assetic.factory_worker"/>
-          </service>
-        </argument>
-      </call>
     </service>
     <service id="assetic.filter.cssrewrite" class="Assetic\Filter\CssRewriteFilter">
       <tag name="assetic.filter" alias="cssrewrite"/>
-    </service>
-    <service id="assetic.controller" class="Symfony\Bundle\AsseticBundle\Controller\AsseticController">
-      <argument type="service" id="assetic.asset_manager"/>
-      <argument type="service">
-        <service class="Assetic\Cache\FilesystemCache" public="false">
-          <argument>C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev/assetic/assets</argument>
-        </service>
-      </argument>
-      <argument>false</argument>
-      <argument type="service" id="profiler" on-invalid="null"/>
-    </service>
-    <service id="assetic.request_listener" class="Symfony\Bundle\AsseticBundle\EventListener\RequestListener">
-      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
     </service>
     <service id="doctrine.dbal.connection_factory" class="Doctrine\Bundle\DoctrineBundle\ConnectionFactory">
       <argument type="collection"/>
@@ -6477,6 +6411,7 @@
     <service id="easyadmin.configurator" class="JavierEguiluz\Bundle\EasyAdminBundle\Configuration\Configurator">
       <argument type="collection">
         <argument key="design" type="collection">
+          <argument key="brand_color">#3C8DBC</argument>
           <argument key="menu" type="collection">
             <argument type="collection">
               <argument key="entity">Formateur</argument>
@@ -6516,7 +6451,6 @@
           </argument>
           <argument key="theme">default</argument>
           <argument key="color_scheme">dark</argument>
-          <argument key="brand_color">#205081</argument>
           <argument key="form_theme" type="collection">
             <argument>@EasyAdmin/form/bootstrap_3_horizontal_layout.html.twig</argument>
           </argument>
@@ -7915,251 +7849,16 @@
                 </argument>
               </argument>
             </argument>
-            <argument key="name">Cours</argument>
-            <argument key="label">Cours</argument>
-            <argument key="edit" type="collection">
+            <argument key="form" type="collection">
               <argument key="fields" type="collection">
-                <argument key="nomCours" type="collection">
-                  <argument key="css_class"></argument>
-                  <argument key="format">null</argument>
-                  <argument key="help">null</argument>
-                  <argument key="label">null</argument>
-                  <argument key="type">string</argument>
-                  <argument key="fieldType">text</argument>
-                  <argument key="dataType">string</argument>
-                  <argument key="virtual">false</argument>
-                  <argument key="sortable">true</argument>
-                  <argument key="template">null</argument>
-                  <argument key="type_options" type="collection"/>
-                  <argument key="fieldName">nomCours</argument>
-                  <argument key="scale">0</argument>
-                  <argument key="length">255</argument>
-                  <argument key="unique">false</argument>
-                  <argument key="nullable">false</argument>
-                  <argument key="precision">0</argument>
-                  <argument key="columnName">nom_cours</argument>
-                  <argument key="property">nomCours</argument>
-                </argument>
-                <argument key="description" type="collection">
-                  <argument key="css_class"></argument>
-                  <argument key="format">null</argument>
-                  <argument key="help">null</argument>
-                  <argument key="label">null</argument>
-                  <argument key="type">string</argument>
-                  <argument key="fieldType">text</argument>
-                  <argument key="dataType">string</argument>
-                  <argument key="virtual">false</argument>
-                  <argument key="sortable">true</argument>
-                  <argument key="template">null</argument>
-                  <argument key="type_options" type="collection"/>
-                  <argument key="fieldName">description</argument>
-                  <argument key="scale">0</argument>
-                  <argument key="length">255</argument>
-                  <argument key="unique">false</argument>
-                  <argument key="nullable">false</argument>
-                  <argument key="precision">0</argument>
-                  <argument key="columnName">description</argument>
-                  <argument key="property">description</argument>
-                </argument>
-                <argument key="difficulte" type="collection">
-                  <argument key="css_class"></argument>
-                  <argument key="format">null</argument>
-                  <argument key="help">null</argument>
-                  <argument key="label">null</argument>
-                  <argument key="type">string</argument>
-                  <argument key="fieldType">text</argument>
-                  <argument key="dataType">string</argument>
-                  <argument key="virtual">false</argument>
-                  <argument key="sortable">true</argument>
-                  <argument key="template">null</argument>
-                  <argument key="type_options" type="collection"/>
-                  <argument key="fieldName">difficulte</argument>
-                  <argument key="scale">0</argument>
-                  <argument key="length">45</argument>
-                  <argument key="unique">false</argument>
-                  <argument key="nullable">false</argument>
-                  <argument key="precision">0</argument>
-                  <argument key="columnName">difficulte</argument>
-                  <argument key="property">difficulte</argument>
-                </argument>
-                <argument key="objectif" type="collection">
-                  <argument key="css_class"></argument>
-                  <argument key="format">null</argument>
-                  <argument key="help">null</argument>
-                  <argument key="label">null</argument>
-                  <argument key="type">string</argument>
-                  <argument key="fieldType">text</argument>
-                  <argument key="dataType">string</argument>
-                  <argument key="virtual">false</argument>
-                  <argument key="sortable">true</argument>
-                  <argument key="template">null</argument>
-                  <argument key="type_options" type="collection"/>
-                  <argument key="fieldName">objectif</argument>
-                  <argument key="scale">0</argument>
-                  <argument key="length">255</argument>
-                  <argument key="unique">false</argument>
-                  <argument key="nullable">false</argument>
-                  <argument key="precision">0</argument>
-                  <argument key="columnName">objectif</argument>
-                  <argument key="property">objectif</argument>
-                </argument>
-                <argument key="video" type="collection">
-                  <argument key="css_class"></argument>
-                  <argument key="format">null</argument>
-                  <argument key="help">null</argument>
-                  <argument key="label">null</argument>
-                  <argument key="type">string</argument>
-                  <argument key="fieldType">text</argument>
-                  <argument key="dataType">string</argument>
-                  <argument key="virtual">false</argument>
-                  <argument key="sortable">true</argument>
-                  <argument key="template">null</argument>
-                  <argument key="type_options" type="collection"/>
-                  <argument key="fieldName">video</argument>
-                  <argument key="scale">0</argument>
-                  <argument key="length">100</argument>
-                  <argument key="unique">false</argument>
-                  <argument key="nullable">true</argument>
-                  <argument key="precision">0</argument>
-                  <argument key="columnName">video</argument>
-                  <argument key="property">video</argument>
-                </argument>
-                <argument key="etat" type="collection">
-                  <argument key="css_class"></argument>
-                  <argument key="format">null</argument>
-                  <argument key="help">null</argument>
-                  <argument key="label">null</argument>
-                  <argument key="type">integer</argument>
-                  <argument key="fieldType">integer</argument>
-                  <argument key="dataType">integer</argument>
-                  <argument key="virtual">false</argument>
-                  <argument key="sortable">true</argument>
-                  <argument key="template">null</argument>
-                  <argument key="type_options" type="collection"/>
-                  <argument key="fieldName">etat</argument>
-                  <argument key="scale">0</argument>
-                  <argument key="length">null</argument>
-                  <argument key="unique">false</argument>
-                  <argument key="nullable">true</argument>
-                  <argument key="precision">0</argument>
-                  <argument key="columnName">etat</argument>
-                  <argument key="property">etat</argument>
-                </argument>
-                <argument key="idquiz" type="collection">
-                  <argument key="css_class"></argument>
-                  <argument key="format">null</argument>
-                  <argument key="help">null</argument>
-                  <argument key="label">null</argument>
-                  <argument key="type">association</argument>
-                  <argument key="fieldType">entity</argument>
-                  <argument key="dataType">association</argument>
-                  <argument key="virtual">false</argument>
-                  <argument key="sortable">true</argument>
-                  <argument key="template">null</argument>
-                  <argument key="type_options" type="collection"/>
-                  <argument key="fieldName">idquiz</argument>
-                  <argument key="joinColumns" type="collection">
-                    <argument type="collection">
-                      <argument key="name">idQuiz</argument>
-                      <argument key="unique">false</argument>
-                      <argument key="nullable">true</argument>
-                      <argument key="onDelete">null</argument>
-                      <argument key="columnDefinition">null</argument>
-                      <argument key="referencedColumnName">id</argument>
-                    </argument>
-                  </argument>
-                  <argument key="cascade" type="collection"/>
-                  <argument key="inversedBy">null</argument>
-                  <argument key="targetEntity">Mooc\MoocBundle\Entity\Quiz</argument>
-                  <argument key="fetch">2</argument>
-                  <argument key="mappedBy">null</argument>
-                  <argument key="isOwningSide">true</argument>
-                  <argument key="sourceEntity">Mooc\MoocBundle\Entity\Cours</argument>
-                  <argument key="isCascadeRemove">false</argument>
-                  <argument key="isCascadePersist">false</argument>
-                  <argument key="isCascadeRefresh">false</argument>
-                  <argument key="isCascadeMerge">false</argument>
-                  <argument key="isCascadeDetach">false</argument>
-                  <argument key="sourceToTargetKeyColumns" type="collection">
-                    <argument key="idQuiz">id</argument>
-                  </argument>
-                  <argument key="joinColumnFieldNames" type="collection">
-                    <argument key="idQuiz">idQuiz</argument>
-                  </argument>
-                  <argument key="targetToSourceKeyColumns" type="collection">
-                    <argument key="id">idQuiz</argument>
-                  </argument>
-                  <argument key="orphanRemoval">false</argument>
-                  <argument key="associationType">2</argument>
-                  <argument key="property">idquiz</argument>
-                </argument>
-                <argument key="cinformateur" type="collection">
-                  <argument key="css_class"></argument>
-                  <argument key="format">null</argument>
-                  <argument key="help">null</argument>
-                  <argument key="label">null</argument>
-                  <argument key="type">association</argument>
-                  <argument key="fieldType">entity</argument>
-                  <argument key="dataType">association</argument>
-                  <argument key="virtual">false</argument>
-                  <argument key="sortable">true</argument>
-                  <argument key="template">null</argument>
-                  <argument key="type_options" type="collection"/>
-                  <argument key="fieldName">cinformateur</argument>
-                  <argument key="joinColumns" type="collection">
-                    <argument type="collection">
-                      <argument key="name">cinformateur</argument>
-                      <argument key="unique">false</argument>
-                      <argument key="nullable">true</argument>
-                      <argument key="onDelete">null</argument>
-                      <argument key="columnDefinition">null</argument>
-                      <argument key="referencedColumnName">cin</argument>
-                    </argument>
-                  </argument>
-                  <argument key="cascade" type="collection"/>
-                  <argument key="inversedBy">null</argument>
-                  <argument key="targetEntity">Mooc\MoocBundle\Entity\Formateur</argument>
-                  <argument key="fetch">2</argument>
-                  <argument key="mappedBy">null</argument>
-                  <argument key="isOwningSide">true</argument>
-                  <argument key="sourceEntity">Mooc\MoocBundle\Entity\Cours</argument>
-                  <argument key="isCascadeRemove">false</argument>
-                  <argument key="isCascadePersist">false</argument>
-                  <argument key="isCascadeRefresh">false</argument>
-                  <argument key="isCascadeMerge">false</argument>
-                  <argument key="isCascadeDetach">false</argument>
-                  <argument key="sourceToTargetKeyColumns" type="collection">
-                    <argument key="cinformateur">cin</argument>
-                  </argument>
-                  <argument key="joinColumnFieldNames" type="collection">
-                    <argument key="cinformateur">cinformateur</argument>
-                  </argument>
-                  <argument key="targetToSourceKeyColumns" type="collection">
-                    <argument key="cin">cinformateur</argument>
-                  </argument>
-                  <argument key="orphanRemoval">false</argument>
-                  <argument key="associationType">2</argument>
-                  <argument key="property">cinformateur</argument>
-                </argument>
-              </argument>
-              <argument key="form_options" type="collection"/>
-              <argument key="actions" type="collection">
-                <argument key="delete" type="collection">
-                  <argument key="name">delete</argument>
-                  <argument key="type">method</argument>
-                  <argument key="label">action.delete</argument>
-                  <argument key="css_class">btn btn-default action-delete</argument>
-                  <argument key="icon">trash-o</argument>
-                </argument>
-                <argument key="list" type="collection">
-                  <argument key="name">list</argument>
-                  <argument key="type">method</argument>
-                  <argument key="label">action.list</argument>
-                  <argument key="css_class">btn btn-secondary action-list</argument>
-                  <argument key="icon">null</argument>
-                </argument>
+                <argument>nomCours</argument>
+                <argument>description</argument>
+                <argument>difficulte</argument>
+                <argument>objectif</argument>
               </argument>
             </argument>
+            <argument key="name">Cours</argument>
+            <argument key="label">Cours</argument>
             <argument key="new" type="collection">
               <argument key="fields" type="collection">
                 <argument key="nomCours" type="collection">
@@ -8246,7 +7945,21 @@
                   <argument key="columnName">objectif</argument>
                   <argument key="property">objectif</argument>
                 </argument>
-                <argument key="video" type="collection">
+              </argument>
+              <argument key="form_options" type="collection"/>
+              <argument key="actions" type="collection">
+                <argument key="list" type="collection">
+                  <argument key="name">list</argument>
+                  <argument key="type">method</argument>
+                  <argument key="label">action.list</argument>
+                  <argument key="css_class">btn btn-secondary action-list</argument>
+                  <argument key="icon">null</argument>
+                </argument>
+              </argument>
+            </argument>
+            <argument key="edit" type="collection">
+              <argument key="fields" type="collection">
+                <argument key="nomCours" type="collection">
                   <argument key="css_class"></argument>
                   <argument key="format">null</argument>
                   <argument key="help">null</argument>
@@ -8258,135 +7971,88 @@
                   <argument key="sortable">true</argument>
                   <argument key="template">null</argument>
                   <argument key="type_options" type="collection"/>
-                  <argument key="fieldName">video</argument>
+                  <argument key="fieldName">nomCours</argument>
                   <argument key="scale">0</argument>
-                  <argument key="length">100</argument>
+                  <argument key="length">255</argument>
                   <argument key="unique">false</argument>
-                  <argument key="nullable">true</argument>
+                  <argument key="nullable">false</argument>
                   <argument key="precision">0</argument>
-                  <argument key="columnName">video</argument>
-                  <argument key="property">video</argument>
+                  <argument key="columnName">nom_cours</argument>
+                  <argument key="property">nomCours</argument>
                 </argument>
-                <argument key="etat" type="collection">
+                <argument key="description" type="collection">
                   <argument key="css_class"></argument>
                   <argument key="format">null</argument>
                   <argument key="help">null</argument>
                   <argument key="label">null</argument>
-                  <argument key="type">integer</argument>
-                  <argument key="fieldType">integer</argument>
-                  <argument key="dataType">integer</argument>
+                  <argument key="type">string</argument>
+                  <argument key="fieldType">text</argument>
+                  <argument key="dataType">string</argument>
                   <argument key="virtual">false</argument>
                   <argument key="sortable">true</argument>
                   <argument key="template">null</argument>
                   <argument key="type_options" type="collection"/>
-                  <argument key="fieldName">etat</argument>
+                  <argument key="fieldName">description</argument>
                   <argument key="scale">0</argument>
-                  <argument key="length">null</argument>
+                  <argument key="length">255</argument>
                   <argument key="unique">false</argument>
-                  <argument key="nullable">true</argument>
+                  <argument key="nullable">false</argument>
                   <argument key="precision">0</argument>
-                  <argument key="columnName">etat</argument>
-                  <argument key="property">etat</argument>
+                  <argument key="columnName">description</argument>
+                  <argument key="property">description</argument>
                 </argument>
-                <argument key="idquiz" type="collection">
+                <argument key="difficulte" type="collection">
                   <argument key="css_class"></argument>
                   <argument key="format">null</argument>
                   <argument key="help">null</argument>
                   <argument key="label">null</argument>
-                  <argument key="type">association</argument>
-                  <argument key="fieldType">entity</argument>
-                  <argument key="dataType">association</argument>
+                  <argument key="type">string</argument>
+                  <argument key="fieldType">text</argument>
+                  <argument key="dataType">string</argument>
                   <argument key="virtual">false</argument>
                   <argument key="sortable">true</argument>
                   <argument key="template">null</argument>
                   <argument key="type_options" type="collection"/>
-                  <argument key="fieldName">idquiz</argument>
-                  <argument key="joinColumns" type="collection">
-                    <argument type="collection">
-                      <argument key="name">idQuiz</argument>
-                      <argument key="unique">false</argument>
-                      <argument key="nullable">true</argument>
-                      <argument key="onDelete">null</argument>
-                      <argument key="columnDefinition">null</argument>
-                      <argument key="referencedColumnName">id</argument>
-                    </argument>
-                  </argument>
-                  <argument key="cascade" type="collection"/>
-                  <argument key="inversedBy">null</argument>
-                  <argument key="targetEntity">Mooc\MoocBundle\Entity\Quiz</argument>
-                  <argument key="fetch">2</argument>
-                  <argument key="mappedBy">null</argument>
-                  <argument key="isOwningSide">true</argument>
-                  <argument key="sourceEntity">Mooc\MoocBundle\Entity\Cours</argument>
-                  <argument key="isCascadeRemove">false</argument>
-                  <argument key="isCascadePersist">false</argument>
-                  <argument key="isCascadeRefresh">false</argument>
-                  <argument key="isCascadeMerge">false</argument>
-                  <argument key="isCascadeDetach">false</argument>
-                  <argument key="sourceToTargetKeyColumns" type="collection">
-                    <argument key="idQuiz">id</argument>
-                  </argument>
-                  <argument key="joinColumnFieldNames" type="collection">
-                    <argument key="idQuiz">idQuiz</argument>
-                  </argument>
-                  <argument key="targetToSourceKeyColumns" type="collection">
-                    <argument key="id">idQuiz</argument>
-                  </argument>
-                  <argument key="orphanRemoval">false</argument>
-                  <argument key="associationType">2</argument>
-                  <argument key="property">idquiz</argument>
+                  <argument key="fieldName">difficulte</argument>
+                  <argument key="scale">0</argument>
+                  <argument key="length">45</argument>
+                  <argument key="unique">false</argument>
+                  <argument key="nullable">false</argument>
+                  <argument key="precision">0</argument>
+                  <argument key="columnName">difficulte</argument>
+                  <argument key="property">difficulte</argument>
                 </argument>
-                <argument key="cinformateur" type="collection">
+                <argument key="objectif" type="collection">
                   <argument key="css_class"></argument>
                   <argument key="format">null</argument>
                   <argument key="help">null</argument>
                   <argument key="label">null</argument>
-                  <argument key="type">association</argument>
-                  <argument key="fieldType">entity</argument>
-                  <argument key="dataType">association</argument>
+                  <argument key="type">string</argument>
+                  <argument key="fieldType">text</argument>
+                  <argument key="dataType">string</argument>
                   <argument key="virtual">false</argument>
                   <argument key="sortable">true</argument>
                   <argument key="template">null</argument>
                   <argument key="type_options" type="collection"/>
-                  <argument key="fieldName">cinformateur</argument>
-                  <argument key="joinColumns" type="collection">
-                    <argument type="collection">
-                      <argument key="name">cinformateur</argument>
-                      <argument key="unique">false</argument>
-                      <argument key="nullable">true</argument>
-                      <argument key="onDelete">null</argument>
-                      <argument key="columnDefinition">null</argument>
-                      <argument key="referencedColumnName">cin</argument>
-                    </argument>
-                  </argument>
-                  <argument key="cascade" type="collection"/>
-                  <argument key="inversedBy">null</argument>
-                  <argument key="targetEntity">Mooc\MoocBundle\Entity\Formateur</argument>
-                  <argument key="fetch">2</argument>
-                  <argument key="mappedBy">null</argument>
-                  <argument key="isOwningSide">true</argument>
-                  <argument key="sourceEntity">Mooc\MoocBundle\Entity\Cours</argument>
-                  <argument key="isCascadeRemove">false</argument>
-                  <argument key="isCascadePersist">false</argument>
-                  <argument key="isCascadeRefresh">false</argument>
-                  <argument key="isCascadeMerge">false</argument>
-                  <argument key="isCascadeDetach">false</argument>
-                  <argument key="sourceToTargetKeyColumns" type="collection">
-                    <argument key="cinformateur">cin</argument>
-                  </argument>
-                  <argument key="joinColumnFieldNames" type="collection">
-                    <argument key="cinformateur">cinformateur</argument>
-                  </argument>
-                  <argument key="targetToSourceKeyColumns" type="collection">
-                    <argument key="cin">cinformateur</argument>
-                  </argument>
-                  <argument key="orphanRemoval">false</argument>
-                  <argument key="associationType">2</argument>
-                  <argument key="property">cinformateur</argument>
+                  <argument key="fieldName">objectif</argument>
+                  <argument key="scale">0</argument>
+                  <argument key="length">255</argument>
+                  <argument key="unique">false</argument>
+                  <argument key="nullable">false</argument>
+                  <argument key="precision">0</argument>
+                  <argument key="columnName">objectif</argument>
+                  <argument key="property">objectif</argument>
                 </argument>
               </argument>
               <argument key="form_options" type="collection"/>
               <argument key="actions" type="collection">
+                <argument key="delete" type="collection">
+                  <argument key="name">delete</argument>
+                  <argument key="type">method</argument>
+                  <argument key="label">action.delete</argument>
+                  <argument key="css_class">btn btn-default action-delete</argument>
+                  <argument key="icon">trash-o</argument>
+                </argument>
                 <argument key="list" type="collection">
                   <argument key="name">list</argument>
                   <argument key="type">method</argument>
@@ -9300,6 +8966,27 @@
       </argument>
       <argument type="service" id="debug.event_dispatcher"/>
     </service>
+    <service id="avanzu_admin_theme.exception_controller" class="Avanzu\AdminThemeBundle\Controller\ExceptionController">
+      <argument type="service" id="twig"/>
+      <argument>true</argument>
+    </service>
+    <service id="avanzu_admin_theme.widget_extension.class" class="Avanzu\AdminThemeBundle\Twig\WidgetExtension">
+      <tag name="twig.extension"/>
+    </service>
+    <service id="avanzu_admin_theme.theme_manager" class="Avanzu\AdminThemeBundle\Theme\ThemeManager">
+      <argument type="service" id="service_container"/>
+      <argument></argument>
+    </service>
+    <service id="avanzu_admin_theme.setup_theme_listener" class="Avanzu\AdminThemeBundle\EventListener\SetupThemeListener">
+      <tag name="kernel.event_listener" event="kernel.controller" method="onKernelController"/>
+      <argument type="service" id="avanzu_admin_theme.theme_manager"/>
+      <argument></argument>
+      <argument></argument>
+    </service>
+    <service id="avanzu_admin_theme.context_listener" class="Avanzu\AdminThemeBundle\EventListener\ContextListener">
+      <tag name="kernel.event_listener" event="kernel.request" method="onRequest"/>
+      <argument type="service" id="service_container"/>
+    </service>
     <service id="data_collector.dump" class="Symfony\Component\HttpKernel\DataCollector\DumpDataCollector">
       <tag name="data_collector" id="dump" template="@Debug/Profiler/dump.html.twig"/>
       <argument type="service" id="debug.stopwatch" on-invalid="ignore"/>
@@ -9591,7 +9278,7 @@
           <argument key="stopwatch">templating.helper.stopwatch</argument>
           <argument key="logout_url">templating.helper.logout_url</argument>
           <argument key="security">templating.helper.security</argument>
-          <argument key="assetic">assetic.helper.dynamic</argument>
+          <argument key="assetic">assetic.helper.static</argument>
           <argument key="vich_uploader">vich_uploader.templating.helper.uploader_helper</argument>
         </argument>
       </call>
@@ -9610,7 +9297,7 @@
     <service id="router" class="Symfony\Bundle\FrameworkBundle\Routing\Router">
       <tag name="monolog.logger" channel="router"/>
       <argument type="service" id="service_container"/>
-      <argument>C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev/assetic/routing.yml</argument>
+      <argument>C:\xampp\htdocs\MOOC_3A2_Web\app/config/routing_dev.yml</argument>
       <argument type="collection">
         <argument key="cache_dir">C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev</argument>
         <argument key="debug">true</argument>
@@ -9623,7 +9310,6 @@
         <argument key="matcher_dumper_class">Symfony\Component\Routing\Matcher\Dumper\PhpMatcherDumper</argument>
         <argument key="matcher_cache_class">appDevUrlMatcher</argument>
         <argument key="strict_requirements">true</argument>
-        <argument key="resource_type">yaml</argument>
       </argument>
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
       <argument type="service" id="monolog.logger.router" on-invalid="ignore"/>
@@ -9683,6 +9369,10 @@
       <call method="addPath">
         <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\vich\uploader-bundle/Resources/views</argument>
         <argument>VichUploader</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\avanzu\admin-theme-bundle/Resources/views</argument>
+        <argument>AvanzuAdminTheme</argument>
       </call>
       <call method="addPath">
         <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>

@@ -12,4 +12,9 @@ use Doctrine\ORM\EntityRepository;
  */
 class FormateurRepository extends EntityRepository
 {
+    public function nombreFormateur(){
+        $query = $this->getEntityManager()
+                ->createQuery("select count(f) from MoocMoocBundle:Formateur f");
+        return $query->getSingleScalarResult();
+    }
 }

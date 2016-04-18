@@ -1,5 +1,6 @@
 easy_admin:
-    design: 
+    design:
+        brand_color: '#3C8DBC'
         menu: 
             - { entity: 'Formateur', icon: 'group' }
             - { entity: 'Cours', icon: 'book' }
@@ -32,3 +33,6 @@ easy_admin:
                     - { name: 'show', label: '', icon: 'search' }
                     - { name: 'delete', label: '', icon: 'trash' }
                     - { name: edit, type: method, label: '', class: '', icon: pencil }
+                    
+            form : 
+                fields: ['nomCours','description','difficulte','objectif']
