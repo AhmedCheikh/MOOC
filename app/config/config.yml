@@ -6,7 +6,7 @@ imports:
 
 framework:
     #esi:             ~
-    translator:      { fallbacks: ["%locale%"] }
+    translator:      ~
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -88,5 +88,41 @@ vich_uploader:
             uri_prefix: %app.path.formateur_cv%
             upload_destination: %kernel.root_dir%/../web/file/cv
     
-
+nomaya_social:
+    buttons:
+        facebook:
+            url:            null
+            locale:         "fr_FR"
+            send:           false
+            width:          300
+            showFaces:      false
+            layout:         "button_count"
+        twitter:
+            url:            null
+            locale:         "fr"
+            message:        "Je veux partager ça avec vous"
+            text:           "Tweet"
+            via:            "L'Equipe cartedevisitevirtuelle.fr"
+            tag:            "ttot"
+        googleplus:
+            url:            null
+            locale :        "fr"
+            size :          "medium"
+            annotation :    "bubble"
+            width :         300
+        linkedin:            
+            url:            null
+            locale:         "fr_FR"
+            counter:        "right"
+        pinterest:
+            url:            null
+    links: 
+        facebook:           "https://www.facebook.com/MOOC-1126207164109545/"
+        googleplus:         "https://plus.google.com/104563127504930701172/"
+    theme:                  'default' # optional
+        
+gregwar_image:
+    cache_dir:  my_cache_image_dir
+    fallback_image: web/bundles/moocmooc/ApprenantAssets/img/profile-avatar.jpg
+    
         

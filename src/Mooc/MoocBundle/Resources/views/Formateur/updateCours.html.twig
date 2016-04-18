@@ -274,7 +274,7 @@
                                 <span class="profile-ava">
                                     <img alt="" src="{{asset('bundles/moocmooc/css/profilformateur/img/avatar1_small.jpg')}}">
                                 </span>
-                                <span class="username">{{prenom}} {{name}}</span>
+                                {#<span class="username">{{prenom}} {{name}}</span>#}
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu extended logout">
@@ -315,14 +315,14 @@
                             </a>
                         </li>
                         <li class="sub-menu">
-                            <a href="{{path('mooc_mooc_publiercourformateur', {'prenom':prenom,'name':name})}}" class="">
+                           {# <a href="{{path('mooc_mooc_publiercourformateur', {'prenom':prenom,'name':name})}}" class="">#}
                                 <i class="icon_document_alt"></i>
                                 <span>Publier Cours</span>
                                 <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
                         </li>       
                         <li class="sub-menu">
-                            <a href="{{path('mooc_mooc_listecourformateur', {'prenom':prenom,'name':name})}}" class="">
+                          {#   <a href="{{path('mooc_mooc_listecourformateur', {'prenom':prenom,'name':name})}}" class="">#}
                                 <i class="icon_desktop"></i>
                                 <span>Liste Cour</span>
                                 <span class="menu-arrow arrow_carrot-right"></span>
@@ -368,8 +368,9 @@
                         <div class="col-lg-12">
                             <h3 class="page-header"><i class="fa fa-laptop"></i> Editer Cours </h3>
                             <ol class="breadcrumb">
-                                <li><i class="fa fa-laptop"></i><a href="{{path('mooc_mooc_Ajouter_chapitre')}}">Ajouter Chapitre</a></li>
-                                <li><i class="fa fa-laptop"></i><a href="{{path('mooc_mooc_Ajouter_quiz')}}">Ajouter Quiz  </a></li>						  	
+                                
+                                <li><i class="fa fa-laptop"></i><a href="{{path('mooc_mooc_Ajouter_chapitre',{'id':id})}}">Ajouter Chapitre</a></li>
+                                <li><i class="fa fa-laptop"></i><a href="{{path('mooc_mooc_Ajouter_quiz',{'id':id})}}">Ajouter Quiz  </a></li>						  	
                             </ol>
                         </div>
                     </div>

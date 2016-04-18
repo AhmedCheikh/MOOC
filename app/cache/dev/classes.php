@@ -5456,10 +5456,14 @@ $this->useLocking = $useLocking;
 }
 public function close()
 {
-if (is_resource($this->stream)) {
+if ($this->url && is_resource($this->stream)) {
 fclose($this->stream);
 }
 $this->stream = null;
+}
+public function getStream()
+{
+return $this->stream;
 }
 protected function write(array $record)
 {
@@ -5692,6 +5696,11 @@ protected $recordsByLevel = array();
 public function getRecords()
 {
 return $this->records;
+}
+public function clear()
+{
+$this->records = array();
+$this->recordsByLevel = array();
 }
 protected function hasRecordRecords($level)
 {
@@ -8254,12 +8263,13 @@ return false === class_exists('Symfony\\Component\\Form\\Util\\StringUtil');
 }
 namespace JavierEguiluz\Bundle\EasyAdminBundle\Search
 {
+use Doctrine\ORM\Query as DoctrineQuery;
 use Doctrine\ORM\QueryBuilder as DoctrineQueryBuilder;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
 class Paginator
 {
-public function createOrmPaginator(DoctrineQueryBuilder $queryBuilder, $page, $maxPerPage)
+public function createOrmPaginator($queryBuilder, $page, $maxPerPage)
 {
 $paginator = new Pagerfanta(new DoctrineORMAdapter($queryBuilder, true, false));
 $paginator->setMaxPerPage($maxPerPage);
@@ -8313,7 +8323,7 @@ $queryBuilder->orWhere(sprintf('entity.%s IN (:words_query)', $name));
 $queryParameters['words_query'] = explode(' ', $searchQuery);
 }
 }
-if (!empty($queryParameters)) {
+if (0 !== count($queryParameters)) {
 $queryBuilder->setParameters($queryParameters);
 }
 if (null !== $sortField) {
@@ -8386,13 +8396,13 @@ if (null === $value) {
 return $twig->render($entityConfiguration['templates']['label_null'], $templateParameters);
 }
 if (true === $fieldMetadata['virtual'] && null === $fieldType) {
-$templateParameters['value'] = strval($value);
+$templateParameters['value'] = (string) $value;
 }
 if ('image'=== $fieldType) {
 if (empty($value)) {
 return $twig->render($entityConfiguration['templates']['label_empty'], $templateParameters);
 }
-if (1 === preg_match('/^(http[s]?|\/\/).*/i', $value)) {
+if (1 === preg_match('/^(http[s]?|\/\/)/i', $value)) {
 $imageUrl = $value;
 } else {
 $imageUrl = isset($fieldMetadata['base_path'])

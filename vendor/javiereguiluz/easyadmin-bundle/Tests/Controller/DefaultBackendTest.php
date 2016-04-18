@@ -42,21 +42,24 @@ class DefaultBackendTest extends AbstractTestCase
         $this->assertEquals('en', trim($crawler->filter('html')->attr('lang')));
     }
 
-    public function testDefaultCssFilesAreLinked()
+    public function testDefaultCssStylesAreLinked()
     {
-        $cssFiles = array(
-            '/bundles/easyadmin/stylesheet/bootstrap.min.css',
-            '/bundles/easyadmin/stylesheet/font-awesome.min.css',
-            '/bundles/easyadmin/stylesheet/adminlte.min.css',
-            '/bundles/easyadmin/stylesheet/featherlight.min.css',
-            '/admin/_css/easyadmin.css',
-        );
-
         $crawler = $this->getBackendHomepage();
 
-        foreach ($cssFiles as $i => $url) {
-            $this->assertEquals($url, $crawler->filterXPath('//link[@rel="stylesheet"]')->eq($i)->attr('href'));
-        }
+        $this->assertEquals(
+            '/bundles/easyadmin/stylesheet/easyadmin-all.min.css',
+            $crawler->filter('link[rel="stylesheet"]')->eq(0)->attr('href')
+        );
+    }
+
+    public function testDefaultJsScriptsAreLinked()
+    {
+        $crawler = $this->getBackendHomepage();
+
+        $this->assertEquals(
+            '/bundles/easyadmin/javascript/easyadmin-all.min.js',
+            $crawler->filter('script')->eq(0)->attr('src')
+        );
     }
 
     public function testLogo()
@@ -89,14 +92,23 @@ class DefaultBackendTest extends AbstractTestCase
         }
     }
 
-    public function testAdminCssFile()
+    public function testCustomCssFile()
     {
-        $this->client->request('GET', '/admin/_css/easyadmin.css');
+        $this->getBackendHomepage();
 
-        $this->assertEquals('text/css; charset=UTF-8', $this->client->getResponse()->headers->get('Content-Type'));
         $this->assertEquals(13, substr_count($this->client->getResponse()->getContent(), '#205081'), 'The admin.css file uses the default brand color.');
         // #222222 color is only used by the "dark" color scheme, not the "light" one
         $this->assertEquals(7, substr_count($this->client->getResponse()->getContent(), '#222222'), 'The admin.css file uses the dark color scheme.');
+    }
+
+    public function testCustomCssProperty()
+    {
+        $this->getBackendHomepage();
+        $customCssContent = $this->client->getContainer()->getParameter('easyadmin.config');
+
+        $this->assertEquals(13, substr_count($customCssContent['_internal']['custom_css'], '#205081'), 'The generated custom CSS uses the default brand color.');
+        // #222222 color is only used by the "dark" color scheme, not the "light" one
+        $this->assertEquals(7, substr_count($customCssContent['_internal']['custom_css'], '#222222'), 'The generated custom CSS uses the dark color scheme.');
     }
 
     public function testListViewTitle()
@@ -363,7 +375,7 @@ class DefaultBackendTest extends AbstractTestCase
         $crawler = $this->requestEditView();
         $this->client->followRedirects();
 
-        $categoryName = sprintf('Modified Category %s', md5(rand()));
+        $categoryName = sprintf('Modified Category %s', md5(mt_rand()));
         $form = $crawler->selectButton('Save changes')->form(array(
             'category[name]' => $categoryName,
         ));
@@ -477,7 +489,7 @@ class DefaultBackendTest extends AbstractTestCase
         $crawler = $this->requestNewView();
         $this->client->followRedirects();
 
-        $categoryName = sprintf('The New Category %s', md5(rand()));
+        $categoryName = sprintf('The New Category %s', md5(mt_rand()));
         $form = $crawler->selectButton('Save changes')->form(array(
             'category[name]' => $categoryName,
         ));

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Reponse
  *
- * @ORM\Table(name="reponse", indexes={@ORM\Index(name="fk_questt", columns={"idquestion"})})
+ * @ORM\Table(name="reponse", indexes={@ORM\Index(name="IDX_5FB6DEC71C220143", columns={"idquestion"})})
  * @ORM\Entity
  */
 class Reponse
@@ -22,18 +22,18 @@ class Reponse
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="reponse", type="string", length=255, nullable=false)
+     */
+    private $reponse;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="etat", type="integer", nullable=false)
      */
     private $etat;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="rep", type="string", length=255, nullable=false)
-     */
-    private $rep;
 
     /**
      * @var \Question
@@ -44,38 +44,38 @@ class Reponse
      * })
      */
     private $idquestion;
-    function getId() {
+    public function getId() {
         return $this->id;
     }
 
-    function getEtat() {
+    public function getReponse() {
+        return $this->reponse;
+    }
+
+    public function getEtat() {
         return $this->etat;
     }
 
-    function getRep() {
-        return $this->rep;
-    }
-
-    function getIdquestion() {
+    public function getIdquestion() {
         return $this->idquestion;
     }
 
-    function setId($id) {
+    public function setId($id) {
         $this->id = $id;
         return $this;
     }
 
-    function setEtat($etat) {
+    public function setReponse($reponse) {
+        $this->reponse = $reponse;
+        return $this;
+    }
+
+    public function setEtat($etat) {
         $this->etat = $etat;
         return $this;
     }
 
-    function setRep($rep) {
-        $this->rep = $rep;
-        return $this;
-    }
-
-    function setIdquestion(\Question $idquestion) {
+    public function setIdquestion($idquestion) {
         $this->idquestion = $idquestion;
         return $this;
     }

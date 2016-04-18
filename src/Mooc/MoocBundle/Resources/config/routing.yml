@@ -31,20 +31,61 @@ mooc_mooc_log_out_formateur:
     defaults: { _controller: MoocMoocBundle:Formateur:logoutformateur} 
 
 mooc_mooc_acceuilformateur:
-    path:     /acceuilformateur/{name}/{prenom}
+    path:     /acceuilformateur/{cin}
     defaults: { _controller: MoocMoocBundle:Formateur:acceuilformateur} 
     
 mooc_mooc_publiercourformateur:
-    path:     /publiercour/{name}/{prenom}
+    path:     /publiercour/{cin}
     defaults: { _controller: MoocMoocBundle:Formateur:publiercour} 
     
 mooc_mooc_listecourformateur:
-    path:     /listecourformateur/{name}/{prenom}
-    defaults: { _controller: MoocMoocBundle:Formateur:listecourformateur}  
+    path:     /listecourformateur/{cin}
+    defaults: { _controller: MoocMoocBundle:Formateur:listecourformateur}     
+    
+mooc_mooc_profilformateur:
+    path:     /profilformateur/{cin}
+    defaults: { _controller: MoocMoocBundle:Formateur:profilformateur} 
+    
+mooc_mooc_profediterprofile:
+    path:     /editerprofile/{cin}
+    defaults: { _controller: MoocMoocBundle:Formateur:editerprofile}
+    
+mooc_mooc_afficherformateur:
+    path:     /afficherformateur
+    defaults: { _controller: MoocMoocBundle:Formateur:afficherformateur}     
+     
+mooc_mooc_listeformateurbconnect:
+    path:     /listeformateurconnect/{cin}
+    defaults: { _controller: MoocMoocBundle:Formateur:listeformateurbconnect}    
+
+mooc_mooc_listeorganismeconnect:
+    path:     /listeorganismeconnect/{cin}
+    defaults: { _controller: MoocMoocBundle:Formateur:listeorganismeconnect}  
+    
+mooc_mooc_profileorganismeconnect:
+    path:     /profileorganismeconnect/{cin}/{login}
+    defaults: { _controller: MoocMoocBundle:Formateur:profileorganismeconnect}   
+    
+mooc_mooc_pageint:
+    path:     /pageint
+    defaults: { _controller: MoocMoocBundle:Formateur:pageint}   
+
+mooc_mooc_inviterOrganisme:
+    path:     /inviterOrganisme/{cin}/{login}
+    defaults: { _controller: MoocMoocBundle:Formateur:inviterOrganisme}    
+    
+mooc_mooc_listeinvitation:
+    path:     /listeinvitation/{cin}
+    defaults: { _controller: MoocMoocBundle:Formateur:listeinvitation} 
+    
     
 mooc_mooc_listechapitre:
     path:     /listechapitres
     defaults: { _controller: MoocMoocBundle:Chapitre:affichelistChapitres}
+    
+mooc_mooc_listechapitreApp:
+    path:     /listechapitresApp/{idcours}
+    defaults: { _controller: MoocMoocBundle:Chapitre:affichelistChapitresApp}
     
 mooc_mooc_PasserQuizNonChrono:
     path:     /PasserQuizNonChro
@@ -55,7 +96,7 @@ mooc_mooc_Ajouter_chapitre:
     defaults: { _controller: MoocMoocBundle:Chapitre:ajouterChapitre}
    
 mooc_mooc_Modifier_chapitre:
-    path:     /ModifierChapitre/{idchapitre}
+    path:     /ModifierChapitre/{id}
     defaults: { _controller: MoocMoocBundle:Chapitre:modifierChapitre}
     
 mooc_mooc_Ajouter_quiz:
@@ -66,10 +107,99 @@ mooc_mooc_Ajouter_question:
     path:     /AjouterQuestion/{idquiz}
     defaults: { _controller: MoocMoocBundle:Question:ajouterQuestion}
     
+mooc_mooc_listeQuiz:
+    path:     /listequiz
+    defaults: { _controller: MoocMoocBundle:Quiz:affichelistquiz}
+    
+mooc_mooc_Supprimer_chapitre:
+    path:     /SupprimerChapitre/{id}
+    defaults: { _controller: MoocMoocBundle:Chapitre:supprimerChapitre}
+    
+mooc_mooc_Supprimer_quiz:
+    path:     /SupprimerQuiz/{id}
+    defaults: { _controller: MoocMoocBundle:Quiz:supprimerQuiz}
+    
+mooc_mooc_afficher_chapitre:
+    path:     /AfficherChapitre/{id}
+    defaults: { _controller: MoocMoocBundle:Chapitre:afficheChapitre}
+    
+mooc_mooc_afficher_quiz:
+    path:     /AfficherQuiz/{id}
+    defaults: { _controller: MoocMoocBundle:Quiz:afficheQuiz}
+    
+mooc_mooc_afficher_test:
+    path:     /test/{id}
+    defaults: { _controller: MoocMoocBundle:Quiz:test}   
+    
 mooc_mooc_delCours:
     path:     /DeleteCours/{id}
     defaults: { _controller: MoocMoocBundle:Cours:delete}
     
+    
 mooc_mooc_updateCours:
     path:     /UpdateCours/{id}
-    defaults: { _controller: MoocMoocBundle:Cours:update}
+    defaults: { _controller: MoocMoocBundle:Cours:updateCours}
+    
+    
+mooc_espace_apprenant:
+    path:   /espaceapprenant
+    defaults: { _controller: MoocMoocBundle:Apprenant:EspaceApprenant}
+    
+mooc_accueil_apprenant:
+    path:   /accueilapprenant/{login}
+    defaults: { _controller: MoocMoocBundle:Apprenant:acceuilApprenant}   
+    
+mooc_cours_apprenant:
+    path:   /CoursApprenant/{login}
+    defaults: { _controller: MoocMoocBundle:Apprenant:CoursApprenant}
+    
+mooc_chercher_cours_apprenant:
+    path:   /ChercherCours/{login}
+    defaults: { _controller: MoocMoocBundle:Apprenant:ChercherCoursApprenant}
+    
+mooc_login_apprenant:
+    path:     /loginApprenant
+    defaults: { _controller: MoocMoocBundle:Apprenant:loginApprenant}
+mooc_log_out_apprenant:
+    path:     /logoutApprenant
+    defaults: { _controller: MoocMoocBundle:Apprenant:logoutApprenant}
+    
+mooc_inscription_apprenant:
+    path:     /inscriptionApprenant
+    defaults: { _controller: MoocMoocBundle:Apprenant:inscriptionApprenant}
+    
+mooc_editer_profil_apprenant:
+    path:     /accueilapprenant/{login}
+    defaults: { _controller: MoocMoocBundle:Apprenant:editerProfil}
+    
+mooc_supprimer_cours_apprenant:
+    path:     /{id}/{login}
+    defaults: { _controller: MoocMoocBundle:Apprenant:supprimer}
+    
+mooc_suivre_cour_apprenant:
+    path:     /{login}/{id}/{id2}
+    defaults: { _controller: MoocMoocBundle:Apprenant:suivreCours}
+mooc_ajout_apprenant:
+    path:     /ajout
+    defaults: { _controller: MoocMoocBundle:Apprenant:ajout}    
+ 
+
+mooc_mooc_PassOublier:
+    path:     /PassOublier
+    defaults: { _controller: MoocMoocBundle:Mail:PassOublier} 
+mooc_mooc_Send:
+    path:     /Send
+    defaults: { _controller: MoocMoocBundle:Mail:Send}
+mooc_mooc_CodeConfirme:
+    path:     /CodeConfirme
+    defaults: { _controller: MoocMoocBundle:Mail:CodeConfirme} 
+mooc_mooc_modifPass:
+    path:     /modifPass/{name}
+    defaults: { _controller: MoocMoocBundle:Mail:modifPass}
+mooc_mooc_ModifPassword:
+    path:     /ModifPassword/{name}
+    defaults: { _controller: MoocMoocBundle:Mail:ModifPassword}
+    
+mooc_consult_cours_apprenant:
+    path:     /consulterCours/{login}
+    defaults: { _controller: MoocMoocBundle:Apprenant:consult}

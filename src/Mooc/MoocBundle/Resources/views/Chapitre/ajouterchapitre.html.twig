@@ -8,7 +8,7 @@
         <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
         <link rel="shortcut icon" href="img/favicon.png">
 
-        <title>Publier cour</title>
+        <title>Ajouter chapitre</title>
 
         <!-- Bootstrap CSS -->    
         <link href="{{asset('bundles/moocmooc/css/profilformateur/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -350,6 +350,11 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h3 class="page-header"><i class="fa fa-laptop"></i> Profil Formateur</h3>
+                            <h2>     
+                                <div>
+                                    {{ socialButtons() }}
+                                </div><br>
+                            </h2>
                             <ol class="breadcrumb">
                                 <li><i class="fa fa-home"></i><a href="#">Acceuil</a></li>
                                 <li><i class="fa fa-laptop"></i>Profil</li>						  	
@@ -363,11 +368,11 @@
                         <div class="col-lg-12">
                             <section class="panel">
                                 <header class="panel-heading">
-                                    Form Ajouter Chapitre
+                                    Ajouter Chapitre
                                 </header>
                                 <div class="panel-body">
                                     <div class="form">
-                                        <form class="form-validate form-horizontal" id="feedback_form" method="get" action="">
+                                        <form class="form-validate form-horizontal" id="feedback_form" method="POST" action="{{path ('mooc_mooc_Ajouter_chapitre')}}">
                                             <div class="form-group ">
                                                 <label for="cname" class="control-label col-lg-2">Nom chapitre <span class="required">*</span></label>
                                                 <div class="col-lg-10">
@@ -375,7 +380,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group ">
-                                                <label for="ccomment" class="control-label col-lg-2">Description</label>
+                                                <label for="ccomment" class="control-label col-lg-2">Description<span class="required">*</span></label>
                                                 <div class="col-lg-10">
                                                     <textarea class="form-control " id="ccomment" name="objectif" required></textarea>
                                                 </div>
@@ -384,7 +389,7 @@
                                             <div class="form-group ">
                                                 <label for="cname" class="control-label col-lg-2">Charger Video <span class="required">*</span></label>
                                                 <div class="col-lg-10">
-                                                    <input type="file" id="exampleInputFile">
+                                                    <input type="file" id="exampleInputFile" name="file">
                                                 </div>
                                             </div> 
 
@@ -397,27 +402,13 @@
                                             <div class="form-group ">
                                                 <label for="cemail" class="control-label col-lg-2">Quiz du cour <span class="required">*</span></label>
                                                 <div class="col-lg-10">
-                                                    <select class="form-control m-bot15">
+                                                    <select class="form-control m-bot15" name="q">
                                                         {% for quiz in listeQuiz %}
-                                                            <option name="{{quiz.id}}" value="{{quiz.id}}">{{quiz.titre}}</option>
+                                                            <option  value="{{ quiz.id}}">{{quiz.titre}}</option>
                                                         {%endfor %}
                                                     </select>
                                                 </div>
-                                            </div>
-
-                                            <div class="form-group ">
-                                                <label for="cemail" class="control-label col-lg-2">Difficulté <span class="required">*</span></label>
-                                                <div class="col-lg-10">
-                                                    <select class="form-control m-bot15">
-                                                        <option>Amateur</option>
-                                                        <option>Moyen</option>
-                                                        <option>Proffesionnel</option>
-                                                    </select>
-                                                </div>
-                                            </div>                                    
-
-
-
+                                            </div>                                   
 
                                             <div class="form-group">
                                                 <div class="col-lg-offset-2 col-lg-10">

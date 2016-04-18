@@ -6,7 +6,7 @@
         <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
         <meta name="author" content="GeeksLabs">
         <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
-        <link rel="shortcut icon" href="img/favicon.png">
+        <link rel="shortcut icon" href="{{asset('bundles/moocmooc/css/profilformateur/img/favicon.png')}}">
 
         <title>Publier cour</title>
 
@@ -255,9 +255,9 @@
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="profile-ava">
-                                    <img alt="" src="{{asset('bundles/moocmooc/css/profilformateur/img/avatar1_small.jpg')}}">
+                                   <img  alt="" src="{{asset('uploads/uploads/'~Formateur.avatar)}}" width="50" height="50"/>
                                 </span>
-                                <span class="username">{{prenom}} {{name}}</span>
+                                <span class="username">{{Formateur.prenom}} {{Formateur.nom}}</span>
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu extended logout">
@@ -290,53 +290,53 @@
             <aside>
                 <div id="sidebar"  class="nav-collapse ">
                     <!-- sidebar menu start-->
-                    <ul class="sidebar-menu">                
+                     <ul class="sidebar-menu">                
                         <li class="active">
-                            <a class="" href="#">
+                            <a class="" href="{{path('mooc_mooc_acceuilformateur', {'cin':Formateur.cin})}}">
                                 <i class="icon_house_alt"></i>
                                 <span>Menu</span>
                             </a>
                         </li>
                         <li class="sub-menu">
-                            <a href="javascript:;" class="">
+                            <a href="{{path('mooc_mooc_publiercourformateur', {'cin':Formateur.cin})}}" class="">
                                 <i class="icon_document_alt"></i>
-                                <span>Publier Cours</span>
-                                <span class="menu-arrow arrow_carrot-right"></span>
+                                <span><img src="{{asset('bundles/moocmooc/css/profilformateur/img/icons/publier.png')}}">  Publier Cours</span>
+                                
                             </a>
                         </li>       
                         <li class="sub-menu">
-                            <a href="javascript:;" class="">
+                            <a href="{{path('mooc_mooc_listecourformateur', {'cin':Formateur.cin})}}" class="">
                                 <i class="icon_desktop"></i>
-                                <span>Liste Cour</span>
+                                <span> <img src="{{asset('bundles/moocmooc/css/profilformateur/img/icons/book.png')}}">  Liste Cour</span>
                                 <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
                             <ul class="sub">
-                                <li><a class="" href="general.html">Chapitre</a></li>
-                                <li><a class="" href="buttons.html">Vidéos</a></li>
-                                <li><a class="" href="grids.html">Présentation</a></li>
+                                <li><a class="" href="">Chapitre</a></li>
+                                <li><a class="" href="">Vidéos</a></li>
+                                <li><a class="" href="">Présentation</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a class="" href="widgets.html">
+                            <a class="" href="{{path('mooc_mooc_listeformateurbconnect', {'cin':Formateur.cin})}}">
                                 <i class="icon_genius"></i>
-                                <span>Liste Formateurs</span>
+                                <span><img src="{{asset('bundles/moocmooc/css/profilformateur/img/icons/Formateurs.png')}}">   Liste Formateurs</span>
                             </a>
                         </li>
                         <li>                     
-                            <a class="" href="#">
+                            <a class="" href="{{path('mooc_mooc_listeorganismeconnect', {'cin':Formateur.cin})}}">
                                 <i class="icon_piechart"></i>
-                                <span>Liste Organismes</span>
+                                <span><img src="{{asset('bundles/moocmooc/css/profilformateur/img/icons/organisme.png')}}">   Liste Organismes</span>
                             </a>
                         </li>
 
                         <li class="sub-menu">
                             <a href="#" class="">
                                 <i class="icon_documents_alt"></i>
-                                <span>Integration</span>
-                                <span class="menu-arrow arrow_carrot-right"></span>
+                                <span><img src="{{asset('bundles/moocmooc/css/profilformateur/img/icons/Demmande.png')}}">   Mes Demmandes</span>
+                                
                             </a>
                         </li>
-
+                        
                     </ul>
                     <!-- sidebar menu end-->
                 </div>
@@ -349,7 +349,7 @@
                     <!--overview start-->
                     <div class="row">
                         <div class="col-lg-12">
-                            <h3 class="page-header"><i class="fa fa-laptop"></i> Profil Formateur</h3>
+                            <h3 class="page-header"><i class="fa fa-laptop"></i>Formateur {{Formateur.cin}}</h3>
                             <ol class="breadcrumb">
                                 <li><i class="fa fa-home"></i><a href="#">Acceuil</a></li>
                                 <li><i class="fa fa-laptop"></i>Profil</li>						  	
@@ -363,24 +363,24 @@
                         <div class="col-lg-12">
                             <section class="panel">
                                 <header class="panel-heading">
-                                    Form validations
+                                    Publier Cours
                                 </header>
                                 <div class="panel-body">
                                     <div class="form">
-                                        <form class="form-validate form-horizontal" id="feedback_form" method="get" action="">
+                                        <form class="form-validate form-horizontal" id="feedback_form" method="POST" action="{{path('mooc_mooc_publiercourformateur', {'cin':Formateur.cin})}}" ENCTYPE = "multipart/form-data">
                                             <div class="form-group ">
                                                 <label for="cname" class="control-label col-lg-2">Nom cour <span class="required">*</span></label>
                                                 <div class="col-lg-10">
-                                                    <input class="form-control" id="cname" name="fullname" minlength="5" type="text" required />
+                                                    <input class="form-control" id="cname" name="nom_cours" minlength="5" type="text" required />
                                                 </div>
                                             </div>
                                             <div class="form-group ">
                                                 <label for="cemail" class="control-label col-lg-2">Quiz du cour <span class="required">*</span></label>
                                                 <div class="col-lg-10">
-                                                    <select class="form-control m-bot15">
-                                                        <option>Quiz 1</option>
-                                                        <option>Quiz 2</option>
-                                                        <option>Quiz 3</option>
+                                                    <select class="form-control m-bot15" name="idQuiz" id="idQuizCour">
+                                                        {%for q in Quiz%}
+                                                        <option value = '{{q.id}}'>{{q.id}}</option>
+                                                        {%endfor%}
                                                     </select>
                                                 </div>
                                             </div>
@@ -388,10 +388,10 @@
                                             <div class="form-group ">
                                                 <label for="cemail" class="control-label col-lg-2">Difficulté <span class="required">*</span></label>
                                                 <div class="col-lg-10">
-                                                    <select class="form-control m-bot15">
-                                                        <option>Amateur</option>
-                                                        <option>Moyen</option>
-                                                        <option>Proffesionnel</option>
+                                                    <select class="form-control m-bot15" name="difficulte" id="difficulteCour">
+                                                        <option value="Amateur">Amateur</option>
+                                                        <option value="Moyen">Moyen</option>
+                                                        <option value="Proffesionnel">Proffesionnel</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -399,27 +399,27 @@
                                                 <div class="form-group ">
                                                     <label for="cname" class="control-label col-lg-2">Objectif <span class="required">*</span></label>
                                                     <div class="col-lg-10">
-                                                        <input class="form-control" id="subject" name="subject" minlength="5" type="text" required />
+                                                        <input class="form-control" id="subject" name="objectif" minlength="5" type="text" required />
                                                     </div>
                                                 </div>                                      
 
                                                 <div class="form-group ">
                                                     <label for="cname" class="control-label col-lg-2">Charger Video <span class="required">*</span></label>
                                                     <div class="col-lg-10">
-                                                        <input type="file" id="exampleInputFile">
+                                                        <input type="file" id="exampleInputFile" name="video">
                                                     </div>
                                                 </div> 
 
                                                 <div class="form-group ">
                                                     <label for="ccomment" class="control-label col-lg-2">Description</label>
                                                     <div class="col-lg-10">
-                                                        <textarea class="form-control " id="ccomment" name="comment" required></textarea>
+                                                        <textarea class="form-control " id="ccomment" name="description" required></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-lg-offset-2 col-lg-10">
-                                                        <button class="btn btn-primary" type="submit">Save</button>
-                                                        <button class="btn btn-default" type="button">Cancel</button>
+                                                        <button class="btn btn-primary" type="submit">Publier</button>
+                                                        <button class="btn btn-default" type="reset">Cancel</button>
                                                     </div>
                                                 </div>
                                         </form>

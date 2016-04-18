@@ -37,7 +37,7 @@
         <div class="login-wrap">
             <p class="login-img"><i class="icon_lock_alt"></i></p>
             {#message d'errer#}
-                    {% if name is defined %}
+                    {% if nom is defined %}
                         {#<div class="alert-box error"><span>error: </span>Write your error message here.</div>
                         <div class="alert-box success"><span>success: </span>Write your success message here.</div>
                         <div class="alert-box warning"><span>warning: </span>Write your warning message here.</div>
@@ -54,7 +54,7 @@
                 <input type="password" name="password" class="form-control" required>
             </div>
             <label class="checkbox">
-                <input type="checkbox" name="remember" value="remember-me"> Remember me
+                <input type="checkbox" name="remb" value="remb"> Remember me
                 <span class="pull-right"> <a href="#"> Forgot Password?</a></span>
             </label>
             <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button><br/>

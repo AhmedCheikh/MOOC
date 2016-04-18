@@ -1,0 +1,137 @@
+
+
+
+
+#container-content
+{
+border:solid 1px #cccccc;
+padding:20px;
+width:850px;
+color:#cccccc;
+}
+
+
+
+/*-------------Profile Page Design-------------*/
+.er{
+    background:red;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-family: "Times New Roman", Georgia, Serif;
+    border-radius: 5px;
+    margin-left: 180px;
+}
+
+#info_box
+{
+padding:60px 50px 0px 10px;
+border:solid 1px #dedede;
+width:850px;
+background-color:#fcfcfc;
+margin-top:200px;
+}
+
+#profile_img
+{
+background-color: #FFFFFF;
+border: 1px solid #DEDEDE;
+margin-left: 10px;
+margin-top: -90px;
+position: absolute;
+width: 91px;
+height: 91px;
+float:left;
+}
+.addic{
+    margin-left: 500px;
+    margin-top: -30px;
+}
+.avatar_img
+{
+padding:3px;
+width: 90px;
+height: 90px;
+
+}
+#cover_container
+{
+padding-top: 50px;
+overflow: auto;
+width: 850px;
+}
+
+
+#info-box
+{
+margin-left:115px;
+}
+
+#info-name
+{
+float:left;
+overflow:hidden;
+word-wrap: break-word;
+width:150px;
+}
+
+#info-content
+{
+margin-left:170px;
+width:290px;
+}
+
+#info-photos
+{
+text-align:center;
+font-size:11px;
+padding:5px;
+width:80px;
+position: absolute;
+margin-top: -50px;
+border:solid 1px #eeeeee;
+-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;
+}
+
+#info-friends
+{
+text-align:center;
+font-size:11px;
+padding:5px;
+margin-left:100px;
+margin-top: -50px;
+position: absolute;
+border:solid 1px #eeeeee;
+width:80px;
+-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;
+}
+
+.porg{
+    background: wheat;
+    color: dimgray;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: Impact,Haettenschweiler,Franklin Gothic Bold,Charcoal,Helvetica Inserat,Bitstream Vera Sans Bold,Arial Black,sans serif;
+	font-size: 20px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 300;
+	line-height: 26.4px;
+    
+    
+}
+.spanespace{
+    position: absolute;
+    display: block;
+    padding-left: 50px;
+    margin-left: 120px;
+    margin-top: -30px;
+    color: #0055b3;
+    
+    font-family: Brush Script MT,cursive;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+}
+

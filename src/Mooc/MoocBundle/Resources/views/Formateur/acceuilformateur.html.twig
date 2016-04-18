@@ -7,7 +7,7 @@
         <meta name="author" content="GeeksLabs">
         <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
         <link rel="shortcut icon" href="{{asset('bundles/moocmooc/css/profilformateur/img/favicon.png')}}">
-
+  
         <title>Profil formateur</title>
 
         <!-- Bootstrap CSS -->    
@@ -170,7 +170,7 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <span class="photo"><img alt="avatar" src="{{asset('bundles/moocmooc/css/profilformateur/img/avatar-mini.jpg')}}"></span>
+                                        <span class="photo"> <img  alt="" src="{{asset('uploads/uploads/'~Formateur.avatar)}}" width="50" height="50"/></span>
                                         <span class="subject">
                                             <span class="from">Greg  Martin</span>
                                             <span class="time">1 min</span>
@@ -272,15 +272,15 @@
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="profile-ava">
-                                    <img alt="" src="{{asset('bundles/moocmooc/css/profilformateur/img/avatar1_small.jpg')}}">
+                                    <img  alt="" src="{{asset('uploads/uploads/'~Formateur.avatar)}}" width="50" height="50"/>
                                 </span>
-                                <span class="username">{{prenom}} {{name}}</span>
+                                <span class="username">{{Formateur.prenom}} {{Formateur.nom}}</span>
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu extended logout">
                                 <div class="log-arrow-up"></div>
                                 <li class="eborder-top">
-                                    <a href="#"><i class="icon_profile"></i> Mon Profile</a>
+                                    <a href="{{path('mooc_mooc_profilformateur', {'cin':Formateur.cin})}}"><i class="icon_profile"></i> Mon Profile</a>
                                 </li>
                                 <li>
                                     <a href="#"><i class="icon_mail_alt"></i> Mes message</a>
@@ -309,51 +309,48 @@
                     <!-- sidebar menu start-->
                     <ul class="sidebar-menu">                
                         <li class="active">
-                            <a class="" href="#">
+                            <a class="" href="{{path('mooc_mooc_acceuilformateur', {'cin':Formateur.cin})}}">
                                 <i class="icon_house_alt"></i>
                                 <span>Menu</span>
                             </a>
                         </li>
                         <li class="sub-menu">
-                            <a href="{{path('mooc_mooc_publiercourformateur', {'prenom':prenom,'name':name})}}" class="">
+                            <a href="{{path('mooc_mooc_publiercourformateur', {'cin':Formateur.cin})}}" class="">
                                 <i class="icon_document_alt"></i>
-                                <span>Publier Cours</span>
-                                <span class="menu-arrow arrow_carrot-right"></span>
+                                <span><img src="{{asset('bundles/moocmooc/css/profilformateur/img/icons/publier.png')}}">  Publier Cours</span>
+                                
                             </a>
                         </li>       
                         <li class="sub-menu">
-                            <a href="{{path('mooc_mooc_listecourformateur', {'prenom':prenom,'name':name})}}" class="">
+                            <a href="{{path('mooc_mooc_listecourformateur', {'cin':Formateur.cin})}}" class="">
                                 <i class="icon_desktop"></i>
-                                <span>Liste Cour</span>
+                                <span> <img src="{{asset('bundles/moocmooc/css/profilformateur/img/icons/book.png')}}">  Liste Cour</span>
                                 <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
                             <ul class="sub">
-                                <li><a class="" href="{{path('mooc_mooc_listechapitre')}}">Chapitre</a></li>
-                                <li><a class="" href="buttons.html">Vidéos</a></li>
-                                <li><a class="" href="grids.html">Présentation</a></li>
+                                <li><a class="" href="">Chapitre</a></li>
+                                <li><a class="" href="">Vidéos</a></li>
+                                <li><a class="" href="">Présentation</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a class="" href="widgets.html">
+                            <a class="" href="{{path('mooc_mooc_listeformateurbconnect', {'cin':Formateur.cin})}}">
                                 <i class="icon_genius"></i>
-                                <span>Liste Formateurs</span>
+                                <span><img src="{{asset('bundles/moocmooc/css/profilformateur/img/icons/Formateurs.png')}}">   Liste Formateurs</span>
                             </a>
                         </li>
                         <li>                     
-                            <a class="" href="#">
+                            <a class="" href="{{path('mooc_mooc_listeorganismeconnect', {'cin':Formateur.cin})}}">
                                 <i class="icon_piechart"></i>
-                                <span>Liste Organismes</span>
+                                <span><img src="{{asset('bundles/moocmooc/css/profilformateur/img/icons/organisme.png')}}">   Liste Organismes</span>
                             </a>
                         </li>
-
                         <li class="sub-menu">
-                            <a href="#" class="">
+                            <a href="{{path('mooc_mooc_listeinvitation', {'cin':Formateur.cin})}}" class="">
                                 <i class="icon_documents_alt"></i>
-                                <span>Integration</span>
-                                <span class="menu-arrow arrow_carrot-right"></span>
+                                <span><img src="{{asset('bundles/moocmooc/css/profilformateur/img/icons/Demmande.png')}}">   Mes Demmandes</span>                               
                             </a>
-                        </li>
-                        
+                        </li>                       
                     </ul>
                     <!-- sidebar menu end-->
                 </div>
@@ -366,7 +363,7 @@
                     <!--overview start-->
                     <div class="row">
                         <div class="col-lg-12">
-                            <h3 class="page-header"><i class="fa fa-laptop"></i> Profil Formateur</h3>
+                            <h3 class="page-header"><i class="fa fa-laptop"></i>Formateur {{Formateur.cin}}</h3>
                             <ol class="breadcrumb">
                                 <li><i class="fa fa-home"></i><a href="#">Acceuil</a></li>
                                 <li><i class="fa fa-laptop"></i>Profil</li>						  	

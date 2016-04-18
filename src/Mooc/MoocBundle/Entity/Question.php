@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Question
  *
- * @ORM\Table(name="question", indexes={@ORM\Index(name="fk_quest", columns={"idquiz"})})
+ * @ORM\Table(name="question", indexes={@ORM\Index(name="IDX_B6F7494E77DD0B32", columns={"idquiz"})})
  * @ORM\Entity
  */
 class Question
@@ -37,33 +37,33 @@ class Question
      * })
      */
     private $idquiz;
-    function getId() {
+
+    public function getId() {
         return $this->id;
     }
 
-    function getQuestion() {
+    public function getQuestion() {
         return $this->question;
     }
 
-    function getIdquiz() {
+    public function getIdquiz() {
         return $this->idquiz;
     }
 
-    function setId($id) {
+    public function setId($id) {
         $this->id = $id;
         return $this;
     }
 
-    function setQuestion($question) {
+    public function setQuestion($question) {
         $this->question = $question;
         return $this;
     }
 
-    function setIdquiz(\Quiz $idquiz) {
+    public function setIdquiz( $idquiz) {
         $this->idquiz = $idquiz;
         return $this;
     }
-
 
 
 }

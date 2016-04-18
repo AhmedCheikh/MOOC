@@ -32,22 +32,12 @@
     {% endblock delete_form %}
 {% endblock %}
 
-{% block head_stylesheets %}
-    <link rel="stylesheet" href="{{ asset('bundles/easyadmin/stylesheet/select2-bootstrap.min.css') }}">
-    {{ parent() }}
-{% endblock %}
-
 {% block body_javascript %}
     {{ parent() }}
 
-    <script src="{{ asset('bundles/easyadmin/javascript/jquery.are-you-sure.min.js') }}"></script>
-    <script src="{{ asset('bundles/easyadmin/javascript/jquery.waypoints.min.js') }}"></script>
-    <script src="{{ asset('bundles/easyadmin/javascript/jquery.easyadmin-sticky.min.js') }}"></script>
-    <script src="{{ asset('bundles/easyadmin/javascript/select2.full.min.js') }}"></script>
-
     <script type="text/javascript">
         $(function() {
-            $('.edit-form').areYouSure({ 'message': 'You haven\'t saved the changes made on this form.' });
+            $('.edit-form').areYouSure({ 'message': '{{ 'form.are_you_sure'|trans({}, 'EasyAdminBundle')|e('js') }}' });
 
             $('.form-actions').easyAdminSticky();
 
@@ -56,13 +46,13 @@
 
                 $('#modal-delete').modal({ backdrop: true, keyboard: true })
                     .off('click', '#modal-delete-button')
-                    .on('click', '#modal-delete-button', function (e) {
+                    .on('click', '#modal-delete-button', function () {
                         $('#delete-form').trigger('submit');
                     });
             });
 
             // Select2 widget is only enabled for the <select> elements which explicitly ask for it
-            $('#main form select[data-widget="select2"]').select2({
+            $('#main').find('form select[data-widget="select2"]').select2({
                 theme: 'bootstrap'
             });
         });

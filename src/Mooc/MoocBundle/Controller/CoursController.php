@@ -5,6 +5,7 @@ namespace Mooc\MoocBundle\Controller;
 use ESPRIT\ParcBundle\Entity\Cours;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 
 class CoursController extends Controller {
@@ -35,10 +36,16 @@ class CoursController extends Controller {
     
     public function deleteAction($id) {
         $em = $this->getDoctrine()->getManager();
+      
         $cours = $em->getRepository('MoocMoocBundle:Cours')->find($id);
+        $cin= $cours->getCinformateur() ;
+         
+         $formateur = $em->getRepository('MoocMoocBundle:Formateur')->findOneBy(array('cin' => $cin));
+        
         $em->remove($cours);
         $em->flush();
-        return $this->redirect($this->generateUrl('mooc_mooc_listecourformateur'));
+        $lstcours = $em->getRepository('MoocMoocBundle:Cours')->findAll();
+         return $this->render('MoocMoocBundle:Formateur:listecourformateur.html.twig', array('Formateur' => $formateur, 'Lstcours' => $lstcours, 'cin' => $formateur->getCin()));
     }
     
      public function updateCoursAction($id) {

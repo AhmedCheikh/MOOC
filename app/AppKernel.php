@@ -21,6 +21,10 @@ class AppKernel extends Kernel
             new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
             new Avanzu\AdminThemeBundle\AvanzuAdminThemeBundle(),
+            new Nomaya\SocialBundle\NomayaSocialBundle(),
+            new blackknight467\StarRatingBundle\StarRatingBundle(),
+            new Gregwar\ImageBundle\GregwarImageBundle(),
+            
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

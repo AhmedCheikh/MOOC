@@ -1,0 +1,207 @@
+{% extends "MoocMoocBundle:Apprenant:EspaceApprenant.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent()}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+   <!-- Bootstrap CSS Rating -->  
+    
+    {#<link href="{{asset('bundles/bootstrapStarRating/css/bootstrap.css')}}" rel="stylesheet">
+    <link href="{{asset('bundles/bootstrapStarRating/css/star-rating.css')}}" rel="stylesheet" type="text/css" media="all">
+    
+    <link href="{{asset('bundles/moocmooc/ApprenantAssets/css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all">
+    <link href="{{asset('bundles/moocmooc/ApprenantAssets/css/star-rating.css')}}" rel="stylesheet" type="text/css" media="all">
+    
+    
+    <link href="{{asset('bundles/bootstrapStarRating/css/font-awesome.min.css')}}" rel="stylesheet">
+    
+    
+    <!-- optionally if you need to use a theme, then include the theme file as mentioned below -->
+    <link href="{{asset('bundles/bootstrapStarRating/css/theme-krajee-svg.css')}}" rel="stylesheet" type="text/css" media="all">#}
+
+
+{% endblock %}
+{% block title %}
+    {{parent()}}
+{% endblock %}
+
+{% block sidebar %}
+    <!--sidebar start-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu">                
+                  <li>
+                      <a class="" href="{{path('mooc_accueil_apprenant', {'login': apprenant.login})}}">
+                          <i class="fa fa-user-md"></i>
+                          <span>Mon Profile</span>
+                      </a>
+                  </li>
+
+                  <li class="active">                     
+                      <a class="" href="{{path('mooc_cours_apprenant', {'login': apprenant.login})}}">
+                          <i class="icon_book_alt"></i>
+                          <span>Mes Cours</span>
+                          
+                      </a>
+                                         
+                  </li>
+                  <li>                     
+                      <a class="" href="{{path('mooc_chercher_cours_apprenant', {'login': apprenant.login})}}">
+                          <i class="icon_search"></i>
+                          <span>Chercher Cours</span>
+                          
+                      </a>
+                                         
+                  </li>
+                           
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+ 
+{% endblock %}
+ 
+{% block body %}
+<section id="main-content">
+          <section class="wrapper">
+		  <div class="row">
+				<div class="col-lg-12">
+					<h3 class="page-header"><i class="icon_book_alt"></i> Mes Cours</h3>
+					<ol class="breadcrumb">
+						<li><i class="fa fa-th-list"></i><a href="index.html">Mes Cours</a></li>
+
+				  </ol>
+				</div>
+			</div>
+              <!-- page start-->
+              <div class="row">
+                  <div class="col-lg-12">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              Tableau des cours
+                          </header>
+                          
+
+                           <tbody>
+                               {% for cours in Coursuivi %}
+                              <div class="all-content">
+                            <div class="text2">{{cours.nomCours}}</div>
+                            <p> <span style="color:blue;font-weight:bold" >Description : </span>{{cours.description}}</p> <br>
+                            <p> <span style="color:blue;font-weight:bold"> Difficulte : </span> {{cours.difficulte}} </p> <br>
+                            <p> <span style="color:blue;font-weight:bold"> Objectif : </span> {{cours.Objectif}} </p> <br>
+                            <p> <span style="color:blue;font-weight:bold"> Formateur : </span> {{cours.cinformateur.getPrenom()}}  {{cours.cinformateur.getNom()}} </p> <br>
+                            {#<p> <span style="color:blue;font-weight:bold"> Video : </span> {{cours.video}} </p> <br>
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <video width="400" controls >
+                                <source src="{{asset('bundles/moocmooc/video/iphone.mp4')}}" type="video/mp4">
+                            </video>#}
+                        </div>
+
+                                
+                              {% endfor %}
+                              {#S<tr>
+                                 <td>Android</td>
+                                 <td>Angeline Mcclain</td>
+                                 <td>Facile</td>
+                                 <td>17</td>
+                                 <td>
+                                  <div class="btn-group">
+                                     <a class="btn btn-success" href="" title="Consulter">View</a>
+                                     <a class="btn btn-danger" href="" title="Supprimer">Delete</a>
+                                  </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                 <td>Cross Platform</td>
+                                 <td>Sung Carlson</td>
+                                 <td>Facile</td>
+                                 <td>15</td>
+                                 <td>
+                                  <div class="btn-group">
+                                      <a class="btn btn-success" href="" title="Consulter">View</a>
+                                     <a class="btn btn-danger" href="" title="Supprimer">Delete</a>
+                                  </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                 <td>Windows Phone</td>
+                                 <td>Selina Fitzgerald</td>
+                                 <td>Facile</td>
+                                 <td>-</td>
+                                 <td>
+                                  <div class="btn-group">
+                                      <a class="btn btn-success" href="" title="Consulter">View</a>
+                                     <a class="btn btn-danger" href="" title="Supprimer">Delete</a>
+                                  </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                 <td>J2me</td>
+                                 <td>Abraham Avery</td>
+                                 <td>Facile</td>
+                                 <td>20</td>
+                                 <td>
+                                  <div class="btn-group">
+                                      <a class="btn btn-success" href="" title="Consulter">View</a>
+                                     <a class="btn btn-danger" href="" title="Supprimer">Delete</a>
+                                  </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                              <tr>
+                                 <td>IOS</td>
+                                 <td>Ahmed Dean</td>
+                                 <td>Facile</td>
+                                 <td>-</td>
+                                 <td>
+                                  <div class="btn-group">
+                                      <a class="btn btn-success" href="" title="Consulter">View</a>
+                                     <a class="btn btn-danger" href="" title="Supprimer">Delete</a>
+                                  </div>
+                                  </td>
+                              </tr> #}
+                             
+                           </tbody>
+                        
+                      </section>
+                  </div>
+              </div>
+              <!-- page end-->
+          </section>
+      </section>
+{% endblock %}
+
+{% block javascripts %}
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
+    <!-- javascripts -->
+    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.js')}}"></script>
+    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/bootstrap.min.js')}}"></script>
+    <!-- nice scroll -->
+    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.scrollTo.min.js')}}"></script>
+    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.nicescroll.js')}}"></script>
+    <!-- jquery knob -->
+    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.knob.js')}}"></script>
+    <!--custome script for all page-->
+    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/scripts.js')}}"></script>
+    
+    <!-- Bootstrap JS Rating --> 
+    {#<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+    <script src="{{asset('bundles/bootstrapStarRating/js/jquery.min.js')}}"></script>
+    <script src="{{asset('bundles/bootstrapStarRating/js/star-rating.js')}}"></script>#}
+    
+   {# <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.min.js')}}"></script>
+    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/star-rating.js')}}"></script>
+    <!-- optionally if you need translation for your language then include locale file as mentioned below -->
+    <script src="{{asset('bundles/bootstrapStarRating/js/star-rating_locale_fr.js')}}"></script>
+   <script>
+     
+      // initialize with defaults
+    $("#input-id").rating();
+	
+  </script>#}
+  
+
+{% endblock %}
+

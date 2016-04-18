@@ -12,15 +12,20 @@
     </div>
 <div class="gray_block gb1">
     <div class="container_12">
-        <div class="gallery">
+         <div class="gallery">
+       
+        {% for f in Formateurs %}
             <div class="grid_3">
-                <a href="{{asset('bundles/moocmooc/images/big1.jpg')}}" class="gal"><img src="{{asset('bundles/moocmooc/images/page4.jpg')}}" alt=""></a>
-                <div class="text1"><a href="#">Zied Akoubi</a></div>
-                In mollis erat mattisy nequelisis sit amet ultricieser erarutrum. Cras facilisis, nulla vel viverra
+                <a href="{{asset('bundles/moocmooc/images/big1.jpg')}}" class="gal1"><img src="{{asset('bundles/moocmooc/images/page4.jpg')}}" alt=""></a>
+                <div class="text1"><a href="#">{{f.nom}} {{f.prenom}}</a></div>
+                {{f.email}}
                 <br>
                 <a href="#" class="btn">more</a>
-            </div>
-            <div class="grid_3">
+                  </div>
+         {% endfor %}
+      
+         
+            {#<div class="grid_3">
                 <a href="{{asset('bundles/moocmooc/images/big2.jpg')}}" class="gal bd1"><img src="{{asset('bundles/moocmooc/images/page4_img2.jpg')}}" alt=""></a>
                 <div class="text1"><a href="#">Vivamus at magna non</a></div>
                 Fermollis erat mattisy nequelisis, sit amet ultricieser erarutrum. Cras facilisis, nulla vel viverra
@@ -69,8 +74,10 @@
                 Koliu erat mattisy nequelisis, sit amet ultricieser erarutrum. Cras facilisis, nulla vel viverra auctom
                 <br>
                 <a href="#" class="btn">more</a>
-            </div>
-        </div>
+            </div>#}
+         
+         
+  
     </div>
 </div>
     
