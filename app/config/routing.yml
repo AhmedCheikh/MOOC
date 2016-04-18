@@ -10,3 +10,7 @@ easy_admin_bundle:
     resource: "@EasyAdminBundle/Controller/"
     type:     annotation
     prefix:   /comite
+
+AdminLTE:
+    resource: "@AvanzuAdminThemeBundle/Resources/config/routes.yml"
+    prefix:   /admin

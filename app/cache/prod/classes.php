@@ -670,6 +670,712 @@ return rtrim($proxyNamespace,'\\') .'\\'.Proxy::MARKER.'\\'. ltrim($className,'\
 }
 }
 }
+namespace JavierEguiluz\Bundle\EasyAdminBundle\Configuration
+{
+use Symfony\Component\PropertyAccess\PropertyAccessor;
+class Configurator
+{
+private $backendConfig;
+private $accessor;
+public function __construct(array $backendConfig, PropertyAccessor $accessor)
+{
+$this->backendConfig = $backendConfig;
+$this->accessor = $accessor;
+}
+public function getBackendConfig($propertyPath = null)
+{
+if (empty($propertyPath)) {
+return $this->backendConfig;
+}
+$propertyPath ='['.str_replace('.','][', $propertyPath).']';
+return $this->accessor->getValue($this->backendConfig, $propertyPath);
+}
+public function getEntityConfiguration($entityName)
+{
+return $this->getEntityConfig($entityName);
+}
+public function getEntityConfig($entityName)
+{
+if (!isset($this->backendConfig['entities'][$entityName])) {
+throw new \InvalidArgumentException(sprintf('Entity "%s" is not managed by EasyAdmin.', $entityName));
+}
+return $this->backendConfig['entities'][$entityName];
+}
+public function getEntityConfigByClass($fqcn)
+{
+$backendConfig = $this->getBackendConfig();
+foreach ($backendConfig['entities'] as $entityName => $entityConfig) {
+if ($entityConfig['class'] === $fqcn) {
+return $entityConfig;
+}
+}
+}
+public function getActionConfig($entityName, $view, $action)
+{
+try {
+$entityConfig = $this->getEntityConfig($entityName);
+} catch (\Exception $e) {
+$entityConfig = array();
+}
+return isset($entityConfig[$view]['actions'][$action]) ? $entityConfig[$view]['actions'][$action] : array();
+}
+public function isActionEnabled($entityName, $view, $action)
+{
+if ($view === $action) {
+return true;
+}
+$entityConfig = $this->getEntityConfig($entityName);
+return !in_array($action, $entityConfig['disabled_actions'])
+&& array_key_exists($action, $entityConfig[$view]['actions']);
+}
+}
+}
+namespace Symfony\Component\EventDispatcher
+{
+interface EventSubscriberInterface
+{
+public static function getSubscribedEvents();
+}
+}
+namespace Symfony\Component\HttpKernel\EventListener
+{
+use Psr\Log\LoggerInterface;
+use Symfony\Component\Debug\Exception\FlattenException;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Log\DebugLoggerInterface;
+use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
+use Symfony\Component\HttpKernel\KernelEvents;
+use Symfony\Component\HttpKernel\HttpKernelInterface;
+use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+class ExceptionListener implements EventSubscriberInterface
+{
+protected $controller;
+protected $logger;
+public function __construct($controller, LoggerInterface $logger = null)
+{
+$this->controller = $controller;
+$this->logger = $logger;
+}
+public function onKernelException(GetResponseForExceptionEvent $event)
+{
+$exception = $event->getException();
+$request = $event->getRequest();
+$this->logException($exception, sprintf('Uncaught PHP Exception %s: "%s" at %s line %s', get_class($exception), $exception->getMessage(), $exception->getFile(), $exception->getLine()));
+$request = $this->duplicateRequest($exception, $request);
+try {
+$response = $event->getKernel()->handle($request, HttpKernelInterface::SUB_REQUEST, false);
+} catch (\Exception $e) {
+$this->logException($e, sprintf('Exception thrown when handling an exception (%s: %s at %s line %s)', get_class($e), $e->getMessage(), $e->getFile(), $e->getLine()), false);
+$wrapper = $e;
+while ($prev = $wrapper->getPrevious()) {
+if ($exception === $wrapper = $prev) {
+throw $e;
+}
+}
+$prev = new \ReflectionProperty('Exception','previous');
+$prev->setAccessible(true);
+$prev->setValue($wrapper, $exception);
+throw $e;
+}
+$event->setResponse($response);
+}
+public static function getSubscribedEvents()
+{
+return array(
+KernelEvents::EXCEPTION => array('onKernelException', -128),
+);
+}
+protected function logException(\Exception $exception, $message, $original = true)
+{
+$isCritical = !$exception instanceof HttpExceptionInterface || $exception->getStatusCode() >= 500;
+$context = array('exception'=> $exception);
+if (null !== $this->logger) {
+if ($isCritical) {
+$this->logger->critical($message, $context);
+} else {
+$this->logger->error($message, $context);
+}
+} elseif (!$original || $isCritical) {
+error_log($message);
+}
+}
+protected function duplicateRequest(\Exception $exception, Request $request)
+{
+$attributes = array('_controller'=> $this->controller,'exception'=> FlattenException::create($exception),'logger'=> $this->logger instanceof DebugLoggerInterface ? $this->logger : null,'format'=> $request->getRequestFormat(),
+);
+$request = $request->duplicate(null, null, $attributes);
+$request->setMethod('GET');
+return $request;
+}
+}
+}
+namespace JavierEguiluz\Bundle\EasyAdminBundle\EventListener
+{
+use JavierEguiluz\Bundle\EasyAdminBundle\Exception\BaseException;
+use JavierEguiluz\Bundle\EasyAdminBundle\Exception\FlattenException;
+use Psr\Log\LoggerInterface;
+use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
+use Symfony\Component\HttpKernel\EventListener\ExceptionListener as BaseExceptionListener;
+use Symfony\Component\HttpKernel\HttpKernelInterface;
+use Symfony\Component\HttpKernel\Kernel;
+use Symfony\Component\HttpKernel\Log\DebugLoggerInterface;
+class ExceptionListener extends BaseExceptionListener
+{
+private $templating;
+private $easyAdminConfig;
+private $currentEntityName;
+public function __construct(EngineInterface $templating, array $easyAdminConfig, $controller, LoggerInterface $logger = null)
+{
+$this->templating = $templating;
+$this->easyAdminConfig = $easyAdminConfig;
+parent::__construct($controller, $logger);
+}
+public function onKernelException(GetResponseForExceptionEvent $event)
+{
+$exception = $event->getException();
+$this->currentEntityName = $event->getRequest()->query->get('entity', null);
+if (!$exception instanceof BaseException) {
+return;
+}
+if (!$this->isLegacySymfony()) {
+parent::onKernelException($event);
+} else {
+$response = $this->legacyOnKernelException($event);
+$event->setResponse($response);
+}
+}
+public function showExceptionPageAction(FlattenException $exception)
+{
+$entityConfig = isset($this->easyAdminConfig['entities'][$this->currentEntityName])
+? $this->easyAdminConfig['entities'][$this->currentEntityName] : null;
+$exceptionTemplatePath = isset($entityConfig['templates']['exception'])
+? $entityConfig['templates']['exception']
+: isset($this->easyAdminConfig['design']['templates']['exception'])
+? $this->easyAdminConfig['design']['templates']['exception']
+:'@EasyAdmin/default/exception.html.twig';
+return $this->templating->renderResponse(
+$exceptionTemplatePath,
+array('exception'=> $exception),
+Response::create()->setStatusCode($exception->getStatusCode())
+);
+}
+protected function logException(\Exception $exception, $message, $original = true)
+{
+if (!$exception instanceof BaseException) {
+parent::logException($exception, $message, $original);
+return;
+}
+if (null !== $this->logger) {
+if ($exception->getStatusCode() >= 500) {
+$this->logger->critical($message, array('exception'=> $exception));
+} else {
+$this->logger->error($message, array('exception'=> $exception));
+}
+}
+}
+protected function duplicateRequest(\Exception $exception, Request $request)
+{
+if (!$this->isLegacySymfony()) {
+$request = parent::duplicateRequest($exception, $request);
+} else {
+$request = $this->legacyDuplicateRequest($request);
+}
+$request->attributes->set('exception', FlattenException::create($exception));
+return $request;
+}
+private function legacyOnKernelException(GetResponseForExceptionEvent $event)
+{
+$exception = $event->getException();
+$this->logException($exception, sprintf('Uncaught PHP Exception %s: "%s" at %s line %s', get_class($exception), $exception->getMessage(), $exception->getFile(), $exception->getLine()));
+$request = $this->duplicateRequest($exception, $event->getRequest());
+try {
+return $event->getKernel()->handle($request, HttpKernelInterface::SUB_REQUEST, false);
+} catch (\Exception $e) {
+$this->logException($e, sprintf('Exception thrown when handling an exception (%s: %s at %s line %s)', get_class($e), $e->getMessage(), $e->getFile(), $e->getLine()));
+$wrapper = $e;
+while ($prev = $wrapper->getPrevious()) {
+if ($exception === $wrapper = $prev) {
+throw $e;
+}
+}
+$prev = new \ReflectionProperty('Exception','previous');
+$prev->setAccessible(true);
+$prev->setValue($wrapper, $exception);
+throw $e;
+}
+}
+private function legacyDuplicateRequest(Request $request)
+{
+$attributes = array('_controller'=> $this->controller,'logger'=> $this->logger instanceof DebugLoggerInterface ? $this->logger : null,'format'=> $request->getRequestFormat(),
+);
+$request = $request->duplicate(null, null, $attributes);
+$request->setMethod('GET');
+return $request;
+}
+private function isLegacySymfony()
+{
+return 2 === Kernel::MAJOR_VERSION && 3 === Kernel::MINOR_VERSION;
+}
+}
+}
+namespace JavierEguiluz\Bundle\EasyAdminBundle\EventListener
+{
+use Doctrine\Bundle\DoctrineBundle\Registry;
+use JavierEguiluz\Bundle\EasyAdminBundle\Exception\EntityNotFoundException;
+use Symfony\Component\EventDispatcher\GenericEvent;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
+class RequestPostInitializeListener
+{
+private $request;
+private $requestStack;
+private $doctrine;
+public function __construct(Registry $doctrine, RequestStack $requestStack = null)
+{
+$this->doctrine = $doctrine;
+$this->requestStack = $requestStack;
+}
+public function setRequest(Request $request = null)
+{
+$this->request = $request;
+}
+public function initializeRequest(GenericEvent $event)
+{
+if (null !== $this->requestStack) {
+$this->request = $this->requestStack->getCurrentRequest();
+}
+if (null === $this->request) {
+return;
+}
+$this->request->attributes->set('easyadmin', array('entity'=> $entity = $event->getArgument('entity'),'view'=> $this->request->query->get('action','list'),'item'=> ($id = $this->request->query->get('id')) ? $this->findCurrentItem($entity, $id) : null,
+));
+}
+private function findCurrentItem(array $entityConfig, $itemId)
+{
+$manager = $this->doctrine->getManagerForClass($entityConfig['class']);
+if (null === $entity = $manager->getRepository($entityConfig['class'])->find($itemId)) {
+throw new EntityNotFoundException(array('entity'=> $entityConfig,'entity_id'=> $itemId));
+}
+return $entity;
+}
+}
+}
+namespace JavierEguiluz\Bundle\EasyAdminBundle\Event
+{
+final class EasyAdminEvents
+{
+const PRE_INITIALIZE ='easy_admin.pre_initialize';
+const POST_INITIALIZE ='easy_admin.post_initialize';
+const PRE_DELETE ='easy_admin.pre_delete';
+const POST_DELETE ='easy_admin.post_delete';
+const PRE_EDIT ='easy_admin.pre_edit';
+const POST_EDIT ='easy_admin.post_edit';
+const PRE_LIST ='easy_admin.pre_list';
+const POST_LIST ='easy_admin.post_list';
+const PRE_NEW ='easy_admin.pre_new';
+const POST_NEW ='easy_admin.post_new';
+const PRE_SEARCH ='easy_admin.pre_search';
+const POST_SEARCH ='easy_admin.post_search';
+const PRE_SHOW ='easy_admin.pre_show';
+const POST_SHOW ='easy_admin.post_show';
+const PRE_PERSIST ='easy_admin.pre_persist';
+const POST_PERSIST ='easy_admin.post_persist';
+const PRE_UPDATE ='easy_admin.pre_update';
+const POST_UPDATE ='easy_admin.post_update';
+const PRE_REMOVE ='easy_admin.pre_remove';
+const POST_REMOVE ='easy_admin.post_remove';
+const POST_LIST_QUERY_BUILDER ='easy_admin.post_list_query_builder';
+const POST_SEARCH_QUERY_BUILDER ='easy_admin.post_search_query_builder';
+}
+}
+namespace Symfony\Component\Form
+{
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+interface FormTypeExtensionInterface
+{
+public function buildForm(FormBuilderInterface $builder, array $options);
+public function buildView(FormView $view, FormInterface $form, array $options);
+public function finishView(FormView $view, FormInterface $form, array $options);
+public function setDefaultOptions(OptionsResolverInterface $resolver);
+public function getExtendedType();
+}
+}
+namespace Symfony\Component\Form
+{
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+abstract class AbstractTypeExtension implements FormTypeExtensionInterface
+{
+public function buildForm(FormBuilderInterface $builder, array $options)
+{
+}
+public function buildView(FormView $view, FormInterface $form, array $options)
+{
+}
+public function finishView(FormView $view, FormInterface $form, array $options)
+{
+}
+public function setDefaultOptions(OptionsResolverInterface $resolver)
+{
+}
+}
+}
+namespace JavierEguiluz\Bundle\EasyAdminBundle\Form\Extension
+{
+use Symfony\Component\Form\AbstractTypeExtension;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
+class EasyAdminExtension extends AbstractTypeExtension
+{
+private $request;
+private $requestStack;
+public function __construct(RequestStack $requestStack = null)
+{
+$this->requestStack = $requestStack;
+}
+public function finishView(FormView $view, FormInterface $form, array $options)
+{
+if (null !== $this->requestStack) {
+$this->request = $this->requestStack->getCurrentRequest();
+}
+if (null === $this->request) {
+return;
+}
+if ($this->request->attributes->has('easyadmin')) {
+$easyadmin = $this->request->attributes->get('easyadmin');
+$entity = $easyadmin['entity'];
+$action = $easyadmin['view'];
+$fields = $entity[$action]['fields'];
+$view->vars['easyadmin'] = array('entity'=> $entity,'view'=> $action,'item'=> $easyadmin['item'],'field'=> isset($fields[$view->vars['name']]) ? $fields[$view->vars['name']] : null,
+);
+}
+}
+public function setRequest(Request $request = null)
+{
+$this->request = $request;
+}
+public function getExtendedType()
+{
+return $this->useLegacyFormComponent() ?'form':'Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType';
+}
+private function useLegacyFormComponent()
+{
+return false === class_exists('Symfony\\Component\\Form\\Util\\StringUtil');
+}
+}
+}
+namespace JavierEguiluz\Bundle\EasyAdminBundle\Search
+{
+use Doctrine\ORM\QueryBuilder as DoctrineQueryBuilder;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Pagerfanta\Pagerfanta;
+class Paginator
+{
+public function createOrmPaginator(DoctrineQueryBuilder $queryBuilder, $page, $maxPerPage)
+{
+$paginator = new Pagerfanta(new DoctrineORMAdapter($queryBuilder, true, false));
+$paginator->setMaxPerPage($maxPerPage);
+$paginator->setCurrentPage($page);
+return $paginator;
+}
+}
+}
+namespace JavierEguiluz\Bundle\EasyAdminBundle\Search
+{
+use Doctrine\Bundle\DoctrineBundle\Registry;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\QueryBuilder as DoctrineQueryBuilder;
+class QueryBuilder
+{
+private $doctrine;
+public function __construct(Registry $doctrine)
+{
+$this->doctrine = $doctrine;
+}
+public function createListQueryBuilder(array $entityConfig, $sortField, $sortDirection)
+{
+$em = $this->doctrine->getManagerForClass($entityConfig['class']);
+$queryBuilder = $em->createQueryBuilder()
+->select('entity')
+->from($entityConfig['class'],'entity')
+;
+if (null !== $sortField) {
+$queryBuilder->orderBy('entity.'.$sortField, $sortDirection);
+}
+return $queryBuilder;
+}
+public function createSearchQueryBuilder(array $entityConfig, $searchQuery, $sortField, $sortDirection)
+{
+$em = $this->doctrine->getManagerForClass($entityConfig['class']);
+$queryBuilder = $em->createQueryBuilder()
+->select('entity')
+->from($entityConfig['class'],'entity')
+;
+$queryParameters = array();
+foreach ($entityConfig['search']['fields'] as $name => $metadata) {
+$isNumericField = in_array($metadata['dataType'], array('integer','number','smallint','bigint','decimal','float'));
+$isTextField = in_array($metadata['dataType'], array('string','text','guid'));
+if ($isNumericField && is_numeric($searchQuery)) {
+$queryBuilder->orWhere(sprintf('entity.%s = :exact_query', $name));
+$queryParameters['exact_query'] = 0 + $searchQuery;
+} elseif ($isTextField) {
+$queryBuilder->orWhere(sprintf('entity.%s LIKE :fuzzy_query', $name));
+$queryParameters['fuzzy_query'] ='%'.$searchQuery.'%';
+$queryBuilder->orWhere(sprintf('entity.%s IN (:words_query)', $name));
+$queryParameters['words_query'] = explode(' ', $searchQuery);
+}
+}
+if (!empty($queryParameters)) {
+$queryBuilder->setParameters($queryParameters);
+}
+if (null !== $sortField) {
+$queryBuilder->orderBy('entity.'.$sortField, $sortDirection);
+}
+return $queryBuilder;
+}
+}
+}
+namespace
+{
+interface Twig_ExtensionInterface
+{
+public function initRuntime(Twig_Environment $environment);
+public function getTokenParsers();
+public function getNodeVisitors();
+public function getFilters();
+public function getTests();
+public function getFunctions();
+public function getOperators();
+public function getGlobals();
+public function getName();
+}
+}
+namespace
+{
+abstract class Twig_Extension implements Twig_ExtensionInterface
+{
+public function initRuntime(Twig_Environment $environment)
+{
+}
+public function getTokenParsers()
+{
+return array();
+}
+public function getNodeVisitors()
+{
+return array();
+}
+public function getFilters()
+{
+return array();
+}
+public function getTests()
+{
+return array();
+}
+public function getFunctions()
+{
+return array();
+}
+public function getOperators()
+{
+return array();
+}
+public function getGlobals()
+{
+return array();
+}
+}
+}
+namespace JavierEguiluz\Bundle\EasyAdminBundle\Twig
+{
+use Doctrine\ORM\Mapping\ClassMetadata;
+use JavierEguiluz\Bundle\EasyAdminBundle\Configuration\Configurator;
+use Symfony\Component\PropertyAccess\PropertyAccessor;
+class EasyAdminTwigExtension extends \Twig_Extension
+{
+private $configurator;
+private $accessor;
+private $debug;
+public function __construct(Configurator $configurator, PropertyAccessor $accessor, $debug = false)
+{
+$this->configurator = $configurator;
+$this->accessor = $accessor;
+$this->debug = $debug;
+}
+public function getFunctions()
+{
+return array(
+new \Twig_SimpleFunction('easyadmin_render_field_for_*_view', array($this,'renderEntityField'), array('is_safe'=> array('html'),'needs_environment'=> true)),
+new \Twig_SimpleFunction('easyadmin_config', array($this,'getBackendConfiguration')),
+new \Twig_SimpleFunction('easyadmin_entity', array($this,'getEntityConfiguration')),
+new \Twig_SimpleFunction('easyadmin_action_is_enabled', array($this,'isActionEnabled')),
+new \Twig_SimpleFunction('easyadmin_action_is_enabled_for_*_view', array($this,'isActionEnabled')),
+new \Twig_SimpleFunction('easyadmin_get_action', array($this,'getActionConfiguration')),
+new \Twig_SimpleFunction('easyadmin_get_action_for_*_view', array($this,'getActionConfiguration')),
+new \Twig_SimpleFunction('easyadmin_get_actions_for_*_item', array($this,'getActionsForItem')),
+);
+}
+public function getFilters()
+{
+return array(
+new \Twig_SimpleFilter('easyadmin_truncate', array($this,'truncateText'), array('needs_environment'=> true)),
+new \Twig_SimpleFilter('easyadmin_urldecode','urldecode'),
+);
+}
+public function getBackendConfiguration($key = null)
+{
+return $this->configurator->getBackendConfig($key);
+}
+public function getEntityConfiguration($entityName)
+{
+return null !== $this->getBackendConfiguration('entities.'.$entityName)
+? $this->configurator->getEntityConfig($entityName)
+: null;
+}
+public function renderEntityField(\Twig_Environment $twig, $view, $entityName, $item, array $fieldMetadata)
+{
+$entityConfiguration = $this->configurator->getEntityConfig($entityName);
+$fieldName = $fieldMetadata['property'];
+try {
+$value = $this->accessor->getValue($item, $fieldName);
+} catch (\Exception $e) {
+return $twig->render($entityConfiguration['templates']['label_inaccessible'], array('view'=> $view));
+}
+try {
+$fieldType = $fieldMetadata['dataType'];
+$templateParameters = array('field_options'=> $fieldMetadata,'item'=> $item,'value'=> $value,'view'=> $view,
+);
+if (null === $value) {
+return $twig->render($entityConfiguration['templates']['label_null'], $templateParameters);
+}
+if (true === $fieldMetadata['virtual'] && null === $fieldType) {
+$templateParameters['value'] = strval($value);
+}
+if ('image'=== $fieldType) {
+if (empty($value)) {
+return $twig->render($entityConfiguration['templates']['label_empty'], $templateParameters);
+}
+if (1 === preg_match('/^(http[s]?|\/\/).*/i', $value)) {
+$imageUrl = $value;
+} else {
+$imageUrl = isset($fieldMetadata['base_path'])
+? rtrim($fieldMetadata['base_path'],'/').'/'.ltrim($value,'/')
+:'/'.ltrim($value,'/');
+}
+$templateParameters['value'] = $imageUrl;
+$templateParameters['uuid'] = md5($imageUrl);
+}
+if (in_array($fieldType, array('array','simple_array')) && empty($value)) {
+return $twig->render($entityConfiguration['templates']['label_empty'], $templateParameters);
+}
+if ('association'=== $fieldType) {
+$targetEntityConfig = $this->configurator->getEntityConfigByClass($fieldMetadata['targetEntity']);
+if (null === $targetEntityConfig) {
+return $twig->render($fieldMetadata['template'], $templateParameters);
+}
+$isShowActionAllowed = $this->isActionEnabled($view,'show', $targetEntityConfig['name']);
+}
+if ('association'=== $fieldType && ($fieldMetadata['associationType'] & ClassMetadata::TO_ONE)) {
+try {
+$primaryKeyValue = $this->accessor->getValue($value, $targetEntityConfig['primary_key_field_name']);
+} catch (\Exception $e) {
+$primaryKeyValue = null;
+}
+if (method_exists($value,'__toString')) {
+$templateParameters['value'] = (string) $value;
+} elseif (null !== $primaryKeyValue) {
+$templateParameters['value'] = sprintf('%s #%s', $targetEntityConfig['name'], $primaryKeyValue);
+} else {
+$templateParameters['value'] = $this->getClassShortName($fieldMetadata['targetEntity']);
+}
+if (null !== $targetEntityConfig && null !== $primaryKeyValue && $isShowActionAllowed) {
+$templateParameters['link_parameters'] = array('entity'=> $targetEntityConfig['name'],'action'=>'show','id'=> $primaryKeyValue);
+}
+}
+if ('association'=== $fieldType && ($fieldMetadata['associationType'] & ClassMetadata::TO_MANY)) {
+if (null !== $targetEntityConfig && $isShowActionAllowed) {
+$templateParameters['link_parameters'] = array('entity'=> $targetEntityConfig['name'],'action'=>'show','primary_key_name'=> $targetEntityConfig['primary_key_field_name']);
+}
+}
+return $twig->render($fieldMetadata['template'], $templateParameters);
+} catch (\Exception $e) {
+if ($this->debug) {
+throw $e;
+}
+return $twig->render($entityConfiguration['templates']['label_undefined'], array('view'=> $view));
+}
+}
+public function isActionEnabled($view, $action, $entityName)
+{
+return $this->configurator->isActionEnabled($entityName, $view, $action);
+}
+public function getActionConfiguration($view, $action, $entityName)
+{
+return $this->configurator->getActionConfig($entityName, $view, $action);
+}
+public function getActionsForItem($view, $entityName)
+{
+try {
+$entityConfig = $this->configurator->getEntityConfig($entityName);
+} catch (\Exception $e) {
+return array();
+}
+$disabledActions = $entityConfig['disabled_actions'];
+$viewActions = $entityConfig[$view]['actions'];
+$actionsExcludedForItems = array('list'=> array('new','search'),'edit'=> array(),'new'=> array(),'show'=> array(),
+);
+$excludedActions = $actionsExcludedForItems[$view];
+return array_filter($viewActions, function ($action) use ($excludedActions, $disabledActions) {
+return !in_array($action['name'], $excludedActions) && !in_array($action['name'], $disabledActions);
+});
+}
+public function truncateText(\Twig_Environment $env, $value, $length = 64, $preserve = false, $separator ='...')
+{
+try {
+$value = (string) $value;
+} catch (\Exception $e) {
+$value ='';
+}
+if (function_exists('mb_get_info')) {
+if (mb_strlen($value, $env->getCharset()) > $length) {
+if ($preserve) {
+if (false === ($breakpoint = mb_strpos($value,' ', $length, $env->getCharset()))) {
+return $value;
+}
+$length = $breakpoint;
+}
+return rtrim(mb_substr($value, 0, $length, $env->getCharset())).$separator;
+}
+return $value;
+}
+if (strlen($value) > $length) {
+if ($preserve) {
+if (false !== ($breakpoint = strpos($value,' ', $length))) {
+$length = $breakpoint;
+}
+}
+return rtrim(substr($value, 0, $length)).$separator;
+}
+return $value;
+}
+private function getClassShortName($fqcn)
+{
+$classParts = explode('\\', $fqcn);
+$className = end($classParts);
+return $className;
+}
+public function getName()
+{
+return'easyadmin_extension';
+}
+}
+}
 namespace Monolog\Formatter
 {
 interface FormatterInterface
@@ -1717,13 +2423,6 @@ throw new \RuntimeException(sprintf('Unknown key "%s" for annotation "@%s".', $k
 $this->$name($v);
 }
 }
-}
-}
-namespace Symfony\Component\EventDispatcher
-{
-interface EventSubscriberInterface
-{
-public static function getSubscribedEvents();
 }
 }
 namespace Sensio\Bundle\FrameworkExtraBundle\EventListener
@@ -6988,58 +7687,6 @@ $this->binaryOperators = array_merge($this->binaryOperators, $operators[1]);
 protected function writeCacheFile($file, $content)
 {
 $this->cache->write($file, $content);
-}
-}
-}
-namespace
-{
-interface Twig_ExtensionInterface
-{
-public function initRuntime(Twig_Environment $environment);
-public function getTokenParsers();
-public function getNodeVisitors();
-public function getFilters();
-public function getTests();
-public function getFunctions();
-public function getOperators();
-public function getGlobals();
-public function getName();
-}
-}
-namespace
-{
-abstract class Twig_Extension implements Twig_ExtensionInterface
-{
-public function initRuntime(Twig_Environment $environment)
-{
-}
-public function getTokenParsers()
-{
-return array();
-}
-public function getNodeVisitors()
-{
-return array();
-}
-public function getFilters()
-{
-return array();
-}
-public function getTests()
-{
-return array();
-}
-public function getFunctions()
-{
-return array();
-}
-public function getOperators()
-{
-return array();
-}
-public function getGlobals()
-{
-return array();
 }
 }
 }

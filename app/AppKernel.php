@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Mooc\MoocBundle\MoocMoocBundle(),
             new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
+            new Avanzu\AdminThemeBundle\AvanzuAdminThemeBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

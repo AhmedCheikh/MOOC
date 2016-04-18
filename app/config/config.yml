@@ -66,7 +66,7 @@ doctrine:
         auto_mapping: true
         
 parameters:
-    locale: en
+    locale: fr
     app.path.formateur_images: /img/avatar
     app.path.formateur_cv: /file/cv
 

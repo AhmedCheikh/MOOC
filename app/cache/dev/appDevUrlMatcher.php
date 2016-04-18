@@ -269,6 +269,190 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/admin')) {
+            // avanzu_admin_home
+            if (rtrim($pathinfo, '/') === '/admin') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'avanzu_admin_home');
+                }
+
+                return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::dashboardAction',  '_route' => 'avanzu_admin_home',);
+            }
+
+            // avanzu_admin_profile
+            if (0 === strpos($pathinfo, '/admin/profile') && preg_match('#^/admin/profile/(?P<userid>[^/]++)/?$#s', $pathinfo, $matches)) {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'avanzu_admin_profile');
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'avanzu_admin_profile')), array ());
+            }
+
+            // avanzu_admin_logout
+            if ($pathinfo === '/admin/logout') {
+                return array('_route' => 'avanzu_admin_logout');
+            }
+
+            if (0 === strpos($pathinfo, '/admin/tasks')) {
+                // avanzu_admin_all_tasks
+                if (rtrim($pathinfo, '/') === '/admin/tasks') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'avanzu_admin_all_tasks');
+                    }
+
+                    return array('_route' => 'avanzu_admin_all_tasks');
+                }
+
+                // avanzu_admin_show_task
+                if (preg_match('#^/admin/tasks/(?P<taskid>[^/]++)/?$#s', $pathinfo, $matches)) {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'avanzu_admin_show_task');
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'avanzu_admin_show_task')), array ());
+                }
+
+            }
+
+            if (0 === strpos($pathinfo, '/admin/notifications')) {
+                // avanzu_admin_all_notifications
+                if (rtrim($pathinfo, '/') === '/admin/notifications') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'avanzu_admin_all_notifications');
+                    }
+
+                    return array('_route' => 'avanzu_admin_all_notifications');
+                }
+
+                // avanzu_admin_show_notification
+                if (preg_match('#^/admin/notifications/(?P<notifyid>[^/]++)/?$#s', $pathinfo, $matches)) {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'avanzu_admin_show_notification');
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'avanzu_admin_show_notification')), array ());
+                }
+
+            }
+
+            if (0 === strpos($pathinfo, '/admin/messages')) {
+                // avanzu_admin_all_messages
+                if (rtrim($pathinfo, '/') === '/admin/messages') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'avanzu_admin_all_messages');
+                    }
+
+                    return array('_route' => 'avanzu_admin_all_messages');
+                }
+
+                // avanzu_admin_show_message
+                if (preg_match('#^/admin/messages/(?P<messageid>[^/]++)/?$#s', $pathinfo, $matches)) {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'avanzu_admin_show_message');
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'avanzu_admin_show_message')), array ());
+                }
+
+            }
+
+            // avanzu_admin_demo
+            if (rtrim($pathinfo, '/') === '/admin') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'avanzu_admin_demo');
+                }
+
+                return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::dashboardAction',  '_route' => 'avanzu_admin_demo',);
+            }
+
+            if (0 === strpos($pathinfo, '/admin/d')) {
+                if (0 === strpos($pathinfo, '/admin/demo-admin')) {
+                    // avanzu_admin_form_demo
+                    if (rtrim($pathinfo, '/') === '/admin/demo-admin/form-demo') {
+                        if (substr($pathinfo, -1) !== '/') {
+                            return $this->redirect($pathinfo.'/', 'avanzu_admin_form_demo');
+                        }
+
+                        return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::formAction',  '_route' => 'avanzu_admin_form_demo',);
+                    }
+
+                    // avanzu_admin_login_demo
+                    if (rtrim($pathinfo, '/') === '/admin/demo-admin/login') {
+                        if (substr($pathinfo, -1) !== '/') {
+                            return $this->redirect($pathinfo.'/', 'avanzu_admin_login_demo');
+                        }
+
+                        return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::loginAction',  '_route' => 'avanzu_admin_login_demo',);
+                    }
+
+                    // avanzu_admin_dash_demo
+                    if (rtrim($pathinfo, '/') === '/admin/demo-admin/dashboard') {
+                        if (substr($pathinfo, -1) !== '/') {
+                            return $this->redirect($pathinfo.'/', 'avanzu_admin_dash_demo');
+                        }
+
+                        return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::dashboardAction',  '_route' => 'avanzu_admin_dash_demo',);
+                    }
+
+                }
+
+                // avanzu_admin_dashboard
+                if (rtrim($pathinfo, '/') === '/admin/dashboard') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'avanzu_admin_dashboard');
+                    }
+
+                    return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::dashboard2Action',  '_route' => 'avanzu_admin_dashboard',);
+                }
+
+                if (0 === strpos($pathinfo, '/admin/demo-admin/ui-elements')) {
+                    // avanzu_admin_ui_gen_demo
+                    if (rtrim($pathinfo, '/') === '/admin/demo-admin/ui-elements/general') {
+                        if (substr($pathinfo, -1) !== '/') {
+                            return $this->redirect($pathinfo.'/', 'avanzu_admin_ui_gen_demo');
+                        }
+
+                        return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::uiGeneralAction',  '_route' => 'avanzu_admin_ui_gen_demo',);
+                    }
+
+                    // avanzu_admin_ui_icon_demo
+                    if (rtrim($pathinfo, '/') === '/admin/demo-admin/ui-elements/icons') {
+                        if (substr($pathinfo, -1) !== '/') {
+                            return $this->redirect($pathinfo.'/', 'avanzu_admin_ui_icon_demo');
+                        }
+
+                        return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::uiIconsAction',  '_route' => 'avanzu_admin_ui_icon_demo',);
+                    }
+
+                }
+
+            }
+
+            if (0 === strpos($pathinfo, '/admin/liste-')) {
+                // liste_organisme
+                if ($pathinfo === '/admin/liste-organisme') {
+                    return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::listeOrganismeAction',  '_route' => 'liste_organisme',);
+                }
+
+                // liste_formateur
+                if ($pathinfo === '/admin/liste-formateur') {
+                    return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::formateurAction',  '_route' => 'liste_formateur',);
+                }
+
+            }
+
+            // charts
+            if ($pathinfo === '/admin/charts') {
+                return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::chartsAction',  '_route' => 'charts',);
+            }
+
+            // test
+            if ($pathinfo === '/admin/test') {
+                return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::testAction',  '_route' => 'test',);
+            }
+
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

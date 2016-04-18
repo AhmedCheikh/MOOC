@@ -61,7 +61,7 @@ class Quiz
         $this->type = $type;
         return $this;
     }
-
+    
 
 
 }
