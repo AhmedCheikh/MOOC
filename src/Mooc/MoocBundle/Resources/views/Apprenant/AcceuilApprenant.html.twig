@@ -68,11 +68,10 @@
                     <div class="profile-widget profile-widget-info">
                           <div class="panel-body">
                             <div class="col-lg-2 col-sm-2">
-                              <h4>Khoubaib Chamekh</h4>               
+                              <h4>{{apprenant.prenom}} {{apprenant.nom}}</h4>               
                               <div class="follow-ava">
-                                  <img src="{{asset('bundles/moocmooc/ApprenantAssets/img/profile-avatar.jpg')}}" alt="">
+                                  <img src="{{ image('uploads/uploads/'~apprenant.avatar).resize(140,140) }}" />
                               </div>
-                              <h6>Administrator</h6>
                             </div>
                             <div class="col-lg-4 col-sm-4 follow-info">
                                 <p>Hello I’m Khoubaib Chamekh, a leading expert in interactive and creative design.</p>
@@ -84,19 +83,7 @@
                                     <span><i class="icon_pin_alt"></i>TN</span>
                                 </h6>
                             </div>
-                            
-							<div class="col-lg-2 col-sm-6 follow-info weather-category">
-                                      <ul>
-                                          <li class="active">
-                                              
-                                              <i class="fa fa-bell fa-2x"> </i><br>
-											  
-											  Contrary to popular belief, Lorem Ipsum is not simply 
-                                          </li>
-										   
-                                      </ul>
-                            </div>
-							
+                            			
                           </div>
                     </div>
                 </div>
@@ -142,34 +129,23 @@
                                   <!-- profile -->
                                   <div id="profile" class="tab-pane active">
                                     <section class="panel">
-                                      <div class="bio-graph-heading">
-                                                Hello I’m Khoubaib Chamekh, a leading expert in interactive and creative design specializing in the mobile medium. My graduation from Massey University with a Bachelor of Design majoring in visual communication.
-                                      </div>
+                                      
                                       <div class="panel-body bio-graph-info">
-                                          <h1>Bio Graph</h1>
-                                          <div class="row">
+                                          <h1>Profile Info</h1>
+                                          <div class="row">                                           
+                                              <div class="bio-row">
+                                                  <p><span>Cin</span>: {{ apprenant.cin }}</p>
+                                              </div>
+                                             
                                               <div class="bio-row">
                                                   <p><span>Nom </span>: {{ apprenant.nom }} </p>
                                               </div>
-                                              <div class="bio-row">
-                                                  <p><span>Prenom </span>: {{apprenant.prenom }}</p>
-                                              </div>                                              
-                                              <div class="bio-row">
-                                                  <p><span>Birthday</span>: 29 Mai 1992</p>
-                                              </div>
-                                              <div class="bio-row">
-                                                  <p><span>Country </span>: Tunisie</p>
-                                              </div>
-                                              <div class="bio-row">
-                                                  <p><span>Occupation </span>: UI Designer</p>
-                                              </div>
-                                              <div class="bio-row">
+                                               <div class="bio-row">
                                                   <p><span>Email </span>: {{apprenant.email }}</p>
                                               </div>
                                               <div class="bio-row">
-                                                  <p><span>Mobile </span>: (+6283) 456 789</p>
-                                              </div>
-                                             
+                                                  <p><span>Prenom </span>: {{apprenant.prenom }}</p>
+                                              </div> 
                                           </div>
                                       </div>
                                     </section>
@@ -185,24 +161,24 @@
 				<div id="edit-password" class="tab-pane">
                                     <section class="panel">                                          
                                           <div class="panel-body bio-graph-info">
-                                              <h1> Edit Password</h1>
-                                              <form class="form-horizontal" role="form">                                                  
+                                              <h1> Editer Password</h1>
+                                              <form class="form-horizontal" role="form" method="POST" action="">                                                  
                                                   <div class="form-group">
                                                       <label class="col-lg-2 control-label">Mot de passe actuel</label>
                                                       <div class="col-lg-6">
-                                                          <input type="password" class="form-control" id="f-name" placeholder="Entez le mot de passe actuel">
+                                                          <input type="password" class="form-control" id="passwordActuelle" placeholder="Entez le mot de passe actuel" required>
                                                       </div>
                                                   </div>
                                                   <div class="form-group">
                                                       <label class="col-lg-2 control-label">Nouveau mot de passe</label>
                                                       <div class="col-lg-6">
-                                                          <input type="password" class="form-control" id="l-name" placeholder="Entrez le nouveau mot de passe">
+                                                          <input type="password" class="form-control" id="nouveauPassword" placeholder="Entrez le nouveau mot de passe"  pattern=".{6,}" title="mot de passe trop courte" required>
                                                       </div>
                                                   </div>
 												  <div class="form-group">
                                                       <label class="col-lg-2 control-label">Retapez la mot de passe</label>
                                                       <div class="col-lg-6">
-                                                          <input type="password" class="form-control" id="l-name" placeholder="Retapez le nouveau mot de passe">
+                                                          <input type="password" class="form-control" id="nouveauPasswordre" placeholder="Retapez le nouveau mot de passe" pattern=".{6,}" title="mot de passe trop courte" required>
                                                       </div>
                                                   </div>
                                                   
@@ -271,7 +247,7 @@
                                   <div id="edit-profile" class="tab-pane">
                                     <section class="panel">                                          
                                           <div class="panel-body bio-graph-info">
-                                              <h1> Profile Info</h1>
+                                              <h1> Editer Profile</h1>
                                               <form class="form-horizontal" role="form" method="POST" action="{{path('mooc_editer_profil_apprenant', {'login': apprenant.login})}}" > 
                                                   <div class="form-group">
                                                       <label class="col-lg-2 control-label">Cin</label>

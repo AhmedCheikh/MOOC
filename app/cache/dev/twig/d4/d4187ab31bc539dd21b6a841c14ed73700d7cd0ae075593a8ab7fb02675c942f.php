@@ -132,14 +132,18 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
                     <div class=\"profile-widget profile-widget-info\">
                           <div class=\"panel-body\">
                             <div class=\"col-lg-2 col-sm-2\">
-                              <h4>Khoubaib Chamekh</h4>               
+                              <h4>";
+        // line 71
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "prenom", array()), "html", null, true);
+        echo " ";
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "nom", array()), "html", null, true);
+        echo "</h4>               
                               <div class=\"follow-ava\">
                                   <img src=\"";
         // line 73
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/img/profile-avatar.jpg"), "html", null, true);
-        echo "\" alt=\"\">
+        echo twig_escape_filter($this->env, $this->getAttribute($this->env->getExtension('image')->image(("uploads/uploads/" . $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "avatar", array()))), "resize", array(0 => 140, 1 => 140), "method"), "html", null, true);
+        echo "\" />
                               </div>
-                              <h6>Administrator</h6>
                             </div>
                             <div class=\"col-lg-4 col-sm-4 follow-info\">
                                 <p>Hello I’m Khoubaib Chamekh, a leading expert in interactive and creative design.</p>
@@ -151,19 +155,7 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
                                     <span><i class=\"icon_pin_alt\"></i>TN</span>
                                 </h6>
                             </div>
-                            
-\t\t\t\t\t\t\t<div class=\"col-lg-2 col-sm-6 follow-info weather-category\">
-                                      <ul>
-                                          <li class=\"active\">
-                                              
-                                              <i class=\"fa fa-bell fa-2x\"> </i><br>
-\t\t\t\t\t\t\t\t\t\t\t  
-\t\t\t\t\t\t\t\t\t\t\t  Contrary to popular belief, Lorem Ipsum is not simply 
-                                          </li>
-\t\t\t\t\t\t\t\t\t\t   
-                                      </ul>
-                            </div>
-\t\t\t\t\t\t\t
+                            \t\t\t
                           </div>
                     </div>
                 </div>
@@ -189,7 +181,7 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
                                   </li>
                                   
                                   ";
-        // line 130
+        // line 117
         echo "                                  
                                   <li class=\"\">
                                       <a data-toggle=\"tab\" href=\"#edit-password\">
@@ -205,43 +197,35 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
                                   <!-- profile -->
                                   <div id=\"profile\" class=\"tab-pane active\">
                                     <section class=\"panel\">
-                                      <div class=\"bio-graph-heading\">
-                                                Hello I’m Khoubaib Chamekh, a leading expert in interactive and creative design specializing in the mobile medium. My graduation from Massey University with a Bachelor of Design majoring in visual communication.
-                                      </div>
+                                      
                                       <div class=\"panel-body bio-graph-info\">
-                                          <h1>Bio Graph</h1>
-                                          <div class=\"row\">
+                                          <h1>Profile Info</h1>
+                                          <div class=\"row\">                                           
+                                              <div class=\"bio-row\">
+                                                  <p><span>Cin</span>: ";
+        // line 137
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "cin", array()), "html", null, true);
+        echo "</p>
+                                              </div>
+                                             
                                               <div class=\"bio-row\">
                                                   <p><span>Nom </span>: ";
-        // line 152
+        // line 141
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "nom", array()), "html", null, true);
         echo " </p>
                                               </div>
-                                              <div class=\"bio-row\">
-                                                  <p><span>Prenom </span>: ";
-        // line 155
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "prenom", array()), "html", null, true);
-        echo "</p>
-                                              </div>                                              
-                                              <div class=\"bio-row\">
-                                                  <p><span>Birthday</span>: 29 Mai 1992</p>
-                                              </div>
-                                              <div class=\"bio-row\">
-                                                  <p><span>Country </span>: Tunisie</p>
-                                              </div>
-                                              <div class=\"bio-row\">
-                                                  <p><span>Occupation </span>: UI Designer</p>
-                                              </div>
-                                              <div class=\"bio-row\">
+                                               <div class=\"bio-row\">
                                                   <p><span>Email </span>: ";
-        // line 167
+        // line 144
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "email", array()), "html", null, true);
         echo "</p>
                                               </div>
                                               <div class=\"bio-row\">
-                                                  <p><span>Mobile </span>: (+6283) 456 789</p>
-                                              </div>
-                                             
+                                                  <p><span>Prenom </span>: ";
+        // line 147
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "prenom", array()), "html", null, true);
+        echo "</p>
+                                              </div> 
                                           </div>
                                       </div>
                                     </section>
@@ -257,24 +241,24 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
 \t\t\t\t<div id=\"edit-password\" class=\"tab-pane\">
                                     <section class=\"panel\">                                          
                                           <div class=\"panel-body bio-graph-info\">
-                                              <h1> Edit Password</h1>
-                                              <form class=\"form-horizontal\" role=\"form\">                                                  
+                                              <h1> Editer Password</h1>
+                                              <form class=\"form-horizontal\" role=\"form\" method=\"POST\" action=\"\">                                                  
                                                   <div class=\"form-group\">
                                                       <label class=\"col-lg-2 control-label\">Mot de passe actuel</label>
                                                       <div class=\"col-lg-6\">
-                                                          <input type=\"password\" class=\"form-control\" id=\"f-name\" placeholder=\"Entez le mot de passe actuel\">
+                                                          <input type=\"password\" class=\"form-control\" id=\"passwordActuelle\" placeholder=\"Entez le mot de passe actuel\" required>
                                                       </div>
                                                   </div>
                                                   <div class=\"form-group\">
                                                       <label class=\"col-lg-2 control-label\">Nouveau mot de passe</label>
                                                       <div class=\"col-lg-6\">
-                                                          <input type=\"password\" class=\"form-control\" id=\"l-name\" placeholder=\"Entrez le nouveau mot de passe\">
+                                                          <input type=\"password\" class=\"form-control\" id=\"nouveauPassword\" placeholder=\"Entrez le nouveau mot de passe\"  pattern=\".{6,}\" title=\"mot de passe trop courte\" required>
                                                       </div>
                                                   </div>
 \t\t\t\t\t\t\t\t\t\t\t\t  <div class=\"form-group\">
                                                       <label class=\"col-lg-2 control-label\">Retapez la mot de passe</label>
                                                       <div class=\"col-lg-6\">
-                                                          <input type=\"password\" class=\"form-control\" id=\"l-name\" placeholder=\"Retapez le nouveau mot de passe\">
+                                                          <input type=\"password\" class=\"form-control\" id=\"nouveauPasswordre\" placeholder=\"Retapez le nouveau mot de passe\" pattern=\".{6,}\" title=\"mot de passe trop courte\" required>
                                                       </div>
                                                   </div>
                                                   
@@ -294,22 +278,22 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
                                   </div>
                               
                                   ";
-        // line 269
+        // line 245
         echo "\t\t\t\t\t\t\t\t  
                                   <!-- edit-profile -->
                                   <div id=\"edit-profile\" class=\"tab-pane\">
                                     <section class=\"panel\">                                          
                                           <div class=\"panel-body bio-graph-info\">
-                                              <h1> Profile Info</h1>
+                                              <h1> Editer Profile</h1>
                                               <form class=\"form-horizontal\" role=\"form\" method=\"POST\" action=\"";
-        // line 275
+        // line 251
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_editer_profil_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
         echo "\" > 
                                                   <div class=\"form-group\">
                                                       <label class=\"col-lg-2 control-label\">Cin</label>
                                                       <div class=\"col-lg-6\">
                                                           <input type=\"text\" class=\"form-control\" name=\"cin\" id=\"cin\" value=\"";
-        // line 279
+        // line 255
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "cin", array()), "html", null, true);
         echo "\" disabled=\"true\">
                                                       </div>
@@ -318,7 +302,7 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
                                                       <label class=\"col-lg-2 control-label\">Nom</label>
                                                       <div class=\"col-lg-6\">
                                                           <input type=\"text\" class=\"form-control\" name=\"nom\" id=\"nom\" value=\"";
-        // line 285
+        // line 261
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "nom", array()), "html", null, true);
         echo "\"  required>
                                                       </div>
@@ -327,7 +311,7 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
                                                       <label class=\"col-lg-2 control-label\">Prenom</label>
                                                       <div class=\"col-lg-6\">
                                                           <input type=\"text\" class=\"form-control\" name=\"prenom\" id=\"prenom\" value=\"";
-        // line 291
+        // line 267
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "prenom", array()), "html", null, true);
         echo "\" required>
                                                       </div>
@@ -337,7 +321,7 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
                                                       <label class=\"col-lg-2 control-label\">Email</label>
                                                       <div class=\"col-lg-6\">
                                                           <input type=\"text\" class=\"form-control\" name=\"email\" id=\"email\" value=\"";
-        // line 298
+        // line 274
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "email", array()), "html", null, true);
         echo "\"  required>
                                                       </div>
@@ -346,7 +330,7 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
                                                       <label class=\"col-lg-2 control-label\">Login</label>
                                                       <div class=\"col-lg-6\">
                                                           <input type=\"text\" class=\"form-control\" name=\"login\" id=\"login\" value=\"";
-        // line 304
+        // line 280
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()), "html", null, true);
         echo "\"  required>
                                                       </div>
@@ -379,49 +363,49 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
 ";
     }
 
-    // line 334
+    // line 310
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 335
+        // line 311
         echo "    <!-- javascripts -->
     <script src=\"";
-        // line 336
+        // line 312
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 337
+        // line 313
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
     <!-- nice scroll -->
     <script src=\"";
-        // line 339
+        // line 315
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.scrollTo.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 340
+        // line 316
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.nicescroll.js"), "html", null, true);
         echo "\"></script>
     <!-- jquery knob -->
     <script src=\"";
-        // line 342
+        // line 318
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.knob.js"), "html", null, true);
         echo "\"></script>
     <!--custome script for all page-->
     <script src=\"";
-        // line 344
+        // line 320
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/scripts.js"), "html", null, true);
         echo "\"></script>
     <!-- map -->
     <script src=\"";
-        // line 346
+        // line 322
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery-jvectormap-1.2.2.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 347
+        // line 323
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery-jvectormap-world-mill-en.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 348
+        // line 324
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/gdp-data.js"), "html", null, true);
         echo "\"></script>\t
 
@@ -466,7 +450,7 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
 
     public function getDebugInfo()
     {
-        return array (  425 => 348,  421 => 347,  417 => 346,  412 => 344,  407 => 342,  402 => 340,  398 => 339,  393 => 337,  389 => 336,  386 => 335,  383 => 334,  350 => 304,  341 => 298,  331 => 291,  322 => 285,  313 => 279,  306 => 275,  298 => 269,  238 => 167,  223 => 155,  217 => 152,  193 => 130,  139 => 73,  116 => 52,  113 => 51,  95 => 36,  84 => 28,  74 => 21,  66 => 15,  63 => 14,  56 => 11,  53 => 10,  46 => 7,  43 => 6,  36 => 4,  33 => 3,  11 => 1,);
+        return array (  409 => 324,  405 => 323,  401 => 322,  396 => 320,  391 => 318,  386 => 316,  382 => 315,  377 => 313,  373 => 312,  370 => 311,  367 => 310,  334 => 280,  325 => 274,  315 => 267,  306 => 261,  297 => 255,  290 => 251,  282 => 245,  226 => 147,  220 => 144,  214 => 141,  207 => 137,  185 => 117,  144 => 73,  137 => 71,  116 => 52,  113 => 51,  95 => 36,  84 => 28,  74 => 21,  66 => 15,  63 => 14,  56 => 11,  53 => 10,  46 => 7,  43 => 6,  36 => 4,  33 => 3,  11 => 1,);
     }
 }
 /* {% extends "MoocMoocBundle:Apprenant:EspaceApprenant.html.twig" %}*/
@@ -539,11 +523,10 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
 /*                     <div class="profile-widget profile-widget-info">*/
 /*                           <div class="panel-body">*/
 /*                             <div class="col-lg-2 col-sm-2">*/
-/*                               <h4>Khoubaib Chamekh</h4>               */
+/*                               <h4>{{apprenant.prenom}} {{apprenant.nom}}</h4>               */
 /*                               <div class="follow-ava">*/
-/*                                   <img src="{{asset('bundles/moocmooc/ApprenantAssets/img/profile-avatar.jpg')}}" alt="">*/
+/*                                   <img src="{{ image('uploads/uploads/'~apprenant.avatar).resize(140,140) }}" />*/
 /*                               </div>*/
-/*                               <h6>Administrator</h6>*/
 /*                             </div>*/
 /*                             <div class="col-lg-4 col-sm-4 follow-info">*/
 /*                                 <p>Hello I’m Khoubaib Chamekh, a leading expert in interactive and creative design.</p>*/
@@ -555,19 +538,7 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
 /*                                     <span><i class="icon_pin_alt"></i>TN</span>*/
 /*                                 </h6>*/
 /*                             </div>*/
-/*                             */
-/* 							<div class="col-lg-2 col-sm-6 follow-info weather-category">*/
-/*                                       <ul>*/
-/*                                           <li class="active">*/
-/*                                               */
-/*                                               <i class="fa fa-bell fa-2x"> </i><br>*/
-/* 											  */
-/* 											  Contrary to popular belief, Lorem Ipsum is not simply */
-/*                                           </li>*/
-/* 										   */
-/*                                       </ul>*/
-/*                             </div>*/
-/* 							*/
+/*                             			*/
 /*                           </div>*/
 /*                     </div>*/
 /*                 </div>*/
@@ -613,34 +584,23 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
 /*                                   <!-- profile -->*/
 /*                                   <div id="profile" class="tab-pane active">*/
 /*                                     <section class="panel">*/
-/*                                       <div class="bio-graph-heading">*/
-/*                                                 Hello I’m Khoubaib Chamekh, a leading expert in interactive and creative design specializing in the mobile medium. My graduation from Massey University with a Bachelor of Design majoring in visual communication.*/
-/*                                       </div>*/
+/*                                       */
 /*                                       <div class="panel-body bio-graph-info">*/
-/*                                           <h1>Bio Graph</h1>*/
-/*                                           <div class="row">*/
+/*                                           <h1>Profile Info</h1>*/
+/*                                           <div class="row">                                           */
+/*                                               <div class="bio-row">*/
+/*                                                   <p><span>Cin</span>: {{ apprenant.cin }}</p>*/
+/*                                               </div>*/
+/*                                              */
 /*                                               <div class="bio-row">*/
 /*                                                   <p><span>Nom </span>: {{ apprenant.nom }} </p>*/
 /*                                               </div>*/
-/*                                               <div class="bio-row">*/
-/*                                                   <p><span>Prenom </span>: {{apprenant.prenom }}</p>*/
-/*                                               </div>                                              */
-/*                                               <div class="bio-row">*/
-/*                                                   <p><span>Birthday</span>: 29 Mai 1992</p>*/
-/*                                               </div>*/
-/*                                               <div class="bio-row">*/
-/*                                                   <p><span>Country </span>: Tunisie</p>*/
-/*                                               </div>*/
-/*                                               <div class="bio-row">*/
-/*                                                   <p><span>Occupation </span>: UI Designer</p>*/
-/*                                               </div>*/
-/*                                               <div class="bio-row">*/
+/*                                                <div class="bio-row">*/
 /*                                                   <p><span>Email </span>: {{apprenant.email }}</p>*/
 /*                                               </div>*/
 /*                                               <div class="bio-row">*/
-/*                                                   <p><span>Mobile </span>: (+6283) 456 789</p>*/
-/*                                               </div>*/
-/*                                              */
+/*                                                   <p><span>Prenom </span>: {{apprenant.prenom }}</p>*/
+/*                                               </div> */
 /*                                           </div>*/
 /*                                       </div>*/
 /*                                     </section>*/
@@ -656,24 +616,24 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
 /* 				<div id="edit-password" class="tab-pane">*/
 /*                                     <section class="panel">                                          */
 /*                                           <div class="panel-body bio-graph-info">*/
-/*                                               <h1> Edit Password</h1>*/
-/*                                               <form class="form-horizontal" role="form">                                                  */
+/*                                               <h1> Editer Password</h1>*/
+/*                                               <form class="form-horizontal" role="form" method="POST" action="">                                                  */
 /*                                                   <div class="form-group">*/
 /*                                                       <label class="col-lg-2 control-label">Mot de passe actuel</label>*/
 /*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="password" class="form-control" id="f-name" placeholder="Entez le mot de passe actuel">*/
+/*                                                           <input type="password" class="form-control" id="passwordActuelle" placeholder="Entez le mot de passe actuel" required>*/
 /*                                                       </div>*/
 /*                                                   </div>*/
 /*                                                   <div class="form-group">*/
 /*                                                       <label class="col-lg-2 control-label">Nouveau mot de passe</label>*/
 /*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="password" class="form-control" id="l-name" placeholder="Entrez le nouveau mot de passe">*/
+/*                                                           <input type="password" class="form-control" id="nouveauPassword" placeholder="Entrez le nouveau mot de passe"  pattern=".{6,}" title="mot de passe trop courte" required>*/
 /*                                                       </div>*/
 /*                                                   </div>*/
 /* 												  <div class="form-group">*/
 /*                                                       <label class="col-lg-2 control-label">Retapez la mot de passe</label>*/
 /*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="password" class="form-control" id="l-name" placeholder="Retapez le nouveau mot de passe">*/
+/*                                                           <input type="password" class="form-control" id="nouveauPasswordre" placeholder="Retapez le nouveau mot de passe" pattern=".{6,}" title="mot de passe trop courte" required>*/
 /*                                                       </div>*/
 /*                                                   </div>*/
 /*                                                   */
@@ -742,7 +702,7 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
 /*                                   <div id="edit-profile" class="tab-pane">*/
 /*                                     <section class="panel">                                          */
 /*                                           <div class="panel-body bio-graph-info">*/
-/*                                               <h1> Profile Info</h1>*/
+/*                                               <h1> Editer Profile</h1>*/
 /*                                               <form class="form-horizontal" role="form" method="POST" action="{{path('mooc_editer_profil_apprenant', {'login': apprenant.login})}}" > */
 /*                                                   <div class="form-group">*/
 /*                                                       <label class="col-lg-2 control-label">Cin</label>*/

@@ -129,7 +129,31 @@ mooc_mooc_afficher_quiz:
     
 mooc_mooc_afficher_test:
     path:     /test/{id}
-    defaults: { _controller: MoocMoocBundle:Quiz:test}   
+    defaults: { _controller: MoocMoocBundle:Quiz:test}  
+    
+mooc_mooc_passer_quiz:
+    path:     /validerQuiz
+    defaults: { _controller: MoocMoocBundle:Quiz:PasserQuiz} 
+    
+mooc_mooc_afficher_quiz_chrono:
+    path:     /AfficherQuizChrono/{id}
+    defaults: { _controller: MoocMoocBundle:Quiz:afficheQuizChrono}
+    
+mooc_mooc_note:
+    path:     /note/{note}
+    defaults: { _controller: MoocMoocBundle:Quiz:Note} 
+    
+mooc_mooc_modifier_quiz:
+    path:     /ModifierQuiz/{id}
+    defaults: { _controller: MoocMoocBundle:Quiz:afficheQuizModifier}
+    
+mooc_mooc_modifier_question:
+    path:     /ModifierQuestion/{idquestion}
+    defaults: { _controller: MoocMoocBundle:Question:modifierQuestion}
+    
+mooc_mooc_modifier_test:
+    path:     /testmodifier/{id}
+    defaults: { _controller: MoocMoocBundle:Quiz:testmodifier}    
     
 mooc_mooc_delCours:
     path:     /DeleteCours/{id}

@@ -7,23 +7,19 @@
  */
 
 namespace Mooc\MoocBundle\Controller;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Mooc\MoocBundle\Entity\Quiz;
 use Mooc\MoocBundle\Entity\Reponse;
 use Mooc\MoocBundle\Entity\QuestionRepository;
 use Mooc\MoocBundle\Entity\ReponseRepository;
+
 /**
  * Description of ReponseController
  *
  * @author Nour
  */
 class ReponseController {
-public function rechercherAction($idquestion) {
-        $repository = $this->getDoctrine()
-                ->getManager()
-                ->getRepository('CalendrierMedecinsBundle:Patient');
-        $listereponse = $repository->chercher($idquestion);
-        return $listereponse;
-    }
+    
 }

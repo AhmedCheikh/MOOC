@@ -23,7 +23,7 @@ class QuestionController extends Controller {
     public function ajouterQuestionAction(Request $request, $idquiz) {
         if ($request->getMethod() == 'POST') {
             $question = new Question();
-            $quest=$request->get('ques');
+            $quest = $request->get('ques');
             $question->setQuestion($quest);
             $em1 = $this->getDoctrine()->getManager();
             $question->setIdquiz($em1->getRepository('MoocMoocBundle:Quiz')->find($idquiz));
@@ -64,6 +64,33 @@ class QuestionController extends Controller {
             return $this->redirectToRoute('mooc_mooc_listeQuiz');
         }
         return $this->render('MoocMoocBundle:Question:ajouterQuestion.html.twig', array('idquiz' => $idquiz));
+    }
+
+    public function modifierQuestionAction($idquestion,Request $request) {
+        $em = $this->getDoctrine()->getManager();
+        $question = $em->getRepository('MoocMoocBundle:Question')->find($idquestion);
+        if ($request->getMethod() == 'POST') {
+
+            $quest = $request->get('ques');
+            $question->setQuestion($quest);
+
+//            $rep1 = $request->get('reponse1');
+//            $rep2 = $request->get('reponse2');
+//            $rep3 = $request->get('reponse3');
+//            $rep4 = $request->get('reponse4');
+//            array $lr=-($rep1, $rep2 ,$rep3,$rep4);
+//
+//
+//            $listreponse = $em->getRepository('MoocMoocBundle:Reponse')->findAll($idquestion);
+//            foreach ($listreponse as $r) {
+//                $r->setReponse($request->get('reponse2'));
+//                $r->setEtat($request->get('rep2'));
+//            }
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+            return $this->redirectToRoute('mooc_mooc_listeQuiz');
+        }
+        return $this->render('MoocMoocBundle:Question:modifierQuestion.html.twig', array('idquestion' => $idquestion));
     }
 
 }

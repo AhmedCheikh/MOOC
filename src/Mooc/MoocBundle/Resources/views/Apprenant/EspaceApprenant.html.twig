@@ -121,12 +121,8 @@
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="profile-ava">
-                                <img alt="" src="{{asset('bundles/moocmooc/ApprenantAssets/img/avatar-mini2_1.jpg')}}">
-                                {#<img alt="" src="{{asset('bundles/moocmooc/ApprenantAssets/img/profile-avatar.jpg'| apply_filter('profile_widget_avatar'))}}">
-                                <?php use Gregwar\Image\Image;
-                                <img src=<php echo Image::open('{{asset('bundles/moocmooc/ApprenantAssets/img/profile-avatar.jpg')}}')->resize(35, 35); ?> /> ?>#}
-                                {#<img src="{{ asset('bundles/moocmooc/ApprenantAssets/img/profile-avatar.jpg') | imagine_filter('my_thumb')}}"  alt="" />#}
+                            <span class="profile-ava"> 
+                                <img src="{{ image('uploads/uploads/'~apprenant.avatar).resize(35,35) }}" />
                             </span>
                             <span class="username">{{apprenant.prenom}} {{apprenant.nom}}</span>
                             <b class="caret"></b>

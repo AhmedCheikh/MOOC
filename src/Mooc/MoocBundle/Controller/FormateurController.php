@@ -253,7 +253,7 @@ class FormateurController extends Controller {
         $rep2 = $em2->getRepository('MoocMoocBundle:Cours');
         $formateur = $repository->findOneBy(array('cin' => $cin));
 
-        $lstcours = $rep2->findAll();
+        $lstcours = $rep2->findBy(array('cinformateur' => $cin));
 
         return $this->render('MoocMoocBundle:Formateur:listecourformateur.html.twig', array('Formateur' => $formateur, 'Lstcours' => $lstcours, 'cin' => $formateur->getCin()));
     }

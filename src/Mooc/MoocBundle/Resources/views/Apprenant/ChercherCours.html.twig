@@ -2,7 +2,7 @@
 
 {% block stylesheets %}
     {{ parent()}}
-    {#<link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />#}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
 {% endblock %}
 {% block title %}
     {{parent()}}
@@ -112,7 +112,7 @@
                                   <tr>
                                  <td>{{cour.nomCours}}</td>
                                  <td>{{cour.nom}} {{cour.prenom}}</td>
-                                 <td>{{cour.difficulte}}</td>
+                                 <td>{{ cour.difficulte | rating }}</td>
                                  
                                  <td>
                                  <div class="btn-group">

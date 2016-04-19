@@ -86,7 +86,7 @@
                            <tbody>
                               <tr>
                                  <th><i class="icon_pin_alt"></i> Nom du cour</th>              
-                                 <th><i class="icon_profile"></i> Description</th>
+                                 <th><i class="icon_calendar"></i> Description</th>
                                  <th><i class="icon_mobile"></i> Difficulté</th>
                                  <th><i class="icon_calendar"></i> Note</th>
                                  <th><i class="icon_cogs"></i> Action</th>
@@ -103,7 +103,7 @@
                                  <td>{{cour.note}}</td>
                                  <td>
                                   <div class="btn-group">
-                                     <a class="btn btn-success" href="{{path('mooc_consult_cours_apprenant', {'id': cour.idcours,'login': apprenant.login })}}" title="Consulter">Consulter</a>
+                                     <a class="btn btn-success" href="{{path('mooc_consult_cours_apprenant', {'cours': cour.idcours,'login': apprenant.login })}}" title="Consulter">Consulter</a>
                                      <a class="btn btn-danger" href="{{path('mooc_supprimer_cours_apprenant', {'id': cour.idcoursuivi,'login': apprenant.login })}}" title="Supprimer">Supprimer</a>
                                   </div>
                                   </td>

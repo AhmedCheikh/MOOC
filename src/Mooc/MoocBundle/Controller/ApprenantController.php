@@ -234,10 +234,10 @@ class ApprenantController extends Controller {
          $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository('MoocMoocBundle:Apprenant');
         $Apprenant = $repository->findOneBy(array('login' => $login));
-        foreach ($res as $cours ) {
+       
     
 
         
-        return $this->render('MoocMoocBundle:Apprenant:CoursDetails.html.twig',array('apprenant' =>$Apprenant ,'Coursuivi'=> $res));
-    }}
+        return $this->render('MoocMoocBundle:Apprenant:CoursDetails.html.twig',array('apprenant' =>$Apprenant ,'Coursuivi'=> $cours));
+    }
 }

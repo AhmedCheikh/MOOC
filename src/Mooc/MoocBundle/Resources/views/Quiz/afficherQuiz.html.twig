@@ -371,37 +371,41 @@
                                 <header class="panel-heading">                                   
                                     <center><b> <label style="color:blue;font-weight:bold;font-size: 150%;"> Quiz : {{ quiz.titre}}</label></b></center>
                                 </header>
-                                {% for q in question %} 
+                                <div class="panel-body">
+                                    <div class="form">
+                                        <form class="form-validate form-horizontal" id="feedback_form" method="POST" action="{{path ('mooc_mooc_passer_quiz')}}">
 
-                                    <label style="color:blue;background-color:beige;font-size: 250%;" >{{ q.question}} </label><br>
-                                    <table>
-                                        <tr><td style="font-size: 150%;">{% render controller('MoocMoocBundle:Quiz:test',{'id': q.id}) %}  </td></tr></table>
-                                        {% endfor %}
-                                <left> <input type="submit" value="envoyer"></left>
+                                            {% for q in question %} 
 
-                            </section>
-                            <br>
-                        </div>
-                    </div>
+                                                <label style="color:blue;background-color:beige;font-size: 250%;" >{{ q.question}} </label><br>
+                                                <table>
+                                                    <tr><td style="font-size: 150%;">{% render controller('MoocMoocBundle:Quiz:test',{'id': q.id}) %}  </td></tr></table>
+                                                {% endfor %}
+                                            <button class="btn btn-primary" type="submit">valider</button>
 
-                    <br><br>
-                </section>
-            </section>
-            <!--main content end-->
-        </section>
-        <!-- container section start -->
+                                            </section>
+                                            <br>
+                                            </div>
+                                            </div>
 
-        <!-- javascripts -->
+                                            <br><br>
+                                            </section>
+                                            </section>
+                                            <!--main content end-->
+                                            </section>
+                                            <!-- container section start -->
 
-        <script src="{{asset('bundles/moocmooc/css/profilformateur/js/jquery.js')}}"></script>
-        <script src="{{asset('bundles/moocmooc/css/profilformateur/js/bootstrap.min.js')}}"></script>
-        <!-- nicescroll -->
-        <script src="{{asset('bundles/moocmooc/css/profilformateur/js/jquery.scrollTo.min.js')}}"></script>
-        <script src="{{asset('bundles/moocmooc/css/profilformateur/js/jquery.nicescroll.js')}}"></script>
-        <!--custome script for all page-->
-        <script src="{{asset('bundles/moocmooc/css/profilformateur/js/scripts.js')}}"></script>
+                                            <!-- javascripts -->
 
-    </body>
-</html>
+                                            <script src="{{asset('bundles/moocmooc/css/profilformateur/js/jquery.js')}}"></script>
+                                            <script src="{{asset('bundles/moocmooc/css/profilformateur/js/bootstrap.min.js')}}"></script>
+                                            <!-- nicescroll -->
+                                            <script src="{{asset('bundles/moocmooc/css/profilformateur/js/jquery.scrollTo.min.js')}}"></script>
+                                            <script src="{{asset('bundles/moocmooc/css/profilformateur/js/jquery.nicescroll.js')}}"></script>
+                                            <!--custome script for all page-->
+                                            <script src="{{asset('bundles/moocmooc/css/profilformateur/js/scripts.js')}}"></script>
+
+                                            </body>
+                                            </html>
 
 

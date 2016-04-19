@@ -53,7 +53,7 @@ class ChapitreController extends Controller {
             $chapitre->setObjectif($request->get('objectif'));
 
             //  $chapitre->setVideo($request->get('video'));
-//            $chapitre->setFile($request->get('file'));
+            $chapitre->setFile($request->get('file'));
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($chapitre);

@@ -47,25 +47,25 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
 ";
         // line 46
         $this->displayBlock('Header', $context, $blocks);
-        // line 162
+        // line 158
         echo "
 ";
-        // line 163
+        // line 159
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 200
+        // line 196
         echo "    
 ";
-        // line 201
+        // line 197
         $this->displayBlock('body', $context, $blocks);
-        // line 205
+        // line 201
         echo "
 </section>
 <!-- container section end -->
 
 ";
-        // line 209
+        // line 205
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 253
+        // line 249
         echo "</body>
 </html>";
     }
@@ -229,18 +229,14 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
                     <!-- user login dropdown start-->
                     <li class=\"dropdown\">
                         <a data-toggle=\"dropdown\" class=\"dropdown-toggle\" href=\"#\">
-                            <span class=\"profile-ava\">
-                                <img alt=\"\" src=\"";
+                            <span class=\"profile-ava\"> 
+                                <img src=\"";
         // line 125
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/img/avatar-mini2_1.jpg"), "html", null, true);
-        echo "\">
-                                ";
-        // line 129
-        echo "                                ";
-        // line 130
-        echo "                            </span>
+        echo twig_escape_filter($this->env, $this->getAttribute($this->env->getExtension('image')->image(("uploads/uploads/" . $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "avatar", array()))), "resize", array(0 => 35, 1 => 35), "method"), "html", null, true);
+        echo "\" />
+                            </span>
                             <span class=\"username\">";
-        // line 131
+        // line 127
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "prenom", array()), "html", null, true);
         echo " ";
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "nom", array()), "html", null, true);
@@ -251,7 +247,7 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
                             <div class=\"log-arrow-up\"></div>
                             <li class=\"eborder-top\">
                                 <a href=\"";
-        // line 137
+        // line 133
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_accueil_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
         echo "\"><i class=\"icon_profile\"></i> My Profile</a>
                             </li>
@@ -266,7 +262,7 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
                             </li>
                             <li>
                                 <a href=\"";
-        // line 149
+        // line 145
         echo $this->env->getExtension('routing')->getPath("mooc_log_out_apprenant");
         echo "\"><i class=\"icon_key_alt\"></i> Log Out</a>
                             </li>
@@ -283,10 +279,10 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
 ";
     }
 
-    // line 163
+    // line 159
     public function block_sidebar($context, array $blocks = array())
     {
-        // line 164
+        // line 160
         echo "    <!--sidebar start-->
       <aside>
           <div id=\"sidebar\"  class=\"nav-collapse \">
@@ -294,7 +290,7 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
               <ul class=\"sidebar-menu\">                
                   <li>
                       <a class=\"\" href=\"";
-        // line 170
+        // line 166
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_accueil_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
         echo "\">
                           <i class=\"fa fa-user-md\"></i>
@@ -304,7 +300,7 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
 
                   <li>                     
                       <a class=\"\" href=\"";
-        // line 177
+        // line 173
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_cours_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
         echo "\">
                           <i class=\"icon_book_alt\"></i>
@@ -315,7 +311,7 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
                   </li>
                  <li>                     
                       <a class=\"\" href=\"";
-        // line 185
+        // line 181
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_chercher_cours_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
         echo "\">
                           <i class=\"icon_search\"></i>
@@ -334,59 +330,59 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
 ";
     }
 
-    // line 201
+    // line 197
     public function block_body($context, array $blocks = array())
     {
-        // line 202
+        // line 198
         echo "    
 
 ";
     }
 
-    // line 209
+    // line 205
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 210
+        // line 206
         echo "    
     <!-- javascripts -->
     <script src=\"";
-        // line 212
+        // line 208
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 213
+        // line 209
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
     <!-- nice scroll -->
     <script src=\"";
-        // line 215
+        // line 211
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.scrollTo.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 216
+        // line 212
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.nicescroll.js"), "html", null, true);
         echo "\"></script>
     <!-- jquery knob -->
     <script src=\"";
-        // line 218
+        // line 214
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.knob.js"), "html", null, true);
         echo "\"></script>
     <!--custome script for all page-->
     <script src=\"";
-        // line 220
+        // line 216
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/scripts.js"), "html", null, true);
         echo "\"></script>
     <!-- map -->
     <script src=\"";
-        // line 222
+        // line 218
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery-jvectormap-1.2.2.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 223
+        // line 219
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery-jvectormap-world-mill-en.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 224
+        // line 220
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/gdp-data.js"), "html", null, true);
         echo "\"></script>\t
 
@@ -431,7 +427,7 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
 
     public function getDebugInfo()
     {
-        return array (  390 => 224,  386 => 223,  382 => 222,  377 => 220,  372 => 218,  367 => 216,  363 => 215,  358 => 213,  354 => 212,  350 => 210,  347 => 209,  341 => 202,  338 => 201,  319 => 185,  308 => 177,  298 => 170,  290 => 164,  287 => 163,  270 => 149,  255 => 137,  244 => 131,  241 => 130,  239 => 129,  235 => 125,  155 => 47,  152 => 46,  147 => 40,  144 => 39,  132 => 31,  128 => 30,  124 => 29,  120 => 28,  116 => 27,  111 => 25,  105 => 22,  101 => 21,  95 => 18,  91 => 17,  86 => 15,  81 => 13,  77 => 11,  74 => 10,  69 => 253,  67 => 209,  61 => 205,  59 => 201,  56 => 200,  54 => 163,  51 => 162,  49 => 46,  43 => 42,  41 => 39,  39 => 10,  34 => 8,  25 => 1,);
+        return array (  386 => 220,  382 => 219,  378 => 218,  373 => 216,  368 => 214,  363 => 212,  359 => 211,  354 => 209,  350 => 208,  346 => 206,  343 => 205,  337 => 198,  334 => 197,  315 => 181,  304 => 173,  294 => 166,  286 => 160,  283 => 159,  266 => 145,  251 => 133,  240 => 127,  235 => 125,  155 => 47,  152 => 46,  147 => 40,  144 => 39,  132 => 31,  128 => 30,  124 => 29,  120 => 28,  116 => 27,  111 => 25,  105 => 22,  101 => 21,  95 => 18,  91 => 17,  86 => 15,  81 => 13,  77 => 11,  74 => 10,  69 => 249,  67 => 205,  61 => 201,  59 => 197,  56 => 196,  54 => 159,  51 => 158,  49 => 46,  43 => 42,  41 => 39,  39 => 10,  34 => 8,  25 => 1,);
     }
 }
 /* <html lang="en">*/
@@ -557,12 +553,8 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
 /*                     <!-- user login dropdown start-->*/
 /*                     <li class="dropdown">*/
 /*                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">*/
-/*                             <span class="profile-ava">*/
-/*                                 <img alt="" src="{{asset('bundles/moocmooc/ApprenantAssets/img/avatar-mini2_1.jpg')}}">*/
-/*                                 {#<img alt="" src="{{asset('bundles/moocmooc/ApprenantAssets/img/profile-avatar.jpg'| apply_filter('profile_widget_avatar'))}}">*/
-/*                                 <?php use Gregwar\Image\Image;*/
-/*                                 <img src=<php echo Image::open('{{asset('bundles/moocmooc/ApprenantAssets/img/profile-avatar.jpg')}}')->resize(35, 35); ?> /> ?>#}*/
-/*                                 {#<img src="{{ asset('bundles/moocmooc/ApprenantAssets/img/profile-avatar.jpg') | imagine_filter('my_thumb')}}"  alt="" />#}*/
+/*                             <span class="profile-ava"> */
+/*                                 <img src="{{ image('uploads/uploads/'~apprenant.avatar).resize(35,35) }}" />*/
 /*                             </span>*/
 /*                             <span class="username">{{apprenant.prenom}} {{apprenant.nom}}</span>*/
 /*                             <b class="caret"></b>*/
