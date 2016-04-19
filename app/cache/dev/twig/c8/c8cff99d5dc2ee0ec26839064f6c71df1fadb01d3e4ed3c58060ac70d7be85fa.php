@@ -87,7 +87,7 @@ class __TwigTemplate_bb9da459c139953b829bd46a39dca80dbb3153844e7543343ac5f3f8e22
                 ";
         // line 76
         $this->displayBlock('avanzu_sidebar', $context, $blocks);
-        // line 126
+        // line 121
         echo "        </section>
             <!-- /.sidebar -->
         </aside>
@@ -98,47 +98,47 @@ class __TwigTemplate_bb9da459c139953b829bd46a39dca80dbb3153844e7543343ac5f3f8e22
             <section class=\"content-header\">
                 <h1>
                     ";
-        // line 135
+        // line 130
         $this->displayBlock('page_title', $context, $blocks);
-        // line 136
+        // line 131
         echo "                    <small>";
         $this->displayBlock('page_subtitle', $context, $blocks);
         echo "</small>
                 </h1>
                 ";
-        // line 138
+        // line 133
         $this->displayBlock('avanzu_breadcrumb', $context, $blocks);
-        // line 141
+        // line 136
         echo "            </section>
 
             <!-- Main content -->
             <section class=\"content\">
                 ";
-        // line 145
+        // line 140
         $this->displayBlock('page_content', $context, $blocks);
-        // line 146
+        // line 141
         echo "            </section>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
 
     ";
-        // line 151
+        // line 146
         $this->displayBlock('avanzu_admin_footer', $context, $blocks);
-        // line 159
+        // line 154
         echo "
     </div>
 <!-- ./wrapper -->
 
 ";
-        // line 164
+        // line 159
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 169
+        // line 164
         echo "
 ";
-        // line 171
+        // line 166
         $this->displayBlock('javascripts_inline', $context, $blocks);
-        // line 173
+        // line 168
         echo "</body>
 </html>
 ";
@@ -278,21 +278,16 @@ class __TwigTemplate_bb9da459c139953b829bd46a39dca80dbb3153844e7543343ac5f3f8e22
                 <span>Statistiques</span>
               </a>
             </li>
-              
-           
-            <li class=\"treeview\">
-              <a href=\"#\">
-                <i class=\"fa fa-table\"></i> <span>Organismes</span>
-                <i class=\"fa fa-angle-left pull-right\"></i>
-              </a>
-              <ul class=\"treeview-menu\">
-                <li><a href=\"pages/tables/simple.html\"><i class=\"fa fa-circle-o\"></i> Préinscris</a></li>
-                <li><a href='";
-        // line 108
+            <li>
+                <a href='";
+        // line 100
         echo $this->env->getExtension('routing')->getPath("liste_organisme");
-        echo "'><i class=\"fa fa-circle-o\"></i> All </a></li>
-              </ul>
+        echo "'>
+                    <i class=\"fa fa-table\"></i> <span>Organismes</span> <small class=\"label pull-right bg-red\">3</small>
+                </a>
+                
             </li>
+             
             <li>
               <a href=\"pages/calendar.html\">
                 <i class=\"fa fa-calendar\"></i> <span>Calendar</span>
@@ -302,7 +297,7 @@ class __TwigTemplate_bb9da459c139953b829bd46a39dca80dbb3153844e7543343ac5f3f8e22
             <li>
             <li>
               <a href='";
-        // line 119
+        // line 114
         echo $this->env->getExtension('routing')->getPath("liste_formateur");
         echo "'>
                 <i class=\"fa fa-users\"></i> <span>Formateurs</span>
@@ -313,36 +308,36 @@ class __TwigTemplate_bb9da459c139953b829bd46a39dca80dbb3153844e7543343ac5f3f8e22
                  ";
     }
 
-    // line 135
+    // line 130
     public function block_page_title($context, array $blocks = array())
     {
         echo "Blank page";
     }
 
-    // line 136
+    // line 131
     public function block_page_subtitle($context, array $blocks = array())
     {
     }
 
-    // line 138
+    // line 133
     public function block_avanzu_breadcrumb($context, array $blocks = array())
     {
-        // line 139
+        // line 134
         echo "                    ";
         echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('http_kernel')->controller("AvanzuAdminThemeBundle:Breadcrumb:breadcrumb", array("request" => $this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "request", array()), "title" => $this->renderBlock("page_title", $context, $blocks))));
         echo "
                 ";
     }
 
-    // line 145
+    // line 140
     public function block_page_content($context, array $blocks = array())
     {
     }
 
-    // line 151
+    // line 146
     public function block_avanzu_admin_footer($context, array $blocks = array())
     {
-        // line 152
+        // line 147
         echo "        <footer class=\"main-footer\">
             <div class=\"pull-right hidden-xs\">
                 ESPRIT
@@ -352,20 +347,20 @@ class __TwigTemplate_bb9da459c139953b829bd46a39dca80dbb3153844e7543343ac5f3f8e22
     ";
     }
 
-    // line 164
+    // line 159
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 165
+        // line 160
         echo "
     <script src=\"";
-        // line 166
+        // line 161
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl((("bundles/avanzuadmintheme/static/" . $this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "environment", array())) . "/scripts/admin-lte-all.js")), "html", null, true);
         echo "\"></script>
     
 ";
     }
 
-    // line 171
+    // line 166
     public function block_javascripts_inline($context, array $blocks = array())
     {
     }
@@ -382,7 +377,7 @@ class __TwigTemplate_bb9da459c139953b829bd46a39dca80dbb3153844e7543343ac5f3f8e22
 
     public function getDebugInfo()
     {
-        return array (  369 => 171,  362 => 166,  359 => 165,  356 => 164,  346 => 152,  343 => 151,  338 => 145,  331 => 139,  328 => 138,  323 => 136,  317 => 135,  306 => 119,  292 => 108,  275 => 94,  267 => 89,  258 => 82,  256 => 77,  253 => 76,  247 => 58,  243 => 57,  239 => 56,  234 => 55,  231 => 54,  224 => 41,  220 => 39,  217 => 38,  211 => 66,  203 => 60,  201 => 54,  197 => 52,  195 => 51,  186 => 44,  184 => 38,  181 => 37,  178 => 36,  167 => 25,  164 => 24,  157 => 17,  154 => 16,  148 => 13,  142 => 173,  140 => 171,  137 => 169,  135 => 164,  129 => 159,  127 => 151,  120 => 146,  118 => 145,  112 => 141,  110 => 138,  104 => 136,  102 => 135,  91 => 126,  89 => 76,  80 => 69,  78 => 36,  72 => 33,  68 => 31,  65 => 24,  60 => 21,  56 => 19,  53 => 16,  48 => 13,  35 => 2,  33 => 1,);
+        return array (  364 => 166,  357 => 161,  354 => 160,  351 => 159,  341 => 147,  338 => 146,  333 => 140,  326 => 134,  323 => 133,  318 => 131,  312 => 130,  301 => 114,  284 => 100,  275 => 94,  267 => 89,  258 => 82,  256 => 77,  253 => 76,  247 => 58,  243 => 57,  239 => 56,  234 => 55,  231 => 54,  224 => 41,  220 => 39,  217 => 38,  211 => 66,  203 => 60,  201 => 54,  197 => 52,  195 => 51,  186 => 44,  184 => 38,  181 => 37,  178 => 36,  167 => 25,  164 => 24,  157 => 17,  154 => 16,  148 => 13,  142 => 168,  140 => 166,  137 => 164,  135 => 159,  129 => 154,  127 => 146,  120 => 141,  118 => 140,  112 => 136,  110 => 133,  104 => 131,  102 => 130,  91 => 121,  89 => 76,  80 => 69,  78 => 36,  72 => 33,  68 => 31,  65 => 24,  60 => 21,  56 => 19,  53 => 16,  48 => 13,  35 => 2,  33 => 1,);
     }
 }
 /* {% import "AvanzuAdminThemeBundle:layout:macros.html.twig" as macro %}*/
@@ -483,18 +478,13 @@ class __TwigTemplate_bb9da459c139953b829bd46a39dca80dbb3153844e7543343ac5f3f8e22
 /*                 <span>Statistiques</span>*/
 /*               </a>*/
 /*             </li>*/
-/*               */
-/*            */
-/*             <li class="treeview">*/
-/*               <a href="#">*/
-/*                 <i class="fa fa-table"></i> <span>Organismes</span>*/
-/*                 <i class="fa fa-angle-left pull-right"></i>*/
-/*               </a>*/
-/*               <ul class="treeview-menu">*/
-/*                 <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Préinscris</a></li>*/
-/*                 <li><a href='{{path('liste_organisme')}}'><i class="fa fa-circle-o"></i> All </a></li>*/
-/*               </ul>*/
+/*             <li>*/
+/*                 <a href='{{path('liste_organisme')}}'>*/
+/*                     <i class="fa fa-table"></i> <span>Organismes</span> <small class="label pull-right bg-red">3</small>*/
+/*                 </a>*/
+/*                 */
 /*             </li>*/
+/*              */
 /*             <li>*/
 /*               <a href="pages/calendar.html">*/
 /*                 <i class="fa fa-calendar"></i> <span>Calendar</span>*/

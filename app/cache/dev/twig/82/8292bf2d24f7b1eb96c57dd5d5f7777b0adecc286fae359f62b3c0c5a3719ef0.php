@@ -30,31 +30,21 @@ class __TwigTemplate_8d8841f64e06cf50ee10151f7208e741428ab30d474a87840f31ea9c358
         echo " 
    
     
-    ";
-        // line 6
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["liste"]) ? $context["liste"] : $this->getContext($context, "liste")));
-        foreach ($context['_seq'] as $context["nb"] => $context["l"]) {
-            // line 7
-            echo "       
+    
+       
     
     <ul>
         <li>
             ";
-            // line 11
-            echo twig_escape_filter($this->env, $context["nb"], "html", null, true);
-            echo "
+        // line 11
+        echo twig_escape_filter($this->env, (isset($context["nb"]) ? $context["nb"] : $this->getContext($context, "nb")), "html", null, true);
+        echo "
         </li>
        
     </ul>
     
-    ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['nb'], $context['l'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 17
-        echo "   
+    
+   
     
     
     
@@ -73,7 +63,7 @@ class __TwigTemplate_8d8841f64e06cf50ee10151f7208e741428ab30d474a87840f31ea9c358
 
     public function getDebugInfo()
     {
-        return array (  57 => 17,  45 => 11,  39 => 7,  35 => 6,  28 => 3,  11 => 1,);
+        return array (  40 => 11,  28 => 3,  11 => 1,);
     }
 }
 /* {% extends 'AvanzuAdminThemeBundle:layout:base-layout.html.twig' %}*/
@@ -81,7 +71,7 @@ class __TwigTemplate_8d8841f64e06cf50ee10151f7208e741428ab30d474a87840f31ea9c358
 /* {% block page_content %} */
 /*    */
 /*     */
-/*     {% for nb,l in liste %}*/
+/*     */
 /*        */
 /*     */
 /*     <ul>*/
@@ -91,7 +81,7 @@ class __TwigTemplate_8d8841f64e06cf50ee10151f7208e741428ab30d474a87840f31ea9c358
 /*        */
 /*     </ul>*/
 /*     */
-/*     {% endfor %}*/
+/*     */
 /*    */
 /*     */
 /*     */

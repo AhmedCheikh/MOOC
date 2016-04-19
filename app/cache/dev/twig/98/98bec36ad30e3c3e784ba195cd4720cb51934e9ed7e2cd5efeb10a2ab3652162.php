@@ -66,44 +66,73 @@ class __TwigTemplate_323c26f5c7830677add8d073799649822feb368e7dfa052df492698e76f
                         <th>Téléphone</th>
                         <th>Adresse</th>
                         <th>Etat</th>
+                        <th>Actions</th>
                       </tr>
                     </thead>
                     <tbody>
                         ";
-        // line 29
+        // line 30
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["listeOrganisme"]) ? $context["listeOrganisme"] : $this->getContext($context, "listeOrganisme")));
         foreach ($context['_seq'] as $context["_key"] => $context["organisme"]) {
-            // line 30
+            // line 31
             echo "                      <tr>
                         
                         <td>";
-            // line 32
+            // line 33
             echo twig_escape_filter($this->env, $this->getAttribute($context["organisme"], "nom", array()), "html", null, true);
             echo "</td>
                         <td>";
-            // line 33
+            // line 34
             echo twig_escape_filter($this->env, $this->getAttribute($context["organisme"], "email", array()), "html", null, true);
             echo "</td>
                         <td> ";
-            // line 34
+            // line 35
             echo twig_escape_filter($this->env, $this->getAttribute($context["organisme"], "telephone", array()), "html", null, true);
             echo "</td>
                         <td>";
-            // line 35
+            // line 36
             echo twig_escape_filter($this->env, $this->getAttribute($context["organisme"], "adresse", array()), "html", null, true);
             echo "</td>
-                        <td>";
-            // line 36
-            echo twig_escape_filter($this->env, $this->getAttribute($context["organisme"], "etat", array()), "html", null, true);
-            echo "</td>
+                        ";
+            // line 37
+            if (($this->getAttribute($context["organisme"], "etat", array()) == 0)) {
+                // line 38
+                echo "                            <td><span class=\"label label-danger\">Non valide</span></td>
+                        ";
+            } else {
+                // line 40
+                echo "                            <td><span class=\"label label-success\">Valide</span></td>
+                            ";
+            }
+            // line 42
+            echo "                        <td><div class=\"btn-group\">
+                      <button type=\"button\" class=\"btn btn-info\">Action</button>
+                      <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\">
+                        <span class=\"caret\"></span>
+                        <span class=\"sr-only\">Toggle Dropdown</span>
+                      </button>
+                      <ul class=\"dropdown-menu\" role=\"menu\">
+                          <li><a href=\"";
+            // line 49
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("details_organisme", array("id" => $this->getAttribute($context["organisme"], "idorganisme", array()))), "html", null, true);
+            echo "\" >Détails</a></li>
+                        <li><a href=\"#\">Documents</a></li>
+                        <li><a href=\"";
+            // line 51
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("valider_organisme", array("id" => $this->getAttribute($context["organisme"], "idorganisme", array()))), "html", null, true);
+            echo "\">Valider</a></li>
+                        <li class=\"divider\"></li>
+                        <li><a href=\"#\">Supprimer</a></li>
+                      </ul>
+                    </div></td>
                       </tr>
                       ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['organisme'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 39
+        // line 58
         echo "                      <tr>
                         <td>Trident</td>
                         <td>Internet
@@ -518,23 +547,24 @@ class __TwigTemplate_323c26f5c7830677add8d073799649822feb368e7dfa052df492698e76f
                       </tr>
                       </tbody> 
                   </table>
+                      <a href=\"#\" target=\"_blank\" class=\"btn btn-default\"><i class=\"fa fa-print\"></i> Print</a>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div>
         </div>
     
 ";
-        // line 458
+        // line 478
         $this->displayBlock('javascripts_inline', $context, $blocks);
-        // line 473
+        // line 493
         echo "    
     ";
     }
 
-    // line 458
+    // line 478
     public function block_javascripts_inline($context, array $blocks = array())
     {
-        // line 459
+        // line 479
         echo "    <script>
       \$(function () {
         \$(\"#example1\").DataTable();
@@ -563,7 +593,7 @@ class __TwigTemplate_323c26f5c7830677add8d073799649822feb368e7dfa052df492698e76f
 
     public function getDebugInfo()
     {
-        return array (  538 => 459,  535 => 458,  530 => 473,  528 => 458,  107 => 39,  98 => 36,  94 => 35,  90 => 34,  86 => 33,  82 => 32,  78 => 30,  74 => 29,  51 => 10,  45 => 8,  39 => 5,  34 => 4,  31 => 3,  11 => 1,);
+        return array (  568 => 479,  565 => 478,  560 => 493,  558 => 478,  136 => 58,  123 => 51,  118 => 49,  109 => 42,  105 => 40,  101 => 38,  99 => 37,  95 => 36,  91 => 35,  87 => 34,  83 => 33,  79 => 31,  75 => 30,  51 => 10,  45 => 8,  39 => 5,  34 => 4,  31 => 3,  11 => 1,);
     }
 }
 /* {% extends 'AvanzuAdminThemeBundle:layout:base-layout.html.twig' %}*/
@@ -591,6 +621,7 @@ class __TwigTemplate_323c26f5c7830677add8d073799649822feb368e7dfa052df492698e76f
 /*                         <th>Téléphone</th>*/
 /*                         <th>Adresse</th>*/
 /*                         <th>Etat</th>*/
+/*                         <th>Actions</th>*/
 /*                       </tr>*/
 /*                     </thead>*/
 /*                     <tbody>*/
@@ -601,7 +632,25 @@ class __TwigTemplate_323c26f5c7830677add8d073799649822feb368e7dfa052df492698e76f
 /*                         <td>{{organisme.email}}</td>*/
 /*                         <td> {{organisme.telephone}}</td>*/
 /*                         <td>{{organisme.adresse}}</td>*/
-/*                         <td>{{organisme.etat}}</td>*/
+/*                         {% if organisme.etat == 0 %}*/
+/*                             <td><span class="label label-danger">Non valide</span></td>*/
+/*                         {% else %}*/
+/*                             <td><span class="label label-success">Valide</span></td>*/
+/*                             {% endif %}*/
+/*                         <td><div class="btn-group">*/
+/*                       <button type="button" class="btn btn-info">Action</button>*/
+/*                       <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">*/
+/*                         <span class="caret"></span>*/
+/*                         <span class="sr-only">Toggle Dropdown</span>*/
+/*                       </button>*/
+/*                       <ul class="dropdown-menu" role="menu">*/
+/*                           <li><a href="{{ path('details_organisme', {'id': organisme.idorganisme}) }}" >Détails</a></li>*/
+/*                         <li><a href="#">Documents</a></li>*/
+/*                         <li><a href="{{ path('valider_organisme', {'id': organisme.idorganisme}) }}">Valider</a></li>*/
+/*                         <li class="divider"></li>*/
+/*                         <li><a href="#">Supprimer</a></li>*/
+/*                       </ul>*/
+/*                     </div></td>*/
 /*                       </tr>*/
 /*                       {% endfor %}*/
 /*                       <tr>*/
@@ -1018,6 +1067,7 @@ class __TwigTemplate_323c26f5c7830677add8d073799649822feb368e7dfa052df492698e76f
 /*                       </tr>*/
 /*                       </tbody> */
 /*                   </table>*/
+/*                       <a href="#" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>*/
 /*                 </div><!-- /.box-body -->*/
 /*               </div><!-- /.box -->*/
 /*             </div>*/

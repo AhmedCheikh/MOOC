@@ -451,6 +451,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::testAction',  '_route' => 'test',);
             }
 
+            // details_organisme
+            if (0 === strpos($pathinfo, '/admin/details-organisme') && preg_match('#^/admin/details\\-organisme/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'details_organisme')), array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::detailsOrganismeAction',));
+            }
+
+            // valider_organisme
+            if (0 === strpos($pathinfo, '/admin/valider-organisme') && preg_match('#^/admin/valider\\-organisme/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'valider_organisme')), array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::validerOrganismeAction',));
+            }
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

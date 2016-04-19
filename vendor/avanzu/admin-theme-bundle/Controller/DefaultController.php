@@ -70,7 +70,134 @@ class DefaultController extends Controller
                 ->getManager()
                 ->getRepository('MoocMoocBundle:Apprenant');
         $nba = $repositorya->nombreApprenant() ;
-        return $this->render('AvanzuAdminThemeBundle:Default:dashboard.html.twig', array('nbf'=>$nbf,'nbo'=>$nbo,'nba'=>$nba,'nbc'=>$nbc)); 
+        
+        // for stat
+        
+        $repository = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('MoocMoocBundle:Cours');
+        $repositorycs = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('MoocMoocBundle:Coursuivi');
+        
+        $nband = $repository-> nombreCoursAndroid() ; 
+        $nbiOS = $repository-> nombreCoursiOS() ; 
+        $nbJ2ME = $repository-> nombreCoursJ2ME() ; 
+        $nbWP = $repository-> nombreCoursWP() ; 
+        //Android
+        $anjan = $repositorycs->nombreCoursAndroidJanvier() ; 
+        $anfev = $repositorycs->nombreCoursAndroidFevrier() ; 
+        $anmars = $repositorycs->nombreCoursAndroidMars() ; 
+        $anav = $repositorycs->nombreCoursAndroidAvril() ; 
+        $anmai = $repositorycs->nombreCoursAndroidMai() ; 
+        $anjuin = $repositorycs->nombreCoursAndroidJuin() ; 
+        $anjuillet = $repositorycs->nombreCoursAndroidJuillet() ; 
+        $anaout = $repositorycs->nombreCoursAndroidAout() ; 
+        $ansep = $repositorycs->nombreCoursAndroidSeptembre() ; 
+        $anoc = $repositorycs->nombreCoursAndroidOctobre() ; 
+        $annov = $repositorycs->nombreCoursAndroidNovembre() ; 
+        $andec = $repositorycs->nombreCoursAndroidDecembre() ; 
+        //iOS
+        $ijan = $repositorycs->nombreCoursiOSJanvier() ; 
+        $ifev = $repositorycs->nombreCoursiOSFevrier() ; 
+        $imars = $repositorycs->nombreCoursiOSMars() ; 
+        $iav = $repositorycs->nombreCoursiOSAvril() ; 
+        $imai = $repositorycs->nombreCoursiOSMai() ; 
+        $ijuin = $repositorycs->nombreCoursiOSJuin() ; 
+        $ijuillet = $repositorycs->nombreCoursiOSJuillet() ; 
+        $iaout = $repositorycs->nombreCoursiOSAout() ; 
+        $isep = $repositorycs->nombreCoursiOSSeptembre() ; 
+        $ioc = $repositorycs->nombreCoursiOSOctobre() ; 
+        $inov = $repositorycs->nombreCoursiOSNovembre() ; 
+        $idec = $repositorycs->nombreCoursiOSDecembre() ; 
+        
+        // Windows Phone
+        
+        $wjan = $repositorycs->nombreCoursWPJanvier() ; 
+        $wfev = $repositorycs->nombreCoursWPFevrier() ; 
+        $wmars = $repositorycs->nombreCoursWPMars() ; 
+        $wav = $repositorycs->nombreCoursWPAvril() ; 
+        $wmai = $repositorycs->nombreCoursWPMai() ; 
+        $wjuin = $repositorycs->nombreCoursWPJuin() ; 
+        $wjuillet = $repositorycs->nombreCoursWPJuillet() ; 
+        $waout = $repositorycs->nombreCoursWPAout() ; 
+        $wsep = $repositorycs->nombreCoursWPSeptembre() ; 
+        $woc = $repositorycs->nombreCoursWPOctobre() ; 
+        $wnov = $repositorycs->nombreCoursWPNovembre() ; 
+        $wdec = $repositorycs->nombreCoursWPDecembre() ; 
+        
+        // J2ME
+        
+        $jjan = $repositorycs->nombreCoursJJanvier() ; 
+        $jfev = $repositorycs->nombreCoursJFevrier() ; 
+        $jmars = $repositorycs->nombreCoursJMars() ; 
+        $jav = $repositorycs->nombreCoursJAvril() ; 
+        $jmai = $repositorycs->nombreCoursJMai() ; 
+        $jjuin = $repositorycs->nombreCoursJJuin() ; 
+        $jjuillet = $repositorycs->nombreCoursJJuillet() ; 
+        $jaout = $repositorycs->nombreCoursJAout() ; 
+        $jsep = $repositorycs->nombreCoursJSeptembre() ; 
+        $joc = $repositorycs->nombreCoursJOctobre() ; 
+        $jnov = $repositorycs->nombreCoursJNovembre() ; 
+        $jdec = $repositorycs->nombreCoursJDecembre() ;
+        
+        return $this->render('AvanzuAdminThemeBundle:Default:dashboard.html.twig', array('nbf'=>$nbf,'nbo'=>$nbo,'nba'=>$nba,'nbc'=>$nbc,'nband'=>$nband,
+            'nbiOS'=>$nbiOS,
+            'nbJ2ME'=>$nbJ2ME,
+            'nbWP'=>$nbWP,
+            
+            'anjan'=>$anjan,
+            'anfev'=>$anfev,
+            'anmars'=>$anmars,
+            'anav'=>$anav,
+            'anmai'=>$anmai,
+            'anjuin'=>$anjuin,
+            'anjuillet'=>$anjuillet,
+            'anaout'=>$anaout,
+            'ansep'=>$ansep,
+            'anoc'=>$anoc,
+            'annov'=>$annov,
+            'andec'=>$andec,
+                
+            'ijan'=>$ijan,
+            'ifev'=>$ifev,
+            'imars'=>$imars,
+            'iav'=>$iav,
+            'imai'=>$imai,
+            'ijuin'=>$ijuin,
+            'ijuillet'=>$ijuillet,
+            'iaout'=>$iaout,
+            'isep'=>$isep,
+            'ioc'=>$ioc,
+            'inov'=>$inov,
+            'idec'=>$idec,
+            
+            'wjan'=>$wjan,
+            'wfev'=>$wfev,
+            'wmars'=>$wmars,
+            'wav'=>$wav,
+            'wmai'=>$wmai,
+            'wjuin'=>$wjuin,
+            'wjuillet'=>$wjuillet,
+            'waout'=>$waout,
+            'wsep'=>$wsep,
+            'woc'=>$woc,
+            'wnov'=>$wnov,
+            'wdec'=>$wdec, 
+            
+            'jjan'=>$jjan,
+            'jfev'=>$jfev,
+            'jmars'=>$jmars,
+            'jav'=>$jav,
+            'jmai'=>$jmai,
+            'jjuin'=>$jjuin,
+            'jjuillet'=>$jjuillet,
+            'jaout'=>$jaout,
+            'jsep'=>$jsep,
+            'joc'=>$joc,
+            'jnov'=>$jnov,
+            'jdec'=>$jdec
+            )); 
     }
 
     /**
@@ -109,29 +236,159 @@ class DefaultController extends Controller
         $repository = $this->getDoctrine()
                 ->getManager()
                 ->getRepository('MoocMoocBundle:Cours');
-        
+        $repositorycs = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('MoocMoocBundle:Coursuivi');
         
         $nband = $repository-> nombreCoursAndroid() ; 
         $nbiOS = $repository-> nombreCoursiOS() ; 
         $nbJ2ME = $repository-> nombreCoursJ2ME() ; 
         $nbWP = $repository-> nombreCoursWP() ; 
+        //Android
+        $anjan = $repositorycs->nombreCoursAndroidJanvier() ; 
+        $anfev = $repositorycs->nombreCoursAndroidFevrier() ; 
+        $anmars = $repositorycs->nombreCoursAndroidMars() ; 
+        $anav = $repositorycs->nombreCoursAndroidAvril() ; 
+        $anmai = $repositorycs->nombreCoursAndroidMai() ; 
+        $anjuin = $repositorycs->nombreCoursAndroidJuin() ; 
+        $anjuillet = $repositorycs->nombreCoursAndroidJuillet() ; 
+        $anaout = $repositorycs->nombreCoursAndroidAout() ; 
+        $ansep = $repositorycs->nombreCoursAndroidSeptembre() ; 
+        $anoc = $repositorycs->nombreCoursAndroidOctobre() ; 
+        $annov = $repositorycs->nombreCoursAndroidNovembre() ; 
+        $andec = $repositorycs->nombreCoursAndroidDecembre() ; 
+        //iOS
+        $ijan = $repositorycs->nombreCoursiOSJanvier() ; 
+        $ifev = $repositorycs->nombreCoursiOSFevrier() ; 
+        $imars = $repositorycs->nombreCoursiOSMars() ; 
+        $iav = $repositorycs->nombreCoursiOSAvril() ; 
+        $imai = $repositorycs->nombreCoursiOSMai() ; 
+        $ijuin = $repositorycs->nombreCoursiOSJuin() ; 
+        $ijuillet = $repositorycs->nombreCoursiOSJuillet() ; 
+        $iaout = $repositorycs->nombreCoursiOSAout() ; 
+        $isep = $repositorycs->nombreCoursiOSSeptembre() ; 
+        $ioc = $repositorycs->nombreCoursiOSOctobre() ; 
+        $inov = $repositorycs->nombreCoursiOSNovembre() ; 
+        $idec = $repositorycs->nombreCoursiOSDecembre() ; 
+        
+        // Windows Phone
+        
+        $wjan = $repositorycs->nombreCoursWPJanvier() ; 
+        $wfev = $repositorycs->nombreCoursWPFevrier() ; 
+        $wmars = $repositorycs->nombreCoursWPMars() ; 
+        $wav = $repositorycs->nombreCoursWPAvril() ; 
+        $wmai = $repositorycs->nombreCoursWPMai() ; 
+        $wjuin = $repositorycs->nombreCoursWPJuin() ; 
+        $wjuillet = $repositorycs->nombreCoursWPJuillet() ; 
+        $waout = $repositorycs->nombreCoursWPAout() ; 
+        $wsep = $repositorycs->nombreCoursWPSeptembre() ; 
+        $woc = $repositorycs->nombreCoursWPOctobre() ; 
+        $wnov = $repositorycs->nombreCoursWPNovembre() ; 
+        $wdec = $repositorycs->nombreCoursWPDecembre() ; 
+        
+        // J2ME
+        
+        $jjan = $repositorycs->nombreCoursJJanvier() ; 
+        $jfev = $repositorycs->nombreCoursJFevrier() ; 
+        $jmars = $repositorycs->nombreCoursJMars() ; 
+        $jav = $repositorycs->nombreCoursJAvril() ; 
+        $jmai = $repositorycs->nombreCoursJMai() ; 
+        $jjuin = $repositorycs->nombreCoursJJuin() ; 
+        $jjuillet = $repositorycs->nombreCoursJJuillet() ; 
+        $jaout = $repositorycs->nombreCoursJAout() ; 
+        $jsep = $repositorycs->nombreCoursJSeptembre() ; 
+        $joc = $repositorycs->nombreCoursJOctobre() ; 
+        $jnov = $repositorycs->nombreCoursJNovembre() ; 
+        $jdec = $repositorycs->nombreCoursJDecembre() ;
+        
+        
+        
         return $this->render('AvanzuAdminThemeBundle:Default:charts.html.twig', array(
             'nband'=>$nband,
             'nbiOS'=>$nbiOS,
             'nbJ2ME'=>$nbJ2ME,
-            'nbWP'=>$nbWP
+            'nbWP'=>$nbWP,
+            
+            'anjan'=>$anjan,
+            'anfev'=>$anfev,
+            'anmars'=>$anmars,
+            'anav'=>$anav,
+            'anmai'=>$anmai,
+            'anjuin'=>$anjuin,
+            'anjuillet'=>$anjuillet,
+            'anaout'=>$anaout,
+            'ansep'=>$ansep,
+            'anoc'=>$anoc,
+            'annov'=>$annov,
+            'andec'=>$andec,
+                
+            'ijan'=>$ijan,
+            'ifev'=>$ifev,
+            'imars'=>$imars,
+            'iav'=>$iav,
+            'imai'=>$imai,
+            'ijuin'=>$ijuin,
+            'ijuillet'=>$ijuillet,
+            'iaout'=>$iaout,
+            'isep'=>$isep,
+            'ioc'=>$ioc,
+            'inov'=>$inov,
+            'idec'=>$idec,
+            
+            'wjan'=>$wjan,
+            'wfev'=>$wfev,
+            'wmars'=>$wmars,
+            'wav'=>$wav,
+            'wmai'=>$wmai,
+            'wjuin'=>$wjuin,
+            'wjuillet'=>$wjuillet,
+            'waout'=>$waout,
+            'wsep'=>$wsep,
+            'woc'=>$woc,
+            'wnov'=>$wnov,
+            'wdec'=>$wdec, 
+            
+            'jjan'=>$jjan,
+            'jfev'=>$jfev,
+            'jmars'=>$jmars,
+            'jav'=>$jav,
+            'jmai'=>$jmai,
+            'jjuin'=>$jjuin,
+            'jjuillet'=>$jjuillet,
+            'jaout'=>$jaout,
+            'jsep'=>$jsep,
+            'joc'=>$joc,
+            'jnov'=>$jnov,
+            'jdec'=>$jdec
+            
+            
         ));
     }
     
     public function testAction() {
         $repository = $this->getDoctrine()
                 ->getManager()
-                ->getRepository('MoocMoocBundle:Cours');
+                ->getRepository('MoocMoocBundle:Coursuivi');
         
-        $liste = $repository->testDonut() ; 
+        $nb = $repository->nombreCoursAndroidJanvier() ; 
          
         return $this->render('AvanzuAdminThemeBundle:Default:test.html.twig', array(
-            'liste'=>$liste
+            'nb'=>$nb
         ));
+    }
+    
+    public function detailsOrganismeAction($id) {
+        $repository = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('MoocMoocBundle:Organisme');
+        $o = $repository->findByIdorganisme($id);
+        return $this->render('AvanzuAdminThemeBundle:Default:detailsOrganisme.html.twig', array(
+            'o'=>$o));
+    }
+    public function validerOrganismeAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $em->getRepository('MoocMoocBundle:Organisme')->validerOrganisme($id);
+        return $this->redirectToRoute('liste_organisme');
+        
     }
 }

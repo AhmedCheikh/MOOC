@@ -14,6 +14,8 @@ class __TwigTemplate_256b95c0b1434f63451074f5d9f2fc061867e991abc92b384e06df25fef
             'page_title' => array($this, 'block_page_title'),
             'page_subtitle' => array($this, 'block_page_subtitle'),
             'page_content' => array($this, 'block_page_content'),
+            'javascripts' => array($this, 'block_javascripts'),
+            'javascripts_inline' => array($this, 'block_javascripts_inline'),
         );
     }
 
@@ -140,9 +142,9 @@ class __TwigTemplate_256b95c0b1434f63451074f5d9f2fc061867e991abc92b384e06df25fef
               <div class=\"nav-tabs-custom\">
                 <!-- Tabs within a box -->
                 <ul class=\"nav nav-tabs pull-right\">
-                  <li class=\"active\"><a href=\"#revenue-chart\" data-toggle=\"tab\">Area</a></li>
+                  <li class=\"active\"><a href=\"#revenue-chart\" data-toggle=\"tab\">Bar chart</a></li>
                   <li><a href=\"#sales-chart\" data-toggle=\"tab\">Donut</a></li>
-                  <li class=\"pull-left header\"><i class=\"fa fa-inbox\"></i> Sales</li>
+                  <li class=\"pull-left header\"><i class=\"fa fa-inbox\"></i> Statistiques</li>
                 </ul>
                 <div class=\"tab-content no-padding\">
                   <!-- Morris chart - Sales -->
@@ -150,186 +152,6 @@ class __TwigTemplate_256b95c0b1434f63451074f5d9f2fc061867e991abc92b384e06df25fef
                   <div class=\"chart tab-pane\" id=\"sales-chart\" style=\"position: relative; height: 300px;\"></div>
                 </div>
               </div><!-- /.nav-tabs-custom -->
-
-              <!-- Chat box -->
-              <div class=\"box box-success\">
-                <div class=\"box-header\">
-                  <i class=\"fa fa-comments-o\"></i>
-                  <h3 class=\"box-title\">Chat</h3>
-                  <div class=\"box-tools pull-right\" data-toggle=\"tooltip\" title=\"Status\">
-                    <div class=\"btn-group\" data-toggle=\"btn-toggle\" >
-                      <button type=\"button\" class=\"btn btn-default btn-sm active\"><i class=\"fa fa-square text-green\"></i></button>
-                      <button type=\"button\" class=\"btn btn-default btn-sm\"><i class=\"fa fa-square text-red\"></i></button>
-                    </div>
-                  </div>
-                </div>
-                <div class=\"box-body chat\" id=\"chat-box\">
-                  <!-- chat item -->
-                  <div class=\"item\">
-                    <img src=\"dist/img/user4-128x128.jpg\" alt=\"user image\" class=\"online\">
-                    <p class=\"message\">
-                      <a href=\"#\" class=\"name\">
-                        <small class=\"text-muted pull-right\"><i class=\"fa fa-clock-o\"></i> 2:15</small>
-                        Mike Doe
-                      </a>
-                      I would like to meet you to discuss the latest news about
-                      the arrival of the new theme. They say it is going to be one the
-                      best themes on the market
-                    </p>
-                    <div class=\"attachment\">
-                      <h4>Attachments:</h4>
-                      <p class=\"filename\">
-                        Theme-thumbnail-image.jpg
-                      </p>
-                      <div class=\"pull-right\">
-                        <button class=\"btn btn-primary btn-sm btn-flat\">Open</button>
-                      </div>
-                    </div><!-- /.attachment -->
-                  </div><!-- /.item -->
-                  <!-- chat item -->
-                  <div class=\"item\">
-                    <img src=\"dist/img/user3-128x128.jpg\" alt=\"user image\" class=\"offline\">
-                    <p class=\"message\">
-                      <a href=\"#\" class=\"name\">
-                        <small class=\"text-muted pull-right\"><i class=\"fa fa-clock-o\"></i> 5:15</small>
-                        Alexander Pierce
-                      </a>
-                      I would like to meet you to discuss the latest news about
-                      the arrival of the new theme. They say it is going to be one the
-                      best themes on the market
-                    </p>
-                  </div><!-- /.item -->
-                  <!-- chat item -->
-                  <div class=\"item\">
-                    <img src=\"dist/img/user2-160x160.jpg\" alt=\"user image\" class=\"offline\">
-                    <p class=\"message\">
-                      <a href=\"#\" class=\"name\">
-                        <small class=\"text-muted pull-right\"><i class=\"fa fa-clock-o\"></i> 5:30</small>
-                        Susan Doe
-                      </a>
-                      I would like to meet you to discuss the latest news about
-                      the arrival of the new theme. They say it is going to be one the
-                      best themes on the market
-                    </p>
-                  </div><!-- /.item -->
-                </div><!-- /.chat -->
-                <div class=\"box-footer\">
-                  <div class=\"input-group\">
-                    <input class=\"form-control\" placeholder=\"Type message...\">
-                    <div class=\"input-group-btn\">
-                      <button class=\"btn btn-success\"><i class=\"fa fa-plus\"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div><!-- /.box (chat box) -->
-
-              <!-- TO DO List -->
-              <div class=\"box box-primary\">
-                <div class=\"box-header\">
-                  <i class=\"ion ion-clipboard\"></i>
-                  <h3 class=\"box-title\">To Do List</h3>
-                  <div class=\"box-tools pull-right\">
-                    <ul class=\"pagination pagination-sm inline\">
-                      <li><a href=\"#\">&laquo;</a></li>
-                      <li><a href=\"#\">1</a></li>
-                      <li><a href=\"#\">2</a></li>
-                      <li><a href=\"#\">3</a></li>
-                      <li><a href=\"#\">&raquo;</a></li>
-                    </ul>
-                  </div>
-                </div><!-- /.box-header -->
-                <div class=\"box-body\">
-                  <ul class=\"todo-list\">
-                    <li>
-                      <!-- drag handle -->
-                      <span class=\"handle\">
-                        <i class=\"fa fa-ellipsis-v\"></i>
-                        <i class=\"fa fa-ellipsis-v\"></i>
-                      </span>
-                      <!-- checkbox -->
-                      <input type=\"checkbox\" value=\"\" name=\"\">
-                      <!-- todo text -->
-                      <span class=\"text\">Design a nice theme</span>
-                      <!-- Emphasis label -->
-                      <small class=\"label label-danger\"><i class=\"fa fa-clock-o\"></i> 2 mins</small>
-                      <!-- General tools such as edit or delete-->
-                      <div class=\"tools\">
-                        <i class=\"fa fa-edit\"></i>
-                        <i class=\"fa fa-trash-o\"></i>
-                      </div>
-                    </li>
-                    <li>
-                      <span class=\"handle\">
-                        <i class=\"fa fa-ellipsis-v\"></i>
-                        <i class=\"fa fa-ellipsis-v\"></i>
-                      </span>
-                      <input type=\"checkbox\" value=\"\" name=\"\">
-                      <span class=\"text\">Make the theme responsive</span>
-                      <small class=\"label label-info\"><i class=\"fa fa-clock-o\"></i> 4 hours</small>
-                      <div class=\"tools\">
-                        <i class=\"fa fa-edit\"></i>
-                        <i class=\"fa fa-trash-o\"></i>
-                      </div>
-                    </li>
-                    <li>
-                      <span class=\"handle\">
-                        <i class=\"fa fa-ellipsis-v\"></i>
-                        <i class=\"fa fa-ellipsis-v\"></i>
-                      </span>
-                      <input type=\"checkbox\" value=\"\" name=\"\">
-                      <span class=\"text\">Let theme shine like a star</span>
-                      <small class=\"label label-warning\"><i class=\"fa fa-clock-o\"></i> 1 day</small>
-                      <div class=\"tools\">
-                        <i class=\"fa fa-edit\"></i>
-                        <i class=\"fa fa-trash-o\"></i>
-                      </div>
-                    </li>
-                    <li>
-                      <span class=\"handle\">
-                        <i class=\"fa fa-ellipsis-v\"></i>
-                        <i class=\"fa fa-ellipsis-v\"></i>
-                      </span>
-                      <input type=\"checkbox\" value=\"\" name=\"\">
-                      <span class=\"text\">Let theme shine like a star</span>
-                      <small class=\"label label-success\"><i class=\"fa fa-clock-o\"></i> 3 days</small>
-                      <div class=\"tools\">
-                        <i class=\"fa fa-edit\"></i>
-                        <i class=\"fa fa-trash-o\"></i>
-                      </div>
-                    </li>
-                    <li>
-                      <span class=\"handle\">
-                        <i class=\"fa fa-ellipsis-v\"></i>
-                        <i class=\"fa fa-ellipsis-v\"></i>
-                      </span>
-                      <input type=\"checkbox\" value=\"\" name=\"\">
-                      <span class=\"text\">Check your messages and notifications</span>
-                      <small class=\"label label-primary\"><i class=\"fa fa-clock-o\"></i> 1 week</small>
-                      <div class=\"tools\">
-                        <i class=\"fa fa-edit\"></i>
-                        <i class=\"fa fa-trash-o\"></i>
-                      </div>
-                    </li>
-                    <li>
-                      <span class=\"handle\">
-                        <i class=\"fa fa-ellipsis-v\"></i>
-                        <i class=\"fa fa-ellipsis-v\"></i>
-                      </span>
-                      <input type=\"checkbox\" value=\"\" name=\"\">
-                      <span class=\"text\">Let theme shine like a star</span>
-                      <small class=\"label label-default\"><i class=\"fa fa-clock-o\"></i> 1 month</small>
-                      <div class=\"tools\">
-                        <i class=\"fa fa-edit\"></i>
-                        <i class=\"fa fa-trash-o\"></i>
-                      </div>
-                    </li>
-                  </ul>
-                </div><!-- /.box-body -->
-                <div class=\"box-footer clearfix no-border\">
-                  <button class=\"btn btn-default pull-right\"><i class=\"fa fa-plus\"></i> Add item</button>
-                </div>
-              </div><!-- /.box -->
-
               <!-- quick email widget -->
               <div class=\"box box-info\">
                 <div class=\"box-header\">
@@ -504,6 +326,549 @@ class __TwigTemplate_256b95c0b1434f63451074f5d9f2fc061867e991abc92b384e06df25fef
 ";
     }
 
+    // line 259
+    public function block_javascripts($context, array $blocks = array())
+    {
+        // line 260
+        echo "    ";
+        $this->displayParentBlock("javascripts", $context, $blocks);
+        echo "
+    <script src=\"";
+        // line 261
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl((("bundles/avanzuadmintheme/static/" . $this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "environment", array())) . "/scripts/admin-lte-morris.js")), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 262
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl((("bundles/avanzuadmintheme/static/" . $this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "environment", array())) . "/scripts/morris.min.js")), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 263
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"), "html", null, true);
+        echo "\"></script>
+";
+    }
+
+    // line 266
+    public function block_javascripts_inline($context, array $blocks = array())
+    {
+        // line 267
+        echo "    <script>
+  \$(document).ready(function () {
+    \"use strict\";
+
+    // AREA CHART
+   
+   var months = [\"Jan\", \"Feb\", \"Mar\", \"Apr\", \"May\", \"Jun\", \"Jul\", \"Aug\", \"Sep\", \"Oct\", \"Nov\", \"Dec\"];
+    
+    
+
+    // LINE CHART
+    
+    var line = new Morris.Line({
+      element: 'line-chart',
+      resize: true,
+      data: [{
+    m: '2015-01', // <-- valid timestamp strings
+    a: ";
+        // line 284
+        echo twig_escape_filter($this->env, (isset($context["anjan"]) ? $context["anjan"] : $this->getContext($context, "anjan")), "html", null, true);
+        echo ",
+    b: ";
+        // line 285
+        echo twig_escape_filter($this->env, (isset($context["ijan"]) ? $context["ijan"] : $this->getContext($context, "ijan")), "html", null, true);
+        echo ",
+    c: ";
+        // line 286
+        echo twig_escape_filter($this->env, (isset($context["wjan"]) ? $context["wjan"] : $this->getContext($context, "wjan")), "html", null, true);
+        echo ",
+    d: ";
+        // line 287
+        echo twig_escape_filter($this->env, (isset($context["jjan"]) ? $context["jjan"] : $this->getContext($context, "jjan")), "html", null, true);
+        echo "
+  }, {
+    m: '2015-02',
+    a: ";
+        // line 290
+        echo twig_escape_filter($this->env, (isset($context["anfev"]) ? $context["anfev"] : $this->getContext($context, "anfev")), "html", null, true);
+        echo ",
+    b: ";
+        // line 291
+        echo twig_escape_filter($this->env, (isset($context["ifev"]) ? $context["ifev"] : $this->getContext($context, "ifev")), "html", null, true);
+        echo ",
+    c: ";
+        // line 292
+        echo twig_escape_filter($this->env, (isset($context["wfev"]) ? $context["wfev"] : $this->getContext($context, "wfev")), "html", null, true);
+        echo ",
+    d: ";
+        // line 293
+        echo twig_escape_filter($this->env, (isset($context["jfev"]) ? $context["jfev"] : $this->getContext($context, "jfev")), "html", null, true);
+        echo "
+  }, {
+    m: '2015-03',
+    a: ";
+        // line 296
+        echo twig_escape_filter($this->env, (isset($context["anmars"]) ? $context["anmars"] : $this->getContext($context, "anmars")), "html", null, true);
+        echo ",
+    b: ";
+        // line 297
+        echo twig_escape_filter($this->env, (isset($context["imars"]) ? $context["imars"] : $this->getContext($context, "imars")), "html", null, true);
+        echo ",
+    c: ";
+        // line 298
+        echo twig_escape_filter($this->env, (isset($context["wmars"]) ? $context["wmars"] : $this->getContext($context, "wmars")), "html", null, true);
+        echo ",
+    d: ";
+        // line 299
+        echo twig_escape_filter($this->env, (isset($context["jmars"]) ? $context["jmars"] : $this->getContext($context, "jmars")), "html", null, true);
+        echo "
+  }, {
+    m: '2015-04',
+    a: ";
+        // line 302
+        echo twig_escape_filter($this->env, (isset($context["anav"]) ? $context["anav"] : $this->getContext($context, "anav")), "html", null, true);
+        echo ",
+    b: ";
+        // line 303
+        echo twig_escape_filter($this->env, (isset($context["iav"]) ? $context["iav"] : $this->getContext($context, "iav")), "html", null, true);
+        echo ",
+    c: ";
+        // line 304
+        echo twig_escape_filter($this->env, (isset($context["wav"]) ? $context["wav"] : $this->getContext($context, "wav")), "html", null, true);
+        echo ",
+    d: ";
+        // line 305
+        echo twig_escape_filter($this->env, (isset($context["jav"]) ? $context["jav"] : $this->getContext($context, "jav")), "html", null, true);
+        echo "
+  }, {
+    m: '2015-05',
+    a: ";
+        // line 308
+        echo twig_escape_filter($this->env, (isset($context["anmai"]) ? $context["anmai"] : $this->getContext($context, "anmai")), "html", null, true);
+        echo ",
+    b: ";
+        // line 309
+        echo twig_escape_filter($this->env, (isset($context["imai"]) ? $context["imai"] : $this->getContext($context, "imai")), "html", null, true);
+        echo ",
+    c: ";
+        // line 310
+        echo twig_escape_filter($this->env, (isset($context["wmai"]) ? $context["wmai"] : $this->getContext($context, "wmai")), "html", null, true);
+        echo ",
+    d: ";
+        // line 311
+        echo twig_escape_filter($this->env, (isset($context["jmai"]) ? $context["jmai"] : $this->getContext($context, "jmai")), "html", null, true);
+        echo "
+  }, {
+    m: '2015-06',
+    a: ";
+        // line 314
+        echo twig_escape_filter($this->env, (isset($context["anjuin"]) ? $context["anjuin"] : $this->getContext($context, "anjuin")), "html", null, true);
+        echo ",
+    b: ";
+        // line 315
+        echo twig_escape_filter($this->env, (isset($context["ijuin"]) ? $context["ijuin"] : $this->getContext($context, "ijuin")), "html", null, true);
+        echo ",
+    c: ";
+        // line 316
+        echo twig_escape_filter($this->env, (isset($context["wjuin"]) ? $context["wjuin"] : $this->getContext($context, "wjuin")), "html", null, true);
+        echo ",
+    d: ";
+        // line 317
+        echo twig_escape_filter($this->env, (isset($context["jjuin"]) ? $context["jjuin"] : $this->getContext($context, "jjuin")), "html", null, true);
+        echo "
+  }, {
+    m: '2015-07',
+    a: ";
+        // line 320
+        echo twig_escape_filter($this->env, (isset($context["anjuillet"]) ? $context["anjuillet"] : $this->getContext($context, "anjuillet")), "html", null, true);
+        echo ",
+    b: ";
+        // line 321
+        echo twig_escape_filter($this->env, (isset($context["ijuillet"]) ? $context["ijuillet"] : $this->getContext($context, "ijuillet")), "html", null, true);
+        echo ",
+    c: ";
+        // line 322
+        echo twig_escape_filter($this->env, (isset($context["wjuillet"]) ? $context["wjuillet"] : $this->getContext($context, "wjuillet")), "html", null, true);
+        echo ",
+    d: ";
+        // line 323
+        echo twig_escape_filter($this->env, (isset($context["jjuillet"]) ? $context["jjuillet"] : $this->getContext($context, "jjuillet")), "html", null, true);
+        echo "
+  }, {
+    m: '2015-08',
+    a: ";
+        // line 326
+        echo twig_escape_filter($this->env, (isset($context["anaout"]) ? $context["anaout"] : $this->getContext($context, "anaout")), "html", null, true);
+        echo ",
+    b: ";
+        // line 327
+        echo twig_escape_filter($this->env, (isset($context["iaout"]) ? $context["iaout"] : $this->getContext($context, "iaout")), "html", null, true);
+        echo ",
+    c: ";
+        // line 328
+        echo twig_escape_filter($this->env, (isset($context["waout"]) ? $context["waout"] : $this->getContext($context, "waout")), "html", null, true);
+        echo ",
+    d: ";
+        // line 329
+        echo twig_escape_filter($this->env, (isset($context["jaout"]) ? $context["jaout"] : $this->getContext($context, "jaout")), "html", null, true);
+        echo "
+  }, {
+    m: '2015-09',
+    a: ";
+        // line 332
+        echo twig_escape_filter($this->env, (isset($context["ansep"]) ? $context["ansep"] : $this->getContext($context, "ansep")), "html", null, true);
+        echo ",
+    b: ";
+        // line 333
+        echo twig_escape_filter($this->env, (isset($context["isep"]) ? $context["isep"] : $this->getContext($context, "isep")), "html", null, true);
+        echo ",
+    c: ";
+        // line 334
+        echo twig_escape_filter($this->env, (isset($context["wsep"]) ? $context["wsep"] : $this->getContext($context, "wsep")), "html", null, true);
+        echo ",
+    d: ";
+        // line 335
+        echo twig_escape_filter($this->env, (isset($context["jsep"]) ? $context["jsep"] : $this->getContext($context, "jsep")), "html", null, true);
+        echo "
+  }, {
+    m: '2015-10',
+    a: ";
+        // line 338
+        echo twig_escape_filter($this->env, (isset($context["anoc"]) ? $context["anoc"] : $this->getContext($context, "anoc")), "html", null, true);
+        echo ",
+    b: ";
+        // line 339
+        echo twig_escape_filter($this->env, (isset($context["ioc"]) ? $context["ioc"] : $this->getContext($context, "ioc")), "html", null, true);
+        echo ",
+    c: ";
+        // line 340
+        echo twig_escape_filter($this->env, (isset($context["woc"]) ? $context["woc"] : $this->getContext($context, "woc")), "html", null, true);
+        echo ",
+    d: ";
+        // line 341
+        echo twig_escape_filter($this->env, (isset($context["joc"]) ? $context["joc"] : $this->getContext($context, "joc")), "html", null, true);
+        echo "
+  }, {
+    m: '2015-11',
+    a: ";
+        // line 344
+        echo twig_escape_filter($this->env, (isset($context["annov"]) ? $context["annov"] : $this->getContext($context, "annov")), "html", null, true);
+        echo ",
+    b: ";
+        // line 345
+        echo twig_escape_filter($this->env, (isset($context["inov"]) ? $context["inov"] : $this->getContext($context, "inov")), "html", null, true);
+        echo ",
+    c: ";
+        // line 346
+        echo twig_escape_filter($this->env, (isset($context["wnov"]) ? $context["wnov"] : $this->getContext($context, "wnov")), "html", null, true);
+        echo ",
+    d: ";
+        // line 347
+        echo twig_escape_filter($this->env, (isset($context["jnov"]) ? $context["jnov"] : $this->getContext($context, "jnov")), "html", null, true);
+        echo "
+  }, {
+    m: '2015-12',
+    a: ";
+        // line 350
+        echo twig_escape_filter($this->env, (isset($context["andec"]) ? $context["andec"] : $this->getContext($context, "andec")), "html", null, true);
+        echo ",
+    b: ";
+        // line 351
+        echo twig_escape_filter($this->env, (isset($context["idec"]) ? $context["idec"] : $this->getContext($context, "idec")), "html", null, true);
+        echo ",
+    c: ";
+        // line 352
+        echo twig_escape_filter($this->env, (isset($context["wdec"]) ? $context["wdec"] : $this->getContext($context, "wdec")), "html", null, true);
+        echo ",
+    d: ";
+        // line 353
+        echo twig_escape_filter($this->env, (isset($context["jdec"]) ? $context["jdec"] : $this->getContext($context, "jdec")), "html", null, true);
+        echo "
+  }, ],
+      
+  xkey: 'm',
+  ykeys: ['a', 'b','c','d'],
+  labels: ['Android', 'iOS','Windows Phone','J2ME'],
+  xLabelFormat: function(x) { // <--- x.getMonth() returns valid index
+    var month = months[x.getMonth()];
+    return month;
+  },
+  dateFormat: function(x) {
+    var month = months[new Date(x).getMonth()];
+    return month;
+  },
+      
+      lineColors: ['#3c8dbc',\"#f56954\", \"#00a65a\",\"#FDEE00\"],
+      
+      hideHover: 'auto'
+    });
+
+    //DONUT CHART
+    var donut = new Morris.Donut({
+      element: 'sales-chart',
+      resize: true,
+      colors: [\"#3c8dbc\", \"#f56954\", \"#00a65a\",\"#FDEE00\" ],
+      
+      data: [
+        {label:\"Android\", value:";
+        // line 380
+        echo twig_escape_filter($this->env, (isset($context["nband"]) ? $context["nband"] : $this->getContext($context, "nband")), "html", null, true);
+        echo " },
+        {label:\"iOS\", value:";
+        // line 381
+        echo twig_escape_filter($this->env, (isset($context["nbiOS"]) ? $context["nbiOS"] : $this->getContext($context, "nbiOS")), "html", null, true);
+        echo " },
+        {label:\"Windows Phone\", value:";
+        // line 382
+        echo twig_escape_filter($this->env, (isset($context["nbWP"]) ? $context["nbWP"] : $this->getContext($context, "nbWP")), "html", null, true);
+        echo " },
+        {label:\"J2ME\", value:";
+        // line 383
+        echo twig_escape_filter($this->env, (isset($context["nbJ2ME"]) ? $context["nbJ2ME"] : $this->getContext($context, "nbJ2ME")), "html", null, true);
+        echo " },
+        
+      ],
+      hideHover: 'auto'
+    });
+    
+    //BAR CHART
+    
+    var bar = new Morris.Bar({
+      element: 'revenue-chart',
+      resize: true,
+      data: [{
+    m: '2015-01', // <-- valid timestamp strings
+    a: ";
+        // line 396
+        echo twig_escape_filter($this->env, (isset($context["anjan"]) ? $context["anjan"] : $this->getContext($context, "anjan")), "html", null, true);
+        echo ",
+    b: ";
+        // line 397
+        echo twig_escape_filter($this->env, (isset($context["ijan"]) ? $context["ijan"] : $this->getContext($context, "ijan")), "html", null, true);
+        echo ",
+    c: ";
+        // line 398
+        echo twig_escape_filter($this->env, (isset($context["wjan"]) ? $context["wjan"] : $this->getContext($context, "wjan")), "html", null, true);
+        echo ",
+    d: ";
+        // line 399
+        echo twig_escape_filter($this->env, (isset($context["jjan"]) ? $context["jjan"] : $this->getContext($context, "jjan")), "html", null, true);
+        echo "
+  }, {
+    m: '2015-02',
+    a: ";
+        // line 402
+        echo twig_escape_filter($this->env, (isset($context["anfev"]) ? $context["anfev"] : $this->getContext($context, "anfev")), "html", null, true);
+        echo ",
+    b: ";
+        // line 403
+        echo twig_escape_filter($this->env, (isset($context["ifev"]) ? $context["ifev"] : $this->getContext($context, "ifev")), "html", null, true);
+        echo ",
+    c: ";
+        // line 404
+        echo twig_escape_filter($this->env, (isset($context["wfev"]) ? $context["wfev"] : $this->getContext($context, "wfev")), "html", null, true);
+        echo ",
+    d: ";
+        // line 405
+        echo twig_escape_filter($this->env, (isset($context["jfev"]) ? $context["jfev"] : $this->getContext($context, "jfev")), "html", null, true);
+        echo "
+  }, {
+    m: '2015-03',
+    a: ";
+        // line 408
+        echo twig_escape_filter($this->env, (isset($context["anmars"]) ? $context["anmars"] : $this->getContext($context, "anmars")), "html", null, true);
+        echo ",
+    b: ";
+        // line 409
+        echo twig_escape_filter($this->env, (isset($context["imars"]) ? $context["imars"] : $this->getContext($context, "imars")), "html", null, true);
+        echo ",
+    c: ";
+        // line 410
+        echo twig_escape_filter($this->env, (isset($context["wmars"]) ? $context["wmars"] : $this->getContext($context, "wmars")), "html", null, true);
+        echo ",
+    d: ";
+        // line 411
+        echo twig_escape_filter($this->env, (isset($context["jmars"]) ? $context["jmars"] : $this->getContext($context, "jmars")), "html", null, true);
+        echo "
+  }, {
+    m: '2015-04',
+    a: ";
+        // line 414
+        echo twig_escape_filter($this->env, (isset($context["anav"]) ? $context["anav"] : $this->getContext($context, "anav")), "html", null, true);
+        echo ",
+    b: ";
+        // line 415
+        echo twig_escape_filter($this->env, (isset($context["iav"]) ? $context["iav"] : $this->getContext($context, "iav")), "html", null, true);
+        echo ",
+    c: ";
+        // line 416
+        echo twig_escape_filter($this->env, (isset($context["wav"]) ? $context["wav"] : $this->getContext($context, "wav")), "html", null, true);
+        echo ",
+    d: ";
+        // line 417
+        echo twig_escape_filter($this->env, (isset($context["jav"]) ? $context["jav"] : $this->getContext($context, "jav")), "html", null, true);
+        echo "
+  }, {
+    m: '2015-05',
+    a: ";
+        // line 420
+        echo twig_escape_filter($this->env, (isset($context["anmai"]) ? $context["anmai"] : $this->getContext($context, "anmai")), "html", null, true);
+        echo ",
+    b: ";
+        // line 421
+        echo twig_escape_filter($this->env, (isset($context["imai"]) ? $context["imai"] : $this->getContext($context, "imai")), "html", null, true);
+        echo ",
+    c: ";
+        // line 422
+        echo twig_escape_filter($this->env, (isset($context["wmai"]) ? $context["wmai"] : $this->getContext($context, "wmai")), "html", null, true);
+        echo ",
+    d: ";
+        // line 423
+        echo twig_escape_filter($this->env, (isset($context["jmai"]) ? $context["jmai"] : $this->getContext($context, "jmai")), "html", null, true);
+        echo "
+  }, {
+    m: '2015-06',
+    a: ";
+        // line 426
+        echo twig_escape_filter($this->env, (isset($context["anjuin"]) ? $context["anjuin"] : $this->getContext($context, "anjuin")), "html", null, true);
+        echo ",
+    b: ";
+        // line 427
+        echo twig_escape_filter($this->env, (isset($context["ijuin"]) ? $context["ijuin"] : $this->getContext($context, "ijuin")), "html", null, true);
+        echo ",
+    c: ";
+        // line 428
+        echo twig_escape_filter($this->env, (isset($context["wjuin"]) ? $context["wjuin"] : $this->getContext($context, "wjuin")), "html", null, true);
+        echo ",
+    d: ";
+        // line 429
+        echo twig_escape_filter($this->env, (isset($context["jjuin"]) ? $context["jjuin"] : $this->getContext($context, "jjuin")), "html", null, true);
+        echo "
+  }, {
+    m: '2015-07',
+    a: ";
+        // line 432
+        echo twig_escape_filter($this->env, (isset($context["anjuillet"]) ? $context["anjuillet"] : $this->getContext($context, "anjuillet")), "html", null, true);
+        echo ",
+    b: ";
+        // line 433
+        echo twig_escape_filter($this->env, (isset($context["ijuillet"]) ? $context["ijuillet"] : $this->getContext($context, "ijuillet")), "html", null, true);
+        echo ",
+    c: ";
+        // line 434
+        echo twig_escape_filter($this->env, (isset($context["wjuillet"]) ? $context["wjuillet"] : $this->getContext($context, "wjuillet")), "html", null, true);
+        echo ",
+    d: ";
+        // line 435
+        echo twig_escape_filter($this->env, (isset($context["jjuillet"]) ? $context["jjuillet"] : $this->getContext($context, "jjuillet")), "html", null, true);
+        echo "
+  }, {
+    m: '2015-08',
+    a: ";
+        // line 438
+        echo twig_escape_filter($this->env, (isset($context["anaout"]) ? $context["anaout"] : $this->getContext($context, "anaout")), "html", null, true);
+        echo ",
+    b: ";
+        // line 439
+        echo twig_escape_filter($this->env, (isset($context["iaout"]) ? $context["iaout"] : $this->getContext($context, "iaout")), "html", null, true);
+        echo ",
+    c: ";
+        // line 440
+        echo twig_escape_filter($this->env, (isset($context["waout"]) ? $context["waout"] : $this->getContext($context, "waout")), "html", null, true);
+        echo ",
+    d: ";
+        // line 441
+        echo twig_escape_filter($this->env, (isset($context["jaout"]) ? $context["jaout"] : $this->getContext($context, "jaout")), "html", null, true);
+        echo "
+  }, {
+    m: '2015-09',
+    a: ";
+        // line 444
+        echo twig_escape_filter($this->env, (isset($context["ansep"]) ? $context["ansep"] : $this->getContext($context, "ansep")), "html", null, true);
+        echo ",
+    b: ";
+        // line 445
+        echo twig_escape_filter($this->env, (isset($context["isep"]) ? $context["isep"] : $this->getContext($context, "isep")), "html", null, true);
+        echo ",
+    c: ";
+        // line 446
+        echo twig_escape_filter($this->env, (isset($context["wsep"]) ? $context["wsep"] : $this->getContext($context, "wsep")), "html", null, true);
+        echo ",
+    d: ";
+        // line 447
+        echo twig_escape_filter($this->env, (isset($context["jsep"]) ? $context["jsep"] : $this->getContext($context, "jsep")), "html", null, true);
+        echo "
+  }, {
+    m: '2015-10',
+    a: ";
+        // line 450
+        echo twig_escape_filter($this->env, (isset($context["anoc"]) ? $context["anoc"] : $this->getContext($context, "anoc")), "html", null, true);
+        echo ",
+    b: ";
+        // line 451
+        echo twig_escape_filter($this->env, (isset($context["ioc"]) ? $context["ioc"] : $this->getContext($context, "ioc")), "html", null, true);
+        echo ",
+    c: ";
+        // line 452
+        echo twig_escape_filter($this->env, (isset($context["woc"]) ? $context["woc"] : $this->getContext($context, "woc")), "html", null, true);
+        echo ",
+    d: ";
+        // line 453
+        echo twig_escape_filter($this->env, (isset($context["joc"]) ? $context["joc"] : $this->getContext($context, "joc")), "html", null, true);
+        echo "
+  }, {
+    m: '2015-11',
+    a: ";
+        // line 456
+        echo twig_escape_filter($this->env, (isset($context["annov"]) ? $context["annov"] : $this->getContext($context, "annov")), "html", null, true);
+        echo ",
+    b: ";
+        // line 457
+        echo twig_escape_filter($this->env, (isset($context["inov"]) ? $context["inov"] : $this->getContext($context, "inov")), "html", null, true);
+        echo ",
+    c: ";
+        // line 458
+        echo twig_escape_filter($this->env, (isset($context["wnov"]) ? $context["wnov"] : $this->getContext($context, "wnov")), "html", null, true);
+        echo ",
+    d: ";
+        // line 459
+        echo twig_escape_filter($this->env, (isset($context["jnov"]) ? $context["jnov"] : $this->getContext($context, "jnov")), "html", null, true);
+        echo "
+  }, {
+    m: '2015-12',
+    a: ";
+        // line 462
+        echo twig_escape_filter($this->env, (isset($context["andec"]) ? $context["andec"] : $this->getContext($context, "andec")), "html", null, true);
+        echo ",
+    b: ";
+        // line 463
+        echo twig_escape_filter($this->env, (isset($context["idec"]) ? $context["idec"] : $this->getContext($context, "idec")), "html", null, true);
+        echo ",
+    c: ";
+        // line 464
+        echo twig_escape_filter($this->env, (isset($context["wdec"]) ? $context["wdec"] : $this->getContext($context, "wdec")), "html", null, true);
+        echo ",
+    d: ";
+        // line 465
+        echo twig_escape_filter($this->env, (isset($context["jdec"]) ? $context["jdec"] : $this->getContext($context, "jdec")), "html", null, true);
+        echo "
+  }, ],
+      barColors: ['#00a65a', '#f56954',\"#3c8dbc\",\"#FDEE00\"],
+      xkey: 'm',
+    ykeys: ['a', 'b','c','d'],
+    stacked: true,
+    labels: ['Android', 'iOS','Windows Phone','J2ME'],
+    xLabelFormat: function (x) { // <-- changed
+        console.log(\"this is the new object:\" + x);
+        var month = months[x.x];
+        return month;
+    },
+      hideHover: 'auto'
+    });
+  });
+</script>
+    ";
+    }
+
     public function getTemplateName()
     {
         return "AvanzuAdminThemeBundle:Default:dashboard.html.twig";
@@ -516,7 +881,7 @@ class __TwigTemplate_256b95c0b1434f63451074f5d9f2fc061867e991abc92b384e06df25fef
 
     public function getDebugInfo()
     {
-        return array (  124 => 58,  108 => 45,  92 => 32,  76 => 19,  65 => 12,  59 => 11,  53 => 10,  47 => 7,  43 => 6,  39 => 5,  34 => 4,  31 => 3,  11 => 1,);
+        return array (  852 => 465,  848 => 464,  844 => 463,  840 => 462,  834 => 459,  830 => 458,  826 => 457,  822 => 456,  816 => 453,  812 => 452,  808 => 451,  804 => 450,  798 => 447,  794 => 446,  790 => 445,  786 => 444,  780 => 441,  776 => 440,  772 => 439,  768 => 438,  762 => 435,  758 => 434,  754 => 433,  750 => 432,  744 => 429,  740 => 428,  736 => 427,  732 => 426,  726 => 423,  722 => 422,  718 => 421,  714 => 420,  708 => 417,  704 => 416,  700 => 415,  696 => 414,  690 => 411,  686 => 410,  682 => 409,  678 => 408,  672 => 405,  668 => 404,  664 => 403,  660 => 402,  654 => 399,  650 => 398,  646 => 397,  642 => 396,  626 => 383,  622 => 382,  618 => 381,  614 => 380,  584 => 353,  580 => 352,  576 => 351,  572 => 350,  566 => 347,  562 => 346,  558 => 345,  554 => 344,  548 => 341,  544 => 340,  540 => 339,  536 => 338,  530 => 335,  526 => 334,  522 => 333,  518 => 332,  512 => 329,  508 => 328,  504 => 327,  500 => 326,  494 => 323,  490 => 322,  486 => 321,  482 => 320,  476 => 317,  472 => 316,  468 => 315,  464 => 314,  458 => 311,  454 => 310,  450 => 309,  446 => 308,  440 => 305,  436 => 304,  432 => 303,  428 => 302,  422 => 299,  418 => 298,  414 => 297,  410 => 296,  404 => 293,  400 => 292,  396 => 291,  392 => 290,  386 => 287,  382 => 286,  378 => 285,  374 => 284,  355 => 267,  352 => 266,  346 => 263,  342 => 262,  338 => 261,  333 => 260,  330 => 259,  126 => 58,  110 => 45,  94 => 32,  78 => 19,  67 => 12,  61 => 11,  55 => 10,  49 => 7,  45 => 6,  41 => 5,  36 => 4,  33 => 3,  11 => 1,);
     }
 }
 /* {% extends 'AvanzuAdminThemeBundle:layout:base-layout.html.twig' %}*/
@@ -594,9 +959,9 @@ class __TwigTemplate_256b95c0b1434f63451074f5d9f2fc061867e991abc92b384e06df25fef
 /*               <div class="nav-tabs-custom">*/
 /*                 <!-- Tabs within a box -->*/
 /*                 <ul class="nav nav-tabs pull-right">*/
-/*                   <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>*/
+/*                   <li class="active"><a href="#revenue-chart" data-toggle="tab">Bar chart</a></li>*/
 /*                   <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>*/
-/*                   <li class="pull-left header"><i class="fa fa-inbox"></i> Sales</li>*/
+/*                   <li class="pull-left header"><i class="fa fa-inbox"></i> Statistiques</li>*/
 /*                 </ul>*/
 /*                 <div class="tab-content no-padding">*/
 /*                   <!-- Morris chart - Sales -->*/
@@ -604,186 +969,6 @@ class __TwigTemplate_256b95c0b1434f63451074f5d9f2fc061867e991abc92b384e06df25fef
 /*                   <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>*/
 /*                 </div>*/
 /*               </div><!-- /.nav-tabs-custom -->*/
-/* */
-/*               <!-- Chat box -->*/
-/*               <div class="box box-success">*/
-/*                 <div class="box-header">*/
-/*                   <i class="fa fa-comments-o"></i>*/
-/*                   <h3 class="box-title">Chat</h3>*/
-/*                   <div class="box-tools pull-right" data-toggle="tooltip" title="Status">*/
-/*                     <div class="btn-group" data-toggle="btn-toggle" >*/
-/*                       <button type="button" class="btn btn-default btn-sm active"><i class="fa fa-square text-green"></i></button>*/
-/*                       <button type="button" class="btn btn-default btn-sm"><i class="fa fa-square text-red"></i></button>*/
-/*                     </div>*/
-/*                   </div>*/
-/*                 </div>*/
-/*                 <div class="box-body chat" id="chat-box">*/
-/*                   <!-- chat item -->*/
-/*                   <div class="item">*/
-/*                     <img src="dist/img/user4-128x128.jpg" alt="user image" class="online">*/
-/*                     <p class="message">*/
-/*                       <a href="#" class="name">*/
-/*                         <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>*/
-/*                         Mike Doe*/
-/*                       </a>*/
-/*                       I would like to meet you to discuss the latest news about*/
-/*                       the arrival of the new theme. They say it is going to be one the*/
-/*                       best themes on the market*/
-/*                     </p>*/
-/*                     <div class="attachment">*/
-/*                       <h4>Attachments:</h4>*/
-/*                       <p class="filename">*/
-/*                         Theme-thumbnail-image.jpg*/
-/*                       </p>*/
-/*                       <div class="pull-right">*/
-/*                         <button class="btn btn-primary btn-sm btn-flat">Open</button>*/
-/*                       </div>*/
-/*                     </div><!-- /.attachment -->*/
-/*                   </div><!-- /.item -->*/
-/*                   <!-- chat item -->*/
-/*                   <div class="item">*/
-/*                     <img src="dist/img/user3-128x128.jpg" alt="user image" class="offline">*/
-/*                     <p class="message">*/
-/*                       <a href="#" class="name">*/
-/*                         <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:15</small>*/
-/*                         Alexander Pierce*/
-/*                       </a>*/
-/*                       I would like to meet you to discuss the latest news about*/
-/*                       the arrival of the new theme. They say it is going to be one the*/
-/*                       best themes on the market*/
-/*                     </p>*/
-/*                   </div><!-- /.item -->*/
-/*                   <!-- chat item -->*/
-/*                   <div class="item">*/
-/*                     <img src="dist/img/user2-160x160.jpg" alt="user image" class="offline">*/
-/*                     <p class="message">*/
-/*                       <a href="#" class="name">*/
-/*                         <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:30</small>*/
-/*                         Susan Doe*/
-/*                       </a>*/
-/*                       I would like to meet you to discuss the latest news about*/
-/*                       the arrival of the new theme. They say it is going to be one the*/
-/*                       best themes on the market*/
-/*                     </p>*/
-/*                   </div><!-- /.item -->*/
-/*                 </div><!-- /.chat -->*/
-/*                 <div class="box-footer">*/
-/*                   <div class="input-group">*/
-/*                     <input class="form-control" placeholder="Type message...">*/
-/*                     <div class="input-group-btn">*/
-/*                       <button class="btn btn-success"><i class="fa fa-plus"></i></button>*/
-/*                     </div>*/
-/*                   </div>*/
-/*                 </div>*/
-/*               </div><!-- /.box (chat box) -->*/
-/* */
-/*               <!-- TO DO List -->*/
-/*               <div class="box box-primary">*/
-/*                 <div class="box-header">*/
-/*                   <i class="ion ion-clipboard"></i>*/
-/*                   <h3 class="box-title">To Do List</h3>*/
-/*                   <div class="box-tools pull-right">*/
-/*                     <ul class="pagination pagination-sm inline">*/
-/*                       <li><a href="#">&laquo;</a></li>*/
-/*                       <li><a href="#">1</a></li>*/
-/*                       <li><a href="#">2</a></li>*/
-/*                       <li><a href="#">3</a></li>*/
-/*                       <li><a href="#">&raquo;</a></li>*/
-/*                     </ul>*/
-/*                   </div>*/
-/*                 </div><!-- /.box-header -->*/
-/*                 <div class="box-body">*/
-/*                   <ul class="todo-list">*/
-/*                     <li>*/
-/*                       <!-- drag handle -->*/
-/*                       <span class="handle">*/
-/*                         <i class="fa fa-ellipsis-v"></i>*/
-/*                         <i class="fa fa-ellipsis-v"></i>*/
-/*                       </span>*/
-/*                       <!-- checkbox -->*/
-/*                       <input type="checkbox" value="" name="">*/
-/*                       <!-- todo text -->*/
-/*                       <span class="text">Design a nice theme</span>*/
-/*                       <!-- Emphasis label -->*/
-/*                       <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>*/
-/*                       <!-- General tools such as edit or delete-->*/
-/*                       <div class="tools">*/
-/*                         <i class="fa fa-edit"></i>*/
-/*                         <i class="fa fa-trash-o"></i>*/
-/*                       </div>*/
-/*                     </li>*/
-/*                     <li>*/
-/*                       <span class="handle">*/
-/*                         <i class="fa fa-ellipsis-v"></i>*/
-/*                         <i class="fa fa-ellipsis-v"></i>*/
-/*                       </span>*/
-/*                       <input type="checkbox" value="" name="">*/
-/*                       <span class="text">Make the theme responsive</span>*/
-/*                       <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small>*/
-/*                       <div class="tools">*/
-/*                         <i class="fa fa-edit"></i>*/
-/*                         <i class="fa fa-trash-o"></i>*/
-/*                       </div>*/
-/*                     </li>*/
-/*                     <li>*/
-/*                       <span class="handle">*/
-/*                         <i class="fa fa-ellipsis-v"></i>*/
-/*                         <i class="fa fa-ellipsis-v"></i>*/
-/*                       </span>*/
-/*                       <input type="checkbox" value="" name="">*/
-/*                       <span class="text">Let theme shine like a star</span>*/
-/*                       <small class="label label-warning"><i class="fa fa-clock-o"></i> 1 day</small>*/
-/*                       <div class="tools">*/
-/*                         <i class="fa fa-edit"></i>*/
-/*                         <i class="fa fa-trash-o"></i>*/
-/*                       </div>*/
-/*                     </li>*/
-/*                     <li>*/
-/*                       <span class="handle">*/
-/*                         <i class="fa fa-ellipsis-v"></i>*/
-/*                         <i class="fa fa-ellipsis-v"></i>*/
-/*                       </span>*/
-/*                       <input type="checkbox" value="" name="">*/
-/*                       <span class="text">Let theme shine like a star</span>*/
-/*                       <small class="label label-success"><i class="fa fa-clock-o"></i> 3 days</small>*/
-/*                       <div class="tools">*/
-/*                         <i class="fa fa-edit"></i>*/
-/*                         <i class="fa fa-trash-o"></i>*/
-/*                       </div>*/
-/*                     </li>*/
-/*                     <li>*/
-/*                       <span class="handle">*/
-/*                         <i class="fa fa-ellipsis-v"></i>*/
-/*                         <i class="fa fa-ellipsis-v"></i>*/
-/*                       </span>*/
-/*                       <input type="checkbox" value="" name="">*/
-/*                       <span class="text">Check your messages and notifications</span>*/
-/*                       <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 week</small>*/
-/*                       <div class="tools">*/
-/*                         <i class="fa fa-edit"></i>*/
-/*                         <i class="fa fa-trash-o"></i>*/
-/*                       </div>*/
-/*                     </li>*/
-/*                     <li>*/
-/*                       <span class="handle">*/
-/*                         <i class="fa fa-ellipsis-v"></i>*/
-/*                         <i class="fa fa-ellipsis-v"></i>*/
-/*                       </span>*/
-/*                       <input type="checkbox" value="" name="">*/
-/*                       <span class="text">Let theme shine like a star</span>*/
-/*                       <small class="label label-default"><i class="fa fa-clock-o"></i> 1 month</small>*/
-/*                       <div class="tools">*/
-/*                         <i class="fa fa-edit"></i>*/
-/*                         <i class="fa fa-trash-o"></i>*/
-/*                       </div>*/
-/*                     </li>*/
-/*                   </ul>*/
-/*                 </div><!-- /.box-body -->*/
-/*                 <div class="box-footer clearfix no-border">*/
-/*                   <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>*/
-/*                 </div>*/
-/*               </div><!-- /.box -->*/
-/* */
 /*               <!-- quick email widget -->*/
 /*               <div class="box box-info">*/
 /*                 <div class="box-header">*/
@@ -956,3 +1141,227 @@ class __TwigTemplate_256b95c0b1434f63451074f5d9f2fc061867e991abc92b384e06df25fef
 /*       </div><!-- /.content-wrapper -->*/
 /*     */
 /* {% endblock %}*/
+/* */
+/*     {% block javascripts %}*/
+/*     {{ parent() }}*/
+/*     <script src="{{ asset('bundles/avanzuadmintheme/static/'~app.environment~'/scripts/admin-lte-morris.js') }}"></script>*/
+/*     <script src="{{ asset('bundles/avanzuadmintheme/static/'~app.environment~'/scripts/morris.min.js') }}"></script>*/
+/*     <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js') }}"></script>*/
+/* {% endblock %}*/
+/* */
+/* {% block javascripts_inline %}*/
+/*     <script>*/
+/*   $(document).ready(function () {*/
+/*     "use strict";*/
+/* */
+/*     // AREA CHART*/
+/*    */
+/*    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];*/
+/*     */
+/*     */
+/* */
+/*     // LINE CHART*/
+/*     */
+/*     var line = new Morris.Line({*/
+/*       element: 'line-chart',*/
+/*       resize: true,*/
+/*       data: [{*/
+/*     m: '2015-01', // <-- valid timestamp strings*/
+/*     a: {{anjan}},*/
+/*     b: {{ijan}},*/
+/*     c: {{wjan}},*/
+/*     d: {{jjan}}*/
+/*   }, {*/
+/*     m: '2015-02',*/
+/*     a: {{anfev}},*/
+/*     b: {{ifev}},*/
+/*     c: {{wfev}},*/
+/*     d: {{jfev}}*/
+/*   }, {*/
+/*     m: '2015-03',*/
+/*     a: {{anmars}},*/
+/*     b: {{imars}},*/
+/*     c: {{wmars}},*/
+/*     d: {{jmars}}*/
+/*   }, {*/
+/*     m: '2015-04',*/
+/*     a: {{anav}},*/
+/*     b: {{iav}},*/
+/*     c: {{wav}},*/
+/*     d: {{jav}}*/
+/*   }, {*/
+/*     m: '2015-05',*/
+/*     a: {{anmai}},*/
+/*     b: {{imai}},*/
+/*     c: {{wmai}},*/
+/*     d: {{jmai}}*/
+/*   }, {*/
+/*     m: '2015-06',*/
+/*     a: {{anjuin}},*/
+/*     b: {{ijuin}},*/
+/*     c: {{wjuin}},*/
+/*     d: {{jjuin}}*/
+/*   }, {*/
+/*     m: '2015-07',*/
+/*     a: {{anjuillet}},*/
+/*     b: {{ijuillet}},*/
+/*     c: {{wjuillet}},*/
+/*     d: {{jjuillet}}*/
+/*   }, {*/
+/*     m: '2015-08',*/
+/*     a: {{anaout}},*/
+/*     b: {{iaout}},*/
+/*     c: {{waout}},*/
+/*     d: {{jaout}}*/
+/*   }, {*/
+/*     m: '2015-09',*/
+/*     a: {{ansep}},*/
+/*     b: {{isep}},*/
+/*     c: {{wsep}},*/
+/*     d: {{jsep}}*/
+/*   }, {*/
+/*     m: '2015-10',*/
+/*     a: {{anoc}},*/
+/*     b: {{ioc}},*/
+/*     c: {{woc}},*/
+/*     d: {{joc}}*/
+/*   }, {*/
+/*     m: '2015-11',*/
+/*     a: {{annov}},*/
+/*     b: {{inov}},*/
+/*     c: {{wnov}},*/
+/*     d: {{jnov}}*/
+/*   }, {*/
+/*     m: '2015-12',*/
+/*     a: {{andec}},*/
+/*     b: {{idec}},*/
+/*     c: {{wdec}},*/
+/*     d: {{jdec}}*/
+/*   }, ],*/
+/*       */
+/*   xkey: 'm',*/
+/*   ykeys: ['a', 'b','c','d'],*/
+/*   labels: ['Android', 'iOS','Windows Phone','J2ME'],*/
+/*   xLabelFormat: function(x) { // <--- x.getMonth() returns valid index*/
+/*     var month = months[x.getMonth()];*/
+/*     return month;*/
+/*   },*/
+/*   dateFormat: function(x) {*/
+/*     var month = months[new Date(x).getMonth()];*/
+/*     return month;*/
+/*   },*/
+/*       */
+/*       lineColors: ['#3c8dbc',"#f56954", "#00a65a","#FDEE00"],*/
+/*       */
+/*       hideHover: 'auto'*/
+/*     });*/
+/* */
+/*     //DONUT CHART*/
+/*     var donut = new Morris.Donut({*/
+/*       element: 'sales-chart',*/
+/*       resize: true,*/
+/*       colors: ["#3c8dbc", "#f56954", "#00a65a","#FDEE00" ],*/
+/*       */
+/*       data: [*/
+/*         {label:"Android", value:{{nband}} },*/
+/*         {label:"iOS", value:{{nbiOS}} },*/
+/*         {label:"Windows Phone", value:{{nbWP}} },*/
+/*         {label:"J2ME", value:{{nbJ2ME}} },*/
+/*         */
+/*       ],*/
+/*       hideHover: 'auto'*/
+/*     });*/
+/*     */
+/*     //BAR CHART*/
+/*     */
+/*     var bar = new Morris.Bar({*/
+/*       element: 'revenue-chart',*/
+/*       resize: true,*/
+/*       data: [{*/
+/*     m: '2015-01', // <-- valid timestamp strings*/
+/*     a: {{anjan}},*/
+/*     b: {{ijan}},*/
+/*     c: {{wjan}},*/
+/*     d: {{jjan}}*/
+/*   }, {*/
+/*     m: '2015-02',*/
+/*     a: {{anfev}},*/
+/*     b: {{ifev}},*/
+/*     c: {{wfev}},*/
+/*     d: {{jfev}}*/
+/*   }, {*/
+/*     m: '2015-03',*/
+/*     a: {{anmars}},*/
+/*     b: {{imars}},*/
+/*     c: {{wmars}},*/
+/*     d: {{jmars}}*/
+/*   }, {*/
+/*     m: '2015-04',*/
+/*     a: {{anav}},*/
+/*     b: {{iav}},*/
+/*     c: {{wav}},*/
+/*     d: {{jav}}*/
+/*   }, {*/
+/*     m: '2015-05',*/
+/*     a: {{anmai}},*/
+/*     b: {{imai}},*/
+/*     c: {{wmai}},*/
+/*     d: {{jmai}}*/
+/*   }, {*/
+/*     m: '2015-06',*/
+/*     a: {{anjuin}},*/
+/*     b: {{ijuin}},*/
+/*     c: {{wjuin}},*/
+/*     d: {{jjuin}}*/
+/*   }, {*/
+/*     m: '2015-07',*/
+/*     a: {{anjuillet}},*/
+/*     b: {{ijuillet}},*/
+/*     c: {{wjuillet}},*/
+/*     d: {{jjuillet}}*/
+/*   }, {*/
+/*     m: '2015-08',*/
+/*     a: {{anaout}},*/
+/*     b: {{iaout}},*/
+/*     c: {{waout}},*/
+/*     d: {{jaout}}*/
+/*   }, {*/
+/*     m: '2015-09',*/
+/*     a: {{ansep}},*/
+/*     b: {{isep}},*/
+/*     c: {{wsep}},*/
+/*     d: {{jsep}}*/
+/*   }, {*/
+/*     m: '2015-10',*/
+/*     a: {{anoc}},*/
+/*     b: {{ioc}},*/
+/*     c: {{woc}},*/
+/*     d: {{joc}}*/
+/*   }, {*/
+/*     m: '2015-11',*/
+/*     a: {{annov}},*/
+/*     b: {{inov}},*/
+/*     c: {{wnov}},*/
+/*     d: {{jnov}}*/
+/*   }, {*/
+/*     m: '2015-12',*/
+/*     a: {{andec}},*/
+/*     b: {{idec}},*/
+/*     c: {{wdec}},*/
+/*     d: {{jdec}}*/
+/*   }, ],*/
+/*       barColors: ['#00a65a', '#f56954',"#3c8dbc","#FDEE00"],*/
+/*       xkey: 'm',*/
+/*     ykeys: ['a', 'b','c','d'],*/
+/*     stacked: true,*/
+/*     labels: ['Android', 'iOS','Windows Phone','J2ME'],*/
+/*     xLabelFormat: function (x) { // <-- changed*/
+/*         console.log("this is the new object:" + x);*/
+/*         var month = months[x.x];*/
+/*         return month;*/
+/*     },*/
+/*       hideHover: 'auto'*/
+/*     });*/
+/*   });*/
+/* </script>*/
+/*     {% endblock %}*/

@@ -6,12 +6,7 @@
          <link rel="stylesheet" href="{{asset('bundles/avanzuadmintheme/static/'~ app.environment ~'/styles/admin-lte-morris.css') }}">
  {% endblock %}
 {% block page_content %}
-    <div class="callout callout-warning">
-        <h4>Warning!</h4>
-
-        <p><b>Morris.js</b> charts are no longer maintained by its author. We would recommend using any of the other
-          charts that come with the template.</p>
-      </div>
+    
       <div class="row">
         <div class="col-md-6">
           <!-- AREA CHART -->
@@ -108,6 +103,7 @@
 
     // AREA CHART
    
+   var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     
     var area = new Morris.Area({
       element: 'revenue-chart',
@@ -132,25 +128,98 @@
     });
 
     // LINE CHART
+    
     var line = new Morris.Line({
       element: 'line-chart',
       resize: true,
-      data: [
-        {y: '2011 Q1', item1: 2666},
-        {y: '2011 Q2', item1: 2778},
-        {y: '2011 Q3', item1: 4912},
-        {y: '2011 Q4', item1: 3767},
-        {y: '2012 Q1', item1: 6810},
-        {y: '2012 Q2', item1: 5670},
-        {y: '2012 Q3', item1: 4820},
-        {y: '2012 Q4', item1: 15073},
-        {y: '2013 Q1', item1: 10687},
-        {y: '2013 Q2', item1: 8432}
-      ],
-      xkey: 'y',
-      ykeys: ['item1'],
-      labels: ['Item 1'],
-      lineColors: ['#3c8dbc'],
+      data: [{
+    m: '2015-01', // <-- valid timestamp strings
+    a: {{anjan}},
+    b: {{ijan}},
+    c: {{wjan}},
+    d: {{jjan}}
+  }, {
+    m: '2015-02',
+    a: {{anfev}},
+    b: {{ifev}},
+    c: {{wfev}},
+    d: {{jfev}}
+  }, {
+    m: '2015-03',
+    a: {{anmars}},
+    b: {{imars}},
+    c: {{wmars}},
+    d: {{jmars}}
+  }, {
+    m: '2015-04',
+    a: {{anav}},
+    b: {{iav}},
+    c: {{wav}},
+    d: {{jav}}
+  }, {
+    m: '2015-05',
+    a: {{anmai}},
+    b: {{imai}},
+    c: {{wmai}},
+    d: {{jmai}}
+  }, {
+    m: '2015-06',
+    a: {{anjuin}},
+    b: {{ijuin}},
+    c: {{wjuin}},
+    d: {{jjuin}}
+  }, {
+    m: '2015-07',
+    a: {{anjuillet}},
+    b: {{ijuillet}},
+    c: {{wjuillet}},
+    d: {{jjuillet}}
+  }, {
+    m: '2015-08',
+    a: {{anaout}},
+    b: {{iaout}},
+    c: {{waout}},
+    d: {{jaout}}
+  }, {
+    m: '2015-09',
+    a: {{ansep}},
+    b: {{isep}},
+    c: {{wsep}},
+    d: {{jsep}}
+  }, {
+    m: '2015-10',
+    a: {{anoc}},
+    b: {{ioc}},
+    c: {{woc}},
+    d: {{joc}}
+  }, {
+    m: '2015-11',
+    a: {{annov}},
+    b: {{inov}},
+    c: {{wnov}},
+    d: {{jnov}}
+  }, {
+    m: '2015-12',
+    a: {{andec}},
+    b: {{idec}},
+    c: {{wdec}},
+    d: {{jdec}}
+  }, ],
+      
+  xkey: 'm',
+  ykeys: ['a', 'b','c','d'],
+  labels: ['Android', 'iOS','Windows Phone','J2ME'],
+  xLabelFormat: function(x) { // <--- x.getMonth() returns valid index
+    var month = months[x.getMonth()];
+    return month;
+  },
+  dateFormat: function(x) {
+    var month = months[new Date(x).getMonth()];
+    return month;
+  },
+      
+      lineColors: ['#3c8dbc',"#f56954", "#00a65a","#FDEE00"],
+      
       hideHover: 'auto'
     });
 
@@ -169,23 +238,95 @@
       ],
       hideHover: 'auto'
     });
+    
     //BAR CHART
+    
     var bar = new Morris.Bar({
       element: 'bar-chart',
       resize: true,
-      data: [
-        {y: '2006', a: 100, b: 90},
-        {y: '2007', a: 75, b: 65},
-        {y: '2008', a: 50, b: 40},
-        {y: '2009', a: 75, b: 65},
-        {y: '2010', a: 50, b: 40},
-        {y: '2011', a: 75, b: 65},
-        {y: '2012', a: 100, b: 90}
-      ],
-      barColors: ['#00a65a', '#f56954'],
-      xkey: 'y',
-      ykeys: ['a', 'b'],
-      labels: ['CPU', 'DISK'],
+      data: [{
+    m: '2015-01', // <-- valid timestamp strings
+    a: {{anjan}},
+    b: {{ijan}},
+    c: {{wjan}},
+    d: {{jjan}}
+  }, {
+    m: '2015-02',
+    a: {{anfev}},
+    b: {{ifev}},
+    c: {{wfev}},
+    d: {{jfev}}
+  }, {
+    m: '2015-03',
+    a: {{anmars}},
+    b: {{imars}},
+    c: {{wmars}},
+    d: {{jmars}}
+  }, {
+    m: '2015-04',
+    a: {{anav}},
+    b: {{iav}},
+    c: {{wav}},
+    d: {{jav}}
+  }, {
+    m: '2015-05',
+    a: {{anmai}},
+    b: {{imai}},
+    c: {{wmai}},
+    d: {{jmai}}
+  }, {
+    m: '2015-06',
+    a: {{anjuin}},
+    b: {{ijuin}},
+    c: {{wjuin}},
+    d: {{jjuin}}
+  }, {
+    m: '2015-07',
+    a: {{anjuillet}},
+    b: {{ijuillet}},
+    c: {{wjuillet}},
+    d: {{jjuillet}}
+  }, {
+    m: '2015-08',
+    a: {{anaout}},
+    b: {{iaout}},
+    c: {{waout}},
+    d: {{jaout}}
+  }, {
+    m: '2015-09',
+    a: {{ansep}},
+    b: {{isep}},
+    c: {{wsep}},
+    d: {{jsep}}
+  }, {
+    m: '2015-10',
+    a: {{anoc}},
+    b: {{ioc}},
+    c: {{woc}},
+    d: {{joc}}
+  }, {
+    m: '2015-11',
+    a: {{annov}},
+    b: {{inov}},
+    c: {{wnov}},
+    d: {{jnov}}
+  }, {
+    m: '2015-12',
+    a: {{andec}},
+    b: {{idec}},
+    c: {{wdec}},
+    d: {{jdec}}
+  }, ],
+      barColors: ['#00a65a', '#f56954',"#3c8dbc","#FDEE00"],
+      xkey: 'm',
+    ykeys: ['a', 'b','c','d'],
+    stacked: true,
+    labels: ['Android', 'iOS','Windows Phone','J2ME'],
+    xLabelFormat: function (x) { // <-- changed
+        console.log("this is the new object:" + x);
+        var month = months[x.x];
+        return month;
+    },
       hideHover: 'auto'
     });
   });

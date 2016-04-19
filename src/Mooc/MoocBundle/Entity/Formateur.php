@@ -76,6 +76,23 @@ class Formateur
      * @ORM\Column(name="password", type="string", length=45, nullable=false)
      */
     private $password;
+    
+    /**
+     * @var \Organisme
+     *
+     * @ORM\ManyToOne(targetEntity="Organisme")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_organisme", referencedColumnName="idorganisme")
+     * })
+     */function getIdOrganisme() {
+        return $this->idOrganisme;
+    }
+
+    function setIdOrganisme(\Organisme $idOrganisme) {
+        $this->idOrganisme = $idOrganisme;
+    }
+
+        private $idOrganisme;
     function getCin() {
         return $this->cin;
     }
@@ -156,7 +173,5 @@ class Formateur
         $this->password = $password;
         return $this;
     }
-
-
 
 }
