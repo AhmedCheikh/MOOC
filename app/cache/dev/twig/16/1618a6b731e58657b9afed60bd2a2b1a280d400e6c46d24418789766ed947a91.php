@@ -437,69 +437,79 @@ class __TwigTemplate_30da851a9c91f4eb5d5f21dff91331dcba5ea7da21925320797afa07aa0
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["quiz"]) ? $context["quiz"] : $this->getContext($context, "quiz")), "titre", array()), "html", null, true);
         echo "</label></b></center>
                                 </header>
-                                ";
-        // line 374
+                                <div class=\"panel-body\">
+                                    <div class=\"form\">
+                                        <form class=\"form-validate form-horizontal\" id=\"feedback_form\" method=\"POST\" action=\"";
+        // line 376
+        echo $this->env->getExtension('routing')->getPath("mooc_mooc_passer_quiz");
+        echo "\">
+<input type=\"text\" style=\"display:none;\" name=\"id\" value=\"";
+        // line 377
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["quiz"]) ? $context["quiz"] : $this->getContext($context, "quiz")), "id", array()), "html", null, true);
+        echo "\">
+                                            ";
+        // line 378
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")));
         foreach ($context['_seq'] as $context["_key"] => $context["q"]) {
             echo " 
 
-                                    <label style=\"color:blue;background-color:beige;font-size: 250%;\" >";
-            // line 376
+                                                <label style=\"color:blue;background-color:beige;font-size: 250%;\" >";
+            // line 380
             echo twig_escape_filter($this->env, $this->getAttribute($context["q"], "question", array()), "html", null, true);
             echo " </label><br>
-                                    <table>
-                                        <tr><td style=\"font-size: 150%;\">";
-            // line 378
+                                                <table>
+                                                    <tr><td style=\"font-size: 150%;\">";
+            // line 382
             echo $this->env->getExtension('actions')->renderUri($this->env->getExtension('http_kernel')->controller("MoocMoocBundle:Quiz:test", array("id" => $this->getAttribute($context["q"], "id", array()))), array());
             echo "  </td></tr></table>
-                                        ";
+                                                ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['q'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 380
-        echo "                                <left> <input type=\"submit\" value=\"envoyer\"></left>
+        // line 384
+        echo "                                            <button class=\"btn btn-primary\" type=\"submit\">valider</button>
 
-                            </section>
-                            <br>
-                        </div>
-                    </div>
+                                            </section>
+                                            <br>
+                                            </div>
+                                            </div>
 
-                    <br><br>
-                </section>
-            </section>
-            <!--main content end-->
-        </section>
-        <!-- container section start -->
+                                            <br><br>
+                                            </section>
+                                            </section>
+                                            <!--main content end-->
+                                            </section>
+                                            <!-- container section start -->
 
-        <!-- javascripts -->
+                                            <!-- javascripts -->
 
-        <script src=\"";
-        // line 396
+                                            <script src=\"";
+        // line 400
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.js"), "html", null, true);
         echo "\"></script>
-        <script src=\"";
-        // line 397
+                                            <script src=\"";
+        // line 401
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
-        <!-- nicescroll -->
-        <script src=\"";
-        // line 399
+                                            <!-- nicescroll -->
+                                            <script src=\"";
+        // line 403
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.scrollTo.min.js"), "html", null, true);
         echo "\"></script>
-        <script src=\"";
-        // line 400
+                                            <script src=\"";
+        // line 404
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.nicescroll.js"), "html", null, true);
         echo "\"></script>
-        <!--custome script for all page-->
-        <script src=\"";
-        // line 402
+                                            <!--custome script for all page-->
+                                            <script src=\"";
+        // line 406
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/scripts.js"), "html", null, true);
         echo "\"></script>
 
-    </body>
-</html>
+                                            </body>
+                                            </html>
 
 
 ";
@@ -517,7 +527,7 @@ class __TwigTemplate_30da851a9c91f4eb5d5f21dff91331dcba5ea7da21925320797afa07aa0
 
     public function getDebugInfo()
     {
-        return array (  498 => 402,  493 => 400,  489 => 399,  484 => 397,  480 => 396,  462 => 380,  454 => 378,  449 => 376,  442 => 374,  437 => 372,  418 => 356,  374 => 315,  370 => 314,  328 => 275,  308 => 258,  239 => 192,  224 => 180,  209 => 168,  194 => 156,  58 => 23,  54 => 22,  49 => 20,  45 => 19,  39 => 16,  34 => 14,  19 => 1,);
+        return array (  508 => 406,  503 => 404,  499 => 403,  494 => 401,  490 => 400,  472 => 384,  464 => 382,  459 => 380,  452 => 378,  448 => 377,  444 => 376,  437 => 372,  418 => 356,  374 => 315,  370 => 314,  328 => 275,  308 => 258,  239 => 192,  224 => 180,  209 => 168,  194 => 156,  58 => 23,  54 => 22,  49 => 20,  45 => 19,  39 => 16,  34 => 14,  19 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -893,38 +903,42 @@ class __TwigTemplate_30da851a9c91f4eb5d5f21dff91331dcba5ea7da21925320797afa07aa0
 /*                                 <header class="panel-heading">                                   */
 /*                                     <center><b> <label style="color:blue;font-weight:bold;font-size: 150%;"> Quiz : {{ quiz.titre}}</label></b></center>*/
 /*                                 </header>*/
-/*                                 {% for q in question %} */
+/*                                 <div class="panel-body">*/
+/*                                     <div class="form">*/
+/*                                         <form class="form-validate form-horizontal" id="feedback_form" method="POST" action="{{path ('mooc_mooc_passer_quiz')}}">*/
+/* <input type="text" style="display:none;" name="id" value="{{quiz.id}}">*/
+/*                                             {% for q in question %} */
 /* */
-/*                                     <label style="color:blue;background-color:beige;font-size: 250%;" >{{ q.question}} </label><br>*/
-/*                                     <table>*/
-/*                                         <tr><td style="font-size: 150%;">{% render controller('MoocMoocBundle:Quiz:test',{'id': q.id}) %}  </td></tr></table>*/
-/*                                         {% endfor %}*/
-/*                                 <left> <input type="submit" value="envoyer"></left>*/
+/*                                                 <label style="color:blue;background-color:beige;font-size: 250%;" >{{ q.question}} </label><br>*/
+/*                                                 <table>*/
+/*                                                     <tr><td style="font-size: 150%;">{% render controller('MoocMoocBundle:Quiz:test',{'id': q.id}) %}  </td></tr></table>*/
+/*                                                 {% endfor %}*/
+/*                                             <button class="btn btn-primary" type="submit">valider</button>*/
 /* */
-/*                             </section>*/
-/*                             <br>*/
-/*                         </div>*/
-/*                     </div>*/
+/*                                             </section>*/
+/*                                             <br>*/
+/*                                             </div>*/
+/*                                             </div>*/
 /* */
-/*                     <br><br>*/
-/*                 </section>*/
-/*             </section>*/
-/*             <!--main content end-->*/
-/*         </section>*/
-/*         <!-- container section start -->*/
+/*                                             <br><br>*/
+/*                                             </section>*/
+/*                                             </section>*/
+/*                                             <!--main content end-->*/
+/*                                             </section>*/
+/*                                             <!-- container section start -->*/
 /* */
-/*         <!-- javascripts -->*/
+/*                                             <!-- javascripts -->*/
 /* */
-/*         <script src="{{asset('bundles/moocmooc/css/profilformateur/js/jquery.js')}}"></script>*/
-/*         <script src="{{asset('bundles/moocmooc/css/profilformateur/js/bootstrap.min.js')}}"></script>*/
-/*         <!-- nicescroll -->*/
-/*         <script src="{{asset('bundles/moocmooc/css/profilformateur/js/jquery.scrollTo.min.js')}}"></script>*/
-/*         <script src="{{asset('bundles/moocmooc/css/profilformateur/js/jquery.nicescroll.js')}}"></script>*/
-/*         <!--custome script for all page-->*/
-/*         <script src="{{asset('bundles/moocmooc/css/profilformateur/js/scripts.js')}}"></script>*/
+/*                                             <script src="{{asset('bundles/moocmooc/css/profilformateur/js/jquery.js')}}"></script>*/
+/*                                             <script src="{{asset('bundles/moocmooc/css/profilformateur/js/bootstrap.min.js')}}"></script>*/
+/*                                             <!-- nicescroll -->*/
+/*                                             <script src="{{asset('bundles/moocmooc/css/profilformateur/js/jquery.scrollTo.min.js')}}"></script>*/
+/*                                             <script src="{{asset('bundles/moocmooc/css/profilformateur/js/jquery.nicescroll.js')}}"></script>*/
+/*                                             <!--custome script for all page-->*/
+/*                                             <script src="{{asset('bundles/moocmooc/css/profilformateur/js/scripts.js')}}"></script>*/
 /* */
-/*     </body>*/
-/* </html>*/
+/*                                             </body>*/
+/*                                             </html>*/
 /* */
 /* */
 /* */

@@ -166,8 +166,9 @@ class __TwigTemplate_cc5d3f653bc2d7ebba5d601bce78dbf11afcbb67063446504e0e40542e4
                             ";
             // line 98
             echo "                        </div>
-
-                                
+";
+            // line 100
+            echo "                                
                               ";
         }
         $_parent = $context['_parent'];
@@ -192,8 +193,9 @@ class __TwigTemplate_cc5d3f653bc2d7ebba5d601bce78dbf11afcbb67063446504e0e40542e4
     public function block_javascripts($context, array $blocks = array())
     {
         // line 175
-        echo "    
-    <script src=\"//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js\"></script>
+        echo "    ";
+        // line 176
+        echo "    <script src=\"//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js\"></script>
     <script src=\"";
         // line 177
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/starrating/js/rating.js"), "html", null, true);
@@ -250,7 +252,7 @@ class __TwigTemplate_cc5d3f653bc2d7ebba5d601bce78dbf11afcbb67063446504e0e40542e4
 
     public function getDebugInfo()
     {
-        return array (  236 => 204,  233 => 193,  227 => 187,  222 => 185,  217 => 183,  213 => 182,  208 => 180,  204 => 179,  199 => 177,  195 => 175,  192 => 174,  179 => 163,  177 => 102,  168 => 98,  162 => 93,  158 => 92,  154 => 91,  150 => 90,  146 => 89,  143 => 88,  139 => 87,  116 => 66,  113 => 65,  94 => 49,  83 => 41,  73 => 34,  65 => 28,  62 => 27,  55 => 24,  52 => 23,  46 => 20,  40 => 5,  35 => 4,  32 => 3,  11 => 1,);
+        return array (  238 => 204,  235 => 193,  229 => 187,  224 => 185,  219 => 183,  215 => 182,  210 => 180,  206 => 179,  201 => 177,  198 => 176,  196 => 175,  193 => 174,  180 => 163,  178 => 102,  171 => 100,  168 => 98,  162 => 93,  158 => 92,  154 => 91,  150 => 90,  146 => 89,  143 => 88,  139 => 87,  116 => 66,  113 => 65,  94 => 49,  83 => 41,  73 => 34,  65 => 28,  62 => 27,  55 => 24,  52 => 23,  46 => 20,  40 => 5,  35 => 4,  32 => 3,  11 => 1,);
     }
 }
 /* {% extends "MoocMoocBundle:Apprenant:EspaceApprenant.html.twig" %}*/
@@ -351,7 +353,7 @@ class __TwigTemplate_cc5d3f653bc2d7ebba5d601bce78dbf11afcbb67063446504e0e40542e4
 /*                                 <source src="{{asset('bundles/moocmooc/video/iphone.mp4')}}" type="video/mp4">*/
 /*                             </video>#}*/
 /*                         </div>*/
-/* */
+/* {#{% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'foo'} %}#}*/
 /*                                 */
 /*                               {% endfor %}*/
 /*                               {#S<tr>*/
@@ -427,7 +429,7 @@ class __TwigTemplate_cc5d3f653bc2d7ebba5d601bce78dbf11afcbb67063446504e0e40542e4
 /* {% endblock %}*/
 /* */
 /* {% block javascripts %}*/
-/*     */
+/*     {#<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>#}*/
 /*     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>*/
 /*     <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>*/
 /*     <!-- javascripts -->*/

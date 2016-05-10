@@ -30,6 +30,9 @@ class __TwigTemplate_71503d66312e3266203aab5e9b0487da7abde936fdab921481be6826ede
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['r'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 5
+        echo "
+";
     }
 
     public function getTemplateName()
@@ -44,9 +47,12 @@ class __TwigTemplate_71503d66312e3266203aab5e9b0487da7abde936fdab921481be6826ede
 
     public function getDebugInfo()
     {
-        return array (  23 => 2,  19 => 1,);
+        return array (  34 => 5,  23 => 2,  19 => 1,);
     }
 }
 /* {% for r in rep %}*/
 /*     <input type="checkbox" name="etat" value="{{ r.etat}}" />{{ r.reponse}}<br>*/
 /* {% endfor %}*/
+/* {# <input type="text" style="display:none;" name="id" value="{{idquiz}}">#}*/
+/* */
+/* */

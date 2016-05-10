@@ -4024,7 +4024,7 @@ body.error .error-message {
     <parameter key="gregwar_image.cache_dir">my_cache_image_dir</parameter>
     <parameter key="gregwar_image.cache_dir_mode">null</parameter>
     <parameter key="gregwar_image.throw_exception">false</parameter>
-    <parameter key="gregwar_image.fallback_image">web/bundles/moocmooc/ApprenantAssets/img/profile-avatar.jpg</parameter>
+    <parameter key="gregwar_image.fallback_image">web/bundles/moocmooc/ApprenantAssets/img/defaut.jpg</parameter>
     <parameter key="gregwar_image.web_dir">C:\wamp\www\Mooc_Web\app/../web</parameter>
     <parameter key="image.handling.class">Gregwar\ImageBundle\Services\ImageHandling</parameter>
     <parameter key="image.handler.class">Gregwar\ImageBundle\ImageHandler</parameter>
@@ -10964,7 +10964,7 @@ body.error .error-message {
       <argument type="service" id="service_container"/>
       <argument type="service" id="file_locator"/>
       <argument>false</argument>
-      <argument>web/bundles/moocmooc/ApprenantAssets/img/profile-avatar.jpg</argument>
+      <argument>web/bundles/moocmooc/ApprenantAssets/img/defaut.jpg</argument>
     </service>
     <service id="twig.extension.image" class="Gregwar\ImageBundle\Extensions\ImageTwig">
       <tag name="twig.extension"/>
