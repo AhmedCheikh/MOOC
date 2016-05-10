@@ -28,4 +28,33 @@ class OrganismeRepository extends EntityRepository {
         return $query->getResult();
     }
     
+    public function nombreOrganisme(){
+        $query = $this->getEntityManager()
+                ->createQuery("select count(o) from MoocMoocBundle:Organisme o");
+        return $query->getSingleScalarResult();
+    }
+    
+    public function nombreOrganismeNonValide(){
+        $query = $this->getEntityManager()
+                ->createQuery("select o from MoocMoocBundle:Organisme o where o.etat=0");
+        return $query->getResult();
+    }
+    
+    public function details($id) {
+        $query = $this->getEntityManager()
+                ->createQuery("select o from MoocMoocBundle:Organisme o where o.idorganisme = ?1");
+//        $query->setParameter(1, $id);
+//        $query->execute();
+        $query->execute(array(1=>$id));
+    }
+    
+    public function validerOrganisme($id) {
+        $query = $this->getEntityManager()
+                ->createQuery("update MoocMoocBundle:Organisme o set o.etat = '1'  where o.idorganisme = ?1");
+//        $query->setParameter(1, $id);
+//        $query->execute();
+        $query->execute(array(1=>$id));
+    }
+    
+    
 }
