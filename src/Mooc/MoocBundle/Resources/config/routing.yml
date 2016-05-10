@@ -140,7 +140,7 @@ mooc_mooc_afficher_quiz_chrono:
     defaults: { _controller: MoocMoocBundle:Quiz:afficheQuizChrono}
     
 mooc_mooc_note:
-    path:     /note/{note}
+    path:     /note/{note}/{id}
     defaults: { _controller: MoocMoocBundle:Quiz:Note} 
     
 mooc_mooc_modifier_quiz:
@@ -199,7 +199,7 @@ mooc_editer_profil_apprenant:
 mooc_supprimer_cours_apprenant:
     path:     /{id}/{login}
     defaults: { _controller: MoocMoocBundle:Apprenant:supprimer}
-    
+
 mooc_suivre_cour_apprenant:
     path:     /{login}/{id}/{id2}
     defaults: { _controller: MoocMoocBundle:Apprenant:suivreCours}
@@ -225,5 +225,9 @@ mooc_mooc_ModifPassword:
     defaults: { _controller: MoocMoocBundle:Mail:ModifPassword}
     
 mooc_consult_cours_apprenant:
-    path:     /consulterCours/{login}
+    path:     /consulterCours/{cours}/{login}
     defaults: { _controller: MoocMoocBundle:Apprenant:consult}
+   
+mooc_pdf:
+    path:     /pdf/{id}
+    defaults: { _controller: MoocMoocBundle:Cours:pdf}
