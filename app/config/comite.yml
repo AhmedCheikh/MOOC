@@ -21,7 +21,10 @@ easy_admin:
             
                 
             show :
-            fields: [{property: 'avatar', type: 'image',label: 'Photo', base_path: 'http://localhost/Mooc_web/web/img/avatar/'},'nom', 'prenom', 'email',{property: 'cv' , label: 'CV',template: 'cv.html.twig', base_path: %app.path.formateur_cv%  },{ property: 'etat', type: 'toggle', label: 'Valide' }]
+                show :
+                fields: [{property: 'avatar', type: 'image',label: 'Photo', base_path: 'http://localhost/Mooc_web/web/img/avatar/'},'nom', 'prenom', 'email',{property: 'cv' , label: 'CV',template: 'cv.html.twig', base_path: %app.path.formateur_cv%  },{ property: 'etat', type: 'toggle', label: 'Valide' }]
+            edit:
+                fields: ['nom', 'prenom', 'email']
             
         Cours :
             class : Mooc\MoocBundle\Entity\Cours

@@ -62,6 +62,18 @@ charts:
 test:
   path: /test
   defaults: {_controller: AvanzuAdminThemeBundle:Default:test}  
+  
+details_organisme:
+  path: /details-organisme/{id}
+  defaults: {_controller: AvanzuAdminThemeBundle:Default:detailsOrganisme}  
+    
+valider_organisme: 
+  path: /valider-organisme/{id}
+  defaults: {_controller: AvanzuAdminThemeBundle:Default:validerOrganisme}  
+  
+supprimer_organisme: 
+  path: /supprimer-organisme/{id}
+  defaults: {_controller: AvanzuAdminThemeBundle:Default:supprimerOrganisme}
     
     
   
