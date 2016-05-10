@@ -1,6 +1,7 @@
 <?php
 
 namespace Mooc\MoocBundle\Entity;
+use \Mooc\MoocBundle\Entity\Apprenant;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -107,7 +108,7 @@ class Coursuivi
         return $this;
     }
 
-    function setDateDebut(\DateTime $dateDebut) {
+    function setDateDebut( $dateDebut) {
         $this->dateDebut = $dateDebut;
         return $this;
     }
@@ -122,12 +123,12 @@ class Coursuivi
         return $this;
     }
 
-    function setCinapprenant(\Apprenant $cinapprenant) {
+    function setCinapprenant(\Mooc\MoocBundle\Entity\Apprenant $cinapprenant = null) {
         $this->cinapprenant = $cinapprenant;
         return $this;
     }
 
-    function setIdCours(\Cours $idCours) {
+    function setIdCours(\Mooc\MoocBundle\Entity\Cours $idCours) {
         $this->idCours = $idCours;
         return $this;
     }
