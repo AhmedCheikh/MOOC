@@ -374,7 +374,7 @@
                                 <div class="panel-body">
                                     <div class="form">
                                         <form class="form-validate form-horizontal" id="feedback_form" method="POST" action="{{path ('mooc_mooc_passer_quiz')}}">
-
+<input type="text" style="display:none;" name="id" value="{{quiz.id}}">
                                             {% for q in question %} 
 
                                                 <label style="color:blue;background-color:beige;font-size: 250%;" >{{ q.question}} </label><br>

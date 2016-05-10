@@ -123,6 +123,6 @@ nomaya_social:
         
 gregwar_image:
     cache_dir:  my_cache_image_dir
-    fallback_image: web/bundles/moocmooc/ApprenantAssets/img/profile-avatar.jpg
+    fallback_image: web/bundles/moocmooc/ApprenantAssets/img/defaut.jpg
     
-        
+   

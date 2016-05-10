@@ -96,7 +96,7 @@
                                 <source src="{{asset('bundles/moocmooc/video/iphone.mp4')}}" type="video/mp4">
                             </video>#}
                         </div>
-
+{#{% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'foo'} %}#}
                                 
                               {% endfor %}
                               {#S<tr>
@@ -172,7 +172,7 @@
 {% endblock %}
 
 {% block javascripts %}
-    
+    {#<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>#}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
     <!-- javascripts -->

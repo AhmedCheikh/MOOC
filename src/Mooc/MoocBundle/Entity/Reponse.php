@@ -75,10 +75,12 @@ class Reponse
         return $this;
     }
 
-    public function setIdquestion($idquestion) {
+   
+    function setIdquestion(\Question $idquestion) {
         $this->idquestion = $idquestion;
         return $this;
     }
+
 
 
 

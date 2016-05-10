@@ -45,7 +45,7 @@ class Apprenant
     /**
      * @var string
      *
-     * @ORM\Column(name="avatar", type="blob", nullable=true)
+     * @ORM\Column(name="avatar", type="string", length=255,nullable=false)
      */
     private $avatar;
 

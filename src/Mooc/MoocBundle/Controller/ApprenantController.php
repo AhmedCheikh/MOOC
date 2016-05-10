@@ -13,6 +13,8 @@ use Mooc\MoocBundle\Entity\Coursuivi;
 use Mooc\MoocBundle\Entity\Cours;
 use Symfony\Component\HttpFoundation\Request;
 use Mooc\MoocBundle\Form\ApprenantType;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Mooc\MoocBundle\Modals\Document;
 
 //use Avalanche\Bundle\ImagineBundle\Imagine\Filter\Loader\LoaderInterface;
 /**
@@ -39,7 +41,7 @@ class ApprenantController extends Controller {
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository('MoocMoocBundle:Apprenant');
         $Apprenant = $repository->findOneBy(array('login' => $login));
-        $query = $em->createQuery('select cs.idcoursuivi , c.idcours ,c.nomCours, c.description , c.difficulte, cs.note from MoocMoocBundle:Coursuivi cs ,MoocMoocBundle:Cours c where cs.cinapprenant = :a and c.idcours = cs.idCours ')
+        $query = $em->createQuery('select cs.idcoursuivi , c.idcours,c.nomCours, c.description , c.difficulte, cs.note from MoocMoocBundle:Coursuivi cs ,MoocMoocBundle:Cours c where cs.cinapprenant = :a and c.idcours = cs.idCours ')
                 ->setParameter('a',$Apprenant->getCin());
             $Coursuivi=$query->getResult();
 
@@ -110,29 +112,92 @@ class ApprenantController extends Controller {
 
     public function inscriptionApprenantAction(Request $request) {
         
+//        if ($request->getMethod() == 'POST') {
+//            $cin = $request->get('cin');
+//            $nom = $request->get('nom');
+//            $prenom = $request->get('prenom');
+//            $email = $request->get('email');
+//            $avatar = 'defaut.jpg';
+//            $login = $request->get('login');
+//            $password = $request->get('password');
+//
+//            $Apprenant = new Apprenant();
+//            $Apprenant->setCin($cin);
+//            $Apprenant->setNom($nom);
+//            $Apprenant->setPrenom($prenom);
+//            $Apprenant->setEmail($email);
+//            $Apprenant->setAvatar($avatar);
+//            $Apprenant->setLogin($login);
+//            $Apprenant->setPassword($password);
+//
+//            $em = $this->getDoctrine()->getManager();
+//            $em->persist($Apprenant);
+//            $em->flush();
+//            return $this->render('MoocMoocBundle:Apprenant:loginApprenant.html.twig');
+//        }
+//        return $this->render('MoocMoocBundle:Apprenant:InscriptionApprenant.html.twig');
+        
         if ($request->getMethod() == 'POST') {
             $cin = $request->get('cin');
             $nom = $request->get('nom');
             $prenom = $request->get('prenom');
             $email = $request->get('email');
-            $avatar = 'defaut.jpg';
+
             $login = $request->get('login');
             $password = $request->get('password');
+            
 
+            $avatar = $request->files->get('avatar');
+
+            $passwordre = $request->get('passwordre');
+            $status = 'saccess';
+            
+            $message = '';
             $Apprenant = new Apprenant();
-            $Apprenant->setCin($cin);
-            $Apprenant->setNom($nom);
-            $Apprenant->setPrenom($prenom);
-            $Apprenant->setEmail($email);
-            $Apprenant->setAvatar($avatar);
-            $Apprenant->setLogin($login);
-            $Apprenant->setPassword($password);
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($Apprenant);
-            $em->flush();
+            if (($avatar instanceof UploadedFile) && ($avatar->getError() == '0')) {
+                if (($avatar->getSize() < 2000000000)) {
+                    $originalName = $avatar->getClientOriginalName();
+                    $name_array = explode('.', $originalName);
+                    $file_type = $name_array[sizeof($name_array) - 1];
+                    $valid_filetypes = array('jpg', 'jpeg', 'bmp', 'png');
+                    if (in_array(strtolower($file_type), $valid_filetypes)) {
+                        $document = new Document();
+                        $document->setFile($avatar);
+                        $document->setSubDirectory('uploads');
+                        $document->processFile();
+
+                            $Apprenant->setCin($cin);
+                            $Apprenant->setNom($nom);
+                            $Apprenant->setPrenom($prenom);
+                            $Apprenant->setEmail($email);
+                            $Apprenant->setAvatar($originalName);
+                            $Apprenant->setLogin($login);
+                            $Apprenant->setPassword($password);
+
+                            $em = $this->getDoctrine()->getManager();
+                            $em->persist($Apprenant);
+                            $em->flush();
+                        
+                    } else {
+                        $status = 'failed';
+                        $message = 'invalid file type';
+                    }
+                } else {
+                    $status = 'failed';
+                    $message = 'size exceded limit';
+                }
+            } else {
+                $status = 'failed';
+                $message = 'File error';
+            }
+            //return $this->render('MoocMoocBundle:Apprenant:InscriptionApprenant.html.twig', array('status' => $status, 'message' => $message));
+            return $this->render('MoocMoocBundle:Apprenant:loginApprenant.html.twig');
+        } else {
+
+            return $this->render('MoocMoocBundle:Apprenant:InscriptionApprenant.html.twig');
         }
-        return $this->render('MoocMoocBundle:Apprenant:InscriptionApprenant.html.twig');
+    
     }
     
     Public function editerProfilAction($login ,Request $request){
@@ -153,20 +218,21 @@ class ApprenantController extends Controller {
 //                            ->setParameter('e',$request->get('login'))
 //                            ->setParameter('f',$Apprenant->get('cin'));
 //            $query->execute();
-            $Apprenant->setCin($request->get('cin'));
+            //$Apprenant->setCin($request->get('cin'));
             $Apprenant->setNom($request->get('nom'));
             $Apprenant->setPrenom($request->get('prenom'));
             $Apprenant->setEmail($request->get('email'));
             $Apprenant->setLogin($request->get('login'));
             $em1 = $this->getDoctrine()->getManager();
-           
             $em1->persist($Apprenant);
             $em1->flush();
+            $log = $request->get('login');
+           
 //            //return $this->redirectToRoute('mooc_accueil_apprenant');
-            return $this->render('MoocMoocBundle:Apprenant:AcceuilApprenant.html.twig', array('apprenant' => $Apprenant));
+            return $this->render('MoocMoocBundle:Apprenant:AcceuilApprenant.html.twig', array('login' => $log));
         
         }
-        return $this->render('MoocMoocBundle:Apprenant:AcceuilApprenant.html.twig', array('apprenant' => $Apprenant));
+       //return $this->render('MoocMoocBundle:Apprenant:AcceuilApprenant.html.twig', array('login' => $login, 'apprenant' => $Apprenant));
         
     }
     
@@ -206,38 +272,18 @@ class ApprenantController extends Controller {
          $em->flush();
             
          $query = $em->createQuery('select cs.idcoursuivi , c.nomCours, c.description , c.difficulte, cs.note from MoocMoocBundle:Coursuivi cs ,MoocMoocBundle:Cours c where cs.cinapprenant = :a and c.idcours = cs.idCours')
-                ->setParameter('a',$Apprenant->getCin());
+                ->setParameter('a',$Apprenant);
             $Coursuivi=$query->getResult();
         
         return $this->render('MoocMoocBundle:Apprenant:CoursApprenant.html.twig',array('apprenant' =>$Apprenant ,'Coursuivi'=> $Coursuivi));
     }
-    
-    public function ajoutAction(){ 
-        $apprenant= new Apprenant(); 
-        $form = $this->createForm(new ApprenantType(),$apprenant); 
-        //$request= $this->getRequest(); 
-        /*if ($request->getMethod()=="POST"){ 
-            $form->bind($request); 
-            if ($form->isValid()){ 
-                $em = $this->container->get('Doctrine')->getEntityManager(); 
-                $em->persist($livre); 
-                $em->flush(); 
-                return $this->render('MoocMoocBundle:Apprenant:ajout.html.twig', array('msg' => 'Ajout affectué avec succès')); 
-                
-            } 
-            
-        }*/ 
-        return $this->render('MoocMoocBundle:Apprenant:ajout.html.twig', array('Form' => $form->createView())); 
-    }
-    
-    public function consultAction($cours){ 
-         $em = $this->getDoctrine()->getManager();
-        $repository = $em->getRepository('MoocMoocBundle:Apprenant');
+    public function consultAction($cours,$login){ 
+         $em1 = $this->getDoctrine()->getManager();
+        $repository = $em1->getRepository('MoocMoocBundle:Apprenant');
         $Apprenant = $repository->findOneBy(array('login' => $login));
-       
-    
-
-        
-        return $this->render('MoocMoocBundle:Apprenant:CoursDetails.html.twig',array('apprenant' =>$Apprenant ,'Coursuivi'=> $cours));
+        $em2 = $this->getDoctrine()->getManager();
+        $repository = $em2->getRepository('MoocMoocBundle:Cours');
+        $Cour = $repository->find($cours);
+        return $this->render('MoocMoocBundle:Apprenant:CoursDetails.html.twig', array( 'apprenant' => $Apprenant ,'Cours'=> $Cour));
     }
 }

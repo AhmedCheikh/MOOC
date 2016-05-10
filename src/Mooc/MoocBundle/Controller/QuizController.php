@@ -68,8 +68,9 @@ class QuizController extends Controller {
         if (isset($_POST['etat']) && $_POST['etat'] === '1') {
             $note = $note + 1;
         }
-
-        return $this->redirectToRoute('mooc_mooc_note', array('note' => $note));
+        if (isset($_POST['id']))
+            $id = $_POST['id'];
+        return $this->redirectToRoute('mooc_mooc_note', array('note' => $note, 'id' => $id));
     }
 
     public function afficheQuizChronoAction($id) {
@@ -80,8 +81,8 @@ class QuizController extends Controller {
         return $this->render('MoocMoocBundle:Quiz:afficherQuizChronometre.html.twig', array('question' => $question, 'quiz' => $quiz));
     }
 
-    public function NoteAction($note) {
-        return $this->render('MoocMoocBundle:Quiz:note.html.twig', array('note' => $note));
+    public function NoteAction($note,$id) {
+        return $this->render('MoocMoocBundle:Quiz:note.html.twig', array('note' => $note, 'id' => $id));
     }
 
     public function afficheQuizModifierAction($id) {
