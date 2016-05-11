@@ -407,17 +407,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ApprenantController::inscriptionApprenantAction',  '_route' => 'mooc_inscription_apprenant',);
         }
 
-        if (0 === strpos($pathinfo, '/a')) {
-            // mooc_editer_profil_apprenant
-            if (0 === strpos($pathinfo, '/accueilapprenant') && preg_match('#^/accueilapprenant/(?P<login>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_editer_profil_apprenant')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ApprenantController::editerProfilAction',));
-            }
+        // mooc_editer_profil_apprenant
+        if (0 === strpos($pathinfo, '/accueilapprenant') && preg_match('#^/accueilapprenant/(?P<login>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_editer_profil_apprenant')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ApprenantController::editerProfilAction',));
+        }
 
-            // mooc_ajout_apprenant
-            if ($pathinfo === '/ajout') {
-                return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ApprenantController::ajoutAction',  '_route' => 'mooc_ajout_apprenant',);
-            }
+        // mooc_suivre_cour_apprenant
+        if (preg_match('#^/(?P<login>[^/]++)/(?P<id>[^/]++)/(?P<id2>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_suivre_cour_apprenant')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ApprenantController::suivreCoursAction',));
+        }
 
+        // mooc_ajout_apprenant
+        if ($pathinfo === '/ajout') {
+            return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ApprenantController::ajoutAction',  '_route' => 'mooc_ajout_apprenant',);
         }
 
         // mooc_mooc_PassOublier
@@ -453,6 +455,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         // mooc_pdf
         if (0 === strpos($pathinfo, '/pdf') && preg_match('#^/pdf/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_pdf')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\CoursController::pdfAction',));
+        }
+
+        // mooc_apprenant_cours_details
+        if (0 === strpos($pathinfo, '/coursDet') && preg_match('#^/coursDet/(?P<idCours>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_apprenant_cours_details')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ApprenantController::coursDetailsAction',));
         }
 
         // homepage

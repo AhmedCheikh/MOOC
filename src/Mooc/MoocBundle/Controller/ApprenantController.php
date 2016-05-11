@@ -236,20 +236,20 @@ class ApprenantController extends Controller {
         
     }
     
-    public function supprimerAction($id, $login){ 
-        $em1 = $this->getDoctrine()->getManager();
-        $repository = $em1->getRepository('MoocMoocBundle:Apprenant');
-        $Apprenant = $repository->findOneBy(array('login' => $login));
-        
-        $em = $this->getDoctrine()->getManager(); 
-        $Cour=$em->getRepository('MoocMoocBundle:Coursuivi')->find($id); 
-        $em->remove($Cour); 
-        $em->flush(); 
-         $query = $em->createQuery('select cs.idcoursuivi , c.nomCours, c.description , c.difficulte, cs.note from MoocMoocBundle:Coursuivi cs ,MoocMoocBundle:Cours c where cs.cinapprenant = :a and c.idcours = cs.idCours ')
-                ->setParameter('a',$Apprenant->getCin());
-            $Coursuivi=$query->getResult();
-        return $this->render('MoocMoocBundle:Apprenant:CoursApprenant.html.twig',array('apprenant' =>$Apprenant ,'Coursuivi'=> $Coursuivi));
-    }
+//    public function supprimerAction($id, $login){ 
+//        $em1 = $this->getDoctrine()->getManager();
+//        $repository = $em1->getRepository('MoocMoocBundle:Apprenant');
+//        $Apprenant = $repository->findOneBy(array('login' => $login));
+//        
+//        $em = $this->getDoctrine()->getManager(); 
+//        $Cour=$em->getRepository('MoocMoocBundle:Coursuivi')->find($id); 
+//        $em->remove($Cour); 
+//        $em->flush(); 
+//         $query = $em->createQuery('select cs.idcoursuivi , c.nomCours, c.description , c.difficulte, cs.note from MoocMoocBundle:Coursuivi cs ,MoocMoocBundle:Cours c where cs.cinapprenant = :a and c.idcours = cs.idCours ')
+//                ->setParameter('a',$Apprenant->getCin());
+//            $Coursuivi=$query->getResult();
+//        return $this->render('MoocMoocBundle:Apprenant:CoursApprenant.html.twig',array('apprenant' =>$Apprenant ,'Coursuivi'=> $Coursuivi));
+//    }
     
     public function suivreCoursAction($login,$id,$id2){ 
         $em1 = $this->getDoctrine()->getManager();
@@ -286,4 +286,14 @@ class ApprenantController extends Controller {
         $Cour = $repository->find($cours);
         return $this->render('MoocMoocBundle:Apprenant:CoursDetails.html.twig', array( 'apprenant' => $Apprenant ,'Cours'=> $Cour));
     }
+   
+    public function coursDetailsAction($idCours)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('MoocMoocBundle:Cours');
+        $cours=$repository->find($idCours) ;
+        $chapitre=$em->getRepository('MoocMoocBundle:Chapitre')->findBy(array('idcours'=>$idCours)); 
+       return $this->render('MoocMoocBundle:Apprenant:CoursDetailsAffichage.html.twig',array('cours' =>$cours ,'chapitre'=>$chapitre)); 
+    }
+    
 }

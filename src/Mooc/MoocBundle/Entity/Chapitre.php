@@ -80,151 +80,77 @@ class Chapitre {
     private $idquiz;
 
    
-    /**
-     * Set titre
-     *
-     * @param string $titre
-     * @return Chapitre
-     */
-    public function setTitre($titre)
-    {
-        $this->titre = $titre;
-
-        return $this;
-    }
-
-    /**
-     * Get titre
-     *
-     * @return string 
-     */
-    public function getTitre()
-    {
-        return $this->titre;
-    }
-
-    /**
-     * Set presentation
-     *
-     * @param blob $presentation
-     * @return Chapitre
-     */
-    public function setPresentation($presentation)
-    {
-        $this->presentation = $presentation;
-
-        return $this;
-    }
-
-    /**
-     * Get presentation
-     *
-     * @return blob 
-     */
-    public function getPresentation()
-    {
-        return $this->presentation;
-    }
-
-    /**
-     * Set objectif
-     *
-     * @param string $objectif
-     * @return Chapitre
-     */
-    public function setObjectif($objectif)
-    {
-        $this->objectif = $objectif;
-
-        return $this;
-    }
-
-    /**
-     * Get objectif
-     *
-     * @return string 
-     */
-    public function getObjectif()
-    {
-        return $this->objectif;
-    }
-
-    /**
-     * Set video
-     *
-     * @param string $video
-     * @return Chapitre
-     */
-    public function setVideo($video)
-    {
-        $this->video = $video;
-
-        return $this;
-    }
-
-    /**
-     * Get video
-     *
-     * @return string 
-     */
-    public function getVideo()
-    {
-        return $this->video;
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
+    function getId() {
         return $this->id;
     }
 
-    /**
-     * Set idquiz
-     *
-     * @param \Mooc\MoocBundle\Entity\Quiz $idquiz
-     * @return Chapitre
-     */
-    public function setIdquiz($idquiz)
-    {
-        $this->idquiz = $idquiz;
-
-        return $this;
+    function getTitre() {
+        return $this->titre;
     }
 
-    /**
-     * Get idquiz
-     *
-     * @return \Mooc\MoocBundle\Entity\Quiz 
-     */
-    public function getIdquiz()
-    {
+    function getPresentation() {
+        return $this->presentation;
+    }
+
+    function getObjectif() {
+        return $this->objectif;
+    }
+
+    function getVideo() {
+        return $this->video;
+    }
+
+    function getPath() {
+        return $this->path;
+    }
+
+    function getIdcours() {
+        return $this->idcours;
+    }
+
+    function getIdquiz() {
         return $this->idquiz;
     }
 
-    /**
-     * Set idcours
-     *
-     * @param \Mooc\MoocBundle\Entity\Cours $idcours
-     * @return Chapitre
-     */
-    public function setIdcours($idcours )
-    {
-        $this->idcours = $idcours;
-
+    function setId($id) {
+        $this->id = $id;
         return $this;
     }
 
-    /**
-     * Get idcours
-     *
-     * @return \Mooc\MoocBundle\Entity\Cours 
-     */
-    public function getIdcours()
-    {
-        return $this->idcours;
+    function setTitre($titre) {
+        $this->titre = $titre;
+        return $this;
     }
+
+    function setPresentation($presentation) {
+        $this->presentation = $presentation;
+        return $this;
+    }
+
+    function setObjectif($objectif) {
+        $this->objectif = $objectif;
+        return $this;
+    }
+
+    function setVideo($video) {
+        $this->video = $video;
+        return $this;
+    }
+
+    function setPath($path) {
+        $this->path = $path;
+        return $this;
+    }
+
+    function setIdcours(\Cours $idcours) {
+        $this->idcours = $idcours;
+        return $this;
+    }
+
+    function setIdquiz(\Quiz $idquiz) {
+        $this->idquiz = $idquiz;
+        return $this;
+    }
+
+
 }

@@ -154,15 +154,16 @@ class Cours
         return $this;
     }
 
-    function setIdquiz(\Quiz $idquiz) {
+    function setIdquiz(Quiz $idquiz) {
         $this->idquiz = $idquiz;
         return $this;
     }
 
-    function setCinformateur(\Formateur $cinformateur) {
+    function setCinformateur(Formateur $cinformateur) {
         $this->cinformateur = $cinformateur;
         return $this;
     }
+
 
 
 

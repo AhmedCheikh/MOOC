@@ -35,32 +35,34 @@ class Quiz
      */
     private $type;
 
-    public function getId() {
+    function getId() {
         return $this->id;
     }
 
-    public function getTitre() {
+    function getTitre() {
         return $this->titre;
     }
 
-    public function getType() {
+    function getType() {
         return $this->type;
     }
 
-    public function setId($id) {
+    function setId($id) {
         $this->id = $id;
         return $this;
     }
 
-    public function setTitre($titre) {
+    function setTitre($titre) {
         $this->titre = $titre;
         return $this;
     }
 
-    public function setType($type) {
+    function setType($type) {
         $this->type = $type;
         return $this;
     }
+
+
 
 
 }

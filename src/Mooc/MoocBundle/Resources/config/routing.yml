@@ -196,9 +196,9 @@ mooc_editer_profil_apprenant:
     path:     /accueilapprenant/{login}
     defaults: { _controller: MoocMoocBundle:Apprenant:editerProfil}
     
-mooc_supprimer_cours_apprenant:
-    path:     /{id}/{login}
-    defaults: { _controller: MoocMoocBundle:Apprenant:supprimer}
+#mooc_supprimer_cours_apprenant:
+#    path:     /{id}/{login}
+#    defaults: { _controller: MoocMoocBundle:Apprenant:supprimer}
 
 mooc_suivre_cour_apprenant:
     path:     /{login}/{id}/{id2}
@@ -231,3 +231,7 @@ mooc_consult_cours_apprenant:
 mooc_pdf:
     path:     /pdf/{id}
     defaults: { _controller: MoocMoocBundle:Cours:pdf}
+    
+mooc_apprenant_cours_details:
+    path:     /coursDet/{idCours}
+    defaults: { _controller: MoocMoocBundle:Apprenant:coursDetails}
