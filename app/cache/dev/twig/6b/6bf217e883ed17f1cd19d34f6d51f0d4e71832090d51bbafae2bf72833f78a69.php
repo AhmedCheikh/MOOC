@@ -32,16 +32,17 @@ class __TwigTemplate_b119f4daa64a06ecb9dc9ac5a9b1bd9a462377f58ff344dafcbac0bf3c9
 <ul>
    <li class='active'><a href='#'>Connectez vous</a>
       <ul>
-         <li><a href='#'>Vous etes Organisme</a> </li>
+         <li><a href='";
+        // line 8
+        echo $this->env->getExtension('routing')->getPath("mooc_mooc_logOrganisme");
+        echo "'>Vous etes Organisme</a> </li>
          <li><a href='";
         // line 9
         echo $this->env->getExtension('routing')->getPath("mooc_mooc_logformateur");
         echo "'>Vous etes Formateur</a></li>
-         <li><a href='";
-        // line 10
-        echo $this->env->getExtension('routing')->getPath("mooc_login_apprenant");
-        echo "'>Vous etes Apprenant</a></li>
-      </ul>
+         ";
+        // line 11
+        echo "      </ul>
    </li>
   
 </ul>
@@ -212,7 +213,7 @@ class __TwigTemplate_b119f4daa64a06ecb9dc9ac5a9b1bd9a462377f58ff344dafcbac0bf3c9
 
     public function getDebugInfo()
     {
-        return array (  128 => 78,  70 => 23,  66 => 22,  62 => 21,  58 => 20,  54 => 19,  42 => 10,  38 => 9,  31 => 4,  28 => 3,  11 => 1,);
+        return array (  129 => 78,  71 => 23,  67 => 22,  63 => 21,  59 => 20,  55 => 19,  45 => 11,  41 => 9,  37 => 8,  31 => 4,  28 => 3,  11 => 1,);
     }
 }
 /* {% extends "MoocMoocBundle::layout.html.twig" %}*/
@@ -222,9 +223,9 @@ class __TwigTemplate_b119f4daa64a06ecb9dc9ac5a9b1bd9a462377f58ff344dafcbac0bf3c9
 /* <ul>*/
 /*    <li class='active'><a href='#'>Connectez vous</a>*/
 /*       <ul>*/
-/*          <li><a href='#'>Vous etes Organisme</a> </li>*/
+/*          <li><a href='{{path('mooc_mooc_logOrganisme')}}'>Vous etes Organisme</a> </li>*/
 /*          <li><a href='{{path('mooc_mooc_logformateur')}}'>Vous etes Formateur</a></li>*/
-/*          <li><a href='{{path('mooc_login_apprenant')}}'>Vous etes Apprenant</a></li>*/
+/*          {#<li><a href='{{path('mooc_login_apprenant')}}'>Vous etes Apprenant</a></li>#}*/
 /*       </ul>*/
 /*    </li>*/
 /*   */

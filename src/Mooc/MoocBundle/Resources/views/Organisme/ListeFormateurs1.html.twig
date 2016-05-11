@@ -1,0 +1,295 @@
+<html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+        <meta name="author" content="GeeksLabs">
+        <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+        <link rel="shortcut icon" href="{{asset('bundles/moocmooc/css/profilformateur/img/favicon.png')}}">
+
+        <title>Mes formateurs</title>
+
+        <!-- Bootstrap CSS -->    
+
+        <link rel="stylesheet" href="{{asset('bundles/moocmooc/css/profilformateur/css/bootstrap.min.css')}}">
+        <!-- bootstrap theme -->
+        <link href="{{asset('bundles/moocmooc/css/profilformateur/css/bootstrap-theme.css')}}" rel="stylesheet">
+        <!--external css-->
+        <!-- font icon -->
+        <link href="{{asset('bundles/moocmooc/css/profilformateur/css/elegant-icons-style.css')}}" rel="stylesheet" />
+        <link href="{{asset('bundles/moocmooc/css/profilformateur/css/font-awesome.min.css')}}" rel="stylesheet" />    
+        <!-- full calendar css-->
+        <link href="{{asset('bundles/moocmooc/css/profilformateur/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css')}}" rel="stylesheet" />
+        <link href="{{asset('bundles/moocmooc/css/profilformateur/assets/fullcalendar/fullcalendar/fullcalendar.css')}}" rel="stylesheet" />
+        <!-- easy pie chart-->
+        <link href="{{asset('bundles/moocmooc/css/profilformateur/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css')}}" rel="stylesheet" type="text/css" media="screen"/>
+        <!-- owl carousel -->
+        <link rel="stylesheet" href="{{asset('bundles/moocmooc/css/profilformateur/css/owl.carousel.css')}}" type="text/css">
+        <link href="{{asset('bundles/moocmooc/css/profilformateur/css/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet">
+        <!-- Custom styles -->
+        <link rel="stylesheet" href="{{asset('bundles/moocmooc/css/profilformateur/css/fullcalendar.css')}}">
+        <link href="{{asset('bundles/moocmooc/css/profilformateur/css/widgets.css')}}" rel="stylesheet">
+        <link href="{{asset('bundles/moocmooc/css/profilformateur/css/style.css')}}" rel="stylesheet">
+        <link href="{{asset('bundles/moocmooc/css/profilformateur/css/style-responsive.css')}}" rel="stylesheet" />
+        <link href="{{asset('bundles/moocmooc/css/profilformateur/css/xcharts.min.css')}}" rel=" stylesheet">	
+        <link href="{{asset('bundles/moocmooc/css/profilformateur/css/jquery-ui-1.10.4.min.css')}}" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
+        <!--[if lt IE 9]>
+          <script src="js/html5shiv.js"></script>
+          <script src="js/respond.min.js"></script>
+          <script src="js/lte-ie7.js"></script>
+        <![endif]-->
+    </head>
+    
+            <header class="header dark-bg">
+                <div class="toggle-nav">
+                    <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+                </div>
+
+                <!--logo start-->
+                <a href="index.html" class="logo">Bienvenue a <span class="lite">MOOC</span></a>
+                <!--logo end-->
+
+                <div class="nav search-row" id="top_menu">
+                    <!--  search form start -->
+                    <ul class="nav top-menu">                    
+                        <li>
+                            <form class="navbar-form">
+                                <input class="form-control" placeholder="Search" type="text">
+                            </form>
+                        </li>                    
+                    </ul>
+                    <!--  search form end -->                
+                </div>
+
+              <div class="top-nav notification-row">                
+                    <!-- notificatoin dropdown start-->
+                    <ul class="nav pull-right top-menu">
+
+                        <!-- task notificatoin start -->
+                        <li id="task_notificatoin_bar" class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="icon-task-l"></i>
+                                    <span class="badge bg-important"></span>
+                            </a>
+                           
+                        </li>
+                        <!-- task notificatoin end -->
+                        <!-- inbox notificatoin start-->
+                        <li id="mail_notificatoin_bar" class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <i class="icon-envelope-l"></i>
+                                <span class="badge bg-important"></span>
+                            </a>
+                           
+                        </li>
+                        <!-- inbox notificatoin end -->
+                        <!-- alert notification start-->
+                        <li id="alert_notificatoin_bar" class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+
+                                <i class="icon-bell-l"></i>
+                                <span class="badge bg-important">{{nbr}}</span>
+                            </a>
+                            <ul class="dropdown-menu extended notification">
+                                <div class="notify-arrow notify-arrow-blue"></div>
+                                <li>
+                                    <p class="blue">You have {{nbr}} new notifications</p>
+                                </li>
+                               {# {% for inv in listeInvitation %}
+                                <li>
+                                     
+                                    <a href="{{path('mooc_mooc_ListeInvit', {'name':name,'nbr':nbr})}}">
+                                        <span class="label label-primary"><i class="icon_profile"></i></span> 
+                                        Demande d'integration de {{ inv.nom_exp }}
+                                        <span class="small italic pull-right"></span>
+                                    </a>
+                                    
+                                </li>
+                                 {% endfor %}#}
+                               
+                            </ul>
+                        </li>
+                        <!-- alert notification end-->
+                        <!-- user login dropdown start-->
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="profile-ava">
+                                    <img alt="" src="{{asset('bundles/moocmooc/css/profilformateur/img/esprit.PNG')}}">
+                                </span>
+                                <span class="username"> {{Organisme.nom}}</span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu extended logout">
+                                <div class="log-arrow-up"></div>
+                                <li class="eborder-top">
+                                    <a href="{{path('mooc_mooc_profileOrganisme', {'name':Organisme.nom,'nbr':nbr})}}"><i class="icon_profile"></i> Mon Profile</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="icon_mail_alt"></i> Mes message</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="icon_chat_alt"></i> Chat</a>
+                                </li>
+                                <li>
+                                    <a href="{{path('mooc_mooc_log_out_formateur')}}"><i class="icon_key_alt"></i> Log Out</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="icon_key_alt"></i>Utilisation</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- user login dropdown end -->
+                    </ul>
+                    <!-- notificatoin dropdown end-->
+                </div>
+            </header>      
+            <!--header end-->
+
+            <!--sidebar start-->
+            <aside>
+                <div id="sidebar"  class="nav-collapse ">
+                    <!-- sidebar menu start-->
+                             <ul class="sidebar-menu">                
+                        <li class="active">
+                            <a class="" href="{{path('mooc_mooc_acceuilOrganisme', {'name':Organisme.nom,'nbr':nbr})}}">
+                                <i class="icon_house_alt"></i>
+                                <span>Accueil</span>
+                            </a>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="{{path('mooc_mooc_profileOrganisme', {'name':Organisme.nom,'nbr':nbr})}}" class="">
+                                <i class="icon_profile"></i>
+                                <span>Mon Profile</span>
+                                <span class="menu-arrow arrow_carrot-right"></span>
+                            </a>
+                        </li>       
+                       
+                        <li>
+                            <a class="" href="{{path('mooc_mooc_ListeFormateurs1', {'name':Organisme.nom,'nbr':nbr})}}" class="">
+                                <i class="icon_group"></i>
+                                <span>Mes Formateurs</span>
+                            </a>
+                        </li>
+                        <li>                     
+                            <a class="" href="{{path('mooc_mooc_ListeOrganismes1', {'name':Organisme.nom,'nbr':nbr})}}">
+                                <i class="icon_building"></i>
+                                <span>Liste Organismes</span>
+                            </a>
+                        </li>
+
+                    <li class="sub-menu">
+                            <a  href="{{path('mooc_mooc_ListeInvit', {'name':Organisme.nom,'nbr':nbr})}}" class="">
+                                <i class="icon_mail_alt"></i>
+                                <span>Liste Invitations</span>
+                                <span class="menu-arrow arrow_carrot-right"></span>
+                            </a>
+                        </li>
+                          <li class="sub-menu">
+                            <a  href="{{path('mooc_mooc_ListeTousFormateurs', {'name':Organisme.nom,'nbr':nbr})}}" class="">
+                                <i class="icon_plus_alt2"></i>
+                                <span>Inviter Formateur</span>
+                                
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    <!-- sidebar menu end-->
+                </div>
+            </aside>
+            <!--sidebar end-->
+     <!--main content start-->
+ 
+<section id="main-content">
+          <section class="wrapper">
+		  <div class="row">
+				<div class="col-lg-12">
+					<h3 class="page-header"><i class="icon_search-2"></i> Chercher Formateur</h3>
+					<ol class="breadcrumb">
+						<li><i class="icon_search"></i><a href="index.html">Chercher Formateur</a></li>
+
+				  </ol>
+				</div>
+			</div>
+              
+           <!-- search bar start-->
+              <div class="row">
+              <div class="col-md-4 portlets" align="center">
+              <!-- Widget -->
+              <div class="panel panel-default">
+				<div class="panel-heading">
+                  <div class="pull-left">Search Bar</div>
+                  <div class="clearfix"></div>
+                </div>
+
+                <div class="panel-body">
+                  <!-- Widget content --><!-- Widget footer -->
+                  <div class="widget-foot">
+                      
+                    <form class="form-inline" method="POST"  action="{{path('mooc_mooc_ChercherFormateur', {'name': Organisme.nom,'nbr':nbr})}}" >
+						<div class="form-group"  >
+							<input type="text" name="Chercher" id="Chercher" class="form-control" placeholder="Tapez le nom de l'organisme ici ...">
+						</div>
+                        <button type="submit" class="btn btn-info">Chercher</button>
+                      </form>
+
+
+                  </div>
+                </div>
+
+
+              </div> 
+            </div>
+              </div>
+              <!-- search bar end-->
+
+              <!-- page start-->
+              <div class="row">
+                  <div class="col-lg-12">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              Resultat du recherche
+                          </header>
+                          
+                          <table class="table table-striped table-advance table-hover">
+                           <tbody>
+                              <tr>
+                                 <th><i class="icon_profile"></i> Nom </th>              
+                                 <th><i class="icon_profile"></i> Prenom </th>
+                                <th><i class="icon_mail_alt"></i> Email</th>
+                               
+                                 
+                                 <th><i class="icon_cogs"></i> Action</th>
+                              </tr>
+                              
+                              {% for Formateur in listeFormateur %}
+                                  <tr>
+                                 <td>{{Formateur.nom}}</td>
+                                 <td>{{Formateur.prenom}}</td>
+                                   <td>{{Formateur.email}}</td>
+                                 
+                                
+                                 
+                                 <td>
+                                  <div class="btn-group">
+                                    
+                                      <a class="btn btn-success" href="#"><i class="icon_zoom-in_alt"></i></a>
+                                      <a class="btn btn-danger" href="{{path('mooc_mooc_SupprimerFormateur', {'cin':Formateur.cin,'name':Organisme.nom,'nbr':nbr})}} "onclick="return confirm('Vous venez de supprimer un formateur est ce que vous etes sure?')"><i class="icon_close_alt2"></i></a>
+                                  </div>
+                                  </td>
+                              </tr>
+                                  
+                              {% endfor %}
+                              
+                             
+                             
+                           </tbody>
+                        </table>
+                      </section>
+                  </div>
+              </div>
+              <!-- page end-->
+          </section>
+      </section>
+      <!--main content end-->
+</html>

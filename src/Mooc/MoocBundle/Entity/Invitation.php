@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Invitation
  *
  * @ORM\Table(name="invitation")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Mooc\MoocBundle\Entity\InvitationRepository")
  */
 class Invitation
 {
@@ -26,35 +26,35 @@ class Invitation
      *
      * @ORM\Column(name="nom_exp", type="string", length=45, nullable=false)
      */
-    private $nomExp;
+    private $nom_exp;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom_des", type="string", length=45, nullable=false)
      */
-    private $nomDes;
+    private $nom_des;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_invit", type="date", nullable=false)
      */
-    private $dateInvit;
+    private $date_invit;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_confi", type="date", nullable=false)
      */
-    private $dateConfi;
+    private $date_confi;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_vue", type="date", nullable=false)
      */
-    private $dateVue;
+    private $date_vue;
 
     /**
      * @var integer
@@ -62,69 +62,69 @@ class Invitation
      * @ORM\Column(name="etat", type="integer", nullable=false)
      */
     private $etat;
-    function getId() {
+
+    public function getId() {
         return $this->id;
     }
 
-    function getNomExp() {
-        return $this->nomExp;
+    public function getNom_exp() {
+        return $this->nom_exp;
     }
 
-    function getNomDes() {
-        return $this->nomDes;
+    public function getNom_des() {
+        return $this->nom_des;
     }
 
-    function getDateInvit() {
-        return $this->dateInvit;
+    public function getDate_invit() {
+        return $this->date_invit;
     }
 
-    function getDateConfi() {
-        return $this->dateConfi;
+    public function getDate_confi() {
+        return $this->date_confi;
     }
 
-    function getDateVue() {
-        return $this->dateVue;
+    public function getDate_vue() {
+        return $this->date_vue;
     }
 
-    function getEtat() {
+    public function getEtat() {
         return $this->etat;
     }
 
-    function setId($id) {
+    public function setId($id) {
         $this->id = $id;
         return $this;
     }
 
-    function setNomExp($nomExp) {
-        $this->nomExp = $nomExp;
+    public function setNom_exp($nom_exp) {
+        $this->nom_exp = $nom_exp;
         return $this;
     }
 
-    function setNomDes($nomDes) {
-        $this->nomDes = $nomDes;
+    public function setNom_des($nom_des) {
+        $this->nom_des = $nom_des;
         return $this;
     }
 
-    function setDateInvit(\DateTime $dateInvit) {
-        $this->dateInvit = $dateInvit;
+    public function setDate_invit(\DateTime $date_invit) {
+        $this->date_invit = $date_invit;
         return $this;
     }
 
-    function setDateConfi(\DateTime $dateConfi) {
-        $this->dateConfi = $dateConfi;
+    public function setDate_confi(\DateTime $date_confi) {
+        $this->date_confi = $date_confi;
         return $this;
     }
 
-    function setDateVue(\DateTime $dateVue) {
-        $this->dateVue = $dateVue;
+    public function setDate_vue(\DateTime $date_vue) {
+        $this->date_vue = $date_vue;
         return $this;
     }
 
-    function setEtat($etat) {
+    public function setEtat($etat) {
         $this->etat = $etat;
         return $this;
     }
-
 
 
 }

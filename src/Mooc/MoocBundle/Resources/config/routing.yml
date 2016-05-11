@@ -165,47 +165,47 @@ mooc_mooc_updateCours:
     defaults: { _controller: MoocMoocBundle:Cours:updateCours}
     
     
-mooc_espace_apprenant:
-    path:   /espaceapprenant
-    defaults: { _controller: MoocMoocBundle:Apprenant:EspaceApprenant}
+#mooc_espace_apprenant:
+#    path:   /espaceapprenant
+#    defaults: { _controller: MoocMoocBundle:Apprenant:EspaceApprenant}
+#    
+#mooc_accueil_apprenant:
+#    path:   /accueilapprenant/{login}
+#    defaults: { _controller: MoocMoocBundle:Apprenant:acceuilApprenant}   
     
-mooc_accueil_apprenant:
-    path:   /accueilapprenant/{login}
-    defaults: { _controller: MoocMoocBundle:Apprenant:acceuilApprenant}   
+#mooc_cours_apprenant:
+#    path:   /CoursApprenant/{login}
+#    defaults: { _controller: MoocMoocBundle:Apprenant:CoursApprenant}
     
-mooc_cours_apprenant:
-    path:   /CoursApprenant/{login}
-    defaults: { _controller: MoocMoocBundle:Apprenant:CoursApprenant}
-    
-mooc_chercher_cours_apprenant:
-    path:   /ChercherCours/{login}
-    defaults: { _controller: MoocMoocBundle:Apprenant:ChercherCoursApprenant}
-    
-mooc_login_apprenant:
-    path:     /loginApprenant
-    defaults: { _controller: MoocMoocBundle:Apprenant:loginApprenant}
-mooc_log_out_apprenant:
-    path:     /logoutApprenant
-    defaults: { _controller: MoocMoocBundle:Apprenant:logoutApprenant}
-    
-mooc_inscription_apprenant:
-    path:     /inscriptionApprenant
-    defaults: { _controller: MoocMoocBundle:Apprenant:inscriptionApprenant}
-    
-mooc_editer_profil_apprenant:
-    path:     /accueilapprenant/{login}
-    defaults: { _controller: MoocMoocBundle:Apprenant:editerProfil}
+#mooc_chercher_cours_apprenant:
+#    path:   /ChercherCours/{login}
+#    defaults: { _controller: MoocMoocBundle:Apprenant:ChercherCoursApprenant}
+#    
+#mooc_login_apprenant:
+#    path:     /loginApprenant
+#    defaults: { _controller: MoocMoocBundle:Apprenant:loginApprenant}
+#mooc_log_out_apprenant:
+#    path:     /logoutApprenant
+#    defaults: { _controller: MoocMoocBundle:Apprenant:logoutApprenant}
+#    
+#mooc_inscription_apprenant:
+#    path:     /inscriptionApprenant
+#    defaults: { _controller: MoocMoocBundle:Apprenant:inscriptionApprenant}
+#    
+#mooc_editer_profil_apprenant:
+#    path:     /accueilapprenant/{login}
+#    defaults: { _controller: MoocMoocBundle:Apprenant:editerProfil}
     
 #mooc_supprimer_cours_apprenant:
 #    path:     /{id}/{login}
 #    defaults: { _controller: MoocMoocBundle:Apprenant:supprimer}
 
-mooc_suivre_cour_apprenant:
-    path:     /{login}/{id}/{id2}
-    defaults: { _controller: MoocMoocBundle:Apprenant:suivreCours}
-mooc_ajout_apprenant:
-    path:     /ajout
-    defaults: { _controller: MoocMoocBundle:Apprenant:ajout}    
+#mooc_suivre_cour_apprenant:
+#    path:     /{login}/{id}/{id2}
+#    defaults: { _controller: MoocMoocBundle:Apprenant:suivreCours}
+#mooc_ajout_apprenant:
+#    path:     /ajout
+#    defaults: { _controller: MoocMoocBundle:Apprenant:ajout}    
  
 
 mooc_mooc_PassOublier:
@@ -235,3 +235,70 @@ mooc_pdf:
 mooc_apprenant_cours_details:
     path:     /coursDet/{idCours}
     defaults: { _controller: MoocMoocBundle:Apprenant:coursDetails}
+    
+mooc_mooc_PreinscriptionOrganisme:
+    path:     /PreinscriptionOrganisme
+    defaults: { _controller: MoocMoocBundle:Organisme:PreinscriptionOrganisme} 
+mooc_mooc_PreinscriptionOrganismeEnreg:
+    path:     /PreinscriptionOrganismeEnreg
+    defaults: { _controller: MoocMoocBundle:Organisme:PreinscriptionOrganismeEnreg}    
+mooc_mooc_inscriptionOrganisme:
+    path:     /inscriptionOrganisme/{id}
+    defaults: { _controller: MoocMoocBundle:Organisme:inscriptionOrganisme}
+mooc_mooc_logOrganisme:
+    path:     /logOrganisme
+    defaults: { _controller: MoocMoocBundle:Organisme:loginOrganisme} 
+mooc_mooc_acceuilOrganisme:
+    path:     /acceuilOrganisme/{name}/{nbr}
+    defaults: { _controller: MoocMoocBundle:Organisme:acceuilOrganisme}    
+mooc_mooc_profileOrganisme:
+    path:     /profileOrganisme/{name}/{nbr}
+    defaults: { _controller: MoocMoocBundle:Organisme:profileOrganisme}    
+mooc_mooc_listeOrganisme:
+    path:     /listeOrganisme
+    defaults: { _controller: MoocMoocBundle:Organisme:listeOrganisme} 
+mooc_mooc_listeFormateurs:
+    path:     /listeFormateurs/{name}
+    defaults: { _controller: MoocMoocBundle:Organisme:listeFormateurs}
+mooc_mooc_ListeFormateurs1:
+    path:     /ListeFormateurs1/{name}/{nbr}
+    defaults: { _controller: MoocMoocBundle:Organisme:ListeFormateurs1}
+mooc_mooc_ListeTousFormateurs:
+    path:     /ListeTousFormateurs/{name}/{nbr}
+    defaults: { _controller: MoocMoocBundle:Organisme:ListeTousFormateurs}    
+mooc_mooc_ListeOrganismes1:
+    path:     /ListeOrganismes1/{name}/{nbr}
+    defaults: { _controller: MoocMoocBundle:Organisme:ListeOrganismes1} 
+mooc_mooc_mail:
+    path:     /mail/{name}
+    defaults: { _controller: MoocMoocBundle:Organisme:mail}
+mooc_mooc_ChercherFormateur:
+    path:     /ChercherFormateur/{name}/{nbr}
+    defaults: { _controller: MoocMoocBundle:Organisme:ChercherFormateur}
+mooc_mooc_ChercherFormateur2:
+    path:     /ChercherFormateur2/{name}/{nbr}
+    defaults: { _controller: MoocMoocBundle:Organisme:ChercherFormateur2}    
+mooc_mooc_ChercherOrganisme:
+    path:     /ChercherOrganisme/{name}/{nbr}
+    defaults: { _controller: MoocMoocBundle:Organisme:ChercherOrganisme}    
+mooc_mooc_SupprimerFormateur:
+    path:     /SupprimerFormateur/{cin}/{name}/{nbr}
+    defaults: { _controller: MoocMoocBundle:Organisme:supprimer}
+mooc_mooc_ProfilFormateur:
+    path:     /ProfilFormateur/{cin}/{name}
+    defaults: { _controller: MoocMoocBundle:Organisme:profilFormateur}  
+mooc_mooc_profileAutreOrganisme:
+    path:     /profileAutreOrganisme/{name}/{name2}/{nbr}
+    defaults: { _controller: MoocMoocBundle:Organisme:profileAutreOrganisme} 
+mooc_mooc_ListeInvit:
+    path:     /ListeInvit/{name}/{nbr}
+    defaults: { _controller: MoocMoocBundle:Organisme:ListeInvit}
+mooc_mooc_InviterFormateur:
+    path:     /InviterFormateur/{cin}/{login}/{nbr}
+    defaults: { _controller: MoocMoocBundle:Organisme:InviterFormateur}
+mooc_mooc_Organisme_AccepterInvit:
+    path:     /AccepterInvit/{id}/{name}/{nbr}
+    defaults: { _controller: MoocMoocBundle:Organisme:AccepterInvit}    
+mooc_mooc_supprimerInvit:
+    path:     /supprimerInvit/{id}/{name}/{nbr}
+    defaults: { _controller: MoocMoocBundle:Organisme:supprimerInvit}

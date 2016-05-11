@@ -251,32 +251,32 @@ class ApprenantController extends Controller {
 //        return $this->render('MoocMoocBundle:Apprenant:CoursApprenant.html.twig',array('apprenant' =>$Apprenant ,'Coursuivi'=> $Coursuivi));
 //    }
     
-    public function suivreCoursAction($login,$id,$id2){ 
-        $em1 = $this->getDoctrine()->getManager();
-        $repository = $em1->getRepository('MoocMoocBundle:Apprenant');
-        $Apprenant = $repository->findOneBy(array('login' => $login));
-        
-        $em2 = $this->getDoctrine()->getManager();
-        $repository = $em2->getRepository('MoocMoocBundle:Cours');
-        $Cour = $repository->find($id);
-        
-        $Coursuivi = new Coursuivi();
-        $Coursuivi->setCinapprenant($Apprenant);
-        $Coursuivi->setIdCours($Cour);
-        $Coursuivi->setAppreciation("bon");
-        $Coursuivi->setCommentaire("vhgvj");
-        $Coursuivi->setDateDebut(null);
-        $Coursuivi->setNote(0);
-         $em = $this->getDoctrine()->getManager();
-         $em->persist($Coursuivi);
-         $em->flush();
-            
-         $query = $em->createQuery('select cs.idcoursuivi , c.nomCours, c.description , c.difficulte, cs.note from MoocMoocBundle:Coursuivi cs ,MoocMoocBundle:Cours c where cs.cinapprenant = :a and c.idcours = cs.idCours')
-                ->setParameter('a',$Apprenant);
-            $Coursuivi=$query->getResult();
-        
-        return $this->render('MoocMoocBundle:Apprenant:CoursApprenant.html.twig',array('apprenant' =>$Apprenant ,'Coursuivi'=> $Coursuivi));
-    }
+//    public function suivreCoursAction($login,$id,$id2){ 
+//        $em1 = $this->getDoctrine()->getManager();
+//        $repository = $em1->getRepository('MoocMoocBundle:Apprenant');
+//        $Apprenant = $repository->findOneBy(array('login' => $login));
+//        
+//        $em2 = $this->getDoctrine()->getManager();
+//        $repository = $em2->getRepository('MoocMoocBundle:Cours');
+//        $Cour = $repository->find($id);
+//        
+//        $Coursuivi = new Coursuivi();
+//        $Coursuivi->setCinapprenant($Apprenant);
+//        $Coursuivi->setIdCours($Cour);
+//        $Coursuivi->setAppreciation("bon");
+//        $Coursuivi->setCommentaire("vhgvj");
+//        $Coursuivi->setDateDebut(null);
+//        $Coursuivi->setNote(0);
+//         $em = $this->getDoctrine()->getManager();
+//         $em->persist($Coursuivi);
+//         $em->flush();
+//            
+//         $query = $em->createQuery('select cs.idcoursuivi , c.nomCours, c.description , c.difficulte, cs.note from MoocMoocBundle:Coursuivi cs ,MoocMoocBundle:Cours c where cs.cinapprenant = :a and c.idcours = cs.idCours')
+//                ->setParameter('a',$Apprenant);
+//            $Coursuivi=$query->getResult();
+//        
+//        return $this->render('MoocMoocBundle:Apprenant:CoursApprenant.html.twig',array('apprenant' =>$Apprenant ,'Coursuivi'=> $Coursuivi));
+//    }
     public function consultAction($cours,$login){ 
          $em1 = $this->getDoctrine()->getManager();
         $repository = $em1->getRepository('MoocMoocBundle:Apprenant');

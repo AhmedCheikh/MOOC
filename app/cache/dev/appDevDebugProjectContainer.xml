@@ -1284,6 +1284,54 @@
                 <parameter key="columnName">password</parameter>
                 <parameter key="property">password</parameter>
               </parameter>
+              <parameter key="Organisme" type="collection">
+                <parameter key="css_class"></parameter>
+                <parameter key="format">null</parameter>
+                <parameter key="help">null</parameter>
+                <parameter key="label">null</parameter>
+                <parameter key="type">association</parameter>
+                <parameter key="fieldType">entity</parameter>
+                <parameter key="dataType">association</parameter>
+                <parameter key="virtual">false</parameter>
+                <parameter key="sortable">true</parameter>
+                <parameter key="template">null</parameter>
+                <parameter key="type_options" type="collection"/>
+                <parameter key="fieldName">Organisme</parameter>
+                <parameter key="joinColumns" type="collection">
+                  <parameter type="collection">
+                    <parameter key="name">Organisme_id</parameter>
+                    <parameter key="unique">false</parameter>
+                    <parameter key="nullable">true</parameter>
+                    <parameter key="onDelete">null</parameter>
+                    <parameter key="columnDefinition">null</parameter>
+                    <parameter key="referencedColumnName">idorganisme</parameter>
+                  </parameter>
+                </parameter>
+                <parameter key="cascade" type="collection"/>
+                <parameter key="inversedBy">null</parameter>
+                <parameter key="targetEntity">Mooc\MoocBundle\Entity\Organisme</parameter>
+                <parameter key="fetch">2</parameter>
+                <parameter key="mappedBy">null</parameter>
+                <parameter key="isOwningSide">true</parameter>
+                <parameter key="sourceEntity">Mooc\MoocBundle\Entity\Formateur</parameter>
+                <parameter key="isCascadeRemove">false</parameter>
+                <parameter key="isCascadePersist">false</parameter>
+                <parameter key="isCascadeRefresh">false</parameter>
+                <parameter key="isCascadeMerge">false</parameter>
+                <parameter key="isCascadeDetach">false</parameter>
+                <parameter key="sourceToTargetKeyColumns" type="collection">
+                  <parameter key="Organisme_id">idorganisme</parameter>
+                </parameter>
+                <parameter key="joinColumnFieldNames" type="collection">
+                  <parameter key="Organisme_id">Organisme_id</parameter>
+                </parameter>
+                <parameter key="targetToSourceKeyColumns" type="collection">
+                  <parameter key="idorganisme">Organisme_id</parameter>
+                </parameter>
+                <parameter key="orphanRemoval">false</parameter>
+                <parameter key="associationType">2</parameter>
+                <parameter key="property">Organisme</parameter>
+              </parameter>
             </parameter>
             <parameter key="form_options" type="collection"/>
             <parameter key="actions" type="collection">
@@ -1640,6 +1688,54 @@
               <parameter key="precision">0</parameter>
               <parameter key="columnName">password</parameter>
               <parameter key="property">password</parameter>
+            </parameter>
+            <parameter key="Organisme" type="collection">
+              <parameter key="css_class"></parameter>
+              <parameter key="format">null</parameter>
+              <parameter key="help">null</parameter>
+              <parameter key="label">null</parameter>
+              <parameter key="type">association</parameter>
+              <parameter key="fieldType">entity</parameter>
+              <parameter key="dataType">association</parameter>
+              <parameter key="virtual">false</parameter>
+              <parameter key="sortable">true</parameter>
+              <parameter key="template">null</parameter>
+              <parameter key="type_options" type="collection"/>
+              <parameter key="fieldName">Organisme</parameter>
+              <parameter key="joinColumns" type="collection">
+                <parameter type="collection">
+                  <parameter key="name">Organisme_id</parameter>
+                  <parameter key="unique">false</parameter>
+                  <parameter key="nullable">true</parameter>
+                  <parameter key="onDelete">null</parameter>
+                  <parameter key="columnDefinition">null</parameter>
+                  <parameter key="referencedColumnName">idorganisme</parameter>
+                </parameter>
+              </parameter>
+              <parameter key="cascade" type="collection"/>
+              <parameter key="inversedBy">null</parameter>
+              <parameter key="targetEntity">Mooc\MoocBundle\Entity\Organisme</parameter>
+              <parameter key="fetch">2</parameter>
+              <parameter key="mappedBy">null</parameter>
+              <parameter key="isOwningSide">true</parameter>
+              <parameter key="sourceEntity">Mooc\MoocBundle\Entity\Formateur</parameter>
+              <parameter key="isCascadeRemove">false</parameter>
+              <parameter key="isCascadePersist">false</parameter>
+              <parameter key="isCascadeRefresh">false</parameter>
+              <parameter key="isCascadeMerge">false</parameter>
+              <parameter key="isCascadeDetach">false</parameter>
+              <parameter key="sourceToTargetKeyColumns" type="collection">
+                <parameter key="Organisme_id">idorganisme</parameter>
+              </parameter>
+              <parameter key="joinColumnFieldNames" type="collection">
+                <parameter key="Organisme_id">Organisme_id</parameter>
+              </parameter>
+              <parameter key="targetToSourceKeyColumns" type="collection">
+                <parameter key="idorganisme">Organisme_id</parameter>
+              </parameter>
+              <parameter key="orphanRemoval">false</parameter>
+              <parameter key="associationType">2</parameter>
+              <parameter key="property">Organisme</parameter>
             </parameter>
           </parameter>
           <parameter key="templates" type="collection">
@@ -7935,6 +8031,54 @@ body.error .error-message {
                   <argument key="columnName">password</argument>
                   <argument key="property">password</argument>
                 </argument>
+                <argument key="Organisme" type="collection">
+                  <argument key="css_class"></argument>
+                  <argument key="format">null</argument>
+                  <argument key="help">null</argument>
+                  <argument key="label">null</argument>
+                  <argument key="type">association</argument>
+                  <argument key="fieldType">entity</argument>
+                  <argument key="dataType">association</argument>
+                  <argument key="virtual">false</argument>
+                  <argument key="sortable">true</argument>
+                  <argument key="template">null</argument>
+                  <argument key="type_options" type="collection"/>
+                  <argument key="fieldName">Organisme</argument>
+                  <argument key="joinColumns" type="collection">
+                    <argument type="collection">
+                      <argument key="name">Organisme_id</argument>
+                      <argument key="unique">false</argument>
+                      <argument key="nullable">true</argument>
+                      <argument key="onDelete">null</argument>
+                      <argument key="columnDefinition">null</argument>
+                      <argument key="referencedColumnName">idorganisme</argument>
+                    </argument>
+                  </argument>
+                  <argument key="cascade" type="collection"/>
+                  <argument key="inversedBy">null</argument>
+                  <argument key="targetEntity">Mooc\MoocBundle\Entity\Organisme</argument>
+                  <argument key="fetch">2</argument>
+                  <argument key="mappedBy">null</argument>
+                  <argument key="isOwningSide">true</argument>
+                  <argument key="sourceEntity">Mooc\MoocBundle\Entity\Formateur</argument>
+                  <argument key="isCascadeRemove">false</argument>
+                  <argument key="isCascadePersist">false</argument>
+                  <argument key="isCascadeRefresh">false</argument>
+                  <argument key="isCascadeMerge">false</argument>
+                  <argument key="isCascadeDetach">false</argument>
+                  <argument key="sourceToTargetKeyColumns" type="collection">
+                    <argument key="Organisme_id">idorganisme</argument>
+                  </argument>
+                  <argument key="joinColumnFieldNames" type="collection">
+                    <argument key="Organisme_id">Organisme_id</argument>
+                  </argument>
+                  <argument key="targetToSourceKeyColumns" type="collection">
+                    <argument key="idorganisme">Organisme_id</argument>
+                  </argument>
+                  <argument key="orphanRemoval">false</argument>
+                  <argument key="associationType">2</argument>
+                  <argument key="property">Organisme</argument>
+                </argument>
               </argument>
               <argument key="form_options" type="collection"/>
               <argument key="actions" type="collection">
@@ -8291,6 +8435,54 @@ body.error .error-message {
                 <argument key="precision">0</argument>
                 <argument key="columnName">password</argument>
                 <argument key="property">password</argument>
+              </argument>
+              <argument key="Organisme" type="collection">
+                <argument key="css_class"></argument>
+                <argument key="format">null</argument>
+                <argument key="help">null</argument>
+                <argument key="label">null</argument>
+                <argument key="type">association</argument>
+                <argument key="fieldType">entity</argument>
+                <argument key="dataType">association</argument>
+                <argument key="virtual">false</argument>
+                <argument key="sortable">true</argument>
+                <argument key="template">null</argument>
+                <argument key="type_options" type="collection"/>
+                <argument key="fieldName">Organisme</argument>
+                <argument key="joinColumns" type="collection">
+                  <argument type="collection">
+                    <argument key="name">Organisme_id</argument>
+                    <argument key="unique">false</argument>
+                    <argument key="nullable">true</argument>
+                    <argument key="onDelete">null</argument>
+                    <argument key="columnDefinition">null</argument>
+                    <argument key="referencedColumnName">idorganisme</argument>
+                  </argument>
+                </argument>
+                <argument key="cascade" type="collection"/>
+                <argument key="inversedBy">null</argument>
+                <argument key="targetEntity">Mooc\MoocBundle\Entity\Organisme</argument>
+                <argument key="fetch">2</argument>
+                <argument key="mappedBy">null</argument>
+                <argument key="isOwningSide">true</argument>
+                <argument key="sourceEntity">Mooc\MoocBundle\Entity\Formateur</argument>
+                <argument key="isCascadeRemove">false</argument>
+                <argument key="isCascadePersist">false</argument>
+                <argument key="isCascadeRefresh">false</argument>
+                <argument key="isCascadeMerge">false</argument>
+                <argument key="isCascadeDetach">false</argument>
+                <argument key="sourceToTargetKeyColumns" type="collection">
+                  <argument key="Organisme_id">idorganisme</argument>
+                </argument>
+                <argument key="joinColumnFieldNames" type="collection">
+                  <argument key="Organisme_id">Organisme_id</argument>
+                </argument>
+                <argument key="targetToSourceKeyColumns" type="collection">
+                  <argument key="idorganisme">Organisme_id</argument>
+                </argument>
+                <argument key="orphanRemoval">false</argument>
+                <argument key="associationType">2</argument>
+                <argument key="property">Organisme</argument>
               </argument>
             </argument>
             <argument key="templates" type="collection">

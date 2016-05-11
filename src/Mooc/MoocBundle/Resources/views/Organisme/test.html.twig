@@ -1,0 +1,9 @@
+<table>
+{% for inv in listeInvitation %}
+            <tr>
+                <td>{{ inv.nom_exp }}</td>
+                <td>{{ inv.date_invit | date('d/m/Y') }}</td>
+               ________________________________________
+                <td>
+                     {% endfor %}
+            </tr></table>
