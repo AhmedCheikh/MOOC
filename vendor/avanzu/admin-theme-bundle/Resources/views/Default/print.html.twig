@@ -1,0 +1,93 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>{% block title %}MOOC{% endblock %}</title>
+
+    {# -------------------------------------------------------------------------------------------------- STYLESHEETS #}
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('bundles/avanzuadmintheme/static/'~ app.environment ~'/styles/admin-lte-all.css') }}" />
+    {% endblock %}
+
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+    {# --------------------------------------------------------------------------------------------- JAVASCRIPTS_HEAD #}
+    {%  block javascripts_head %}
+        <script type="text/javascript" src="{{ asset('bundles/avanzuadmintheme/static/'~app.environment~'/scripts/modernizr.js') }}"></script>
+        <!--[if lt IE 9]>
+
+        <![endif]-->
+
+    {% endblock %}
+
+</head>
+
+<body>
+    
+    <div class="row">
+            <div class="col-xs-12">
+    <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">La liste complète des organismes</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Organisme</th>
+                        <th>E-mail</th>
+                        <th>Téléphone</th>
+                        <th>Adresse</th>
+                        <th>Etat</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for organisme in listeOrganisme %}
+                      <tr>
+                        
+                        <td>{{organisme.nom}}</td>
+                        <td>{{organisme.email}}</td>
+                        <td> {{organisme.telephone}}</td>
+                        <td>{{organisme.adresse}}</td>
+                        {% if organisme.etat == 0 %}
+                            <td><span class="label label-danger">Non valide</span></td>
+                        {% else %}
+                            <td><span class="label label-success">Valide</span></td>
+                            {% endif %}
+                       
+                      </tr>
+                      {% endfor %}
+                      
+                      </tbody> 
+                  </table>
+                     
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div>
+        </div>
+    
+<script src="{{ asset('bundles/avanzuadmintheme/static/'~app.environment~'/scripts/admin-lte-all.js') }}"></script>
+<script type="text/javascript">
+        function PrintWindow()
+        {                     
+           window.print();            
+           CheckWindowState(); 
+        }
+        
+        function CheckWindowState()
+        {            
+            if(document.readyState=="complete")
+            {
+                window.close();  
+            }
+            else
+            {            
+                setTimeout("CheckWindowState()", 2000)
+            }
+        }    
+        
+       PrintWindow();
+</script>
+</body>

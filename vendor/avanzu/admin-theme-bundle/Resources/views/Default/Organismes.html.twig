@@ -6,6 +6,44 @@
         {% endblock %}
 
 {% block page_title %}Organismes{% endblock %}
+{% block avanzu_sidebar %}
+                    {#{% if app.user is not null and is_granted('IS_AUTHENTICATED_FULLY') %}
+                        {{ render(controller('AvanzuAdminThemeBundle:Sidebar:userPanel')) }}
+                        {{ render(controller('AvanzuAdminThemeBundle:Sidebar:searchForm')) }}
+                    {% endif %}
+                    {{ render(controller('AvanzuAdminThemeBundle:Sidebar:menu', {'request':app.request})) }}#}
+               
+                
+
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
+            <li class="header">MAIN NAVIGATION</li>
+            <li>
+              <a href='{{path('avanzu_admin_demo')}}'>
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span> 
+              </a>
+            </li>
+            <li>
+              <a href='{{path('charts')}}'>
+                <i class="fa fa-pie-chart"></i>
+                <span>Statistiques</span>
+              </a>
+            </li>
+            <li>
+                <a href='{{path('liste_organisme')}}'>
+                    <i class="fa fa-table"></i> <span>Organismes</span> <small class="label pull-right bg-red">{{nbonv}} non valide</small>
+                </a>
+                
+            </li>
+            
+            <li>
+              <a href='{{path('liste_formateur')}}'>
+                <i class="fa fa-users"></i> <span>Formateurs</span>
+                <small class="label pull-right bg-red">{{nbfnv}} non valide</small>
+              </a>
+            </li>
+            <li>
+                 {% endblock %}
 
 {% block page_content %} 
     <div class="row">
@@ -46,11 +84,15 @@
                         <span class="sr-only">Toggle Dropdown</span>
                       </button>
                       <ul class="dropdown-menu" role="menu">
-                          <li><a href="{{ path('details_organisme', {'id': organisme.idorganisme}) }}" >Détails</a></li>
-                        <li><a href="#">Documents</a></li>
-                        <li><a href="{{ path('valider_organisme', {'id': organisme.idorganisme}) }}">Valider</a></li>
+                          <li><i class="fa fa-info-circle"><a href="{{ path('details_organisme', {'id': organisme.idorganisme}) }}" >    Détails</a></i></li>
+                          <li><i class="fa fa-list-alt"><a href="#">    Documents</a></i></li>
+                        {% if organisme.etat == 0 %}
+                        <li><i class="fa fa-check"><a href="{{ path('valider_organisme', {'id': organisme.idorganisme}) }}">    Valider</a></i></li>
+                        {% else %}
+                        <li><i class="fa fa-times-circle"><a href="{{ path('bloquer_organisme', {'id': organisme.idorganisme}) }}">    Bloquer</a></i></li>
+                        {% endif %}
                         <li class="divider"></li>
-                        <li><a href="{{ path('supprimer_organisme', {'id': organisme.idorganisme}) }}">Supprimer</a></li>
+                        <li><i class="fa fa-trash-o"><a href="{{ path('supprimer_organisme', {'id': organisme.idorganisme}) }}">    Supprimer</a></i></li>
                       </ul>
                     </div></td>
                       </tr>
@@ -58,7 +100,7 @@
                       
                       </tbody> 
                   </table>
-                      <a href="#" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+                      <a href="{{ path('print')}}" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div>

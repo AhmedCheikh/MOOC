@@ -74,7 +74,7 @@ class Organisme
     /**
      * @var string
      *
-     * @ORM\Column(name="logo", type="blob", nullable=true)
+     * @ORM\Column(name="logo", type="string", nullable=true)
      */
     private $logo;
 
@@ -222,6 +222,9 @@ class Organisme
         return $this;
     }
 
+    public function __toString() {
+        return $this->getNom();
+    }
 
 
 }

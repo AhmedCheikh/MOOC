@@ -57,9 +57,9 @@ class Cours
     private $video;
 
     /**
-     * @var integer
+     * @var bool
      *
-     * @ORM\Column(name="etat", type="integer", nullable=true)
+     * @ORM\Column(name="etat", type="boolean", nullable=true)
      */
     private $etat;
 

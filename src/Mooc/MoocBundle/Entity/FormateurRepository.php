@@ -17,4 +17,18 @@ class FormateurRepository extends EntityRepository
                 ->createQuery("select count(f) from MoocMoocBundle:Formateur f");
         return $query->getSingleScalarResult();
     }
+    
+    public function nombreFormateurNonValide(){
+        $query = $this->getEntityManager()
+                ->createQuery("select count(f) from MoocMoocBundle:Formateur f where f.etat=0");
+        return $query->getSingleScalarResult();
+    }
+    
+    public function findFormateurByIdOrganisme($id) {
+        $query = $this->getEntityManager()
+                ->createQuery("select f from MoocMoocBundle:formateur f where f.Organisme = ?1");
+//        $query->setParameter(1, $id);
+//        $query->execute();
+        return $query->execute(array(1=>$id));
+    }
 }

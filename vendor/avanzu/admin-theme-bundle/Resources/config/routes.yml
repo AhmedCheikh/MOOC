@@ -71,9 +71,17 @@ valider_organisme:
   path: /valider-organisme/{id}
   defaults: {_controller: AvanzuAdminThemeBundle:Default:validerOrganisme}  
   
+bloquer_organisme: 
+  path: /bloquer-organisme/{id}
+  defaults: {_controller: AvanzuAdminThemeBundle:Default:bloquerOrganisme} 
+  
 supprimer_organisme: 
   path: /supprimer-organisme/{id}
   defaults: {_controller: AvanzuAdminThemeBundle:Default:supprimerOrganisme}
+  
+print: 
+  path: /print
+  defaults: {_controller: AvanzuAdminThemeBundle:Default:print}
     
     
   

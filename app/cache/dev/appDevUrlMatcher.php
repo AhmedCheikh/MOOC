@@ -531,6 +531,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_supprimerInvit')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\OrganismeController::supprimerInvitAction',));
         }
 
+        if (0 === strpos($pathinfo, '/login')) {
+            // mooc_mooc_logadmin
+            if ($pathinfo === '/loginadmin') {
+                return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\AdminController::loginAdminAction',  '_route' => 'mooc_mooc_logadmin',);
+            }
+
+            // mooc_mooc_logcomite
+            if ($pathinfo === '/logincomite') {
+                return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ComiteController::loginComiteAction',  '_route' => 'mooc_mooc_logcomite',);
+            }
+
+        }
+
         // homepage
         if ($pathinfo === '/app/example') {
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
@@ -749,9 +762,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'valider_organisme')), array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::validerOrganismeAction',));
             }
 
+            // bloquer_organisme
+            if (0 === strpos($pathinfo, '/admin/bloquer-organisme') && preg_match('#^/admin/bloquer\\-organisme/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'bloquer_organisme')), array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::bloquerOrganismeAction',));
+            }
+
             // supprimer_organisme
             if (0 === strpos($pathinfo, '/admin/supprimer-organisme') && preg_match('#^/admin/supprimer\\-organisme/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'supprimer_organisme')), array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::supprimerOrganismeAction',));
+            }
+
+            // print
+            if ($pathinfo === '/admin/print') {
+                return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::printAction',  '_route' => 'print',);
             }
 
         }

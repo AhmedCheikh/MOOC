@@ -4,27 +4,30 @@ easy_admin:
         menu: 
             - { entity: 'Formateur', icon: 'group' }
             - { entity: 'Cours', icon: 'book' }
-            - { label: 'Frontend', url: 'http://localhost/Mooc_web/web/app_dev.php/', icon: 'home' }
-    site_name: 'MOO<i><font color="grey">Comité</font></i>'
+            - { entity: 'Organisme', icon: 'home'}
+            - { label: 'Front office', url: 'http://localhost/Mooc_web/web/app_dev.php/', icon: 'list' }
+    site_name: 'MOO<i><font color="black">Comité</font></i>'
     entities:
+        
         Formateur :
             class: Mooc\MoocBundle\Entity\Formateur
             label: 'Formateurs'
             
-            list : 
+            list :
+                
                 title: "Liste des formateurs"
-                fields: ['cin', 'nom', 'prenom', 'email',{ property: 'avatar', type: 'image',label: 'Photo', base_path: 'http://localhost/Mooc_web/web/img/avatar/' },{property: 'cv' , label: 'CV',template: 'cv.html.twig', base_path: %app.path.formateur_cv%  }{ property: 'etat', type: 'toggle', label: 'Valide' }]
+                fields: ['nom', 'prenom', 'email',{ property: 'avatar', type: 'image',label: 'Photo', base_path: 'http://localhost/Mooc_3A2_web/web/uploads/img/avatar/' },Organisme,{property: 'cv' , label: 'CV',template: 'cv.html.twig', base_path: %app.path.formateur_cv%  },{ property: 'etat', type: 'toggle', label: 'Valide' }]
                 actions:
                     - { name: 'show', label: '', icon: 'search' }
                     - { name: 'delete', label: '', icon: 'trash' }
-                    - { name: edit, type: method, label: '', class: '', icon: pencil }
+                    - { name: 'edit', type: 'method', label: '', class: '', icon: pencil }
             
                 
             show :
                 show :
-                fields: [{property: 'avatar', type: 'image',label: 'Photo', base_path: 'http://localhost/Mooc_web/web/img/avatar/'},'nom', 'prenom', 'email',{property: 'cv' , label: 'CV',template: 'cv.html.twig', base_path: %app.path.formateur_cv%  },{ property: 'etat', type: 'toggle', label: 'Valide' }]
-            edit:
-                fields: ['nom', 'prenom', 'email']
+                fields: [{property: 'avatar', type: 'image',label: 'Photo', base_path: 'http://localhost/Mooc_3A2_web/web/uploads/img/avatar/'},'nom', 'prenom', 'email',{property: 'cv' , label: 'CV',template: 'cv.html.twig', base_path: %app.path.formateur_cv%  },{ property: 'etat', type: 'toggle', label: 'Valide' },Organisme]
+            form:
+                fields: ['nom', 'prenom', 'email','Organisme',login,{property: 'password',type: 'password'},{property: 'etat', label: 'Valide'}]
             
         Cours :
             class : Mooc\MoocBundle\Entity\Cours
@@ -38,4 +41,15 @@ easy_admin:
                     - { name: edit, type: method, label: '', class: '', icon: pencil }
                     
             form : 
-                fields: ['nomCours','description','difficulte','objectif']
+                fields: ['nomCours','description','difficulte','objectif',{property: 'cinformateur', label: 'CIN formateur'},{property: 'etat', label: 'Valide'}]
+        
+        Organisme:
+            class: Mooc\MoocBundle\Entity\Organisme
+            disabled_actions: ['edit', 'delete', 'new']
+            label: 'Organismes'
+            list:
+                actions: [ { name: 'show',label: 'Détails', icon: 'search' } ]
+                title: "Liste des Organismes"
+                fields: [{property: 'nom', label: 'Nom organisme'},email,{property: 'siteweb',label: 'Site web'},adresse,telephone,description,etat]
+            show:
+                fields: [{property: 'nom', label: 'Nom organisme'},email,{property: 'siteweb',label: 'Site web'},adresse,telephone,description,{property: 'etat',label: 'Valide',type: 'toggle'}]

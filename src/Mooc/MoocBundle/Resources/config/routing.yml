@@ -302,3 +302,11 @@ mooc_mooc_Organisme_AccepterInvit:
 mooc_mooc_supprimerInvit:
     path:     /supprimerInvit/{id}/{name}/{nbr}
     defaults: { _controller: MoocMoocBundle:Organisme:supprimerInvit}
+    
+mooc_mooc_logadmin:
+    path:     /loginadmin
+    defaults: { _controller: MoocMoocBundle:Admin:loginAdmin} 
+    
+mooc_mooc_logcomite:
+    path:     /logincomite
+    defaults: { _controller: MoocMoocBundle:Comite:loginComite} 
