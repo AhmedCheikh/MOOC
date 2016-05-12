@@ -27,8 +27,9 @@ class OrganismeController extends Controller {
 
         return $this->render('MoocMoocBundle:Organisme:listeOrganisme.html.twig');
     }
-      public function TestAction() {
-$date = new DateTime();
+
+    public function TestAction() {
+        $date = new DateTime();
         return $this->render('MoocMoocBundle:Organisme:listeOrganisme.html.twig');
     }
 
@@ -125,21 +126,19 @@ $date = new DateTime();
 
     public function acceuilOrganismeAction($name) {
 
-        $repository2 = $this->getDoctrine()
-                ->getManager()
-                ->getRepository('MoocMoocBundle:Organisme');
-        $nbr = $repository2->nombreInvit($name);
+
 
         $repository = $this->getDoctrine()
                 ->getManager()
                 ->getRepository('MoocMoocBundle:Invitation');
 
         $listeInvitation = $repository->chercherInvit($name, 0);
+        $nbr = count($listeInvitation);
         return $this->render('MoocMoocBundle:Organisme:acceuilOrganisme.html.twig', array('name' => $name, 'nbr' => $nbr, 'listeInvitation' => $listeInvitation));
     }
 
     public function profileOrganismeAction($name, $nbr) {
-        
+
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository('MoocMoocBundle:Organisme');
         $Organisme = $repository->findOneBy(array('nom' => $name));
@@ -185,10 +184,10 @@ $date = new DateTime();
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository('MoocMoocBundle:Organisme');
         $Organisme = $repository->findOneBy(array('nom' => $name));
-
-     $query = $em->createQuery('select  f.cin ,f.nom ,f.prenom,f.email from MoocMoocBundle:Formateur f where   f.Organisme <> :i ')
-               ->setParameter('i',$Organisme->getIdorganisme());
-           $listeFormateurs=$query->getResult();
+        $var = null;
+        $query = $em->createQuery('select  f.cin ,f.nom ,f.prenom,f.email from MoocMoocBundle:Formateur f where   f.Organisme is null')
+        ;
+        $listeFormateurs = $query->getResult();
 //        $em1 = $this->getDoctrine()->getManager();
 //        $listeFormateurs = $em->getRepository('MoocMoocBundle:Formateur')->findAll();
         return $this->render('MoocMoocBundle:Organisme:ListeTousFormateurs.html.twig', array('listeFormateur' => $listeFormateurs, 'Organisme' => $Organisme, 'nbr' => $nbr));
@@ -200,8 +199,10 @@ $date = new DateTime();
         $Organisme = $repository->findOneBy(array('nom' => $name));
 
         $em = $this->getDoctrine()->getManager();
-        $listeOrganismes = $em->getRepository('MoocMoocBundle:Organisme')->findAll();
 
+        $query = $em->createQuery('select  o.nom,o.email,o.adresse from MoocMoocBundle:Organisme o where   o.nom <> :i and o.complete= :j ')
+                ->setParameters(array('i'=> $name,'j'=>'1'));
+        $listeOrganismes = $query->getResult();
 
         return $this->render('MoocMoocBundle:Organisme:ListeOrganisme1.html.twig', array('listeOrganismes' => $listeOrganismes, 'Organisme' => $Organisme, 'nbr' => $nbr));
     }
@@ -269,7 +270,7 @@ $date = new DateTime();
     public function supprimerAction($cin, $name, $nbr) {
         $em = $this->getDoctrine()->getManager();
         $Formateur = $em->getRepository('MoocMoocBundle:Formateur')->findOneBy(array('cin' => $cin));
-        $em->remove($Formateur);
+        $Formateur->setOrganisme(null);
         $em->flush();
         return $this->redirectToRoute('mooc_mooc_ListeFormateurs1', array('name' => $name, 'nbr' => $nbr));
     }
@@ -277,7 +278,9 @@ $date = new DateTime();
     public function supprimerInvitAction($id, $name, $nbr) {
         $em = $this->getDoctrine()->getManager();
         $Invitation = $em->getRepository('MoocMoocBundle:Invitation')->findOneBy(array('id' => $id));
-        $em->remove($Invitation);
+        $dat = new \DateTime('now');
+        $Invitation->setDate_vue($dat);
+        $Invitation->setEtat(1);
         $em->flush();
         $em3 = $this->getDoctrine()->getManager();
         $repository3 = $em->getRepository('MoocMoocBundle:Organisme');
@@ -291,17 +294,42 @@ $date = new DateTime();
         return $this->redirectToRoute('mooc_mooc_ListeInvit', array('listeInvitation' => $listeInvitation, 'name' => $name, 'nbr' => $nbr));
     }
 
-    public function profileFormateurAction($cin, $name) {
+    public function ProfilFormateurAction($cin, $name) {
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository('MoocMoocBundle:Formateur');
         $Formateur = $repository->findOneBy(array('cin' => $cin));
         $em1 = $this->getDoctrine()->getManager();
         $repository1 = $em1->getRepository('MoocMoocBundle:Organisme');
         $Organisme = $repository1->findOneBy(array('nom' => $name));
-
-        return $this->render('MoocMoocBundle:Organisme:ProfilFormateur.html.twig', array('Organisme' => $Organisme, 'Formateur' => $Formateur));
+        $em2 = $this->getDoctrine()->getManager();
+         $repository2 = $em1->getRepository('MoocMoocBundle:Organisme');
+ $nbr = $repository2->nombreInvit($Organisme->getNom());
+        return $this->render('MoocMoocBundle:Organisme:ProfilFormateur.html.twig', array('Organisme' => $Organisme, 'Formateur' => $Formateur,'nbr'=>$nbr));
     }
-
+   public function ProfilFormateur1Action($nom, $name,$id) {
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('MoocMoocBundle:Formateur');
+        $Formateur = $repository->findOneBy(array('nom' => $nom));
+        $em1 = $this->getDoctrine()->getManager();
+        $repository1 = $em1->getRepository('MoocMoocBundle:Organisme');
+        $Organisme = $repository1->findOneBy(array('nom' => $name));
+        $em2 = $this->getDoctrine()->getManager();
+         $repository2 = $em1->getRepository('MoocMoocBundle:Organisme');
+ $nbr = $repository2->nombreInvit($Organisme->getNom());
+        return $this->render('MoocMoocBundle:Organisme:ProfilFormateur1.html.twig', array('Organisme' => $Organisme, 'Formateur' => $Formateur,'nbr'=>$nbr,'id'=>$id));
+    }
+        public function ProfilFormateur2Action($cin, $name) {
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('MoocMoocBundle:Formateur');
+        $Formateur = $repository->findOneBy(array('cin' => $cin));
+        $em1 = $this->getDoctrine()->getManager();
+        $repository1 = $em1->getRepository('MoocMoocBundle:Organisme');
+        $Organisme = $repository1->findOneBy(array('nom' => $name));
+        $em2 = $this->getDoctrine()->getManager();
+         $repository2 = $em1->getRepository('MoocMoocBundle:Organisme');
+ $nbr = $repository2->nombreInvit($Organisme->getNom());
+        return $this->render('MoocMoocBundle:Organisme:ProfilFormateur2.html.twig', array('Organisme' => $Organisme, 'Formateur' => $Formateur,'nbr'=>$nbr));
+    }
     public function ListeInvitAction($name, $nbr) {
 
 
@@ -333,40 +361,31 @@ $date = new DateTime();
         $formateur = $repository->findOneBy(array('cin' => $cin));
         $organisme = $repository2->findOneBy(array('login' => $login));
 
-        $em = $this->getDoctrine()->getManager();
-        $repository = $em->getRepository('MoocMoocBundle:Formateur');
 
         $em3 = $this->getDoctrine()->getManager();
-        $repository3 = $em3->getRepository('MoocMoocBundle:Invitation');
-        $invt = $repository3->findOneBy(array('nom_des' => $formateur->getLogin(), 'nom_exp' => $organisme->getLogin()));
+        $invitation = new Invitation();
+        $invitation->setNom_exp($organisme->getNom());
+        $invitation->setNom_des($formateur->getNom());
+        $invitation->setEtat(0);
+        $dat = new \DateTime('now');
+        $invitation->setDate_invit($dat);
+        $em3->persist($invitation);
+        $em3->flush();
+        
+        
+       $em4 = $this->getDoctrine()->getManager();
+        $query = $em4->createQuery('select  f.nom from MoocMoocBundle:Formateur f where   f.Organisme is null');
+       
+        $listeFormateurs = $query->getResult();
 
-        if ($invt) {
-            $error = 'Vous avez déja envoyer une invitation a cet organisme';
-
-//    $query = $em->createQuery('select  f.cin ,f.nom ,f.prenom,f.email from MoocMoocBundle:Formateur f where   f.Organisme = :i ')
-//                ->setParameter('i',$organisme->getIdorganisme());
-//            $listeFormateurs=$query->getResult();
-            $em1 = $this->getDoctrine()->getManager();
-            $listeFormateurs = $em->getRepository('MoocMoocBundle:Formateur')->findAll();
-            return $this->render('MoocMoocBundle:Organisme:ListeTousFormateurs.html.twig', array('listeFormateur' => $listeFormateurs, 'Organisme' => $organisme, 'nbr' => $nbr));
-        } else {
-            $error = '';
-            $invitation = new Invitation();
-            $invitation->setNom_exp($organisme->getNom());
-            $invitation->setNom_des($formateur->getNom());
-            $invitation->setEtat(0);
-            $dat = new \DateTime('now');
-            $invitation->setDate_invit($dat);
-            $em3->persist($invitation);
-            $em3->flush();
-
-//             $query = $em->createQuery('select  f.cin ,f.nom ,f.prenom,f.email from MoocMoocBundle:Formateur f where  f.nom != :p and f.Organisme != :i ')
-//                  ;  $query->setParameters(array('p'=>$invitation->getNom_des().'%','i'=>$organisme->getIdorganisme()));
-//            $listeFormateurs=$query->getResult();
-            $em1 = $this->getDoctrine()->getManager();
-            $listeFormateurs = $em->getRepository('MoocMoocBundle:Formateur')->findAll();
-            return $this->render('MoocMoocBundle:Organisme:ListeTousFormateurs.html.twig', array('listeFormateur' => $listeFormateurs, 'Organisme' => $organisme, 'nbr' => $nbr));
-        }
+//         $em5 = $this->getDoctrine()->getManager();
+//        $query = $em5->createQuery('select  i.nom_des  from MoocMoocBundle:Invitation i where   i.nom_exp != :p ');
+//         $query->setParameters(array('p'=> $login,'a'=>0));
+//        $listeFormateurs2 = $query->getResult();
+        
+//        
+//        $listeFormateurs=array_diff_assoc($listeFormateurs1, $listeFormateurs2);
+        return $this->render('MoocMoocBundle:Organisme:ProfilFormateur.html.twig', array('Organisme' => $organisme, 'Formateur' => $formateur,'nbr'=>$nbr));
     }
 
     public function ChercherOrganismeAction($name, $nbr, Request $request) {
@@ -393,33 +412,44 @@ $date = new DateTime();
         return $this->render('MoocMoocBundle:Organisme:ListeOrganisme1.html.twig', array('listeOrganismes' => $ListeOrganisme, 'Organisme' => $Organisme, 'nbr' => $nbr));
     }
 
-    public function AccepterInvitAction($id,$name,$nbr) {
-         $em4 = $this->getDoctrine()->getManager();
-         $Invitation = $em4->getRepository('MoocMoocBundle:Invitation')->findOneBy(array('id' => $id));
-         
+    public function AccepterInvitAction($id, $name, $nbr) {
+        $em4 = $this->getDoctrine()->getManager();
+        $Invitation = $em4->getRepository('MoocMoocBundle:Invitation')->findOneBy(array('id' => $id));
+
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository('MoocMoocBundle:Organisme');
         $Organisme = $repository->findOneBy(array('nom' => $name));
-          $em2 = $this->getDoctrine()->getManager();
+        $em2 = $this->getDoctrine()->getManager();
         $repository2 = $em2->getRepository('MoocMoocBundle:Formateur');
         $Formateur = $repository2->findOneBy(array('nom' => $Invitation->getNom_exp()));
         $Formateur->setOrganisme($Organisme);
-         $Invitation->setEtat(1);
-         $dat = new \DateTime('now');
-            $Invitation->setDate_confi($dat);
-         $em3 = $this->getDoctrine()->getManager();
-            $em3->persist($Formateur);
-            $em3->flush();
-             $em5 = $this->getDoctrine()->getManager();
-            $em5->persist($Invitation);
-            $em5->flush();
-            $repository3 = $this->getDoctrine()
+         $em2->persist($Formateur);
+        $em2->flush();
+        $Invitation->setEtat(1);
+        $dat = new \DateTime('now');
+        $Invitation->setDate_confi($dat);
+        $em3 = $this->getDoctrine()->getManager();
+       
+        $em3->persist($Invitation);
+        $em3->flush();
+        $repository3 = $this->getDoctrine()
                 ->getManager()
                 ->getRepository('MoocMoocBundle:Invitation');
         $listeInvitation = $repository3->chercherInvit($Organisme->getNom(), 0);
 
-                    return $this->redirectToRoute('mooc_mooc_ListeInvit', array('listeInvitation' => $listeInvitation, 'name' => $name, 'nbr' => $nbr));
+        return $this->redirectToRoute('mooc_mooc_ListeInvit', array('listeInvitation' => $listeInvitation, 'name' => $name, 'nbr' => $nbr));
+    }
+    public function publierCoursOrganismeAction($name, $nbr) {
+        
+          $repository = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('MoocMoocBundle:Invitation');
+
+        $listeInvitation = $repository->chercherInvit($name, 0);
+                return $this->render('MoocMoocBundle:Organisme:PublierCour.html.twig', array( 'name' => $name, 'nbr' => $nbr,'listeInvitation'=>$listeInvitation));
 
     }
+    
+
 
 }

@@ -236,6 +236,16 @@ mooc_apprenant_cours_details:
     path:     /coursDet/{idCours}
     defaults: { _controller: MoocMoocBundle:Apprenant:coursDetails}
     
+
+    
+mooc_mooc_logadmin:
+    path:     /loginadmin
+    defaults: { _controller: MoocMoocBundle:Admin:loginAdmin} 
+    
+mooc_mooc_logcomite:
+    path:     /logincomite
+    defaults: { _controller: MoocMoocBundle:Comite:loginComite} 
+
 mooc_mooc_PreinscriptionOrganisme:
     path:     /PreinscriptionOrganisme
     defaults: { _controller: MoocMoocBundle:Organisme:PreinscriptionOrganisme} 
@@ -286,7 +296,13 @@ mooc_mooc_SupprimerFormateur:
     defaults: { _controller: MoocMoocBundle:Organisme:supprimer}
 mooc_mooc_ProfilFormateur:
     path:     /ProfilFormateur/{cin}/{name}
-    defaults: { _controller: MoocMoocBundle:Organisme:profilFormateur}  
+    defaults: { _controller: MoocMoocBundle:Organisme:ProfilFormateur}
+mooc_mooc_ProfilFormateur1:
+    path:     /ProfilFormateur1/{nom}/{name}/{id}
+    defaults: { _controller: MoocMoocBundle:Organisme:ProfilFormateur1}
+mooc_mooc_ProfilFormateur2:
+    path:     /ProfilFormateur2/{cin}/{name}
+    defaults: { _controller: MoocMoocBundle:Organisme:ProfilFormateur2}    
 mooc_mooc_profileAutreOrganisme:
     path:     /profileAutreOrganisme/{name}/{name2}/{nbr}
     defaults: { _controller: MoocMoocBundle:Organisme:profileAutreOrganisme} 
@@ -302,11 +318,7 @@ mooc_mooc_Organisme_AccepterInvit:
 mooc_mooc_supprimerInvit:
     path:     /supprimerInvit/{id}/{name}/{nbr}
     defaults: { _controller: MoocMoocBundle:Organisme:supprimerInvit}
-    
-mooc_mooc_logadmin:
-    path:     /loginadmin
-    defaults: { _controller: MoocMoocBundle:Admin:loginAdmin} 
-    
-mooc_mooc_logcomite:
-    path:     /logincomite
-    defaults: { _controller: MoocMoocBundle:Comite:loginComite} 
+mooc_mooc_publierCoursOrganisme:
+    path:     /publierCoursOrganisme/{name}/{nbr}
+    defaults: { _controller: MoocMoocBundle:Organisme:publierCoursOrganisme}
+

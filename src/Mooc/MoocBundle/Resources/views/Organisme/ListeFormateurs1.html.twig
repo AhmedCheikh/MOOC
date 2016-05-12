@@ -40,7 +40,10 @@
           <script src="js/lte-ie7.js"></script>
         <![endif]-->
     </head>
-    
+     <!-- container section start -->
+        <section id="container" class="">
+
+
             <header class="header dark-bg">
                 <div class="toggle-nav">
                     <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
@@ -62,7 +65,7 @@
                     <!--  search form end -->                
                 </div>
 
-              <div class="top-nav notification-row">                
+                <div class="top-nav notification-row">                
                     <!-- notificatoin dropdown start-->
                     <ul class="nav pull-right top-menu">
 
@@ -96,17 +99,17 @@
                                 <li>
                                     <p class="blue">You have {{nbr}} new notifications</p>
                                 </li>
-                               {# {% for inv in listeInvitation %}
+                               
                                 <li>
                                      
-                                    <a href="{{path('mooc_mooc_ListeInvit', {'name':name,'nbr':nbr})}}">
+                                    <a href="{{path('mooc_mooc_ListeInvit', {'name':Organisme.nom,'nbr':nbr})}}">
                                         <span class="label label-primary"><i class="icon_profile"></i></span> 
-                                        Demande d'integration de {{ inv.nom_exp }}
+                                        Demande d'integration de 
                                         <span class="small italic pull-right"></span>
                                     </a>
                                     
                                 </li>
-                                 {% endfor %}#}
+                               
                                
                             </ul>
                         </li>
@@ -132,18 +135,16 @@
                                     <a href="#"><i class="icon_chat_alt"></i> Chat</a>
                                 </li>
                                 <li>
-                                    <a href="{{path('mooc_mooc_log_out_formateur')}}"><i class="icon_key_alt"></i> Log Out</a>
+                                    <a href="{{path('mooc_mooc_logOrganisme')}}"><i class="icon_key_alt"></i> Log Out</a>
                                 </li>
-                                <li>
-                                    <a href="#"><i class="icon_key_alt"></i>Utilisation</a>
-                                </li>
+                               
                             </ul>
                         </li>
                         <!-- user login dropdown end -->
                     </ul>
                     <!-- notificatoin dropdown end-->
                 </div>
-            </header>      
+            </header>         
             <!--header end-->
 
             <!--sidebar start-->
@@ -159,11 +160,18 @@
                         </li>
                         <li class="sub-menu">
                             <a href="{{path('mooc_mooc_profileOrganisme', {'name':Organisme.nom,'nbr':nbr})}}" class="">
-                                <i class="icon_profile"></i>
+                                <i class="icon_id"></i>
                                 <span>Mon Profile</span>
                                 <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
-                        </li>       
+                        </li>   
+                            <li>
+                            <a class="" href="{{path('mooc_mooc_publierCoursOrganisme', {'name':Organisme.nom,'nbr':nbr})}}" class="">
+                                <i class="icon_book"></i>
+                                <span>Publier Cours</span>
+                                 <span class="menu-arrow arrow_carrot-right"></span>
+                            </a>
+                        </li>
                        
                         <li>
                             <a class="" href="{{path('mooc_mooc_ListeFormateurs1', {'name':Organisme.nom,'nbr':nbr})}}" class="">
@@ -180,7 +188,7 @@
 
                     <li class="sub-menu">
                             <a  href="{{path('mooc_mooc_ListeInvit', {'name':Organisme.nom,'nbr':nbr})}}" class="">
-                                <i class="icon_mail_alt"></i>
+                                <i class="icon_mail"></i>
                                 <span>Liste Invitations</span>
                                 <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
@@ -273,7 +281,7 @@
                                  <td>
                                   <div class="btn-group">
                                     
-                                      <a class="btn btn-success" href="#"><i class="icon_zoom-in_alt"></i></a>
+                                      <a class="btn btn-success" href="{{path('mooc_mooc_ProfilFormateur2',{'cin':Formateur.cin,'name':Organisme.nom})}}"><i class="icon_zoom-in_alt"></i></a>
                                       <a class="btn btn-danger" href="{{path('mooc_mooc_SupprimerFormateur', {'cin':Formateur.cin,'name':Organisme.nom,'nbr':nbr})}} "onclick="return confirm('Vous venez de supprimer un formateur est ce que vous etes sure?')"><i class="icon_close_alt2"></i></a>
                                   </div>
                                   </td>

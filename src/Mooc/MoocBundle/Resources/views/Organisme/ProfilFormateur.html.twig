@@ -70,7 +70,7 @@
                         <li id="task_notificatoin_bar" class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="icon-task-l"></i>
-                                    <span class="badge bg-important">6</span>
+                                    <span class="badge bg-important"></span>
                             </a>
                             <ul class="dropdown-menu extended tasks-bar">
                                 <div class="notify-arrow notify-arrow-blue"></div>
@@ -155,7 +155,7 @@
                         <li id="mail_notificatoin_bar" class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <i class="icon-envelope-l"></i>
-                                <span class="badge bg-important">5</span>
+                                <span class="badge bg-important"></span>
                             </a>
                             <ul class="dropdown-menu extended inbox">
                                 <div class="notify-arrow notify-arrow-blue"></div>
@@ -274,7 +274,7 @@
                             <ul class="dropdown-menu extended logout">
                                 <div class="log-arrow-up"></div>
                                 <li class="eborder-top">
-                                    <a href="#"><i class="icon_profile"></i> Mon Profile</a>
+                                    <a href="#"><i class="icon_id"></i> Mon Profile</a>
                                 </li>
                                 <li>
                                     <a href="#"><i class="icon_mail_alt"></i> Mes message</a>
@@ -299,41 +299,48 @@
 
             <!--sidebar start-->
             <aside>
-                <div id="sidebar"  class="nav-collapse ">
+               <div id="sidebar"  class="nav-collapse ">
                     <!-- sidebar menu start-->
                     <ul class="sidebar-menu">                
                         <li class="active">
-                            <a class="" href="{{path('mooc_mooc_acceuilOrganisme', {'name':Organisme.nom})}}">
+                            <a class="" href="{{path('mooc_mooc_acceuilOrganisme', {'name':Organisme.nom,'nbr':nbr})}}">
                                 <i class="icon_house_alt"></i>
                                 <span>Accueil</span>
                             </a>
                         </li>
                         <li class="sub-menu">
-                            <a href="{{path('mooc_mooc_profileOrganisme', {'name':Organisme.nom})}}" class="">
-                                <i class="icon_profile"></i>
+                            <a href="{{path('mooc_mooc_profileOrganisme', {'name':Organisme.nom,'nbr':nbr})}}" class="">
+                                <i class="icon_id"></i>
                                 <span>Mon Profile</span>
                                 <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
                         </li>       
-                      
+                     
                         <li>
-                            <a class="" href="{{path('mooc_mooc_ListeFormateurs1', {'name':Organisme.nom})}}" class="">
+                            <a class="" href="{{path('mooc_mooc_ListeFormateurs1', {'name':Organisme.nom,'nbr':nbr})}}" class="">
                                 <i class="icon_group"></i>
-                                <span>Liste Formateurs</span>
+                                <span>Mes Formateurs</span>
                             </a>
                         </li>
                         <li>                     
-                            <a class="" href="{{path('mooc_mooc_ListeOrganismes1', {'name':Organisme.nom})}}">
+                            <a class="" href="{{path('mooc_mooc_ListeOrganismes1', {'name':Organisme.nom,'nbr':nbr})}}">
                                 <i class="icon_building"></i>
                                 <span>Liste Organismes</span>
                             </a>
                         </li>
 
-                        <li class="sub-menu">
-                            <a href="#" class="">
-                                <i class="icon_documents_alt"></i>
-                                <span>Integration</span>
+                          <li class="sub-menu">
+                            <a  href="{{path('mooc_mooc_ListeInvit', {'name':Organisme.nom,'nbr':nbr})}}" class="">
+                                <i class="icon_mail"></i>
+                                <span>Liste Invitations</span>
                                 <span class="menu-arrow arrow_carrot-right"></span>
+                            </a>
+                        </li>
+                         <li class="sub-menu">
+                            <a  href="{{path('mooc_mooc_ListeTousFormateurs', {'name':Organisme.nom,'nbr':nbr})}}" class="">
+                                <i class="icon_plus_alt2"></i>
+                                <span>Inviter Formateur</span>
+                                
                             </a>
                         </li>
                         
@@ -360,33 +367,38 @@
                     <div class="profile-widget profile-widget-info">
                           <div class="panel-body">
                             <div class="col-lg-2 col-sm-2">
-                              <h4>{{Organisme.nom}}</h4>               
+                              <h4>{{Formateur.nom}}</h4>               
                               <div class="follow-ava">
                                   <img src="{{asset('bundles/moocmooc/css/profilformateur/img/ult1.png')}}" alt="">
                               </div>
-                              <h6>Administrator</h6>
+                             
                             </div>
-                            <div class="col-lg-4 col-sm-4 follow-info">
-                                <p>Hello I’m {{Organisme.nom }}, a leading expert in interactive and creative design.</p>
-                                <p>{{Organisme.email}}</p>
-								<p><i class="fa fa-twitter">{{Organisme.nom}}</i></p>
-                                <h6>
-                                    <span><i class="icon_clock_alt"></i>11:05 AM</span>
-                                    <span><i class="icon_calendar"></i>05.04.16</span>
-                                    <span><i class="icon_pin_alt"></i>TN</span>
-                                </h6>
-                            </div>
+                          
+                                <div class="col-lg-4 col-sm-4 follow-info">
+                                        <p>Salut je m'appelle {{Formateur.prenom}} {{Formateur.nom}} et je suis un formateur chez mooc j'ai des tutos mobile j'espère que vous les aprréciez</p>
+                                        <p>{{Formateur.email}}</p>
+                                        <p>suivez mooc sur <i class="fa fa-twitter">mooc</i></p>
+                                        <h6>
+                                            <span><i class="icon_clock_alt"></i>11:05 AM</span>
+                                            <span><i class="icon_calendar"></i>25.10.13</span>
+                                            <span><i class="icon_pin_alt"></i>Tunisie</span>
+                                        </h6>
+                                    </div>
                             
 							<div class="col-lg-2 col-sm-6 follow-info weather-category">
                                       <ul>
                                           <li class="active">
                                               
-                                              <i class="fa fa-bell fa-2x"> </i><br>
+                                              <i class=" icon_star  "> </i><i class=" icon_star"> </i><i class=" icon_star"> </i><br>
 											  
-											  Contrary to popular belief, Lorem Ipsum is not simply 
                                           </li>
-										   
+					   
                                       </ul>
+                                                            <ul>
+                                                                <li class="active">
+                                                                    					                                      <a  class="btn btn-primary"  href="{{path('mooc_mooc_InviterFormateur', {'cin':Formateur.cin,'login':Organisme.login,'nbr':nbr})}}" hidden="true" >Inviter <i class="icon_plus_alt2" ></i></a>
+
+                                                                </li></ul>
                             </div>
 							
                           </div>
@@ -398,30 +410,15 @@
                  <div class="col-lg-12">
                     <section class="panel">
                           <header class="panel-heading tab-bg-info">
-                              <ul class="nav nav-tabs">
-                                  <li class="active">
-                                      <a data-toggle="tab" href="#profile" active>
-                                          <i class="icon-home"></i>
-                                          Profile
-                                      </a>
-                                  </li>
+                            
+                               
                                  
-                                  <li class="">
-                                      <a data-toggle="tab" href="#edit-profile">
-                                          <i class="icon-envelope"></i>
-                                          Edit Profile
-                                      </a>
-                                  </li>
+                                 
                                   
                                   
                                   
-                                  <li class="">
-                                      <a data-toggle="tab" href="#edit-password">
-                                          <i class="icon-envelope"></i>
-                                          Edit Password
-                                      </a>
-                                  </li>
-                              </ul>
+                                 
+                             
                           </header>
                           <div class="panel-body">
                               <div class="tab-content">
@@ -430,32 +427,31 @@
                                   <div id="profile" class="tab-pane active">
                                     <section class="panel">
                                       <div class="bio-graph-heading">
-                                                Hello I’m Organisme.nom , a leading expert in interactive and creative design specializing in the mobile medium. My graduation from Massey University with a Bachelor of Design majoring in visual communication.
+                                        <p>Salut je m'appelle {{Formateur.prenom}} {{Formateur.nom}} et je suis un formateur chez mooc j'ai des tutos mobile j'espere etre a la hauteur de vos attentes</p>
                                       </div>
                                       <div class="panel-body bio-graph-info">
                                           <h1>Bio Graph</h1>
                                           <div class="row">
                                               <div class="bio-row">
-                                                  <p><span>Nom </span>:{{Organisme.nom}} {{ Organisme.adresse}} </p>
+                                                  <p><span>Nom </span>:{{Formateur.nom}}  </p>
                                               </div>
                                               
                                              
                                              
                                               
                                               <div class="bio-row">
-                                                  <p><span>Site Web</span>: {{ Organisme.siteWeb}}</p>
+                                                  <p><span>Prenom</span>: {{ Formateur.prenom}}</p>
                                               </div>
-                                              <div class="bio-row">
-                                                  <p><span>Telephone </span>:  {{ Organisme.telephone}}</p>
-                                              </div>
+                                          
                                             
                                               <div class="bio-row">
-                                                  <p><span>Email </span>: {{ Organisme.email}}</p>
+                                                  <p><span>Email </span>: {{ Formateur.email}}</p>
                                               </div>
                                               
                                                 <div class="bio-row">
                                                
-                                                  <p><span>Description </span>: {{ Organisme.description}}</p>
+                                                  <p><span> CV </span><a class="btn btn-success" href=""><i class="icon_download"></i></a>
+ </p>
                                             
                                              </div>
                                              
@@ -468,144 +464,7 @@
                                           <div class="row">                                              
                                           </div>
                                       </section>
-                                  </div>
-                                  
-                                  <!-- edit Password -->
-				<div id="edit-password" class="tab-pane active" >
-                                    <section class="panel">                                          
-                                          <div class="panel-body bio-graph-info">
-                                              <h1> Edit Password</h1>
-                                              <form class="form-horizontal" role="form">                                                  
-                                                  <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Mot de passe actuel</label>
-                                                      <div class="col-lg-6">
-                                                          <input type="password" class="form-control" id="f-pass" placeholder="Entez le mot de passe actuel">
-                                                      </div>
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Nouveau mot de passe</label>
-                                                      <div class="col-lg-6">
-                                                          <input type="password" class="form-control" id="l-pass" placeholder="Entrez le nouveau mot de passe">
-                                                      </div>
-                                                  </div>
-												  <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Retapez la mot de passe</label>
-                                                      <div class="col-lg-6">
-                                                          <input type="password" class="form-control" id="l-pass" placeholder="Retapez le nouveau mot de passe">
-                                                      </div>
-                                                  </div>
-                                                  
-                                                  <div class="form-group">
-                                                      <div class="col-lg-offset-2 col-lg-10">
-                                                          <button type="submit" class="btn btn-primary">Sauvegarder</button>
-                                                          
-                                                      </div>
-                                                  </div>
-                                              </form>
-                                          </div>
-                                      </section>
-					<section>
-                                          <div class="row">                                              
-                                          </div>
-                                      </section>
-                                  </div>
-                              
-                                  <!-- edit Country -->
-				<div id="edit-country" class="tab-pane " >
-                                    <section class="panel">                                          
-                                          <div class="panel-body bio-graph-info">
-                                              <h1> Edit Country</h1>
-						<div class="row">	  
-                                                    <div class="col-lg-9 col-md-12">
-					
-							<div class="panel panel-default">
-							<div class="panel-heading">
-							<h2><i class="fa fa-map-marker red"></i><strong>Countries</strong></h2>
-													
-							</div>
-							<div class="panel-body-map">
-								<div id="map" style="height:380px"></div>	
-							</div>
-							
-							</div>
-						</div>
-						</div>
-										
-                                              <form class="form-horizontal" role="form">                                                  
-                                                  <div class="form-group">
-                                                      
-                                                      <div class="col-lg-6">
-                                                          <input type="text" class="form-control" id="my-country" placeholder=" ">
-                                                      </div>
-                                                  </div>
-                                                  
-                                                  <div class="form-group">
-                                                      <div class="col-lg-offset-2 col-lg-10">
-                                                          <button type="submit" class="btn btn-primary">Sauvegarder</button>
-                                                          
-                                                      </div>
-                                                  </div>
-                                              </form>
-                                          </div>
-                                      </section>
-
-                                    <section>
-                                        <div class="row">                                              
-                                        </div>
-                                    </section>
-									  
-                                </div>
-								  
-                                  <!-- edit-profile -->
-                                  <div id="edit-profile" class="tab-pane active" >
-                                    <section class="panel">                                          
-                                          <div class="panel-body bio-graph-info" >
-                                              <h1> Modifier Profile </h1>
-                                              <form class="form-horizontal" role="form"> 
-                                                  <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Nom</label>
-                                                      <div class="col-lg-6">
-                                                          <input type="text" class="form-control" id="nom" value="{{Organisme.nom}}"  disabled="true">
-                                                      </div>
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Login</label>
-                                                      <div class="col-lg-6">
-                                                          <input type="text" class="form-control" id="login" value="{{Organisme.login}}" required>
-                                                      </div>
-                                                  </div>
-                                                 
-                                                  
-                                                  <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Email</label>
-                                                      <div class="col-lg-6">
-                                                          <input type="email" class="form-control" id="email" value="{{Organisme.email}}" required>
-                                                      </div>
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Site Web</label>
-                                                      <div class="col-lg-6">
-                                                          <input type="text" class="form-control" id="siteweb" value=" {{Organisme.siteWeb}}" required>
-                                                      </div>
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Telephone</label>
-                                                      <div class="col-lg-6">
-                                                          <input type="text" class="form-control" id="telephone" value="{{Organisme.telephone}}" required>
-                                                      </div>
-                                                  </div>
-
-                                                  <div class="form-group">
-                                                      <div class="col-lg-offset-2 col-lg-10">
-                                                          <button type="submit" class="btn btn-primary">Sauvegarder</button>
-                                                          <button type="button" class="btn btn-danger">Annuler</button>
-                                                      </div>
-                                                  </div>
-                                              </form>
-                                          </div>
-                                      </section>
-                                  </div>
-                              </div>
+                           
                           </div>
                       </section>
                  </div>

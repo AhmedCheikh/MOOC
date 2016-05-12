@@ -70,7 +70,7 @@
                         <li id="task_notificatoin_bar" class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="icon-task-l"></i>
-                                    <span class="badge bg-important">6</span>
+                                    <span class="badge bg-important"></span>
                             </a>
                             <ul class="dropdown-menu extended tasks-bar">
                                 <div class="notify-arrow notify-arrow-blue"></div>
@@ -155,7 +155,7 @@
                         <li id="mail_notificatoin_bar" class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <i class="icon-envelope-l"></i>
-                                <span class="badge bg-important">5</span>
+                                <span class="badge bg-important"></span>
                             </a>
                             <ul class="dropdown-menu extended inbox">
                                 <div class="notify-arrow notify-arrow-blue"></div>
@@ -274,7 +274,7 @@
                             <ul class="dropdown-menu extended logout">
                                 <div class="log-arrow-up"></div>
                                 <li class="eborder-top">
-                                    <a href="#"><i class="icon_profile"></i> Mon Profile</a>
+                                    <a href="#"><i class="icon_id"></i> Mon Profile</a>
                                 </li>
                                 <li>
                                     <a href="#"><i class="icon_mail_alt"></i> Mes message</a>
@@ -310,12 +310,18 @@
                         </li>
                         <li class="sub-menu">
                             <a href="{{path('mooc_mooc_acceuilOrganisme', {'name':Organisme.nom,'nbr':nbr})}}" class="">
-                                <i class="icon_profile"></i>
+                                <i class="icon_id"></i>
                                 <span>Mon Profile</span>
                                 <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
                         </li>       
-                       
+                        <li>
+                            <a class="" href="{{path('mooc_mooc_publierCoursOrganisme', {'name':Organisme.nom,'nbr':nbr})}}" class="">
+                                <i class="icon_book"></i>
+                                <span>Publier Cours</span>
+                                 <span class="menu-arrow arrow_carrot-right"></span>
+                            </a>
+                        </li>
                         <li>
                             <a class="" href="{{path('mooc_mooc_ListeFormateurs1', {'name':Organisme.nom,'nbr':nbr})}}" class="">
                                 <i class="icon_group"></i>
@@ -331,7 +337,7 @@
 
                        <li class="sub-menu">
                             <a  href="{{path('mooc_mooc_ListeInvit', {'name':Organisme.nom,'nbr':nbr})}}" class="">
-                                <i class="icon_mail_alt"></i>
+                                <i class="icon_mail"></i>
                                 <span>Liste Invitations</span>
                                 <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
