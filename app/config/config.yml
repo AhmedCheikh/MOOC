@@ -83,10 +83,10 @@ vich_uploader:
     mappings:
           formateur_image:
             uri_prefix: %app.path.formateur_images%
-            upload_destination: %kernel.root_dir%/../web/img/avatar
+            upload_destination: %kernel.root_dir%/../web/uploads/img/avatar
           formateur_cv:
             uri_prefix: %app.path.formateur_cv%
-            upload_destination: %kernel.root_dir%/../web/file/cv
+            upload_destination: %kernel.root_dir%/../web/uploads/file/cv
     
 nomaya_social:
     buttons:

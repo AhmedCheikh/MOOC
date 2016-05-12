@@ -9,6 +9,44 @@
     
 {% block page_title %}Dashboard {% endblock %}
 {% block page_subtitle %}Control panel{% endblock %}
+{% block avanzu_sidebar %}
+                    {#{% if app.user is not null and is_granted('IS_AUTHENTICATED_FULLY') %}
+                        {{ render(controller('AvanzuAdminThemeBundle:Sidebar:userPanel')) }}
+                        {{ render(controller('AvanzuAdminThemeBundle:Sidebar:searchForm')) }}
+                    {% endif %}
+                    {{ render(controller('AvanzuAdminThemeBundle:Sidebar:menu', {'request':app.request})) }}#}
+               
+                
+
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
+            <li class="header">MAIN NAVIGATION</li>
+            <li>
+              <a href='{{path('avanzu_admin_demo')}}'>
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span> 
+              </a>
+            </li>
+            <li>
+              <a href='{{path('charts')}}'>
+                <i class="fa fa-pie-chart"></i>
+                <span>Statistiques</span>
+              </a>
+            </li>
+            <li>
+                <a href='{{path('liste_organisme')}}'>
+                    <i class="fa fa-table"></i> <span>Organismes</span> <small class="label pull-right bg-red">{{nbonv}} non valide</small>
+                </a>
+                
+            </li>
+            
+            <li>
+              <a href='{{path('liste_formateur')}}'>
+                <i class="fa fa-users"></i> <span>Formateurs</span>
+                <small class="label pull-right bg-red">{{nbfnv}} non valide</small>
+              </a>
+            </li>
+            <li>
+                 {% endblock %}
 {% block page_content %} 
     
      <div class="row">
@@ -35,7 +73,7 @@
                 <div class="icon">
                   <i class="ion ion-android-home"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{path('liste_organisme')}}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
             <div class="col-lg-3 col-xs-6">
@@ -48,7 +86,7 @@
                 <div class="icon">
                   <i class="ion ion-ios-people"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{path('liste_formateur')}}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div><!-- ./col -->
             <div class="col-lg-3 col-xs-6">

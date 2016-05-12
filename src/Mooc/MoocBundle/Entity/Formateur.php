@@ -3,6 +3,8 @@
 namespace Mooc\MoocBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Formateur
@@ -43,9 +45,9 @@ class Formateur
     private $email;
 
     /**
-     * @var integer
+     * @var bool
      *
-     * @ORM\Column(name="etat", type="integer", nullable=true)
+     * @ORM\Column(name="etat", type="boolean", nullable=true)
      */
     private $etat;
 
@@ -59,7 +61,7 @@ class Formateur
     /**
      * @var string
      *
-     * @ORM\Column(name="cv", type="blob", nullable=true)
+     * @ORM\Column(name="cv", type="string", nullable=true)
      */
     private $cv;
 
@@ -82,6 +84,27 @@ class Formateur
      * @ORM\JoinColumn(name="Organisme_id", referencedColumnName="idorganisme")
      */
     private $Organisme;
+    
+    /**
+     * This unmapped property stores the binary contents of the file which stores
+     * the cv subscribed by the user.
+     *
+     * @Vich\UploadableField(mapping="formateur_cv", fileNameProperty="cv")
+     *
+     * @var File
+     */
+    private $cvFile;
+    
+    /**
+     * This unmapped property stores the binary contents of the file which stores
+     * the avatar subscribed by the user.
+     *
+     * @Vich\UploadableField(mapping="formateur_images", fileNameProperty="avatar")
+     *
+     * @var File
+     */
+    private $avatarFile;
+    
     public function getOrganisme() {
         return $this->Organisme;
     }
@@ -171,6 +194,41 @@ class Formateur
         return $this;
     }
 
+    /**
+     * @param File $cv
+     */
+    public function setCvFile(File $cv = null)
+    {
+        $this->cvFile = $cv;
+    }
+
+    /**
+     * @return File
+     */
+    public function getCvFile()
+    {
+        return $this->cvFile;
+    }
+    
+    /**
+     * @param File $avatar
+     */
+    public function setAvatarFile(File $avatar = null)
+    {
+        $this->avatarFile = $avatar;
+    }
+
+    /**
+     * @return File
+     */
+    public function getAvatarFile()
+    {
+        return $this->avatarFile;
+    }
+    
+    public function __toString() {
+        return $this->getLogin();
+    }
 
 
 }
