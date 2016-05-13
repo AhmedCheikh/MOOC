@@ -8,7 +8,7 @@
         <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
         <link rel="shortcut icon" href="img/favicon.png">
 
-        <title>liste chapitre</title>
+        <title>Ajouter quiz</title>
 
         <!-- Bootstrap CSS -->    
         <link href="{{asset('bundles/moocmooc/css/profilformateur/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -351,11 +351,6 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h3 class="page-header"><i class="fa fa-laptop"></i> Profil Formateur</h3>
-                            <h2>     
-                                <div>
-                                    {{ socialButtons() }}
-                                </div><br>
-                            </h2>
                             <ol class="breadcrumb">
                                 <li><i class="fa fa-home"></i><a href="#">Acceuil</a></li>
                                 <li><i class="fa fa-laptop"></i>Profil</li>						  	
@@ -368,38 +363,68 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <section class="panel">
-                                <header class="panel-heading">                                   
+                                <header class="panel-heading">
+                                    Ajouter Quiz
                                 </header>
+
                                 <div class="panel-body">
-                                    <center> <h3 style="color:blue;font-weight:bold">Votre Note est :</h3></center><br>
-                                    <h2 style="font-weight:bold"><center> {{note}} /20</center></h2>
-                                    
-                                    <a href="{{path('mooc_pdf',{'id':id})}}">Generate pdf</a>
+                                    <div class="form">
+                                        <form class="form-validate form-horizontal" id="feedback_form" method="POST" action="{{path ('mooc_mooc_modifier_qz',{'idquiz':idquiz,'titre':titre,'type':type})}}">
+                                            <div class="form-group ">
+                                                <label for="cname" class="control-label col-lg-2">Nom quiz <span class="required">*</span></label>
+                                                <div class="col-lg-10">
+                                                    <input class="form-control" value="{{titre}}" id="cname" name="titre" minlength="5" type="text" required />
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <label for="cemail" class="control-label col-lg-2">type <span class="required">*</span></label>
+                                                <div class="col-lg-10">
+                                                    
+                                                     {% if (type) == 0 %}
+                                                        <input  id="cname" type="radio" name="radio" value="1" required> Chronometré<br>
+                                                    <input  id="cname" type="radio" name="radio" value="0"  checked="checked" required> Non Chronometré<br><br>
+                                                    {% elseif (type) == 1  %}
+                                                    <input  id="cname" type="radio" name="radio" value="1" checked="checked"  required> Chronometré<br>
+                                                    <input  id="cname" type="radio" name="radio" value="0"  required> Non Chronometré<br><br>
+                                                    {%endif %}
+                                                    
+                                                    
+                                                   
+                                                </div>
+                                            </div>
+                       
+                                            </div>
+                                              <div class="form-group">
+                                                <div class="col-lg-offset-2 col-lg-10">
+                                                    <button class="btn btn-primary" type="submit">Modifier</button>                                                      
+                                                        <a class="btn btn-danger" href="{{path ('mooc_mooc_Supprimer_quiz',{'id':idquiz})}}"><i class="icon_close_alt2"></i></a>
+                                                   
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
-                                 
-                                            </section>
-                                            <br>
-                                            </div>
-                                            </div>
+                            </section>
+                        </div>
+                    </div>
 
-                                            <br><br>
-                                            </section>
-                                            </section>
-                                            <!--main content end-->
-                                            </section>
-                                            <!-- container section start -->
+                    <br><br>
+                </section>
+            </section>
+            <!--main content end-->
+        </section>
+        <!-- container section start -->
 
-                                            <!-- javascripts -->
+        <!-- javascripts -->
 
-                                            <script src="{{asset('bundles/moocmooc/css/profilformateur/js/jquery.js')}}"></script>
-                                            <script src="{{asset('bundles/moocmooc/css/profilformateur/js/bootstrap.min.js')}}"></script>
-                                            <!-- nicescroll -->
-                                            <script src="{{asset('bundles/moocmooc/css/profilformateur/js/jquery.scrollTo.min.js')}}"></script>
-                                            <script src="{{asset('bundles/moocmooc/css/profilformateur/js/jquery.nicescroll.js')}}"></script>
-                                            <!--custome script for all page-->
-                                            <script src="{{asset('bundles/moocmooc/css/profilformateur/js/scripts.js')}}"></script>
+        <script src="{{asset('bundles/moocmooc/css/profilformateur/js/jquery.js')}}"></script>
+        <script src="{{asset('bundles/moocmooc/css/profilformateur/js/bootstrap.min.js')}}"></script>
+        <!-- nicescroll -->
+        <script src="{{asset('bundles/moocmooc/css/profilformateur/js/jquery.scrollTo.min.js')}}"></script>
+        <script src="{{asset('bundles/moocmooc/css/profilformateur/js/jquery.nicescroll.js')}}"></script>
+        <!--custome script for all page-->
+        <script src="{{asset('bundles/moocmooc/css/profilformateur/js/scripts.js')}}"></script>
 
-                                            </body>
-                                            </html>
-
-
+    </body>
+</html>

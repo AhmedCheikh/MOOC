@@ -42,7 +42,7 @@ class __TwigTemplate_e598afc1a45a4dad4b8600cdd8c7f62046623de30184a151b38778a7724
           ";
             // line 14
             echo "     <div>  la reponse correcte : ";
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["q"], "0", array(), "array"), "reponse", array()), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["q"], "0", array(), "array"), "rep", array()), "html", null, true);
             echo " </div>
      <br>
      <br>
@@ -85,7 +85,7 @@ class __TwigTemplate_e598afc1a45a4dad4b8600cdd8c7f62046623de30184a151b38778a7724
 /*  {% for q in rep %} */
 /*    <div> {{q["0"].idquestion.question}}  :</div> <br>*/
 /*           {#{%  set a=a+1 %}#}*/
-/*      <div>  la reponse correcte : {{q["0"].reponse }} </div>*/
+/*      <div>  la reponse correcte : {{q["0"].rep }} </div>*/
 /*      <br>*/
 /*      <br>*/
 /*    {% endfor %}*/

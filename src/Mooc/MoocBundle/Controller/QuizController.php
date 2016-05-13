@@ -66,7 +66,7 @@ class QuizController extends Controller {
 
         $note = 0;
         if (isset($_POST['etat']) && $_POST['etat'] === '1') {
-            $note = $note + 1;
+            $note = $note + 4;
         }
         if (isset($_POST['id']))
             $id = $_POST['id'];
@@ -97,6 +97,26 @@ class QuizController extends Controller {
         $em = $this->getDoctrine()->getManager();
         $rep = $em->getRepository('MoocMoocBundle:Reponse')->findBy(array('idquestion' => $id));
         return $this->render('MoocMoocBundle:Quiz:testmodifier.html.twig', array('rep' => $rep));
+    }
+    
+    
+    public function modifierQuizAction($idquiz, Request $request) {
+        $em = $this->getDoctrine()->getManager();
+        $q = $em->getRepository('MoocMoocBundle:Quiz')->find($idquiz);
+        $titre = $q->getTitre();
+        $type = $q->getType();
+
+
+        if ($request->getMethod() == 'POST') {
+
+            $q->setTitre($request->get('titre'));
+            $q->setType($request->get('radio'));
+
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+            return $this->redirectToRoute('mooc_mooc_listeQuiz');
+        }
+        return $this->render('MoocMoocBundle:Quiz:modifierQZ.html.twig', array('idquiz' => $idquiz, 'titre' => $titre, 'type' => $type));
     }
 
 }

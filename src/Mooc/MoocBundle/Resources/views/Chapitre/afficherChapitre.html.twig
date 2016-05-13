@@ -373,7 +373,7 @@
                                     </header>
                                     <br>
                                     <p> <span style="color:blue;font-weight:bold"> Objectif : </span> {{chapitre.objectif}} </p> 
-                                    <p> <span style="color:green;font-weight:bold"><a href="{{asset('file/cv/video/CV_ZNAIDI.pdf')}}" download="CV_ZNAIDI.pdf">Télécharger Chapitre</a></span> ||  <span style="color:red;font-weight:bold"><a href="{{path ('mooc_mooc_afficher_quiz',{'id':chapitre.id})}}">Passer Quiz</a></span> </p>
+                                    <p> <span style="color:green;font-weight:bold"><a href="{{asset('file/cv/video/CV_ZNAIDI.pdf')}}" download="CV_ZNAIDI.pdf">Télécharger Chapitre</a></span> ||  <span style="color:red;font-weight:bold"><a href="{{path ('mooc_mooc_afficher_quiz',{'id':chapitre.idquiz.getId()})}}">Passer Quiz</a></span> </p>
 
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <video width="800" controls >
                                         <br>

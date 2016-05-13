@@ -26,7 +26,7 @@ class __TwigTemplate_b23a6011aab76398a12c8598fe1db969bf734c466f7e909a96fda57ae57
         <meta name=\"keyword\" content=\"Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal\">
         <link rel=\"shortcut icon\" href=\"img/favicon.png\">
 
-        <title>Note Quiz</title>
+        <title>liste chapitre</title>
 
         <!-- Bootstrap CSS -->    
         <link href=\"";
@@ -323,9 +323,11 @@ class __TwigTemplate_b23a6011aab76398a12c8598fe1db969bf734c466f7e909a96fda57ae57
                                     <a href=\"#\"><i class=\"icon_chat_alt\"></i> Chat</a>
                                 </li>
                                 <li>
-                                   ";
-        // line 276
-        echo "                                </li>
+                                    <a href=\"";
+        // line 275
+        echo $this->env->getExtension('routing')->getPath("mooc_mooc_log_out_formateur");
+        echo "\"><i class=\"icon_key_alt\"></i> Log Out</a>
+                                </li>
                                 <li>
                                     <a href=\"#\"><i class=\"icon_key_alt\"></i>Utilisation</a>
                                 </li>
@@ -363,9 +365,15 @@ class __TwigTemplate_b23a6011aab76398a12c8598fe1db969bf734c466f7e909a96fda57ae57
                                 <span class=\"menu-arrow arrow_carrot-right\"></span>
                             </a>
                             <ul class=\"sub\">
-                                ";
-        // line 316
-        echo "                                <li><a class=\"\" href=\"buttons.html\">Vidéos</a></li>
+                                <li><a class=\"\" href=\"";
+        // line 314
+        echo $this->env->getExtension('routing')->getPath("mooc_mooc_listechapitre");
+        echo "\">Chapitre</a></li>
+                                <li><a class=\"\" href=\"";
+        // line 315
+        echo $this->env->getExtension('routing')->getPath("mooc_mooc_listeQuiz");
+        echo "\">Quiz</a></li>
+                                <li><a class=\"\" href=\"buttons.html\">Vidéos</a></li>
                                 <li><a class=\"\" href=\"grids.html\">Présentation</a></li>
                             </ul>
                         </li>
@@ -494,7 +502,7 @@ class __TwigTemplate_b23a6011aab76398a12c8598fe1db969bf734c466f7e909a96fda57ae57
 
     public function getDebugInfo()
     {
-        return array (  475 => 400,  470 => 398,  466 => 397,  461 => 395,  457 => 394,  437 => 377,  432 => 375,  410 => 356,  368 => 316,  328 => 276,  308 => 258,  239 => 192,  224 => 180,  209 => 168,  194 => 156,  58 => 23,  54 => 22,  49 => 20,  45 => 19,  39 => 16,  34 => 14,  19 => 1,);
+        return array (  483 => 400,  478 => 398,  474 => 397,  469 => 395,  465 => 394,  445 => 377,  440 => 375,  418 => 356,  374 => 315,  370 => 314,  328 => 275,  308 => 258,  239 => 192,  224 => 180,  209 => 168,  194 => 156,  58 => 23,  54 => 22,  49 => 20,  45 => 19,  39 => 16,  34 => 14,  19 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -507,7 +515,7 @@ class __TwigTemplate_b23a6011aab76398a12c8598fe1db969bf734c466f7e909a96fda57ae57
 /*         <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">*/
 /*         <link rel="shortcut icon" href="img/favicon.png">*/
 /* */
-/*         <title>Note Quiz</title>*/
+/*         <title>liste chapitre</title>*/
 /* */
 /*         <!-- Bootstrap CSS -->    */
 /*         <link href="{{asset('bundles/moocmooc/css/profilformateur/css/bootstrap.min.css')}}" rel="stylesheet">*/
@@ -771,7 +779,7 @@ class __TwigTemplate_b23a6011aab76398a12c8598fe1db969bf734c466f7e909a96fda57ae57
 /*                                     <a href="#"><i class="icon_chat_alt"></i> Chat</a>*/
 /*                                 </li>*/
 /*                                 <li>*/
-/*                                    {# <a href="{{path('mooc_mooc_log_out_formateur')}}"><i class="icon_key_alt"></i> Log Out</a>#}*/
+/*                                     <a href="{{path('mooc_mooc_log_out_formateur')}}"><i class="icon_key_alt"></i> Log Out</a>*/
 /*                                 </li>*/
 /*                                 <li>*/
 /*                                     <a href="#"><i class="icon_key_alt"></i>Utilisation</a>*/
@@ -810,8 +818,8 @@ class __TwigTemplate_b23a6011aab76398a12c8598fe1db969bf734c466f7e909a96fda57ae57
 /*                                 <span class="menu-arrow arrow_carrot-right"></span>*/
 /*                             </a>*/
 /*                             <ul class="sub">*/
-/*                                 {#<li><a class="" href="{{path ('mooc_mooc_listechapitre')}}">Chapitre</a></li>*/
-/*                                 <li><a class="" href="{{path ('mooc_mooc_listeQuiz')}}">Quiz</a></li>#}*/
+/*                                 <li><a class="" href="{{path ('mooc_mooc_listechapitre')}}">Chapitre</a></li>*/
+/*                                 <li><a class="" href="{{path ('mooc_mooc_listeQuiz')}}">Quiz</a></li>*/
 /*                                 <li><a class="" href="buttons.html">Vidéos</a></li>*/
 /*                                 <li><a class="" href="grids.html">Présentation</a></li>*/
 /*                             </ul>*/

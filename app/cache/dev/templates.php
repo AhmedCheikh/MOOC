@@ -141,6 +141,7 @@
   'MoocMoocBundle:Quiz:ajouterQuiz.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\src\\Mooc\\MoocBundle/Resources/views/Quiz/ajouterQuiz.html.twig',
   'MoocMoocBundle:Quiz:listequizformateur.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\src\\Mooc\\MoocBundle/Resources/views/Quiz/listequizformateur.html.twig',
   'MoocMoocBundle:Quiz:modifierQuiz.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\src\\Mooc\\MoocBundle/Resources/views/Quiz/modifierQuiz.html.twig',
+  'MoocMoocBundle:Quiz:modifierQZ.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\src\\Mooc\\MoocBundle/Resources/views/Quiz/modifierQZ.html.twig',
   'MoocMoocBundle:Quiz:note.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\src\\Mooc\\MoocBundle/Resources/views/Quiz/note.html.twig',
   'MoocMoocBundle:Quiz:test.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\src\\Mooc\\MoocBundle/Resources/views/Quiz/test.html.twig',
   'MoocMoocBundle:Quiz:testmodifier.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\src\\Mooc\\MoocBundle/Resources/views/Quiz/testmodifier.html.twig',

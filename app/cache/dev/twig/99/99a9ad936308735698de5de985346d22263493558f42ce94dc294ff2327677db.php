@@ -1,7 +1,7 @@
 <?php
 
-/* MoocMoocBundle:Question:modifierQuestion.html.twig */
-class __TwigTemplate_0238a30c09d4224eee9999b593135e861e6a8f58a3e5acb99ac5fccc48675197 extends Twig_Template
+/* MoocMoocBundle:Quiz:modifierQZ.html.twig */
+class __TwigTemplate_b8e978824ec1b91f02a54107f93a41b433ad6b9503ff8e47f7e0ecf462491c38 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -26,7 +26,7 @@ class __TwigTemplate_0238a30c09d4224eee9999b593135e861e6a8f58a3e5acb99ac5fccc486
         <meta name=\"keyword\" content=\"Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal\">
         <link rel=\"shortcut icon\" href=\"img/favicon.png\">
 
-        <title>liste cour</title>
+        <title>Ajouter quiz</title>
 
         <!-- Bootstrap CSS -->    
         <link href=\"";
@@ -424,137 +424,62 @@ class __TwigTemplate_0238a30c09d4224eee9999b593135e861e6a8f58a3e5acb99ac5fccc486
                         <div class=\"col-lg-12\">
                             <section class=\"panel\">
                                 <header class=\"panel-heading\">
-                                    Ajouter Question
+                                    Ajouter Quiz
                                 </header>
 
                                 <div class=\"panel-body\">
                                     <div class=\"form\">
                                         <form class=\"form-validate form-horizontal\" id=\"feedback_form\" method=\"POST\" action=\"";
         // line 372
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_modifier_question", array("idquestion" => (isset($context["idquestion"]) ? $context["idquestion"] : $this->getContext($context, "idquestion")), "ques" => (isset($context["ques"]) ? $context["ques"] : $this->getContext($context, "ques")), "listreponse" => (isset($context["listreponse"]) ? $context["listreponse"] : $this->getContext($context, "listreponse")))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_modifier_qz", array("idquiz" => (isset($context["idquiz"]) ? $context["idquiz"] : $this->getContext($context, "idquiz")), "titre" => (isset($context["titre"]) ? $context["titre"] : $this->getContext($context, "titre")), "type" => (isset($context["type"]) ? $context["type"] : $this->getContext($context, "type")))), "html", null, true);
         echo "\">
                                             <div class=\"form-group \">
-                                                <label for=\"cname\" class=\"control-label col-lg-2\">Question <span class=\"required\">*</span></label>
+                                                <label for=\"cname\" class=\"control-label col-lg-2\">Nom quiz <span class=\"required\">*</span></label>
                                                 <div class=\"col-lg-10\">
-                                                    <input value=\"";
+                                                    <input class=\"form-control\" value=\"";
         // line 376
-        echo twig_escape_filter($this->env, (isset($context["ques"]) ? $context["ques"] : $this->getContext($context, "ques")), "html", null, true);
-        echo "\" class=\"form-control\" id=\"cname\" name=\"ques\" minlength=\"5\" type=\"text\" required />
+        echo twig_escape_filter($this->env, (isset($context["titre"]) ? $context["titre"] : $this->getContext($context, "titre")), "html", null, true);
+        echo "\" id=\"cname\" name=\"titre\" minlength=\"5\" type=\"text\" required />
                                                 </div>
                                             </div>
                                             <div class=\"form-group \">
-                                                <label for=\"cname\" class=\"control-label col-lg-2\">Reponse1 <span class=\"required\">*</span></label>
+                                                <label for=\"cemail\" class=\"control-label col-lg-2\">type <span class=\"required\">*</span></label>
                                                 <div class=\"col-lg-10\">
-                                                    <input value=\"";
-        // line 382
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["listreponse"]) ? $context["listreponse"] : $this->getContext($context, "listreponse")), 0, array(), "array"), "reponse", array()), "html", null, true);
-        echo "\" class=\"form-control\" id=\"cname\" name=\"reponse1\" minlength=\"5\" type=\"text\" required /><br>
-                                                    ";
+                                                    
+                                                     ";
         // line 383
-        if (($this->getAttribute($this->getAttribute((isset($context["listreponse"]) ? $context["listreponse"] : $this->getContext($context, "listreponse")), 0, array(), "array"), "etat", array()) == 0)) {
+        if (((isset($context["type"]) ? $context["type"] : $this->getContext($context, "type")) == 0)) {
             // line 384
-            echo "                                                        <input  id=\"cname\" type=\"radio\" name=\"rep1\" value=\"0\" checked=\"checked\" required> Fausse<br>
-                                                        <input  id=\"cname\" type=\"radio\" name=\"rep1\" value=\"1\" required> Correcte <br>
+            echo "                                                        <input  id=\"cname\" type=\"radio\" name=\"radio\" value=\"1\" required> Chronometré<br>
+                                                    <input  id=\"cname\" type=\"radio\" name=\"radio\" value=\"0\"  checked=\"checked\" required> Non Chronometré<br><br>
                                                     ";
-        } elseif (($this->getAttribute($this->getAttribute(        // line 386
-(isset($context["listreponse"]) ? $context["listreponse"] : $this->getContext($context, "listreponse")), 0, array(), "array"), "etat", array()) == 1)) {
+        } elseif ((        // line 386
+(isset($context["type"]) ? $context["type"] : $this->getContext($context, "type")) == 1)) {
             // line 387
-            echo "                                                        <input  id=\"cname\" type=\"radio\" name=\"rep1\" value=\"0\"  required> Fausse<br>
-                                                        <input  id=\"cname\" type=\"radio\" name=\"rep1\" checked=\"checked\" value=\"1\" required> Correcte <br>
+            echo "                                                    <input  id=\"cname\" type=\"radio\" name=\"radio\" value=\"1\" checked=\"checked\"  required> Chronometré<br>
+                                                    <input  id=\"cname\" type=\"radio\" name=\"radio\" value=\"0\"  required> Non Chronometré<br><br>
                                                     ";
         }
         // line 390
-        echo "                                                </div>
+        echo "                                                    
+                                                    
+                                                   
+                                                </div>
                                             </div>
-                                            <div class=\"form-group \">
-                                                <label for=\"cname\" class=\"control-label col-lg-2\">Reponse2 <span class=\"required\">*</span></label>
-
-                                                <div class=\"col-lg-10\">
-                                                    <input value=\"";
-        // line 396
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["listreponse"]) ? $context["listreponse"] : $this->getContext($context, "listreponse")), 1, array(), "array"), "reponse", array()), "html", null, true);
-        echo "\" class=\"form-control\" id=\"cname\" name=\"reponse2\" minlength=\"5\" type=\"text\" required /><br>
-
-                                                    ";
-        // line 398
-        if (($this->getAttribute($this->getAttribute((isset($context["listreponse"]) ? $context["listreponse"] : $this->getContext($context, "listreponse")), 1, array(), "array"), "etat", array()) == 0)) {
-            // line 399
-            echo "                                                        <input  id=\"cname\" type=\"radio\" name=\"rep2\" value=\"0\" checked=\"checked\" required> Fausse<br>
-                                                        <input  id=\"cname\" type=\"radio\" name=\"rep2\" value=\"1\" required> Correcte <br>
-                                                    ";
-        } elseif (($this->getAttribute($this->getAttribute(        // line 401
-(isset($context["listreponse"]) ? $context["listreponse"] : $this->getContext($context, "listreponse")), 1, array(), "array"), "etat", array()) == 1)) {
-            // line 402
-            echo "                                                        <input  id=\"cname\" type=\"radio\" name=\"rep2\" value=\"0\"  required> Fausse<br>
-                                                        <input  id=\"cname\" type=\"radio\" name=\"rep2\" checked=\"checked\" value=\"1\" required> Correcte <br>
-                                                    ";
-        }
-        // line 405
-        echo "                                                </div>
+                       
                                             </div>
-                                            <div class=\"form-group \">
-                                                <label for=\"cname\" class=\"control-label col-lg-2\">Reponse3 <span class=\"required\">*</span></label>
-
-                                                <div class=\"col-lg-10\">
-                                                    <input value=\"";
-        // line 411
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["listreponse"]) ? $context["listreponse"] : $this->getContext($context, "listreponse")), 2, array(), "array"), "reponse", array()), "html", null, true);
-        echo "\" class=\"form-control\" id=\"cname\" name=\"reponse3\" minlength=\"5\" type=\"text\" required /><br>
-                                                    ";
-        // line 412
-        if (($this->getAttribute($this->getAttribute((isset($context["listreponse"]) ? $context["listreponse"] : $this->getContext($context, "listreponse")), 2, array(), "array"), "etat", array()) == 0)) {
-            // line 413
-            echo "                                                        <input  id=\"cname\" type=\"radio\" name=\"rep3\" value=\"0\" checked=\"checked\" required> Fausse<br>
-                                                        <input  id=\"cname\" type=\"radio\" name=\"rep3\" value=\"1\" required> Correcte <br>
-                                                    ";
-        } elseif (($this->getAttribute($this->getAttribute(        // line 415
-(isset($context["listreponse"]) ? $context["listreponse"] : $this->getContext($context, "listreponse")), 2, array(), "array"), "etat", array()) == 1)) {
-            // line 416
-            echo "                                                        <input  id=\"cname\" type=\"radio\" name=\"rep3\" value=\"0\"  required> Fausse<br>
-                                                        <input  id=\"cname\" type=\"radio\" name=\"rep3\" checked=\"checked\" value=\"1\" required> Correcte <br>
-                                                    ";
-        }
-        // line 419
-        echo "                                                </div>
-                                            </div>
-                                            <div class=\"form-group \">
-                                                <label for=\"cname\" class=\"control-label col-lg-2\">Reponse4 <span class=\"required\">*</span></label>
-                                                <div class=\"col-lg-10\">
-                                                    <input value=\"";
-        // line 424
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["listreponse"]) ? $context["listreponse"] : $this->getContext($context, "listreponse")), 3, array(), "array"), "reponse", array()), "html", null, true);
-        echo "\" class=\"form-control\" id=\"cname\" name=\"reponse4\" minlength=\"5\" type=\"text\" required /><br>
-                                                    ";
-        // line 425
-        if (($this->getAttribute($this->getAttribute((isset($context["listreponse"]) ? $context["listreponse"] : $this->getContext($context, "listreponse")), 3, array(), "array"), "etat", array()) == 0)) {
-            // line 426
-            echo "                                                        <input  id=\"cname\" type=\"radio\" name=\"rep4\" value=\"0\" checked=\"checked\" required> Fausse<br>
-                                                        <input  id=\"cname\" type=\"radio\" name=\"rep4\" value=\"1\" required> Correcte <br>
-                                                    ";
-        } elseif (($this->getAttribute($this->getAttribute(        // line 428
-(isset($context["listreponse"]) ? $context["listreponse"] : $this->getContext($context, "listreponse")), 3, array(), "array"), "etat", array()) == 1)) {
-            // line 429
-            echo "                                                        <input  id=\"cname\" type=\"radio\" name=\"rep4\" value=\"0\"  required> Fausse<br>
-                                                        <input  id=\"cname\" type=\"radio\" name=\"rep4\" checked=\"checked\" value=\"1\" required> Correcte <br>
-                                                    ";
-        }
-        // line 432
-        echo "                                                </div>
-                                            </div>
-
-                                            <div class=\"form-group\">
+                                              <div class=\"form-group\">
                                                 <div class=\"col-lg-offset-2 col-lg-10\">
                                                     <button class=\"btn btn-primary\" type=\"submit\">Modifier</button>                                                      
                                                         <a class=\"btn btn-danger\" href=\"";
-        // line 438
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_supprimer_question", array("idquestion" => (isset($context["idquestion"]) ? $context["idquestion"] : $this->getContext($context, "idquestion")))), "html", null, true);
+        // line 400
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_Supprimer_quiz", array("id" => (isset($context["idquiz"]) ? $context["idquiz"] : $this->getContext($context, "idquiz")))), "html", null, true);
         echo "\"><i class=\"icon_close_alt2\"></i></a>
                                                    
                                                 </div>
 
                                             </div>
                                         </form>
-
                                     </div>
                                 </div>
                             </section>
@@ -571,25 +496,25 @@ class __TwigTemplate_0238a30c09d4224eee9999b593135e861e6a8f58a3e5acb99ac5fccc486
         <!-- javascripts -->
 
         <script src=\"";
-        // line 460
+        // line 421
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 461
+        // line 422
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
         <!-- nicescroll -->
         <script src=\"";
-        // line 463
+        // line 424
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.scrollTo.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 464
+        // line 425
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.nicescroll.js"), "html", null, true);
         echo "\"></script>
         <!--custome script for all page-->
         <script src=\"";
-        // line 466
+        // line 427
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/scripts.js"), "html", null, true);
         echo "\"></script>
 
@@ -600,7 +525,7 @@ class __TwigTemplate_0238a30c09d4224eee9999b593135e861e6a8f58a3e5acb99ac5fccc486
 
     public function getTemplateName()
     {
-        return "MoocMoocBundle:Question:modifierQuestion.html.twig";
+        return "MoocMoocBundle:Quiz:modifierQZ.html.twig";
     }
 
     public function isTraitable()
@@ -610,7 +535,7 @@ class __TwigTemplate_0238a30c09d4224eee9999b593135e861e6a8f58a3e5acb99ac5fccc486
 
     public function getDebugInfo()
     {
-        return array (  593 => 466,  588 => 464,  584 => 463,  579 => 461,  575 => 460,  550 => 438,  542 => 432,  537 => 429,  535 => 428,  531 => 426,  529 => 425,  525 => 424,  518 => 419,  513 => 416,  511 => 415,  507 => 413,  505 => 412,  501 => 411,  493 => 405,  488 => 402,  486 => 401,  482 => 399,  480 => 398,  475 => 396,  467 => 390,  462 => 387,  460 => 386,  456 => 384,  454 => 383,  450 => 382,  441 => 376,  434 => 372,  374 => 315,  370 => 314,  328 => 275,  308 => 258,  239 => 192,  224 => 180,  209 => 168,  194 => 156,  58 => 23,  54 => 22,  49 => 20,  45 => 19,  39 => 16,  34 => 14,  19 => 1,);
+        return array (  518 => 427,  513 => 425,  509 => 424,  504 => 422,  500 => 421,  476 => 400,  464 => 390,  459 => 387,  457 => 386,  453 => 384,  451 => 383,  441 => 376,  434 => 372,  374 => 315,  370 => 314,  328 => 275,  308 => 258,  239 => 192,  224 => 180,  209 => 168,  194 => 156,  58 => 23,  54 => 22,  49 => 20,  45 => 19,  39 => 16,  34 => 14,  19 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -623,7 +548,7 @@ class __TwigTemplate_0238a30c09d4224eee9999b593135e861e6a8f58a3e5acb99ac5fccc486
 /*         <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">*/
 /*         <link rel="shortcut icon" href="img/favicon.png">*/
 /* */
-/*         <title>liste cour</title>*/
+/*         <title>Ajouter quiz</title>*/
 /* */
 /*         <!-- Bootstrap CSS -->    */
 /*         <link href="{{asset('bundles/moocmooc/css/profilformateur/css/bootstrap.min.css')}}" rel="stylesheet">*/
@@ -979,84 +904,45 @@ class __TwigTemplate_0238a30c09d4224eee9999b593135e861e6a8f58a3e5acb99ac5fccc486
 /*                         <div class="col-lg-12">*/
 /*                             <section class="panel">*/
 /*                                 <header class="panel-heading">*/
-/*                                     Ajouter Question*/
+/*                                     Ajouter Quiz*/
 /*                                 </header>*/
 /* */
 /*                                 <div class="panel-body">*/
 /*                                     <div class="form">*/
-/*                                         <form class="form-validate form-horizontal" id="feedback_form" method="POST" action="{{path ('mooc_mooc_modifier_question',{'idquestion':idquestion,'ques':ques,'listreponse':listreponse})}}">*/
+/*                                         <form class="form-validate form-horizontal" id="feedback_form" method="POST" action="{{path ('mooc_mooc_modifier_qz',{'idquiz':idquiz,'titre':titre,'type':type})}}">*/
 /*                                             <div class="form-group ">*/
-/*                                                 <label for="cname" class="control-label col-lg-2">Question <span class="required">*</span></label>*/
+/*                                                 <label for="cname" class="control-label col-lg-2">Nom quiz <span class="required">*</span></label>*/
 /*                                                 <div class="col-lg-10">*/
-/*                                                     <input value="{{ques}}" class="form-control" id="cname" name="ques" minlength="5" type="text" required />*/
+/*                                                     <input class="form-control" value="{{titre}}" id="cname" name="titre" minlength="5" type="text" required />*/
 /*                                                 </div>*/
 /*                                             </div>*/
 /*                                             <div class="form-group ">*/
-/*                                                 <label for="cname" class="control-label col-lg-2">Reponse1 <span class="required">*</span></label>*/
+/*                                                 <label for="cemail" class="control-label col-lg-2">type <span class="required">*</span></label>*/
 /*                                                 <div class="col-lg-10">*/
-/*                                                     <input value="{{listreponse[0].reponse}}" class="form-control" id="cname" name="reponse1" minlength="5" type="text" required /><br>*/
-/*                                                     {% if (listreponse[0].etat) == 0 %}*/
-/*                                                         <input  id="cname" type="radio" name="rep1" value="0" checked="checked" required> Fausse<br>*/
-/*                                                         <input  id="cname" type="radio" name="rep1" value="1" required> Correcte <br>*/
-/*                                                     {% elseif (listreponse[0].etat) == 1  %}*/
-/*                                                         <input  id="cname" type="radio" name="rep1" value="0"  required> Fausse<br>*/
-/*                                                         <input  id="cname" type="radio" name="rep1" checked="checked" value="1" required> Correcte <br>*/
+/*                                                     */
+/*                                                      {% if (type) == 0 %}*/
+/*                                                         <input  id="cname" type="radio" name="radio" value="1" required> Chronometré<br>*/
+/*                                                     <input  id="cname" type="radio" name="radio" value="0"  checked="checked" required> Non Chronometré<br><br>*/
+/*                                                     {% elseif (type) == 1  %}*/
+/*                                                     <input  id="cname" type="radio" name="radio" value="1" checked="checked"  required> Chronometré<br>*/
+/*                                                     <input  id="cname" type="radio" name="radio" value="0"  required> Non Chronometré<br><br>*/
 /*                                                     {%endif %}*/
+/*                                                     */
+/*                                                     */
+/*                                                    */
 /*                                                 </div>*/
 /*                                             </div>*/
-/*                                             <div class="form-group ">*/
-/*                                                 <label for="cname" class="control-label col-lg-2">Reponse2 <span class="required">*</span></label>*/
-/* */
-/*                                                 <div class="col-lg-10">*/
-/*                                                     <input value="{{listreponse[1].reponse}}" class="form-control" id="cname" name="reponse2" minlength="5" type="text" required /><br>*/
-/* */
-/*                                                     {% if (listreponse[1].etat) == 0 %}*/
-/*                                                         <input  id="cname" type="radio" name="rep2" value="0" checked="checked" required> Fausse<br>*/
-/*                                                         <input  id="cname" type="radio" name="rep2" value="1" required> Correcte <br>*/
-/*                                                     {% elseif (listreponse[1].etat) == 1  %}*/
-/*                                                         <input  id="cname" type="radio" name="rep2" value="0"  required> Fausse<br>*/
-/*                                                         <input  id="cname" type="radio" name="rep2" checked="checked" value="1" required> Correcte <br>*/
-/*                                                     {%endif %}*/
-/*                                                 </div>*/
+/*                        */
 /*                                             </div>*/
-/*                                             <div class="form-group ">*/
-/*                                                 <label for="cname" class="control-label col-lg-2">Reponse3 <span class="required">*</span></label>*/
-/* */
-/*                                                 <div class="col-lg-10">*/
-/*                                                     <input value="{{listreponse[2].reponse}}" class="form-control" id="cname" name="reponse3" minlength="5" type="text" required /><br>*/
-/*                                                     {% if (listreponse[2].etat) == 0 %}*/
-/*                                                         <input  id="cname" type="radio" name="rep3" value="0" checked="checked" required> Fausse<br>*/
-/*                                                         <input  id="cname" type="radio" name="rep3" value="1" required> Correcte <br>*/
-/*                                                     {% elseif (listreponse[2].etat) == 1  %}*/
-/*                                                         <input  id="cname" type="radio" name="rep3" value="0"  required> Fausse<br>*/
-/*                                                         <input  id="cname" type="radio" name="rep3" checked="checked" value="1" required> Correcte <br>*/
-/*                                                     {%endif %}*/
-/*                                                 </div>*/
-/*                                             </div>*/
-/*                                             <div class="form-group ">*/
-/*                                                 <label for="cname" class="control-label col-lg-2">Reponse4 <span class="required">*</span></label>*/
-/*                                                 <div class="col-lg-10">*/
-/*                                                     <input value="{{listreponse[3].reponse}}" class="form-control" id="cname" name="reponse4" minlength="5" type="text" required /><br>*/
-/*                                                     {% if (listreponse[3].etat) == 0 %}*/
-/*                                                         <input  id="cname" type="radio" name="rep4" value="0" checked="checked" required> Fausse<br>*/
-/*                                                         <input  id="cname" type="radio" name="rep4" value="1" required> Correcte <br>*/
-/*                                                     {% elseif (listreponse[3].etat) == 1  %}*/
-/*                                                         <input  id="cname" type="radio" name="rep4" value="0"  required> Fausse<br>*/
-/*                                                         <input  id="cname" type="radio" name="rep4" checked="checked" value="1" required> Correcte <br>*/
-/*                                                     {%endif %}*/
-/*                                                 </div>*/
-/*                                             </div>*/
-/* */
-/*                                             <div class="form-group">*/
+/*                                               <div class="form-group">*/
 /*                                                 <div class="col-lg-offset-2 col-lg-10">*/
 /*                                                     <button class="btn btn-primary" type="submit">Modifier</button>                                                      */
-/*                                                         <a class="btn btn-danger" href="{{path ('mooc_mooc_supprimer_question',{'idquestion':idquestion})}}"><i class="icon_close_alt2"></i></a>*/
+/*                                                         <a class="btn btn-danger" href="{{path ('mooc_mooc_Supprimer_quiz',{'id':idquiz})}}"><i class="icon_close_alt2"></i></a>*/
 /*                                                    */
 /*                                                 </div>*/
 /* */
 /*                                             </div>*/
 /*                                         </form>*/
-/* */
 /*                                     </div>*/
 /*                                 </div>*/
 /*                             </section>*/

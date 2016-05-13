@@ -35,7 +35,7 @@ class Chapitre {
     /**
      * @var string
      *
-     * @ORM\Column(name="presentation", type="blob", nullable=false)
+     * @ORM\Column(name="presentation", type="string",length=255, nullable=false)
      */
     private $presentation;
 
@@ -52,11 +52,6 @@ class Chapitre {
      * @ORM\Column(name="video", type="string", length=255, nullable=true)
      */
     private $video;
-/**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    public $path;
-
    
 
     /**
@@ -100,10 +95,6 @@ class Chapitre {
         return $this->video;
     }
 
-    function getPath() {
-        return $this->path;
-    }
-
     function getIdcours() {
         return $this->idcours;
     }
@@ -137,10 +128,6 @@ class Chapitre {
         return $this;
     }
 
-    function setPath($path) {
-        $this->path = $path;
-        return $this;
-    }
 
     function setIdcours(\Cours $idcours) {
         $this->idcours = $idcours;

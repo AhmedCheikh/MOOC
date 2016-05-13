@@ -432,33 +432,37 @@ class __TwigTemplate_6c0ec51c6734ecc2fc5b1d8a2e913bfbd84ab0082aaa07b68bf306b150e
                         <div class=\"col-lg-12\">
                             <section class=\"panel\">
                                 <header class=\"panel-heading\">                                   
-                                    <center><b> <label style=\"color:blue;font-weight:bold;font-size: 150%;\"> Quiz : ";
-        // line 372
+                                    <center>
+                                        <b> <label style=\"color:blue;font-weight:bold;font-size: 150%;\"> Quiz : ";
+        // line 373
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["quiz"]) ? $context["quiz"] : $this->getContext($context, "quiz")), "titre", array()), "html", null, true);
-        echo "</label></b></center>
+        echo "</label></b>                                     <a class=\"btn btn-success\" href=\"";
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_modifier_qz", array("idquiz" => $this->getAttribute((isset($context["quiz"]) ? $context["quiz"] : $this->getContext($context, "quiz")), "id", array()))), "html", null, true);
+        echo "\"><i class=\"icon_check_alt2\"></i></a>
+                                    </center>
                                 </header>
                                 <div class=\"panel-body\">
                                     <div class=\"form\">
 
                                         ";
-        // line 377
+        // line 379
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["question"]) ? $context["question"] : $this->getContext($context, "question")));
         foreach ($context['_seq'] as $context["_key"] => $context["q"]) {
             echo " 
 
                                             <label style=\"color:blue;background-color:beige;font-size: 250%;\" >";
-            // line 379
+            // line 381
             echo twig_escape_filter($this->env, $this->getAttribute($context["q"], "question", array()), "html", null, true);
             echo " </label>
                                             <a class=\"btn btn-success\" href=\"";
-            // line 380
+            // line 382
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_modifier_question", array("idquestion" => $this->getAttribute($context["q"], "id", array()))), "html", null, true);
             echo "\"><i class=\"icon_check_alt2\"></i></a>
 
                                             <table>
                                                 <tr><td style=\"font-size: 150%;\">";
-            // line 383
+            // line 385
             echo $this->env->getExtension('actions')->renderUri($this->env->getExtension('http_kernel')->controller("MoocMoocBundle:Quiz:test", array("id" => $this->getAttribute($context["q"], "id", array()))), array());
             echo "  </td></tr></table>
                                             ";
@@ -466,7 +470,7 @@ class __TwigTemplate_6c0ec51c6734ecc2fc5b1d8a2e913bfbd84ab0082aaa07b68bf306b150e
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['q'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 385
+        // line 387
         echo "
                                     </div>
                                 </div>
@@ -485,25 +489,25 @@ class __TwigTemplate_6c0ec51c6734ecc2fc5b1d8a2e913bfbd84ab0082aaa07b68bf306b150e
         <!-- javascripts -->
 
         <script src=\"";
-        // line 402
+        // line 404
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 403
+        // line 405
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
         <!-- nicescroll -->
         <script src=\"";
-        // line 405
+        // line 407
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.scrollTo.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 406
+        // line 408
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.nicescroll.js"), "html", null, true);
         echo "\"></script>
         <!--custome script for all page-->
         <script src=\"";
-        // line 408
+        // line 410
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/scripts.js"), "html", null, true);
         echo "\"></script>
 
@@ -526,7 +530,7 @@ class __TwigTemplate_6c0ec51c6734ecc2fc5b1d8a2e913bfbd84ab0082aaa07b68bf306b150e
 
     public function getDebugInfo()
     {
-        return array (  507 => 408,  502 => 406,  498 => 405,  493 => 403,  489 => 402,  470 => 385,  462 => 383,  456 => 380,  452 => 379,  445 => 377,  437 => 372,  418 => 356,  374 => 315,  370 => 314,  328 => 275,  308 => 258,  239 => 192,  224 => 180,  209 => 168,  194 => 156,  58 => 23,  54 => 22,  49 => 20,  45 => 19,  39 => 16,  34 => 14,  19 => 1,);
+        return array (  511 => 410,  506 => 408,  502 => 407,  497 => 405,  493 => 404,  474 => 387,  466 => 385,  460 => 382,  456 => 381,  449 => 379,  438 => 373,  418 => 356,  374 => 315,  370 => 314,  328 => 275,  308 => 258,  239 => 192,  224 => 180,  209 => 168,  194 => 156,  58 => 23,  54 => 22,  49 => 20,  45 => 19,  39 => 16,  34 => 14,  19 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -900,7 +904,9 @@ class __TwigTemplate_6c0ec51c6734ecc2fc5b1d8a2e913bfbd84ab0082aaa07b68bf306b150e
 /*                         <div class="col-lg-12">*/
 /*                             <section class="panel">*/
 /*                                 <header class="panel-heading">                                   */
-/*                                     <center><b> <label style="color:blue;font-weight:bold;font-size: 150%;"> Quiz : {{ quiz.titre}}</label></b></center>*/
+/*                                     <center>*/
+/*                                         <b> <label style="color:blue;font-weight:bold;font-size: 150%;"> Quiz : {{ quiz.titre}}</label></b>                                     <a class="btn btn-success" href="{{path ('mooc_mooc_modifier_qz',{'idquiz':(quiz.id)})}}"><i class="icon_check_alt2"></i></a>*/
+/*                                     </center>*/
 /*                                 </header>*/
 /*                                 <div class="panel-body">*/
 /*                                     <div class="form">*/

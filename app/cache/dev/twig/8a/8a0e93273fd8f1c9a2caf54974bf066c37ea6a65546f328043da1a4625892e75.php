@@ -80,7 +80,7 @@ class __TwigTemplate_0dc7e4273353855683d67bd0fd433e70ed81cd40d42fc519f1760fad1a1
 
             function stopTime(i)
             {
-                if (i === 20) {
+                if (i === 10) {
                       document.getElementById('feedback_form').submit();
                 }
             }
@@ -618,7 +618,7 @@ class __TwigTemplate_0dc7e4273353855683d67bd0fd433e70ed81cd40d42fc519f1760fad1a1
 /* */
 /*             function stopTime(i)*/
 /*             {*/
-/*                 if (i === 20) {*/
+/*                 if (i === 10) {*/
 /*                       document.getElementById('feedback_form').submit();*/
 /*                 }*/
 /*             }*/

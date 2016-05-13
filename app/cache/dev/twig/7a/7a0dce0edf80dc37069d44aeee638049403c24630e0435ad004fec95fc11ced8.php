@@ -446,7 +446,7 @@ class __TwigTemplate_874e64086400bf9f0be6a61fa9212dc237a7509435e70cc657040bd5217
         // line 376
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("file/cv/video/CV_ZNAIDI.pdf"), "html", null, true);
         echo "\" download=\"CV_ZNAIDI.pdf\">Télécharger Chapitre</a></span> ||  <span style=\"color:red;font-weight:bold\"><a href=\"";
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_afficher_quiz", array("id" => $this->getAttribute((isset($context["chapitre"]) ? $context["chapitre"] : $this->getContext($context, "chapitre")), "id", array()))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_afficher_quiz", array("id" => $this->getAttribute($this->getAttribute((isset($context["chapitre"]) ? $context["chapitre"] : $this->getContext($context, "chapitre")), "idquiz", array()), "getId", array(), "method"))), "html", null, true);
         echo "\">Passer Quiz</a></span> </p>
 
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <video width=\"800\" controls >
@@ -890,7 +890,7 @@ class __TwigTemplate_874e64086400bf9f0be6a61fa9212dc237a7509435e70cc657040bd5217
 /*                                     </header>*/
 /*                                     <br>*/
 /*                                     <p> <span style="color:blue;font-weight:bold"> Objectif : </span> {{chapitre.objectif}} </p> */
-/*                                     <p> <span style="color:green;font-weight:bold"><a href="{{asset('file/cv/video/CV_ZNAIDI.pdf')}}" download="CV_ZNAIDI.pdf">Télécharger Chapitre</a></span> ||  <span style="color:red;font-weight:bold"><a href="{{path ('mooc_mooc_afficher_quiz',{'id':chapitre.id})}}">Passer Quiz</a></span> </p>*/
+/*                                     <p> <span style="color:green;font-weight:bold"><a href="{{asset('file/cv/video/CV_ZNAIDI.pdf')}}" download="CV_ZNAIDI.pdf">Télécharger Chapitre</a></span> ||  <span style="color:red;font-weight:bold"><a href="{{path ('mooc_mooc_afficher_quiz',{'id':chapitre.idquiz.getId()})}}">Passer Quiz</a></span> </p>*/
 /* */
 /*                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <video width="800" controls >*/
 /*                                         <br>*/

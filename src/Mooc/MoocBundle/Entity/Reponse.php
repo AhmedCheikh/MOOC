@@ -26,7 +26,7 @@ class Reponse
      *
      * @ORM\Column(name="reponse", type="string", length=255, nullable=false)
      */
-    private $reponse;
+    private $rep;
 
     /**
      * @var integer
@@ -48,8 +48,8 @@ class Reponse
         return $this->id;
     }
 
-    public function getReponse() {
-        return $this->reponse;
+    public function getRep() {
+        return $this->rep;
     }
 
     public function getEtat() {
@@ -65,8 +65,8 @@ class Reponse
         return $this;
     }
 
-    public function setReponse($reponse) {
-        $this->reponse = $reponse;
+    public function setRep($rep) {
+        $this->rep = $rep;
         return $this;
     }
 

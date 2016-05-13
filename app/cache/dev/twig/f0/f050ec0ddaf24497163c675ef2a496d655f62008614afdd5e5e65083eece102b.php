@@ -458,7 +458,7 @@ class __TwigTemplate_d4032adf5b581809bccae95b858ef8933f9a27440cd5b8398f0a78a995b
             echo "\"><i class=\"icon_plus_alt2\"></i></a>
                                                         <a class=\"btn btn-success\" href=\"";
             // line 386
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_Supprimer_quiz", array("id" => $this->getAttribute($context["quiz"], "id", array()))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_modifier_quiz", array("id" => $this->getAttribute($context["quiz"], "id", array()))), "html", null, true);
             echo "}\"><i class=\"icon_check_alt2\"></i></a>
                                                         <a class=\"btn btn-danger\" href=\"";
             // line 387
@@ -917,7 +917,7 @@ class __TwigTemplate_d4032adf5b581809bccae95b858ef8933f9a27440cd5b8398f0a78a995b
 /*                                                 <td>*/
 /*                                                     <div class="btn-group">*/
 /*                                                         <a class="btn btn-primary" href="{{path ('mooc_mooc_Ajouter_quiz')}}"><i class="icon_plus_alt2"></i></a>*/
-/*                                                         <a class="btn btn-success" href="{{path ('mooc_mooc_Supprimer_quiz',{'id':quiz.id})}}}"><i class="icon_check_alt2"></i></a>*/
+/*                                                         <a class="btn btn-success" href="{{path ('mooc_mooc_modifier_quiz',{'id':quiz.id})}}}"><i class="icon_check_alt2"></i></a>*/
 /*                                                         <a class="btn btn-danger" href="{{path ('mooc_mooc_Supprimer_quiz',{'id':quiz.id})}}"><i class="icon_close_alt2"></i></a>*/
 /*                                                     </div>*/
 /*                                                 </td>*/
