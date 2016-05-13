@@ -67,7 +67,7 @@ class Organisme
     /**
      * @var string
      *
-     * @ORM\Column(name="document", type="blob", nullable=true)
+     * @ORM\Column(name="document", type="string", nullable=true)
      */
     private $document;
 

@@ -48,21 +48,38 @@
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                 </a>
-                {% if app.user is not null and is_granted('IS_AUTHENTICATED_FULLY') %}
+                
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
-                            {% block avanzu_navbar %}
-                                {{ render(controller('AvanzuAdminThemeBundle:Navbar:messages')) }}
-                                {{ render(controller('AvanzuAdminThemeBundle:Navbar:notifications')) }}
-                                {{ render(controller('AvanzuAdminThemeBundle:Navbar:tasks')) }}
-                                {{ render(controller('AvanzuAdminThemeBundle:Navbar:user')) }}
-                            {% endblock %}
-                            <li>
-                               <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                            </li>
+                          
+                            <li class="dropdown user user-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="{{asset('uploads/img/avatar/admin.png')}}" class="user-image" alt="User Image">
+                  <span class="hidden-xs">Administrateur</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- User image -->
+                  <li class="user-header">
+                    <img src="{{asset('uploads/img/avatar/admin.png')}}" class="img-circle" alt="User Image">
+                    <p>
+                      Administrateur
+                      <small>MOOC</small>
+                    </p>
+                  </li>
+                  <!-- Menu Body -->
+                  
+                  <!-- Menu Footer-->
+                  <li class="user-footer">
+                    
+                    <div class="pull-right">
+                      <a href="{{path('mooc_mooc_log_out_admin')}}" class="btn btn-default btn-flat">Sign out</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
                         </ul>
                     </div>
-                {% endif %}
+               
             </nav>
         </header>
     {% endblock %}
@@ -103,12 +120,7 @@
                 
             </li>
              
-            <li>
-              <a href="pages/calendar.html">
-                <i class="fa fa-calendar"></i> <span>Calendar</span>
-                <small class="label pull-right bg-red">3</small>
-              </a>
-            </li>
+            
             <li>
             <li>
               <a href='{{path('liste_formateur')}}'>

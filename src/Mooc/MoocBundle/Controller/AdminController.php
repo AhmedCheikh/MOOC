@@ -61,4 +61,10 @@ class AdminController extends Controller {
             return $this->render('MoocMoocBundle:Admin:loginAdmin.html.twig');
         }
     }
+    
+    public function logoutadminAction(Request $request) {
+        $session = $this->getRequest()->getSession();
+        $session->clear();
+        return $this->render('MoocMoocBundle:Admin:loginadmin.html.twig');
+    }
 }

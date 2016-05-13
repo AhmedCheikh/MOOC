@@ -610,7 +610,7 @@
           </parameter>
           <parameter type="collection">
             <parameter key="label">Front office</parameter>
-            <parameter key="url">http://localhost/Mooc_web/web/app_dev.php/</parameter>
+            <parameter key="url">http://localhost/MOOC_3A2_Web/web/app_dev.php/</parameter>
             <parameter key="icon">fa-list</parameter>
             <parameter key="children" type="collection"/>
             <parameter key="default">false</parameter>
@@ -3234,6 +3234,28 @@
             </parameter>
             <parameter key="title">Liste des Organismes</parameter>
             <parameter key="fields" type="collection">
+              <parameter key="logo" type="collection">
+                <parameter key="css_class"></parameter>
+                <parameter key="format">null</parameter>
+                <parameter key="help">null</parameter>
+                <parameter key="label">Logo</parameter>
+                <parameter key="type">image</parameter>
+                <parameter key="fieldType">text</parameter>
+                <parameter key="dataType">image</parameter>
+                <parameter key="virtual">false</parameter>
+                <parameter key="sortable">true</parameter>
+                <parameter key="template">@EasyAdmin/default/field_image.html.twig</parameter>
+                <parameter key="type_options" type="collection"/>
+                <parameter key="fieldName">logo</parameter>
+                <parameter key="scale">0</parameter>
+                <parameter key="length">null</parameter>
+                <parameter key="unique">false</parameter>
+                <parameter key="nullable">true</parameter>
+                <parameter key="precision">0</parameter>
+                <parameter key="columnName">logo</parameter>
+                <parameter key="property">logo</parameter>
+                <parameter key="base_path">http://localhost/Mooc_3A2_web/web/uploads/img/logo/</parameter>
+              </parameter>
               <parameter key="nom" type="collection">
                 <parameter key="css_class"></parameter>
                 <parameter key="format">null</parameter>
@@ -3339,27 +3361,6 @@
                 <parameter key="columnName">telephone</parameter>
                 <parameter key="property">telephone</parameter>
               </parameter>
-              <parameter key="description" type="collection">
-                <parameter key="css_class"></parameter>
-                <parameter key="format">null</parameter>
-                <parameter key="help">null</parameter>
-                <parameter key="label">null</parameter>
-                <parameter key="type">string</parameter>
-                <parameter key="fieldType">text</parameter>
-                <parameter key="dataType">string</parameter>
-                <parameter key="virtual">false</parameter>
-                <parameter key="sortable">true</parameter>
-                <parameter key="template">@EasyAdmin/default/field_string.html.twig</parameter>
-                <parameter key="type_options" type="collection"/>
-                <parameter key="fieldName">description</parameter>
-                <parameter key="scale">0</parameter>
-                <parameter key="length">255</parameter>
-                <parameter key="unique">false</parameter>
-                <parameter key="nullable">true</parameter>
-                <parameter key="precision">0</parameter>
-                <parameter key="columnName">description</parameter>
-                <parameter key="property">description</parameter>
-              </parameter>
               <parameter key="etat" type="collection">
                 <parameter key="css_class"></parameter>
                 <parameter key="format">null</parameter>
@@ -3385,6 +3386,28 @@
           </parameter>
           <parameter key="show" type="collection">
             <parameter key="fields" type="collection">
+              <parameter key="logo" type="collection">
+                <parameter key="css_class"></parameter>
+                <parameter key="format">null</parameter>
+                <parameter key="help">null</parameter>
+                <parameter key="label">Logo</parameter>
+                <parameter key="type">image</parameter>
+                <parameter key="fieldType">text</parameter>
+                <parameter key="dataType">image</parameter>
+                <parameter key="virtual">false</parameter>
+                <parameter key="sortable">true</parameter>
+                <parameter key="template">@EasyAdmin/default/field_image.html.twig</parameter>
+                <parameter key="type_options" type="collection"/>
+                <parameter key="fieldName">logo</parameter>
+                <parameter key="scale">0</parameter>
+                <parameter key="length">null</parameter>
+                <parameter key="unique">false</parameter>
+                <parameter key="nullable">true</parameter>
+                <parameter key="precision">0</parameter>
+                <parameter key="columnName">logo</parameter>
+                <parameter key="property">logo</parameter>
+                <parameter key="base_path">http://localhost/Mooc_3A2_web/web/uploads/img/logo/</parameter>
+              </parameter>
               <parameter key="nom" type="collection">
                 <parameter key="css_class"></parameter>
                 <parameter key="format">null</parameter>
@@ -3686,6 +3709,27 @@
                 <parameter key="columnName">description</parameter>
                 <parameter key="property">description</parameter>
               </parameter>
+              <parameter key="logo" type="collection">
+                <parameter key="css_class"></parameter>
+                <parameter key="format">null</parameter>
+                <parameter key="help">null</parameter>
+                <parameter key="label">null</parameter>
+                <parameter key="type">string</parameter>
+                <parameter key="fieldType">text</parameter>
+                <parameter key="dataType">string</parameter>
+                <parameter key="virtual">false</parameter>
+                <parameter key="sortable">true</parameter>
+                <parameter key="template">null</parameter>
+                <parameter key="type_options" type="collection"/>
+                <parameter key="fieldName">logo</parameter>
+                <parameter key="scale">0</parameter>
+                <parameter key="length">null</parameter>
+                <parameter key="unique">false</parameter>
+                <parameter key="nullable">true</parameter>
+                <parameter key="precision">0</parameter>
+                <parameter key="columnName">logo</parameter>
+                <parameter key="property">logo</parameter>
+              </parameter>
               <parameter key="login" type="collection">
                 <parameter key="css_class"></parameter>
                 <parameter key="format">null</parameter>
@@ -3916,6 +3960,27 @@
                 <parameter key="precision">0</parameter>
                 <parameter key="columnName">description</parameter>
                 <parameter key="property">description</parameter>
+              </parameter>
+              <parameter key="logo" type="collection">
+                <parameter key="css_class"></parameter>
+                <parameter key="format">null</parameter>
+                <parameter key="help">null</parameter>
+                <parameter key="label">null</parameter>
+                <parameter key="type">string</parameter>
+                <parameter key="fieldType">text</parameter>
+                <parameter key="dataType">string</parameter>
+                <parameter key="virtual">false</parameter>
+                <parameter key="sortable">true</parameter>
+                <parameter key="template">null</parameter>
+                <parameter key="type_options" type="collection"/>
+                <parameter key="fieldName">logo</parameter>
+                <parameter key="scale">0</parameter>
+                <parameter key="length">null</parameter>
+                <parameter key="unique">false</parameter>
+                <parameter key="nullable">true</parameter>
+                <parameter key="precision">0</parameter>
+                <parameter key="columnName">logo</parameter>
+                <parameter key="property">logo</parameter>
               </parameter>
               <parameter key="login" type="collection">
                 <parameter key="css_class"></parameter>
@@ -4163,6 +4228,27 @@
                 <parameter key="columnName">description</parameter>
                 <parameter key="property">description</parameter>
               </parameter>
+              <parameter key="logo" type="collection">
+                <parameter key="css_class"></parameter>
+                <parameter key="format">null</parameter>
+                <parameter key="help">null</parameter>
+                <parameter key="label">null</parameter>
+                <parameter key="type">string</parameter>
+                <parameter key="fieldType">text</parameter>
+                <parameter key="dataType">string</parameter>
+                <parameter key="virtual">false</parameter>
+                <parameter key="sortable">true</parameter>
+                <parameter key="template">null</parameter>
+                <parameter key="type_options" type="collection"/>
+                <parameter key="fieldName">logo</parameter>
+                <parameter key="scale">0</parameter>
+                <parameter key="length">null</parameter>
+                <parameter key="unique">false</parameter>
+                <parameter key="nullable">true</parameter>
+                <parameter key="precision">0</parameter>
+                <parameter key="columnName">logo</parameter>
+                <parameter key="property">logo</parameter>
+              </parameter>
               <parameter key="login" type="collection">
                 <parameter key="css_class"></parameter>
                 <parameter key="format">null</parameter>
@@ -4404,9 +4490,9 @@
               <parameter key="format">null</parameter>
               <parameter key="help">null</parameter>
               <parameter key="label">null</parameter>
-              <parameter key="type">blob</parameter>
-              <parameter key="fieldType">textarea</parameter>
-              <parameter key="dataType">blob</parameter>
+              <parameter key="type">string</parameter>
+              <parameter key="fieldType">text</parameter>
+              <parameter key="dataType">string</parameter>
               <parameter key="virtual">false</parameter>
               <parameter key="sortable">true</parameter>
               <parameter key="template">null</parameter>
@@ -8760,7 +8846,7 @@ body.error .error-message {
             </argument>
             <argument type="collection">
               <argument key="label">Front office</argument>
-              <argument key="url">http://localhost/Mooc_web/web/app_dev.php/</argument>
+              <argument key="url">http://localhost/MOOC_3A2_Web/web/app_dev.php/</argument>
               <argument key="icon">fa-list</argument>
               <argument key="children" type="collection"/>
               <argument key="default">false</argument>
@@ -11384,6 +11470,28 @@ body.error .error-message {
               </argument>
               <argument key="title">Liste des Organismes</argument>
               <argument key="fields" type="collection">
+                <argument key="logo" type="collection">
+                  <argument key="css_class"></argument>
+                  <argument key="format">null</argument>
+                  <argument key="help">null</argument>
+                  <argument key="label">Logo</argument>
+                  <argument key="type">image</argument>
+                  <argument key="fieldType">text</argument>
+                  <argument key="dataType">image</argument>
+                  <argument key="virtual">false</argument>
+                  <argument key="sortable">true</argument>
+                  <argument key="template">@EasyAdmin/default/field_image.html.twig</argument>
+                  <argument key="type_options" type="collection"/>
+                  <argument key="fieldName">logo</argument>
+                  <argument key="scale">0</argument>
+                  <argument key="length">null</argument>
+                  <argument key="unique">false</argument>
+                  <argument key="nullable">true</argument>
+                  <argument key="precision">0</argument>
+                  <argument key="columnName">logo</argument>
+                  <argument key="property">logo</argument>
+                  <argument key="base_path">http://localhost/Mooc_3A2_web/web/uploads/img/logo/</argument>
+                </argument>
                 <argument key="nom" type="collection">
                   <argument key="css_class"></argument>
                   <argument key="format">null</argument>
@@ -11489,27 +11597,6 @@ body.error .error-message {
                   <argument key="columnName">telephone</argument>
                   <argument key="property">telephone</argument>
                 </argument>
-                <argument key="description" type="collection">
-                  <argument key="css_class"></argument>
-                  <argument key="format">null</argument>
-                  <argument key="help">null</argument>
-                  <argument key="label">null</argument>
-                  <argument key="type">string</argument>
-                  <argument key="fieldType">text</argument>
-                  <argument key="dataType">string</argument>
-                  <argument key="virtual">false</argument>
-                  <argument key="sortable">true</argument>
-                  <argument key="template">@EasyAdmin/default/field_string.html.twig</argument>
-                  <argument key="type_options" type="collection"/>
-                  <argument key="fieldName">description</argument>
-                  <argument key="scale">0</argument>
-                  <argument key="length">255</argument>
-                  <argument key="unique">false</argument>
-                  <argument key="nullable">true</argument>
-                  <argument key="precision">0</argument>
-                  <argument key="columnName">description</argument>
-                  <argument key="property">description</argument>
-                </argument>
                 <argument key="etat" type="collection">
                   <argument key="css_class"></argument>
                   <argument key="format">null</argument>
@@ -11535,6 +11622,28 @@ body.error .error-message {
             </argument>
             <argument key="show" type="collection">
               <argument key="fields" type="collection">
+                <argument key="logo" type="collection">
+                  <argument key="css_class"></argument>
+                  <argument key="format">null</argument>
+                  <argument key="help">null</argument>
+                  <argument key="label">Logo</argument>
+                  <argument key="type">image</argument>
+                  <argument key="fieldType">text</argument>
+                  <argument key="dataType">image</argument>
+                  <argument key="virtual">false</argument>
+                  <argument key="sortable">true</argument>
+                  <argument key="template">@EasyAdmin/default/field_image.html.twig</argument>
+                  <argument key="type_options" type="collection"/>
+                  <argument key="fieldName">logo</argument>
+                  <argument key="scale">0</argument>
+                  <argument key="length">null</argument>
+                  <argument key="unique">false</argument>
+                  <argument key="nullable">true</argument>
+                  <argument key="precision">0</argument>
+                  <argument key="columnName">logo</argument>
+                  <argument key="property">logo</argument>
+                  <argument key="base_path">http://localhost/Mooc_3A2_web/web/uploads/img/logo/</argument>
+                </argument>
                 <argument key="nom" type="collection">
                   <argument key="css_class"></argument>
                   <argument key="format">null</argument>
@@ -11836,6 +11945,27 @@ body.error .error-message {
                   <argument key="columnName">description</argument>
                   <argument key="property">description</argument>
                 </argument>
+                <argument key="logo" type="collection">
+                  <argument key="css_class"></argument>
+                  <argument key="format">null</argument>
+                  <argument key="help">null</argument>
+                  <argument key="label">null</argument>
+                  <argument key="type">string</argument>
+                  <argument key="fieldType">text</argument>
+                  <argument key="dataType">string</argument>
+                  <argument key="virtual">false</argument>
+                  <argument key="sortable">true</argument>
+                  <argument key="template">null</argument>
+                  <argument key="type_options" type="collection"/>
+                  <argument key="fieldName">logo</argument>
+                  <argument key="scale">0</argument>
+                  <argument key="length">null</argument>
+                  <argument key="unique">false</argument>
+                  <argument key="nullable">true</argument>
+                  <argument key="precision">0</argument>
+                  <argument key="columnName">logo</argument>
+                  <argument key="property">logo</argument>
+                </argument>
                 <argument key="login" type="collection">
                   <argument key="css_class"></argument>
                   <argument key="format">null</argument>
@@ -12066,6 +12196,27 @@ body.error .error-message {
                   <argument key="precision">0</argument>
                   <argument key="columnName">description</argument>
                   <argument key="property">description</argument>
+                </argument>
+                <argument key="logo" type="collection">
+                  <argument key="css_class"></argument>
+                  <argument key="format">null</argument>
+                  <argument key="help">null</argument>
+                  <argument key="label">null</argument>
+                  <argument key="type">string</argument>
+                  <argument key="fieldType">text</argument>
+                  <argument key="dataType">string</argument>
+                  <argument key="virtual">false</argument>
+                  <argument key="sortable">true</argument>
+                  <argument key="template">null</argument>
+                  <argument key="type_options" type="collection"/>
+                  <argument key="fieldName">logo</argument>
+                  <argument key="scale">0</argument>
+                  <argument key="length">null</argument>
+                  <argument key="unique">false</argument>
+                  <argument key="nullable">true</argument>
+                  <argument key="precision">0</argument>
+                  <argument key="columnName">logo</argument>
+                  <argument key="property">logo</argument>
                 </argument>
                 <argument key="login" type="collection">
                   <argument key="css_class"></argument>
@@ -12313,6 +12464,27 @@ body.error .error-message {
                   <argument key="columnName">description</argument>
                   <argument key="property">description</argument>
                 </argument>
+                <argument key="logo" type="collection">
+                  <argument key="css_class"></argument>
+                  <argument key="format">null</argument>
+                  <argument key="help">null</argument>
+                  <argument key="label">null</argument>
+                  <argument key="type">string</argument>
+                  <argument key="fieldType">text</argument>
+                  <argument key="dataType">string</argument>
+                  <argument key="virtual">false</argument>
+                  <argument key="sortable">true</argument>
+                  <argument key="template">null</argument>
+                  <argument key="type_options" type="collection"/>
+                  <argument key="fieldName">logo</argument>
+                  <argument key="scale">0</argument>
+                  <argument key="length">null</argument>
+                  <argument key="unique">false</argument>
+                  <argument key="nullable">true</argument>
+                  <argument key="precision">0</argument>
+                  <argument key="columnName">logo</argument>
+                  <argument key="property">logo</argument>
+                </argument>
                 <argument key="login" type="collection">
                   <argument key="css_class"></argument>
                   <argument key="format">null</argument>
@@ -12554,9 +12726,9 @@ body.error .error-message {
                 <argument key="format">null</argument>
                 <argument key="help">null</argument>
                 <argument key="label">null</argument>
-                <argument key="type">blob</argument>
-                <argument key="fieldType">textarea</argument>
-                <argument key="dataType">blob</argument>
+                <argument key="type">string</argument>
+                <argument key="fieldType">text</argument>
+                <argument key="dataType">string</argument>
                 <argument key="virtual">false</argument>
                 <argument key="sortable">true</argument>
                 <argument key="template">null</argument>

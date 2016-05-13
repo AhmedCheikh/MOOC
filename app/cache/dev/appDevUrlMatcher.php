@@ -172,9 +172,22 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\FormateurController::inscriptionformateurAction',  '_route' => 'mooc_mooc_inscritformateur',);
         }
 
-        // mooc_mooc_log_out_formateur
-        if ($pathinfo === '/logoutformateur') {
-            return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\FormateurController::logoutformateurAction',  '_route' => 'mooc_mooc_log_out_formateur',);
+        if (0 === strpos($pathinfo, '/logout')) {
+            // mooc_mooc_log_out_formateur
+            if ($pathinfo === '/logoutformateur') {
+                return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\FormateurController::logoutformateurAction',  '_route' => 'mooc_mooc_log_out_formateur',);
+            }
+
+            // mooc_mooc_log_out_admin
+            if ($pathinfo === '/logoutadmin') {
+                return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\AdminController::logoutadminAction',  '_route' => 'mooc_mooc_log_out_admin',);
+            }
+
+            // mooc_mooc_log_out_comite
+            if ($pathinfo === '/logoutcomite') {
+                return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ComiteController::logoutcomiteAction',  '_route' => 'mooc_mooc_log_out_comite',);
+            }
+
         }
 
         // mooc_mooc_acceuilformateur

@@ -29,6 +29,14 @@ mooc_mooc_inscritformateur:
 mooc_mooc_log_out_formateur:
     path:     /logoutformateur
     defaults: { _controller: MoocMoocBundle:Formateur:logoutformateur} 
+    
+mooc_mooc_log_out_admin:
+    path:     /logoutadmin
+    defaults: { _controller: MoocMoocBundle:Admin:logoutadmin}
+    
+mooc_mooc_log_out_comite:
+    path:     /logoutcomite
+    defaults: { _controller: MoocMoocBundle:Comite:logoutcomite}
 
 mooc_mooc_acceuilformateur:
     path:     /acceuilformateur/{cin}

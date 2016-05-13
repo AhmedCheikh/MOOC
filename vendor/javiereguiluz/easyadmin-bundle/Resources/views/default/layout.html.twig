@@ -75,7 +75,7 @@
                                     {% if app.user %}
                                         {{ app.user.username|default('user.unnamed'|trans(domain = 'EasyAdminBundle')) }}
                                     {% else %}
-                                        <span>  {{ 'Espace comité pédagogique'|trans(domain = 'EasyAdminBundle') }} | <a href="{{path('mooc_mooc_homepage')}}"> Logout </a></span>                                  
+                                        <span>  {{ 'Espace comité pédagogique'|trans(domain = 'EasyAdminBundle') }} | <a href="{{path('mooc_mooc_log_out_comite')}}"> Logout </a></span>                                  
                                         {% endif %}
                                 {% endblock user_menu %}
                             </li>

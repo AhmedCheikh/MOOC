@@ -5,7 +5,7 @@ easy_admin:
             - { entity: 'Formateur', icon: 'group' }
             - { entity: 'Cours', icon: 'book' }
             - { entity: 'Organisme', icon: 'home'}
-            - { label: 'Front office', url: 'http://localhost/Mooc_web/web/app_dev.php/', icon: 'list' }
+            - { label: 'Front office', url: 'http://localhost/MOOC_3A2_Web/web/app_dev.php/', icon: 'list' }
     site_name: 'MOO<i><font color="black">Comité</font></i>'
     entities:
         
@@ -50,6 +50,6 @@ easy_admin:
             list:
                 actions: [ { name: 'show',label: 'Détails', icon: 'search' } ]
                 title: "Liste des Organismes"
-                fields: [{property: 'nom', label: 'Nom organisme'},email,{property: 'siteweb',label: 'Site web'},adresse,telephone,description,etat]
+                fields: [{property: 'logo', type: 'image',label: 'Logo', base_path: 'http://localhost/Mooc_3A2_web/web/uploads/img/logo/'},{property: 'nom', label: 'Nom organisme'},email,{property: 'siteweb',label: 'Site web'},adresse,telephone,etat]
             show:
-                fields: [{property: 'nom', label: 'Nom organisme'},email,{property: 'siteweb',label: 'Site web'},adresse,telephone,description,{property: 'etat',label: 'Valide',type: 'toggle'}]
+                fields: [{property: 'logo', type: 'image',label: 'Logo', base_path: 'http://localhost/Mooc_3A2_web/web/uploads/img/logo/'},{property: 'nom', label: 'Nom organisme'},email,{property: 'siteweb',label: 'Site web'},adresse,telephone,description,{property: 'etat',label: 'Valide',type: 'toggle'}]
