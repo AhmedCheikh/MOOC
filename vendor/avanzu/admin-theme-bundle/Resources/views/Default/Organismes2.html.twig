@@ -1,0 +1,152 @@
+{% extends 'AvanzuAdminThemeBundle:layout:base-layout.html.twig' %}
+
+{% block stylesheets %}
+        {{ parent() }}
+        <link rel="stylesheet" href="{{asset('bundles/avanzuadmintheme/static/'~ app.environment ~'/styles/dataTables.bootstrap.css') }}">
+        {% endblock %}
+
+{% block page_title %}Organismes{% endblock %}
+{% block avanzu_sidebar %}
+                    {#{% if app.user is not null and is_granted('IS_AUTHENTICATED_FULLY') %}
+                        {{ render(controller('AvanzuAdminThemeBundle:Sidebar:userPanel')) }}
+                        {{ render(controller('AvanzuAdminThemeBundle:Sidebar:searchForm')) }}
+                    {% endif %}
+                    {{ render(controller('AvanzuAdminThemeBundle:Sidebar:menu', {'request':app.request})) }}#}
+               
+                
+
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
+            <li class="header">MAIN NAVIGATION</li>
+            <li>
+              <a href='{{path('avanzu_admin_demo')}}'>
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span> 
+              </a>
+            </li>
+            <li>
+              <a href='{{path('charts')}}'>
+                <i class="fa fa-pie-chart"></i>
+                <span>Statistiques</span>
+              </a>
+            </li>
+            <li>
+                <a href='{{path('liste_organisme')}}'>
+                    <i class="fa fa-table"></i> <span>Organismes</span> <small class="label pull-right bg-red">{{nbonv}} non valide</small>
+                </a>
+                
+            </li>
+            
+            <li>
+              <a href='{{path('liste_formateur')}}'>
+                <i class="fa fa-users"></i> <span>Formateurs</span>
+                <small class="label pull-right bg-red">{{nbfnv}} non valide</small>
+              </a>
+            </li>
+            <li>
+                 {% endblock %}
+
+{% block page_content %} 
+    <div id="notzi"></div>
+    <div class="row"> 
+            <div class="col-xs-12">
+    <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">La liste complète des organismes</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Organisme</th>
+                        <th>E-mail</th>
+                        <th>Téléphone</th>
+                        <th>Adresse</th>
+                        <th>Etat</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for organisme in listeOrganisme %}
+                      <tr>
+                        
+                        <td>{{organisme.nom}}</td>
+                        <td>{{organisme.email}}</td>
+                        <td> {{organisme.telephone}}</td>
+                        <td>{{organisme.adresse}}</td>
+                        {% if organisme.etat == 0 %}
+                            <td><span class="label label-danger">Non valide</span></td>
+                        {% else %}
+                            <td><span class="label label-success">Valide</span></td>
+                            {% endif %}
+                        <td><div class="btn-group">
+                      <button type="button" class="btn btn-info">Action</button>
+                      <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                          <li><i class="fa fa-info-circle"><a href="{{ path('details_organisme', {'id': organisme.idorganisme}) }}" >    Détails</a></i></li>
+                          <li><i class="fa fa-list-alt"><a href="{{asset('uploads/file/document/' ~ organisme.document)}}">    Documents</a></i></li>
+                        
+                         {% if organisme.etat == 0 %}
+                        <li><i class="fa fa-check"><a href="{{ path('valider_organisme', {'id': organisme.idorganisme,'mail': organisme.email}) }}">    Valider</a></i></li>
+                        {% else %}
+                        <li><i class="fa fa-times-circle"><a href="{{ path('bloquer_organisme', {'id': organisme.idorganisme}) }}">    Bloquer</a></i></li>
+                        {% endif %}
+                        <li class="divider"></li>
+                        <li><i class="fa fa-trash-o"><a href="{{ path('supprimer_organisme', {'id': organisme.idorganisme}) }}">    Supprimer</a></i></li>
+                      </ul>
+                    </div></td>
+                      </tr>
+                      {% endfor %}
+                      
+                      </tbody> 
+                  </table>
+                      <a href="{{ path('print')}}" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div>
+        </div>
+    
+{% block javascripts_inline %}
+    <script>
+      $(function () {
+        $("#example1").DataTable();
+        $('#example2').DataTable({
+          "paging": true,
+          "lengthChange": false,
+          "searching": false,
+          "ordering": true,
+          "info": true,
+          "autoWidth": false
+        });
+      });
+      
+      function notzi(message, type) {
+    
+    var html =  '<div class="alert alert-' + type + ' alert-dismissable page-alert">';
+    html +=     '<button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>';
+    html +=     message;
+    html +=     '</div>';    
+    
+    $(html).hide().prependTo('#notzi').slideDown(200);
+};
+
+$( function () {
+    
+    notzi('Un mail a été envoyé à l\'organisme concerné ', 'success');
+    
+   
+    
+    $('.page-alert .close').click( function(e) {
+        e.preventDefault();
+        $(this).closest('.page-alert').slideUp(200);
+    });
+    
+});
+    </script>
+    
+    
+{% endblock %}
+    
+    {% endblock %}

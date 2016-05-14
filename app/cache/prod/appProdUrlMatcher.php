@@ -379,16 +379,6 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
             return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ApprenantController::suivreCoursAction',  '_route' => 'mooc_suivre_cour_apprenant',);
         }
 
-        // mooc_supprimer_cours_apprenant
-        if (preg_match('#^/(?P<idCourSuivi>[^/]++)/(?P<login>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_supprimer_cours_apprenant')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ApprenantController::supprimerAction',));
-        }
-
-        // mooc_editer_password_apprenant
-        if (preg_match('#^/(?P<login>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_editer_password_apprenant')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ApprenantController::editPasswordAction',));
-        }
-
         // mooc_consult_cours_apprenant
         if (0 === strpos($pathinfo, '/consulterCours') && preg_match('#^/consulterCours/(?P<cours>[^/]++)/(?P<login>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_consult_cours_apprenant')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ApprenantController::consultAction',));
@@ -548,6 +538,19 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
         // mooc_mooc_publierCoursOrganisme
         if (0 === strpos($pathinfo, '/publierCoursOrganisme') && preg_match('#^/publierCoursOrganisme/(?P<name>[^/]++)/(?P<nbr>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_publierCoursOrganisme')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\OrganismeController::publierCoursOrganismeAction',));
+        }
+
+        if (0 === strpos($pathinfo, '/logout')) {
+            // mooc_mooc_log_out_admin
+            if ($pathinfo === '/logoutadmin') {
+                return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\AdminController::logoutadminAction',  '_route' => 'mooc_mooc_log_out_admin',);
+            }
+
+            // mooc_mooc_log_out_comite
+            if ($pathinfo === '/logoutcomite') {
+                return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ComiteController::logoutcomiteAction',  '_route' => 'mooc_mooc_log_out_comite',);
+            }
+
         }
 
         // homepage
@@ -735,10 +738,15 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
 
             }
 
-            if (0 === strpos($pathinfo, '/admin/liste-')) {
+            if (0 === strpos($pathinfo, '/admin/liste')) {
                 // liste_organisme
                 if ($pathinfo === '/admin/liste-organisme') {
                     return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::listeOrganismeAction',  '_route' => 'liste_organisme',);
+                }
+
+                // liste_organisme2
+                if ($pathinfo === '/admin/listee-organisme') {
+                    return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::listeOrganisme2Action',  '_route' => 'liste_organisme2',);
                 }
 
                 // liste_formateur
@@ -764,7 +772,7 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
             }
 
             // valider_organisme
-            if (0 === strpos($pathinfo, '/admin/valider-organisme') && preg_match('#^/admin/valider\\-organisme/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            if (0 === strpos($pathinfo, '/admin/valider-organisme') && preg_match('#^/admin/valider\\-organisme/(?P<id>[^/]++)/(?P<mail>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'valider_organisme')), array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::validerOrganismeAction',));
             }
 
@@ -781,6 +789,11 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
             // print
             if ($pathinfo === '/admin/print') {
                 return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::printAction',  '_route' => 'print',);
+            }
+
+            // admin_mail_organisme
+            if (0 === strpos($pathinfo, '/admin/mail-organisme') && preg_match('#^/admin/mail\\-organisme/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_mail_organisme')), array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::SendmailAction',));
             }
 
         }

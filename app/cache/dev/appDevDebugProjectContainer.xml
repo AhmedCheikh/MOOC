@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
-    <parameter key="kernel.root_dir">C:\wamp\www\Mooc_Web\app</parameter>
+    <parameter key="kernel.root_dir">C:\xampp\htdocs\MOOC_3A2_Web\app</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
-    <parameter key="kernel.name">ap_</parameter>
-    <parameter key="kernel.cache_dir">C:/wamp/www/Mooc_Web/app/cache/dev</parameter>
-    <parameter key="kernel.logs_dir">C:\wamp\www\Mooc_Web\app\logs</parameter>
+    <parameter key="kernel.name">app</parameter>
+    <parameter key="kernel.cache_dir">C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev</parameter>
+    <parameter key="kernel.logs_dir">C:\xampp\htdocs\MOOC_3A2_Web\app\logs</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
@@ -112,7 +112,7 @@
     <parameter key="session.storage.options" type="collection">
       <parameter key="gc_probability">1</parameter>
     </parameter>
-    <parameter key="session.save_path">C:/wamp/www/Mooc_Web/app/cache/dev/sessions</parameter>
+    <parameter key="session.save_path">C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev/sessions</parameter>
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="security.secure_random.class">Symfony\Component\Security\Core\Util\SecureRandom</parameter>
     <parameter key="form.resolved_type_factory.class">Symfony\Component\Form\ResolvedFormTypeFactory</parameter>
@@ -188,7 +188,7 @@
     <parameter key="data_collector.form.extractor.class">Symfony\Component\Form\Extension\DataCollector\FormDataExtractor</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_master_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:C:/wamp/www/Mooc_Web/app/cache/dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev/profiler</parameter>
     <parameter key="profiler.storage.username"></parameter>
     <parameter key="profiler.storage.password"></parameter>
     <parameter key="profiler.storage.lifetime">86400</parameter>
@@ -213,7 +213,7 @@
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
-    <parameter key="router.resource">C:\wamp\www\Mooc_Web\app/config/routing_dev.yml</parameter>
+    <parameter key="router.resource">C:\xampp\htdocs\MOOC_3A2_Web\app/config/routing_dev.yml</parameter>
     <parameter key="router.cache_class_prefix">appDev</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
@@ -224,7 +224,7 @@
     <parameter key="debug.stopwatch.class">Symfony\Component\Stopwatch\Stopwatch</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
     <parameter key="debug.event_dispatcher.class">Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher</parameter>
-    <parameter key="debug.container.dump">C:/wamp/www/Mooc_Web/app/cache/dev/appDevDebugProjectContainer.xml</parameter>
+    <parameter key="debug.container.dump">C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev/appDevDebugProjectContainer.xml</parameter>
     <parameter key="debug.controller_resolver.class">Symfony\Component\HttpKernel\Controller\TraceableControllerResolver</parameter>
     <parameter key="security.context.class">Symfony\Component\Security\Core\SecurityContext</parameter>
     <parameter key="security.user_checker.class">Symfony\Component\Security\Core\User\UserChecker</parameter>
@@ -349,7 +349,7 @@
         <parameter>Symfony\Bundle\TwigBundle\TwigDefaultEscapingStrategy</parameter>
         <parameter>guess</parameter>
       </parameter>
-      <parameter key="cache">C:/wamp/www/Mooc_Web/app/cache/dev/twig</parameter>
+      <parameter key="cache">C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev/twig</parameter>
       <parameter key="charset">UTF-8</parameter>
       <parameter key="paths" type="collection"/>
     </parameter>
@@ -436,7 +436,7 @@
     <parameter key="swiftmailer.mailer.default.transport.smtp.auth_mode">login</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.timeout">30</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.source_ip">null</parameter>
-    <parameter key="swiftmailer.spool.default.memory.path">C:/wamp/www/Mooc_Web/app/cache/dev/swiftmailer/spool/default</parameter>
+    <parameter key="swiftmailer.spool.default.memory.path">C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev/swiftmailer/spool/default</parameter>
     <parameter key="swiftmailer.mailer.default.spool.enabled">true</parameter>
     <parameter key="swiftmailer.mailer.default.plugin.impersonate">null</parameter>
     <parameter key="swiftmailer.mailer.default.single_address">null</parameter>
@@ -461,7 +461,7 @@
     <parameter key="assetic.worker.cache_busting.class">Assetic\Factory\Worker\CacheBustingWorker</parameter>
     <parameter key="assetic.value_supplier.class">Symfony\Bundle\AsseticBundle\DefaultValueSupplier</parameter>
     <parameter key="assetic.node.paths" type="collection"/>
-    <parameter key="assetic.cache_dir">C:/wamp/www/Mooc_Web/app/cache/dev/assetic</parameter>
+    <parameter key="assetic.cache_dir">C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev/assetic</parameter>
     <parameter key="assetic.bundles" type="collection">
       <parameter>AvanzuAdminThemeBundle</parameter>
     </parameter>
@@ -473,8 +473,8 @@
     <parameter key="assetic.debug">true</parameter>
     <parameter key="assetic.use_controller">false</parameter>
     <parameter key="assetic.enable_profiler">false</parameter>
-    <parameter key="assetic.read_from">C:\wamp\www\Mooc_Web\app/../web</parameter>
-    <parameter key="assetic.write_to">C:\wamp\www\Mooc_Web\app/../web</parameter>
+    <parameter key="assetic.read_from">C:\xampp\htdocs\MOOC_3A2_Web\app/../web</parameter>
+    <parameter key="assetic.write_to">C:\xampp\htdocs\MOOC_3A2_Web\app/../web</parameter>
     <parameter key="assetic.variables" type="collection"/>
     <parameter key="assetic.java.bin">C:\ProgramData\Oracle\Java\javapath\java.EXE</parameter>
     <parameter key="assetic.node.bin">/usr/bin/node</parameter>
@@ -590,7 +590,7 @@
     <parameter key="doctrine.orm.second_level_cache.cache_configuration.class">Doctrine\ORM\Cache\CacheConfiguration</parameter>
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">C:/wamp/www/Mooc_Web/app/cache/dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="sensio_framework_extra.view.guesser.class">Sensio\Bundle\FrameworkExtraBundle\Templating\TemplateGuesser</parameter>
     <parameter key="sensio_framework_extra.controller.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener</parameter>
@@ -2151,7 +2151,7 @@
                 <parameter key="type">method</parameter>
                 <parameter key="label"></parameter>
                 <parameter key="css_class">text-primary action-edit</parameter>
-                <parameter key="icon">pencil</parameter>
+                <parameter key="icon"></parameter>
                 <parameter key="class"></parameter>
               </parameter>
               <parameter key="new" type="collection">
@@ -3268,6 +3268,28 @@
             </parameter>
             <parameter key="title">Liste des Organismes</parameter>
             <parameter key="fields" type="collection">
+              <parameter key="logo" type="collection">
+                <parameter key="css_class"></parameter>
+                <parameter key="format">null</parameter>
+                <parameter key="help">null</parameter>
+                <parameter key="label">Logo</parameter>
+                <parameter key="type">image</parameter>
+                <parameter key="fieldType">text</parameter>
+                <parameter key="dataType">image</parameter>
+                <parameter key="virtual">false</parameter>
+                <parameter key="sortable">true</parameter>
+                <parameter key="template">@EasyAdmin/default/field_image.html.twig</parameter>
+                <parameter key="type_options" type="collection"/>
+                <parameter key="fieldName">logo</parameter>
+                <parameter key="scale">0</parameter>
+                <parameter key="length">null</parameter>
+                <parameter key="unique">false</parameter>
+                <parameter key="nullable">true</parameter>
+                <parameter key="precision">0</parameter>
+                <parameter key="columnName">logo</parameter>
+                <parameter key="property">logo</parameter>
+                <parameter key="base_path">http://localhost/Mooc_3A2_web/web/uploads/img/logo/</parameter>
+              </parameter>
               <parameter key="nom" type="collection">
                 <parameter key="css_class"></parameter>
                 <parameter key="format">null</parameter>
@@ -3373,27 +3395,6 @@
                 <parameter key="columnName">telephone</parameter>
                 <parameter key="property">telephone</parameter>
               </parameter>
-              <parameter key="description" type="collection">
-                <parameter key="css_class"></parameter>
-                <parameter key="format">null</parameter>
-                <parameter key="help">null</parameter>
-                <parameter key="label">null</parameter>
-                <parameter key="type">string</parameter>
-                <parameter key="fieldType">text</parameter>
-                <parameter key="dataType">string</parameter>
-                <parameter key="virtual">false</parameter>
-                <parameter key="sortable">true</parameter>
-                <parameter key="template">@EasyAdmin/default/field_string.html.twig</parameter>
-                <parameter key="type_options" type="collection"/>
-                <parameter key="fieldName">description</parameter>
-                <parameter key="scale">0</parameter>
-                <parameter key="length">255</parameter>
-                <parameter key="unique">false</parameter>
-                <parameter key="nullable">true</parameter>
-                <parameter key="precision">0</parameter>
-                <parameter key="columnName">description</parameter>
-                <parameter key="property">description</parameter>
-              </parameter>
               <parameter key="etat" type="collection">
                 <parameter key="css_class"></parameter>
                 <parameter key="format">null</parameter>
@@ -3404,7 +3405,7 @@
                 <parameter key="dataType">integer</parameter>
                 <parameter key="virtual">false</parameter>
                 <parameter key="sortable">true</parameter>
-                <parameter key="template">@EasyAdmin/default/field_integer.html.twig</parameter>
+                <parameter key="template">easy_admin/Organisme/etat.html.twig</parameter>
                 <parameter key="type_options" type="collection"/>
                 <parameter key="fieldName">etat</parameter>
                 <parameter key="scale">0</parameter>
@@ -3419,6 +3420,28 @@
           </parameter>
           <parameter key="show" type="collection">
             <parameter key="fields" type="collection">
+              <parameter key="logo" type="collection">
+                <parameter key="css_class"></parameter>
+                <parameter key="format">null</parameter>
+                <parameter key="help">null</parameter>
+                <parameter key="label">Logo</parameter>
+                <parameter key="type">image</parameter>
+                <parameter key="fieldType">text</parameter>
+                <parameter key="dataType">image</parameter>
+                <parameter key="virtual">false</parameter>
+                <parameter key="sortable">true</parameter>
+                <parameter key="template">@EasyAdmin/default/field_image.html.twig</parameter>
+                <parameter key="type_options" type="collection"/>
+                <parameter key="fieldName">logo</parameter>
+                <parameter key="scale">0</parameter>
+                <parameter key="length">null</parameter>
+                <parameter key="unique">false</parameter>
+                <parameter key="nullable">true</parameter>
+                <parameter key="precision">0</parameter>
+                <parameter key="columnName">logo</parameter>
+                <parameter key="property">logo</parameter>
+                <parameter key="base_path">http://localhost/Mooc_3A2_web/web/uploads/img/logo/</parameter>
+              </parameter>
               <parameter key="nom" type="collection">
                 <parameter key="css_class"></parameter>
                 <parameter key="format">null</parameter>
@@ -5595,7 +5618,7 @@ body.error .error-message {
     <parameter key="vich_uploader.mappings" type="collection">
       <parameter key="formateur_image" type="collection">
         <parameter key="uri_prefix">/img/avatar</parameter>
-        <parameter key="upload_destination">C:\wamp\www\Mooc_Web\app/../web/uploads/img/avatar</parameter>
+        <parameter key="upload_destination">C:\xampp\htdocs\MOOC_3A2_Web\app/../web/uploads/img/avatar</parameter>
         <parameter key="namer" type="collection">
           <parameter key="service">null</parameter>
           <parameter key="options">null</parameter>
@@ -5608,7 +5631,7 @@ body.error .error-message {
       </parameter>
       <parameter key="formateur_cv" type="collection">
         <parameter key="uri_prefix">/file/cv</parameter>
-        <parameter key="upload_destination">C:\wamp\www\Mooc_Web\app/../web/uploads/file/cv</parameter>
+        <parameter key="upload_destination">C:\xampp\htdocs\MOOC_3A2_Web\app/../web/uploads/file/cv</parameter>
         <parameter key="namer" type="collection">
           <parameter key="service">null</parameter>
           <parameter key="options">null</parameter>
@@ -5695,7 +5718,7 @@ body.error .error-message {
     <parameter key="gregwar_image.cache_dir_mode">null</parameter>
     <parameter key="gregwar_image.throw_exception">false</parameter>
     <parameter key="gregwar_image.fallback_image">web/bundles/moocmooc/ApprenantAssets/img/defaut.jpg</parameter>
-    <parameter key="gregwar_image.web_dir">C:\wamp\www\Mooc_Web\app/../web</parameter>
+    <parameter key="gregwar_image.web_dir">C:\xampp\htdocs\MOOC_3A2_Web\app/../web</parameter>
     <parameter key="image.handling.class">Gregwar\ImageBundle\Services\ImageHandling</parameter>
     <parameter key="image.handler.class">Gregwar\ImageBundle\ImageHandler</parameter>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
@@ -5816,7 +5839,7 @@ body.error .error-message {
               <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder" public="false">
                 <argument type="service" id="kernel"/>
                 <argument type="service" id="templating.filename_parser"/>
-                <argument>C:\wamp\www\Mooc_Web\app/Resources</argument>
+                <argument>C:\xampp\htdocs\MOOC_3A2_Web\app/Resources</argument>
               </service>
             </argument>
             <argument type="service" id="templating.locator"/>
@@ -5842,7 +5865,7 @@ body.error .error-message {
               <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder" public="false">
                 <argument type="service" id="kernel"/>
                 <argument type="service" id="templating.filename_parser"/>
-                <argument>C:\wamp\www\Mooc_Web\app/Resources</argument>
+                <argument>C:\xampp\htdocs\MOOC_3A2_Web\app/Resources</argument>
               </service>
             </argument>
           </service>
@@ -5864,7 +5887,7 @@ body.error .error-message {
     <service id="filesystem" class="Symfony\Component\Filesystem\Filesystem"/>
     <service id="file_locator" class="Symfony\Component\HttpKernel\Config\FileLocator">
       <argument type="service" id="kernel"/>
-      <argument>C:\wamp\www\Mooc_Web\app/Resources</argument>
+      <argument>C:\xampp\htdocs\MOOC_3A2_Web\app/Resources</argument>
     </service>
     <service id="uri_signer" class="Symfony\Component\HttpKernel\UriSigner">
       <argument>ThisTokenIsNotSoSecretChangeIt</argument>
@@ -5963,7 +5986,7 @@ body.error .error-message {
         </argument>
       </argument>
       <argument type="collection">
-        <argument key="cache_dir">C:/wamp/www/Mooc_Web/app/cache/dev/translations</argument>
+        <argument key="cache_dir">C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev/translations</argument>
         <argument key="debug">true</argument>
       </argument>
       <call method="setFallbackLocales">
@@ -5973,1021 +5996,1021 @@ body.error .error-message {
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.af.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.af.xlf</argument>
         <argument>af</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.ar.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.ar.xlf</argument>
         <argument>ar</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.az.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.az.xlf</argument>
         <argument>az</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.bg.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.bg.xlf</argument>
         <argument>bg</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.ca.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.ca.xlf</argument>
         <argument>ca</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.cs.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.cs.xlf</argument>
         <argument>cs</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.cy.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.cy.xlf</argument>
         <argument>cy</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.da.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.da.xlf</argument>
         <argument>da</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.de.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.de.xlf</argument>
         <argument>de</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.el.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.el.xlf</argument>
         <argument>el</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.en.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.en.xlf</argument>
         <argument>en</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.es.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.es.xlf</argument>
         <argument>es</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.et.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.et.xlf</argument>
         <argument>et</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.eu.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.eu.xlf</argument>
         <argument>eu</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.fa.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.fa.xlf</argument>
         <argument>fa</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.fi.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.fi.xlf</argument>
         <argument>fi</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.fr.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.fr.xlf</argument>
         <argument>fr</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.gl.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.gl.xlf</argument>
         <argument>gl</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.he.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.he.xlf</argument>
         <argument>he</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.hr.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.hr.xlf</argument>
         <argument>hr</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.hu.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.hu.xlf</argument>
         <argument>hu</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.hy.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.hy.xlf</argument>
         <argument>hy</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.id.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.id.xlf</argument>
         <argument>id</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.it.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.it.xlf</argument>
         <argument>it</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.ja.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.ja.xlf</argument>
         <argument>ja</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.lb.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.lb.xlf</argument>
         <argument>lb</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.lt.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.lt.xlf</argument>
         <argument>lt</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.mn.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.mn.xlf</argument>
         <argument>mn</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.nb.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.nb.xlf</argument>
         <argument>nb</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.nl.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.nl.xlf</argument>
         <argument>nl</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.no.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.no.xlf</argument>
         <argument>no</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.pl.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.pl.xlf</argument>
         <argument>pl</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.pt.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.pt.xlf</argument>
         <argument>pt</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.pt_BR.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.pt_BR.xlf</argument>
         <argument>pt_BR</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.ro.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.ro.xlf</argument>
         <argument>ro</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.ru.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.ru.xlf</argument>
         <argument>ru</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.sk.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.sk.xlf</argument>
         <argument>sk</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.sl.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.sl.xlf</argument>
         <argument>sl</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.sq.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.sq.xlf</argument>
         <argument>sq</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.sr_Cyrl.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.sr_Cyrl.xlf</argument>
         <argument>sr_Cyrl</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.sr_Latn.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.sr_Latn.xlf</argument>
         <argument>sr_Latn</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.sv.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.sv.xlf</argument>
         <argument>sv</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.th.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.th.xlf</argument>
         <argument>th</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.tr.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.tr.xlf</argument>
         <argument>tr</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.uk.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.uk.xlf</argument>
         <argument>uk</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.vi.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.vi.xlf</argument>
         <argument>vi</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.zh_CN.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.zh_CN.xlf</argument>
         <argument>zh_CN</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.zh_TW.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.zh_TW.xlf</argument>
         <argument>zh_TW</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.ar.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.ar.xlf</argument>
         <argument>ar</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.az.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.az.xlf</argument>
         <argument>az</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.bg.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.bg.xlf</argument>
         <argument>bg</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.ca.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.ca.xlf</argument>
         <argument>ca</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.cs.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.cs.xlf</argument>
         <argument>cs</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.da.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.da.xlf</argument>
         <argument>da</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.de.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.de.xlf</argument>
         <argument>de</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.el.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.el.xlf</argument>
         <argument>el</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.en.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.en.xlf</argument>
         <argument>en</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.es.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.es.xlf</argument>
         <argument>es</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.et.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.et.xlf</argument>
         <argument>et</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.eu.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.eu.xlf</argument>
         <argument>eu</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.fa.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.fa.xlf</argument>
         <argument>fa</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.fi.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.fi.xlf</argument>
         <argument>fi</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.fr.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.fr.xlf</argument>
         <argument>fr</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.gl.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.gl.xlf</argument>
         <argument>gl</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.he.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.he.xlf</argument>
         <argument>he</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.hr.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.hr.xlf</argument>
         <argument>hr</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.hu.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.hu.xlf</argument>
         <argument>hu</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.hy.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.hy.xlf</argument>
         <argument>hy</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.id.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.id.xlf</argument>
         <argument>id</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.it.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.it.xlf</argument>
         <argument>it</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.ja.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.ja.xlf</argument>
         <argument>ja</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.lb.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.lb.xlf</argument>
         <argument>lb</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.lt.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.lt.xlf</argument>
         <argument>lt</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.lv.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.lv.xlf</argument>
         <argument>lv</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.mn.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.mn.xlf</argument>
         <argument>mn</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.nb.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.nb.xlf</argument>
         <argument>nb</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.nl.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.nl.xlf</argument>
         <argument>nl</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.pl.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.pl.xlf</argument>
         <argument>pl</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.pt.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.pt.xlf</argument>
         <argument>pt</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.pt_BR.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.pt_BR.xlf</argument>
         <argument>pt_BR</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.ro.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.ro.xlf</argument>
         <argument>ro</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.ru.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.ru.xlf</argument>
         <argument>ru</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.sk.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.sk.xlf</argument>
         <argument>sk</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.sl.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.sl.xlf</argument>
         <argument>sl</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.sr_Cyrl.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.sr_Cyrl.xlf</argument>
         <argument>sr_Cyrl</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.sr_Latn.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.sr_Latn.xlf</argument>
         <argument>sr_Latn</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.sv.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.sv.xlf</argument>
         <argument>sv</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.uk.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.uk.xlf</argument>
         <argument>uk</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.zh_CN.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/translations\validators.zh_CN.xlf</argument>
         <argument>zh_CN</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.ar.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.ar.xlf</argument>
         <argument>ar</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.az.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.az.xlf</argument>
         <argument>az</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.bg.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.bg.xlf</argument>
         <argument>bg</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.ca.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.ca.xlf</argument>
         <argument>ca</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.cs.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.cs.xlf</argument>
         <argument>cs</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.da.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.da.xlf</argument>
         <argument>da</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.de.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.de.xlf</argument>
         <argument>de</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.el.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.el.xlf</argument>
         <argument>el</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.en.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.en.xlf</argument>
         <argument>en</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.es.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.es.xlf</argument>
         <argument>es</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.fa.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.fa.xlf</argument>
         <argument>fa</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.fr.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.fr.xlf</argument>
         <argument>fr</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.gl.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.gl.xlf</argument>
         <argument>gl</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.he.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.he.xlf</argument>
         <argument>he</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.hr.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.hr.xlf</argument>
         <argument>hr</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.hu.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.hu.xlf</argument>
         <argument>hu</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.id.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.id.xlf</argument>
         <argument>id</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.it.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.it.xlf</argument>
         <argument>it</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.ja.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.ja.xlf</argument>
         <argument>ja</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.lb.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.lb.xlf</argument>
         <argument>lb</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.lt.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.lt.xlf</argument>
         <argument>lt</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.nl.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.nl.xlf</argument>
         <argument>nl</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.no.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.no.xlf</argument>
         <argument>no</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.pl.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.pl.xlf</argument>
         <argument>pl</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.pt_BR.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.pt_BR.xlf</argument>
         <argument>pt_BR</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.pt_PT.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.pt_PT.xlf</argument>
         <argument>pt_PT</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.ro.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.ro.xlf</argument>
         <argument>ro</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.ru.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.ru.xlf</argument>
         <argument>ru</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.sk.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.sk.xlf</argument>
         <argument>sk</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.sl.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.sl.xlf</argument>
         <argument>sl</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.sr_Cyrl.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.sr_Cyrl.xlf</argument>
         <argument>sr_Cyrl</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.sr_Latn.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.sr_Latn.xlf</argument>
         <argument>sr_Latn</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.sv.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.sv.xlf</argument>
         <argument>sv</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.th.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.th.xlf</argument>
         <argument>th</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.tr.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.tr.xlf</argument>
         <argument>tr</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.ua.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.ua.xlf</argument>
         <argument>ua</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.vi.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.vi.xlf</argument>
         <argument>vi</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.zh_CN.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Security\Core\Exception/../Resources/translations\security.zh_CN.xlf</argument>
         <argument>zh_CN</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\src\Mooc\MoocBundle/Resources/translations\messages.fr.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\src\Mooc\MoocBundle/Resources/translations\messages.fr.xlf</argument>
         <argument>fr</argument>
         <argument>messages</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.bg.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.bg.xlf</argument>
         <argument>bg</argument>
         <argument>EasyAdminBundle</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.ca.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.ca.xlf</argument>
         <argument>ca</argument>
         <argument>EasyAdminBundle</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.cs.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.cs.xlf</argument>
         <argument>cs</argument>
         <argument>EasyAdminBundle</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.de.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.de.xlf</argument>
         <argument>de</argument>
         <argument>EasyAdminBundle</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.en.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.en.xlf</argument>
         <argument>en</argument>
         <argument>EasyAdminBundle</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.es.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.es.xlf</argument>
         <argument>es</argument>
         <argument>EasyAdminBundle</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.eu.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.eu.xlf</argument>
         <argument>eu</argument>
         <argument>EasyAdminBundle</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.fr.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.fr.xlf</argument>
         <argument>fr</argument>
         <argument>EasyAdminBundle</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.it.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.it.xlf</argument>
         <argument>it</argument>
         <argument>EasyAdminBundle</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.nl.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.nl.xlf</argument>
         <argument>nl</argument>
         <argument>EasyAdminBundle</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.pl.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.pl.xlf</argument>
         <argument>pl</argument>
         <argument>EasyAdminBundle</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.pt.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.pt.xlf</argument>
         <argument>pt</argument>
         <argument>EasyAdminBundle</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.ro.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.ro.xlf</argument>
         <argument>ro</argument>
         <argument>EasyAdminBundle</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.ru.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.ru.xlf</argument>
         <argument>ru</argument>
         <argument>EasyAdminBundle</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.sl.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.sl.xlf</argument>
         <argument>sl</argument>
         <argument>EasyAdminBundle</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.sv.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.sv.xlf</argument>
         <argument>sv</argument>
         <argument>EasyAdminBundle</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.tr.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.tr.xlf</argument>
         <argument>tr</argument>
         <argument>EasyAdminBundle</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.bg.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.bg.xlf</argument>
         <argument>bg</argument>
         <argument>messages</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.ca.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.ca.xlf</argument>
         <argument>ca</argument>
         <argument>messages</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.cs.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.cs.xlf</argument>
         <argument>cs</argument>
         <argument>messages</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.de.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.de.xlf</argument>
         <argument>de</argument>
         <argument>messages</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.en.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.en.xlf</argument>
         <argument>en</argument>
         <argument>messages</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.es.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.es.xlf</argument>
         <argument>es</argument>
         <argument>messages</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.eu.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.eu.xlf</argument>
         <argument>eu</argument>
         <argument>messages</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.fr.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.fr.xlf</argument>
         <argument>fr</argument>
         <argument>messages</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.it.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.it.xlf</argument>
         <argument>it</argument>
         <argument>messages</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.nl.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.nl.xlf</argument>
         <argument>nl</argument>
         <argument>messages</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.pl.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.pl.xlf</argument>
         <argument>pl</argument>
         <argument>messages</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.pt.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.pt.xlf</argument>
         <argument>pt</argument>
         <argument>messages</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.ro.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.ro.xlf</argument>
         <argument>ro</argument>
         <argument>messages</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.ru.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.ru.xlf</argument>
         <argument>ru</argument>
         <argument>messages</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.sl.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.sl.xlf</argument>
         <argument>sl</argument>
         <argument>messages</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.sv.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.sv.xlf</argument>
         <argument>sv</argument>
         <argument>messages</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.tr.xlf</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.tr.xlf</argument>
         <argument>tr</argument>
         <argument>messages</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.ar.yml</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.ar.yml</argument>
         <argument>ar</argument>
         <argument>VichUploaderBundle</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.de.yml</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.de.yml</argument>
         <argument>de</argument>
         <argument>VichUploaderBundle</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.en.yml</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.en.yml</argument>
         <argument>en</argument>
         <argument>VichUploaderBundle</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.es.yml</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.es.yml</argument>
         <argument>es</argument>
         <argument>VichUploaderBundle</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.fr.yml</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.fr.yml</argument>
         <argument>fr</argument>
         <argument>VichUploaderBundle</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.pl.yml</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.pl.yml</argument>
         <argument>pl</argument>
         <argument>VichUploaderBundle</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.ru.yml</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.ru.yml</argument>
         <argument>ru</argument>
         <argument>VichUploaderBundle</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>C:\wamp\www\Mooc_Web\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.uk.yml</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.uk.yml</argument>
         <argument>uk</argument>
         <argument>VichUploaderBundle</argument>
       </call>
@@ -7197,7 +7220,7 @@ body.error .error-message {
     </service>
     <service id="security.secure_random" class="Symfony\Component\Security\Core\Util\SecureRandom">
       <tag name="monolog.logger" channel="security"/>
-      <argument>C:/wamp/www/Mooc_Web/app/cache/dev/secure_random.seed</argument>
+      <argument>C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev/secure_random.seed</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="ignore"/>
     </service>
     <service id="form.resolved_type_factory" class="Symfony\Component\Form\Extension\DataCollector\Proxy\ResolvedTypeFactoryDataCollectorProxy">
@@ -7416,7 +7439,7 @@ body.error .error-message {
     <service id="templating.filename_parser" class="Symfony\Bundle\FrameworkBundle\Templating\TemplateFilenameParser"/>
     <service id="templating.locator" class="Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator" public="false">
       <argument type="service" id="file_locator"/>
-      <argument>C:/wamp/www/Mooc_Web/app/cache/dev</argument>
+      <argument>C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev</argument>
     </service>
     <service id="templating.helper.slots" class="Symfony\Component\Templating\Helper\SlotsHelper">
       <tag name="templating.helper" alias="slots"/>
@@ -7454,7 +7477,7 @@ body.error .error-message {
     <service id="templating.helper.code" class="Symfony\Bundle\FrameworkBundle\Templating\Helper\CodeHelper">
       <tag name="templating.helper" alias="code"/>
       <argument>null</argument>
-      <argument>C:\wamp\www\Mooc_Web\app</argument>
+      <argument>C:\xampp\htdocs\MOOC_3A2_Web\app</argument>
       <argument>UTF-8</argument>
     </service>
     <service id="templating.helper.translator" class="Symfony\Bundle\FrameworkBundle\Templating\Helper\TranslatorHelper">
@@ -7509,7 +7532,7 @@ body.error .error-message {
       </call>
       <call method="addXmlMappings">
         <argument type="collection">
-          <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/config/validation.xml</argument>
+          <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/config/validation.xml</argument>
         </argument>
       </call>
       <call method="enableAnnotationMapping">
@@ -7545,7 +7568,7 @@ body.error .error-message {
       <tag name="monolog.logger" channel="profiler"/>
       <argument type="service">
         <service class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage" public="false">
-          <argument>file:C:/wamp/www/Mooc_Web/app/cache/dev/profiler</argument>
+          <argument>file:C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev/profiler</argument>
           <argument></argument>
           <argument></argument>
           <argument>86400</argument>
@@ -8280,7 +8303,7 @@ body.error .error-message {
           <argument>Symfony\Bundle\TwigBundle\TwigDefaultEscapingStrategy</argument>
           <argument>guess</argument>
         </argument>
-        <argument key="cache">C:/wamp/www/Mooc_Web/app/cache/dev/twig</argument>
+        <argument key="cache">C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="paths" type="collection"/>
       </argument>
@@ -8330,7 +8353,7 @@ body.error .error-message {
           <service class="Symfony\Bridge\Twig\Extension\CodeExtension" public="false">
             <tag name="twig.extension"/>
             <argument>null</argument>
-            <argument>C:\wamp\www\Mooc_Web\app</argument>
+            <argument>C:\xampp\htdocs\MOOC_3A2_Web\app</argument>
             <argument>UTF-8</argument>
           </service>
         </argument>
@@ -8505,7 +8528,7 @@ body.error .error-message {
       <argument>twig.controller.exception:showAction</argument>
     </service>
     <service id="monolog.handler.main" class="Monolog\Handler\StreamHandler">
-      <argument>C:\wamp\www\Mooc_Web\app\logs/dev.log</argument>
+      <argument>C:\xampp\htdocs\MOOC_3A2_Web\app\logs/dev.log</argument>
       <argument>100</argument>
       <argument>true</argument>
       <argument>null</argument>
@@ -8572,7 +8595,7 @@ body.error .error-message {
             </argument>
             <argument type="service">
               <service class="Assetic\Cache\ConfigCache" public="false">
-                <argument>C:/wamp/www/Mooc_Web/app/cache/dev/assetic/config</argument>
+                <argument>C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev/assetic/config</argument>
               </service>
             </argument>
             <argument>true</argument>
@@ -8756,7 +8779,7 @@ body.error .error-message {
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>AvanzuAdminThemeBundle</argument>
-                  <argument>C:\wamp\www\Mooc_Web\app/Resources/AvanzuAdminThemeBundle/views</argument>
+                  <argument>C:\xampp\htdocs\MOOC_3A2_Web\app/Resources/AvanzuAdminThemeBundle/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -8764,7 +8787,7 @@ body.error .error-message {
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>AvanzuAdminThemeBundle</argument>
-                  <argument>C:\wamp\www\Mooc_Web\vendor\avanzu\admin-theme-bundle/Resources/views</argument>
+                  <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\avanzu\admin-theme-bundle/Resources/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -8780,7 +8803,7 @@ body.error .error-message {
             <tag name="assetic.formula_resource" loader="twig"/>
             <argument type="service" id="templating.loader"/>
             <argument></argument>
-            <argument>C:\wamp\www\Mooc_Web\app/Resources/views</argument>
+            <argument>C:\xampp\htdocs\MOOC_3A2_Web\app/Resources/views</argument>
             <argument>/\.[^.]+\.twig$/</argument>
           </service>
         </argument>
@@ -8795,7 +8818,7 @@ body.error .error-message {
           <factory service="service_container" method="getParameterBag"/>
         </service>
       </argument>
-      <argument>C:\wamp\www\Mooc_Web\app/../web</argument>
+      <argument>C:\xampp\htdocs\MOOC_3A2_Web\app/../web</argument>
       <argument>true</argument>
     </service>
     <service id="assetic.filter.cssrewrite" class="Assetic\Filter\CssRewriteFilter">
@@ -8954,17 +8977,17 @@ body.error .error-message {
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_metadata_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_3367d5f0454021691b579520967c2ec2922f2b974c667119c40ddabad3495f57</argument>
+        <argument>sf2orm_default_fe17d8e4255b9618918e2bd00b68a4430f7628722a230e3c6248f936281c4fb3</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_result_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_3367d5f0454021691b579520967c2ec2922f2b974c667119c40ddabad3495f57</argument>
+        <argument>sf2orm_default_fe17d8e4255b9618918e2bd00b68a4430f7628722a230e3c6248f936281c4fb3</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_query_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_3367d5f0454021691b579520967c2ec2922f2b974c667119c40ddabad3495f57</argument>
+        <argument>sf2orm_default_fe17d8e4255b9618918e2bd00b68a4430f7628722a230e3c6248f936281c4fb3</argument>
       </call>
     </service>
     <service id="doctrine.orm.default_entity_listener_resolver" class="Doctrine\ORM\Mapping\DefaultEntityListenerResolver"/>
@@ -8998,7 +9021,7 @@ body.error .error-message {
                     <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
                       <argument type="service" id="annotation_reader"/>
                       <argument type="collection">
-                        <argument>C:\wamp\www\Mooc_Web\src\Mooc\MoocBundle\Entity</argument>
+                        <argument>C:\xampp\htdocs\MOOC_3A2_Web\src\Mooc\MoocBundle\Entity</argument>
                       </argument>
                     </service>
                   </argument>
@@ -9008,7 +9031,7 @@ body.error .error-message {
             </argument>
           </call>
           <call method="setProxyDir">
-            <argument>C:/wamp/www/Mooc_Web/app/cache/dev/doctrine/orm/Proxies</argument>
+            <argument>C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev/doctrine/orm/Proxies</argument>
           </call>
           <call method="setProxyNamespace">
             <argument>Proxies</argument>
@@ -10639,7 +10662,7 @@ body.error .error-message {
                   <argument key="type">method</argument>
                   <argument key="label"></argument>
                   <argument key="css_class">text-primary action-edit</argument>
-                  <argument key="icon">pencil</argument>
+                  <argument key="icon"></argument>
                   <argument key="class"></argument>
                 </argument>
                 <argument key="new" type="collection">
@@ -11756,6 +11779,28 @@ body.error .error-message {
               </argument>
               <argument key="title">Liste des Organismes</argument>
               <argument key="fields" type="collection">
+                <argument key="logo" type="collection">
+                  <argument key="css_class"></argument>
+                  <argument key="format">null</argument>
+                  <argument key="help">null</argument>
+                  <argument key="label">Logo</argument>
+                  <argument key="type">image</argument>
+                  <argument key="fieldType">text</argument>
+                  <argument key="dataType">image</argument>
+                  <argument key="virtual">false</argument>
+                  <argument key="sortable">true</argument>
+                  <argument key="template">@EasyAdmin/default/field_image.html.twig</argument>
+                  <argument key="type_options" type="collection"/>
+                  <argument key="fieldName">logo</argument>
+                  <argument key="scale">0</argument>
+                  <argument key="length">null</argument>
+                  <argument key="unique">false</argument>
+                  <argument key="nullable">true</argument>
+                  <argument key="precision">0</argument>
+                  <argument key="columnName">logo</argument>
+                  <argument key="property">logo</argument>
+                  <argument key="base_path">http://localhost/Mooc_3A2_web/web/uploads/img/logo/</argument>
+                </argument>
                 <argument key="nom" type="collection">
                   <argument key="css_class"></argument>
                   <argument key="format">null</argument>
@@ -11861,27 +11906,6 @@ body.error .error-message {
                   <argument key="columnName">telephone</argument>
                   <argument key="property">telephone</argument>
                 </argument>
-                <argument key="description" type="collection">
-                  <argument key="css_class"></argument>
-                  <argument key="format">null</argument>
-                  <argument key="help">null</argument>
-                  <argument key="label">null</argument>
-                  <argument key="type">string</argument>
-                  <argument key="fieldType">text</argument>
-                  <argument key="dataType">string</argument>
-                  <argument key="virtual">false</argument>
-                  <argument key="sortable">true</argument>
-                  <argument key="template">@EasyAdmin/default/field_string.html.twig</argument>
-                  <argument key="type_options" type="collection"/>
-                  <argument key="fieldName">description</argument>
-                  <argument key="scale">0</argument>
-                  <argument key="length">255</argument>
-                  <argument key="unique">false</argument>
-                  <argument key="nullable">true</argument>
-                  <argument key="precision">0</argument>
-                  <argument key="columnName">description</argument>
-                  <argument key="property">description</argument>
-                </argument>
                 <argument key="etat" type="collection">
                   <argument key="css_class"></argument>
                   <argument key="format">null</argument>
@@ -11892,7 +11916,7 @@ body.error .error-message {
                   <argument key="dataType">integer</argument>
                   <argument key="virtual">false</argument>
                   <argument key="sortable">true</argument>
-                  <argument key="template">@EasyAdmin/default/field_integer.html.twig</argument>
+                  <argument key="template">easy_admin/Organisme/etat.html.twig</argument>
                   <argument key="type_options" type="collection"/>
                   <argument key="fieldName">etat</argument>
                   <argument key="scale">0</argument>
@@ -11907,6 +11931,28 @@ body.error .error-message {
             </argument>
             <argument key="show" type="collection">
               <argument key="fields" type="collection">
+                <argument key="logo" type="collection">
+                  <argument key="css_class"></argument>
+                  <argument key="format">null</argument>
+                  <argument key="help">null</argument>
+                  <argument key="label">Logo</argument>
+                  <argument key="type">image</argument>
+                  <argument key="fieldType">text</argument>
+                  <argument key="dataType">image</argument>
+                  <argument key="virtual">false</argument>
+                  <argument key="sortable">true</argument>
+                  <argument key="template">@EasyAdmin/default/field_image.html.twig</argument>
+                  <argument key="type_options" type="collection"/>
+                  <argument key="fieldName">logo</argument>
+                  <argument key="scale">0</argument>
+                  <argument key="length">null</argument>
+                  <argument key="unique">false</argument>
+                  <argument key="nullable">true</argument>
+                  <argument key="precision">0</argument>
+                  <argument key="columnName">logo</argument>
+                  <argument key="property">logo</argument>
+                  <argument key="base_path">http://localhost/Mooc_3A2_web/web/uploads/img/logo/</argument>
+                </argument>
                 <argument key="nom" type="collection">
                   <argument key="css_class"></argument>
                   <argument key="format">null</argument>
@@ -14175,7 +14221,7 @@ body.error .error-message {
           <call method="setCache">
             <argument type="service">
               <service class="Metadata\Cache\FileCache" public="false">
-                <argument>C:/wamp/www/Mooc_Web/app/cache/dev/vich_uploader</argument>
+                <argument>C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev/vich_uploader</argument>
               </service>
             </argument>
           </call>
@@ -14188,7 +14234,7 @@ body.error .error-message {
       <argument type="collection">
         <argument key="formateur_image" type="collection">
           <argument key="uri_prefix">/img/avatar</argument>
-          <argument key="upload_destination">C:\wamp\www\Mooc_Web\app/../web/uploads/img/avatar</argument>
+          <argument key="upload_destination">C:\xampp\htdocs\MOOC_3A2_Web\app/../web/uploads/img/avatar</argument>
           <argument key="namer" type="collection">
             <argument key="service">null</argument>
             <argument key="options">null</argument>
@@ -14201,7 +14247,7 @@ body.error .error-message {
         </argument>
         <argument key="formateur_cv" type="collection">
           <argument key="uri_prefix">/file/cv</argument>
-          <argument key="upload_destination">C:\wamp\www\Mooc_Web\app/../web/uploads/file/cv</argument>
+          <argument key="upload_destination">C:\xampp\htdocs\MOOC_3A2_Web\app/../web/uploads/file/cv</argument>
           <argument key="namer" type="collection">
             <argument key="service">null</argument>
             <argument key="options">null</argument>
@@ -14309,7 +14355,7 @@ body.error .error-message {
     <service id="twig.extension.image" class="Gregwar\ImageBundle\Extensions\ImageTwig">
       <tag name="twig.extension"/>
       <argument type="service" id="image.handling"/>
-      <argument>C:\wamp\www\Mooc_Web\app/../web</argument>
+      <argument>C:\xampp\htdocs\MOOC_3A2_Web\app/../web</argument>
     </service>
     <service id="data_collector.dump" class="Symfony\Component\HttpKernel\DataCollector\DumpDataCollector">
       <tag name="data_collector" id="dump" template="@Debug/Profiler/dump.html.twig"/>
@@ -14424,7 +14470,7 @@ body.error .error-message {
       <argument>^/(app(_[\w]+)?\.php/)?_wdt</argument>
     </service>
     <service id="sensio_distribution.webconfigurator" class="Sensio\Bundle\DistributionBundle\Configurator\Configurator">
-      <argument>C:\wamp\www\Mooc_Web\app</argument>
+      <argument>C:\xampp\htdocs\MOOC_3A2_Web\app</argument>
       <call method="addStep">
         <argument type="service">
           <service class="Sensio\Bundle\DistributionBundle\Configurator\Step\DoctrineStep" public="false">
@@ -14572,7 +14618,7 @@ body.error .error-message {
       <argument>true</argument>
     </service>
     <service id="session.storage.filesystem" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage">
-      <argument>C:/wamp/www/Mooc_Web/app/cache/dev/sessions</argument>
+      <argument>C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service" id="session.storage.metadata_bag"/>
     </service>
@@ -14623,9 +14669,9 @@ body.error .error-message {
     <service id="router" class="Symfony\Bundle\FrameworkBundle\Routing\Router">
       <tag name="monolog.logger" channel="router"/>
       <argument type="service" id="service_container"/>
-      <argument>C:\wamp\www\Mooc_Web\app/config/routing_dev.yml</argument>
+      <argument>C:\xampp\htdocs\MOOC_3A2_Web\app/config/routing_dev.yml</argument>
       <argument type="collection">
-        <argument key="cache_dir">C:/wamp/www/Mooc_Web/app/cache/dev</argument>
+        <argument key="cache_dir">C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
         <argument key="generator_base_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
@@ -14644,7 +14690,7 @@ body.error .error-message {
       <argument type="service">
         <service class="Doctrine\Common\Annotations\AnnotationReader" public="false"/>
       </argument>
-      <argument>C:/wamp/www/Mooc_Web/app/cache/dev/annotations</argument>
+      <argument>C:\xampp\htdocs\MOOC_3A2_Web\app\cache\dev/annotations</argument>
       <argument>true</argument>
     </service>
     <service id="security.encoder_factory" class="Symfony\Component\Security\Core\Encoder\EncoderFactory">
@@ -14665,66 +14711,66 @@ body.error .error-message {
       <argument type="service" id="templating.locator"/>
       <argument type="service" id="templating.name_parser"/>
       <call method="addPath">
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Bundle\FrameworkBundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Bundle\FrameworkBundle/Resources/views</argument>
         <argument>Framework</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Bundle\SecurityBundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Bundle\SecurityBundle/Resources/views</argument>
         <argument>Security</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Bundle\TwigBundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Bundle\TwigBundle/Resources/views</argument>
         <argument>Twig</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\swiftmailer-bundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\swiftmailer-bundle/Resources/views</argument>
         <argument>Swiftmailer</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\Mooc_Web\vendor\doctrine\doctrine-bundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\doctrine\doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\Mooc_Web\src\Mooc\MoocBundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\src\Mooc\MoocBundle/Resources/views</argument>
         <argument>MoocMooc</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\Mooc_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\javiereguiluz\easyadmin-bundle/Resources/views</argument>
         <argument>EasyAdmin</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\Mooc_Web\vendor\vich\uploader-bundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\vich\uploader-bundle/Resources/views</argument>
         <argument>VichUploader</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\Mooc_Web\vendor\avanzu\admin-theme-bundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\avanzu\admin-theme-bundle/Resources/views</argument>
         <argument>AvanzuAdminTheme</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\Mooc_Web\vendor\nomaya\social-bundle\Nomaya\SocialBundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\nomaya\social-bundle\Nomaya\SocialBundle/Resources/views</argument>
         <argument>NomayaSocial</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\Mooc_Web\vendor\blackknight467\star-rating-bundle\blackknight467\StarRatingBundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\blackknight467\star-rating-bundle\blackknight467\StarRatingBundle/Resources/views</argument>
         <argument>StarRating</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/views</argument>
         <argument>WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\Mooc_Web\vendor\sensio\distribution-bundle\Sensio\Bundle\DistributionBundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\sensio\distribution-bundle\Sensio\Bundle\DistributionBundle/Resources/views</argument>
         <argument>SensioDistribution</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\Mooc_Web\app/Resources/views</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\app/Resources/views</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Bridge\Twig/Resources/views/Form</argument>
+        <argument>C:\xampp\htdocs\MOOC_3A2_Web\vendor\symfony\symfony\src\Symfony\Bridge\Twig/Resources/views/Form</argument>
       </call>
     </service>
     <service id="logger" class="Symfony\Bridge\Monolog\Logger">

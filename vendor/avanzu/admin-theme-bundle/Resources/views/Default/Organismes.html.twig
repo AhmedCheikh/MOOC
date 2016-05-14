@@ -85,9 +85,10 @@
                       </button>
                       <ul class="dropdown-menu" role="menu">
                           <li><i class="fa fa-info-circle"><a href="{{ path('details_organisme', {'id': organisme.idorganisme}) }}" >    Détails</a></i></li>
-                          <li><i class="fa fa-list-alt"><a href="#">    Documents</a></i></li>
-                        {% if organisme.etat == 0 %}
-                        <li><i class="fa fa-check"><a href="{{ path('valider_organisme', {'id': organisme.idorganisme}) }}">    Valider</a></i></li>
+                          <li><i class="fa fa-list-alt"><a href="{{asset('uploads/file/document/' ~ organisme.document)}}">    Documents</a></i></li>
+                        
+                         {% if organisme.etat == 0 %}
+                        <li><i class="fa fa-check"><a href="{{ path('valider_organisme', {'id': organisme.idorganisme,'mail': organisme.email}) }}">    Valider</a></i></li>
                         {% else %}
                         <li><i class="fa fa-times-circle"><a href="{{ path('bloquer_organisme', {'id': organisme.idorganisme}) }}">    Bloquer</a></i></li>
                         {% endif %}
@@ -120,6 +121,8 @@
         });
       });
     </script>
+    
+    
 {% endblock %}
     
     {% endblock %}

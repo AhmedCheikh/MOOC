@@ -38,7 +38,7 @@ easy_admin:
                 
                     - { name: 'show', label: '', icon: 'search' }
                     - { name: 'delete', label: '', icon: 'trash' }
-                    - { name: edit, type: method, label: '', class: '', icon: pencil }
+                    - { name: 'edit', type: 'method', label: '', class: '', icon: '' }
                     
             form : 
                 fields: ['nomCours','description','difficulte','objectif',{property: 'cinformateur', label: 'CIN formateur'},{property: 'etat', label: 'Valide'}]
@@ -50,6 +50,6 @@ easy_admin:
             list:
                 actions: [ { name: 'show',label: 'Détails', icon: 'search' } ]
                 title: "Liste des Organismes"
-                fields: [{property: 'nom', label: 'Nom organisme'},email,{property: 'siteweb',label: 'Site web'},adresse,telephone,description,etat]
+                fields: [{property: 'logo', type: 'image',label: 'Logo', base_path: 'http://localhost/Mooc_3A2_web/web/uploads/img/logo/'},{property: 'nom', label: 'Nom organisme'},email,{property: 'siteweb',label: 'Site web'},adresse,telephone,{property: 'etat', template: 'etat.html.twig'}]
             show:
-                fields: [{property: 'nom', label: 'Nom organisme'},email,{property: 'siteweb',label: 'Site web'},adresse,telephone,description,{property: 'etat',label: 'Valide',type: 'toggle'}]
+                fields: [{property: 'logo', type: 'image',label: 'Logo', base_path: 'http://localhost/Mooc_3A2_web/web/uploads/img/logo/'},{property: 'nom', label: 'Nom organisme'},email,{property: 'siteweb',label: 'Site web'},adresse,telephone,description,{property: 'etat',label: 'Valide',type: 'toggle'}]
