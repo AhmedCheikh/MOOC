@@ -61,22 +61,22 @@ class QuestionController extends Controller {
             $em->persist($reponse4);
 
             $em->flush();
-            return $this->redirectToRoute('mooc_mooc_listeQuiz');
+            return $this->redirectToRoute('mooc_mooc_Ajouter_question', array('idquiz' => $idquiz));
         }
         return $this->render('MoocMoocBundle:Question:ajouterQuestion.html.twig', array('idquiz' => $idquiz));
     }
 
     public function modifierQuestionAction($idquestion, Request $request) {
         $em = $this->getDoctrine()->getManager();
-        $ques = $em->getRepository('MoocMoocBundle:Question')->find($idquestion);
-        $q = $ques->getQuestion($ques);
+        $quest = $em->getRepository('MoocMoocBundle:Question')->find($idquestion);
+        $q = $quest->getQuestion($quest);
         $listreponse = $em->getRepository('MoocMoocBundle:Reponse')->findBy(array('idquestion' => $idquestion));
 
 
         if ($request->getMethod() == 'POST') {
 
-            $quest = $request->get('ques');
-            $ques->setQuestion($quest);
+          
+            $quest->setQuestion($request->get('ques'));
 
             $listreponse[0]->setRep($request->get('reponse1'));
             $listreponse[0]->setEtat($request->get('rep1'));

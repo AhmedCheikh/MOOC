@@ -24,7 +24,7 @@ class Reponse
     /**
      * @var string
      *
-     * @ORM\Column(name="reponse", type="string", length=255, nullable=false)
+     * @ORM\Column(name="rep", type="string", length=255, nullable=false)
      */
     private $rep;
 
@@ -35,7 +35,7 @@ class Reponse
      */
     private $etat;
 
-    /**
+/**
      * @var \Question
      *
      * @ORM\ManyToOne(targetEntity="Question")
@@ -44,6 +44,7 @@ class Reponse
      * })
      */
     private $idquestion;
+
     public function getId() {
         return $this->id;
     }
@@ -56,9 +57,12 @@ class Reponse
         return $this->etat;
     }
 
+
+
     public function getIdquestion() {
         return $this->idquestion;
     }
+
 
     public function setId($id) {
         $this->id = $id;
@@ -75,11 +79,13 @@ class Reponse
         return $this;
     }
 
-   
-    function setIdquestion(\Question $idquestion) {
+
+
+    public function setIdquestion($idquestion) {
         $this->idquestion = $idquestion;
         return $this;
     }
+
 
 
 

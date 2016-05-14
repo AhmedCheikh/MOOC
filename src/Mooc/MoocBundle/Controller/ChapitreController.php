@@ -39,21 +39,22 @@ class ChapitreController extends Controller {
     }
 
     public function ajouterChapitreAction(Request $request) {
+    
         if ($request->getMethod() == 'POST') {
             $q = $request->get('q');
 
             $chapitre = new Chapitre();
             $chapitre->setTitre($request->get('titre'));
             $em2 = $this->getDoctrine()->getManager();
-            $quiz = $em2->getRepository('MoocMoocBundle:Quiz')->find($request->get('q'));
+//            $quiz = $em2->getRepository('MoocMoocBundle:Quiz')->find($request->get('q'));
             $chapitre->setIdquiz($em2->getRepository('MoocMoocBundle:Quiz')->find($q));
             $chapitre->setIdcours($em2->getRepository('MoocMoocBundle:Cours')->find(1));
 
-            // $chapitre->setPresentation($request->get('presentation'));
+             $chapitre->setPresentation($request->get('presentation'));
             $chapitre->setObjectif($request->get('objectif'));
-
-            //  $chapitre->setVideo($request->get('video'));
-            $chapitre->setFile($request->get('file'));
+             $v=$request->get('video');
+            $chapitre->setVideo($v->get);
+            
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($chapitre);
@@ -65,6 +66,7 @@ class ChapitreController extends Controller {
         $listeQuiz = $em1->getRepository('MoocMoocBundle:Quiz')->findAll();
         return $this->render('MoocMoocBundle:Chapitre:ajouterChapitre.html.twig', array('listeQuiz' => $listeQuiz));
     }
+
 
     public function modifierChapitreAction($id, Request $request) {
         $em = $this->getDoctrine()->getManager();

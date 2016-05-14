@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="question", indexes={@ORM\Index(name="IDX_B6F7494E77DD0B32", columns={"idquiz"})})
  * @ORM\Entity
  */
+
 class Question
 {
     /**
@@ -27,7 +28,7 @@ class Question
      * @ORM\Column(name="question", type="string", length=255, nullable=false)
      */
     private $question;
-
+    
     /**
      * @var \Quiz
      *
@@ -37,6 +38,8 @@ class Question
      * })
      */
     private $idquiz;
+
+
 
     public function getId() {
         return $this->id;
