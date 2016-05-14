@@ -59,7 +59,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <h2>Ou connecter avec</h2>
             <form method=\"POST\" action=\"";
         // line 39
-        echo $this->env->getExtension('routing')->getPath("mooc_mooc_inscriptionOrganisme");
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_inscriptionOrganisme", array("id" => (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")))), "html", null, true);
         echo "\" data-validate=\"parsley\">
                 <div class=\"lable-2\">
                     <input type=\"text\" class=\"text\" name=\"sitweb\" placeholder=\"www.Organisme.com\" required>
@@ -150,7 +150,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 /*                 <div class="clear"> </div>	*/
 /*             </div>*/
 /*             <h2>Ou connecter avec</h2>*/
-/*             <form method="POST" action="{{path('mooc_mooc_inscriptionOrganisme')}}" data-validate="parsley">*/
+/*             <form method="POST" action="{{path('mooc_mooc_inscriptionOrganisme', {'id':id})}}" data-validate="parsley">*/
 /*                 <div class="lable-2">*/
 /*                     <input type="text" class="text" name="sitweb" placeholder="www.Organisme.com" required>*/
 /*                 </div>*/

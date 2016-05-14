@@ -47,25 +47,25 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
 ";
         // line 46
         $this->displayBlock('Header', $context, $blocks);
-        // line 158
+        // line 106
         echo "
 ";
-        // line 159
+        // line 107
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 196
+        // line 144
         echo "    
 ";
-        // line 197
+        // line 145
         $this->displayBlock('body', $context, $blocks);
-        // line 201
+        // line 149
         echo "
 </section>
 <!-- container section end -->
 
 ";
-        // line 205
+        // line 153
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 249
+        // line 178
         echo "</body>
 </html>";
     }
@@ -168,8 +168,11 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
                 <!--  search form start -->
                 <ul class=\"nav top-menu\">                    
                     <li>
-                        <form class=\"navbar-form\">
-                            <input class=\"form-control\" placeholder=\"Chercher des cours\" type=\"text\">
+                        <form class=\"navbar-form\" method=\"POST\" action=\"";
+        // line 63
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_chercher_cours_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
+        echo "\">
+                            <input class=\"form-control\" name=\"Chercher\" placeholder=\"Chercher des cours\" type=\"text\">
                         </form>
                     </li>                    
                 </ul>
@@ -179,64 +182,17 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
             <div class=\"top-nav notification-row\">                
                 <!-- notificatoin dropdown start-->
                 <ul class=\"nav pull-right top-menu\">
-
-                    <!-- alert notification start-->
-                    <li id=\"alert_notificatoin_bar\" class=\"dropdown\">
-                        <a data-toggle=\"dropdown\" class=\"dropdown-toggle\" href=\"#\">
-
-                            <i class=\"icon-bell-l\"></i>
-                            <span class=\"badge bg-important\">4</span>
-                        </a>
-                        <ul class=\"dropdown-menu extended notification\">
-                            <div class=\"notify-arrow notify-arrow-blue\"></div>
-                            <li>
-                                <p class=\"blue\">You have 4 new notifications</p>
-                            </li>
-                            <li>
-                                <a href=\"#\">
-                                    <span class=\"label label-primary\"><i class=\"icon_profile\"></i></span> 
-                                    Friend Request
-                                    <span class=\"small italic pull-right\">5 mins</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href=\"#\">
-                                    <span class=\"label label-warning\"><i class=\"icon_pin\"></i></span>  
-                                    John location.
-                                    <span class=\"small italic pull-right\">50 mins</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href=\"#\">
-                                    <span class=\"label label-danger\"><i class=\"icon_book_alt\"></i></span> 
-                                    Project 3 Completed.
-                                    <span class=\"small italic pull-right\">1 hr</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href=\"#\">
-                                    <span class=\"label label-success\"><i class=\"icon_like\"></i></span> 
-                                    Mick appreciated your work.
-                                    <span class=\"small italic pull-right\"> Today</span>
-                                </a>
-                            </li>                            
-                            <li>
-                                <a href=\"#\">See all notifications</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- alert notification end-->
                     <!-- user login dropdown start-->
                     <li class=\"dropdown\">
                         <a data-toggle=\"dropdown\" class=\"dropdown-toggle\" href=\"#\">
                             <span class=\"profile-ava\"> 
                                 <img src=\"";
-        // line 125
+        // line 78
         echo twig_escape_filter($this->env, $this->getAttribute($this->env->getExtension('image')->image(("uploads/uploads/" . $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "avatar", array()))), "resize", array(0 => 35, 1 => 35), "method"), "html", null, true);
         echo "\" />
                             </span>
                             <span class=\"username\">";
-        // line 127
+        // line 80
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "prenom", array()), "html", null, true);
         echo " ";
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "nom", array()), "html", null, true);
@@ -247,22 +203,20 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
                             <div class=\"log-arrow-up\"></div>
                             <li class=\"eborder-top\">
                                 <a href=\"";
-        // line 133
+        // line 86
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_accueil_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
-        echo "\"><i class=\"icon_profile\"></i> My Profile</a>
-                            </li>
-                            <li>
-                                <a href=\"#\"><i class=\"icon_mail_alt\"></i> My Inbox</a>
-                            </li>
-                            <li>
-                                <a href=\"#\"><i class=\"icon_clock_alt\"></i> Timeline</a>
-                            </li>
-                            <li>
-                                <a href=\"#\"><i class=\"icon_chat_alt\"></i> Chats</a>
+        echo "\"><i class=\"icon_profile\"></i> Mon Profile</a>
                             </li>
                             <li>
                                 <a href=\"";
-        // line 145
+        // line 89
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_cours_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
+        echo "\"><i class=\"icon_book_alt\"></i> Mes Cours</a>
+                            </li>
+                            
+                            <li>
+                                <a href=\"";
+        // line 93
         echo $this->env->getExtension('routing')->getPath("mooc_log_out_apprenant");
         echo "\"><i class=\"icon_key_alt\"></i> Log Out</a>
                             </li>
@@ -279,10 +233,10 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
 ";
     }
 
-    // line 159
+    // line 107
     public function block_sidebar($context, array $blocks = array())
     {
-        // line 160
+        // line 108
         echo "    <!--sidebar start-->
       <aside>
           <div id=\"sidebar\"  class=\"nav-collapse \">
@@ -290,7 +244,7 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
               <ul class=\"sidebar-menu\">                
                   <li>
                       <a class=\"\" href=\"";
-        // line 166
+        // line 114
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_accueil_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
         echo "\">
                           <i class=\"fa fa-user-md\"></i>
@@ -300,7 +254,7 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
 
                   <li>                     
                       <a class=\"\" href=\"";
-        // line 173
+        // line 121
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_cours_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
         echo "\">
                           <i class=\"icon_book_alt\"></i>
@@ -311,7 +265,7 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
                   </li>
                  <li>                     
                       <a class=\"\" href=\"";
-        // line 181
+        // line 129
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_chercher_cours_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
         echo "\">
                           <i class=\"icon_search\"></i>
@@ -330,59 +284,59 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
 ";
     }
 
-    // line 197
+    // line 145
     public function block_body($context, array $blocks = array())
     {
-        // line 198
+        // line 146
         echo "    
 
 ";
     }
 
-    // line 205
+    // line 153
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 206
+        // line 154
         echo "    
     <!-- javascripts -->
     <script src=\"";
-        // line 208
+        // line 156
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 209
+        // line 157
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
     <!-- nice scroll -->
     <script src=\"";
-        // line 211
+        // line 159
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.scrollTo.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 212
+        // line 160
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.nicescroll.js"), "html", null, true);
         echo "\"></script>
     <!-- jquery knob -->
     <script src=\"";
-        // line 214
+        // line 162
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.knob.js"), "html", null, true);
         echo "\"></script>
     <!--custome script for all page-->
     <script src=\"";
-        // line 216
+        // line 164
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/scripts.js"), "html", null, true);
         echo "\"></script>
     <!-- map -->
     <script src=\"";
-        // line 218
+        // line 166
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery-jvectormap-1.2.2.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 219
+        // line 167
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery-jvectormap-world-mill-en.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 220
+        // line 168
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/gdp-data.js"), "html", null, true);
         echo "\"></script>\t
 
@@ -391,25 +345,6 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
       //knob
       \$(\".knob\").knob();
 \t  
-\t  
-\t  /* ---------- Map ---------- */
-\t\$(function(){
-\t  \$('#map').vectorMap({
-\t    map: 'world_mill_en',
-\t    series: {
-\t      regions: [{
-\t        values: gdpData,
-\t        scale: ['#000', '#000'],
-\t        normalizeFunction: 'polynomial'
-\t      }]
-\t    },
-\t\tbackgroundColor: '#eef3f7',
-\t    onLabelShow: function(e, el, code){
-\t      el.html(el.html()+' (GDP - '+gdpData[code]+')');
-\t    }
-\t  });
-\t});
-
   </script>
   
 ";
@@ -427,7 +362,7 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
 
     public function getDebugInfo()
     {
-        return array (  386 => 220,  382 => 219,  378 => 218,  373 => 216,  368 => 214,  363 => 212,  359 => 211,  354 => 209,  350 => 208,  346 => 206,  343 => 205,  337 => 198,  334 => 197,  315 => 181,  304 => 173,  294 => 166,  286 => 160,  283 => 159,  266 => 145,  251 => 133,  240 => 127,  235 => 125,  155 => 47,  152 => 46,  147 => 40,  144 => 39,  132 => 31,  128 => 30,  124 => 29,  120 => 28,  116 => 27,  111 => 25,  105 => 22,  101 => 21,  95 => 18,  91 => 17,  86 => 15,  81 => 13,  77 => 11,  74 => 10,  69 => 249,  67 => 205,  61 => 201,  59 => 197,  56 => 196,  54 => 159,  51 => 158,  49 => 46,  43 => 42,  41 => 39,  39 => 10,  34 => 8,  25 => 1,);
+        return array (  340 => 168,  336 => 167,  332 => 166,  327 => 164,  322 => 162,  317 => 160,  313 => 159,  308 => 157,  304 => 156,  300 => 154,  297 => 153,  291 => 146,  288 => 145,  269 => 129,  258 => 121,  248 => 114,  240 => 108,  237 => 107,  220 => 93,  213 => 89,  207 => 86,  196 => 80,  191 => 78,  173 => 63,  155 => 47,  152 => 46,  147 => 40,  144 => 39,  132 => 31,  128 => 30,  124 => 29,  120 => 28,  116 => 27,  111 => 25,  105 => 22,  101 => 21,  95 => 18,  91 => 17,  86 => 15,  81 => 13,  77 => 11,  74 => 10,  69 => 178,  67 => 153,  61 => 149,  59 => 145,  56 => 144,  54 => 107,  51 => 106,  49 => 46,  43 => 42,  41 => 39,  39 => 10,  34 => 8,  25 => 1,);
     }
 }
 /* <html lang="en">*/
@@ -492,8 +427,8 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
 /*                 <!--  search form start -->*/
 /*                 <ul class="nav top-menu">                    */
 /*                     <li>*/
-/*                         <form class="navbar-form">*/
-/*                             <input class="form-control" placeholder="Chercher des cours" type="text">*/
+/*                         <form class="navbar-form" method="POST" action="{{path('mooc_chercher_cours_apprenant', {'login': apprenant.login})}}">*/
+/*                             <input class="form-control" name="Chercher" placeholder="Chercher des cours" type="text">*/
 /*                         </form>*/
 /*                     </li>                    */
 /*                 </ul>*/
@@ -503,53 +438,6 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
 /*             <div class="top-nav notification-row">                */
 /*                 <!-- notificatoin dropdown start-->*/
 /*                 <ul class="nav pull-right top-menu">*/
-/* */
-/*                     <!-- alert notification start-->*/
-/*                     <li id="alert_notificatoin_bar" class="dropdown">*/
-/*                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">*/
-/* */
-/*                             <i class="icon-bell-l"></i>*/
-/*                             <span class="badge bg-important">4</span>*/
-/*                         </a>*/
-/*                         <ul class="dropdown-menu extended notification">*/
-/*                             <div class="notify-arrow notify-arrow-blue"></div>*/
-/*                             <li>*/
-/*                                 <p class="blue">You have 4 new notifications</p>*/
-/*                             </li>*/
-/*                             <li>*/
-/*                                 <a href="#">*/
-/*                                     <span class="label label-primary"><i class="icon_profile"></i></span> */
-/*                                     Friend Request*/
-/*                                     <span class="small italic pull-right">5 mins</span>*/
-/*                                 </a>*/
-/*                             </li>*/
-/*                             <li>*/
-/*                                 <a href="#">*/
-/*                                     <span class="label label-warning"><i class="icon_pin"></i></span>  */
-/*                                     John location.*/
-/*                                     <span class="small italic pull-right">50 mins</span>*/
-/*                                 </a>*/
-/*                             </li>*/
-/*                             <li>*/
-/*                                 <a href="#">*/
-/*                                     <span class="label label-danger"><i class="icon_book_alt"></i></span> */
-/*                                     Project 3 Completed.*/
-/*                                     <span class="small italic pull-right">1 hr</span>*/
-/*                                 </a>*/
-/*                             </li>*/
-/*                             <li>*/
-/*                                 <a href="#">*/
-/*                                     <span class="label label-success"><i class="icon_like"></i></span> */
-/*                                     Mick appreciated your work.*/
-/*                                     <span class="small italic pull-right"> Today</span>*/
-/*                                 </a>*/
-/*                             </li>                            */
-/*                             <li>*/
-/*                                 <a href="#">See all notifications</a>*/
-/*                             </li>*/
-/*                         </ul>*/
-/*                     </li>*/
-/*                     <!-- alert notification end-->*/
 /*                     <!-- user login dropdown start-->*/
 /*                     <li class="dropdown">*/
 /*                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">*/
@@ -562,17 +450,12 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
 /*                         <ul class="dropdown-menu extended logout">*/
 /*                             <div class="log-arrow-up"></div>*/
 /*                             <li class="eborder-top">*/
-/*                                 <a href="{{path('mooc_accueil_apprenant', {'login': apprenant.login})}}"><i class="icon_profile"></i> My Profile</a>*/
+/*                                 <a href="{{path('mooc_accueil_apprenant', {'login': apprenant.login})}}"><i class="icon_profile"></i> Mon Profile</a>*/
 /*                             </li>*/
 /*                             <li>*/
-/*                                 <a href="#"><i class="icon_mail_alt"></i> My Inbox</a>*/
+/*                                 <a href="{{path('mooc_cours_apprenant', {'login': apprenant.login})}}"><i class="icon_book_alt"></i> Mes Cours</a>*/
 /*                             </li>*/
-/*                             <li>*/
-/*                                 <a href="#"><i class="icon_clock_alt"></i> Timeline</a>*/
-/*                             </li>*/
-/*                             <li>*/
-/*                                 <a href="#"><i class="icon_chat_alt"></i> Chats</a>*/
-/*                             </li>*/
+/*                             */
 /*                             <li>*/
 /*                                 <a href="{{path('mooc_log_out_apprenant')}}"><i class="icon_key_alt"></i> Log Out</a>*/
 /*                             </li>*/
@@ -656,25 +539,6 @@ class __TwigTemplate_81d99bf688a35e4b844dd226cc9ce853b616810278ec03e945644b09b49
 /*       //knob*/
 /*       $(".knob").knob();*/
 /* 	  */
-/* 	  */
-/* 	  /* ---------- Map ---------- *//* */
-/* 	$(function(){*/
-/* 	  $('#map').vectorMap({*/
-/* 	    map: 'world_mill_en',*/
-/* 	    series: {*/
-/* 	      regions: [{*/
-/* 	        values: gdpData,*/
-/* 	        scale: ['#000', '#000'],*/
-/* 	        normalizeFunction: 'polynomial'*/
-/* 	      }]*/
-/* 	    },*/
-/* 		backgroundColor: '#eef3f7',*/
-/* 	    onLabelShow: function(e, el, code){*/
-/* 	      el.html(el.html()+' (GDP - '+gdpData[code]+')');*/
-/* 	    }*/
-/* 	  });*/
-/* 	});*/
-/* */
 /*   </script>*/
 /*   */
 /* {% endblock %}*/

@@ -138,7 +138,7 @@ class __TwigTemplate_b315ed7bf599e1e1acd7d3efc1bfa0bd2edf183fee98c2edbed6f72bf05
                                  <th><i class=\"icon_pin_alt\"></i> Nom du cour</th>              
                                  <th><i class=\"icon_calendar\"></i> Description</th>
                                  <th><i class=\"icon_mobile\"></i> Difficulté</th>
-                                 <th><i class=\"icon_calendar\"></i> Note</th>
+                                 <th><i class=\"icon_calendar\"></i> Date de Suivi</th>
                                  <th><i class=\"icon_cogs\"></i> Action</th>
                               </tr>
                               ";
@@ -168,17 +168,17 @@ class __TwigTemplate_b315ed7bf599e1e1acd7d3efc1bfa0bd2edf183fee98c2edbed6f72bf05
             echo "                                
                                  <td>";
             // line 103
-            echo twig_escape_filter($this->env, $this->getAttribute($context["cour"], "note", array()), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["cour"], "dateDebut", array()), "html", null, true);
             echo "</td>
                                  <td>
                                   <div class=\"btn-group\">
                                      <a class=\"btn btn-success\" href=\"";
             // line 106
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_consult_cours_apprenant", array("cours" => $this->getAttribute($context["cour"], "idcours", array()), "login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_detail_cours_apprenant", array("idCourSuivi" => $this->getAttribute($context["cour"], "idcoursuivi", array()), "login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
             echo "\" title=\"Consulter\">Consulter</a>
                                      <a class=\"btn btn-danger\" href=\"";
             // line 107
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_supprimer_cours_apprenant", array("id" => $this->getAttribute($context["cour"], "idcoursuivi", array()), "login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_supprimer_cours_apprenant", array("idCourSuivi" => $this->getAttribute($context["cour"], "idcoursuivi", array()), "login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
             echo "\" title=\"Supprimer\">Supprimer</a>
                                   </div>
                                   </td>
@@ -358,7 +358,7 @@ class __TwigTemplate_b315ed7bf599e1e1acd7d3efc1bfa0bd2edf183fee98c2edbed6f72bf05
 /*                                  <th><i class="icon_pin_alt"></i> Nom du cour</th>              */
 /*                                  <th><i class="icon_calendar"></i> Description</th>*/
 /*                                  <th><i class="icon_mobile"></i> Difficulté</th>*/
-/*                                  <th><i class="icon_calendar"></i> Note</th>*/
+/*                                  <th><i class="icon_calendar"></i> Date de Suivi</th>*/
 /*                                  <th><i class="icon_cogs"></i> Action</th>*/
 /*                               </tr>*/
 /*                               {% for cour in Coursuivi %}*/
@@ -370,11 +370,11 @@ class __TwigTemplate_b315ed7bf599e1e1acd7d3efc1bfa0bd2edf183fee98c2edbed6f72bf05
 /*                                  <td>*/
 /*                                  {{ cour.difficulte |rating }}{#<div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>#}*/
 /*                                 */
-/*                                  <td>{{cour.note}}</td>*/
+/*                                  <td>{{cour.dateDebut}}</td>*/
 /*                                  <td>*/
 /*                                   <div class="btn-group">*/
-/*                                      <a class="btn btn-success" href="{{path('mooc_consult_cours_apprenant', {'cours': cour.idcours,'login': apprenant.login })}}" title="Consulter">Consulter</a>*/
-/*                                      <a class="btn btn-danger" href="{{path('mooc_supprimer_cours_apprenant', {'id': cour.idcoursuivi,'login': apprenant.login })}}" title="Supprimer">Supprimer</a>*/
+/*                                      <a class="btn btn-success" href="{{path('mooc_detail_cours_apprenant', {'idCourSuivi': cour.idcoursuivi,'login': apprenant.login })}}" title="Consulter">Consulter</a>*/
+/*                                      <a class="btn btn-danger" href="{{path('mooc_supprimer_cours_apprenant', {'idCourSuivi': cour.idcoursuivi,'login': apprenant.login })}}" title="Supprimer">Supprimer</a>*/
 /*                                   </div>*/
 /*                                   </td>*/
 /*                               </tr>*/

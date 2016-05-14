@@ -36,33 +36,40 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
         echo "    ";
         $this->displayParentBlock("stylesheets", $context, $blocks);
         echo "
+    <style> 
+    .redError {
+    background-color: #0055b3;
+    box-shadow: 2px 5px grey;
+}
+    </style>
+    
 ";
     }
 
-    // line 6
+    // line 13
     public function block_title($context, array $blocks = array())
     {
-        // line 7
+        // line 14
         echo "    ";
         $this->displayParentBlock("title", $context, $blocks);
         echo "
 ";
     }
 
-    // line 10
+    // line 17
     public function block_Header($context, array $blocks = array())
     {
-        // line 11
+        // line 18
         echo "    ";
         $this->displayParentBlock("Header", $context, $blocks);
         echo "
 ";
     }
 
-    // line 14
+    // line 21
     public function block_sidebar($context, array $blocks = array())
     {
-        // line 15
+        // line 22
         echo "    <!--sidebar start-->
       <aside>
           <div id=\"sidebar\"  class=\"nav-collapse \">
@@ -70,7 +77,7 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
               <ul class=\"sidebar-menu\">                
                   <li class=\"active\">
                       <a class=\"\" href=\"";
-        // line 21
+        // line 28
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_accueil_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
         echo "\">
                           <i class=\"fa fa-user-md\"></i>
@@ -80,7 +87,7 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
 
                   <li>                     
                       <a class=\"\" href=\"";
-        // line 28
+        // line 35
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_cours_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
         echo "\">
                           <i class=\"icon_book_alt\"></i>
@@ -91,7 +98,7 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
                   </li>
                  <li>                     
                       <a class=\"\" href=\"";
-        // line 36
+        // line 43
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_chercher_cours_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
         echo "\">
                           <i class=\"icon_search\"></i>
@@ -109,10 +116,10 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
 ";
     }
 
-    // line 51
+    // line 58
     public function block_body($context, array $blocks = array())
     {
-        // line 52
+        // line 59
         echo "
     <!--main content start-->
       <section id=\"main-content\">
@@ -133,27 +140,24 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
                           <div class=\"panel-body\">
                             <div class=\"col-lg-2 col-sm-2\">
                               <h4>";
-        // line 71
+        // line 78
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "prenom", array()), "html", null, true);
         echo " ";
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "nom", array()), "html", null, true);
         echo "</h4>               
                               <div class=\"follow-ava\">
                                   <img src=\"";
-        // line 73
+        // line 80
         echo twig_escape_filter($this->env, $this->getAttribute($this->env->getExtension('image')->image(("uploads/uploads/" . $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "avatar", array()))), "resize", array(0 => 140, 1 => 140), "method"), "html", null, true);
         echo "\" />
                               </div>
                             </div>
                             <div class=\"col-lg-4 col-sm-4 follow-info\">
-                                <p>Hello I’m Khoubaib Chamekh, a leading expert in interactive and creative design.</p>
-                                <p>@khoubaibchamekh</p>
-\t\t\t\t\t\t\t\t<p><i class=\"fa fa-twitter\">Khoubaib</i></p>
-                                <h6>
-                                    <span><i class=\"icon_clock_alt\"></i>11:05 AM</span>
-                                    <span><i class=\"icon_calendar\"></i>05.04.16</span>
-                                    <span><i class=\"icon_pin_alt\"></i>TN</span>
-                                </h6>
+                               
+                                <div class=\"redError\">";
+        // line 85
+        echo twig_escape_filter($this->env, (isset($context["msg"]) ? $context["msg"] : $this->getContext($context, "msg")), "html", null, true);
+        echo "</div>\t\t\t\t
                             </div>
                             \t\t\t
                           </div>
@@ -179,10 +183,7 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
                                           Edit Profile
                                       </a>
                                   </li>
-                                  
-                                  ";
-        // line 117
-        echo "                                  
+                              
                                   <li class=\"\">
                                       <a data-toggle=\"tab\" href=\"#edit-password\">
                                           <i class=\"icon-envelope\"></i>
@@ -203,26 +204,26 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
                                           <div class=\"row\">                                           
                                               <div class=\"bio-row\">
                                                   <p><span>Cin</span>: ";
-        // line 137
+        // line 131
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "cin", array()), "html", null, true);
         echo "</p>
                                               </div>
                                              
                                               <div class=\"bio-row\">
                                                   <p><span>Nom </span>: ";
-        // line 141
+        // line 135
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "nom", array()), "html", null, true);
         echo " </p>
                                               </div>
                                                <div class=\"bio-row\">
                                                   <p><span>Email </span>: ";
-        // line 144
+        // line 138
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "email", array()), "html", null, true);
         echo "</p>
                                               </div>
                                               <div class=\"bio-row\">
                                                   <p><span>Prenom </span>: ";
-        // line 147
+        // line 141
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "prenom", array()), "html", null, true);
         echo "</p>
                                               </div> 
@@ -242,33 +243,28 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
                                     <section class=\"panel\">                                          
                                           <div class=\"panel-body bio-graph-info\">
                                               <h1> Editer Password</h1>
-                                              <form class=\"form-horizontal\" role=\"form\" method=\"POST\" action=\"\">                                                  
+                                              <form class=\"form-horizontal\" method=\"POST\" action=\"";
+        // line 159
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_editer_password_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
+        echo "\">                                                  
                                                   <div class=\"form-group\">
                                                       <label class=\"col-lg-2 control-label\">Mot de passe actuel</label>
                                                       <div class=\"col-lg-6\">
-                                                          <input type=\"password\" class=\"form-control\" id=\"passwordActuelle\" placeholder=\"Entez le mot de passe actuel\" required>
+                                                          <input type=\"password\" class=\"form-control\" id=\"passwordActuelle\" name=\"passwordActuelle\" placeholder=\"Entez la mot de passe actuel\" required>
                                                       </div>
                                                   </div>
                                                   <div class=\"form-group\">
-                                                      <label class=\"col-lg-2 control-label\">Nouveau mot de passe</label>
+                                                      <label class=\"col-lg-2 control-label\">Nouvelle mot de passe</label>
                                                       <div class=\"col-lg-6\">
-                                                          <input type=\"password\" class=\"form-control\" id=\"nouveauPassword\" placeholder=\"Entrez le nouveau mot de passe\"  pattern=\".{6,}\" title=\"mot de passe trop courte\" required>
+                                                          <input type=\"password\" class=\"form-control\" id=\"nouveauPassword\" name=\"nouveauPassword\" placeholder=\"Entrez la nouvelle mot de passe\"  pattern=\".{6,}\" title=\"mot de passe trop courte\" required>
                                                       </div>
                                                   </div>
-\t\t\t\t\t\t\t\t\t\t\t\t  <div class=\"form-group\">
-                                                      <label class=\"col-lg-2 control-label\">Retapez la mot de passe</label>
-                                                      <div class=\"col-lg-6\">
-                                                          <input type=\"password\" class=\"form-control\" id=\"nouveauPasswordre\" placeholder=\"Retapez le nouveau mot de passe\" pattern=\".{6,}\" title=\"mot de passe trop courte\" required>
-                                                      </div>
-                                                  </div>
-                                                  
                                                   <div class=\"form-group\">
                                                       <div class=\"col-lg-offset-2 col-lg-10\">
                                                           <button type=\"submit\" class=\"btn btn-primary\">Sauvegarder</button>
-                                                          
                                                       </div>
                                                   </div>
-                                              </form>
+                                                  </form>
                                           </div>
                                       </section>
 \t\t\t\t\t<section>
@@ -276,33 +272,41 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
                                           </div>
                                       </section>
                                   </div>
-                              
-                                  ";
-        // line 245
-        echo "\t\t\t\t\t\t\t\t  
+                              \t\t  
                                   <!-- edit-profile -->
                                   <div id=\"edit-profile\" class=\"tab-pane\">
                                     <section class=\"panel\">                                          
                                           <div class=\"panel-body bio-graph-info\">
                                               <h1> Editer Profile</h1>
-                                              <form class=\"form-horizontal\" role=\"form\" method=\"POST\" action=\"";
-        // line 251
+                                              <form class=\"form-horizontal\" method=\"POST\" action=\"";
+        // line 191
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_editer_profil_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
         echo "\" > 
                                                   <div class=\"form-group\">
                                                       <label class=\"col-lg-2 control-label\">Cin</label>
                                                       <div class=\"col-lg-6\">
                                                           <input type=\"text\" class=\"form-control\" name=\"cin\" id=\"cin\" value=\"";
-        // line 255
+        // line 195
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "cin", array()), "html", null, true);
         echo "\" disabled=\"true\">
                                                       </div>
                                                   </div>
+                                                      
+                                                   <div class=\"form-group\">
+                                                      <label class=\"col-lg-2 control-label\">Login</label>
+                                                      <div class=\"col-lg-6\">
+                                                          <input type=\"text\" class=\"form-control\" name=\"login\" id=\"login\" value=\"";
+        // line 202
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()), "html", null, true);
+        echo "\"  disabled=\"true\">
+                                                      </div>
+                                                  </div>
+                                                      
                                                   <div class=\"form-group\">
                                                       <label class=\"col-lg-2 control-label\">Nom</label>
                                                       <div class=\"col-lg-6\">
                                                           <input type=\"text\" class=\"form-control\" name=\"nom\" id=\"nom\" value=\"";
-        // line 261
+        // line 209
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "nom", array()), "html", null, true);
         echo "\"  required>
                                                       </div>
@@ -311,7 +315,7 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
                                                       <label class=\"col-lg-2 control-label\">Prenom</label>
                                                       <div class=\"col-lg-6\">
                                                           <input type=\"text\" class=\"form-control\" name=\"prenom\" id=\"prenom\" value=\"";
-        // line 267
+        // line 215
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "prenom", array()), "html", null, true);
         echo "\" required>
                                                       </div>
@@ -321,22 +325,15 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
                                                       <label class=\"col-lg-2 control-label\">Email</label>
                                                       <div class=\"col-lg-6\">
                                                           <input type=\"text\" class=\"form-control\" name=\"email\" id=\"email\" value=\"";
-        // line 274
+        // line 222
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "email", array()), "html", null, true);
         echo "\"  required>
                                                       </div>
                                                   </div>
-                                                  <div class=\"form-group\">
-                                                      <label class=\"col-lg-2 control-label\">Login</label>
-                                                      <div class=\"col-lg-6\">
-                                                          <input type=\"text\" class=\"form-control\" name=\"login\" id=\"login\" value=\"";
-        // line 280
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()), "html", null, true);
-        echo "\"  required>
-                                                      </div>
-                                                  </div>
-                                                  
-
+                                                      
+                                                    ";
+        // line 232
+        echo "                                                    
                                                   <div class=\"form-group\">
                                                       <div class=\"col-lg-offset-2 col-lg-10\">
                                                           <button type=\"submit\" name=\"sauvegarder\" class=\"btn btn-primary\">Sauvegarder</button>
@@ -363,49 +360,49 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
 ";
     }
 
-    // line 310
+    // line 258
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 311
+        // line 259
         echo "    <!-- javascripts -->
     <script src=\"";
-        // line 312
+        // line 260
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 313
+        // line 261
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
     <!-- nice scroll -->
     <script src=\"";
-        // line 315
+        // line 263
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.scrollTo.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 316
+        // line 264
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.nicescroll.js"), "html", null, true);
         echo "\"></script>
     <!-- jquery knob -->
     <script src=\"";
-        // line 318
+        // line 266
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.knob.js"), "html", null, true);
         echo "\"></script>
     <!--custome script for all page-->
     <script src=\"";
-        // line 320
+        // line 268
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/scripts.js"), "html", null, true);
         echo "\"></script>
     <!-- map -->
     <script src=\"";
-        // line 322
+        // line 270
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery-jvectormap-1.2.2.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 323
+        // line 271
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery-jvectormap-world-mill-en.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 324
+        // line 272
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/gdp-data.js"), "html", null, true);
         echo "\"></script>\t
 
@@ -450,13 +447,20 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
 
     public function getDebugInfo()
     {
-        return array (  409 => 324,  405 => 323,  401 => 322,  396 => 320,  391 => 318,  386 => 316,  382 => 315,  377 => 313,  373 => 312,  370 => 311,  367 => 310,  334 => 280,  325 => 274,  315 => 267,  306 => 261,  297 => 255,  290 => 251,  282 => 245,  226 => 147,  220 => 144,  214 => 141,  207 => 137,  185 => 117,  144 => 73,  137 => 71,  116 => 52,  113 => 51,  95 => 36,  84 => 28,  74 => 21,  66 => 15,  63 => 14,  56 => 11,  53 => 10,  46 => 7,  43 => 6,  36 => 4,  33 => 3,  11 => 1,);
+        return array (  406 => 272,  402 => 271,  398 => 270,  393 => 268,  388 => 266,  383 => 264,  379 => 263,  374 => 261,  370 => 260,  367 => 259,  364 => 258,  336 => 232,  329 => 222,  319 => 215,  310 => 209,  300 => 202,  290 => 195,  283 => 191,  248 => 159,  227 => 141,  221 => 138,  215 => 135,  208 => 131,  159 => 85,  151 => 80,  144 => 78,  123 => 59,  120 => 58,  102 => 43,  91 => 35,  81 => 28,  73 => 22,  70 => 21,  63 => 18,  60 => 17,  53 => 14,  50 => 13,  36 => 4,  33 => 3,  11 => 1,);
     }
 }
 /* {% extends "MoocMoocBundle:Apprenant:EspaceApprenant.html.twig" %}*/
 /* */
 /* {% block stylesheets %}*/
 /*     {{ parent()}}*/
+/*     <style> */
+/*     .redError {*/
+/*     background-color: #0055b3;*/
+/*     box-shadow: 2px 5px grey;*/
+/* }*/
+/*     </style>*/
+/*     */
 /* {% endblock %}*/
 /* {% block title %}*/
 /*     {{parent()}}*/
@@ -529,14 +533,8 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
 /*                               </div>*/
 /*                             </div>*/
 /*                             <div class="col-lg-4 col-sm-4 follow-info">*/
-/*                                 <p>Hello I’m Khoubaib Chamekh, a leading expert in interactive and creative design.</p>*/
-/*                                 <p>@khoubaibchamekh</p>*/
-/* 								<p><i class="fa fa-twitter">Khoubaib</i></p>*/
-/*                                 <h6>*/
-/*                                     <span><i class="icon_clock_alt"></i>11:05 AM</span>*/
-/*                                     <span><i class="icon_calendar"></i>05.04.16</span>*/
-/*                                     <span><i class="icon_pin_alt"></i>TN</span>*/
-/*                                 </h6>*/
+/*                                */
+/*                                 <div class="redError">{{msg}}</div>				*/
 /*                             </div>*/
 /*                             			*/
 /*                           </div>*/
@@ -562,14 +560,7 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
 /*                                           Edit Profile*/
 /*                                       </a>*/
 /*                                   </li>*/
-/*                                   */
-/*                                   {#<li class="">*/
-/*                                       <a data-toggle="tab" href="#edit-country">*/
-/*                                           <i class="icon-envelope"></i>*/
-/*                                           Edit Country*/
-/*                                       </a>*/
-/*                                   </li>#}*/
-/*                                   */
+/*                               */
 /*                                   <li class="">*/
 /*                                       <a data-toggle="tab" href="#edit-password">*/
 /*                                           <i class="icon-envelope"></i>*/
@@ -617,33 +608,25 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
 /*                                     <section class="panel">                                          */
 /*                                           <div class="panel-body bio-graph-info">*/
 /*                                               <h1> Editer Password</h1>*/
-/*                                               <form class="form-horizontal" role="form" method="POST" action="">                                                  */
+/*                                               <form class="form-horizontal" method="POST" action="{{path('mooc_editer_password_apprenant', {'login': apprenant.login})}}">                                                  */
 /*                                                   <div class="form-group">*/
 /*                                                       <label class="col-lg-2 control-label">Mot de passe actuel</label>*/
 /*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="password" class="form-control" id="passwordActuelle" placeholder="Entez le mot de passe actuel" required>*/
+/*                                                           <input type="password" class="form-control" id="passwordActuelle" name="passwordActuelle" placeholder="Entez la mot de passe actuel" required>*/
 /*                                                       </div>*/
 /*                                                   </div>*/
 /*                                                   <div class="form-group">*/
-/*                                                       <label class="col-lg-2 control-label">Nouveau mot de passe</label>*/
+/*                                                       <label class="col-lg-2 control-label">Nouvelle mot de passe</label>*/
 /*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="password" class="form-control" id="nouveauPassword" placeholder="Entrez le nouveau mot de passe"  pattern=".{6,}" title="mot de passe trop courte" required>*/
+/*                                                           <input type="password" class="form-control" id="nouveauPassword" name="nouveauPassword" placeholder="Entrez la nouvelle mot de passe"  pattern=".{6,}" title="mot de passe trop courte" required>*/
 /*                                                       </div>*/
 /*                                                   </div>*/
-/* 												  <div class="form-group">*/
-/*                                                       <label class="col-lg-2 control-label">Retapez la mot de passe</label>*/
-/*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="password" class="form-control" id="nouveauPasswordre" placeholder="Retapez le nouveau mot de passe" pattern=".{6,}" title="mot de passe trop courte" required>*/
-/*                                                       </div>*/
-/*                                                   </div>*/
-/*                                                   */
 /*                                                   <div class="form-group">*/
 /*                                                       <div class="col-lg-offset-2 col-lg-10">*/
 /*                                                           <button type="submit" class="btn btn-primary">Sauvegarder</button>*/
-/*                                                           */
 /*                                                       </div>*/
 /*                                                   </div>*/
-/*                                               </form>*/
+/*                                                   </form>*/
 /*                                           </div>*/
 /*                                       </section>*/
 /* 					<section>*/
@@ -651,65 +634,27 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
 /*                                           </div>*/
 /*                                       </section>*/
 /*                                   </div>*/
-/*                               */
-/*                                   {#<!-- edit Country -->*/
-/* 				<div id="edit-country" class="tab-pane">*/
-/*                                     <section class="panel">                                          */
-/*                                           <div class="panel-body bio-graph-info">*/
-/*                                               <h1> Edit Country</h1>*/
-/* 						<div class="row">	  */
-/*                                                     <div class="col-lg-9 col-md-12">*/
-/* 					*/
-/* 							<div class="panel panel-default">*/
-/* 							<div class="panel-heading">*/
-/* 							<h2><i class="fa fa-map-marker red"></i><strong>Countries</strong></h2>*/
-/* 													*/
-/* 							</div>*/
-/* 							<div class="panel-body-map">*/
-/* 								<div id="map" style="height:380px"></div>	*/
-/* 							</div>*/
-/* 							*/
-/* 							</div>*/
-/* 						</div>*/
-/* 						</div>*/
-/* 										*/
-/*                                               <form class="form-horizontal" role="form">                                                  */
-/*                                                   <div class="form-group">*/
-/*                                                       */
-/*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="text" class="form-control" id="my-country" placeholder=" ">*/
-/*                                                       </div>*/
-/*                                                   </div>*/
-/*                                                   */
-/*                                                   <div class="form-group">*/
-/*                                                       <div class="col-lg-offset-2 col-lg-10">*/
-/*                                                           <button type="submit" class="btn btn-primary">Sauvegarder</button>*/
-/*                                                           */
-/*                                                       </div>*/
-/*                                                   </div>*/
-/*                                               </form>*/
-/*                                           </div>*/
-/*                                       </section>*/
-/* */
-/*                                     <section>*/
-/*                                         <div class="row">                                              */
-/*                                         </div>*/
-/*                                     </section>*/
-/* 									  */
-/*                                 </div>#}*/
-/* 								  */
+/*                               		  */
 /*                                   <!-- edit-profile -->*/
 /*                                   <div id="edit-profile" class="tab-pane">*/
 /*                                     <section class="panel">                                          */
 /*                                           <div class="panel-body bio-graph-info">*/
 /*                                               <h1> Editer Profile</h1>*/
-/*                                               <form class="form-horizontal" role="form" method="POST" action="{{path('mooc_editer_profil_apprenant', {'login': apprenant.login})}}" > */
+/*                                               <form class="form-horizontal" method="POST" action="{{path('mooc_editer_profil_apprenant', {'login': apprenant.login})}}" > */
 /*                                                   <div class="form-group">*/
 /*                                                       <label class="col-lg-2 control-label">Cin</label>*/
 /*                                                       <div class="col-lg-6">*/
 /*                                                           <input type="text" class="form-control" name="cin" id="cin" value="{{apprenant.cin }}" disabled="true">*/
 /*                                                       </div>*/
 /*                                                   </div>*/
+/*                                                       */
+/*                                                    <div class="form-group">*/
+/*                                                       <label class="col-lg-2 control-label">Login</label>*/
+/*                                                       <div class="col-lg-6">*/
+/*                                                           <input type="text" class="form-control" name="login" id="login" value="{{apprenant.login }}"  disabled="true">*/
+/*                                                       </div>*/
+/*                                                   </div>*/
+/*                                                       */
 /*                                                   <div class="form-group">*/
 /*                                                       <label class="col-lg-2 control-label">Nom</label>*/
 /*                                                       <div class="col-lg-6">*/
@@ -729,14 +674,14 @@ class __TwigTemplate_bccb6bba2cbcf8b88877792726589e5b3feafeb5b6000635a12bde3bc1d
 /*                                                           <input type="text" class="form-control" name="email" id="email" value="{{apprenant.email }}"  required>*/
 /*                                                       </div>*/
 /*                                                   </div>*/
-/*                                                   <div class="form-group">*/
-/*                                                       <label class="col-lg-2 control-label">Login</label>*/
+/*                                                       */
+/*                                                     {#<div class="form-group">*/
+/*                                                       <label class="col-lg-2 control-label">Avatar</label>*/
 /*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="text" class="form-control" name="login" id="login" value="{{apprenant.login }}"  required>*/
+/*                                                           <input type="file" class="form-control" name="avatar" id="avatar" title="Ajouter votre photo de profile" >*/
 /*                                                       </div>*/
-/*                                                   </div>*/
-/*                                                   */
-/* */
+/*                                                     </div>#}*/
+/*                                                     */
 /*                                                   <div class="form-group">*/
 /*                                                       <div class="col-lg-offset-2 col-lg-10">*/
 /*                                                           <button type="submit" name="sauvegarder" class="btn btn-primary">Sauvegarder</button>*/

@@ -1,7 +1,18 @@
 mooc_mooc_homepage:
     path:     /
     defaults: { _controller: MoocMoocBundle:Default:index }
-
+mooc_mooc_logadmin:
+    path:     /loginadmin
+    defaults: { _controller: MoocMoocBundle:Admin:loginAdmin} 
+    
+mooc_mooc_logcomite:
+    path:     /logincomite
+    defaults: { _controller: MoocMoocBundle:Comite:loginComite} 
+    
+mooc_mooc_logOrganisme:
+    path:     /logOrganisme
+    defaults: { _controller: MoocMoocBundle:Organisme:loginOrganisme}  
+    
 mooc_mooc_contact:
     path:     /contact
     defaults: { _controller: MoocMoocBundle:Contact:send }
@@ -164,49 +175,6 @@ mooc_mooc_updateCours:
     path:     /UpdateCours/{id}
     defaults: { _controller: MoocMoocBundle:Cours:updateCours}
     
-    
-#mooc_espace_apprenant:
-#    path:   /espaceapprenant
-#    defaults: { _controller: MoocMoocBundle:Apprenant:EspaceApprenant}
-#    
-#mooc_accueil_apprenant:
-#    path:   /accueilapprenant/{login}
-#    defaults: { _controller: MoocMoocBundle:Apprenant:acceuilApprenant}   
-    
-#mooc_cours_apprenant:
-#    path:   /CoursApprenant/{login}
-#    defaults: { _controller: MoocMoocBundle:Apprenant:CoursApprenant}
-    
-#mooc_chercher_cours_apprenant:
-#    path:   /ChercherCours/{login}
-#    defaults: { _controller: MoocMoocBundle:Apprenant:ChercherCoursApprenant}
-#    
-#mooc_login_apprenant:
-#    path:     /loginApprenant
-#    defaults: { _controller: MoocMoocBundle:Apprenant:loginApprenant}
-#mooc_log_out_apprenant:
-#    path:     /logoutApprenant
-#    defaults: { _controller: MoocMoocBundle:Apprenant:logoutApprenant}
-#    
-#mooc_inscription_apprenant:
-#    path:     /inscriptionApprenant
-#    defaults: { _controller: MoocMoocBundle:Apprenant:inscriptionApprenant}
-#    
-#mooc_editer_profil_apprenant:
-#    path:     /accueilapprenant/{login}
-#    defaults: { _controller: MoocMoocBundle:Apprenant:editerProfil}
-    
-#mooc_supprimer_cours_apprenant:
-#    path:     /{id}/{login}
-#    defaults: { _controller: MoocMoocBundle:Apprenant:supprimer}
-
-#mooc_suivre_cour_apprenant:
-#    path:     /{login}/{id}/{id2}
-#    defaults: { _controller: MoocMoocBundle:Apprenant:suivreCours}
-#mooc_ajout_apprenant:
-#    path:     /ajout
-#    defaults: { _controller: MoocMoocBundle:Apprenant:ajout}    
- 
 
 mooc_mooc_PassOublier:
     path:     /PassOublier
@@ -224,6 +192,64 @@ mooc_mooc_ModifPassword:
     path:     /ModifPassword/{name}
     defaults: { _controller: MoocMoocBundle:Mail:ModifPassword}
     
+        
+mooc_inscription_apprenant:
+    path:     /inscriptionApprenant
+    defaults: { _controller: MoocMoocBundle:Apprenant:inscriptionApprenant}    
+    
+mooc_espace_apprenant:
+    path:   /espaceapprenant
+    defaults: { _controller: MoocMoocBundle:Apprenant:EspaceApprenant}
+    
+mooc_login_apprenant:
+    path:     /loginApprenant
+    defaults: { _controller: MoocMoocBundle:Apprenant:loginApprenant}
+    
+mooc_log_out_apprenant:
+    path:     /logoutApprenant
+    defaults: { _controller: MoocMoocBundle:Apprenant:logoutApprenant}  
+    
+mooc_accueil_apprenant:
+    path:   /accueilapprenant/{login}
+    defaults: { _controller: MoocMoocBundle:Apprenant:acceuilApprenant}   
+  
+mooc_editer_profil_apprenant:
+    path:     /accueilapprenant
+    defaults: { _controller: MoocMoocBundle:Apprenant:editerProfil}
+
+    
+    
+mooc_cours_apprenant:
+    path:   /CoursApprenant/{login}
+    defaults: { _controller: MoocMoocBundle:Apprenant:CoursApprenant}
+    
+mooc_chercher_cours_apprenant:
+    path:   /ChercherCours/{login}
+    defaults: { _controller: MoocMoocBundle:Apprenant:ChercherCoursApprenant}
+
+mooc_detail_cours_apprenant:
+    path:   /detailCoursApprenant/{idCourSuivi}/{login}
+    defaults: { _controller: MoocMoocBundle:Apprenant:detailCoursApprenant}
+    
+mooc_editer_cours_apprenant:
+    path:   /detailCoursApprenant
+    defaults: { _controller: MoocMoocBundle:Apprenant:editCoursApprenant}
+    
+mooc_suivre_cour_apprenant:
+    path:     /CoursApprenant
+    defaults: { _controller: MoocMoocBundle:Apprenant:suivreCours}    
+    
+mooc_supprimer_cours_apprenant:
+    path:     /{idCourSuivi}/{login}
+    defaults: { _controller: MoocMoocBundle:Apprenant:supprimer}
+    
+mooc_editer_password_apprenant:
+    path:   /{login}
+    defaults: { _controller: MoocMoocBundle:Apprenant:editPassword}    
+       
+    
+    
+    
 mooc_consult_cours_apprenant:
     path:     /consulterCours/{cours}/{login}
     defaults: { _controller: MoocMoocBundle:Apprenant:consult}
@@ -231,20 +257,14 @@ mooc_consult_cours_apprenant:
 mooc_pdf:
     path:     /pdf/{id}
     defaults: { _controller: MoocMoocBundle:Cours:pdf}
-    
+ 
 mooc_apprenant_cours_details:
     path:     /coursDet/{idCours}
     defaults: { _controller: MoocMoocBundle:Apprenant:coursDetails}
     
 
     
-mooc_mooc_logadmin:
-    path:     /loginadmin
-    defaults: { _controller: MoocMoocBundle:Admin:loginAdmin} 
-    
-mooc_mooc_logcomite:
-    path:     /logincomite
-    defaults: { _controller: MoocMoocBundle:Comite:loginComite} 
+
 
 mooc_mooc_PreinscriptionOrganisme:
     path:     /PreinscriptionOrganisme
@@ -255,9 +275,10 @@ mooc_mooc_PreinscriptionOrganismeEnreg:
 mooc_mooc_inscriptionOrganisme:
     path:     /inscriptionOrganisme/{id}
     defaults: { _controller: MoocMoocBundle:Organisme:inscriptionOrganisme}
-mooc_mooc_logOrganisme:
-    path:     /logOrganisme
-    defaults: { _controller: MoocMoocBundle:Organisme:loginOrganisme} 
+mooc_mooc_inscriptionOrganismeMail:
+    path:     /inscriptionOrganismeMail/{id}
+    defaults: { _controller: MoocMoocBundle:Organisme:inscriptionOrganismeMail}    
+
 mooc_mooc_acceuilOrganisme:
     path:     /acceuilOrganisme/{name}/{nbr}
     defaults: { _controller: MoocMoocBundle:Organisme:acceuilOrganisme}    

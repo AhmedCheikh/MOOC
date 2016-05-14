@@ -349,7 +349,7 @@ class __TwigTemplate_33b72c326f3c4956de2b0ab57d85f2427914f7eea1197615ca4416afba6
                                 <span class=\"profile-ava\">
                                     <img alt=\"\" src=\"";
         // line 269
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/esprit.PNG"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/mini_esprit.png"), "html", null, true);
         echo "\">
                                 </span>
                                 <span class=\"username\"> ";
@@ -412,19 +412,10 @@ class __TwigTemplate_33b72c326f3c4956de2b0ab57d85f2427914f7eea1197615ca4416afba6
                                 <span class=\"menu-arrow arrow_carrot-right\"></span>
                             </a>
                         </li>       
-                         <li>
-                            <a class=\"\" href=\"";
-        // line 320
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_publierCoursOrganisme", array("name" => (isset($context["name"]) ? $context["name"] : $this->getContext($context, "name")), "nbr" => (isset($context["nbr"]) ? $context["nbr"] : $this->getContext($context, "nbr")))), "html", null, true);
-        echo "\" class=\"\">
-                                <i class=\"icon_book\"></i>
-                                <span>Publier Cours</span>
-                                 <span class=\"menu-arrow arrow_carrot-right\"></span>
-                            </a>
-                        </li>
+                        
                         <li>
                             <a class=\"\" href=\"";
-        // line 327
+        // line 321
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_ListeFormateurs1", array("name" => (isset($context["name"]) ? $context["name"] : $this->getContext($context, "name")), "nbr" => (isset($context["nbr"]) ? $context["nbr"] : $this->getContext($context, "nbr")))), "html", null, true);
         echo "\" class=\"\">
                                 <i class=\"icon_group\"></i>
@@ -433,7 +424,7 @@ class __TwigTemplate_33b72c326f3c4956de2b0ab57d85f2427914f7eea1197615ca4416afba6
                         </li>
                         <li>                     
                             <a class=\"\" href=\"";
-        // line 333
+        // line 327
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_ListeOrganismes1", array("name" => (isset($context["name"]) ? $context["name"] : $this->getContext($context, "name")), "nbr" => (isset($context["nbr"]) ? $context["nbr"] : $this->getContext($context, "nbr")))), "html", null, true);
         echo "\">
                                 <i class=\"icon_building\"></i>
@@ -443,7 +434,7 @@ class __TwigTemplate_33b72c326f3c4956de2b0ab57d85f2427914f7eea1197615ca4416afba6
 
                         <li class=\"sub-menu\">
                             <a  href=\"";
-        // line 340
+        // line 334
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_ListeInvit", array("name" => (isset($context["name"]) ? $context["name"] : $this->getContext($context, "name")), "nbr" => (isset($context["nbr"]) ? $context["nbr"] : $this->getContext($context, "nbr")))), "html", null, true);
         echo "\" class=\"\">
                                 <i class=\"icon_mail\"></i>
@@ -453,7 +444,7 @@ class __TwigTemplate_33b72c326f3c4956de2b0ab57d85f2427914f7eea1197615ca4416afba6
                         </li>
                          <li class=\"sub-menu\">
                             <a  href=\"";
-        // line 347
+        // line 341
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_ListeTousFormateurs", array("name" => (isset($context["name"]) ? $context["name"] : $this->getContext($context, "name")), "nbr" => (isset($context["nbr"]) ? $context["nbr"] : $this->getContext($context, "nbr")))), "html", null, true);
         echo "\" class=\"\">
                                 <i class=\"icon_plus_alt2\"></i>
@@ -496,7 +487,7 @@ class __TwigTemplate_33b72c326f3c4956de2b0ab57d85f2427914f7eea1197615ca4416afba6
                   <div class=\"widget-foot\">
                       
                       <form class=\"form-inline\" methode=\"POST\"";
-        // line 387
+        // line 381
         echo ">
 \t\t\t\t\t\t<div class=\"form-group\">
 \t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Tapez le nom du cour ici ...\">
@@ -534,18 +525,18 @@ class __TwigTemplate_33b72c326f3c4956de2b0ab57d85f2427914f7eea1197615ca4416afba6
                               </tr>
                               
                               ";
-        // line 423
+        // line 417
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["listeInvitation"]) ? $context["listeInvitation"] : $this->getContext($context, "listeInvitation")));
         foreach ($context['_seq'] as $context["_key"] => $context["inv"]) {
-            // line 424
+            // line 418
             echo "                                  <tr>
                                  <td>";
-            // line 425
+            // line 419
             echo twig_escape_filter($this->env, $this->getAttribute($context["inv"], "nom_exp", array()), "html", null, true);
             echo "</td>
                                  <td>";
-            // line 426
+            // line 420
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["inv"], "date_invit", array()), "d/m/Y"), "html", null, true);
             echo "</td>
                                   
@@ -555,17 +546,17 @@ class __TwigTemplate_33b72c326f3c4956de2b0ab57d85f2427914f7eea1197615ca4416afba6
                                  <td>
                                   <div class=\"btn-group\">
                                       <a class=\"btn btn-primary\" href=\"";
-            // line 433
+            // line 427
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_ProfilFormateur1", array("nom" => $this->getAttribute($context["inv"], "nom_exp", array()), "name" => (isset($context["name"]) ? $context["name"] : $this->getContext($context, "name")), "id" => $this->getAttribute($context["inv"], "id", array()))), "html", null, true);
             echo "\"><i class=\"icon_zoom-in_alt\"></i></a>
                                            <a class=\"btn btn-success\" href=\"";
-            // line 434
+            // line 428
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_Organisme_AccepterInvit", array("id" => $this->getAttribute($context["inv"], "id", array()), "name" => (isset($context["name"]) ? $context["name"] : $this->getContext($context, "name")), "nbr" => (isset($context["nbr"]) ? $context["nbr"] : $this->getContext($context, "nbr")))), "html", null, true);
             echo " \"><i class=\"icon_check_alt2\"></i></a>
                                                                                         
                                  
                                      <a class=\"btn btn-danger\" href=\"";
-            // line 437
+            // line 431
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_supprimerInvit", array("id" => $this->getAttribute($context["inv"], "id", array()), "name" => (isset($context["name"]) ? $context["name"] : $this->getContext($context, "name")), "nbr" => (isset($context["nbr"]) ? $context["nbr"] : $this->getContext($context, "nbr")))), "html", null, true);
             echo " \"><i class=\"icon_close_alt2\"></i></a>
                                  </div>
@@ -577,7 +568,7 @@ class __TwigTemplate_33b72c326f3c4956de2b0ab57d85f2427914f7eea1197615ca4416afba6
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['inv'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 443
+        // line 437
         echo "                              
                              
                              
@@ -606,7 +597,7 @@ class __TwigTemplate_33b72c326f3c4956de2b0ab57d85f2427914f7eea1197615ca4416afba6
 
     public function getDebugInfo()
     {
-        return array (  581 => 443,  569 => 437,  563 => 434,  559 => 433,  549 => 426,  545 => 425,  542 => 424,  538 => 423,  500 => 387,  457 => 347,  447 => 340,  437 => 333,  428 => 327,  418 => 320,  408 => 313,  399 => 307,  376 => 287,  357 => 271,  352 => 269,  304 => 224,  280 => 203,  265 => 191,  250 => 179,  235 => 167,  100 => 35,  96 => 34,  92 => 33,  88 => 32,  84 => 31,  80 => 30,  75 => 28,  71 => 27,  66 => 25,  61 => 23,  57 => 22,  52 => 20,  48 => 19,  42 => 16,  37 => 14,  28 => 8,  19 => 1,);
+        return array (  572 => 437,  560 => 431,  554 => 428,  550 => 427,  540 => 420,  536 => 419,  533 => 418,  529 => 417,  491 => 381,  448 => 341,  438 => 334,  428 => 327,  419 => 321,  408 => 313,  399 => 307,  376 => 287,  357 => 271,  352 => 269,  304 => 224,  280 => 203,  265 => 191,  250 => 179,  235 => 167,  100 => 35,  96 => 34,  92 => 33,  88 => 32,  84 => 31,  80 => 30,  75 => 28,  71 => 27,  66 => 25,  61 => 23,  57 => 22,  52 => 20,  48 => 19,  42 => 16,  37 => 14,  28 => 8,  19 => 1,);
     }
 }
 /* <html>*/
@@ -877,7 +868,7 @@ class __TwigTemplate_33b72c326f3c4956de2b0ab57d85f2427914f7eea1197615ca4416afba6
 /*                         <li class="dropdown">*/
 /*                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">*/
 /*                                 <span class="profile-ava">*/
-/*                                     <img alt="" src="{{asset('bundles/moocmooc/css/profilformateur/img/esprit.PNG')}}">*/
+/*                                     <img alt="" src="{{asset('bundles/moocmooc/css/profilformateur/img/mini_esprit.png')}}">*/
 /*                                 </span>*/
 /*                                 <span class="username"> {{name}}</span>*/
 /*                                 <b class="caret"></b>*/
@@ -927,13 +918,7 @@ class __TwigTemplate_33b72c326f3c4956de2b0ab57d85f2427914f7eea1197615ca4416afba6
 /*                                 <span class="menu-arrow arrow_carrot-right"></span>*/
 /*                             </a>*/
 /*                         </li>       */
-/*                          <li>*/
-/*                             <a class="" href="{{path('mooc_mooc_publierCoursOrganisme', {'name':name,'nbr':nbr})}}" class="">*/
-/*                                 <i class="icon_book"></i>*/
-/*                                 <span>Publier Cours</span>*/
-/*                                  <span class="menu-arrow arrow_carrot-right"></span>*/
-/*                             </a>*/
-/*                         </li>*/
+/*                         */
 /*                         <li>*/
 /*                             <a class="" href="{{path('mooc_mooc_ListeFormateurs1', {'name':name,'nbr':nbr})}}" class="">*/
 /*                                 <i class="icon_group"></i>*/

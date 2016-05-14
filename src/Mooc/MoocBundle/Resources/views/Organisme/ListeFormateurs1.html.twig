@@ -118,7 +118,7 @@
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="profile-ava">
-                                    <img alt="" src="{{asset('bundles/moocmooc/css/profilformateur/img/esprit.PNG')}}">
+                                  <img alt="avatar" src="{{asset(Organisme.logo)}}">
                                 </span>
                                 <span class="username"> {{Organisme.nom}}</span>
                                 <b class="caret"></b>
@@ -165,13 +165,7 @@
                                 <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
                         </li>   
-                            <li>
-                            <a class="" href="{{path('mooc_mooc_publierCoursOrganisme', {'name':Organisme.nom,'nbr':nbr})}}" class="">
-                                <i class="icon_book"></i>
-                                <span>Publier Cours</span>
-                                 <span class="menu-arrow arrow_carrot-right"></span>
-                            </a>
-                        </li>
+                         
                        
                         <li>
                             <a class="" href="{{path('mooc_mooc_ListeFormateurs1', {'name':Organisme.nom,'nbr':nbr})}}" class="">

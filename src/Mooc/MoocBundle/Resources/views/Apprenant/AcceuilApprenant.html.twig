@@ -2,6 +2,13 @@
 
 {% block stylesheets %}
     {{ parent()}}
+    <style> 
+    .redError {
+    background-color: #0055b3;
+    box-shadow: 2px 5px grey;
+}
+    </style>
+    
 {% endblock %}
 {% block title %}
     {{parent()}}
@@ -74,14 +81,8 @@
                               </div>
                             </div>
                             <div class="col-lg-4 col-sm-4 follow-info">
-                                <p>Hello I’m Khoubaib Chamekh, a leading expert in interactive and creative design.</p>
-                                <p>@khoubaibchamekh</p>
-								<p><i class="fa fa-twitter">Khoubaib</i></p>
-                                <h6>
-                                    <span><i class="icon_clock_alt"></i>11:05 AM</span>
-                                    <span><i class="icon_calendar"></i>05.04.16</span>
-                                    <span><i class="icon_pin_alt"></i>TN</span>
-                                </h6>
+                               
+                                <div class="redError">{{msg}}</div>				
                             </div>
                             			
                           </div>
@@ -107,14 +108,7 @@
                                           Edit Profile
                                       </a>
                                   </li>
-                                  
-                                  {#<li class="">
-                                      <a data-toggle="tab" href="#edit-country">
-                                          <i class="icon-envelope"></i>
-                                          Edit Country
-                                      </a>
-                                  </li>#}
-                                  
+                              
                                   <li class="">
                                       <a data-toggle="tab" href="#edit-password">
                                           <i class="icon-envelope"></i>
@@ -162,33 +156,25 @@
                                     <section class="panel">                                          
                                           <div class="panel-body bio-graph-info">
                                               <h1> Editer Password</h1>
-                                              <form class="form-horizontal" role="form" method="POST" action="">                                                  
+                                              <form class="form-horizontal" method="POST" action="{{path('mooc_editer_password_apprenant', {'login': apprenant.login})}}">                                                  
                                                   <div class="form-group">
                                                       <label class="col-lg-2 control-label">Mot de passe actuel</label>
                                                       <div class="col-lg-6">
-                                                          <input type="password" class="form-control" id="passwordActuelle" placeholder="Entez le mot de passe actuel" required>
+                                                          <input type="password" class="form-control" id="passwordActuelle" name="passwordActuelle" placeholder="Entez la mot de passe actuel" required>
                                                       </div>
                                                   </div>
                                                   <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Nouveau mot de passe</label>
+                                                      <label class="col-lg-2 control-label">Nouvelle mot de passe</label>
                                                       <div class="col-lg-6">
-                                                          <input type="password" class="form-control" id="nouveauPassword" placeholder="Entrez le nouveau mot de passe"  pattern=".{6,}" title="mot de passe trop courte" required>
+                                                          <input type="password" class="form-control" id="nouveauPassword" name="nouveauPassword" placeholder="Entrez la nouvelle mot de passe"  pattern=".{6,}" title="mot de passe trop courte" required>
                                                       </div>
                                                   </div>
-												  <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Retapez la mot de passe</label>
-                                                      <div class="col-lg-6">
-                                                          <input type="password" class="form-control" id="nouveauPasswordre" placeholder="Retapez le nouveau mot de passe" pattern=".{6,}" title="mot de passe trop courte" required>
-                                                      </div>
-                                                  </div>
-                                                  
                                                   <div class="form-group">
                                                       <div class="col-lg-offset-2 col-lg-10">
                                                           <button type="submit" class="btn btn-primary">Sauvegarder</button>
-                                                          
                                                       </div>
                                                   </div>
-                                              </form>
+                                                  </form>
                                           </div>
                                       </section>
 					<section>
@@ -196,65 +182,27 @@
                                           </div>
                                       </section>
                                   </div>
-                              
-                                  {#<!-- edit Country -->
-				<div id="edit-country" class="tab-pane">
-                                    <section class="panel">                                          
-                                          <div class="panel-body bio-graph-info">
-                                              <h1> Edit Country</h1>
-						<div class="row">	  
-                                                    <div class="col-lg-9 col-md-12">
-					
-							<div class="panel panel-default">
-							<div class="panel-heading">
-							<h2><i class="fa fa-map-marker red"></i><strong>Countries</strong></h2>
-													
-							</div>
-							<div class="panel-body-map">
-								<div id="map" style="height:380px"></div>	
-							</div>
-							
-							</div>
-						</div>
-						</div>
-										
-                                              <form class="form-horizontal" role="form">                                                  
-                                                  <div class="form-group">
-                                                      
-                                                      <div class="col-lg-6">
-                                                          <input type="text" class="form-control" id="my-country" placeholder=" ">
-                                                      </div>
-                                                  </div>
-                                                  
-                                                  <div class="form-group">
-                                                      <div class="col-lg-offset-2 col-lg-10">
-                                                          <button type="submit" class="btn btn-primary">Sauvegarder</button>
-                                                          
-                                                      </div>
-                                                  </div>
-                                              </form>
-                                          </div>
-                                      </section>
-
-                                    <section>
-                                        <div class="row">                                              
-                                        </div>
-                                    </section>
-									  
-                                </div>#}
-								  
+                              		  
                                   <!-- edit-profile -->
                                   <div id="edit-profile" class="tab-pane">
                                     <section class="panel">                                          
                                           <div class="panel-body bio-graph-info">
                                               <h1> Editer Profile</h1>
-                                              <form class="form-horizontal" role="form" method="POST" action="{{path('mooc_editer_profil_apprenant', {'login': apprenant.login})}}" > 
+                                              <form class="form-horizontal" method="POST" action="{{path('mooc_editer_profil_apprenant', {'login': apprenant.login})}}" > 
                                                   <div class="form-group">
                                                       <label class="col-lg-2 control-label">Cin</label>
                                                       <div class="col-lg-6">
                                                           <input type="text" class="form-control" name="cin" id="cin" value="{{apprenant.cin }}" disabled="true">
                                                       </div>
                                                   </div>
+                                                      
+                                                   <div class="form-group">
+                                                      <label class="col-lg-2 control-label">Login</label>
+                                                      <div class="col-lg-6">
+                                                          <input type="text" class="form-control" name="login" id="login" value="{{apprenant.login }}"  disabled="true">
+                                                      </div>
+                                                  </div>
+                                                      
                                                   <div class="form-group">
                                                       <label class="col-lg-2 control-label">Nom</label>
                                                       <div class="col-lg-6">
@@ -274,14 +222,14 @@
                                                           <input type="text" class="form-control" name="email" id="email" value="{{apprenant.email }}"  required>
                                                       </div>
                                                   </div>
-                                                  <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Login</label>
+                                                      
+                                                    {#<div class="form-group">
+                                                      <label class="col-lg-2 control-label">Avatar</label>
                                                       <div class="col-lg-6">
-                                                          <input type="text" class="form-control" name="login" id="login" value="{{apprenant.login }}"  required>
+                                                          <input type="file" class="form-control" name="avatar" id="avatar" title="Ajouter votre photo de profile" >
                                                       </div>
-                                                  </div>
-                                                  
-
+                                                    </div>#}
+                                                    
                                                   <div class="form-group">
                                                       <div class="col-lg-offset-2 col-lg-10">
                                                           <button type="submit" name="sauvegarder" class="btn btn-primary">Sauvegarder</button>

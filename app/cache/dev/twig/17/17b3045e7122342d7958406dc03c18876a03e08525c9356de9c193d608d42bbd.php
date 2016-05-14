@@ -197,7 +197,7 @@ class __TwigTemplate_b3c3117542550cc4614015fb6b268bd7879cbcd827c57da6dd80fe40ae4
                                  <div class=\"btn-group\">
                                     <a class=\"btn btn-primary\" href=\"";
             // line 119
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_suivre_cour_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()), "id" => $this->getAttribute($context["cour"], "idcours", array()), "id2" => $this->getAttribute($context["cour"], "idcours", array()))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_suivre_cour_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()), "idCours" => $this->getAttribute($context["cour"], "idcours", array()))), "html", null, true);
             echo "\"><span class=\"icon_plus_alt2\"></span> Suivre</a>
                                     <a class=\"btn btn-info\" href=\"\"><span class=\"icon_target\"></span> Consulter</a>
                                   </div>
@@ -210,10 +210,7 @@ class __TwigTemplate_b3c3117542550cc4614015fb6b268bd7879cbcd827c57da6dd80fe40ae4
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['cour'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 126
-        echo "                              
-                              ";
-        // line 179
-        echo "                             
+        echo "
                            </tbody>
                         </table>
                       </section>
@@ -225,40 +222,40 @@ class __TwigTemplate_b3c3117542550cc4614015fb6b268bd7879cbcd827c57da6dd80fe40ae4
 ";
     }
 
-    // line 190
+    // line 137
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 191
+        // line 138
         echo "    <!-- javascripts -->
     <script src=\"";
-        // line 192
+        // line 139
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 193
+        // line 140
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
     <!-- nice scroll -->
     <script src=\"";
-        // line 195
+        // line 142
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.scrollTo.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 196
+        // line 143
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.nicescroll.js"), "html", null, true);
         echo "\"></script>
     <!-- jquery knob -->
     <script src=\"";
-        // line 198
+        // line 145
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.knob.js"), "html", null, true);
         echo "\"></script>
     <!--custome script for all page-->
     <script src=\"";
-        // line 200
+        // line 147
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/scripts.js"), "html", null, true);
         echo "\"></script>
     ";
-        // line 203
+        // line 150
         echo "
 ";
     }
@@ -275,7 +272,7 @@ class __TwigTemplate_b3c3117542550cc4614015fb6b268bd7879cbcd827c57da6dd80fe40ae4
 
     public function getDebugInfo()
     {
-        return array (  262 => 203,  258 => 200,  253 => 198,  248 => 196,  244 => 195,  239 => 193,  235 => 192,  232 => 191,  229 => 190,  216 => 179,  213 => 126,  200 => 119,  193 => 115,  187 => 114,  183 => 113,  180 => 112,  176 => 111,  138 => 76,  110 => 50,  107 => 49,  88 => 33,  77 => 25,  67 => 18,  59 => 12,  56 => 11,  49 => 8,  46 => 7,  40 => 5,  35 => 4,  32 => 3,  11 => 1,);
+        return array (  259 => 150,  255 => 147,  250 => 145,  245 => 143,  241 => 142,  236 => 140,  232 => 139,  229 => 138,  226 => 137,  213 => 126,  200 => 119,  193 => 115,  187 => 114,  183 => 113,  180 => 112,  176 => 111,  138 => 76,  110 => 50,  107 => 49,  88 => 33,  77 => 25,  67 => 18,  59 => 12,  56 => 11,  49 => 8,  46 => 7,  40 => 5,  35 => 4,  32 => 3,  11 => 1,);
     }
 }
 /* {% extends "MoocMoocBundle:Apprenant:EspaceApprenant.html.twig" %}*/
@@ -396,67 +393,14 @@ class __TwigTemplate_b3c3117542550cc4614015fb6b268bd7879cbcd827c57da6dd80fe40ae4
 /*                                  */
 /*                                  <td>*/
 /*                                  <div class="btn-group">*/
-/*                                     <a class="btn btn-primary" href="{{path('mooc_suivre_cour_apprenant', { 'login': apprenant.login ,'id': cour.idcours,'id2': cour.idcours})}}"><span class="icon_plus_alt2"></span> Suivre</a>*/
+/*                                     <a class="btn btn-primary" href="{{path('mooc_suivre_cour_apprenant', {'login': apprenant.login ,'idCours': cour.idcours})}}"><span class="icon_plus_alt2"></span> Suivre</a>*/
 /*                                     <a class="btn btn-info" href=""><span class="icon_target"></span> Consulter</a>*/
 /*                                   </div>*/
 /*                                  </td>*/
 /*                               </tr>*/
 /*                                   */
 /*                               {% endfor %}*/
-/*                               */
-/*                               {#<tr>*/
-/*                                  <td>Android</td>*/
-/*                                  <td>Angeline Mcclain</td>*/
-/*                                  <td>*/
-/*                                  <span class="icon_star"></span>*/
-/*                                  <span class="icon_star-half_alt"></span>*/
-/*                                  <span class="icon_star_alt"></span>*/
-/*                                  <span class="icon_star_alt"></span>*/
-/*                                  </td>*/
-/*                                  */
-/*                                  <td>*/
-/*                                  <div class="btn-group">*/
-/*                                     <a class="btn btn-primary" href=""><span class="icon_plus_alt2"></span> Suivre</a>*/
-/*                                     <a class="btn btn-info" href=""><span class="icon_target"></span> Consulter</a>*/
-/*                                   </div>*/
-/*                                  </td>*/
-/*                               </tr>*/
-/*                               <tr>*/
-/*                                  <td>Cross Platform</td>*/
-/*                                  <td>Sung Carlson</td>*/
-/*                                  <td>*/
-/*                                  <span class="icon_star"></span>*/
-/*                                  <span class="icon_star"></span>*/
-/*                                  <span class="icon_star-half_alt"></span>*/
-/*                                  <span class="icon_star_alt"></span>*/
-/*                                  */
-/*                                  </td>*/
-/*                                  */
-/*                                  <td>*/
-/*                                   <div class="btn-group">*/
-/*                                      <a class="btn btn-primary" href=""><span class="icon_plus_alt2"></span> Suivre</a>*/
-/*                                     <a class="btn btn-info" href=""><span class="icon_target"></span> Consulter</a>*/
-/*                                   </div>*/
-/*                                   </td>*/
-/*                               </tr>*/
-/*                               <tr>*/
-/*                                  <td>Windows Phone</td>*/
-/*                                  <td>Selina Fitzgerald</td>*/
-/*                                  <td>*/
-/*                                   <span class="icon_star"></span>*/
-/*                                   <span class="icon_star"></span>*/
-/*                                   <span class="icon_star"></span>*/
-/*                                   <span class="icon_star-half_alt"></span>*/
-/*                                  </td>*/
-/*                                  */
-/*                                  <td>*/
-/*                                   <div class="btn-group">*/
-/*                                     <a class="btn btn-primary" href=""><span class="icon_plus_alt2"></span> Suivre</a>*/
-/*                                     <a class="btn btn-info" href=""><span class="icon_target"></span> Consulter</a>*/
-/*                                   </div>*/
-/*                                   </td>*/
-/*                               </tr> #}*/
-/*                              */
+/* */
 /*                            </tbody>*/
 /*                         </table>*/
 /*                       </section>*/

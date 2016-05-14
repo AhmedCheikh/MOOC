@@ -266,8 +266,7 @@
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="profile-ava">
-                                    <img alt="" src="{{asset('bundles/moocmooc/css/profilformateur/img/esprit.PNG')}}">
-                                </span>
+ <img alt="avatar" src="{{asset(Organisme.logo)}}">                                </span>
                                 <span class="username"> {{Organisme.nom}}</span>
                                 <b class="caret"></b>
                             </a>
@@ -315,13 +314,7 @@
                                 <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
                         </li>       
-                        <li>
-                            <a class="" href="{{path('mooc_mooc_publierCoursOrganisme', {'name':Organisme.nom,'nbr':nbr})}}" class="">
-                                <i class="icon_book"></i>
-                                <span>Publier Cours</span>
-                                 <span class="menu-arrow arrow_carrot-right"></span>
-                            </a>
-                        </li>
+                        
                         <li>
                             <a class="" href="{{path('mooc_mooc_ListeFormateurs1', {'name':Organisme.nom,'nbr':nbr})}}" class="">
                                 <i class="icon_group"></i>
@@ -414,6 +407,7 @@
                                  <th><i class="icon_profile"></i> Nom </th>              
                                  <th><i class="icon_pin_alt"></i> Adresse </th>
                                 <th><i class="icon_mail_alt"></i> Email</th>
+                                 <th><i class="icon_mail_alt"></i>Logo</th>
                                
                                  
                                  <th><i class="icon_cogs"></i> Action</th>
@@ -424,7 +418,7 @@
                                  <td>{{Organisme1.nom}}</td>
                                  <td>{{Organisme1.adresse}}</td>
                                    <td>{{Organisme1.email}}</td>
-                                 
+                                  <td><img alt="avatar" src="{{asset(Organisme1.logo)}}"></td>
                                 
                                  
                                  <td> 

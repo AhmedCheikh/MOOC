@@ -1,7 +1,6 @@
 <?php
 
 namespace Mooc\MoocBundle\Entity;
-use \Mooc\MoocBundle\Entity\Apprenant;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -9,35 +8,35 @@ use Doctrine\ORM\Mapping as ORM;
  * Coursuivi
  *
  * @ORM\Table(name="coursuivi", indexes={@ORM\Index(name="fk_app1", columns={"cinapprenant"}), @ORM\Index(name="fk_cours", columns={"id_cours"})})
- * @ORM\Entity(repositoryClass="Mooc\MoocBundle\Entity\CoursuiviRepository")
+ * @ORM\Entity
  */
 class Coursuivi
 {
     /**
      * @var string
      *
-     * @ORM\Column(name="commentaire", type="string", length=255, nullable=false)
+     * @ORM\Column(name="commentaire", type="string", length=255, nullable=true)
      */
     private $commentaire;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="note", type="float", precision=10, scale=0, nullable=false)
+     * @ORM\Column(name="note", type="float", precision=10, scale=0, nullable=true)
      */
     private $note;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_debut", type="date", nullable=false)
+     * @ORM\Column(name="date_debut", type="string",length=255, nullable=true)
      */
     private $dateDebut;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="appreciation", type="string", length=255, nullable=false)
+     * @ORM\Column(name="appreciation", type="string", length=255, nullable=true)
      */
     private $appreciation;
 
@@ -108,7 +107,7 @@ class Coursuivi
         return $this;
     }
 
-    function setDateDebut( $dateDebut) {
+    function setDateDebut($dateDebut) {
         $this->dateDebut = $dateDebut;
         return $this;
     }
@@ -128,7 +127,7 @@ class Coursuivi
         return $this;
     }
 
-    function setIdCours(\Mooc\MoocBundle\Entity\Cours $idCours) {
+    function setIdCours(\Mooc\MoocBundle\Entity\Cours $idCours = null) {
         $this->idCours = $idCours;
         return $this;
     }

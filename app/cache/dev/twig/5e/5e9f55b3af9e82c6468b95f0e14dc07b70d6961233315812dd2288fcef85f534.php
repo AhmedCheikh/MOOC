@@ -347,13 +347,12 @@ class __TwigTemplate_c6875698e42a26023a75739117d4a0a5dac064c0dc1fdf4ba53300afc50
                         <li class=\"dropdown\">
                             <a data-toggle=\"dropdown\" class=\"dropdown-toggle\" href=\"#\">
                                 <span class=\"profile-ava\">
-                                    <img alt=\"\" src=\"";
+ <img alt=\"avatar\" src=\"";
         // line 269
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/esprit.PNG"), "html", null, true);
-        echo "\">
-                                </span>
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl($this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "logo", array())), "html", null, true);
+        echo "\">                                </span>
                                 <span class=\"username\"> ";
-        // line 271
+        // line 270
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "nom", array()), "html", null, true);
         echo "</span>
                                 <b class=\"caret\"></b>
@@ -371,7 +370,7 @@ class __TwigTemplate_c6875698e42a26023a75739117d4a0a5dac064c0dc1fdf4ba53300afc50
                                 </li>
                                 <li>
                                     <a href=\"";
-        // line 286
+        // line 285
         echo $this->env->getExtension('routing')->getPath("mooc_mooc_log_out_formateur");
         echo "\"><i class=\"icon_key_alt\"></i> Log Out</a>
                                 </li>
@@ -394,7 +393,7 @@ class __TwigTemplate_c6875698e42a26023a75739117d4a0a5dac064c0dc1fdf4ba53300afc50
                     <ul class=\"sidebar-menu\">                
                         <li class=\"active\">
                             <a class=\"\" href=\"";
-        // line 306
+        // line 305
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_acceuilOrganisme", array("name" => $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "nom", array()), "nbr" => (isset($context["nbr"]) ? $context["nbr"] : $this->getContext($context, "nbr")))), "html", null, true);
         echo "\">
                                 <i class=\"icon_house_alt\"></i>
@@ -403,7 +402,7 @@ class __TwigTemplate_c6875698e42a26023a75739117d4a0a5dac064c0dc1fdf4ba53300afc50
                         </li>
                         <li class=\"sub-menu\">
                             <a href=\"";
-        // line 312
+        // line 311
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_profileOrganisme", array("name" => $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "nom", array()), "nbr" => (isset($context["nbr"]) ? $context["nbr"] : $this->getContext($context, "nbr")))), "html", null, true);
         echo "\" class=\"\">
                                 <i class=\"icon_id\"></i>
@@ -414,7 +413,7 @@ class __TwigTemplate_c6875698e42a26023a75739117d4a0a5dac064c0dc1fdf4ba53300afc50
                      
                         <li>
                             <a class=\"\" href=\"";
-        // line 320
+        // line 319
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_ListeFormateurs1", array("name" => $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "nom", array()), "nbr" => (isset($context["nbr"]) ? $context["nbr"] : $this->getContext($context, "nbr")))), "html", null, true);
         echo "\" class=\"\">
                                 <i class=\"icon_group\"></i>
@@ -423,7 +422,7 @@ class __TwigTemplate_c6875698e42a26023a75739117d4a0a5dac064c0dc1fdf4ba53300afc50
                         </li>
                         <li>                     
                             <a class=\"\" href=\"";
-        // line 326
+        // line 325
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_ListeOrganismes1", array("name" => $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "nom", array()), "nbr" => (isset($context["nbr"]) ? $context["nbr"] : $this->getContext($context, "nbr")))), "html", null, true);
         echo "\">
                                 <i class=\"icon_building\"></i>
@@ -433,7 +432,7 @@ class __TwigTemplate_c6875698e42a26023a75739117d4a0a5dac064c0dc1fdf4ba53300afc50
 
                           <li class=\"sub-menu\">
                             <a  href=\"";
-        // line 333
+        // line 332
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_ListeInvit", array("name" => $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "nom", array()), "nbr" => (isset($context["nbr"]) ? $context["nbr"] : $this->getContext($context, "nbr")))), "html", null, true);
         echo "\" class=\"\">
                                 <i class=\"icon_mail\"></i>
@@ -443,7 +442,7 @@ class __TwigTemplate_c6875698e42a26023a75739117d4a0a5dac064c0dc1fdf4ba53300afc50
                         </li>
                          <li class=\"sub-menu\">
                             <a  href=\"";
-        // line 340
+        // line 339
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_ListeTousFormateurs", array("name" => $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "nom", array()), "nbr" => (isset($context["nbr"]) ? $context["nbr"] : $this->getContext($context, "nbr")))), "html", null, true);
         echo "\" class=\"\">
                                 <i class=\"icon_plus_alt2\"></i>
@@ -476,28 +475,28 @@ class __TwigTemplate_c6875698e42a26023a75739117d4a0a5dac064c0dc1fdf4ba53300afc50
                           <div class=\"panel-body\">
                             <div class=\"col-lg-2 col-sm-2\">
                               <h4>";
-        // line 370
+        // line 369
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "nom", array()), "html", null, true);
         echo "</h4>               
                               <div class=\"follow-ava\">
                                   <img src=\"";
-        // line 372
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/ult1.png"), "html", null, true);
+        // line 371
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/esprit1.png"), "html", null, true);
         echo "\" alt=\"\">
                               </div>
                               <h6>Administrator</h6>
                             </div>
                             <div class=\"col-lg-4 col-sm-4 follow-info\">
-                                <p>Hello I’m ";
-        // line 377
+                                <p>Salut je suis ";
+        // line 376
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "nom", array()), "html", null, true);
-        echo ", a leading expert in interactive and creative design.</p>
+        echo "</p>
                                 <p>";
-        // line 378
+        // line 377
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "email", array()), "html", null, true);
         echo "</p>
 \t\t\t\t\t\t\t\t<p><i class=\"fa fa-twitter\">";
-        // line 379
+        // line 378
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "nom", array()), "html", null, true);
         echo "</i></p>
                                 <h6>
@@ -535,21 +534,7 @@ class __TwigTemplate_c6875698e42a26023a75739117d4a0a5dac064c0dc1fdf4ba53300afc50
                                       </a>
                                   </li>
                                  
-                                  <li class=\"\">
-                                      <a data-toggle=\"tab\" href=\"#edit-profile\">
-                                          <i class=\"icon-envelope\"></i>
-                                          Edit Profile
-                                      </a>
-                                  </li>
-                                  
-                                  
-                                  
-                                  <li class=\"\">
-                                      <a data-toggle=\"tab\" href=\"#edit-password\">
-                                          <i class=\"icon-envelope\"></i>
-                                          Edit Password
-                                      </a>
-                                  </li>
+                                 
                               </ul>
                           </header>
                           <div class=\"panel-body\">
@@ -559,14 +544,18 @@ class __TwigTemplate_c6875698e42a26023a75739117d4a0a5dac064c0dc1fdf4ba53300afc50
                                   <div id=\"profile\" class=\"tab-pane active\">
                                     <section class=\"panel\">
                                       <div class=\"bio-graph-heading\">
-                                                Hello I’m Organisme.nom , a leading expert in interactive and creative design specializing in the mobile medium. My graduation from Massey University with a Bachelor of Design majoring in visual communication.
-                                      </div>
+";
+        // line 424
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "nom", array()), "html", null, true);
+        echo " : ";
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "description", array()), "html", null, true);
+        echo "                                      </div>
                                       <div class=\"panel-body bio-graph-info\">
                                           <h1>Bio Graph</h1>
                                           <div class=\"row\">
                                               <div class=\"bio-row\">
                                                   <p><span>Nom </span>:";
-        // line 445
+        // line 429
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "nom", array()), "html", null, true);
         echo " ";
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "adresse", array()), "html", null, true);
@@ -578,20 +567,20 @@ class __TwigTemplate_c6875698e42a26023a75739117d4a0a5dac064c0dc1fdf4ba53300afc50
                                               
                                               <div class=\"bio-row\">
                                                   <p><span>Site Web</span>: ";
-        // line 452
+        // line 436
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "siteWeb", array()), "html", null, true);
         echo "</p>
                                               </div>
                                               <div class=\"bio-row\">
                                                   <p><span>Telephone </span>:  ";
-        // line 455
+        // line 439
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "telephone", array()), "html", null, true);
         echo "</p>
                                               </div>
                                             
                                               <div class=\"bio-row\">
                                                   <p><span>Email </span>: ";
-        // line 459
+        // line 443
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "email", array()), "html", null, true);
         echo "</p>
                                               </div>
@@ -599,7 +588,7 @@ class __TwigTemplate_c6875698e42a26023a75739117d4a0a5dac064c0dc1fdf4ba53300afc50
                                                 <div class=\"bio-row\">
                                                
                                                   <p><span>Description </span>: ";
-        // line 464
+        // line 448
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "description", array()), "html", null, true);
         echo "</p>
                                             
@@ -618,156 +607,9 @@ class __TwigTemplate_c6875698e42a26023a75739117d4a0a5dac064c0dc1fdf4ba53300afc50
                                       </section>
                                   </div>
                                   
-                                  <!-- edit Password -->
-\t\t\t\t<div id=\"edit-password\" class=\"tab-pane active\" >
-                                    <section class=\"panel\">                                          
-                                          <div class=\"panel-body bio-graph-info\">
-                                              <h1> Edit Password</h1>
-                                              <form class=\"form-horizontal\" role=\"form\">                                                  
-                                                  <div class=\"form-group\">
-                                                      <label class=\"col-lg-2 control-label\">Mot de passe actuel</label>
-                                                      <div class=\"col-lg-6\">
-                                                          <input type=\"password\" class=\"form-control\" id=\"f-pass\" placeholder=\"Entez le mot de passe actuel\">
-                                                      </div>
-                                                  </div>
-                                                  <div class=\"form-group\">
-                                                      <label class=\"col-lg-2 control-label\">Nouveau mot de passe</label>
-                                                      <div class=\"col-lg-6\">
-                                                          <input type=\"password\" class=\"form-control\" id=\"l-pass\" placeholder=\"Entrez le nouveau mot de passe\">
-                                                      </div>
-                                                  </div>
-\t\t\t\t\t\t\t\t\t\t\t\t  <div class=\"form-group\">
-                                                      <label class=\"col-lg-2 control-label\">Retapez la mot de passe</label>
-                                                      <div class=\"col-lg-6\">
-                                                          <input type=\"password\" class=\"form-control\" id=\"l-pass\" placeholder=\"Retapez le nouveau mot de passe\">
-                                                      </div>
-                                                  </div>
-                                                  
-                                                  <div class=\"form-group\">
-                                                      <div class=\"col-lg-offset-2 col-lg-10\">
-                                                          <button type=\"submit\" class=\"btn btn-primary\">Sauvegarder</button>
-                                                          
-                                                      </div>
-                                                  </div>
-                                              </form>
-                                          </div>
-                                      </section>
-\t\t\t\t\t<section>
-                                          <div class=\"row\">                                              
-                                          </div>
-                                      </section>
-                                  </div>
-                              
-                                  <!-- edit Country -->
-\t\t\t\t<div id=\"edit-country\" class=\"tab-pane \" >
-                                    <section class=\"panel\">                                          
-                                          <div class=\"panel-body bio-graph-info\">
-                                              <h1> Edit Country</h1>
-\t\t\t\t\t\t<div class=\"row\">\t  
-                                                    <div class=\"col-lg-9 col-md-12\">
-\t\t\t\t\t
-\t\t\t\t\t\t\t<div class=\"panel panel-default\">
-\t\t\t\t\t\t\t<div class=\"panel-heading\">
-\t\t\t\t\t\t\t<h2><i class=\"fa fa-map-marker red\"></i><strong>Countries</strong></h2>
-\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t<div class=\"panel-body-map\">
-\t\t\t\t\t\t\t\t<div id=\"map\" style=\"height:380px\"></div>\t
-\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t
-                                              <form class=\"form-horizontal\" role=\"form\">                                                  
-                                                  <div class=\"form-group\">
-                                                      
-                                                      <div class=\"col-lg-6\">
-                                                          <input type=\"text\" class=\"form-control\" id=\"my-country\" placeholder=\" \">
-                                                      </div>
-                                                  </div>
-                                                  
-                                                  <div class=\"form-group\">
-                                                      <div class=\"col-lg-offset-2 col-lg-10\">
-                                                          <button type=\"submit\" class=\"btn btn-primary\">Sauvegarder</button>
-                                                          
-                                                      </div>
-                                                  </div>
-                                              </form>
-                                          </div>
-                                      </section>
-
-                                    <section>
-                                        <div class=\"row\">                                              
-                                        </div>
-                                    </section>
-\t\t\t\t\t\t\t\t\t  
-                                </div>
-\t\t\t\t\t\t\t\t  
-                                  <!-- edit-profile -->
-                                  <div id=\"edit-profile\" class=\"tab-pane active\" >
-                                    <section class=\"panel\">                                          
-                                          <div class=\"panel-body bio-graph-info\" >
-                                              <h1> Modifier Profile </h1>
-                                              <form class=\"form-horizontal\" role=\"form\"> 
-                                                  <div class=\"form-group\">
-                                                      <label class=\"col-lg-2 control-label\">Nom</label>
-                                                      <div class=\"col-lg-6\">
-                                                          <input type=\"text\" class=\"form-control\" id=\"nom\" value=\"";
-        // line 576
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "nom", array()), "html", null, true);
-        echo "\"  disabled=\"true\">
-                                                      </div>
-                                                  </div>
-                                                  <div class=\"form-group\">
-                                                      <label class=\"col-lg-2 control-label\">Login</label>
-                                                      <div class=\"col-lg-6\">
-                                                          <input type=\"text\" class=\"form-control\" id=\"login\" value=\"";
-        // line 582
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "login", array()), "html", null, true);
-        echo "\" required>
-                                                      </div>
-                                                  </div>
-                                                 
-                                                  
-                                                  <div class=\"form-group\">
-                                                      <label class=\"col-lg-2 control-label\">Email</label>
-                                                      <div class=\"col-lg-6\">
-                                                          <input type=\"email\" class=\"form-control\" id=\"email\" value=\"";
-        // line 590
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "email", array()), "html", null, true);
-        echo "\" required>
-                                                      </div>
-                                                  </div>
-                                                  <div class=\"form-group\">
-                                                      <label class=\"col-lg-2 control-label\">Site Web</label>
-                                                      <div class=\"col-lg-6\">
-                                                          <input type=\"text\" class=\"form-control\" id=\"siteweb\" value=\" ";
-        // line 596
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "siteWeb", array()), "html", null, true);
-        echo "\" required>
-                                                      </div>
-                                                  </div>
-                                                  <div class=\"form-group\">
-                                                      <label class=\"col-lg-2 control-label\">Telephone</label>
-                                                      <div class=\"col-lg-6\">
-                                                          <input type=\"text\" class=\"form-control\" id=\"telephone\" value=\"";
-        // line 602
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "telephone", array()), "html", null, true);
-        echo "\" required>
-                                                      </div>
-                                                  </div>
-
-                                                  <div class=\"form-group\">
-                                                      <div class=\"col-lg-offset-2 col-lg-10\">
-                                                          <button type=\"submit\" class=\"btn btn-primary\">Sauvegarder</button>
-                                                          <button type=\"button\" class=\"btn btn-danger\">Annuler</button>
-                                                      </div>
-                                                  </div>
-                                              </form>
-                                          </div>
-                                      </section>
-                                  </div>
+                                 
+\t\t\t\t\t  
+                                
                               </div>
                           </div>
                       </section>
@@ -797,7 +639,7 @@ class __TwigTemplate_c6875698e42a26023a75739117d4a0a5dac064c0dc1fdf4ba53300afc50
 
     public function getDebugInfo()
     {
-        return array (  756 => 602,  747 => 596,  738 => 590,  727 => 582,  718 => 576,  603 => 464,  595 => 459,  588 => 455,  582 => 452,  570 => 445,  501 => 379,  497 => 378,  493 => 377,  485 => 372,  480 => 370,  447 => 340,  437 => 333,  427 => 326,  418 => 320,  407 => 312,  398 => 306,  375 => 286,  357 => 271,  352 => 269,  304 => 224,  280 => 203,  265 => 191,  250 => 179,  235 => 167,  100 => 35,  96 => 34,  92 => 33,  88 => 32,  84 => 31,  80 => 30,  75 => 28,  71 => 27,  66 => 25,  61 => 23,  57 => 22,  52 => 20,  48 => 19,  42 => 16,  37 => 14,  28 => 8,  19 => 1,);
+        return array (  592 => 448,  584 => 443,  577 => 439,  571 => 436,  559 => 429,  549 => 424,  500 => 378,  496 => 377,  492 => 376,  484 => 371,  479 => 369,  446 => 339,  436 => 332,  426 => 325,  417 => 319,  406 => 311,  397 => 305,  374 => 285,  356 => 270,  352 => 269,  304 => 224,  280 => 203,  265 => 191,  250 => 179,  235 => 167,  100 => 35,  96 => 34,  92 => 33,  88 => 32,  84 => 31,  80 => 30,  75 => 28,  71 => 27,  66 => 25,  61 => 23,  57 => 22,  52 => 20,  48 => 19,  42 => 16,  37 => 14,  28 => 8,  19 => 1,);
     }
 }
 /* <html>*/
@@ -1068,8 +910,7 @@ class __TwigTemplate_c6875698e42a26023a75739117d4a0a5dac064c0dc1fdf4ba53300afc50
 /*                         <li class="dropdown">*/
 /*                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">*/
 /*                                 <span class="profile-ava">*/
-/*                                     <img alt="" src="{{asset('bundles/moocmooc/css/profilformateur/img/esprit.PNG')}}">*/
-/*                                 </span>*/
+/*  <img alt="avatar" src="{{asset(Organisme.logo)}}">                                </span>*/
 /*                                 <span class="username"> {{Organisme.nom}}</span>*/
 /*                                 <b class="caret"></b>*/
 /*                             </a>*/
@@ -1171,12 +1012,12 @@ class __TwigTemplate_c6875698e42a26023a75739117d4a0a5dac064c0dc1fdf4ba53300afc50
 /*                             <div class="col-lg-2 col-sm-2">*/
 /*                               <h4>{{Organisme.nom}}</h4>               */
 /*                               <div class="follow-ava">*/
-/*                                   <img src="{{asset('bundles/moocmooc/css/profilformateur/img/ult1.png')}}" alt="">*/
+/*                                   <img src="{{asset('bundles/moocmooc/css/profilformateur/img/esprit1.png')}}" alt="">*/
 /*                               </div>*/
 /*                               <h6>Administrator</h6>*/
 /*                             </div>*/
 /*                             <div class="col-lg-4 col-sm-4 follow-info">*/
-/*                                 <p>Hello I’m {{Organisme.nom }}, a leading expert in interactive and creative design.</p>*/
+/*                                 <p>Salut je suis {{Organisme.nom }}</p>*/
 /*                                 <p>{{Organisme.email}}</p>*/
 /* 								<p><i class="fa fa-twitter">{{Organisme.nom}}</i></p>*/
 /*                                 <h6>*/
@@ -1214,21 +1055,7 @@ class __TwigTemplate_c6875698e42a26023a75739117d4a0a5dac064c0dc1fdf4ba53300afc50
 /*                                       </a>*/
 /*                                   </li>*/
 /*                                  */
-/*                                   <li class="">*/
-/*                                       <a data-toggle="tab" href="#edit-profile">*/
-/*                                           <i class="icon-envelope"></i>*/
-/*                                           Edit Profile*/
-/*                                       </a>*/
-/*                                   </li>*/
-/*                                   */
-/*                                   */
-/*                                   */
-/*                                   <li class="">*/
-/*                                       <a data-toggle="tab" href="#edit-password">*/
-/*                                           <i class="icon-envelope"></i>*/
-/*                                           Edit Password*/
-/*                                       </a>*/
-/*                                   </li>*/
+/*                                  */
 /*                               </ul>*/
 /*                           </header>*/
 /*                           <div class="panel-body">*/
@@ -1238,8 +1065,7 @@ class __TwigTemplate_c6875698e42a26023a75739117d4a0a5dac064c0dc1fdf4ba53300afc50
 /*                                   <div id="profile" class="tab-pane active">*/
 /*                                     <section class="panel">*/
 /*                                       <div class="bio-graph-heading">*/
-/*                                                 Hello I’m Organisme.nom , a leading expert in interactive and creative design specializing in the mobile medium. My graduation from Massey University with a Bachelor of Design majoring in visual communication.*/
-/*                                       </div>*/
+/* {{Organisme.nom}} : {{ Organisme.description}}                                      </div>*/
 /*                                       <div class="panel-body bio-graph-info">*/
 /*                                           <h1>Bio Graph</h1>*/
 /*                                           <div class="row">*/
@@ -1280,141 +1106,9 @@ class __TwigTemplate_c6875698e42a26023a75739117d4a0a5dac064c0dc1fdf4ba53300afc50
 /*                                       </section>*/
 /*                                   </div>*/
 /*                                   */
-/*                                   <!-- edit Password -->*/
-/* 				<div id="edit-password" class="tab-pane active" >*/
-/*                                     <section class="panel">                                          */
-/*                                           <div class="panel-body bio-graph-info">*/
-/*                                               <h1> Edit Password</h1>*/
-/*                                               <form class="form-horizontal" role="form">                                                  */
-/*                                                   <div class="form-group">*/
-/*                                                       <label class="col-lg-2 control-label">Mot de passe actuel</label>*/
-/*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="password" class="form-control" id="f-pass" placeholder="Entez le mot de passe actuel">*/
-/*                                                       </div>*/
-/*                                                   </div>*/
-/*                                                   <div class="form-group">*/
-/*                                                       <label class="col-lg-2 control-label">Nouveau mot de passe</label>*/
-/*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="password" class="form-control" id="l-pass" placeholder="Entrez le nouveau mot de passe">*/
-/*                                                       </div>*/
-/*                                                   </div>*/
-/* 												  <div class="form-group">*/
-/*                                                       <label class="col-lg-2 control-label">Retapez la mot de passe</label>*/
-/*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="password" class="form-control" id="l-pass" placeholder="Retapez le nouveau mot de passe">*/
-/*                                                       </div>*/
-/*                                                   </div>*/
-/*                                                   */
-/*                                                   <div class="form-group">*/
-/*                                                       <div class="col-lg-offset-2 col-lg-10">*/
-/*                                                           <button type="submit" class="btn btn-primary">Sauvegarder</button>*/
-/*                                                           */
-/*                                                       </div>*/
-/*                                                   </div>*/
-/*                                               </form>*/
-/*                                           </div>*/
-/*                                       </section>*/
-/* 					<section>*/
-/*                                           <div class="row">                                              */
-/*                                           </div>*/
-/*                                       </section>*/
-/*                                   </div>*/
-/*                               */
-/*                                   <!-- edit Country -->*/
-/* 				<div id="edit-country" class="tab-pane " >*/
-/*                                     <section class="panel">                                          */
-/*                                           <div class="panel-body bio-graph-info">*/
-/*                                               <h1> Edit Country</h1>*/
-/* 						<div class="row">	  */
-/*                                                     <div class="col-lg-9 col-md-12">*/
-/* 					*/
-/* 							<div class="panel panel-default">*/
-/* 							<div class="panel-heading">*/
-/* 							<h2><i class="fa fa-map-marker red"></i><strong>Countries</strong></h2>*/
-/* 													*/
-/* 							</div>*/
-/* 							<div class="panel-body-map">*/
-/* 								<div id="map" style="height:380px"></div>	*/
-/* 							</div>*/
-/* 							*/
-/* 							</div>*/
-/* 						</div>*/
-/* 						</div>*/
-/* 										*/
-/*                                               <form class="form-horizontal" role="form">                                                  */
-/*                                                   <div class="form-group">*/
-/*                                                       */
-/*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="text" class="form-control" id="my-country" placeholder=" ">*/
-/*                                                       </div>*/
-/*                                                   </div>*/
-/*                                                   */
-/*                                                   <div class="form-group">*/
-/*                                                       <div class="col-lg-offset-2 col-lg-10">*/
-/*                                                           <button type="submit" class="btn btn-primary">Sauvegarder</button>*/
-/*                                                           */
-/*                                                       </div>*/
-/*                                                   </div>*/
-/*                                               </form>*/
-/*                                           </div>*/
-/*                                       </section>*/
-/* */
-/*                                     <section>*/
-/*                                         <div class="row">                                              */
-/*                                         </div>*/
-/*                                     </section>*/
-/* 									  */
-/*                                 </div>*/
-/* 								  */
-/*                                   <!-- edit-profile -->*/
-/*                                   <div id="edit-profile" class="tab-pane active" >*/
-/*                                     <section class="panel">                                          */
-/*                                           <div class="panel-body bio-graph-info" >*/
-/*                                               <h1> Modifier Profile </h1>*/
-/*                                               <form class="form-horizontal" role="form"> */
-/*                                                   <div class="form-group">*/
-/*                                                       <label class="col-lg-2 control-label">Nom</label>*/
-/*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="text" class="form-control" id="nom" value="{{Organisme.nom}}"  disabled="true">*/
-/*                                                       </div>*/
-/*                                                   </div>*/
-/*                                                   <div class="form-group">*/
-/*                                                       <label class="col-lg-2 control-label">Login</label>*/
-/*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="text" class="form-control" id="login" value="{{Organisme.login}}" required>*/
-/*                                                       </div>*/
-/*                                                   </div>*/
-/*                                                  */
-/*                                                   */
-/*                                                   <div class="form-group">*/
-/*                                                       <label class="col-lg-2 control-label">Email</label>*/
-/*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="email" class="form-control" id="email" value="{{Organisme.email}}" required>*/
-/*                                                       </div>*/
-/*                                                   </div>*/
-/*                                                   <div class="form-group">*/
-/*                                                       <label class="col-lg-2 control-label">Site Web</label>*/
-/*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="text" class="form-control" id="siteweb" value=" {{Organisme.siteWeb}}" required>*/
-/*                                                       </div>*/
-/*                                                   </div>*/
-/*                                                   <div class="form-group">*/
-/*                                                       <label class="col-lg-2 control-label">Telephone</label>*/
-/*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="text" class="form-control" id="telephone" value="{{Organisme.telephone}}" required>*/
-/*                                                       </div>*/
-/*                                                   </div>*/
-/* */
-/*                                                   <div class="form-group">*/
-/*                                                       <div class="col-lg-offset-2 col-lg-10">*/
-/*                                                           <button type="submit" class="btn btn-primary">Sauvegarder</button>*/
-/*                                                           <button type="button" class="btn btn-danger">Annuler</button>*/
-/*                                                       </div>*/
-/*                                                   </div>*/
-/*                                               </form>*/
-/*                                           </div>*/
-/*                                       </section>*/
-/*                                   </div>*/
+/*                                  */
+/* 					  */
+/*                                 */
 /*                               </div>*/
 /*                           </div>*/
 /*                       </section>*/

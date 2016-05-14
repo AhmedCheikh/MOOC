@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Apprenant
  *
  * @ORM\Table(name="apprenant")
- * @ORM\Entity(repositoryClass="Mooc\MoocBundle\Entity\ApprenantRepository")
+ * @ORM\Entity
  */
 class Apprenant
 {
@@ -17,7 +17,7 @@ class Apprenant
      *
      * @ORM\Column(name="cin", type="string", length=8, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * 
      */
     private $cin;
 
@@ -45,7 +45,7 @@ class Apprenant
     /**
      * @var string
      *
-     * @ORM\Column(name="avatar", type="string", length=255,nullable=false)
+     * @ORM\Column(name="avatar", type="string",length=45, nullable=true)
      */
     private $avatar;
 

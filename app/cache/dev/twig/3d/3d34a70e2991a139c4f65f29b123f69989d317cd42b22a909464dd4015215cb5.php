@@ -81,7 +81,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <h3><span class=\"term\"><a href=\"";
         // line 57
         echo $this->env->getExtension('routing')->getPath("mooc_mooc_logformateur");
-        echo "\">   J'ai déja un compte </a></span></h3>
+        echo "\">   </a></span></h3>
                 <div class=\"submit\">
                     <input type=\"submit\" value=\"Créer votre compte\" >
                 </div>
@@ -170,7 +170,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 /*                 </div>*/
 /*                     */
 /*                 </div>*/
-/*                 <h3><span class="term"><a href="{{path('mooc_mooc_logformateur')}}">   J'ai déja un compte </a></span></h3>*/
+/*                 <h3><span class="term"><a href="{{path('mooc_mooc_logformateur')}}">   </a></span></h3>*/
 /*                 <div class="submit">*/
 /*                     <input type="submit" value="Créer votre compte" >*/
 /*                 </div>*/

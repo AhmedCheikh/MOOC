@@ -58,7 +58,9 @@ class OrganismeController extends Controller {
         }
         return $this->render('MoocMoocBundle:Organisme:messageInscrit.html.twig');
     }
-
+public function inscriptionOrganismeMailAction($id){
+      return $this->render('MoocMoocBundle:Organisme:InscriptionOrganisme.html.twig',array('id'=>$id));
+}
     public function inscriptionOrganismeAction($id, Request $request) {
         if ($request->getMethod() == 'POST') {
 
@@ -78,7 +80,7 @@ class OrganismeController extends Controller {
             $em->persist($Organisme);
             $em->flush();
         }
-        return $this->render('MoocMoocBundle:Organisme:InscriptionOrganisme.html.twig');
+        return $this->render('MoocMoocBundle:Organisme:loginOrganisme.html.twig');
     }
 
     public function loginOrganismeAction(Request $request) {
@@ -185,7 +187,7 @@ class OrganismeController extends Controller {
         $repository = $em->getRepository('MoocMoocBundle:Organisme');
         $Organisme = $repository->findOneBy(array('nom' => $name));
         $var = null;
-        $query = $em->createQuery('select  f.cin ,f.nom ,f.prenom,f.email from MoocMoocBundle:Formateur f where   f.Organisme is null')
+        $query = $em->createQuery('select  f.cin ,f.nom ,f.prenom,f.email,f.avatar from MoocMoocBundle:Formateur f where   f.Organisme is null')
         ;
         $listeFormateurs = $query->getResult();
 //        $em1 = $this->getDoctrine()->getManager();
@@ -200,7 +202,7 @@ class OrganismeController extends Controller {
 
         $em = $this->getDoctrine()->getManager();
 
-        $query = $em->createQuery('select  o.nom,o.email,o.adresse from MoocMoocBundle:Organisme o where   o.nom <> :i and o.complete= :j ')
+        $query = $em->createQuery('select  o.logo,o.nom,o.email,o.adresse from MoocMoocBundle:Organisme o where   o.nom <> :i and o.complete= :j ')
                 ->setParameters(array('i'=> $name,'j'=>'1'));
         $listeOrganismes = $query->getResult();
 

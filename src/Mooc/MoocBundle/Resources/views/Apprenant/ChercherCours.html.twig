@@ -116,67 +116,14 @@
                                  
                                  <td>
                                  <div class="btn-group">
-                                    <a class="btn btn-primary" href="{{path('mooc_suivre_cour_apprenant', { 'login': apprenant.login ,'id': cour.idcours,'id2': cour.idcours})}}"><span class="icon_plus_alt2"></span> Suivre</a>
+                                    <a class="btn btn-primary" href="{{path('mooc_suivre_cour_apprenant', {'login': apprenant.login ,'idCours': cour.idcours})}}"><span class="icon_plus_alt2"></span> Suivre</a>
                                     <a class="btn btn-info" href=""><span class="icon_target"></span> Consulter</a>
                                   </div>
                                  </td>
                               </tr>
                                   
                               {% endfor %}
-                              
-                              {#<tr>
-                                 <td>Android</td>
-                                 <td>Angeline Mcclain</td>
-                                 <td>
-                                 <span class="icon_star"></span>
-                                 <span class="icon_star-half_alt"></span>
-                                 <span class="icon_star_alt"></span>
-                                 <span class="icon_star_alt"></span>
-                                 </td>
-                                 
-                                 <td>
-                                 <div class="btn-group">
-                                    <a class="btn btn-primary" href=""><span class="icon_plus_alt2"></span> Suivre</a>
-                                    <a class="btn btn-info" href=""><span class="icon_target"></span> Consulter</a>
-                                  </div>
-                                 </td>
-                              </tr>
-                              <tr>
-                                 <td>Cross Platform</td>
-                                 <td>Sung Carlson</td>
-                                 <td>
-                                 <span class="icon_star"></span>
-                                 <span class="icon_star"></span>
-                                 <span class="icon_star-half_alt"></span>
-                                 <span class="icon_star_alt"></span>
-                                 
-                                 </td>
-                                 
-                                 <td>
-                                  <div class="btn-group">
-                                     <a class="btn btn-primary" href=""><span class="icon_plus_alt2"></span> Suivre</a>
-                                    <a class="btn btn-info" href=""><span class="icon_target"></span> Consulter</a>
-                                  </div>
-                                  </td>
-                              </tr>
-                              <tr>
-                                 <td>Windows Phone</td>
-                                 <td>Selina Fitzgerald</td>
-                                 <td>
-                                  <span class="icon_star"></span>
-                                  <span class="icon_star"></span>
-                                  <span class="icon_star"></span>
-                                  <span class="icon_star-half_alt"></span>
-                                 </td>
-                                 
-                                 <td>
-                                  <div class="btn-group">
-                                    <a class="btn btn-primary" href=""><span class="icon_plus_alt2"></span> Suivre</a>
-                                    <a class="btn btn-info" href=""><span class="icon_target"></span> Consulter</a>
-                                  </div>
-                                  </td>
-                              </tr> #}
-                             
+
                            </tbody>
                         </table>
                       </section>

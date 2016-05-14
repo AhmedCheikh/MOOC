@@ -12,6 +12,7 @@ use Mooc\MoocBundle\Entity\Apprenant;
 use Mooc\MoocBundle\Entity\Coursuivi;
 use Mooc\MoocBundle\Entity\Cours;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Mooc\MoocBundle\Form\ApprenantType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Mooc\MoocBundle\Modals\Document;
@@ -35,13 +36,13 @@ class ApprenantController extends Controller {
         $repository = $em->getRepository('MoocMoocBundle:Apprenant');
         $Apprenant = $repository->findOneBy(array('login' => $login));
         
-        return $this->render('MoocMoocBundle:Apprenant:AcceuilApprenant.html.twig',array('apprenant' =>$Apprenant ));
+        return $this->render('MoocMoocBundle:Apprenant:AcceuilApprenant.html.twig',array('apprenant' =>$Apprenant, 'msg'=> '' ));
     }
     public function CoursApprenantAction($login) {
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository('MoocMoocBundle:Apprenant');
         $Apprenant = $repository->findOneBy(array('login' => $login));
-        $query = $em->createQuery('select cs.idcoursuivi , c.idcours,c.nomCours, c.description , c.difficulte, cs.note from MoocMoocBundle:Coursuivi cs ,MoocMoocBundle:Cours c where cs.cinapprenant = :a and c.idcours = cs.idCours ')
+        $query = $em->createQuery('select cs.idcoursuivi , c.nomCours, c.description , c.difficulte, cs.note , cs.dateDebut from MoocMoocBundle:Coursuivi cs ,MoocMoocBundle:Cours c where cs.cinapprenant = :a and c.idcours = cs.idCours ')
                 ->setParameter('a',$Apprenant->getCin());
             $Coursuivi=$query->getResult();
 
@@ -111,32 +112,7 @@ class ApprenantController extends Controller {
     }
 
     public function inscriptionApprenantAction(Request $request) {
-        
-//        if ($request->getMethod() == 'POST') {
-//            $cin = $request->get('cin');
-//            $nom = $request->get('nom');
-//            $prenom = $request->get('prenom');
-//            $email = $request->get('email');
-//            $avatar = 'defaut.jpg';
-//            $login = $request->get('login');
-//            $password = $request->get('password');
-//
-//            $Apprenant = new Apprenant();
-//            $Apprenant->setCin($cin);
-//            $Apprenant->setNom($nom);
-//            $Apprenant->setPrenom($prenom);
-//            $Apprenant->setEmail($email);
-//            $Apprenant->setAvatar($avatar);
-//            $Apprenant->setLogin($login);
-//            $Apprenant->setPassword($password);
-//
-//            $em = $this->getDoctrine()->getManager();
-//            $em->persist($Apprenant);
-//            $em->flush();
-//            return $this->render('MoocMoocBundle:Apprenant:loginApprenant.html.twig');
-//        }
-//        return $this->render('MoocMoocBundle:Apprenant:InscriptionApprenant.html.twig');
-        
+ 
         if ($request->getMethod() == 'POST') {
             $cin = $request->get('cin');
             $nom = $request->get('nom');
@@ -146,7 +122,7 @@ class ApprenantController extends Controller {
             $login = $request->get('login');
             $password = $request->get('password');
             
-
+            
             $avatar = $request->files->get('avatar');
 
             $passwordre = $request->get('passwordre');
@@ -191,7 +167,7 @@ class ApprenantController extends Controller {
                 $status = 'failed';
                 $message = 'File error';
             }
-            //return $this->render('MoocMoocBundle:Apprenant:InscriptionApprenant.html.twig', array('status' => $status, 'message' => $message));
+            
             return $this->render('MoocMoocBundle:Apprenant:loginApprenant.html.twig');
         } else {
 
@@ -200,93 +176,148 @@ class ApprenantController extends Controller {
     
     }
     
-    Public function editerProfilAction($login ,Request $request){
-        //$Apprenant = new Apprenant();
-        $em = $this->getDoctrine()->getManager();
+    Public function editerProfilAction(Request $request){
+            $em = $this->getDoctrine()->getManager();
             $repository = $em->getRepository('MoocMoocBundle:Apprenant');
-            //$Apprenant = $repository->findOneBy(array('login' => $login));
-            $Apprenant = $repository->findOneBy($login);
+            $Apprenant = $repository->findOneBy(array('login' => $request->get('login')));
+            $msg='Les modification sont pris en compte avec succès';
+        if ($request->getMethod() == 'POST'){
             
-        
-        if ($request->getMethod() == "POST"){
-            
-//            $query = $em->createQuery("update MoocMoocBundle:Apprenant p set p.cin = :a , p.nom = :b , p.prenom = :c , p.email = :d , p.login = :e where p.cin = :f")
-//                            ->setParameter('a',$request->get('cin'))        
-//                            ->setParameter('b',$request->get('nom'))
-//                            ->setParameter('c',$request->get('prenom'))
-//                            ->setParameter('d',$request->get('email'))
-//                            ->setParameter('e',$request->get('login'))
-//                            ->setParameter('f',$Apprenant->get('cin'));
-//            $query->execute();
-            //$Apprenant->setCin($request->get('cin'));
             $Apprenant->setNom($request->get('nom'));
             $Apprenant->setPrenom($request->get('prenom'));
             $Apprenant->setEmail($request->get('email'));
-            $Apprenant->setLogin($request->get('login'));
             $em1 = $this->getDoctrine()->getManager();
             $em1->persist($Apprenant);
             $em1->flush();
-            $log = $request->get('login');
-           
-//            //return $this->redirectToRoute('mooc_accueil_apprenant');
-            return $this->render('MoocMoocBundle:Apprenant:AcceuilApprenant.html.twig', array('login' => $log));
+                    
+            return $this->render('MoocMoocBundle:Apprenant:AcceuilApprenant.html.twig', array('apprenant' => $Apprenant,'msg'=>$msg));
         
-        }
-       //return $this->render('MoocMoocBundle:Apprenant:AcceuilApprenant.html.twig', array('login' => $login, 'apprenant' => $Apprenant));
+            }
+       return $this->render('MoocMoocBundle:Apprenant:AcceuilApprenant.html.twig', array('apprenant' => $Apprenant,'msg'=>$msg));
         
     }
     
-//    public function supprimerAction($id, $login){ 
-//        $em1 = $this->getDoctrine()->getManager();
-//        $repository = $em1->getRepository('MoocMoocBundle:Apprenant');
-//        $Apprenant = $repository->findOneBy(array('login' => $login));
-//        
-//        $em = $this->getDoctrine()->getManager(); 
-//        $Cour=$em->getRepository('MoocMoocBundle:Coursuivi')->find($id); 
-//        $em->remove($Cour); 
-//        $em->flush(); 
-//         $query = $em->createQuery('select cs.idcoursuivi , c.nomCours, c.description , c.difficulte, cs.note from MoocMoocBundle:Coursuivi cs ,MoocMoocBundle:Cours c where cs.cinapprenant = :a and c.idcours = cs.idCours ')
-//                ->setParameter('a',$Apprenant->getCin());
-//            $Coursuivi=$query->getResult();
-//        return $this->render('MoocMoocBundle:Apprenant:CoursApprenant.html.twig',array('apprenant' =>$Apprenant ,'Coursuivi'=> $Coursuivi));
-//    }
+    public function editPasswordAction($login ,Request $request) {
+            $em = $this->getDoctrine()->getManager();
+            $repository = $em->getRepository('MoocMoocBundle:Apprenant');
+            $Apprenant = $repository->findOneBy(array('login' => $login));
+          $msg='';
+        if ($request->getMethod() == 'POST'){
+            if($Apprenant->getPassword() == $request->get('passwordActuelle')){
+                $Apprenant->setPassword($request->get('nouveauPassword'));
+                $em->persist($Apprenant);
+                $em->flush();
+                $msg='Les modification sont pris en compte avec succès';
+                return $this->render('MoocMoocBundle:Apprenant:AcceuilApprenant.html.twig', array('apprenant' => $Apprenant,'msg'=>$msg));
+            }else{
+                 $msg='Les modification ne sont pas pris en compte';
+                 return $this->render('MoocMoocBundle:Apprenant:AcceuilApprenant.html.twig', array('apprenant' => $Apprenant, 'msg'=>$msg));
+            }
+                
+            return $this->render('MoocMoocBundle:Apprenant:AcceuilApprenant.html.twig', array('apprenant' => $Apprenant));
+        
+            }
+   }
     
-//    public function suivreCoursAction($login,$id,$id2){ 
-//        $em1 = $this->getDoctrine()->getManager();
-//        $repository = $em1->getRepository('MoocMoocBundle:Apprenant');
-//        $Apprenant = $repository->findOneBy(array('login' => $login));
-//        
-//        $em2 = $this->getDoctrine()->getManager();
-//        $repository = $em2->getRepository('MoocMoocBundle:Cours');
-//        $Cour = $repository->find($id);
-//        
-//        $Coursuivi = new Coursuivi();
-//        $Coursuivi->setCinapprenant($Apprenant);
-//        $Coursuivi->setIdCours($Cour);
-//        $Coursuivi->setAppreciation("bon");
-//        $Coursuivi->setCommentaire("vhgvj");
-//        $Coursuivi->setDateDebut(null);
-//        $Coursuivi->setNote(0);
-//         $em = $this->getDoctrine()->getManager();
-//         $em->persist($Coursuivi);
-//         $em->flush();
-//            
-//         $query = $em->createQuery('select cs.idcoursuivi , c.nomCours, c.description , c.difficulte, cs.note from MoocMoocBundle:Coursuivi cs ,MoocMoocBundle:Cours c where cs.cinapprenant = :a and c.idcours = cs.idCours')
-//                ->setParameter('a',$Apprenant);
-//            $Coursuivi=$query->getResult();
-//        
-//        return $this->render('MoocMoocBundle:Apprenant:CoursApprenant.html.twig',array('apprenant' =>$Apprenant ,'Coursuivi'=> $Coursuivi));
-//    }
-    public function consultAction($cours,$login){ 
-         $em1 = $this->getDoctrine()->getManager();
+    public function supprimerAction($idCourSuivi, $login){ 
+        $em1 = $this->getDoctrine()->getManager();
         $repository = $em1->getRepository('MoocMoocBundle:Apprenant');
         $Apprenant = $repository->findOneBy(array('login' => $login));
+        
+        $em = $this->getDoctrine()->getManager(); 
+        $Cour=$em->getRepository('MoocMoocBundle:Coursuivi')->find($idCourSuivi); 
+        $em->remove($Cour); 
+        $em->flush(); 
+         $query = $em->createQuery('select cs.idcoursuivi , c.nomCours, c.description , c.difficulte, cs.note, cs.dateDebut from MoocMoocBundle:Coursuivi cs ,MoocMoocBundle:Cours c where cs.cinapprenant = :a and c.idcours = cs.idCours ')
+                ->setParameter('a',$Apprenant->getCin());
+            $Coursuivi=$query->getResult();
+        return $this->render('MoocMoocBundle:Apprenant:CoursApprenant.html.twig',array('apprenant' =>$Apprenant ,'Coursuivi'=> $Coursuivi));
+    }
+    
+    public function suivreCoursAction(Request $request){ 
+        $em1 = $this->getDoctrine()->getManager();
+        $repository1 = $em1->getRepository('MoocMoocBundle:Apprenant');
+        $Apprenant = $repository1->findOneBy(array('login' => $request->get('login')));
+        
         $em2 = $this->getDoctrine()->getManager();
-        $repository = $em2->getRepository('MoocMoocBundle:Cours');
-        $Cour = $repository->find($cours);
-        return $this->render('MoocMoocBundle:Apprenant:CoursDetails.html.twig', array( 'apprenant' => $Apprenant ,'Cours'=> $Cour));
+        $repository2 = $em2->getRepository('MoocMoocBundle:Cours');
+        $Cour = $repository2->find($request->get('idCours'));
+        
+        $em3 = $this->getDoctrine()->getManager();
+        $repository3 = $em3->getRepository('MoocMoocBundle:Coursuivi');
+        $c = $repository3->findBy(array('cinapprenant' => $Apprenant->getCin(), 'idCours' => $request->get('idCours')));
+        
+        if($c == null) {
+        
+        $Coursuivi = new Coursuivi();
+        $Coursuivi->setCinapprenant($Apprenant);
+        $Coursuivi->setIdCours($Cour);
+        $Coursuivi->setAppreciation(null);
+        $Coursuivi->setCommentaire(null);
+        $date = date("Y-m-d");
+        $Coursuivi->setDateDebut($date);
+        $Coursuivi->setNote(null);
+         $em4 = $this->getDoctrine()->getManager();
+         $em4->persist($Coursuivi);
+         $em4->flush();
+        }
+        
+         $em = $this->getDoctrine()->getManager();  
+         $query = $em->createQuery('select cs.idcoursuivi , c.nomCours, c.description , c.difficulte, cs.note, cs.dateDebut from MoocMoocBundle:Coursuivi cs ,MoocMoocBundle:Cours c where cs.cinapprenant = :a and c.idcours = cs.idCours')
+                ->setParameter('a',$Apprenant->getCin());
+            $Coursuivi=$query->getResult();
+        
+        return $this->render('MoocMoocBundle:Apprenant:CoursApprenant.html.twig',array('apprenant' =>$Apprenant ,'Coursuivi'=> $Coursuivi));
+    }
+    
+    public function detailCoursApprenantAction($idCourSuivi,$login) {
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('MoocMoocBundle:Apprenant');
+        $Apprenant = $repository->findOneBy(array('login' => $login));
+        
+        $em1 = $this->getDoctrine()->getManager();
+        $repository1 = $em1->getRepository('MoocMoocBundle:Coursuivi');
+        $coursuivi = $repository1->findOneBy(array('idcoursuivi' => $idCourSuivi));
+        
+        $em2 = $this->getDoctrine()->getManager();
+        $repository2 = $em2->getRepository('MoocMoocBundle:Cours');
+        
+        $Cours = $repository2->findOneBy(array('idcours' => $coursuivi->getIdCours()));
+        $chapitre=$em->getRepository('MoocMoocBundle:Chapitre')->findBy(array('idcours'=>$Cours)); 
+        
+        return $this->render('MoocMoocBundle:Apprenant:CoursDetail.html.twig',array('apprenant' =>$Apprenant ,'cours'=> $Cours ,'coursuivi'=> $coursuivi,'chapitre'=>$chapitre));
+    }
+    
+    public function editCoursApprenantAction(Request $request) {
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('MoocMoocBundle:Apprenant');
+        $Apprenant = $repository->findOneBy(array('login' => $request->get('login')));
+        
+        $em1 = $this->getDoctrine()->getManager();
+        $repository1 = $em1->getRepository('MoocMoocBundle:Coursuivi');
+        $coursuivi = $repository1->findOneBy(array('idcoursuivi' => $request->get('id')));
+        
+        $em2 = $this->getDoctrine()->getManager();
+        $repository2 = $em2->getRepository('MoocMoocBundle:Cours');
+        
+        $Cours = $repository2->findOneBy(array('idcours' => $coursuivi->getIdCours()));
+        
+        
+        if ($request->getMethod() == 'POST'){
+          if ($request->get('appreciation') <> 0 )   {
+             $coursuivi->setAppreciation($request->get('appreciation'));
+             $coursuivi->setCommentaire($request->get('commentaire'));
+          }
+          $coursuivi->setCommentaire($request->get('commentaire'));
+          
+            $em3 = $this->getDoctrine()->getManager();
+            $em3->persist($coursuivi);
+            $em3->flush();
+          
+            return $this->render('MoocMoocBundle:Apprenant:CoursDetail.html.twig',array('apprenant' =>$Apprenant ,'cours'=> $Cours ,'coursuivi'=> $coursuivi));
     }
    
+  }
     public function coursDetailsAction($idCours)
     {
         $em = $this->getDoctrine()->getManager();
@@ -295,5 +326,4 @@ class ApprenantController extends Controller {
         $chapitre=$em->getRepository('MoocMoocBundle:Chapitre')->findBy(array('idcours'=>$idCours)); 
        return $this->render('MoocMoocBundle:Apprenant:CoursDetailsAffichage.html.twig',array('cours' =>$cours ,'chapitre'=>$chapitre)); 
     }
-    
 }

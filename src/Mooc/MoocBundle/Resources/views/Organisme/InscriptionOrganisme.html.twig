@@ -36,7 +36,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="clear"> </div>	
             </div>
             <h2>Ou connecter avec</h2>
-            <form method="POST" action="{{path('mooc_mooc_inscriptionOrganisme')}}" data-validate="parsley">
+            <form method="POST" action="{{path('mooc_mooc_inscriptionOrganisme', {'id':id})}}" data-validate="parsley">
                 <div class="lable-2">
                     <input type="text" class="text" name="sitweb" placeholder="www.Organisme.com" required>
                 </div>
