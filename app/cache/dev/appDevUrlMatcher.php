@@ -522,9 +522,22 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // mooc_suivre_cour_apprenant
-        if ($pathinfo === '/CoursApprenant') {
-            return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ApprenantController::suivreCoursAction',  '_route' => 'mooc_suivre_cour_apprenant',);
+        if (0 === strpos($pathinfo, '/CoursApprenan')) {
+            // mooc_suivre_cour_apprenant
+            if ($pathinfo === '/CoursApprenant') {
+                return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ApprenantController::suivreCoursAction',  '_route' => 'mooc_suivre_cour_apprenant',);
+            }
+
+            // mooc_supprimer_cours_apprenant
+            if ($pathinfo === '/CoursApprenan') {
+                return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ApprenantController::supprimerAction',  '_route' => 'mooc_supprimer_cours_apprenant',);
+            }
+
+        }
+
+        // mooc_editer_password_apprenant
+        if (preg_match('#^/(?P<login>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_editer_password_apprenant')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ApprenantController::editPasswordAction',));
         }
 
         // mooc_consult_cours_apprenant

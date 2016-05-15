@@ -37,39 +37,42 @@ class __TwigTemplate_1357b34799adc31a2a8982e127ba975eeab99c35dc5f2f4aea66a86cdae
         $this->displayParentBlock("stylesheets", $context, $blocks);
         echo "
     <style> 
-    .redError {
+    .blueError {
     background-color: #0055b3;
     box-shadow: 2px 5px grey;
+    font-style: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:15px;
 }
     </style>
     
 ";
     }
 
-    // line 13
+    // line 16
     public function block_title($context, array $blocks = array())
     {
-        // line 14
+        // line 17
         echo "    ";
         $this->displayParentBlock("title", $context, $blocks);
         echo "
 ";
     }
 
-    // line 17
+    // line 20
     public function block_Header($context, array $blocks = array())
     {
-        // line 18
+        // line 21
         echo "    ";
         $this->displayParentBlock("Header", $context, $blocks);
         echo "
 ";
     }
 
-    // line 21
+    // line 24
     public function block_sidebar($context, array $blocks = array())
     {
-        // line 22
+        // line 25
         echo "    <!--sidebar start-->
       <aside>
           <div id=\"sidebar\"  class=\"nav-collapse \">
@@ -77,7 +80,7 @@ class __TwigTemplate_1357b34799adc31a2a8982e127ba975eeab99c35dc5f2f4aea66a86cdae
               <ul class=\"sidebar-menu\">                
                   <li class=\"active\">
                       <a class=\"\" href=\"";
-        // line 28
+        // line 31
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_accueil_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
         echo "\">
                           <i class=\"fa fa-user-md\"></i>
@@ -87,7 +90,7 @@ class __TwigTemplate_1357b34799adc31a2a8982e127ba975eeab99c35dc5f2f4aea66a86cdae
 
                   <li>                     
                       <a class=\"\" href=\"";
-        // line 35
+        // line 38
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_cours_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
         echo "\">
                           <i class=\"icon_book_alt\"></i>
@@ -98,7 +101,7 @@ class __TwigTemplate_1357b34799adc31a2a8982e127ba975eeab99c35dc5f2f4aea66a86cdae
                   </li>
                  <li>                     
                       <a class=\"\" href=\"";
-        // line 43
+        // line 46
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_chercher_cours_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
         echo "\">
                           <i class=\"icon_search\"></i>
@@ -116,10 +119,10 @@ class __TwigTemplate_1357b34799adc31a2a8982e127ba975eeab99c35dc5f2f4aea66a86cdae
 ";
     }
 
-    // line 58
+    // line 61
     public function block_body($context, array $blocks = array())
     {
-        // line 59
+        // line 62
         echo "
     <!--main content start-->
       <section id=\"main-content\">
@@ -140,22 +143,22 @@ class __TwigTemplate_1357b34799adc31a2a8982e127ba975eeab99c35dc5f2f4aea66a86cdae
                           <div class=\"panel-body\">
                             <div class=\"col-lg-2 col-sm-2\">
                               <h4>";
-        // line 78
+        // line 81
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "prenom", array()), "html", null, true);
         echo " ";
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "nom", array()), "html", null, true);
         echo "</h4>               
                               <div class=\"follow-ava\">
                                   <img src=\"";
-        // line 80
+        // line 83
         echo twig_escape_filter($this->env, $this->getAttribute($this->env->getExtension('image')->image(("uploads/uploads/" . $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "avatar", array()))), "resize", array(0 => 140, 1 => 140), "method"), "html", null, true);
         echo "\" />
                               </div>
                             </div>
                             <div class=\"col-lg-4 col-sm-4 follow-info\">
                                
-                                <div class=\"redError\">";
-        // line 85
+                                <div class=\"blueError\">";
+        // line 88
         echo twig_escape_filter($this->env, (isset($context["msg"]) ? $context["msg"] : $this->getContext($context, "msg")), "html", null, true);
         echo "</div>\t\t\t\t
                             </div>
@@ -204,26 +207,26 @@ class __TwigTemplate_1357b34799adc31a2a8982e127ba975eeab99c35dc5f2f4aea66a86cdae
                                           <div class=\"row\">                                           
                                               <div class=\"bio-row\">
                                                   <p><span>Cin</span>: ";
-        // line 131
+        // line 134
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "cin", array()), "html", null, true);
         echo "</p>
                                               </div>
                                              
                                               <div class=\"bio-row\">
                                                   <p><span>Nom </span>: ";
-        // line 135
+        // line 138
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "nom", array()), "html", null, true);
         echo " </p>
                                               </div>
                                                <div class=\"bio-row\">
                                                   <p><span>Email </span>: ";
-        // line 138
+        // line 141
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "email", array()), "html", null, true);
         echo "</p>
                                               </div>
                                               <div class=\"bio-row\">
                                                   <p><span>Prenom </span>: ";
-        // line 141
+        // line 144
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "prenom", array()), "html", null, true);
         echo "</p>
                                               </div> 
@@ -244,7 +247,7 @@ class __TwigTemplate_1357b34799adc31a2a8982e127ba975eeab99c35dc5f2f4aea66a86cdae
                                           <div class=\"panel-body bio-graph-info\">
                                               <h1> Editer Password</h1>
                                               <form class=\"form-horizontal\" method=\"POST\" action=\"";
-        // line 159
+        // line 162
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_editer_password_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
         echo "\">                                                  
                                                   <div class=\"form-group\">
@@ -279,14 +282,14 @@ class __TwigTemplate_1357b34799adc31a2a8982e127ba975eeab99c35dc5f2f4aea66a86cdae
                                           <div class=\"panel-body bio-graph-info\">
                                               <h1> Editer Profile</h1>
                                               <form class=\"form-horizontal\" method=\"POST\" action=\"";
-        // line 191
+        // line 194
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_editer_profil_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
         echo "\" > 
                                                   <div class=\"form-group\">
                                                       <label class=\"col-lg-2 control-label\">Cin</label>
                                                       <div class=\"col-lg-6\">
-                                                          <input type=\"text\" class=\"form-control\" name=\"cin\" id=\"cin\" value=\"";
-        // line 195
+                                                          <input type=\"text\" class=\"form-control\" name=\"cin\"  value=\"";
+        // line 198
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "cin", array()), "html", null, true);
         echo "\" disabled=\"true\">
                                                       </div>
@@ -295,8 +298,8 @@ class __TwigTemplate_1357b34799adc31a2a8982e127ba975eeab99c35dc5f2f4aea66a86cdae
                                                    <div class=\"form-group\">
                                                       <label class=\"col-lg-2 control-label\">Login</label>
                                                       <div class=\"col-lg-6\">
-                                                          <input type=\"text\" class=\"form-control\" name=\"login\" id=\"login\" value=\"";
-        // line 202
+                                                          <input type=\"text\" class=\"form-control\" name=\"login\"  value=\"";
+        // line 205
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()), "html", null, true);
         echo "\"  disabled=\"true\">
                                                       </div>
@@ -305,8 +308,8 @@ class __TwigTemplate_1357b34799adc31a2a8982e127ba975eeab99c35dc5f2f4aea66a86cdae
                                                   <div class=\"form-group\">
                                                       <label class=\"col-lg-2 control-label\">Nom</label>
                                                       <div class=\"col-lg-6\">
-                                                          <input type=\"text\" class=\"form-control\" name=\"nom\" id=\"nom\" value=\"";
-        // line 209
+                                                          <input type=\"text\" class=\"form-control\" name=\"nom\"  value=\"";
+        // line 212
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "nom", array()), "html", null, true);
         echo "\"  required>
                                                       </div>
@@ -314,8 +317,8 @@ class __TwigTemplate_1357b34799adc31a2a8982e127ba975eeab99c35dc5f2f4aea66a86cdae
                                                   <div class=\"form-group\">
                                                       <label class=\"col-lg-2 control-label\">Prenom</label>
                                                       <div class=\"col-lg-6\">
-                                                          <input type=\"text\" class=\"form-control\" name=\"prenom\" id=\"prenom\" value=\"";
-        // line 215
+                                                          <input type=\"text\" class=\"form-control\" name=\"prenom\"  value=\"";
+        // line 218
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "prenom", array()), "html", null, true);
         echo "\" required>
                                                       </div>
@@ -324,15 +327,15 @@ class __TwigTemplate_1357b34799adc31a2a8982e127ba975eeab99c35dc5f2f4aea66a86cdae
                                                   <div class=\"form-group\">
                                                       <label class=\"col-lg-2 control-label\">Email</label>
                                                       <div class=\"col-lg-6\">
-                                                          <input type=\"text\" class=\"form-control\" name=\"email\" id=\"email\" value=\"";
-        // line 222
+                                                          <input type=\"text\" class=\"form-control\" name=\"email\"  value=\"";
+        // line 225
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "email", array()), "html", null, true);
         echo "\"  required>
                                                       </div>
                                                   </div>
                                                       
                                                     ";
-        // line 232
+        // line 235
         echo "                                                    
                                                   <div class=\"form-group\">
                                                       <div class=\"col-lg-offset-2 col-lg-10\">
@@ -360,77 +363,16 @@ class __TwigTemplate_1357b34799adc31a2a8982e127ba975eeab99c35dc5f2f4aea66a86cdae
 ";
     }
 
-    // line 258
+    // line 261
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 259
-        echo "    <!-- javascripts -->
-    <script src=\"";
-        // line 260
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 261
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/bootstrap.min.js"), "html", null, true);
-        echo "\"></script>
-    <!-- nice scroll -->
-    <script src=\"";
+        // line 262
+        echo "
+    ";
         // line 263
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.scrollTo.min.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 264
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.nicescroll.js"), "html", null, true);
-        echo "\"></script>
-    <!-- jquery knob -->
-    <script src=\"";
-        // line 266
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.knob.js"), "html", null, true);
-        echo "\"></script>
-    <!--custome script for all page-->
-    <script src=\"";
-        // line 268
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/scripts.js"), "html", null, true);
-        echo "\"></script>
-    <!-- map -->
-    <script src=\"";
-        // line 270
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery-jvectormap-1.2.2.min.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 271
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery-jvectormap-world-mill-en.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 272
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/gdp-data.js"), "html", null, true);
-        echo "\"></script>\t
+        $this->displayParentBlock("javascripts", $context, $blocks);
+        echo "
 
-
-  <script>
-      //knob
-      \$(\".knob\").knob();
-\t  
-\t  
-\t  /* ---------- Map ---------- */
-\t\$(function(){
-\t  \$('#map').vectorMap({
-\t    map: 'world_mill_en',
-\t    series: {
-\t      regions: [{
-\t        values: gdpData,
-\t        scale: ['#000', '#000'],
-\t        normalizeFunction: 'polynomial'
-\t      }]
-\t    },
-\t\tbackgroundColor: '#eef3f7',
-\t    onLabelShow: function(e, el, code){
-\t      el.html(el.html()+' (GDP - '+gdpData[code]+')');
-\t    }
-\t  });
-\t});
-
-  </script>
   
 ";
     }
@@ -447,7 +389,7 @@ class __TwigTemplate_1357b34799adc31a2a8982e127ba975eeab99c35dc5f2f4aea66a86cdae
 
     public function getDebugInfo()
     {
-        return array (  406 => 272,  402 => 271,  398 => 270,  393 => 268,  388 => 266,  383 => 264,  379 => 263,  374 => 261,  370 => 260,  367 => 259,  364 => 258,  336 => 232,  329 => 222,  319 => 215,  310 => 209,  300 => 202,  290 => 195,  283 => 191,  248 => 159,  227 => 141,  221 => 138,  215 => 135,  208 => 131,  159 => 85,  151 => 80,  144 => 78,  123 => 59,  120 => 58,  102 => 43,  91 => 35,  81 => 28,  73 => 22,  70 => 21,  63 => 18,  60 => 17,  53 => 14,  50 => 13,  36 => 4,  33 => 3,  11 => 1,);
+        return array (  373 => 263,  370 => 262,  367 => 261,  339 => 235,  332 => 225,  322 => 218,  313 => 212,  303 => 205,  293 => 198,  286 => 194,  251 => 162,  230 => 144,  224 => 141,  218 => 138,  211 => 134,  162 => 88,  154 => 83,  147 => 81,  126 => 62,  123 => 61,  105 => 46,  94 => 38,  84 => 31,  76 => 25,  73 => 24,  66 => 21,  63 => 20,  56 => 17,  53 => 16,  36 => 4,  33 => 3,  11 => 1,);
     }
 }
 /* {% extends "MoocMoocBundle:Apprenant:EspaceApprenant.html.twig" %}*/
@@ -455,9 +397,12 @@ class __TwigTemplate_1357b34799adc31a2a8982e127ba975eeab99c35dc5f2f4aea66a86cdae
 /* {% block stylesheets %}*/
 /*     {{ parent()}}*/
 /*     <style> */
-/*     .redError {*/
+/*     .blueError {*/
 /*     background-color: #0055b3;*/
 /*     box-shadow: 2px 5px grey;*/
+/*     font-style: normal;*/
+/*     font-family: Arial, Helvetica, sans-serif;*/
+/*     font-size:15px;*/
 /* }*/
 /*     </style>*/
 /*     */
@@ -534,7 +479,7 @@ class __TwigTemplate_1357b34799adc31a2a8982e127ba975eeab99c35dc5f2f4aea66a86cdae
 /*                             </div>*/
 /*                             <div class="col-lg-4 col-sm-4 follow-info">*/
 /*                                */
-/*                                 <div class="redError">{{msg}}</div>				*/
+/*                                 <div class="blueError">{{msg}}</div>				*/
 /*                             </div>*/
 /*                             			*/
 /*                           </div>*/
@@ -644,41 +589,41 @@ class __TwigTemplate_1357b34799adc31a2a8982e127ba975eeab99c35dc5f2f4aea66a86cdae
 /*                                                   <div class="form-group">*/
 /*                                                       <label class="col-lg-2 control-label">Cin</label>*/
 /*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="text" class="form-control" name="cin" id="cin" value="{{apprenant.cin }}" disabled="true">*/
+/*                                                           <input type="text" class="form-control" name="cin"  value="{{apprenant.cin }}" disabled="true">*/
 /*                                                       </div>*/
 /*                                                   </div>*/
 /*                                                       */
 /*                                                    <div class="form-group">*/
 /*                                                       <label class="col-lg-2 control-label">Login</label>*/
 /*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="text" class="form-control" name="login" id="login" value="{{apprenant.login }}"  disabled="true">*/
+/*                                                           <input type="text" class="form-control" name="login"  value="{{apprenant.login }}"  disabled="true">*/
 /*                                                       </div>*/
 /*                                                   </div>*/
 /*                                                       */
 /*                                                   <div class="form-group">*/
 /*                                                       <label class="col-lg-2 control-label">Nom</label>*/
 /*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="text" class="form-control" name="nom" id="nom" value="{{apprenant.nom }}"  required>*/
+/*                                                           <input type="text" class="form-control" name="nom"  value="{{apprenant.nom }}"  required>*/
 /*                                                       </div>*/
 /*                                                   </div>*/
 /*                                                   <div class="form-group">*/
 /*                                                       <label class="col-lg-2 control-label">Prenom</label>*/
 /*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="text" class="form-control" name="prenom" id="prenom" value="{{apprenant.prenom }}" required>*/
+/*                                                           <input type="text" class="form-control" name="prenom"  value="{{apprenant.prenom }}" required>*/
 /*                                                       </div>*/
 /*                                                   </div>*/
 /*                                                   */
 /*                                                   <div class="form-group">*/
 /*                                                       <label class="col-lg-2 control-label">Email</label>*/
 /*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="text" class="form-control" name="email" id="email" value="{{apprenant.email }}"  required>*/
+/*                                                           <input type="text" class="form-control" name="email"  value="{{apprenant.email }}"  required>*/
 /*                                                       </div>*/
 /*                                                   </div>*/
 /*                                                       */
 /*                                                     {#<div class="form-group">*/
 /*                                                       <label class="col-lg-2 control-label">Avatar</label>*/
 /*                                                       <div class="col-lg-6">*/
-/*                                                           <input type="file" class="form-control" name="avatar" id="avatar" title="Ajouter votre photo de profile" >*/
+/*                                                           <input type="file" class="form-control"  name="avatar"  title="Ajouter votre photo de profile" >*/
 /*                                                       </div>*/
 /*                                                     </div>#}*/
 /*                                                     */
@@ -708,46 +653,9 @@ class __TwigTemplate_1357b34799adc31a2a8982e127ba975eeab99c35dc5f2f4aea66a86cdae
 /* {% endblock %}*/
 /* */
 /* {% block javascripts %}*/
-/*     <!-- javascripts -->*/
-/*     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.js')}}"></script>*/
-/*     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/bootstrap.min.js')}}"></script>*/
-/*     <!-- nice scroll -->*/
-/*     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.scrollTo.min.js')}}"></script>*/
-/*     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.nicescroll.js')}}"></script>*/
-/*     <!-- jquery knob -->*/
-/*     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.knob.js')}}"></script>*/
-/*     <!--custome script for all page-->*/
-/*     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/scripts.js')}}"></script>*/
-/*     <!-- map -->*/
-/*     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery-jvectormap-1.2.2.min.js')}}"></script>*/
-/*     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery-jvectormap-world-mill-en.js')}}"></script>*/
-/*     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/gdp-data.js')}}"></script>	*/
 /* */
+/*     {{ parent()}}*/
 /* */
-/*   <script>*/
-/*       //knob*/
-/*       $(".knob").knob();*/
-/* 	  */
-/* 	  */
-/* 	  /* ---------- Map ---------- *//* */
-/* 	$(function(){*/
-/* 	  $('#map').vectorMap({*/
-/* 	    map: 'world_mill_en',*/
-/* 	    series: {*/
-/* 	      regions: [{*/
-/* 	        values: gdpData,*/
-/* 	        scale: ['#000', '#000'],*/
-/* 	        normalizeFunction: 'polynomial'*/
-/* 	      }]*/
-/* 	    },*/
-/* 		backgroundColor: '#eef3f7',*/
-/* 	    onLabelShow: function(e, el, code){*/
-/* 	      el.html(el.html()+' (GDP - '+gdpData[code]+')');*/
-/* 	    }*/
-/* 	  });*/
-/* 	});*/
-/* */
-/*   </script>*/
 /*   */
 /* {% endblock %}*/
 /* */

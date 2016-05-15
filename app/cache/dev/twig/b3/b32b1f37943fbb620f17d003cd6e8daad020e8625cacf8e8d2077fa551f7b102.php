@@ -52,10 +52,13 @@ class __TwigTemplate_784079a7bba985b69b036e34dd52cbd3cd7a85d010b8d5b6b7028e6ec88
                 'form_errors' => array($this, 'block_form_errors'),
                 'form_widget_compound' => array($this, 'block_form_widget_compound'),
                 'empty_collection' => array($this, 'block_empty_collection'),
+                'vich_file_row' => array($this, 'block_vich_file_row'),
                 'vich_file_widget' => array($this, 'block_vich_file_widget'),
+                'vich_image_row' => array($this, 'block_vich_image_row'),
                 'vich_image_widget' => array($this, 'block_vich_image_widget'),
                 'easyadmin_widget' => array($this, 'block_easyadmin_widget'),
                 'item_actions' => array($this, 'block_item_actions'),
+                'easyadmin_autocomplete_row' => array($this, 'block_easyadmin_autocomplete_row'),
             )
         );
     }
@@ -224,17 +227,32 @@ class __TwigTemplate_784079a7bba985b69b036e34dd52cbd3cd7a85d010b8d5b6b7028e6ec88
         echo "
 ";
         // line 352
+        $this->displayBlock('vich_file_row', $context, $blocks);
+        // line 356
+        echo "
+";
+        // line 357
         $this->displayBlock('vich_file_widget', $context, $blocks);
-        // line 373
+        // line 378
         echo "
 ";
-        // line 374
+        // line 379
+        $this->displayBlock('vich_image_row', $context, $blocks);
+        // line 383
+        echo "
+";
+        // line 384
         $this->displayBlock('vich_image_widget', $context, $blocks);
-        // line 396
+        // line 406
         echo "
 ";
-        // line 398
+        // line 408
         $this->displayBlock('easyadmin_widget', $context, $blocks);
+        // line 455
+        echo "
+";
+        // line 457
+        $this->displayBlock('easyadmin_autocomplete_row', $context, $blocks);
     }
 
     // line 3
@@ -277,7 +295,7 @@ class __TwigTemplate_784079a7bba985b69b036e34dd52cbd3cd7a85d010b8d5b6b7028e6ec88
             var parentDiv = containerDiv.parents('[data-prototype]:first');
             containerDiv.remove();
             parentDiv.trigger('easyadmin.collection.item-deleted');
-            
+
             if (0 == parentDiv.children().length && 'undefined' !== parentDiv.attr('data-empty-collection')) {
                 \$(parentDiv.attr('data-empty-collection')).insertBefore(parentDiv);
             }
@@ -943,19 +961,32 @@ $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttri
     }
 
     // line 352
-    public function block_vich_file_widget($context, array $blocks = array())
+    public function block_vich_file_row($context, array $blocks = array())
     {
         // line 353
-        ob_start();
+        echo "    ";
+        $context["force_error"] = true;
         // line 354
+        echo "    ";
+        $this->displayBlock("form_row", $context, $blocks);
+        echo "
+";
+    }
+
+    // line 357
+    public function block_vich_file_widget($context, array $blocks = array())
+    {
+        // line 358
+        ob_start();
+        // line 359
         echo "    <div class=\"easyadmin-vich-file\">
         ";
-        // line 355
+        // line 360
         if ( !twig_test_empty(((array_key_exists("download_uri", $context)) ? (_twig_default_filter((isset($context["download_uri"]) ? $context["download_uri"] : $this->getContext($context, "download_uri")), "")) : ("")))) {
-            // line 356
+            // line 361
             echo "            ";
             $context["download_title"] = ((twig_last($this->env, twig_split_filter($this->env, (isset($context["download_uri"]) ? $context["download_uri"] : $this->getContext($context, "download_uri")), "/"))) ? (twig_last($this->env, twig_split_filter($this->env, (isset($context["download_uri"]) ? $context["download_uri"] : $this->getContext($context, "download_uri")), "/"))) : ($this->env->getExtension('translator')->trans("download", array(), "VichUploaderBundle")));
-            // line 357
+            // line 362
             echo "            <a href=\"";
             echo twig_escape_filter($this->env, (isset($context["download_uri"]) ? $context["download_uri"] : $this->getContext($context, "download_uri")), "html", null, true);
             echo "\">";
@@ -963,27 +994,27 @@ $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttri
             echo "</a>
         ";
         }
-        // line 359
+        // line 364
         echo "
         <div class=\"row\">
             ";
-        // line 361
+        // line 366
         if ($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "delete", array(), "any", true, true)) {
-            // line 362
+            // line 367
             echo "            <div class=\"col-sm-3 col-md-2\">
                 ";
-            // line 363
+            // line 368
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "delete", array()), 'row', array("label" => "action.delete"));
             echo "
             </div>
             ";
         }
-        // line 366
+        // line 371
         echo "            <div class=\"";
         echo (($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "delete", array(), "any", true, true)) ? ("col-sm-9 col-md-10") : ("col-sm-12"));
         echo "\">
                 ";
-        // line 367
+        // line 372
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "file", array()), 'widget');
         echo "
             </div>
@@ -993,100 +1024,113 @@ $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttri
         echo trim(preg_replace('/>\s+</', '><', ob_get_clean()));
     }
 
-    // line 374
+    // line 379
+    public function block_vich_image_row($context, array $blocks = array())
+    {
+        // line 380
+        echo "    ";
+        $context["force_error"] = true;
+        // line 381
+        echo "    ";
+        $this->displayBlock("form_row", $context, $blocks);
+        echo "
+";
+    }
+
+    // line 384
     public function block_vich_image_widget($context, array $blocks = array())
     {
-        // line 375
+        // line 385
         ob_start();
-        // line 376
+        // line 386
         echo "    <div class=\"easyadmin-vich-image\">
         ";
-        // line 377
+        // line 387
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "file", array()), 'widget');
         echo "
         ";
-        // line 378
+        // line 388
         if ($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "delete", array(), "any", true, true)) {
-            // line 379
+            // line 389
             echo "            ";
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "delete", array()), 'row', array("label" => "action.delete"));
             echo "
         ";
         }
-        // line 381
+        // line 391
         echo "
         ";
-        // line 382
+        // line 392
         if ( !twig_test_empty(((array_key_exists("download_uri", $context)) ? (_twig_default_filter((isset($context["download_uri"]) ? $context["download_uri"] : $this->getContext($context, "download_uri")), "")) : ("")))) {
-            // line 383
+            // line 393
             echo "            ";
             $context["_lightbox_id"] = ("easyadmin-lightbox-" . (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")));
-            // line 384
+            // line 394
             echo "
             <a href=\"#\" class=\"easyadmin-thumbnail\" data-featherlight=\"#";
-            // line 385
+            // line 395
             echo twig_escape_filter($this->env, (isset($context["_lightbox_id"]) ? $context["_lightbox_id"] : $this->getContext($context, "_lightbox_id")), "html", null, true);
             echo "\" data-featherlight-close-on-click=\"anywhere\">
                 <img src=\"";
-            // line 386
+            // line 396
             echo twig_escape_filter($this->env, (isset($context["download_uri"]) ? $context["download_uri"] : $this->getContext($context, "download_uri")), "html", null, true);
             echo "\">
             </a>
 
             <div id=\"";
-            // line 389
+            // line 399
             echo twig_escape_filter($this->env, (isset($context["_lightbox_id"]) ? $context["_lightbox_id"] : $this->getContext($context, "_lightbox_id")), "html", null, true);
             echo "\" class=\"easyadmin-lightbox\">
                 <img src=\"";
-            // line 390
+            // line 400
             echo twig_escape_filter($this->env, (isset($context["download_uri"]) ? $context["download_uri"] : $this->getContext($context, "download_uri")), "html", null, true);
             echo "\">
             </div>
         ";
         }
-        // line 393
+        // line 403
         echo "    </div>
 ";
         echo trim(preg_replace('/>\s+</', '><', ob_get_clean()));
     }
 
-    // line 398
+    // line 408
     public function block_easyadmin_widget($context, array $blocks = array())
     {
-        // line 399
+        // line 409
         echo "    ";
         $context["_trans_parameters"] = array("%entity_name%" => $this->env->getExtension('translator')->trans($this->getAttribute($this->getAttribute((isset($context["easyadmin"]) ? $context["easyadmin"] : $this->getContext($context, "easyadmin")), "entity", array()), "name", array())), "%entity_label%" => $this->env->getExtension('translator')->trans($this->getAttribute($this->getAttribute((isset($context["easyadmin"]) ? $context["easyadmin"] : $this->getContext($context, "easyadmin")), "entity", array()), "label", array())));
-        // line 400
+        // line 410
         echo "
     ";
-        // line 401
+        // line 411
         if ((twig_length_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "vars", array()), "errors", array())) > 0)) {
-            // line 402
+            // line 412
             echo "        ";
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
             echo "
     ";
         }
-        // line 404
+        // line 414
         echo "
     <div class=\"row\">
         <input type=\"hidden\" name=\"referer\" value=\"";
-        // line 406
+        // line 416
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "request", array()), "query", array()), "get", array(0 => "referer", 1 => ""), "method"), "html", null, true);
         echo "\"/>
 
         ";
-        // line 408
+        // line 418
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "children", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["field"]) {
             if (!twig_in_filter("hidden", $this->getAttribute($this->getAttribute($context["field"], "vars", array()), "block_prefixes", array()))) {
-                // line 409
+                // line 419
                 echo "            <div class=\"";
                 echo twig_escape_filter($this->env, (($this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute($context["field"], "vars", array(), "any", false, true), "easyadmin", array(), "any", false, true), "field", array(), "any", false, true), "css_class", array(), "any", true, true)) ? (_twig_default_filter($this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute($context["field"], "vars", array(), "any", false, true), "easyadmin", array(), "any", false, true), "field", array(), "any", false, true), "css_class", array()), "col-xs-12")) : ("col-xs-12")), "html", null, true);
                 echo "\">
                 ";
-                // line 410
+                // line 420
                 echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($context["field"], 'row');
                 echo "
             </div>
@@ -1096,15 +1140,15 @@ $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttri
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['field'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 413
+        // line 423
         echo "
         <div class=\"col-xs-12 form-actions\">
             <div class=\"form-group\">
                 <div id=\"form-actions-row\">
                     ";
-        // line 417
+        // line 427
         $this->displayBlock('item_actions', $context, $blocks);
-        // line 440
+        // line 450
         echo "                </div>
             </div>
         </div>
@@ -1112,47 +1156,68 @@ $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttri
 ";
     }
 
-    // line 417
+    // line 427
     public function block_item_actions($context, array $blocks = array())
     {
-        // line 418
+        // line 428
         echo "                        ";
-        // line 419
+        // line 429
         echo "                        <button type=\"submit\" class=\"btn btn-primary\">
                             <i class=\"fa fa-save\"></i> ";
-        // line 420
+        // line 430
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("action.save", (isset($context["_trans_parameters"]) ? $context["_trans_parameters"] : $this->getContext($context, "_trans_parameters")), "messages"), "html", null, true);
         echo "
                         </button>
 
                         ";
-        // line 423
-        $context["_entity_actions"] = ((($this->getAttribute((isset($context["easyadmin"]) ? $context["easyadmin"] : $this->getContext($context, "easyadmin")), "view", array()) == "new")) ? ($this->env->getExtension('easyadmin_extension')->getActionsForItem("new", $this->getAttribute($this->getAttribute(        // line 424
-(isset($context["easyadmin"]) ? $context["easyadmin"] : $this->getContext($context, "easyadmin")), "entity", array()), "name", array()))) : ($this->env->getExtension('easyadmin_extension')->getActionsForItem("edit", $this->getAttribute($this->getAttribute(        // line 425
-(isset($context["easyadmin"]) ? $context["easyadmin"] : $this->getContext($context, "easyadmin")), "entity", array()), "name", array()))));
-        // line 426
-        echo "
-                        ";
-        // line 427
-        $context["_entity_id"] = ((($this->getAttribute((isset($context["easyadmin"]) ? $context["easyadmin"] : $this->getContext($context, "easyadmin")), "view", array()) == "new")) ? (null) : ($this->getAttribute($this->getAttribute(        // line 429
-(isset($context["easyadmin"]) ? $context["easyadmin"] : $this->getContext($context, "easyadmin")), "item", array()), $this->getAttribute($this->getAttribute((isset($context["easyadmin"]) ? $context["easyadmin"] : $this->getContext($context, "easyadmin")), "entity", array()), "primary_key_field_name", array()))));
-        // line 430
-        echo "
-                        ";
-        // line 431
-        $context["_request_parameters"] = array("entity" => $this->getAttribute($this->getAttribute((isset($context["easyadmin"]) ? $context["easyadmin"] : $this->getContext($context, "easyadmin")), "entity", array()), "name", array()), "referer" => $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "request", array()), "query", array()), "get", array(0 => "referer"), "method"));
-        // line 432
-        echo "
-                        ";
         // line 433
-        echo twig_include($this->env, $context, "@EasyAdmin/default/includes/_actions.html.twig", array("actions" =>         // line 434
-(isset($context["_entity_actions"]) ? $context["_entity_actions"] : $this->getContext($context, "_entity_actions")), "request_parameters" =>         // line 435
-(isset($context["_request_parameters"]) ? $context["_request_parameters"] : $this->getContext($context, "_request_parameters")), "trans_parameters" =>         // line 436
-(isset($context["_trans_parameters"]) ? $context["_trans_parameters"] : $this->getContext($context, "_trans_parameters")), "item_id" =>         // line 437
+        $context["_entity_actions"] = ((($this->getAttribute((isset($context["easyadmin"]) ? $context["easyadmin"] : $this->getContext($context, "easyadmin")), "view", array()) == "new")) ? ($this->env->getExtension('easyadmin_extension')->getActionsForItem("new", $this->getAttribute($this->getAttribute(        // line 434
+(isset($context["easyadmin"]) ? $context["easyadmin"] : $this->getContext($context, "easyadmin")), "entity", array()), "name", array()))) : ($this->env->getExtension('easyadmin_extension')->getActionsForItem("edit", $this->getAttribute($this->getAttribute(        // line 435
+(isset($context["easyadmin"]) ? $context["easyadmin"] : $this->getContext($context, "easyadmin")), "entity", array()), "name", array()))));
+        // line 436
+        echo "
+                        ";
+        // line 437
+        $context["_entity_id"] = ((($this->getAttribute((isset($context["easyadmin"]) ? $context["easyadmin"] : $this->getContext($context, "easyadmin")), "view", array()) == "new")) ? (null) : ($this->getAttribute($this->getAttribute(        // line 439
+(isset($context["easyadmin"]) ? $context["easyadmin"] : $this->getContext($context, "easyadmin")), "item", array()), $this->getAttribute($this->getAttribute((isset($context["easyadmin"]) ? $context["easyadmin"] : $this->getContext($context, "easyadmin")), "entity", array()), "primary_key_field_name", array()))));
+        // line 440
+        echo "
+                        ";
+        // line 441
+        $context["_request_parameters"] = array("entity" => $this->getAttribute($this->getAttribute((isset($context["easyadmin"]) ? $context["easyadmin"] : $this->getContext($context, "easyadmin")), "entity", array()), "name", array()), "referer" => $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "request", array()), "query", array()), "get", array(0 => "referer"), "method"));
+        // line 442
+        echo "
+                        ";
+        // line 443
+        echo twig_include($this->env, $context, "@EasyAdmin/default/includes/_actions.html.twig", array("actions" =>         // line 444
+(isset($context["_entity_actions"]) ? $context["_entity_actions"] : $this->getContext($context, "_entity_actions")), "request_parameters" =>         // line 445
+(isset($context["_request_parameters"]) ? $context["_request_parameters"] : $this->getContext($context, "_request_parameters")), "trans_parameters" =>         // line 446
+(isset($context["_trans_parameters"]) ? $context["_trans_parameters"] : $this->getContext($context, "_trans_parameters")), "item_id" =>         // line 447
 (isset($context["_entity_id"]) ? $context["_entity_id"] : $this->getContext($context, "_entity_id"))), false);
-        // line 438
+        // line 448
         echo "
                     ";
+    }
+
+    // line 457
+    public function block_easyadmin_autocomplete_row($context, array $blocks = array())
+    {
+        // line 458
+        echo "    ";
+        // line 459
+        echo "    ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "autocomplete", array()), 'widget', array("attr" => twig_array_merge((isset($context["attr"]) ? $context["attr"] : $this->getContext($context, "attr")), array("data-easyadmin-autocomplete-url" => $this->env->getExtension('routing')->getPath("easyadmin", array("action" => "autocomplete", "entity" => $this->getAttribute($this->getAttribute(        // line 461
+(isset($context["easyadmin"]) ? $context["easyadmin"] : $this->getContext($context, "easyadmin")), "entity", array()), "name", array()), "property" => $this->getAttribute($this->getAttribute(        // line 462
+(isset($context["easyadmin"]) ? $context["easyadmin"] : $this->getContext($context, "easyadmin")), "field", array()), "fieldName", array()), "view" => $this->getAttribute(        // line 463
+(isset($context["easyadmin"]) ? $context["easyadmin"] : $this->getContext($context, "easyadmin")), "view", array())))))));
+        // line 464
+        echo "
+
+    ";
+        // line 466
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "autocomplete", array()), 'errors');
+        echo "
+";
     }
 
     public function getTemplateName()
@@ -1162,7 +1227,7 @@ $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttri
 
     public function getDebugInfo()
     {
-        return array (  1154 => 438,  1152 => 437,  1151 => 436,  1150 => 435,  1149 => 434,  1148 => 433,  1145 => 432,  1143 => 431,  1140 => 430,  1138 => 429,  1137 => 427,  1134 => 426,  1132 => 425,  1131 => 424,  1130 => 423,  1124 => 420,  1121 => 419,  1119 => 418,  1116 => 417,  1108 => 440,  1106 => 417,  1100 => 413,  1090 => 410,  1085 => 409,  1080 => 408,  1075 => 406,  1071 => 404,  1065 => 402,  1063 => 401,  1060 => 400,  1057 => 399,  1054 => 398,  1048 => 393,  1042 => 390,  1038 => 389,  1032 => 386,  1028 => 385,  1025 => 384,  1022 => 383,  1020 => 382,  1017 => 381,  1011 => 379,  1009 => 378,  1005 => 377,  1002 => 376,  1000 => 375,  997 => 374,  987 => 367,  982 => 366,  976 => 363,  973 => 362,  971 => 361,  967 => 359,  959 => 357,  956 => 356,  954 => 355,  951 => 354,  949 => 353,  946 => 352,  939 => 348,  936 => 347,  933 => 346,  929 => 343,  926 => 342,  923 => 341,  920 => 340,  917 => 339,  911 => 337,  909 => 336,  906 => 335,  900 => 331,  896 => 329,  887 => 327,  883 => 326,  880 => 325,  874 => 323,  872 => 322,  868 => 321,  865 => 320,  862 => 319,  859 => 318,  856 => 317,  852 => 313,  850 => 312,  848 => 311,  840 => 310,  837 => 309,  833 => 306,  831 => 305,  829 => 304,  821 => 303,  818 => 302,  814 => 299,  812 => 298,  809 => 297,  805 => 294,  803 => 293,  800 => 292,  796 => 289,  794 => 288,  791 => 287,  787 => 284,  785 => 283,  782 => 282,  778 => 279,  776 => 278,  770 => 277,  767 => 276,  758 => 270,  753 => 268,  749 => 266,  738 => 260,  732 => 259,  722 => 252,  717 => 249,  714 => 248,  712 => 247,  706 => 245,  703 => 244,  699 => 241,  693 => 239,  691 => 238,  689 => 236,  682 => 231,  676 => 230,  672 => 228,  670 => 227,  668 => 225,  666 => 224,  664 => 223,  655 => 222,  653 => 221,  650 => 220,  644 => 214,  642 => 213,  640 => 212,  625 => 211,  622 => 210,  619 => 209,  616 => 208,  613 => 207,  610 => 206,  607 => 205,  604 => 204,  601 => 203,  598 => 202,  595 => 201,  593 => 200,  590 => 199,  586 => 196,  583 => 195,  579 => 192,  576 => 191,  572 => 188,  570 => 187,  567 => 185,  563 => 182,  561 => 181,  558 => 180,  553 => 174,  551 => 173,  549 => 172,  546 => 170,  544 => 169,  542 => 168,  539 => 167,  534 => 163,  532 => 162,  530 => 161,  527 => 159,  525 => 158,  523 => 157,  520 => 156,  515 => 152,  509 => 149,  508 => 148,  504 => 147,  500 => 146,  497 => 144,  491 => 141,  490 => 140,  486 => 139,  484 => 138,  482 => 137,  479 => 136,  475 => 133,  473 => 132,  470 => 131,  464 => 126,  461 => 125,  453 => 124,  448 => 122,  446 => 121,  444 => 120,  441 => 118,  439 => 117,  436 => 116,  430 => 111,  428 => 110,  426 => 108,  425 => 107,  424 => 106,  423 => 105,  418 => 103,  416 => 102,  414 => 101,  411 => 99,  409 => 98,  406 => 97,  401 => 93,  399 => 92,  397 => 91,  395 => 90,  393 => 89,  389 => 88,  387 => 87,  384 => 85,  382 => 84,  379 => 83,  374 => 79,  372 => 78,  370 => 77,  367 => 76,  363 => 73,  357 => 71,  355 => 70,  353 => 69,  347 => 67,  344 => 66,  342 => 65,  339 => 64,  336 => 63,  332 => 60,  330 => 59,  327 => 58,  323 => 55,  321 => 54,  318 => 53,  314 => 50,  311 => 48,  309 => 47,  306 => 46,  297 => 40,  292 => 38,  288 => 36,  275 => 26,  270 => 23,  267 => 22,  265 => 21,  263 => 19,  260 => 18,  256 => 13,  253 => 11,  251 => 9,  250 => 8,  249 => 7,  248 => 6,  246 => 5,  244 => 4,  241 => 3,  237 => 398,  234 => 396,  232 => 374,  229 => 373,  227 => 352,  224 => 351,  222 => 346,  220 => 335,  218 => 317,  215 => 315,  213 => 309,  210 => 308,  208 => 302,  205 => 301,  203 => 297,  200 => 296,  198 => 292,  195 => 291,  193 => 287,  190 => 286,  188 => 282,  185 => 281,  183 => 276,  180 => 275,  178 => 244,  175 => 243,  173 => 220,  170 => 219,  167 => 217,  165 => 199,  162 => 198,  160 => 195,  157 => 194,  155 => 191,  152 => 190,  150 => 185,  147 => 184,  145 => 180,  142 => 179,  139 => 177,  137 => 167,  134 => 166,  132 => 156,  129 => 155,  127 => 136,  124 => 135,  122 => 131,  119 => 130,  117 => 116,  114 => 115,  112 => 97,  109 => 96,  107 => 83,  104 => 82,  102 => 76,  99 => 75,  97 => 63,  94 => 62,  92 => 58,  89 => 57,  87 => 53,  84 => 52,  82 => 46,  79 => 45,  77 => 18,  74 => 17,  71 => 15,  69 => 3,  66 => 2,  14 => 1,);
+        return array (  1218 => 466,  1214 => 464,  1212 => 463,  1211 => 462,  1210 => 461,  1208 => 459,  1206 => 458,  1203 => 457,  1198 => 448,  1196 => 447,  1195 => 446,  1194 => 445,  1193 => 444,  1192 => 443,  1189 => 442,  1187 => 441,  1184 => 440,  1182 => 439,  1181 => 437,  1178 => 436,  1176 => 435,  1175 => 434,  1174 => 433,  1168 => 430,  1165 => 429,  1163 => 428,  1160 => 427,  1152 => 450,  1150 => 427,  1144 => 423,  1134 => 420,  1129 => 419,  1124 => 418,  1119 => 416,  1115 => 414,  1109 => 412,  1107 => 411,  1104 => 410,  1101 => 409,  1098 => 408,  1092 => 403,  1086 => 400,  1082 => 399,  1076 => 396,  1072 => 395,  1069 => 394,  1066 => 393,  1064 => 392,  1061 => 391,  1055 => 389,  1053 => 388,  1049 => 387,  1046 => 386,  1044 => 385,  1041 => 384,  1034 => 381,  1031 => 380,  1028 => 379,  1018 => 372,  1013 => 371,  1007 => 368,  1004 => 367,  1002 => 366,  998 => 364,  990 => 362,  987 => 361,  985 => 360,  982 => 359,  980 => 358,  977 => 357,  970 => 354,  967 => 353,  964 => 352,  957 => 348,  954 => 347,  951 => 346,  947 => 343,  944 => 342,  941 => 341,  938 => 340,  935 => 339,  929 => 337,  927 => 336,  924 => 335,  918 => 331,  914 => 329,  905 => 327,  901 => 326,  898 => 325,  892 => 323,  890 => 322,  886 => 321,  883 => 320,  880 => 319,  877 => 318,  874 => 317,  870 => 313,  868 => 312,  866 => 311,  858 => 310,  855 => 309,  851 => 306,  849 => 305,  847 => 304,  839 => 303,  836 => 302,  832 => 299,  830 => 298,  827 => 297,  823 => 294,  821 => 293,  818 => 292,  814 => 289,  812 => 288,  809 => 287,  805 => 284,  803 => 283,  800 => 282,  796 => 279,  794 => 278,  788 => 277,  785 => 276,  776 => 270,  771 => 268,  767 => 266,  756 => 260,  750 => 259,  740 => 252,  735 => 249,  732 => 248,  730 => 247,  724 => 245,  721 => 244,  717 => 241,  711 => 239,  709 => 238,  707 => 236,  700 => 231,  694 => 230,  690 => 228,  688 => 227,  686 => 225,  684 => 224,  682 => 223,  673 => 222,  671 => 221,  668 => 220,  662 => 214,  660 => 213,  658 => 212,  643 => 211,  640 => 210,  637 => 209,  634 => 208,  631 => 207,  628 => 206,  625 => 205,  622 => 204,  619 => 203,  616 => 202,  613 => 201,  611 => 200,  608 => 199,  604 => 196,  601 => 195,  597 => 192,  594 => 191,  590 => 188,  588 => 187,  585 => 185,  581 => 182,  579 => 181,  576 => 180,  571 => 174,  569 => 173,  567 => 172,  564 => 170,  562 => 169,  560 => 168,  557 => 167,  552 => 163,  550 => 162,  548 => 161,  545 => 159,  543 => 158,  541 => 157,  538 => 156,  533 => 152,  527 => 149,  526 => 148,  522 => 147,  518 => 146,  515 => 144,  509 => 141,  508 => 140,  504 => 139,  502 => 138,  500 => 137,  497 => 136,  493 => 133,  491 => 132,  488 => 131,  482 => 126,  479 => 125,  471 => 124,  466 => 122,  464 => 121,  462 => 120,  459 => 118,  457 => 117,  454 => 116,  448 => 111,  446 => 110,  444 => 108,  443 => 107,  442 => 106,  441 => 105,  436 => 103,  434 => 102,  432 => 101,  429 => 99,  427 => 98,  424 => 97,  419 => 93,  417 => 92,  415 => 91,  413 => 90,  411 => 89,  407 => 88,  405 => 87,  402 => 85,  400 => 84,  397 => 83,  392 => 79,  390 => 78,  388 => 77,  385 => 76,  381 => 73,  375 => 71,  373 => 70,  371 => 69,  365 => 67,  362 => 66,  360 => 65,  357 => 64,  354 => 63,  350 => 60,  348 => 59,  345 => 58,  341 => 55,  339 => 54,  336 => 53,  332 => 50,  329 => 48,  327 => 47,  324 => 46,  315 => 40,  310 => 38,  306 => 36,  293 => 26,  288 => 23,  285 => 22,  283 => 21,  281 => 19,  278 => 18,  274 => 13,  271 => 11,  269 => 9,  268 => 8,  267 => 7,  266 => 6,  264 => 5,  262 => 4,  259 => 3,  255 => 457,  252 => 455,  250 => 408,  247 => 406,  245 => 384,  242 => 383,  240 => 379,  237 => 378,  235 => 357,  232 => 356,  230 => 352,  227 => 351,  225 => 346,  223 => 335,  221 => 317,  218 => 315,  216 => 309,  213 => 308,  211 => 302,  208 => 301,  206 => 297,  203 => 296,  201 => 292,  198 => 291,  196 => 287,  193 => 286,  191 => 282,  188 => 281,  186 => 276,  183 => 275,  181 => 244,  178 => 243,  176 => 220,  173 => 219,  170 => 217,  168 => 199,  165 => 198,  163 => 195,  160 => 194,  158 => 191,  155 => 190,  153 => 185,  150 => 184,  148 => 180,  145 => 179,  142 => 177,  140 => 167,  137 => 166,  135 => 156,  132 => 155,  130 => 136,  127 => 135,  125 => 131,  122 => 130,  120 => 116,  117 => 115,  115 => 97,  112 => 96,  110 => 83,  107 => 82,  105 => 76,  102 => 75,  100 => 63,  97 => 62,  95 => 58,  92 => 57,  90 => 53,  87 => 52,  85 => 46,  82 => 45,  80 => 18,  77 => 17,  74 => 15,  72 => 3,  69 => 2,  14 => 1,);
     }
 }
 /* {% use 'form_div_layout.html.twig' %}*/
@@ -1194,7 +1259,7 @@ $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttri
 /*             var parentDiv = containerDiv.parents('[data-prototype]:first');*/
 /*             containerDiv.remove();*/
 /*             parentDiv.trigger('easyadmin.collection.item-deleted');*/
-/*             */
+/* */
 /*             if (0 == parentDiv.children().length && 'undefined' !== parentDiv.attr('data-empty-collection')) {*/
 /*                 $(parentDiv.attr('data-empty-collection')).insertBefore(parentDiv);*/
 /*             }*/
@@ -1516,6 +1581,11 @@ $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttri
 /*     </div>*/
 /* {% endblock empty_collection %}*/
 /* */
+/* {% block vich_file_row %}*/
+/*     {% set force_error = true %}*/
+/*     {{ block('form_row') }}*/
+/* {% endblock %}*/
+/* */
 /* {% block vich_file_widget %}*/
 /* {% spaceless %}*/
 /*     <div class="easyadmin-vich-file">*/
@@ -1536,6 +1606,11 @@ $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttri
 /*         </div>*/
 /*     </div>*/
 /* {% endspaceless %}*/
+/* {% endblock %}*/
+/* */
+/* {% block vich_image_row %}*/
+/*     {% set force_error = true %}*/
+/*     {{ block('form_row') }}*/
 /* {% endblock %}*/
 /* */
 /* {% block vich_image_widget %}*/
@@ -1561,7 +1636,7 @@ $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttri
 /* {% endspaceless %}*/
 /* {% endblock %}*/
 /* */
-/* {# Easy admin form type #}*/
+/* {# EasyAdmin form type #}*/
 /* {% block easyadmin_widget %}*/
 /*     {% set _trans_parameters = { '%entity_name%':  easyadmin.entity.name|trans, '%entity_label%': easyadmin.entity.label|trans } %}*/
 /* */
@@ -1609,4 +1684,17 @@ $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttri
 /*         </div>*/
 /*     </div>*/
 /* {% endblock easyadmin_widget %}*/
+/* */
+/* {# EasyAdminAutocomplete form type #}*/
+/* {% block easyadmin_autocomplete_row %}*/
+/*     {# display the form widget, but don't display its label #}*/
+/*     {{ form_widget(form.autocomplete, { attr: attr|merge({ 'data-easyadmin-autocomplete-url' : path('easyadmin', {*/
+/*         action: 'autocomplete',*/
+/*         entity: easyadmin.entity.name,*/
+/*         property: easyadmin.field.fieldName,*/
+/*         view: easyadmin.view*/
+/*     })|raw })}) }}*/
+/* */
+/*     {{ form_errors(form.autocomplete) }}*/
+/* {% endblock easyadmin_autocomplete_row %}*/
 /* */

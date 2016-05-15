@@ -25,7 +25,11 @@ class QuizController extends Controller {
         return $this->render('MoocMoocBundle:Quiz:listequizformateur.html.twig', array('listeQuiz' => $listeQuiz));
     }
 
-    public function afficheQuizAction($id) {
+    public function afficheQuizAction($id, Request $request) {
+          $em1 = $this->getDoctrine()->getManager();
+        $repository1 = $em1->getRepository('MoocMoocBundle:Apprenant');
+        $Apprenant = $repository1->findOneBy(array('login' => $request->get('login')));
+        
         $tab = array();
         $em = $this->getDoctrine()->getManager();
         $quiz = $em->getRepository('MoocMoocBundle:Quiz')->find($id);
@@ -35,7 +39,7 @@ class QuizController extends Controller {
             $rep = $em->getRepository('MoocMoocBundle:Reponse')->findBy(array('idquestion' => $q->getId()));
             array_push($tab, $rep);
         }
-        return $this->render('MoocMoocBundle:Quiz:afficherQuiz.html.twig', array('quiz' => $quiz, 'rep' => $tab));
+        return $this->render('MoocMoocBundle:Quiz:afficherQuiz.html.twig', array('quiz' => $quiz, 'rep' => $tab,'apprenant' =>$Apprenant));
     }
 
     public function ajouterQuizAction(Request $request) {
@@ -60,7 +64,10 @@ class QuizController extends Controller {
         return $this->redirectToRoute('mooc_mooc_listeQuiz');
     }
 
-    public function PasserQuizAction(Request $request, $id) {
+    public function PasserQuizAction($id,Request $request) {
+         $em1 = $this->getDoctrine()->getManager();
+        $repository1 = $em1->getRepository('MoocMoocBundle:Apprenant');
+        $Apprenant = $repository1->findOneBy(array('login' => $request->get('login')));
         $note = 0;
         for ($i = 0; $i < 4; $i++) {
             if ((isset($_POST[$i]) == 1)) {
@@ -71,10 +78,15 @@ class QuizController extends Controller {
                 $note = note + 0;
             }
         }
-        return $this->redirectToRoute('mooc_mooc_note', array('note' => $note, 'id' => $id));
+        return $this->render('MoocMoocBundle:Quiz:note.html.twig', array('note' => $note, 'id' => $id,'apprenant' =>$Apprenant));
+       // return $this->redirectToRoute('mooc_mooc_note', array('note' => $note, 'id' => $id,'apprenant' =>$Apprenant));
     }
 
-    public function afficheQuizChronoAction($id) {
+    public function afficheQuizChronoAction($id, Request $request) {
+        $em1 = $this->getDoctrine()->getManager();
+        $repository1 = $em1->getRepository('MoocMoocBundle:Apprenant');
+        $Apprenant = $repository1->findOneBy(array('login' => $request->get('login')));
+        
         $tab = array();
         $em = $this->getDoctrine()->getManager();
         $quiz = $em->getRepository('MoocMoocBundle:Quiz')->find($id);
@@ -84,7 +96,7 @@ class QuizController extends Controller {
             $rep = $em->getRepository('MoocMoocBundle:Reponse')->findBy(array('idquestion' => $q->getId()));
             array_push($tab, $rep);
         }
-        return $this->render('MoocMoocBundle:Quiz:afficherQuizChronometre.html.twig', array('quiz' => $quiz, 'rep' => $tab));
+        return $this->render('MoocMoocBundle:Quiz:afficherQuizChronometre.html.twig', array('quiz' => $quiz, 'rep' => $tab,'apprenant' =>$Apprenant));
     }
 
     public function afficheQuizModifierAction($id) {

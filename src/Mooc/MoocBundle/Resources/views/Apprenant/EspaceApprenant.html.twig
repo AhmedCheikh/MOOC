@@ -8,7 +8,12 @@
     <link rel="shortcut icon" href="{{asset('bundles/moocmooc/ApprenantAssets/img/favicon.png')}}">
     
 {% block stylesheets %}
-    
+    <style>
+        .imge{
+             margin-left: 250px;
+            
+        }
+    </style>
     <!-- Bootstrap CSS -->    
     <link href="{{asset('bundles/moocmooc/ApprenantAssets/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- bootstrap theme -->
@@ -21,20 +26,7 @@
     <link href="{{asset('bundles/moocmooc/ApprenantAssets/css/style.css')}}" rel="stylesheet">
     <link href="{{asset('bundles/moocmooc/ApprenantAssets/css/style-responsive.css')}}" rel="stylesheet">	
     
-    <!-- map -->
-    <link href="{{asset('bundles/moocmooc/ApprenantAssets/css/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet">
-    
-   <!-- <link href="{{asset('bundles/moocmooc/ApprenantAssets/css/jquery-ui-1.10.4.min.css')}}" rel="stylesheet">
-    <link href="{{asset('bundles/moocmooc/ApprenantAssets/css/font-awesome.css')}}" rel="stylesheet">
-    <link href="{{asset('bundles/moocmooc/ApprenantAssets/css/line-icons.css')}}" rel="stylesheet">
-    <link href="{{asset('bundles/moocmooc/ApprenantAssets/css/widgets.css')}}" rel="stylesheet">
-    <link href="{{asset('bundles/moocmooc/ApprenantAssets/css/xcharts.min.css')}}" rel="stylesheet"> -->
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
-    <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <script src="js/respond.min.js"></script>
-      <script src="js/lte-ie7.js"></script>
-    <![endif]-->
+
         {% endblock %}
 {% block title %}
     <title>MOOC</title>
@@ -143,8 +135,9 @@
 {% endblock %}
     
 {% block body %}
-    
-
+        
+ 
+    <img class="imge" src="{{ image('bundles/moocmooc/ApprenantAssets/img/Capture.png').resize(1000,700) }}" />
 {% endblock %}
 
 </section>
@@ -162,10 +155,7 @@
     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.knob.js')}}"></script>
     <!--custome script for all page-->
     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/scripts.js')}}"></script>
-    <!-- map -->
-    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery-jvectormap-1.2.2.min.js')}}"></script>
-    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery-jvectormap-world-mill-en.js')}}"></script>
-    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/gdp-data.js')}}"></script>	
+	
 
 
   <script>

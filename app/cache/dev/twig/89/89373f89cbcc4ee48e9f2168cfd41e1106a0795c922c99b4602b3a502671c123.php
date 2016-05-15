@@ -39,29 +39,26 @@ class __TwigTemplate_523102d8ad9824f3e9fd8611862ce23a28bc92b65806a39bdb72f284fff
         // line 5
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/starrating/css/rating.css"), "html", null, true);
         echo "\" />
-   <!-- Bootstrap CSS Rating -->  
     
-    ";
-        // line 20
-        echo "
+
 
 ";
     }
 
-    // line 23
+    // line 10
     public function block_title($context, array $blocks = array())
     {
-        // line 24
+        // line 11
         echo "    ";
         $this->displayParentBlock("title", $context, $blocks);
         echo "
 ";
     }
 
-    // line 27
+    // line 14
     public function block_sidebar($context, array $blocks = array())
     {
-        // line 28
+        // line 15
         echo "    <!--sidebar start-->
       <aside>
           <div id=\"sidebar\"  class=\"nav-collapse \">
@@ -69,7 +66,7 @@ class __TwigTemplate_523102d8ad9824f3e9fd8611862ce23a28bc92b65806a39bdb72f284fff
               <ul class=\"sidebar-menu\">                
                   <li>
                       <a class=\"\" href=\"";
-        // line 34
+        // line 21
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_accueil_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
         echo "\">
                           <i class=\"fa fa-user-md\"></i>
@@ -79,7 +76,7 @@ class __TwigTemplate_523102d8ad9824f3e9fd8611862ce23a28bc92b65806a39bdb72f284fff
 
                   <li class=\"active\">                     
                       <a class=\"\" href=\"";
-        // line 41
+        // line 28
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_cours_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
         echo "\">
                           <i class=\"icon_book_alt\"></i>
@@ -90,7 +87,7 @@ class __TwigTemplate_523102d8ad9824f3e9fd8611862ce23a28bc92b65806a39bdb72f284fff
                   </li>
                   <li>                     
                       <a class=\"\" href=\"";
-        // line 49
+        // line 36
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_chercher_cours_apprenant", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
         echo "\">
                           <i class=\"icon_search\"></i>
@@ -109,10 +106,10 @@ class __TwigTemplate_523102d8ad9824f3e9fd8611862ce23a28bc92b65806a39bdb72f284fff
 ";
     }
 
-    // line 65
+    // line 52
     public function block_body($context, array $blocks = array())
     {
-        // line 66
+        // line 53
         echo "<section id=\"main-content\">
           <section class=\"wrapper\">
 \t\t  <div class=\"row\">
@@ -142,42 +139,42 @@ class __TwigTemplate_523102d8ad9824f3e9fd8611862ce23a28bc92b65806a39bdb72f284fff
                                  <th><i class=\"icon_cogs\"></i> Action</th>
                               </tr>
                               ";
-        // line 94
+        // line 81
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["Coursuivi"]) ? $context["Coursuivi"] : $this->getContext($context, "Coursuivi")));
         foreach ($context['_seq'] as $context["_key"] => $context["cour"]) {
-            // line 95
+            // line 82
             echo "                                  <tr>
                                  <td>";
-            // line 96
+            // line 83
             echo twig_escape_filter($this->env, $this->getAttribute($context["cour"], "nomCours", array()), "html", null, true);
             echo "</td>
                                  <td>";
-            // line 97
+            // line 84
             echo twig_escape_filter($this->env, $this->getAttribute($context["cour"], "description", array()), "html", null, true);
             echo "</td>
                                  ";
-            // line 99
+            // line 86
             echo "                                 ";
-            // line 100
+            // line 87
             echo "                                 <td>
                                  ";
-            // line 101
+            // line 88
             echo $this->env->getExtension('star_rating_extension')->rating($this->getAttribute($context["cour"], "difficulte", array()));
-            // line 102
+            // line 89
             echo "                                
                                  <td>";
-            // line 103
+            // line 90
             echo twig_escape_filter($this->env, $this->getAttribute($context["cour"], "dateDebut", array()), "html", null, true);
             echo "</td>
                                  <td>
                                   <div class=\"btn-group\">
                                      <a class=\"btn btn-success\" href=\"";
-            // line 106
+            // line 93
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_detail_cours_apprenant", array("idCourSuivi" => $this->getAttribute($context["cour"], "idcoursuivi", array()), "login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
             echo "\" title=\"Consulter\">Consulter</a>
                                      <a class=\"btn btn-danger\" href=\"";
-            // line 107
+            // line 94
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_supprimer_cours_apprenant", array("idCourSuivi" => $this->getAttribute($context["cour"], "idcoursuivi", array()), "login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()))), "html", null, true);
             echo "\" title=\"Supprimer\">Supprimer</a>
                                   </div>
@@ -188,9 +185,7 @@ class __TwigTemplate_523102d8ad9824f3e9fd8611862ce23a28bc92b65806a39bdb72f284fff
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['cour'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 112
-        echo "                              ";
-        // line 173
+        // line 99
         echo "                             
                            </tbody>
                         </table>
@@ -203,52 +198,21 @@ class __TwigTemplate_523102d8ad9824f3e9fd8611862ce23a28bc92b65806a39bdb72f284fff
 ";
     }
 
-    // line 184
+    // line 110
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 185
-        echo "    
+        // line 111
+        echo "    ";
+        $this->displayParentBlock("javascripts", $context, $blocks);
+        echo "
     <script src=\"//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js\"></script>
     <script src=\"";
-        // line 187
+        // line 113
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/starrating/js/rating.js"), "html", null, true);
         echo "\"></script>
-    <!-- javascripts -->
-    <script src=\"";
-        // line 189
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 190
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/bootstrap.min.js"), "html", null, true);
-        echo "\"></script>
-    <!-- nice scroll -->
-    <script src=\"";
-        // line 192
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.scrollTo.min.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 193
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.nicescroll.js"), "html", null, true);
-        echo "\"></script>
-    <!-- jquery knob -->
-    <script src=\"";
-        // line 195
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.knob.js"), "html", null, true);
-        echo "\"></script>
-    <!--custome script for all page-->
-    <script src=\"";
-        // line 197
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/scripts.js"), "html", null, true);
-        echo "\"></script>
-    
-    <!-- Bootstrap JS Rating --> 
-    ";
-        // line 203
-        echo "    
-   ";
-        // line 214
-        echo "  
+
+ 
+  
 
 ";
     }
@@ -265,7 +229,7 @@ class __TwigTemplate_523102d8ad9824f3e9fd8611862ce23a28bc92b65806a39bdb72f284fff
 
     public function getDebugInfo()
     {
-        return array (  251 => 214,  248 => 203,  242 => 197,  237 => 195,  232 => 193,  228 => 192,  223 => 190,  219 => 189,  214 => 187,  210 => 185,  207 => 184,  194 => 173,  192 => 112,  181 => 107,  177 => 106,  171 => 103,  168 => 102,  166 => 101,  163 => 100,  161 => 99,  157 => 97,  153 => 96,  150 => 95,  146 => 94,  116 => 66,  113 => 65,  94 => 49,  83 => 41,  73 => 34,  65 => 28,  62 => 27,  55 => 24,  52 => 23,  46 => 20,  40 => 5,  35 => 4,  32 => 3,  11 => 1,);
+        return array (  211 => 113,  205 => 111,  202 => 110,  189 => 99,  178 => 94,  174 => 93,  168 => 90,  165 => 89,  163 => 88,  160 => 87,  158 => 86,  154 => 84,  150 => 83,  147 => 82,  143 => 81,  113 => 53,  110 => 52,  91 => 36,  80 => 28,  70 => 21,  62 => 15,  59 => 14,  52 => 11,  49 => 10,  40 => 5,  35 => 4,  32 => 3,  11 => 1,);
     }
 }
 /* {% extends "MoocMoocBundle:Apprenant:EspaceApprenant.html.twig" %}*/
@@ -273,20 +237,7 @@ class __TwigTemplate_523102d8ad9824f3e9fd8611862ce23a28bc92b65806a39bdb72f284fff
 /* {% block stylesheets %}*/
 /*     {{ parent()}}*/
 /*     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />*/
-/*    <!-- Bootstrap CSS Rating -->  */
 /*     */
-/*     {#<link href="{{asset('bundles/bootstrapStarRating/css/bootstrap.css')}}" rel="stylesheet">*/
-/*     <link href="{{asset('bundles/bootstrapStarRating/css/star-rating.css')}}" rel="stylesheet" type="text/css" media="all">*/
-/*     */
-/*     <link href="{{asset('bundles/moocmooc/ApprenantAssets/css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all">*/
-/*     <link href="{{asset('bundles/moocmooc/ApprenantAssets/css/star-rating.css')}}" rel="stylesheet" type="text/css" media="all">*/
-/*     */
-/*     */
-/*     <link href="{{asset('bundles/bootstrapStarRating/css/font-awesome.min.css')}}" rel="stylesheet">*/
-/*     */
-/*     */
-/*     <!-- optionally if you need to use a theme, then include the theme file as mentioned below -->*/
-/*     <link href="{{asset('bundles/bootstrapStarRating/css/theme-krajee-svg.css')}}" rel="stylesheet" type="text/css" media="all">#}*/
 /* */
 /* */
 /* {% endblock %}*/
@@ -379,67 +330,6 @@ class __TwigTemplate_523102d8ad9824f3e9fd8611862ce23a28bc92b65806a39bdb72f284fff
 /*                                   </td>*/
 /*                               </tr>*/
 /*                               {% endfor %}*/
-/*                               {#S<tr>*/
-/*                                  <td>Android</td>*/
-/*                                  <td>Angeline Mcclain</td>*/
-/*                                  <td>Facile</td>*/
-/*                                  <td>17</td>*/
-/*                                  <td>*/
-/*                                   <div class="btn-group">*/
-/*                                      <a class="btn btn-success" href="" title="Consulter">View</a>*/
-/*                                      <a class="btn btn-danger" href="" title="Supprimer">Delete</a>*/
-/*                                   </div>*/
-/*                                   </td>*/
-/*                               </tr>*/
-/*                               <tr>*/
-/*                                  <td>Cross Platform</td>*/
-/*                                  <td>Sung Carlson</td>*/
-/*                                  <td>Facile</td>*/
-/*                                  <td>15</td>*/
-/*                                  <td>*/
-/*                                   <div class="btn-group">*/
-/*                                       <a class="btn btn-success" href="" title="Consulter">View</a>*/
-/*                                      <a class="btn btn-danger" href="" title="Supprimer">Delete</a>*/
-/*                                   </div>*/
-/*                                   </td>*/
-/*                               </tr>*/
-/*                               <tr>*/
-/*                                  <td>Windows Phone</td>*/
-/*                                  <td>Selina Fitzgerald</td>*/
-/*                                  <td>Facile</td>*/
-/*                                  <td>-</td>*/
-/*                                  <td>*/
-/*                                   <div class="btn-group">*/
-/*                                       <a class="btn btn-success" href="" title="Consulter">View</a>*/
-/*                                      <a class="btn btn-danger" href="" title="Supprimer">Delete</a>*/
-/*                                   </div>*/
-/*                                   </td>*/
-/*                               </tr>*/
-/*                               <tr>*/
-/*                                  <td>J2me</td>*/
-/*                                  <td>Abraham Avery</td>*/
-/*                                  <td>Facile</td>*/
-/*                                  <td>20</td>*/
-/*                                  <td>*/
-/*                                   <div class="btn-group">*/
-/*                                       <a class="btn btn-success" href="" title="Consulter">View</a>*/
-/*                                      <a class="btn btn-danger" href="" title="Supprimer">Delete</a>*/
-/*                                   </div>*/
-/*                                   </td>*/
-/*                               </tr>*/
-/*                               <tr>*/
-/*                               <tr>*/
-/*                                  <td>IOS</td>*/
-/*                                  <td>Ahmed Dean</td>*/
-/*                                  <td>Facile</td>*/
-/*                                  <td>-</td>*/
-/*                                  <td>*/
-/*                                   <div class="btn-group">*/
-/*                                       <a class="btn btn-success" href="" title="Consulter">View</a>*/
-/*                                      <a class="btn btn-danger" href="" title="Supprimer">Delete</a>*/
-/*                                   </div>*/
-/*                                   </td>*/
-/*                               </tr> #}*/
 /*                              */
 /*                            </tbody>*/
 /*                         </table>*/
@@ -452,35 +342,11 @@ class __TwigTemplate_523102d8ad9824f3e9fd8611862ce23a28bc92b65806a39bdb72f284fff
 /* {% endblock %}*/
 /* */
 /* {% block javascripts %}*/
-/*     */
+/*     {{ parent()}}*/
 /*     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>*/
 /*     <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>*/
-/*     <!-- javascripts -->*/
-/*     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.js')}}"></script>*/
-/*     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/bootstrap.min.js')}}"></script>*/
-/*     <!-- nice scroll -->*/
-/*     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.scrollTo.min.js')}}"></script>*/
-/*     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.nicescroll.js')}}"></script>*/
-/*     <!-- jquery knob -->*/
-/*     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.knob.js')}}"></script>*/
-/*     <!--custome script for all page-->*/
-/*     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/scripts.js')}}"></script>*/
-/*     */
-/*     <!-- Bootstrap JS Rating --> */
-/*     {#<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>*/
-/*     <script src="{{asset('bundles/bootstrapStarRating/js/jquery.min.js')}}"></script>*/
-/*     <script src="{{asset('bundles/bootstrapStarRating/js/star-rating.js')}}"></script>#}*/
-/*     */
-/*    {# <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.min.js')}}"></script>*/
-/*     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/star-rating.js')}}"></script>*/
-/*     <!-- optionally if you need translation for your language then include locale file as mentioned below -->*/
-/*     <script src="{{asset('bundles/bootstrapStarRating/js/star-rating_locale_fr.js')}}"></script>*/
-/*    <script>*/
-/*      */
-/*       // initialize with defaults*/
-/*     $("#input-id").rating();*/
-/* 	*/
-/*   </script>#}*/
+/* */
+/*  */
 /*   */
 /* */
 /* {% endblock %}*/

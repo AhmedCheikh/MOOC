@@ -12,7 +12,6 @@
 namespace JavierEguiluz\Bundle\EasyAdminBundle;
 
 use JavierEguiluz\Bundle\EasyAdminBundle\DependencyInjection\Compiler\EasyAdminFormTypePass;
-use JavierEguiluz\Bundle\EasyAdminBundle\DependencyInjection\Compiler\EasyAdminConfigurationPass;
 use Symfony\Component\DependencyInjection\Compiler\PassConfig;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
@@ -22,11 +21,10 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class EasyAdminBundle extends Bundle
 {
-    const VERSION = '1.12.6';
+    const VERSION = '1.13.0';
 
     public function build(ContainerBuilder $container)
     {
-        $container->addCompilerPass(new EasyAdminConfigurationPass(), PassConfig::TYPE_BEFORE_REMOVING);
         $container->addCompilerPass(new EasyAdminFormTypePass(), PassConfig::TYPE_BEFORE_REMOVING);
     }
 }

@@ -95,7 +95,7 @@ class __TwigTemplate_976c42a553f8da9ce885f96a8109d4709750cc17b472104264c6b3c4595
                     echo "                            <li class=\"";
                     echo ((($this->getAttribute($context["subitem"], "type", array()) == "divider")) ? ("header") : (""));
                     echo " ";
-                    echo ((((($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "request", array(), "any", false, true), "query", array(), "any", false, true), "get", array(0 => "submenuIndex"), "method", true, true)) ? (_twig_default_filter($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "request", array(), "any", false, true), "query", array(), "any", false, true), "get", array(0 => "submenuIndex"), "method"),  -1)) : ( -1)) == $this->getAttribute($context["loop"], "index0", array()))) ? ("active") : (""));
+                    echo (((((($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "request", array(), "any", false, true), "query", array(), "any", false, true), "get", array(0 => "menuIndex"), "method", true, true)) ? (_twig_default_filter($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "request", array(), "any", false, true), "query", array(), "any", false, true), "get", array(0 => "menuIndex"), "method"),  -1)) : ( -1)) == $this->getAttribute($this->getAttribute($this->getAttribute($context["loop"], "parent", array()), "loop", array()), "index0", array())) && ((($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "request", array(), "any", false, true), "query", array(), "any", false, true), "get", array(0 => "submenuIndex"), "method", true, true)) ? (_twig_default_filter($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "request", array(), "any", false, true), "query", array(), "any", false, true), "get", array(0 => "submenuIndex"), "method"),  -1)) : ( -1)) == $this->getAttribute($context["loop"], "index0", array())))) ? ("active") : (""));
                     echo "\">
                                 ";
                     // line 41
@@ -174,7 +174,7 @@ class __TwigTemplate_976c42a553f8da9ce885f96a8109d4709750cc17b472104264c6b3c4595
         ";
                 // line 17
                 echo "        ";
-                if ((($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "type", array()) == "route") && (is_string($__internal_bdcbb93c210cbbf0bb7773706875a4124dbe34f9e31bbb9708e2f06b136e5d74 = (isset($context["path"]) ? $context["path"] : $this->getContext($context, "path"))) && is_string($__internal_3536fcabd2c2906b94a3f98c81684bc03a05835c9630ab089dc6b4c93467a6da = $this->env->getExtension('routing')->getPath("easyadmin")) && ('' === $__internal_3536fcabd2c2906b94a3f98c81684bc03a05835c9630ab089dc6b4c93467a6da || 0 === strpos($__internal_bdcbb93c210cbbf0bb7773706875a4124dbe34f9e31bbb9708e2f06b136e5d74, $__internal_3536fcabd2c2906b94a3f98c81684bc03a05835c9630ab089dc6b4c93467a6da))))) {
+                if ((($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "type", array()) == "route") && (is_string($__internal_584f9e64ba0b0391d6dba10476090f2c4652b5abbb418797b206d659c666a376 = (isset($context["path"]) ? $context["path"] : $this->getContext($context, "path"))) && is_string($__internal_3eed9dcdf4f0d0d46432a6487b39114fd67e523ed35337bd003a042df62b4376 = $this->env->getExtension('routing')->getPath("easyadmin")) && ('' === $__internal_3eed9dcdf4f0d0d46432a6487b39114fd67e523ed35337bd003a042df62b4376 || 0 === strpos($__internal_584f9e64ba0b0391d6dba10476090f2c4652b5abbb418797b206d659c666a376, $__internal_3eed9dcdf4f0d0d46432a6487b39114fd67e523ed35337bd003a042df62b4376))))) {
                     // line 18
                     echo "            ";
                     $context["path"] = $this->env->getExtension('routing')->getPath($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "route", array()), twig_array_merge((isset($context["menu_params"]) ? $context["menu_params"] : $this->getContext($context, "menu_params")), $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "params", array())));
@@ -201,9 +201,9 @@ class __TwigTemplate_976c42a553f8da9ce885f96a8109d4709750cc17b472104264c6b3c4595
                     echo "\"></i>";
                 }
                 // line 23
-                echo "            ";
+                echo "            <span>";
                 echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "label", array())), "html", null, true);
-                echo "
+                echo "</span>
             ";
                 // line 24
                 if ( !twig_test_empty((($this->getAttribute((isset($context["item"]) ? $context["item"] : null), "children", array(), "any", true, true)) ? (_twig_default_filter($this->getAttribute((isset($context["item"]) ? $context["item"] : null), "children", array()), array())) : (array())))) {
@@ -259,7 +259,7 @@ class __TwigTemplate_976c42a553f8da9ce885f96a8109d4709750cc17b472104264c6b3c4595
 /* */
 /*         <a href="{{ path }}" {% if item.target|default(false) %}target="{{ item.target }}"{% endif %}>*/
 /*             {% if item.icon is not empty %}<i class="fa {{ item.icon }}"></i>{% endif %}*/
-/*             {{ item.label|trans }}*/
+/*             <span>{{ item.label|trans }}</span>*/
 /*             {% if item.children|default([]) is not empty %}<i class="fa fa-angle-left pull-right"></i>{% endif %}*/
 /*         </a>*/
 /*     {% endif %}*/
@@ -276,7 +276,7 @@ class __TwigTemplate_976c42a553f8da9ce885f96a8109d4709750cc17b472104264c6b3c4595
 /*                 {% if item.children|default([]) is not empty %}*/
 /*                     <ul class="treeview-menu">*/
 /*                         {% for subitem in item.children %}*/
-/*                             <li class="{{ subitem.type == 'divider' ? 'header' }} {{ app.request.query.get('submenuIndex')|default(-1) == loop.index0 ? 'active' }}">*/
+/*                             <li class="{{ subitem.type == 'divider' ? 'header' }} {{ app.request.query.get('menuIndex')|default(-1) == loop.parent.loop.index0 and app.request.query.get('submenuIndex')|default(-1) == loop.index0 ? 'active' }}">*/
 /*                                 {{ helper.render_menu_item(subitem) }}*/
 /*                             </li>*/
 /*                         {% endfor %}*/

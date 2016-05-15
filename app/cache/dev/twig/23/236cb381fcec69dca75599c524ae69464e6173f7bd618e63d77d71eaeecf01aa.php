@@ -226,37 +226,12 @@ class __TwigTemplate_15cdf5cc8662e71cabb97b1fff4b05b92c2c905bea9320603cba08d581e
     public function block_javascripts($context, array $blocks = array())
     {
         // line 138
-        echo "    <!-- javascripts -->
-    <script src=\"";
-        // line 139
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 140
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/bootstrap.min.js"), "html", null, true);
-        echo "\"></script>
-    <!-- nice scroll -->
-    <script src=\"";
-        // line 142
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.scrollTo.min.js"), "html", null, true);
-        echo "\"></script>
-    <script src=\"";
-        // line 143
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.nicescroll.js"), "html", null, true);
-        echo "\"></script>
-    <!-- jquery knob -->
-    <script src=\"";
-        // line 145
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/jquery.knob.js"), "html", null, true);
-        echo "\"></script>
-    <!--custome script for all page-->
-    <script src=\"";
-        // line 147
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/ApprenantAssets/js/scripts.js"), "html", null, true);
-        echo "\"></script>
+        echo "   
     ";
-        // line 150
+        // line 139
+        $this->displayParentBlock("javascripts", $context, $blocks);
         echo "
+
 ";
     }
 
@@ -272,7 +247,7 @@ class __TwigTemplate_15cdf5cc8662e71cabb97b1fff4b05b92c2c905bea9320603cba08d581e
 
     public function getDebugInfo()
     {
-        return array (  259 => 150,  255 => 147,  250 => 145,  245 => 143,  241 => 142,  236 => 140,  232 => 139,  229 => 138,  226 => 137,  213 => 126,  200 => 119,  193 => 115,  187 => 114,  183 => 113,  180 => 112,  176 => 111,  138 => 76,  110 => 50,  107 => 49,  88 => 33,  77 => 25,  67 => 18,  59 => 12,  56 => 11,  49 => 8,  46 => 7,  40 => 5,  35 => 4,  32 => 3,  11 => 1,);
+        return array (  232 => 139,  229 => 138,  226 => 137,  213 => 126,  200 => 119,  193 => 115,  187 => 114,  183 => 113,  180 => 112,  176 => 111,  138 => 76,  110 => 50,  107 => 49,  88 => 33,  77 => 25,  67 => 18,  59 => 12,  56 => 11,  49 => 8,  46 => 7,  40 => 5,  35 => 4,  32 => 3,  11 => 1,);
     }
 }
 /* {% extends "MoocMoocBundle:Apprenant:EspaceApprenant.html.twig" %}*/
@@ -412,18 +387,8 @@ class __TwigTemplate_15cdf5cc8662e71cabb97b1fff4b05b92c2c905bea9320603cba08d581e
 /* {% endblock %}*/
 /* */
 /* {% block javascripts %}*/
-/*     <!-- javascripts -->*/
-/*     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.js')}}"></script>*/
-/*     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/bootstrap.min.js')}}"></script>*/
-/*     <!-- nice scroll -->*/
-/*     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.scrollTo.min.js')}}"></script>*/
-/*     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.nicescroll.js')}}"></script>*/
-/*     <!-- jquery knob -->*/
-/*     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.knob.js')}}"></script>*/
-/*     <!--custome script for all page-->*/
-/*     <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/scripts.js')}}"></script>*/
-/*     {#<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>*/
-/*     <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>#}*/
+/*    */
+/*     {{ parent()}}*/
 /* */
 /* {% endblock %}*/
 /* */

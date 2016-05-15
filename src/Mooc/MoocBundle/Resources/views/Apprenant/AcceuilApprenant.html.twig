@@ -3,9 +3,12 @@
 {% block stylesheets %}
     {{ parent()}}
     <style> 
-    .redError {
+    .blueError {
     background-color: #0055b3;
     box-shadow: 2px 5px grey;
+    font-style: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:15px;
 }
     </style>
     
@@ -82,7 +85,7 @@
                             </div>
                             <div class="col-lg-4 col-sm-4 follow-info">
                                
-                                <div class="redError">{{msg}}</div>				
+                                <div class="blueError">{{msg}}</div>				
                             </div>
                             			
                           </div>
@@ -192,41 +195,41 @@
                                                   <div class="form-group">
                                                       <label class="col-lg-2 control-label">Cin</label>
                                                       <div class="col-lg-6">
-                                                          <input type="text" class="form-control" name="cin" id="cin" value="{{apprenant.cin }}" disabled="true">
+                                                          <input type="text" class="form-control" name="cin"  value="{{apprenant.cin }}" disabled="true">
                                                       </div>
                                                   </div>
                                                       
                                                    <div class="form-group">
                                                       <label class="col-lg-2 control-label">Login</label>
                                                       <div class="col-lg-6">
-                                                          <input type="text" class="form-control" name="login" id="login" value="{{apprenant.login }}"  disabled="true">
+                                                          <input type="text" class="form-control" name="login"  value="{{apprenant.login }}"  disabled="true">
                                                       </div>
                                                   </div>
                                                       
                                                   <div class="form-group">
                                                       <label class="col-lg-2 control-label">Nom</label>
                                                       <div class="col-lg-6">
-                                                          <input type="text" class="form-control" name="nom" id="nom" value="{{apprenant.nom }}"  required>
+                                                          <input type="text" class="form-control" name="nom"  value="{{apprenant.nom }}"  required>
                                                       </div>
                                                   </div>
                                                   <div class="form-group">
                                                       <label class="col-lg-2 control-label">Prenom</label>
                                                       <div class="col-lg-6">
-                                                          <input type="text" class="form-control" name="prenom" id="prenom" value="{{apprenant.prenom }}" required>
+                                                          <input type="text" class="form-control" name="prenom"  value="{{apprenant.prenom }}" required>
                                                       </div>
                                                   </div>
                                                   
                                                   <div class="form-group">
                                                       <label class="col-lg-2 control-label">Email</label>
                                                       <div class="col-lg-6">
-                                                          <input type="text" class="form-control" name="email" id="email" value="{{apprenant.email }}"  required>
+                                                          <input type="text" class="form-control" name="email"  value="{{apprenant.email }}"  required>
                                                       </div>
                                                   </div>
                                                       
                                                     {#<div class="form-group">
                                                       <label class="col-lg-2 control-label">Avatar</label>
                                                       <div class="col-lg-6">
-                                                          <input type="file" class="form-control" name="avatar" id="avatar" title="Ajouter votre photo de profile" >
+                                                          <input type="file" class="form-control"  name="avatar"  title="Ajouter votre photo de profile" >
                                                       </div>
                                                     </div>#}
                                                     
@@ -256,45 +259,8 @@
 {% endblock %}
 
 {% block javascripts %}
-    <!-- javascripts -->
-    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.js')}}"></script>
-    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/bootstrap.min.js')}}"></script>
-    <!-- nice scroll -->
-    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.scrollTo.min.js')}}"></script>
-    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.nicescroll.js')}}"></script>
-    <!-- jquery knob -->
-    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.knob.js')}}"></script>
-    <!--custome script for all page-->
-    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/scripts.js')}}"></script>
-    <!-- map -->
-    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery-jvectormap-1.2.2.min.js')}}"></script>
-    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery-jvectormap-world-mill-en.js')}}"></script>
-    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/gdp-data.js')}}"></script>	
 
+    {{ parent()}}
 
-  <script>
-      //knob
-      $(".knob").knob();
-	  
-	  
-	  /* ---------- Map ---------- */
-	$(function(){
-	  $('#map').vectorMap({
-	    map: 'world_mill_en',
-	    series: {
-	      regions: [{
-	        values: gdpData,
-	        scale: ['#000', '#000'],
-	        normalizeFunction: 'polynomial'
-	      }]
-	    },
-		backgroundColor: '#eef3f7',
-	    onLabelShow: function(e, el, code){
-	      el.html(el.html()+' (GDP - '+gdpData[code]+')');
-	    }
-	  });
-	});
-
-  </script>
   
 {% endblock %}

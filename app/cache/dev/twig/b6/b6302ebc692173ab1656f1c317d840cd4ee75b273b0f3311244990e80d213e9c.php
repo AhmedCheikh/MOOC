@@ -143,25 +143,25 @@ class __TwigTemplate_978965d5c39bcc9db2f4b0aec750eec2293c3dcf6365a7c566aeaa0778c
     public function block_head_javascript($context, array $blocks = array())
     {
         // line 28
-        echo "            <script src=\"";
+        echo "            ";
+        $this->displayBlock('adminlte_options', $context, $blocks);
+        // line 41
+        echo "
+            <script src=\"";
+        // line 42
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/easyadmin/javascript/easyadmin-all.min.js"), "html", null, true);
         echo "\"></script>
-
-            ";
-        // line 30
-        $this->displayBlock('adminlte_options', $context, $blocks);
-        // line 43
-        echo "        ";
+        ";
     }
 
-    // line 30
+    // line 28
     public function block_adminlte_options($context, array $blocks = array())
     {
-        // line 31
+        // line 29
         echo "                <script type=\"text/javascript\">
                     var AdminLTEOptions = {
-                        animationSpeed: 'fast',
-                        sidebarExpandOnHover: true,
+                        animationSpeed: 'normal',
+                        sidebarExpandOnHover: false,
                         enableBoxRefresh: false,
                         enableBSToppltip: false,
                         enableFastclick: false,
@@ -178,7 +178,7 @@ class __TwigTemplate_978965d5c39bcc9db2f4b0aec750eec2293c3dcf6365a7c566aeaa0778c
         // line 52
         echo "    <body id=\"";
         $this->displayBlock('body_id', $context, $blocks);
-        echo "\" class=\"easyadmin sidebar-mini fixed ";
+        echo "\" class=\"easyadmin sidebar-mini ";
         $this->displayBlock('body_class', $context, $blocks);
         echo " ";
         echo (($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "request", array()), "cookies", array()), "has", array(0 => "_easyadmin_navigation_iscollapsed"), "method")) ? ("sidebar-collapse") : (""));
@@ -228,20 +228,21 @@ class __TwigTemplate_978965d5c39bcc9db2f4b0aec750eec2293c3dcf6365a7c566aeaa0778c
     {
         // line 55
         echo "            <header class=\"main-header\">
-                <div id=\"header-logo\">
-                    ";
-        // line 57
-        $this->displayBlock('header_logo', $context, $blocks);
-        // line 63
-        echo "                </div>
-
-                <nav class=\"navbar navbar-fixed-top\" role=\"navigation\">
+                <nav class=\"navbar\" role=\"navigation\">
                     <a href=\"#\" class=\"sidebar-toggle\" data-toggle=\"offcanvas\" role=\"button\">
                         <span class=\"sr-only\">";
-        // line 67
+        // line 58
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("toggle_navigation", array(), "EasyAdminBundle"), "html", null, true);
         echo "</span>
                     </a>
+
+                    <div id=\"header-logo\">
+                        ";
+        // line 62
+        $this->displayBlock('header_logo', $context, $blocks);
+        // line 67
+        echo "                    </div>
+
                     <div class=\"navbar-custom-menu\">
                         <ul class=\"nav navbar-nav\">
                             <li class=\"user user-menu\">
@@ -271,27 +272,23 @@ class __TwigTemplate_978965d5c39bcc9db2f4b0aec750eec2293c3dcf6365a7c566aeaa0778c
         ";
     }
 
-    // line 57
+    // line 62
     public function block_header_logo($context, array $blocks = array())
     {
-        // line 58
-        echo "                        <a class=\"logo ";
+        // line 63
+        echo "                            <a class=\"logo ";
         echo (((twig_length_filter($this->env, $this->env->getExtension('easyadmin_extension')->getBackendConfiguration("site_name")) > 14)) ? ("logo-long") : (""));
         echo "\" title=\"";
         echo twig_escape_filter($this->env, strip_tags($this->env->getExtension('easyadmin_extension')->getBackendConfiguration("site_name")), "html", null, true);
         echo "\" href=\"";
         echo $this->env->getExtension('routing')->getPath("easyadmin");
         echo "\">
-                            <span class=\"logo-mini\">";
-        // line 59
-        echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_first($this->env, strip_tags($this->env->getExtension('easyadmin_extension')->getBackendConfiguration("site_name")))), "html", null, true);
-        echo "</span>
-                            <span class=\"logo-lg\">";
-        // line 60
+                                ";
+        // line 64
         echo $this->env->getExtension('easyadmin_extension')->getBackendConfiguration("site_name");
-        echo "</span>
-                        </a>
-                    ";
+        echo "
+                            </a>
+                        ";
     }
 
     // line 72
@@ -312,12 +309,10 @@ class __TwigTemplate_978965d5c39bcc9db2f4b0aec750eec2293c3dcf6365a7c566aeaa0778c
                                     ";
         } else {
             // line 78
-            echo "                                        <span>  ";
-            echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("Espace comité pédagogique", array(), "EasyAdminBundle"), "html", null, true);
-            echo " | <a href=\"";
-            echo $this->env->getExtension('routing')->getPath("mooc_mooc_homepage");
-            echo "\"> Logout </a></span>                                  
-                                        ";
+            echo "                                        ";
+            echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("user.anonymous", array(), "EasyAdminBundle"), "html", null, true);
+            echo "
+                                    ";
         }
         // line 80
         echo "                                ";
@@ -418,7 +413,7 @@ array_key_exists("_entity_config", $context)) ? ($this->getAttribute($this->getA
 
     public function getDebugInfo()
     {
-        return array (  405 => 121,  400 => 114,  389 => 109,  386 => 108,  379 => 104,  376 => 103,  371 => 115,  369 => 114,  364 => 111,  362 => 108,  358 => 106,  355 => 103,  352 => 102,  347 => 95,  345 => 92,  343 => 91,  340 => 90,  335 => 97,  333 => 90,  330 => 89,  327 => 88,  323 => 80,  315 => 78,  309 => 76,  307 => 75,  301 => 73,  298 => 72,  291 => 60,  287 => 59,  278 => 58,  275 => 57,  270 => 117,  268 => 102,  263 => 99,  261 => 88,  252 => 81,  250 => 72,  242 => 67,  236 => 63,  234 => 57,  230 => 55,  227 => 54,  218 => 52,  213 => 126,  204 => 124,  200 => 123,  197 => 122,  195 => 121,  191 => 119,  189 => 54,  179 => 52,  176 => 51,  161 => 31,  158 => 30,  154 => 43,  152 => 30,  146 => 28,  143 => 27,  134 => 24,  131 => 23,  128 => 22,  121 => 14,  115 => 12,  112 => 11,  106 => 9,  101 => 128,  99 => 51,  92 => 47,  88 => 46,  84 => 44,  82 => 27,  79 => 26,  77 => 22,  74 => 21,  65 => 19,  61 => 18,  58 => 17,  56 => 11,  51 => 9,  41 => 2,  38 => 1,);
+        return array (  400 => 121,  395 => 114,  384 => 109,  381 => 108,  374 => 104,  371 => 103,  366 => 115,  364 => 114,  359 => 111,  357 => 108,  353 => 106,  350 => 103,  347 => 102,  342 => 95,  340 => 92,  338 => 91,  335 => 90,  330 => 97,  328 => 90,  325 => 89,  322 => 88,  318 => 80,  312 => 78,  306 => 76,  304 => 75,  298 => 73,  295 => 72,  288 => 64,  279 => 63,  276 => 62,  271 => 117,  269 => 102,  264 => 99,  262 => 88,  253 => 81,  251 => 72,  244 => 67,  242 => 62,  235 => 58,  230 => 55,  227 => 54,  218 => 52,  213 => 126,  204 => 124,  200 => 123,  197 => 122,  195 => 121,  191 => 119,  189 => 54,  179 => 52,  176 => 51,  161 => 29,  158 => 28,  152 => 42,  149 => 41,  146 => 28,  143 => 27,  134 => 24,  131 => 23,  128 => 22,  121 => 14,  115 => 12,  112 => 11,  106 => 9,  101 => 128,  99 => 51,  92 => 47,  88 => 46,  84 => 44,  82 => 27,  79 => 26,  77 => 22,  74 => 21,  65 => 19,  61 => 18,  58 => 17,  56 => 11,  51 => 9,  41 => 2,  38 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -448,13 +443,11 @@ array_key_exists("_entity_config", $context)) ? ($this->getAttribute($this->getA
 /*         {% endblock %}*/
 /* */
 /*         {% block head_javascript %}*/
-/*             <script src="{{ asset('bundles/easyadmin/javascript/easyadmin-all.min.js') }}"></script>*/
-/* */
 /*             {% block adminlte_options %}*/
 /*                 <script type="text/javascript">*/
 /*                     var AdminLTEOptions = {*/
-/*                         animationSpeed: 'fast',*/
-/*                         sidebarExpandOnHover: true,*/
+/*                         animationSpeed: 'normal',*/
+/*                         sidebarExpandOnHover: false,*/
 /*                         enableBoxRefresh: false,*/
 /*                         enableBSToppltip: false,*/
 /*                         enableFastclick: false,*/
@@ -463,6 +456,8 @@ array_key_exists("_entity_config", $context)) ? ($this->getAttribute($this->getA
 /*                     };*/
 /*                 </script>*/
 /*             {% endblock %}*/
+/* */
+/*             <script src="{{ asset('bundles/easyadmin/javascript/easyadmin-all.min.js') }}"></script>*/
 /*         {% endblock head_javascript %}*/
 /* */
 /*         <!--[if lt IE 9]>*/
@@ -472,23 +467,23 @@ array_key_exists("_entity_config", $context)) ? ($this->getAttribute($this->getA
 /*     </head>*/
 /* */
 /*     {% block body %}*/
-/*     <body id="{% block body_id %}{% endblock %}" class="easyadmin sidebar-mini fixed {% block body_class %}{% endblock %} {{ app.request.cookies.has('_easyadmin_navigation_iscollapsed') ? 'sidebar-collapse' }}">*/
+/*     <body id="{% block body_id %}{% endblock %}" class="easyadmin sidebar-mini {% block body_class %}{% endblock %} {{ app.request.cookies.has('_easyadmin_navigation_iscollapsed') ? 'sidebar-collapse' }}">*/
 /*         <div class="wrapper">*/
 /*         {% block wrapper %}*/
 /*             <header class="main-header">*/
-/*                 <div id="header-logo">*/
-/*                     {% block header_logo %}*/
-/*                         <a class="logo {{ easyadmin_config('site_name')|length > 14 ? 'logo-long' }}" title="{{ easyadmin_config('site_name')|striptags }}" href="{{ path('easyadmin') }}">*/
-/*                             <span class="logo-mini">{{ easyadmin_config('site_name')|striptags|first|upper }}</span>*/
-/*                             <span class="logo-lg">{{ easyadmin_config('site_name')|raw }}</span>*/
-/*                         </a>*/
-/*                     {% endblock header_logo %}*/
-/*                 </div>*/
-/* */
-/*                 <nav class="navbar navbar-fixed-top" role="navigation">*/
+/*                 <nav class="navbar" role="navigation">*/
 /*                     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">*/
 /*                         <span class="sr-only">{{ 'toggle_navigation'|trans(domain = 'EasyAdminBundle') }}</span>*/
 /*                     </a>*/
+/* */
+/*                     <div id="header-logo">*/
+/*                         {% block header_logo %}*/
+/*                             <a class="logo {{ easyadmin_config('site_name')|length > 14 ? 'logo-long' }}" title="{{ easyadmin_config('site_name')|striptags }}" href="{{ path('easyadmin') }}">*/
+/*                                 {{ easyadmin_config('site_name')|raw }}*/
+/*                             </a>*/
+/*                         {% endblock header_logo %}*/
+/*                     </div>*/
+/* */
 /*                     <div class="navbar-custom-menu">*/
 /*                         <ul class="nav navbar-nav">*/
 /*                             <li class="user user-menu">*/
@@ -498,8 +493,8 @@ array_key_exists("_entity_config", $context)) ? ($this->getAttribute($this->getA
 /*                                     {% if app.user %}*/
 /*                                         {{ app.user.username|default('user.unnamed'|trans(domain = 'EasyAdminBundle')) }}*/
 /*                                     {% else %}*/
-/*                                         <span>  {{ 'Espace comité pédagogique'|trans(domain = 'EasyAdminBundle') }} | <a href="{{path('mooc_mooc_homepage')}}"> Logout </a></span>                                  */
-/*                                         {% endif %}*/
+/*                                         {{ 'user.anonymous'|trans(domain = 'EasyAdminBundle') }}*/
+/*                                     {% endif %}*/
 /*                                 {% endblock user_menu %}*/
 /*                             </li>*/
 /*                         </ul>*/

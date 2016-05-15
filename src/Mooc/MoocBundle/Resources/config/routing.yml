@@ -248,7 +248,9 @@ mooc_mooc_ModifPassword:
     path:     /ModifPassword/{name}
     defaults: { _controller: MoocMoocBundle:Mail:ModifPassword}
     
-        
+    
+    
+    
 mooc_inscription_apprenant:
     path:     /inscriptionApprenant
     defaults: { _controller: MoocMoocBundle:Apprenant:inscriptionApprenant}    
@@ -273,8 +275,6 @@ mooc_editer_profil_apprenant:
     path:     /accueilapprenant
     defaults: { _controller: MoocMoocBundle:Apprenant:editerProfil}
 
-    
-    
 mooc_cours_apprenant:
     path:   /CoursApprenant/{login}
     defaults: { _controller: MoocMoocBundle:Apprenant:CoursApprenant}
@@ -295,13 +295,13 @@ mooc_suivre_cour_apprenant:
     path:     /CoursApprenant
     defaults: { _controller: MoocMoocBundle:Apprenant:suivreCours}    
     
-#mooc_supprimer_cours_apprenant:
-#    path:     /{idCourSuivi}/{login}
-#    defaults: { _controller: MoocMoocBundle:Apprenant:supprimer}
-#    
-#mooc_editer_password_apprenant:
-#    path:   /{login}
-#    defaults: { _controller: MoocMoocBundle:Apprenant:editPassword}    
+mooc_supprimer_cours_apprenant:
+    path:     /CoursApprenan
+    defaults: { _controller: MoocMoocBundle:Apprenant:supprimer}
+    
+mooc_editer_password_apprenant:
+    path:   /{login}
+    defaults: { _controller: MoocMoocBundle:Apprenant:editPassword}    
        
     
     

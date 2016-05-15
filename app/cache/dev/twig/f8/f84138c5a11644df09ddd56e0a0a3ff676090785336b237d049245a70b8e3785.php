@@ -78,20 +78,18 @@ class __TwigTemplate_b19ff25c0eddf9f3fa6d80a52f05e1886f4333269dc1b41814ae4d2d1b1
         echo "\" method=\"post\" data-validate=\"parsley\">        
         <div class=\"login-wrap\">
             <p class=\"login-img\"><i class=\"icon_lock_alt\"></i></p>
-            ";
+            
+                    ";
         // line 40
-        echo "                    ";
         if (array_key_exists("name", $context)) {
             // line 41
-            echo "                        ";
-            // line 45
-            echo "                    <div class=\"alert-box error\"><center><span>Erreur: </span>Login ou Mot de passe incorrect</center></div><br/>
+            echo "               
+                    <div class=\"alert-box error\"><center><span>Erreur: </span>Login ou Mot de passe incorrect</center></div><br/>
                     ";
         }
-        // line 47
-        echo "                    ";
-        // line 48
-        echo "            <div class=\"input-group\">
+        // line 44
+        echo "                   
+            <div class=\"input-group\">
               <span class=\"input-group-addon\"><i class=\"icon_profile\"></i></span>
               <input type=\"text\" name=\"login\" class=\"form-control\" required autofocus>
             </div>
@@ -104,9 +102,9 @@ class __TwigTemplate_b19ff25c0eddf9f3fa6d80a52f05e1886f4333269dc1b41814ae4d2d1b1
                 <span class=\"pull-right\"> <a href=\"#\"> Forgot Password?</a></span>
             </label>
             <button class=\"btn btn-primary btn-lg btn-block\" type=\"submit\">Login</button><br/>
-            ";
-        // line 62
-        echo "            <center><a href=\"";
+      
+            <center><a href=\"";
+        // line 59
         echo $this->env->getExtension('routing')->getPath("mooc_mooc_homepage");
         echo "\">Page d'acceuil </a> --- <a href=\"";
         echo $this->env->getExtension('routing')->getPath("mooc_inscription_apprenant");
@@ -134,7 +132,7 @@ class __TwigTemplate_b19ff25c0eddf9f3fa6d80a52f05e1886f4333269dc1b41814ae4d2d1b1
 
     public function getDebugInfo()
     {
-        return array (  109 => 62,  94 => 48,  92 => 47,  88 => 45,  86 => 41,  83 => 40,  77 => 36,  61 => 23,  57 => 22,  51 => 19,  47 => 18,  42 => 16,  37 => 14,  29 => 9,  19 => 1,);
+        return array (  108 => 59,  91 => 44,  86 => 41,  84 => 40,  77 => 36,  61 => 23,  57 => 22,  51 => 19,  47 => 18,  42 => 16,  37 => 14,  29 => 9,  19 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -175,15 +173,12 @@ class __TwigTemplate_b19ff25c0eddf9f3fa6d80a52f05e1886f4333269dc1b41814ae4d2d1b1
 /*       <form class="login-form" action="{{path('mooc_login_apprenant')}}" method="post" data-validate="parsley">        */
 /*         <div class="login-wrap">*/
 /*             <p class="login-img"><i class="icon_lock_alt"></i></p>*/
-/*             {#message d'errer#}*/
+/*             */
 /*                     {% if name is defined %}*/
-/*                         {#<div class="alert-box error"><span>error: </span>Write your error message here.</div>*/
-/*                         <div class="alert-box success"><span>success: </span>Write your success message here.</div>*/
-/*                         <div class="alert-box warning"><span>warning: </span>Write your warning message here.</div>*/
-/*                         <div class="alert-box notice"><span>notice: </span>Write your notice message here.</div>#}*/
+/*                */
 /*                     <div class="alert-box error"><center><span>Erreur: </span>Login ou Mot de passe incorrect</center></div><br/>*/
 /*                     {% endif %}*/
-/*                     {#message d'errer#}*/
+/*                    */
 /*             <div class="input-group">*/
 /*               <span class="input-group-addon"><i class="icon_profile"></i></span>*/
 /*               <input type="text" name="login" class="form-control" required autofocus>*/
@@ -197,7 +192,7 @@ class __TwigTemplate_b19ff25c0eddf9f3fa6d80a52f05e1886f4333269dc1b41814ae4d2d1b1
 /*                 <span class="pull-right"> <a href="#"> Forgot Password?</a></span>*/
 /*             </label>*/
 /*             <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button><br/>*/
-/*             {#<button class="btn btn-info btn-lg btn-block" type="submit">S'inscrire</button><br/>#}*/
+/*       */
 /*             <center><a href="{{path('mooc_mooc_homepage')}}">Page d'acceuil </a> --- <a href="{{path('mooc_inscription_apprenant')}}">Pas encore Inscrit </a></center>*/
 /*         </div>*/
 /*       </form>*/

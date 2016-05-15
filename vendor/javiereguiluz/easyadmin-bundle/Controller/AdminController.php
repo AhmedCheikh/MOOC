@@ -28,6 +28,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * The controller used to render all the default EasyAdmin actions.
@@ -81,7 +82,7 @@ class AdminController extends Controller
     {
         $this->dispatch(EasyAdminEvents::PRE_INITIALIZE);
 
-        $this->config = $this->container->getParameter('easyadmin.config');
+        $this->config = $this->get('easyadmin.config.manager')->getBackendConfig();
 
         if (0 === count($this->config['entities'])) {
             throw new NoEntitiesConfiguredException();
@@ -97,7 +98,7 @@ class AdminController extends Controller
             throw new UndefinedEntityException(array('entity_name' => $entityName));
         }
 
-        $this->entity = $this->get('easyadmin.configurator')->getEntityConfiguration($entityName);
+        $this->entity = $this->get('easyadmin.config.manager')->getEntityConfiguration($entityName);
 
         if (!$request->query->has('sortField')) {
             $request->query->set('sortField', $this->entity['primary_key_field_name']);
@@ -127,6 +128,24 @@ class AdminController extends Controller
         $event = new GenericEvent($subject, $arguments);
 
         $this->get('event_dispatcher')->dispatch($eventName, $event);
+    }
+
+    /**
+     * The method that returns the values displayed by an autocomplete field
+     * based on the user's input.
+     *
+     * @return JsonResponse
+     */
+    protected function autocompleteAction()
+    {
+        $results = $this->get('easyadmin.autocomplete')->find(
+            $this->request->query->get('entity'),
+            $this->request->query->get('property'),
+            $this->request->query->get('view'),
+            $this->request->query->get('query')
+        );
+
+        return new JsonResponse($results);
     }
 
     /**
@@ -335,6 +354,14 @@ class AdminController extends Controller
     protected function searchAction()
     {
         $this->dispatch(EasyAdminEvents::PRE_SEARCH);
+
+        // if the search query is empty, redirect to the 'list' action
+        if ('' === $this->request->query->get('query')) {
+            $queryParameters = array_replace($this->request->query->all(), array('action' => 'list', 'query' => null));
+            $queryParameters = array_filter($queryParameters);
+
+            return $this->redirect($this->get('router')->generate('easyadmin', $queryParameters));
+        }
 
         $searchableFields = $this->entity['search']['fields'];
         $paginator = $this->findBy($this->entity['class'], $this->request->query->get('query'), $searchableFields, $this->request->query->get('page', 1), $this->config['list']['max_results'], $this->request->query->get('sortField'), $this->request->query->get('sortDirection'));

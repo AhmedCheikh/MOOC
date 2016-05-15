@@ -20,7 +20,7 @@
 
         <a href="{{ path }}" {% if item.target|default(false) %}target="{{ item.target }}"{% endif %}>
             {% if item.icon is not empty %}<i class="fa {{ item.icon }}"></i>{% endif %}
-            {{ item.label|trans }}
+            <span>{{ item.label|trans }}</span>
             {% if item.children|default([]) is not empty %}<i class="fa fa-angle-left pull-right"></i>{% endif %}
         </a>
     {% endif %}
@@ -37,7 +37,7 @@
                 {% if item.children|default([]) is not empty %}
                     <ul class="treeview-menu">
                         {% for subitem in item.children %}
-                            <li class="{{ subitem.type == 'divider' ? 'header' }} {{ app.request.query.get('submenuIndex')|default(-1) == loop.index0 ? 'active' }}">
+                            <li class="{{ subitem.type == 'divider' ? 'header' }} {{ app.request.query.get('menuIndex')|default(-1) == loop.parent.loop.index0 and app.request.query.get('submenuIndex')|default(-1) == loop.index0 ? 'active' }}">
                                 {{ helper.render_menu_item(subitem) }}
                             </li>
                         {% endfor %}

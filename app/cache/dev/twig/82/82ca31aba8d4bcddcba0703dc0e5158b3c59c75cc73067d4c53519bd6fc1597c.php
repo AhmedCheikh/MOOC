@@ -150,7 +150,7 @@ div.flash-error strong {
         // line 143
         echo "    background: ";
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "danger", array());
-        echo " !iportant;
+        echo " !important;
 }
 .label-empty {
     background: transparent;
@@ -714,115 +714,87 @@ button.btn:active {
         // line 543
         echo (isset($context["brand_color"]) ? $context["brand_color"] : $this->getContext($context, "brand_color"));
         echo ";
+    position: relative;
 }
 .main-header .logo {
-    background: rgba(0, 0, 0, 0.15);
     color: ";
         // line 547
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "white", array());
         echo ";
     font-family: Helvetica, \"Helvetica Neue\", Arial, sans-serif; ";
         // line 549
-        echo "    font-weight: bold;
-    height: 40px;
+        echo "    font-size: 18px;
+    font-weight: bold;
+    height: 45px;
+    line-height: 45px;
+    padding: 0;
+}
+.main-header .logo-long .logo-lg {
+    font-size: 16px;
 }
 .main-header .logo-lg {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.main-header .logo-mini {
-    font-weight: bold;
-    text-align: center;
+.main-header #header-logo {
 }
-.main-header .logo-long .logo-lg {
-    font-size: 16px;
-}
-.main-header > img {
+.main-header img {
     margin-top: -2px;
-    max-height: 26px;
-    max-width: 94%;
+    max-height: 36px;
 }
 .main-header li {
     margin-bottom: 0;
 }
 
 .main-header > .navbar {
-";
+    background-color: ";
         // line 574
-        if (("dark" == (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 575
-            echo "    background-color: ";
-            echo (isset($context["brand_color"]) ? $context["brand_color"] : $this->getContext($context, "brand_color"));
-            echo ";
-    color: ";
-            // line 576
-            echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "white", array());
-            echo ";
-";
-        } elseif (("light" ==         // line 577
-(isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 578
-            echo "    background-color: ";
-            echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "gray_light", array());
-            echo ";
-    color: ";
-            // line 579
-            echo (isset($context["brand_color"]) ? $context["brand_color"] : $this->getContext($context, "brand_color"));
-            echo ";
-";
-        }
-        // line 581
-        echo "    min-height: 40px;
+        echo (isset($context["brand_color"]) ? $context["brand_color"] : $this->getContext($context, "brand_color"));
+        echo ";
+    color: rgba(255, 255, 255, 0.9);
+    margin-left: 0;
+    min-height: 40px;
 }
 
 .main-header .navbar .sidebar-toggle {
-";
-        // line 585
-        if (("dark" == (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 586
-            echo "    color: ";
-            echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "white", array());
-            echo ";
-";
-        } elseif (("light" ==         // line 587
-(isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 588
-            echo "    color: ";
-            echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "text_muted", array());
-            echo ";
-";
-        }
-        // line 590
-        echo "    padding: 10px;
+    color: rgba(255, 255, 255, 0.8);
+    display: inline-block;
+    font-size: 16px;
+    height: 35px;
+    left: 0;
+    line-height: 35px;
+    padding: 0 15px;
+    position: absolute;
+    text-align: center;
+    top: 45px;
 }
-.main-header .navbar .sidebar-toggle:hover {
-    background: rgba(0, 0, 0, 0.15);
+.sidebar-mini.sidebar-collapse .sidebar-toggle {
+    color: ";
+        // line 593
+        echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "white", array());
+        echo ";
 }
 
-.navbar-custom-menu .user-menu {
-";
-        // line 597
-        if (("dark" == (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 598
-            echo "    color: rgba(255, 255, 255, 0.8);
-";
-        } elseif (("light" ==         // line 599
-(isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 600
-            echo "    color: ";
-            echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "text_muted", array());
-            echo ";
-";
-        }
-        // line 602
-        echo "    font-size: 13px;
+.navbar-custom-menu,
+.navbar-custom-menu ul.navbar-nav,
+.navbar-custom-menu ul.navbar-nav .user-menu {
+    float: none;
+}
+.navbar-custom-menu {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
     font-weight: bold;
-    padding: 10px;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 15px;
+    text-align: right;
+    width: 100%;
 }
 
 ";
-        // line 609
+        // line 615
         echo "#content #main {
     padding-bottom: 3em;
 }
@@ -838,175 +810,234 @@ button.btn:active {
 }
 
 ";
-        // line 625
+        // line 631
         echo ".main-sidebar,
 .wrapper {
 ";
-        // line 627
+        // line 633
         if (("dark" == (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 628
-            echo "    background-color: rgb(34, 34, 34);
+            // line 634
+            echo "    background-color: #333;
 ";
-        } elseif (("light" ==         // line 629
+        } elseif (("light" ==         // line 635
 (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 630
+            // line 636
             echo "    background-color: ";
             echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "gray_light", array());
             echo ";
 ";
         }
-        // line 632
+        // line 638
         echo "}
 .main-sidebar {
-    padding-top: 40px;
+    padding-top: 80px;
 }
 
 .sidebar-menu li.header {
 ";
-        // line 638
+        // line 644
         if (("dark" == (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 639
-            echo "    color: ";
-            echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "white", array());
-            echo ";
+            // line 645
+            echo "    color: #777;
 ";
-        } elseif (("light" ==         // line 640
+        } elseif (("light" ==         // line 646
 (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 641
+            // line 647
             echo "    color: ";
-            echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "black", array());
+            echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "gray_dark", array());
             echo ";
 ";
         }
-        // line 643
+        // line 649
         echo "    font-size: 12px;
     font-weight: bold;
-    opacity: 0.4;
     text-transform: uppercase;
 }
 .treeview-menu > li.header {
-    padding-left: 28px;
+";
+        // line 654
+        if (("dark" == (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
+            // line 655
+            echo "    background: #404040;
+";
+        } elseif (("light" ==         // line 656
+(isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
+            // line 657
+            echo "    background-color: ";
+            echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "gray_lighter", array());
+            echo ";
+";
+        }
+        // line 659
+        echo "    padding-left: 28px;
+}
+
+.sidebar-menu li a,
+.sidebar-menu li a span,
+.sidebar-menu li.header,
+.sidebar-mini.sidebar-collapse .sidebar-menu .treeview-menu a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.sidebar-mini.sidebar-collapse .sidebar-menu li a {
+    overflow: visible;
 }
 
 .sidebar-menu > li > a,
 .sidebar-menu .treeview-menu > li > a {
 ";
-        // line 654
+        // line 676
         if (("dark" == (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 655
-            echo "    color: ";
-            echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "white", array());
-            echo ";
-    opacity: 0.8;
+            // line 677
+            echo "    background: #333;
+    color: #CCC;
 ";
-        } elseif (("light" ==         // line 657
+        } elseif (("light" ==         // line 679
 (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 658
+            // line 680
             echo "    color: ";
             echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "gray_darker", array());
             echo ";
 ";
         }
-        // line 660
+        // line 682
         echo "    border-left: 3px solid transparent;
     display: block;
     font-weight: bold;
+    opacity: 1;
 }
 .sidebar-menu .treeview-menu > li > a {
-    font-size: 13px;
-    padding: 8px 5px 8px 25px;
-}
-.sidebar-menu > li:hover > a,
-.sidebar-menu > li.active > a,
-.sidebar-menu .treeview-menu > li:hover > a,
-.sidebar-menu .treeview-menu > li.active > a {
-";
-        // line 672
-        if (("dark" == (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 673
-            echo "    color: ";
-            echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "white", array());
-            echo ";
-    background: rgb(15, 15, 15);
-    border-left-color: rgb(115, 115, 115);
-";
-        } elseif (("light" ==         // line 676
-(isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 677
-            echo "    background: rgb(200, 200, 200);
-    border-left-color: rgb(128, 128, 128);
-";
-        }
-        // line 680
-        echo "    opacity: 1;
-}
-
-.sidebar-menu > li > a > .fa {
-    width: 22px;
-}
-
-.sidebar-menu .treeview-menu {
 ";
         // line 688
         if (("dark" == (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
             // line 689
-            echo "    background: rgb(60, 60, 60);
+            echo "    background: #404040;
 ";
         } elseif (("light" ==         // line 690
 (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
             // line 691
-            echo "    background: rgb(220, 220, 220);
+            echo "    background-color: ";
+            echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "gray_lighter", array());
+            echo ";
 ";
         }
         // line 693
-        echo "    margin: 0;
+        echo "    font-size: 13px;
+    padding: 8px 5px 8px 25px;
+}
+.sidebar-menu > li:hover > a,
+.sidebar-menu .treeview-menu > li:hover > a,
+.sidebar-menu > li.active > a,
+.sidebar-menu .treeview-menu > li.active > a,
+.sidebar-collapse .sidebar-menu > li.active.submenu-active > a,
+.sidebar-collapse .sidebar-menu > li:hover .treeview-menu > li.active > a {
+";
+        // line 702
+        if (("dark" == (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
+            // line 703
+            echo "    color: ";
+            echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "white", array());
+            echo ";
+    background: #4D4D4D;
+    border-left-color: #BBB;
+";
+        } elseif (("light" ==         // line 706
+(isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
+            // line 707
+            echo "    background: #DCDCDC;
+    border-left-color: #808080;
+";
+        }
+        // line 710
+        echo "}
+.sidebar-menu > li > a > .fa {
+    width: 22px;
+}
+.sidebar-menu .treeview-menu {
     padding: 0;
 }
 
 ";
-        // line 698
-        echo ".sidebar-menu > li.active.submenu-active > a {
-";
-        // line 699
-        if (("dark" == (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 700
-            echo "    background: rgb(34, 34, 34);
-";
-        } elseif (("light" ==         // line 701
-(isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 702
-            echo "    background: rgb(220, 220, 220);
-";
-        }
-        // line 704
-        echo "    border-left-color: transparent;
-}
-";
-        // line 707
+        // line 719
         echo ".sidebar-menu li > a > .pull-right {
     font-weight: bold;
     text-align: right;
 }
 ";
-        // line 712
+        // line 724
         echo ".sidebar-menu li.active > a > .fa-angle-left {
     top: 30px;
     right: 0;
 }
+
 ";
-        // line 717
-        echo ".sidebar-collapse .sidebar-menu > li > a > .fa {
-    width: 28px;
+        // line 730
+        echo ".sidebar-collapse .sidebar-menu > li > a {
+    padding: 12px 5px 12px 12px;
+}
+.sidebar-collapse .sidebar-menu > li .treeview-menu > li > a {
+    padding-left: 12px;
+}
+.sidebar-collapse .sidebar-menu > li > a > i.fa {
+    font-size: 18px;
+}
+.sidebar-mini.sidebar-collapse .sidebar-menu > li > .treeview-menu {
+    padding: 0;
+}
+.sidebar-collapse .sidebar-menu > li:hover > a,
+.sidebar-collapse .sidebar-menu .treeview-menu > li:hover > a,
+.sidebar-menu > li.active.submenu-active > a,
+.sidebar-collapse .sidebar-menu > li.active.submenu-active:hover > a {
+    border-left-color: transparent;
+";
+        // line 747
+        if (("dark" == (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
+            // line 748
+            echo "    background: #333;
+";
+        } elseif (("light" ==         // line 749
+(isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
+            // line 750
+            echo "    background: ";
+            echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "gray_light", array());
+            echo ";
+";
+        }
+        // line 752
+        echo "}
+
+";
+        // line 755
+        echo ".sidebar-mini.sidebar-collapse .sidebar-menu li.header {
+";
+        // line 756
+        if (("dark" == (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
+            // line 757
+            echo "    border-bottom: 1px solid #777;
+";
+        } elseif (("light" ==         // line 758
+(isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
+            // line 759
+            echo "    border-bottom: 1px solid #BBB;
+";
+        }
+        // line 761
+        echo "    display: block !important;
+    font-size: 0;
+    height: 1px;
+    margin: 0;
+    padding: 0;
 }
 
 ";
-        // line 724
+        // line 771
         echo "body.easyadmin h1.title {
     margin-bottom: 10px;
 }
 
 ";
-        // line 731
+        // line 778
         echo "
 body.list .global-actions {
     display: table;
@@ -1042,7 +1073,7 @@ body.list .global-actions .input-group-btn a.btn {
 }
 
 ";
-        // line 767
+        // line 814
         echo "body.list .table-responsive,
 body.list table {
     background: transparent;
@@ -1057,32 +1088,32 @@ body.list .table tbody {
 }
 body.list table tbody tr {
     background: ";
-        // line 780
+        // line 827
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "white", array());
         echo ";
 ";
-        // line 781
+        // line 828
         if (("dark" == (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 782
+            // line 829
             echo "    border: 1px solid ";
             echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "gray_light", array());
             echo ";
 ";
-        } elseif (("light" ==         // line 783
+        } elseif (("light" ==         // line 830
 (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 784
+            // line 831
             echo "    border: 1px solid ";
             echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "gray", array());
             echo ";
 ";
         }
-        // line 786
+        // line 833
         echo "    display: block;
     margin-bottom: 1em;
 }
 body.list table tbody td {
     border-bottom: 1px solid ";
-        // line 790
+        // line 837
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "table_row_border", array());
         echo ";
     border-top: 0;
@@ -1118,7 +1149,7 @@ body.list table tbody td.actions a {
 }
 
 ";
-        // line 825
+        // line 872
         echo "body.list .table tbody span.highlight {
     background: #FF9;
     border-radius: 2px;
@@ -1131,7 +1162,7 @@ body.list .table tbody .actions span.highlight {
 }
 
 ";
-        // line 838
+        // line 885
         echo "body.list .pagination {
     float: right;
     margin: 0;
@@ -1140,45 +1171,45 @@ body.list .pagination > .disabled > span {
     background: transparent;
     border: 1px solid transparent;
 ";
-        // line 845
+        // line 892
         if (("dark" == (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 846
+            // line 893
             echo "    color: ";
             echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "text_muted", array());
             echo ";
 ";
-        } elseif (("light" ==         // line 847
+        } elseif (("light" ==         // line 894
 (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 848
+            // line 895
             echo "    color: ";
             echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "gray", array());
             echo ";
 ";
         }
-        // line 850
+        // line 897
         echo "}
 body.list .pagination > li > a {
     background: ";
-        // line 852
+        // line 899
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "white", array());
         echo ";
     border-color: ";
-        // line 853
+        // line 900
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "gray_light", array());
         echo ";
     border-radius: 0;
     color: ";
-        // line 855
+        // line 902
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "text", array());
         echo ";
 }
 body.list .pagination > li > a:hover {
     background: ";
-        // line 858
+        // line 905
         echo (isset($context["brand_color"]) ? $context["brand_color"] : $this->getContext($context, "brand_color"));
         echo ";
     color: ";
-        // line 859
+        // line 906
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "white", array());
         echo ";
 }
@@ -1190,18 +1221,18 @@ body.list .pagination > li i {
     padding: 0 3px;
 }
 ";
-        // line 871
+        // line 918
         echo "body.list .pagination.last-page li:nth-child(2) {
     position: relative;
     z-index: 1;
 }
 
 ";
-        // line 879
+        // line 926
         echo "form label.control-label.required:after {
     content: \"\\00a0*\";
     color: ";
-        // line 881
+        // line 928
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "danger", array());
         echo ";
     font-size: 16px;
@@ -1209,7 +1240,7 @@ body.list .pagination > li i {
 }
 
 ";
-        // line 889
+        // line 936
         echo "body.new textarea {
     min-height: 250px;
 }
@@ -1230,7 +1261,7 @@ body.new .form-horizontal #form-actions-row {
 }
 
 ";
-        // line 911
+        // line 958
         echo "body.edit textarea {
     min-height: 250px;
 }
@@ -1251,25 +1282,25 @@ body.edit .form-horizontal #form-actions-row {
 }
 
 ";
-        // line 933
+        // line 980
         echo "body.show .form-control {
 ";
-        // line 934
+        // line 981
         if (("dark" == (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 935
+            // line 982
             echo "    background: ";
             echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "white", array());
             echo ";
 ";
-        } elseif (("light" ==         // line 936
+        } elseif (("light" ==         // line 983
 (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 937
+            // line 984
             echo "    background: ";
             echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "gray_lighter", array());
             echo ";
 ";
         }
-        // line 939
+        // line 986
         echo "    border: 0;
     border-radius: 0;
     box-shadow: none;
@@ -1282,18 +1313,18 @@ body.show .form-control.text {
 }
 
 ";
-        // line 953
+        // line 1000
         echo "body.error .error-description {
     background: ";
-        // line 954
+        // line 1001
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "white", array());
         echo ";
     border: 1px solid ";
-        // line 955
+        // line 1002
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "gray_lighter", array());
         echo ";
     box-shadow: 0 0 3px ";
-        // line 956
+        // line 1003
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "gray_light", array());
         echo ";
     margin: 2em auto 2em;
@@ -1303,11 +1334,11 @@ body.show .form-control.text {
 }
 body.error .error-description h1 {
     background: ";
-        // line 963
+        // line 1010
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "danger", array());
         echo ";
     color: ";
-        // line 964
+        // line 1011
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "white", array());
         echo ";
     font-size: 18px;
@@ -1322,10 +1353,10 @@ body.error .error-message {
 }
 
 ";
-        // line 979
+        // line 1026
         echo "
 ";
-        // line 983
+        // line 1030
         echo "@media (min-width: 768px) {
     ul, ol {
         margin-left: 2em;
@@ -1334,19 +1365,49 @@ body.error .error-message {
     .main-header > .navbar {
       min-height: 50px;
     }
-    .main-header .logo {
-        text-align: left;
-        height: 50px;
+    .sidebar-mini.sidebar-collapse .main-header .navbar {
+        margin-left: 0;
     }
-    .main-header .logo img {
-        max-height: 48px;
+    .main-header #header-logo {
+        float: left;
+    }
+    .main-header .logo {
+        font-size: 21px;
+        height: 50px;
+        line-height: 50px;
+        text-align: left;
+        transition: padding-left .3s linear;
+    }
+    .sidebar-mini.sidebar-collapse .main-header .logo {
+        padding-left: 15px;
+        width: auto; ";
+        // line 1054
+        echo "        transition: padding-left .3s linear;
     }
 
     .main-header .navbar .sidebar-toggle {
-        padding: 15px;
+        height: 50px;
+        line-height: 50px;
+        position: static;
+        padding: 0 12px 0 18px;
     }
-    .navbar-custom-menu .user-menu {
-        padding: 17px 15px 13px;
+    .sidebar-mini.sidebar-collapse .sidebar-toggle {
+        background: rgba(0, 0, 0, 0.15);
+        font-size: 18px;
+        padding-left: 12px;
+        width: 50px;
+    }
+
+    .navbar-custom-menu,
+    .navbar-custom-menu ul.navbar-nav,
+    .navbar-custom-menu ul.navbar-nav .user-menu {
+        float: right;
+    }
+    .navbar-custom-menu {
+        background: inherit;
+        height: 50px;
+        line-height: 50px;
+        width: auto;
     }
     .navbar-custom-menu .user-menu i {
         padding-right: 4px;
@@ -1356,15 +1417,19 @@ body.error .error-message {
         padding-top: 50px;
     }
 
+    .sidebar-mini.sidebar-collapse .sidebar-menu > li:hover > a > span {
+        padding-left: 5px;
+    }
+
     ";
-        // line 1014
+        // line 1094
         echo "    body.list table {
         background: ";
-        // line 1015
+        // line 1095
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "white", array());
         echo ";
         border: 1px solid ";
-        // line 1016
+        // line 1096
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "table_border", array());
         echo ";
     }
@@ -1373,14 +1438,14 @@ body.error .error-message {
     }
     body.list table thead th {
         background: ";
-        // line 1022
+        // line 1102
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "table_header", array());
         echo ";
         padding: 0;
     }
     body.list table thead th i {
         color: ";
-        // line 1026
+        // line 1106
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "gray", array());
         echo ";
         padding: 0 3px;
@@ -1388,7 +1453,7 @@ body.error .error-message {
     body.list table thead th a,
     body.list table thead th span {
         color: ";
-        // line 1031
+        // line 1111
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "text", array());
         echo ";
         display: block;
@@ -1397,7 +1462,7 @@ body.error .error-message {
     }
     body.list table thead th a:hover {
         background: ";
-        // line 1037
+        // line 1117
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "gray_light", array());
         echo ";
         text-decoration: none;
@@ -1405,39 +1470,39 @@ body.error .error-message {
     body.list table thead th.sorted,
     body.list table thead th.sorted a {
 ";
-        // line 1042
+        // line 1122
         if (("dark" == (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 1043
+            // line 1123
             echo "        background: ";
             echo (isset($context["brand_color"]) ? $context["brand_color"] : $this->getContext($context, "brand_color"));
             echo ";
         color: ";
-            // line 1044
+            // line 1124
             echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "white", array());
             echo ";
 ";
         }
-        // line 1046
+        // line 1126
         echo "    }
     body.list table thead th.sorted a:hover i,
     body.list table thead th.sorted i {
 ";
-        // line 1049
+        // line 1129
         if (("dark" == (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 1050
+            // line 1130
             echo "        color: ";
             echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "white", array());
             echo ";
 ";
-        } elseif (("light" ==         // line 1051
+        } elseif (("light" ==         // line 1131
 (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 1052
+            // line 1132
             echo "        color: ";
             echo (isset($context["brand_color"]) ? $context["brand_color"] : $this->getContext($context, "brand_color"));
             echo ";
 ";
         }
-        // line 1054
+        // line 1134
         echo "    }
     body.list th.boolean, body.list td.boolean,
     body.list th.toggle, body.list td.toggle,
@@ -1447,37 +1512,37 @@ body.error .error-message {
 
     body.list .table thead tr th {
         border-bottom: 2px solid ";
-        // line 1062
+        // line 1142
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "gray_light", array());
         echo ";
     }
     body.list .table thead tr th.sorted {
         border-bottom: 2px outset ";
-        // line 1065
+        // line 1145
         echo (isset($context["brand_color"]) ? $context["brand_color"] : $this->getContext($context, "brand_color"));
         echo ";
     }
     ";
-        // line 1068
+        // line 1148
         echo "    body.list .table thead tr th:first-child.sorted {
 ";
-        // line 1069
+        // line 1149
         if (("dark" == (isset($context["color_scheme"]) ? $context["color_scheme"] : $this->getContext($context, "color_scheme")))) {
-            // line 1070
+            // line 1150
             echo "        border-left: 1px solid ";
             echo (isset($context["brand_color"]) ? $context["brand_color"] : $this->getContext($context, "brand_color"));
             echo ";
         border-top: 1px solid ";
-            // line 1071
+            // line 1151
             echo (isset($context["brand_color"]) ? $context["brand_color"] : $this->getContext($context, "brand_color"));
             echo ";
 ";
         }
-        // line 1073
+        // line 1153
         echo "    }
     body.list .table tbody {
         border-bottom: 2px double ";
-        // line 1075
+        // line 1155
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "gray_light", array());
         echo ";
     }
@@ -1489,7 +1554,7 @@ body.error .error-message {
     body.list table tbody td {
         border-bottom: 0;
         border-top: 1px solid ";
-        // line 1084
+        // line 1164
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "table_row_border", array());
         echo ";
         display: table-cell;
@@ -1501,17 +1566,17 @@ body.error .error-message {
     }
     body.list table tbody td.sorted {
         background: ";
-        // line 1093
+        // line 1173
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "gray_lighter", array());
         echo ";
         border-color: ";
-        // line 1094
+        // line 1174
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "table_row_border", array());
         echo ";
     }
     body.list .table tbody tr:hover td {
         background: ";
-        // line 1097
+        // line 1177
         echo $this->getAttribute((isset($context["colors"]) ? $context["colors"] : $this->getContext($context, "colors")), "gray_lighter", array());
         echo ";
     }
@@ -1562,7 +1627,7 @@ body.error .error-message {
 
     public function getDebugInfo()
     {
-        return array (  1515 => 1097,  1509 => 1094,  1505 => 1093,  1493 => 1084,  1481 => 1075,  1477 => 1073,  1472 => 1071,  1467 => 1070,  1465 => 1069,  1462 => 1068,  1457 => 1065,  1451 => 1062,  1441 => 1054,  1435 => 1052,  1433 => 1051,  1428 => 1050,  1426 => 1049,  1421 => 1046,  1416 => 1044,  1411 => 1043,  1409 => 1042,  1401 => 1037,  1392 => 1031,  1384 => 1026,  1377 => 1022,  1368 => 1016,  1364 => 1015,  1361 => 1014,  1329 => 983,  1326 => 979,  1311 => 964,  1307 => 963,  1297 => 956,  1293 => 955,  1289 => 954,  1286 => 953,  1273 => 939,  1267 => 937,  1265 => 936,  1260 => 935,  1258 => 934,  1255 => 933,  1234 => 911,  1213 => 889,  1205 => 881,  1201 => 879,  1194 => 871,  1182 => 859,  1178 => 858,  1172 => 855,  1167 => 853,  1163 => 852,  1159 => 850,  1153 => 848,  1151 => 847,  1146 => 846,  1144 => 845,  1135 => 838,  1122 => 825,  1086 => 790,  1080 => 786,  1074 => 784,  1072 => 783,  1067 => 782,  1065 => 781,  1061 => 780,  1046 => 767,  1010 => 731,  1004 => 724,  998 => 717,  992 => 712,  986 => 707,  982 => 704,  978 => 702,  976 => 701,  973 => 700,  971 => 699,  968 => 698,  962 => 693,  958 => 691,  956 => 690,  953 => 689,  951 => 688,  941 => 680,  936 => 677,  934 => 676,  927 => 673,  925 => 672,  911 => 660,  905 => 658,  903 => 657,  897 => 655,  895 => 654,  882 => 643,  876 => 641,  874 => 640,  869 => 639,  867 => 638,  859 => 632,  853 => 630,  851 => 629,  848 => 628,  846 => 627,  842 => 625,  826 => 609,  819 => 602,  813 => 600,  811 => 599,  808 => 598,  806 => 597,  797 => 590,  791 => 588,  789 => 587,  784 => 586,  782 => 585,  776 => 581,  771 => 579,  766 => 578,  764 => 577,  760 => 576,  755 => 575,  753 => 574,  726 => 549,  722 => 547,  715 => 543,  712 => 542,  703 => 534,  700 => 533,  697 => 530,  690 => 523,  686 => 522,  676 => 514,  653 => 492,  649 => 491,  646 => 490,  636 => 480,  621 => 467,  617 => 466,  614 => 465,  600 => 452,  591 => 446,  585 => 443,  579 => 440,  572 => 436,  562 => 429,  551 => 421,  545 => 418,  539 => 414,  533 => 407,  527 => 401,  523 => 397,  518 => 394,  516 => 393,  512 => 391,  507 => 389,  502 => 388,  500 => 387,  496 => 386,  491 => 385,  489 => 384,  476 => 374,  457 => 358,  452 => 355,  446 => 353,  444 => 352,  438 => 350,  436 => 349,  427 => 344,  423 => 342,  421 => 341,  416 => 339,  409 => 334,  380 => 306,  372 => 300,  366 => 296,  361 => 294,  350 => 286,  345 => 284,  327 => 269,  322 => 267,  305 => 253,  300 => 250,  294 => 248,  292 => 247,  287 => 246,  285 => 245,  266 => 228,  260 => 223,  257 => 222,  240 => 206,  229 => 198,  225 => 197,  221 => 196,  209 => 187,  205 => 186,  201 => 185,  175 => 161,  168 => 154,  161 => 149,  151 => 143,  144 => 139,  133 => 130,  127 => 127,  124 => 126,  115 => 117,  111 => 116,  105 => 113,  101 => 112,  95 => 108,  77 => 90,  67 => 81,  60 => 77,  45 => 66,  39 => 60,  32 => 52,  29 => 45,  27 => 44,  24 => 43,  22 => 5,  19 => 4,);
+        return array (  1580 => 1177,  1574 => 1174,  1570 => 1173,  1558 => 1164,  1546 => 1155,  1542 => 1153,  1537 => 1151,  1532 => 1150,  1530 => 1149,  1527 => 1148,  1522 => 1145,  1516 => 1142,  1506 => 1134,  1500 => 1132,  1498 => 1131,  1493 => 1130,  1491 => 1129,  1486 => 1126,  1481 => 1124,  1476 => 1123,  1474 => 1122,  1466 => 1117,  1457 => 1111,  1449 => 1106,  1442 => 1102,  1433 => 1096,  1429 => 1095,  1426 => 1094,  1385 => 1054,  1360 => 1030,  1357 => 1026,  1342 => 1011,  1338 => 1010,  1328 => 1003,  1324 => 1002,  1320 => 1001,  1317 => 1000,  1304 => 986,  1298 => 984,  1296 => 983,  1291 => 982,  1289 => 981,  1286 => 980,  1265 => 958,  1244 => 936,  1236 => 928,  1232 => 926,  1225 => 918,  1213 => 906,  1209 => 905,  1203 => 902,  1198 => 900,  1194 => 899,  1190 => 897,  1184 => 895,  1182 => 894,  1177 => 893,  1175 => 892,  1166 => 885,  1153 => 872,  1117 => 837,  1111 => 833,  1105 => 831,  1103 => 830,  1098 => 829,  1096 => 828,  1092 => 827,  1077 => 814,  1041 => 778,  1035 => 771,  1026 => 761,  1022 => 759,  1020 => 758,  1017 => 757,  1015 => 756,  1012 => 755,  1008 => 752,  1002 => 750,  1000 => 749,  997 => 748,  995 => 747,  976 => 730,  969 => 724,  963 => 719,  953 => 710,  948 => 707,  946 => 706,  939 => 703,  937 => 702,  926 => 693,  920 => 691,  918 => 690,  915 => 689,  913 => 688,  905 => 682,  899 => 680,  897 => 679,  893 => 677,  891 => 676,  872 => 659,  866 => 657,  864 => 656,  861 => 655,  859 => 654,  852 => 649,  846 => 647,  844 => 646,  841 => 645,  839 => 644,  831 => 638,  825 => 636,  823 => 635,  820 => 634,  818 => 633,  814 => 631,  798 => 615,  775 => 593,  753 => 574,  726 => 549,  722 => 547,  715 => 543,  712 => 542,  703 => 534,  700 => 533,  697 => 530,  690 => 523,  686 => 522,  676 => 514,  653 => 492,  649 => 491,  646 => 490,  636 => 480,  621 => 467,  617 => 466,  614 => 465,  600 => 452,  591 => 446,  585 => 443,  579 => 440,  572 => 436,  562 => 429,  551 => 421,  545 => 418,  539 => 414,  533 => 407,  527 => 401,  523 => 397,  518 => 394,  516 => 393,  512 => 391,  507 => 389,  502 => 388,  500 => 387,  496 => 386,  491 => 385,  489 => 384,  476 => 374,  457 => 358,  452 => 355,  446 => 353,  444 => 352,  438 => 350,  436 => 349,  427 => 344,  423 => 342,  421 => 341,  416 => 339,  409 => 334,  380 => 306,  372 => 300,  366 => 296,  361 => 294,  350 => 286,  345 => 284,  327 => 269,  322 => 267,  305 => 253,  300 => 250,  294 => 248,  292 => 247,  287 => 246,  285 => 245,  266 => 228,  260 => 223,  257 => 222,  240 => 206,  229 => 198,  225 => 197,  221 => 196,  209 => 187,  205 => 186,  201 => 185,  175 => 161,  168 => 154,  161 => 149,  151 => 143,  144 => 139,  133 => 130,  127 => 127,  124 => 126,  115 => 117,  111 => 116,  105 => 113,  101 => 112,  95 => 108,  77 => 90,  67 => 81,  60 => 77,  45 => 66,  39 => 60,  32 => 52,  29 => 45,  27 => 44,  24 => 43,  22 => 5,  19 => 4,);
     }
 }
 /* {#  ========================================================================*/
@@ -1707,7 +1772,7 @@ body.error .error-message {
 /* }*/
 /* .label-danger {*/
 /*     {# !important is required to override AdminLTE styles #}*/
-/*     background: {{ colors.danger }} !iportant;*/
+/*     background: {{ colors.danger }} !important;*/
 /* }*/
 /* .label-empty {*/
 /*     background: transparent;*/
@@ -2108,67 +2173,73 @@ body.error .error-message {
 /*    ------------------------------------------------------------------------- #}*/
 /* .main-header {*/
 /*     background: {{ brand_color }};*/
+/*     position: relative;*/
 /* }*/
 /* .main-header .logo {*/
-/*     background: rgba(0, 0, 0, 0.15);*/
 /*     color: {{ colors.white }};*/
 /*     font-family: Helvetica, "Helvetica Neue", Arial, sans-serif; {# needed to override AdminLTE styles #}*/
+/*     font-size: 18px;*/
 /*     font-weight: bold;*/
-/*     height: 40px;*/
+/*     height: 45px;*/
+/*     line-height: 45px;*/
+/*     padding: 0;*/
+/* }*/
+/* .main-header .logo-long .logo-lg {*/
+/*     font-size: 16px;*/
 /* }*/
 /* .main-header .logo-lg {*/
 /*     overflow: hidden;*/
 /*     text-overflow: ellipsis;*/
 /*     white-space: nowrap;*/
 /* }*/
-/* .main-header .logo-mini {*/
-/*     font-weight: bold;*/
-/*     text-align: center;*/
+/* .main-header #header-logo {*/
 /* }*/
-/* .main-header .logo-long .logo-lg {*/
-/*     font-size: 16px;*/
-/* }*/
-/* .main-header > img {*/
+/* .main-header img {*/
 /*     margin-top: -2px;*/
-/*     max-height: 26px;*/
-/*     max-width: 94%;*/
+/*     max-height: 36px;*/
 /* }*/
 /* .main-header li {*/
 /*     margin-bottom: 0;*/
 /* }*/
 /* */
 /* .main-header > .navbar {*/
-/* {% if 'dark' == color_scheme %}*/
 /*     background-color: {{ brand_color }};*/
-/*     color: {{ colors.white }};*/
-/* {% elseif 'light' == color_scheme %}*/
-/*     background-color: {{ colors.gray_light }};*/
-/*     color: {{ brand_color }};*/
-/* {% endif %}*/
+/*     color: rgba(255, 255, 255, 0.9);*/
+/*     margin-left: 0;*/
 /*     min-height: 40px;*/
 /* }*/
 /* */
 /* .main-header .navbar .sidebar-toggle {*/
-/* {% if 'dark' == color_scheme %}*/
-/*     color: {{ colors.white }};*/
-/* {% elseif 'light' == color_scheme %}*/
-/*     color: {{ colors.text_muted }};*/
-/* {% endif %}*/
-/*     padding: 10px;*/
+/*     color: rgba(255, 255, 255, 0.8);*/
+/*     display: inline-block;*/
+/*     font-size: 16px;*/
+/*     height: 35px;*/
+/*     left: 0;*/
+/*     line-height: 35px;*/
+/*     padding: 0 15px;*/
+/*     position: absolute;*/
+/*     text-align: center;*/
+/*     top: 45px;*/
 /* }*/
-/* .main-header .navbar .sidebar-toggle:hover {*/
-/*     background: rgba(0, 0, 0, 0.15);*/
+/* .sidebar-mini.sidebar-collapse .sidebar-toggle {*/
+/*     color: {{ colors.white }};*/
 /* }*/
 /* */
-/* .navbar-custom-menu .user-menu {*/
-/* {% if 'dark' == color_scheme %}*/
+/* .navbar-custom-menu,*/
+/* .navbar-custom-menu ul.navbar-nav,*/
+/* .navbar-custom-menu ul.navbar-nav .user-menu {*/
+/*     float: none;*/
+/* }*/
+/* .navbar-custom-menu {*/
+/*     background: rgba(255, 255, 255, 0.1);*/
 /*     color: rgba(255, 255, 255, 0.8);*/
-/* {% elseif 'light' == color_scheme %}*/
-/*     color: {{ colors.text_muted }};*/
-/* {% endif %}*/
 /*     font-size: 13px;*/
 /*     font-weight: bold;*/
-/*     padding: 10px;*/
+/*     height: 35px;*/
+/*     line-height: 35px;*/
+/*     padding: 0 15px;*/
+/*     text-align: right;*/
+/*     width: 100%;*/
 /* }*/
 /* */
 /* {# Main body*/
@@ -2192,84 +2263,90 @@ body.error .error-message {
 /* .main-sidebar,*/
 /* .wrapper {*/
 /* {% if 'dark' == color_scheme %}*/
-/*     background-color: rgb(34, 34, 34);*/
+/*     background-color: #333;*/
 /* {% elseif 'light' == color_scheme %}*/
 /*     background-color: {{ colors.gray_light }};*/
 /* {% endif %}*/
 /* }*/
 /* .main-sidebar {*/
-/*     padding-top: 40px;*/
+/*     padding-top: 80px;*/
 /* }*/
 /* */
 /* .sidebar-menu li.header {*/
 /* {% if 'dark' == color_scheme %}*/
-/*     color: {{ colors.white }};*/
+/*     color: #777;*/
 /* {% elseif 'light' == color_scheme %}*/
-/*     color: {{ colors.black }};*/
+/*     color: {{ colors.gray_dark }};*/
 /* {% endif %}*/
 /*     font-size: 12px;*/
 /*     font-weight: bold;*/
-/*     opacity: 0.4;*/
 /*     text-transform: uppercase;*/
 /* }*/
 /* .treeview-menu > li.header {*/
+/* {% if 'dark' == color_scheme %}*/
+/*     background: #404040;*/
+/* {% elseif 'light' == color_scheme %}*/
+/*     background-color: {{ colors.gray_lighter }};*/
+/* {% endif %}*/
 /*     padding-left: 28px;*/
+/* }*/
+/* */
+/* .sidebar-menu li a,*/
+/* .sidebar-menu li a span,*/
+/* .sidebar-menu li.header,*/
+/* .sidebar-mini.sidebar-collapse .sidebar-menu .treeview-menu a {*/
+/*     overflow: hidden;*/
+/*     text-overflow: ellipsis;*/
+/*     white-space: nowrap;*/
+/* }*/
+/* .sidebar-mini.sidebar-collapse .sidebar-menu li a {*/
+/*     overflow: visible;*/
 /* }*/
 /* */
 /* .sidebar-menu > li > a,*/
 /* .sidebar-menu .treeview-menu > li > a {*/
 /* {% if 'dark' == color_scheme %}*/
-/*     color: {{ colors.white }};*/
-/*     opacity: 0.8;*/
+/*     background: #333;*/
+/*     color: #CCC;*/
 /* {% elseif 'light' == color_scheme %}*/
 /*     color: {{ colors.gray_darker }};*/
 /* {% endif %}*/
 /*     border-left: 3px solid transparent;*/
 /*     display: block;*/
 /*     font-weight: bold;*/
+/*     opacity: 1;*/
 /* }*/
 /* .sidebar-menu .treeview-menu > li > a {*/
+/* {% if 'dark' == color_scheme %}*/
+/*     background: #404040;*/
+/* {% elseif 'light' == color_scheme %}*/
+/*     background-color: {{ colors.gray_lighter }};*/
+/* {% endif %}*/
 /*     font-size: 13px;*/
 /*     padding: 8px 5px 8px 25px;*/
 /* }*/
 /* .sidebar-menu > li:hover > a,*/
-/* .sidebar-menu > li.active > a,*/
 /* .sidebar-menu .treeview-menu > li:hover > a,*/
-/* .sidebar-menu .treeview-menu > li.active > a {*/
+/* .sidebar-menu > li.active > a,*/
+/* .sidebar-menu .treeview-menu > li.active > a,*/
+/* .sidebar-collapse .sidebar-menu > li.active.submenu-active > a,*/
+/* .sidebar-collapse .sidebar-menu > li:hover .treeview-menu > li.active > a {*/
 /* {% if 'dark' == color_scheme %}*/
 /*     color: {{ colors.white }};*/
-/*     background: rgb(15, 15, 15);*/
-/*     border-left-color: rgb(115, 115, 115);*/
+/*     background: #4D4D4D;*/
+/*     border-left-color: #BBB;*/
 /* {% elseif 'light' == color_scheme %}*/
-/*     background: rgb(200, 200, 200);*/
-/*     border-left-color: rgb(128, 128, 128);*/
+/*     background: #DCDCDC;*/
+/*     border-left-color: #808080;*/
 /* {% endif %}*/
-/*     opacity: 1;*/
 /* }*/
-/* */
 /* .sidebar-menu > li > a > .fa {*/
 /*     width: 22px;*/
 /* }*/
-/* */
 /* .sidebar-menu .treeview-menu {*/
-/* {% if 'dark' == color_scheme %}*/
-/*     background: rgb(60, 60, 60);*/
-/* {% elseif 'light' == color_scheme %}*/
-/*     background: rgb(220, 220, 220);*/
-/* {% endif %}*/
-/*     margin: 0;*/
 /*     padding: 0;*/
 /* }*/
 /* */
-/* {# applied to the menu item which is active and has its submenu revealed #}*/
-/* .sidebar-menu > li.active.submenu-active > a {*/
-/* {% if 'dark' == color_scheme %}*/
-/*     background: rgb(34, 34, 34);*/
-/* {% elseif 'light' == color_scheme %}*/
-/*     background: rgb(220, 220, 220);*/
-/* {% endif %}*/
-/*     border-left-color: transparent;*/
-/* }*/
 /* {# icon displayed for collapsed submenus #}*/
 /* .sidebar-menu li > a > .pull-right {*/
 /*     font-weight: bold;*/
@@ -2280,9 +2357,44 @@ body.error .error-message {
 /*     top: 30px;*/
 /*     right: 0;*/
 /* }*/
-/* {# when the sidebar is collapsed, make the icons wider to just display them and not the labels #}*/
-/* .sidebar-collapse .sidebar-menu > li > a > .fa {*/
-/*     width: 28px;*/
+/* */
+/* {# when the sidebar is collapsed #}*/
+/* .sidebar-collapse .sidebar-menu > li > a {*/
+/*     padding: 12px 5px 12px 12px;*/
+/* }*/
+/* .sidebar-collapse .sidebar-menu > li .treeview-menu > li > a {*/
+/*     padding-left: 12px;*/
+/* }*/
+/* .sidebar-collapse .sidebar-menu > li > a > i.fa {*/
+/*     font-size: 18px;*/
+/* }*/
+/* .sidebar-mini.sidebar-collapse .sidebar-menu > li > .treeview-menu {*/
+/*     padding: 0;*/
+/* }*/
+/* .sidebar-collapse .sidebar-menu > li:hover > a,*/
+/* .sidebar-collapse .sidebar-menu .treeview-menu > li:hover > a,*/
+/* .sidebar-menu > li.active.submenu-active > a,*/
+/* .sidebar-collapse .sidebar-menu > li.active.submenu-active:hover > a {*/
+/*     border-left-color: transparent;*/
+/* {% if 'dark' == color_scheme %}*/
+/*     background: #333;*/
+/* {% elseif 'light' == color_scheme %}*/
+/*     background: {{ colors.gray_light }};*/
+/* {% endif %}*/
+/* }*/
+/* */
+/* {# when collapsed, menu dividers are displayed as a straight line #}*/
+/* .sidebar-mini.sidebar-collapse .sidebar-menu li.header {*/
+/* {% if 'dark' == color_scheme %}*/
+/*     border-bottom: 1px solid #777;*/
+/* {% elseif 'light' == color_scheme %}*/
+/*     border-bottom: 1px solid #BBB;*/
+/* {% endif %}*/
+/*     display: block !important;*/
+/*     font-size: 0;*/
+/*     height: 1px;*/
+/*     margin: 0;*/
+/*     padding: 0;*/
 /* }*/
 /* */
 /* {# -------------------------------------------------------------------------*/
@@ -2555,19 +2667,48 @@ body.error .error-message {
 /*     .main-header > .navbar {*/
 /*       min-height: 50px;*/
 /*     }*/
-/*     .main-header .logo {*/
-/*         text-align: left;*/
-/*         height: 50px;*/
+/*     .sidebar-mini.sidebar-collapse .main-header .navbar {*/
+/*         margin-left: 0;*/
 /*     }*/
-/*     .main-header .logo img {*/
-/*         max-height: 48px;*/
+/*     .main-header #header-logo {*/
+/*         float: left;*/
+/*     }*/
+/*     .main-header .logo {*/
+/*         font-size: 21px;*/
+/*         height: 50px;*/
+/*         line-height: 50px;*/
+/*         text-align: left;*/
+/*         transition: padding-left .3s linear;*/
+/*     }*/
+/*     .sidebar-mini.sidebar-collapse .main-header .logo {*/
+/*         padding-left: 15px;*/
+/*         width: auto; {# neutralizes AdminLTE styles #}*/
+/*         transition: padding-left .3s linear;*/
 /*     }*/
 /* */
 /*     .main-header .navbar .sidebar-toggle {*/
-/*         padding: 15px;*/
+/*         height: 50px;*/
+/*         line-height: 50px;*/
+/*         position: static;*/
+/*         padding: 0 12px 0 18px;*/
 /*     }*/
-/*     .navbar-custom-menu .user-menu {*/
-/*         padding: 17px 15px 13px;*/
+/*     .sidebar-mini.sidebar-collapse .sidebar-toggle {*/
+/*         background: rgba(0, 0, 0, 0.15);*/
+/*         font-size: 18px;*/
+/*         padding-left: 12px;*/
+/*         width: 50px;*/
+/*     }*/
+/* */
+/*     .navbar-custom-menu,*/
+/*     .navbar-custom-menu ul.navbar-nav,*/
+/*     .navbar-custom-menu ul.navbar-nav .user-menu {*/
+/*         float: right;*/
+/*     }*/
+/*     .navbar-custom-menu {*/
+/*         background: inherit;*/
+/*         height: 50px;*/
+/*         line-height: 50px;*/
+/*         width: auto;*/
 /*     }*/
 /*     .navbar-custom-menu .user-menu i {*/
 /*         padding-right: 4px;*/
@@ -2575,6 +2716,10 @@ body.error .error-message {
 /* */
 /*     .main-sidebar {*/
 /*         padding-top: 50px;*/
+/*     }*/
+/* */
+/*     .sidebar-mini.sidebar-collapse .sidebar-menu > li:hover > a > span {*/
+/*         padding-left: 5px;*/
 /*     }*/
 /* */
 /*     {# these table styles are needed to override the "responsive tables" styles #}*/

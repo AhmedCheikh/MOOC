@@ -86,7 +86,7 @@
   85 => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\HttpCacheListener',
   86 => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\SecurityListener',
   87 => 'Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\ConfigurationAnnotation',
-  88 => 'JavierEguiluz\\Bundle\\EasyAdminBundle\\Configuration\\Configurator',
+  88 => 'JavierEguiluz\\Bundle\\EasyAdminBundle\\Configuration\\ConfigManager',
   89 => 'JavierEguiluz\\Bundle\\EasyAdminBundle\\Event\\EasyAdminEvents',
   90 => 'JavierEguiluz\\Bundle\\EasyAdminBundle\\EventListener\\ExceptionListener',
   91 => 'JavierEguiluz\\Bundle\\EasyAdminBundle\\EventListener\\RequestPostInitializeListener',

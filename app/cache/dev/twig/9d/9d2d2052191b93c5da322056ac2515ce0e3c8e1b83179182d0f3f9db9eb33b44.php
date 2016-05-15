@@ -182,7 +182,7 @@ class __TwigTemplate_6f70f81a40ab43b1a3baa05208c827eec70659185d335a554d803a8a1af
         foreach ($context['_seq'] as $context["_key"] => $context["ch"]) {
             // line 112
             echo "                                            <li><a href=\"";
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_afficher_chapitre", array("id" => $this->getAttribute($context["ch"], "id", array()))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_afficher_chapitre", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()), "id" => $this->getAttribute($context["ch"], "id", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["ch"], "titre", array()), "html", null, true);
             echo "</a> </li>
@@ -198,7 +198,7 @@ class __TwigTemplate_6f70f81a40ab43b1a3baa05208c827eec70659185d335a554d803a8a1af
                           <div class=\"panel-heading\">Titre Quiz :</div>
                           <div class=\"panel-content\"><a href=\"";
         // line 117
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_afficher_quiz_chrono", array("id" => $this->getAttribute($this->getAttribute((isset($context["cours"]) ? $context["cours"] : $this->getContext($context, "cours")), "idQuiz", array()), "getId", array(), "method"))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_afficher_quiz_chrono", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()), "id" => $this->getAttribute($this->getAttribute((isset($context["cours"]) ? $context["cours"] : $this->getContext($context, "cours")), "idQuiz", array()), "getId", array(), "method"))), "html", null, true);
         echo "\"> ";
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["cours"]) ? $context["cours"] : $this->getContext($context, "cours")), "idQuiz", array()), "getTitre", array(), "method"), "html", null, true);
         echo "</a></div>
@@ -448,12 +448,12 @@ class __TwigTemplate_6f70f81a40ab43b1a3baa05208c827eec70659185d335a554d803a8a1af
 /*                           <div class="panel-heading">Liste des Chapitres</div>*/
 /*                           <div class="panel-content"><ul> */
 /*                                         {% for ch in chapitre %}*/
-/*                                             <li><a href="{{path('mooc_mooc_afficher_chapitre',{'id':ch.id})}}">{{ch.titre}}</a> </li>*/
+/*                                             <li><a href="{{path('mooc_mooc_afficher_chapitre',{'login': apprenant.login ,'id':ch.id})}}">{{ch.titre}}</a> </li>*/
 /*                                         {% endfor %} </ul></div>*/
 /*                         </div>*/
 /*                         <div class="panel panel-primary">*/
 /*                           <div class="panel-heading">Titre Quiz :</div>*/
-/*                           <div class="panel-content"><a href="{{path('mooc_mooc_afficher_quiz_chrono',{'id':cours.idQuiz.getId()})}}"> {{cours.idQuiz.getTitre()}}</a></div>*/
+/*                           <div class="panel-content"><a href="{{path('mooc_mooc_afficher_quiz_chrono',{'login': apprenant.login ,'id':cours.idQuiz.getId()})}}"> {{cours.idQuiz.getTitre()}}</a></div>*/
 /*                         </div>*/
 /*                         */
 /*                         <div class="panel panel-primary">*/

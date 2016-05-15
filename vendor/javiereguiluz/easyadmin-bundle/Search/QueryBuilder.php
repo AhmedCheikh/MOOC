@@ -38,7 +38,7 @@ class QueryBuilder
      *
      * @return DoctrineQueryBuilder
      */
-    public function createListQueryBuilder(array $entityConfig, $sortField, $sortDirection)
+    public function createListQueryBuilder(array $entityConfig, $sortField = null, $sortDirection = null)
     {
         /** @var EntityManager */
         $em = $this->doctrine->getManagerForClass($entityConfig['class']);
@@ -59,14 +59,14 @@ class QueryBuilder
      * Creates the query builder used to get the results of the search query
      * performed by the user in the "search" view.
      *
-     * @param array $entityConfig
-     * @param $searchQuery
-     * @param $sortField
-     * @param $sortDirection
+     * @param array       $entityConfig
+     * @param string      $searchQuery
+     * @param string|null $sortField
+     * @param string|null $sortDirection
      *
      * @return DoctrineQueryBuilder
      */
-    public function createSearchQueryBuilder(array $entityConfig, $searchQuery, $sortField, $sortDirection)
+    public function createSearchQueryBuilder(array $entityConfig, $searchQuery, $sortField = null, $sortDirection = null)
     {
         /** @var EntityManager */
         $em = $this->doctrine->getManagerForClass($entityConfig['class']);
@@ -86,10 +86,12 @@ class QueryBuilder
                 // adding '0' turns the string into a numeric value
                 $queryParameters['exact_query'] = 0 + $searchQuery;
             } elseif ($isTextField) {
-                $queryBuilder->orWhere(sprintf('entity.%s LIKE :fuzzy_query', $name));
+                $searchQuery = strtolower($searchQuery);
+
+                $queryBuilder->orWhere(sprintf('LOWER(entity.%s) LIKE :fuzzy_query', $name));
                 $queryParameters['fuzzy_query'] = '%'.$searchQuery.'%';
 
-                $queryBuilder->orWhere(sprintf('entity.%s IN (:words_query)', $name));
+                $queryBuilder->orWhere(sprintf('LOWER(entity.%s) IN (:words_query)', $name));
                 $queryParameters['words_query'] = explode(' ', $searchQuery);
             }
         }
@@ -99,7 +101,7 @@ class QueryBuilder
         }
 
         if (null !== $sortField) {
-            $queryBuilder->orderBy('entity.'.$sortField, $sortDirection);
+            $queryBuilder->orderBy('entity.'.$sortField, $sortDirection ?: 'DESC');
         }
 
         return $queryBuilder;

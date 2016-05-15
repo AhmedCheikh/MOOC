@@ -27,16 +27,21 @@ class ChapitreController extends Controller {
     }
 
     public function affichelistChapitresAppAction($id) {
+        
+        
         $em = $this->getDoctrine()->getManager();
         $listeChapitres = $em->getRepository('MoocMoocBundle:Chapitre')->findBy(array('idcours' =>$id));
         return $this->render('MoocMoocBundle:Chapitre:listechapitreApprenant.html.twig', array('listeChapitres' => $listeChapitres,'id'=>$id));
     }
     
 
-    public function afficheChapitreAction($id) {
+    public function afficheChapitreAction($id, Request $request) {
+        $em1 = $this->getDoctrine()->getManager();
+        $repository1 = $em1->getRepository('MoocMoocBundle:Apprenant');
+        $Apprenant = $repository1->findOneBy(array('login' => $request->get('login')));
         $em = $this->getDoctrine()->getManager();
         $chapitre = $em->getRepository('MoocMoocBundle:Chapitre')->find($id);
-        return $this->render('MoocMoocBundle:Chapitre:afficherChapitre.html.twig', array('chapitre' => $chapitre));
+        return $this->render('MoocMoocBundle:Chapitre:afficherChapitre.html.twig', array('chapitre' => $chapitre,'apprenant' =>$Apprenant));
     }
    
     

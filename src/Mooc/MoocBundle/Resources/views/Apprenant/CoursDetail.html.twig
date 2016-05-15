@@ -109,12 +109,12 @@
                           <div class="panel-heading">Liste des Chapitres</div>
                           <div class="panel-content"><ul> 
                                         {% for ch in chapitre %}
-                                            <li><a href="{{path('mooc_mooc_afficher_chapitre',{'id':ch.id})}}">{{ch.titre}}</a> </li>
+                                            <li><a href="{{path('mooc_mooc_afficher_chapitre',{'login': apprenant.login ,'id':ch.id})}}">{{ch.titre}}</a> </li>
                                         {% endfor %} </ul></div>
                         </div>
                         <div class="panel panel-primary">
                           <div class="panel-heading">Titre Quiz :</div>
-                          <div class="panel-content"><a href="{{path('mooc_mooc_afficher_quiz_chrono',{'id':cours.idQuiz.getId()})}}"> {{cours.idQuiz.getTitre()}}</a></div>
+                          <div class="panel-content"><a href="{{path('mooc_mooc_afficher_quiz_chrono',{'login': apprenant.login ,'id':cours.idQuiz.getId()})}}"> {{cours.idQuiz.getTitre()}}</a></div>
                         </div>
                         
                         <div class="panel panel-primary">

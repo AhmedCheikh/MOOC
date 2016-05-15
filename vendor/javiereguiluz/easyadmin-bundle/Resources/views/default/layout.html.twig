@@ -25,13 +25,11 @@
         {% endblock %}
 
         {% block head_javascript %}
-            <script src="{{ asset('bundles/easyadmin/javascript/easyadmin-all.min.js') }}"></script>
-
             {% block adminlte_options %}
                 <script type="text/javascript">
                     var AdminLTEOptions = {
-                        animationSpeed: 'fast',
-                        sidebarExpandOnHover: true,
+                        animationSpeed: 'normal',
+                        sidebarExpandOnHover: false,
                         enableBoxRefresh: false,
                         enableBSToppltip: false,
                         enableFastclick: false,
@@ -40,6 +38,8 @@
                     };
                 </script>
             {% endblock %}
+
+            <script src="{{ asset('bundles/easyadmin/javascript/easyadmin-all.min.js') }}"></script>
         {% endblock head_javascript %}
 
         <!--[if lt IE 9]>
@@ -49,23 +49,23 @@
     </head>
 
     {% block body %}
-    <body id="{% block body_id %}{% endblock %}" class="easyadmin sidebar-mini fixed {% block body_class %}{% endblock %} {{ app.request.cookies.has('_easyadmin_navigation_iscollapsed') ? 'sidebar-collapse' }}">
+    <body id="{% block body_id %}{% endblock %}" class="easyadmin sidebar-mini {% block body_class %}{% endblock %} {{ app.request.cookies.has('_easyadmin_navigation_iscollapsed') ? 'sidebar-collapse' }}">
         <div class="wrapper">
         {% block wrapper %}
             <header class="main-header">
-                <div id="header-logo">
-                    {% block header_logo %}
-                        <a class="logo {{ easyadmin_config('site_name')|length > 14 ? 'logo-long' }}" title="{{ easyadmin_config('site_name')|striptags }}" href="{{ path('easyadmin') }}">
-                            <span class="logo-mini">{{ easyadmin_config('site_name')|striptags|first|upper }}</span>
-                            <span class="logo-lg">{{ easyadmin_config('site_name')|raw }}</span>
-                        </a>
-                    {% endblock header_logo %}
-                </div>
-
-                <nav class="navbar navbar-fixed-top" role="navigation">
+                <nav class="navbar" role="navigation">
                     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                         <span class="sr-only">{{ 'toggle_navigation'|trans(domain = 'EasyAdminBundle') }}</span>
                     </a>
+
+                    <div id="header-logo">
+                        {% block header_logo %}
+                            <a class="logo {{ easyadmin_config('site_name')|length > 14 ? 'logo-long' }}" title="{{ easyadmin_config('site_name')|striptags }}" href="{{ path('easyadmin') }}">
+                                {{ easyadmin_config('site_name')|raw }}
+                            </a>
+                        {% endblock header_logo %}
+                    </div>
+
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
                             <li class="user user-menu">
@@ -75,8 +75,8 @@
                                     {% if app.user %}
                                         {{ app.user.username|default('user.unnamed'|trans(domain = 'EasyAdminBundle')) }}
                                     {% else %}
-                                        <span>  {{ 'Espace comité pédagogique'|trans(domain = 'EasyAdminBundle') }} | <a href="{{path('mooc_mooc_log_out_comite')}}"> Logout </a></span>                                  
-                                        {% endif %}
+                                        {{ 'user.anonymous'|trans(domain = 'EasyAdminBundle') }}
+                                    {% endif %}
                                 {% endblock user_menu %}
                             </li>
                         </ul>

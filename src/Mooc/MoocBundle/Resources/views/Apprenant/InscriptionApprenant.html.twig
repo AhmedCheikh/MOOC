@@ -3,12 +3,21 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="{{asset('bundles/moocmooc/ApprenantAssets/css/style_inscription.css')}}">
-      
+      <style> 
+    .blueError {
+    background-color: #0055b3;
+    box-shadow: 2px 5px grey;
+    font-style: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:18px;
+}
+    </style>
         <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
         <!--webfonts-->
         <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
         <!--//webfonts-->
     </head>
+
     <body>
         <div class="main">
             <div class="social-icons">
@@ -31,7 +40,7 @@
                 <div class="clear"> </div>	
             </div>
             <h2>Ou connecter avec</h2>
-            
+            <div class="blueError">{{msg}}</div>
             {%if status is not defined%}
             <form method="POST" action="{{ path('mooc_inscription_apprenant')}}" enctype="multipart/form-data" >
                 <div class="lable-2">
@@ -50,7 +59,7 @@
                     <input type="text" class="text" placeholder="your@email.com" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Vous devez taper une email valide" required >
                     <input type="text" class="text" placeholder="Login" name="login" required>
                     <input type="password" id ="password" class="text" placeholder="Password " name="password" pattern=".{6,}" title="mot de passe trop courte" required>
-                    <input type="password" id ="passwordre" class="text" placeholder=" Répéter Password " name="passwordre" data-equalto="password"  pattern=".{6,}" title="mot de passe trop courte" required>
+                    <input type="password" id ="passwordre" class="text" placeholder=" Répéter Password "  name="passwordre" data-equalto="password"  pattern=".{6,}" title="mot de passe trop courte" required>
                 </div>
                 <h3><span class="term"><a href="{{path('mooc_login_apprenant')}}">   J'ai déja un compte </a></span></h3>
                 <div class="submit">
@@ -73,5 +82,20 @@
             <p>Designed by <a href="#">SmartDev Esprit tunisia</a></p> 
         </div>
         <!-----//end-copyright---->
+        <script>
+            var password = document.getElementById("password");
+          confirm_password = document.getElementById("passwordre");
+
+        function validatePassword(){
+          if(password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Les mots de passe ne correspondent pas");
+          } else {
+            confirm_password.setCustomValidity('');
+          }
+        }
+
+        password.onchange = validatePassword;
+        confirm_password.onkeyup = validatePassword;
+        </script>
     </body>
 </html>

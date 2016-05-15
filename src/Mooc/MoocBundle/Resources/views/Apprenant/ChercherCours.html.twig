@@ -135,17 +135,7 @@
 {% endblock %}
 
 {% block javascripts %}
-    <!-- javascripts -->
-    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.js')}}"></script>
-    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/bootstrap.min.js')}}"></script>
-    <!-- nice scroll -->
-    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.scrollTo.min.js')}}"></script>
-    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.nicescroll.js')}}"></script>
-    <!-- jquery knob -->
-    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/jquery.knob.js')}}"></script>
-    <!--custome script for all page-->
-    <script src="{{asset('bundles/moocmooc/ApprenantAssets/js/scripts.js')}}"></script>
-    {#<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>#}
+   
+    {{ parent()}}
 
 {% endblock %}

@@ -72,8 +72,11 @@ class appDevDebugProjectContainer extends Container
             'doctrine_cache.providers.doctrine.orm.default_metadata_cache' => 'getDoctrineCache_Providers_Doctrine_Orm_DefaultMetadataCacheService',
             'doctrine_cache.providers.doctrine.orm.default_query_cache' => 'getDoctrineCache_Providers_Doctrine_Orm_DefaultQueryCacheService',
             'doctrine_cache.providers.doctrine.orm.default_result_cache' => 'getDoctrineCache_Providers_Doctrine_Orm_DefaultResultCacheService',
-            'easyadmin.configurator' => 'getEasyadmin_ConfiguratorService',
+            'easyadmin.autocomplete' => 'getEasyadmin_AutocompleteService',
+            'easyadmin.cache.manager' => 'getEasyadmin_Cache_ManagerService',
+            'easyadmin.config.manager' => 'getEasyadmin_Config_ManagerService',
             'easyadmin.form.type' => 'getEasyadmin_Form_TypeService',
+            'easyadmin.form.type.autocomplete' => 'getEasyadmin_Form_Type_AutocompleteService',
             'easyadmin.form.type.extension' => 'getEasyadmin_Form_Type_ExtensionService',
             'easyadmin.listener.request_post_initialize' => 'getEasyadmin_Listener_RequestPostInitializeService',
             'easyadmin.paginator' => 'getEasyadmin_PaginatorService',
@@ -476,7 +479,7 @@ class appDevDebugProjectContainer extends Container
 
         $c = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder($a, $b, ($this->targetDirs[2].'/Resources'));
 
-        return $this->services['cache_warmer'] = new \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate(array(0 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer($c, $this->get('templating.locator')), 1 => new \Symfony\Bundle\AsseticBundle\CacheWarmer\AssetManagerCacheWarmer($this), 2 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer($this->get('router')), 3 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer($this, $c), 4 => new \Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer($this->get('doctrine'))));
+        return $this->services['cache_warmer'] = new \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate(array(0 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer($c, $this->get('templating.locator')), 1 => new \Symfony\Bundle\AsseticBundle\CacheWarmer\AssetManagerCacheWarmer($this), 2 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer($this->get('router')), 3 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer($this, $c), 4 => new \Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer($this->get('doctrine')), 5 => new \JavierEguiluz\Bundle\EasyAdminBundle\Cache\ConfigWarmer($this->get('easyadmin.config.manager'))));
     }
 
     /**
@@ -862,931 +865,42 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the 'easyadmin.configurator' service.
+     * Gets the 'easyadmin.autocomplete' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Configuration\Configurator A JavierEguiluz\Bundle\EasyAdminBundle\Configuration\Configurator instance.
+     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Search\Autocomplete A JavierEguiluz\Bundle\EasyAdminBundle\Search\Autocomplete instance.
      */
-    protected function getEasyadmin_ConfiguratorService()
+    protected function getEasyadmin_AutocompleteService()
     {
-        return $this->services['easyadmin.configurator'] = new \JavierEguiluz\Bundle\EasyAdminBundle\Configuration\Configurator(array('design' => array('brand_color' => '#3C8DBC', 'menu' => array(0 => array('entity' => 'Formateur', 'icon' => 'fa-group', 'children' => array(), 'default' => false, 'target' => false, 'menu_index' => 0, 'submenu_index' => -1, 'type' => 'entity', 'label' => 'Formateurs', 'params' => array()), 1 => array('entity' => 'Cours', 'icon' => 'fa-book', 'children' => array(), 'default' => false, 'target' => false, 'menu_index' => 1, 'submenu_index' => -1, 'type' => 'entity', 'label' => 'Cours', 'params' => array()), 2 => array('entity' => 'Organisme', 'icon' => 'fa-home', 'children' => array(), 'default' => false, 'target' => false, 'menu_index' => 2, 'submenu_index' => -1, 'type' => 'entity', 'label' => 'Organismes', 'params' => array()), 3 => array('label' => 'Front office', 'url' => 'http://localhost/Mooc_web/web/app_dev.php/', 'icon' => 'fa-list', 'children' => array(), 'default' => false, 'target' => false, 'menu_index' => 3, 'submenu_index' => -1, 'type' => 'link')), 'theme' => 'default', 'color_scheme' => 'dark', 'form_theme' => array(0 => '@EasyAdmin/form/bootstrap_3_horizontal_layout.html.twig'), 'assets' => array('css' => array(), 'js' => array(), 'favicon' => array('path' => 'favicon.ico', 'mime_type' => 'image/x-icon')), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'menu' => '@EasyAdmin/default/menu.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'exception' => '@EasyAdmin/default/exception.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_email' => '@EasyAdmin/default/field_email.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_tel' => '@EasyAdmin/default/field_tel.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'field_url' => '@EasyAdmin/default/field_url.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'site_name' => 'MOO<i><font color="black">Comité</font></i>', 'entities' => array('Formateur' => array('class' => 'Mooc\\MoocBundle\\Entity\\Formateur', 'label' => 'Formateurs', 'list' => array('title' => 'Liste des formateurs', 'fields' => array('nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'prenom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'prenom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'prenom', 'property' => 'prenom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'avatar' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Photo', 'type' => 'image', 'fieldType' => 'text', 'dataType' => 'image', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_image.html.twig', 'type_options' => array(), 'fieldName' => 'avatar', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'avatar', 'property' => 'avatar', 'base_path' => 'http://localhost/Mooc_web/web/uploads/img/avatar/'), 'Organisme' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_association.html.twig', 'type_options' => array(), 'fieldName' => 'Organisme', 'joinColumns' => array(0 => array('name' => 'Organisme_id', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'idorganisme')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Organisme', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('Organisme_id' => 'idorganisme'), 'joinColumnFieldNames' => array('Organisme_id' => 'Organisme_id'), 'targetToSourceKeyColumns' => array('idorganisme' => 'Organisme_id'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'Organisme'), 'cv' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'CV', 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => 'easy_admin/Formateur/cv.html.twig', 'type_options' => array(), 'fieldName' => 'cv', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'cv', 'property' => 'cv', 'base_path' => '/file/cv'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Valide', 'type' => 'toggle', 'fieldType' => 'checkbox', 'dataType' => 'toggle', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_toggle.html.twig', 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat')), 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => '', 'css_class' => ' action-show', 'icon' => 'search'), 'delete' => array('name' => 'delete', 'type' => 'method', 'label' => '', 'css_class' => 'text-danger action-delete', 'icon' => 'trash'), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => '', 'css_class' => 'text-primary action-edit', 'icon' => 'pencil', 'class' => ''), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'action.new', 'css_class' => 'btn btn-primary action-new', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'action.search', 'css_class' => ' action-search', 'icon' => NULL))), 'show' => array('show' => NULL, 'fields' => array('avatar' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Photo', 'type' => 'image', 'fieldType' => 'text', 'dataType' => 'image', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_image.html.twig', 'type_options' => array(), 'fieldName' => 'avatar', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'avatar', 'property' => 'avatar', 'base_path' => 'http://localhost/Mooc_web/web/uploads/img/avatar/'), 'nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'prenom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'prenom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'prenom', 'property' => 'prenom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'cv' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'CV', 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => 'easy_admin/Formateur/cv.html.twig', 'type_options' => array(), 'fieldName' => 'cv', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'cv', 'property' => 'cv', 'base_path' => '/file/cv'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Valide', 'type' => 'toggle', 'fieldType' => 'checkbox', 'dataType' => 'toggle', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_toggle.html.twig', 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'Organisme' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_association.html.twig', 'type_options' => array(), 'fieldName' => 'Organisme', 'joinColumns' => array(0 => array('name' => 'Organisme_id', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'idorganisme')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Organisme', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('Organisme_id' => 'idorganisme'), 'joinColumnFieldNames' => array('Organisme_id' => 'Organisme_id'), 'targetToSourceKeyColumns' => array('idorganisme' => 'Organisme_id'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'Organisme')), 'actions' => array('edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'css_class' => 'btn btn-primary action-edit', 'icon' => 'edit'), 'delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'css_class' => 'btn btn-default action-delete', 'icon' => 'trash-o'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'css_class' => 'btn btn-secondary action-list', 'icon' => NULL))), 'form' => array('fields' => array(0 => 'nom', 1 => 'prenom', 2 => 'email', 3 => 'Organisme', 4 => 'login', 5 => array('property' => 'password', 'type' => 'password'), 6 => array('property' => 'etat', 'label' => 'Valide'))), 'name' => 'Formateur', 'new' => array('fields' => array('nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'prenom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'prenom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'prenom', 'property' => 'prenom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'Organisme' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'Organisme', 'joinColumns' => array(0 => array('name' => 'Organisme_id', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'idorganisme')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Organisme', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('Organisme_id' => 'idorganisme'), 'joinColumnFieldNames' => array('Organisme_id' => 'Organisme_id'), 'targetToSourceKeyColumns' => array('idorganisme' => 'Organisme_id'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'Organisme'), 'login' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'login', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'login', 'property' => 'login'), 'password' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'password', 'fieldType' => 'password', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'password', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'password', 'property' => 'password'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Valide', 'type' => 'boolean', 'fieldType' => 'checkbox', 'dataType' => 'toggle', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat')), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'css_class' => 'btn btn-secondary action-list', 'icon' => NULL))), 'edit' => array('fields' => array('nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'prenom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'prenom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'prenom', 'property' => 'prenom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'Organisme' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'Organisme', 'joinColumns' => array(0 => array('name' => 'Organisme_id', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'idorganisme')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Organisme', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('Organisme_id' => 'idorganisme'), 'joinColumnFieldNames' => array('Organisme_id' => 'Organisme_id'), 'targetToSourceKeyColumns' => array('idorganisme' => 'Organisme_id'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'Organisme'), 'login' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'login', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'login', 'property' => 'login'), 'password' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'password', 'fieldType' => 'password', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'password', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'password', 'property' => 'password'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Valide', 'type' => 'boolean', 'fieldType' => 'checkbox', 'dataType' => 'toggle', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat')), 'form_options' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'css_class' => 'btn btn-default action-delete', 'icon' => 'trash-o'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'css_class' => 'btn btn-secondary action-list', 'icon' => NULL))), 'search' => array('fields' => array('cin' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'cin', 'scale' => 0, 'length' => 8, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'cin', 'id' => true, 'property' => 'cin'), 'nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'prenom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'prenom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'prenom', 'property' => 'prenom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'avatar' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'avatar', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'avatar', 'property' => 'avatar'), 'cv' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'cv', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'cv', 'property' => 'cv'), 'login' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'login', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'login', 'property' => 'login'))), 'disabled_actions' => array(), 'primary_key_field_name' => 'cin', 'properties' => array('cin' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'cin', 'scale' => 0, 'length' => 8, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'cin', 'id' => true, 'property' => 'cin'), 'nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'prenom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'prenom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'prenom', 'property' => 'prenom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'boolean', 'fieldType' => 'checkbox', 'dataType' => 'toggle', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'avatar' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'avatar', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'avatar', 'property' => 'avatar'), 'cv' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'cv', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'cv', 'property' => 'cv'), 'login' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'login', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'login', 'property' => 'login'), 'password' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'password', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'password', 'property' => 'password'), 'Organisme' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'Organisme', 'joinColumns' => array(0 => array('name' => 'Organisme_id', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'idorganisme')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Organisme', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('Organisme_id' => 'idorganisme'), 'joinColumnFieldNames' => array('Organisme_id' => 'Organisme_id'), 'targetToSourceKeyColumns' => array('idorganisme' => 'Organisme_id'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'Organisme')), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'menu' => '@EasyAdmin/default/menu.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'exception' => '@EasyAdmin/default/exception.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_email' => '@EasyAdmin/default/field_email.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_tel' => '@EasyAdmin/default/field_tel.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'field_url' => '@EasyAdmin/default/field_url.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'Cours' => array('class' => 'Mooc\\MoocBundle\\Entity\\Cours', 'list' => array('title' => 'Liste des cours à valider', 'fields' => array('nomCours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'nomCours', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom_cours', 'property' => 'nomCours'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'difficulte' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'difficulte', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'difficulte', 'property' => 'difficulte'), 'objectif' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'objectif', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'objectif', 'property' => 'objectif'), 'cinformateur' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Formateur', 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_association.html.twig', 'type_options' => array(), 'fieldName' => 'cinformateur', 'joinColumns' => array(0 => array('name' => 'cinformateur', 'unique' => false, 'nullable' => true, 'onDelete' => 'CASCADE', 'columnDefinition' => NULL, 'referencedColumnName' => 'cin')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('cinformateur' => 'cin'), 'joinColumnFieldNames' => array('cinformateur' => 'cinformateur'), 'targetToSourceKeyColumns' => array('cin' => 'cinformateur'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'cinformateur'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Etat', 'type' => 'toggle', 'fieldType' => 'checkbox', 'dataType' => 'toggle', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_toggle.html.twig', 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat')), 'actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => '', 'css_class' => ' action-show', 'icon' => 'search'), 'delete' => array('name' => 'delete', 'type' => 'method', 'label' => '', 'css_class' => 'text-danger action-delete', 'icon' => 'trash'), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => '', 'css_class' => 'text-primary action-edit', 'icon' => '', 'class' => ''), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'action.new', 'css_class' => 'btn btn-primary action-new', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'action.search', 'css_class' => ' action-search', 'icon' => NULL))), 'form' => array('fields' => array(0 => 'nomCours', 1 => 'description', 2 => 'difficulte', 3 => 'objectif', 4 => array('property' => 'cinformateur', 'label' => 'CIN formateur'), 5 => array('property' => 'etat', 'label' => 'Valide'))), 'name' => 'Cours', 'label' => 'Cours', 'new' => array('fields' => array('nomCours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nomCours', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom_cours', 'property' => 'nomCours'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'difficulte' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'difficulte', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'difficulte', 'property' => 'difficulte'), 'objectif' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'objectif', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'objectif', 'property' => 'objectif'), 'cinformateur' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'CIN formateur', 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'cinformateur', 'joinColumns' => array(0 => array('name' => 'cinformateur', 'unique' => false, 'nullable' => true, 'onDelete' => 'CASCADE', 'columnDefinition' => NULL, 'referencedColumnName' => 'cin')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('cinformateur' => 'cin'), 'joinColumnFieldNames' => array('cinformateur' => 'cinformateur'), 'targetToSourceKeyColumns' => array('cin' => 'cinformateur'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'cinformateur'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Valide', 'type' => 'boolean', 'fieldType' => 'checkbox', 'dataType' => 'toggle', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat')), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'css_class' => 'btn btn-secondary action-list', 'icon' => NULL))), 'edit' => array('fields' => array('nomCours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nomCours', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom_cours', 'property' => 'nomCours'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'difficulte' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'difficulte', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'difficulte', 'property' => 'difficulte'), 'objectif' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'objectif', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'objectif', 'property' => 'objectif'), 'cinformateur' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'CIN formateur', 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'cinformateur', 'joinColumns' => array(0 => array('name' => 'cinformateur', 'unique' => false, 'nullable' => true, 'onDelete' => 'CASCADE', 'columnDefinition' => NULL, 'referencedColumnName' => 'cin')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('cinformateur' => 'cin'), 'joinColumnFieldNames' => array('cinformateur' => 'cinformateur'), 'targetToSourceKeyColumns' => array('cin' => 'cinformateur'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'cinformateur'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Valide', 'type' => 'boolean', 'fieldType' => 'checkbox', 'dataType' => 'toggle', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat')), 'form_options' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'css_class' => 'btn btn-default action-delete', 'icon' => 'trash-o'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'css_class' => 'btn btn-secondary action-list', 'icon' => NULL))), 'search' => array('fields' => array('idcours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'idcours', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'idcours', 'id' => true, 'property' => 'idcours'), 'nomCours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nomCours', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom_cours', 'property' => 'nomCours'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'difficulte' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'difficulte', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'difficulte', 'property' => 'difficulte'), 'objectif' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'objectif', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'objectif', 'property' => 'objectif'), 'video' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'video', 'scale' => 0, 'length' => 100, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'video', 'property' => 'video'))), 'show' => array('fields' => array('idcours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_integer.html.twig', 'type_options' => array(), 'fieldName' => 'idcours', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'idcours', 'id' => true, 'property' => 'idcours'), 'nomCours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'nomCours', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom_cours', 'property' => 'nomCours'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'difficulte' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'difficulte', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'difficulte', 'property' => 'difficulte'), 'objectif' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'objectif', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'objectif', 'property' => 'objectif'), 'video' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'video', 'scale' => 0, 'length' => 100, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'video', 'property' => 'video'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'boolean', 'fieldType' => 'checkbox', 'dataType' => 'toggle', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_toggle.html.twig', 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'idquiz' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_association.html.twig', 'type_options' => array(), 'fieldName' => 'idquiz', 'joinColumns' => array(0 => array('name' => 'idQuiz', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'id')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Quiz', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('idQuiz' => 'id'), 'joinColumnFieldNames' => array('idQuiz' => 'idQuiz'), 'targetToSourceKeyColumns' => array('id' => 'idQuiz'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'idquiz'), 'cinformateur' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_association.html.twig', 'type_options' => array(), 'fieldName' => 'cinformateur', 'joinColumns' => array(0 => array('name' => 'cinformateur', 'unique' => false, 'nullable' => true, 'onDelete' => 'CASCADE', 'columnDefinition' => NULL, 'referencedColumnName' => 'cin')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('cinformateur' => 'cin'), 'joinColumnFieldNames' => array('cinformateur' => 'cinformateur'), 'targetToSourceKeyColumns' => array('cin' => 'cinformateur'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'cinformateur')), 'actions' => array('edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'css_class' => 'btn btn-primary action-edit', 'icon' => 'edit'), 'delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'css_class' => 'btn btn-default action-delete', 'icon' => 'trash-o'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'css_class' => 'btn btn-secondary action-list', 'icon' => NULL))), 'disabled_actions' => array(), 'primary_key_field_name' => 'idcours', 'properties' => array('idcours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'idcours', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'idcours', 'id' => true, 'property' => 'idcours'), 'nomCours' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nomCours', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom_cours', 'property' => 'nomCours'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'difficulte' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'difficulte', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'difficulte', 'property' => 'difficulte'), 'objectif' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'objectif', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'objectif', 'property' => 'objectif'), 'video' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'video', 'scale' => 0, 'length' => 100, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'video', 'property' => 'video'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'boolean', 'fieldType' => 'checkbox', 'dataType' => 'toggle', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'idquiz' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'idquiz', 'joinColumns' => array(0 => array('name' => 'idQuiz', 'unique' => false, 'nullable' => true, 'onDelete' => NULL, 'columnDefinition' => NULL, 'referencedColumnName' => 'id')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Quiz', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('idQuiz' => 'id'), 'joinColumnFieldNames' => array('idQuiz' => 'idQuiz'), 'targetToSourceKeyColumns' => array('id' => 'idQuiz'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'idquiz'), 'cinformateur' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'association', 'fieldType' => 'entity', 'dataType' => 'association', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'cinformateur', 'joinColumns' => array(0 => array('name' => 'cinformateur', 'unique' => false, 'nullable' => true, 'onDelete' => 'CASCADE', 'columnDefinition' => NULL, 'referencedColumnName' => 'cin')), 'cascade' => array(), 'inversedBy' => NULL, 'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur', 'fetch' => 2, 'mappedBy' => NULL, 'isOwningSide' => true, 'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours', 'isCascadeRemove' => false, 'isCascadePersist' => false, 'isCascadeRefresh' => false, 'isCascadeMerge' => false, 'isCascadeDetach' => false, 'sourceToTargetKeyColumns' => array('cinformateur' => 'cin'), 'joinColumnFieldNames' => array('cinformateur' => 'cinformateur'), 'targetToSourceKeyColumns' => array('cin' => 'cinformateur'), 'orphanRemoval' => false, 'associationType' => 2, 'property' => 'cinformateur')), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'menu' => '@EasyAdmin/default/menu.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'exception' => '@EasyAdmin/default/exception.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_email' => '@EasyAdmin/default/field_email.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_tel' => '@EasyAdmin/default/field_tel.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'field_url' => '@EasyAdmin/default/field_url.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig')), 'Organisme' => array('class' => 'Mooc\\MoocBundle\\Entity\\Organisme', 'disabled_actions' => array(0 => 'edit', 1 => 'delete', 2 => 'new'), 'label' => 'Organismes', 'list' => array('actions' => array('show' => array('name' => 'show', 'type' => 'method', 'label' => 'Détails', 'css_class' => ' action-show', 'icon' => 'search'), 'edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'css_class' => 'text-primary action-edit', 'icon' => NULL), 'delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'css_class' => 'text-danger action-delete', 'icon' => NULL), 'new' => array('name' => 'new', 'type' => 'method', 'label' => 'action.new', 'css_class' => 'btn btn-primary action-new', 'icon' => NULL), 'search' => array('name' => 'search', 'type' => 'method', 'label' => 'action.search', 'css_class' => ' action-search', 'icon' => NULL)), 'title' => 'Liste des Organismes', 'fields' => array('logo' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Logo', 'type' => 'image', 'fieldType' => 'text', 'dataType' => 'image', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_image.html.twig', 'type_options' => array(), 'fieldName' => 'logo', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'logo', 'property' => 'logo', 'base_path' => 'http://localhost/Mooc_web/web/uploads/img/logo/'), 'nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Nom organisme', 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'siteweb' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Site web', 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'siteweb', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'siteweb', 'property' => 'siteweb'), 'adresse' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'adresse', 'scale' => 0, 'length' => 100, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'adresse', 'property' => 'adresse'), 'telephone' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'telephone', 'scale' => 0, 'length' => 10, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'telephone', 'property' => 'telephone'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => 'easy_admin/Organisme/etat.html.twig', 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'))), 'show' => array('fields' => array('logo' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Logo', 'type' => 'image', 'fieldType' => 'text', 'dataType' => 'image', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_image.html.twig', 'type_options' => array(), 'fieldName' => 'logo', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'logo', 'property' => 'logo', 'base_path' => 'http://localhost/Mooc_web/web/uploads/img/logo/'), 'nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Nom organisme', 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'siteweb' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Site web', 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'siteweb', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'siteweb', 'property' => 'siteweb'), 'adresse' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'adresse', 'scale' => 0, 'length' => 100, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'adresse', 'property' => 'adresse'), 'telephone' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'telephone', 'scale' => 0, 'length' => 10, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'telephone', 'property' => 'telephone'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_string.html.twig', 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => 'Valide', 'type' => 'toggle', 'fieldType' => 'integer', 'dataType' => 'toggle', 'virtual' => false, 'sortable' => true, 'template' => '@EasyAdmin/default/field_toggle.html.twig', 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat')), 'actions' => array('edit' => array('name' => 'edit', 'type' => 'method', 'label' => 'action.edit', 'css_class' => 'btn btn-primary action-edit', 'icon' => 'edit'), 'delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'css_class' => 'btn btn-default action-delete', 'icon' => 'trash-o'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'css_class' => 'btn btn-secondary action-list', 'icon' => NULL))), 'name' => 'Organisme', 'edit' => array('fields' => array('nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'siteweb' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'siteweb', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'siteweb', 'property' => 'siteweb'), 'adresse' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'adresse', 'scale' => 0, 'length' => 100, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'adresse', 'property' => 'adresse'), 'telephone' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'telephone', 'scale' => 0, 'length' => 10, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'telephone', 'property' => 'telephone'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'logo' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'logo', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'logo', 'property' => 'logo'), 'login' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'login', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'login', 'property' => 'login'), 'password' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'password', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'password', 'property' => 'password'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'complete' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'complete', 'scale' => 0, 'length' => 20, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'complete', 'property' => 'complete')), 'form_options' => array(), 'actions' => array('delete' => array('name' => 'delete', 'type' => 'method', 'label' => 'action.delete', 'css_class' => 'btn btn-default action-delete', 'icon' => 'trash-o'), 'list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'css_class' => 'btn btn-secondary action-list', 'icon' => NULL))), 'new' => array('fields' => array('nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'siteweb' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'siteweb', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'siteweb', 'property' => 'siteweb'), 'adresse' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'adresse', 'scale' => 0, 'length' => 100, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'adresse', 'property' => 'adresse'), 'telephone' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'telephone', 'scale' => 0, 'length' => 10, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'telephone', 'property' => 'telephone'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'logo' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'logo', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'logo', 'property' => 'logo'), 'login' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'login', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'login', 'property' => 'login'), 'password' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'password', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'password', 'property' => 'password'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'complete' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'complete', 'scale' => 0, 'length' => 20, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'complete', 'property' => 'complete')), 'form_options' => array(), 'actions' => array('list' => array('name' => 'list', 'type' => 'method', 'label' => 'action.list', 'css_class' => 'btn btn-secondary action-list', 'icon' => NULL))), 'search' => array('fields' => array('idorganisme' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'idorganisme', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'idorganisme', 'id' => true, 'property' => 'idorganisme'), 'nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'siteweb' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'siteweb', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'siteweb', 'property' => 'siteweb'), 'adresse' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'adresse', 'scale' => 0, 'length' => 100, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'adresse', 'property' => 'adresse'), 'telephone' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'telephone', 'scale' => 0, 'length' => 10, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'telephone', 'property' => 'telephone'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'logo' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'logo', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'logo', 'property' => 'logo'), 'login' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'login', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'login', 'property' => 'login'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'complete' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'complete', 'scale' => 0, 'length' => 20, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'complete', 'property' => 'complete'))), 'primary_key_field_name' => 'idorganisme', 'properties' => array('idorganisme' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'idorganisme', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'idorganisme', 'id' => true, 'property' => 'idorganisme'), 'nom' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'nom', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'nom', 'property' => 'nom'), 'email' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'email', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'email', 'property' => 'email'), 'siteweb' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'siteweb', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'siteweb', 'property' => 'siteweb'), 'adresse' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'adresse', 'scale' => 0, 'length' => 100, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'adresse', 'property' => 'adresse'), 'telephone' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'telephone', 'scale' => 0, 'length' => 10, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'telephone', 'property' => 'telephone'), 'description' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'description', 'scale' => 0, 'length' => 255, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'description', 'property' => 'description'), 'document' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'blob', 'fieldType' => 'textarea', 'dataType' => 'blob', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'document', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'document', 'property' => 'document'), 'logo' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'logo', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'logo', 'property' => 'logo'), 'login' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'login', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'login', 'property' => 'login'), 'password' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'password', 'scale' => 0, 'length' => 45, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'password', 'property' => 'password'), 'etat' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'integer', 'fieldType' => 'integer', 'dataType' => 'integer', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'etat', 'scale' => 0, 'length' => NULL, 'unique' => false, 'nullable' => true, 'precision' => 0, 'columnName' => 'etat', 'property' => 'etat'), 'complete' => array('css_class' => '', 'format' => NULL, 'help' => NULL, 'label' => NULL, 'type' => 'string', 'fieldType' => 'text', 'dataType' => 'string', 'virtual' => false, 'sortable' => true, 'template' => NULL, 'type_options' => array(), 'fieldName' => 'complete', 'scale' => 0, 'length' => 20, 'unique' => false, 'nullable' => false, 'precision' => 0, 'columnName' => 'complete', 'property' => 'complete')), 'templates' => array('layout' => '@EasyAdmin/default/layout.html.twig', 'menu' => '@EasyAdmin/default/menu.html.twig', 'edit' => '@EasyAdmin/default/edit.html.twig', 'list' => '@EasyAdmin/default/list.html.twig', 'new' => '@EasyAdmin/default/new.html.twig', 'show' => '@EasyAdmin/default/show.html.twig', 'exception' => '@EasyAdmin/default/exception.html.twig', 'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig', 'paginator' => '@EasyAdmin/default/paginator.html.twig', 'field_array' => '@EasyAdmin/default/field_array.html.twig', 'field_association' => '@EasyAdmin/default/field_association.html.twig', 'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig', 'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig', 'field_date' => '@EasyAdmin/default/field_date.html.twig', 'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig', 'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig', 'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig', 'field_email' => '@EasyAdmin/default/field_email.html.twig', 'field_float' => '@EasyAdmin/default/field_float.html.twig', 'field_guid' => '@EasyAdmin/default/field_guid.html.twig', 'field_id' => '@EasyAdmin/default/field_id.html.twig', 'field_image' => '@EasyAdmin/default/field_image.html.twig', 'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig', 'field_integer' => '@EasyAdmin/default/field_integer.html.twig', 'field_object' => '@EasyAdmin/default/field_object.html.twig', 'field_raw' => '@EasyAdmin/default/field_raw.html.twig', 'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig', 'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig', 'field_string' => '@EasyAdmin/default/field_string.html.twig', 'field_tel' => '@EasyAdmin/default/field_tel.html.twig', 'field_text' => '@EasyAdmin/default/field_text.html.twig', 'field_time' => '@EasyAdmin/default/field_time.html.twig', 'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig', 'field_url' => '@EasyAdmin/default/field_url.html.twig', 'label_empty' => '@EasyAdmin/default/label_empty.html.twig', 'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig', 'label_null' => '@EasyAdmin/default/label_null.html.twig', 'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig'))), 'formats' => array('date' => 'Y-m-d', 'time' => 'H:i:s', 'datetime' => 'F j, Y H:i'), 'disabled_actions' => array(), 'list' => array('actions' => array(), 'max_results' => 15), 'edit' => array('actions' => array()), 'new' => array('actions' => array()), 'show' => array('actions' => array()), '_internal' => array('custom_css' => '
-
-
-.sf-toolbarreset {
-    -webkit-font-smoothing: subpixel-antialiased;
-    -moz-osx-font-smoothing: auto;
-}
-
-body {
-    font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
-}
-
-a        { color: #205081; }
-a:hover  { opacity: 0.9; }
-a:active { outline: 0; }
-
-#main a:active {
-    position: relative;
-    top: 1px;
-}
-
-a.text-primary,
-a.text-primary:focus {
-    color: #205081;
-}
-a.text-danger,
-a.text-danger:focus {
-    color: #D42124;
-}
-a.text-primary:hover,
-a.text-danger:hover {
-    opacity: 0.9;
-}
-
-ul, ol {
-    margin: 1em 0 1em 1em;
-    padding: 0;
-}
-li {
-    margin-bottom: 1em;
-}
-
-ul.inline {
-    list-style: none;
-    margin: 0;
-}
-ul.inline li {
-    margin: 0;
-}
-
-div.flash {
-    padding: .5em;
-}
-div.flash-success {
-    background: #006B2E;
-    color: #FFFFFF;
-}
-div.flash-error {
-    background: #D42124;
-    color: #FFFFFF;
-}
-div.flash-error strong {
-    padding-right: .5em;
-}
-
-.label:not([class*=label-]) {
-    background: #252525;
-}
-.label {
-    color: #FFFFFF;
-    display: inline-block;
-    font-size: 11px;
-    padding: 4px;
-    text-transform: uppercase;
-}
-
-.label-success {
-        background: #006B2E !important;
-}
-.label-danger {
-        background: #D42124 !iportant;
-}
-.label-empty {
-    background: transparent;
-    border: 2px dotted;
-    border-radius: 4px;
-    color: #CCC;
-    padding: 4px 8px;
-}
-
-.boolean .label,
-.toggle .label {
-    min-width: 33px;
-}
-
-.toggle.btn-xs {
- width: 44px;
-}
-.toggle-group .btn,
-.toggle-group .btn:hover {
-   border-radius: 3px;
-   font-size: 10px;
-   font-weight: bold;
-   text-transform: uppercase;
-}
-.toggle-group .btn {
-   padding: 4px 6px;
-}
-.toggle-group .btn:hover {
-    border: 0;
-}
-.toggle-group .btn + .btn {
-    margin-left: 0;
-}
-.toggle-group .toggle-on,
-.toggle-group .toggle-on.btn-xs,
-.toggle-group .toggle-on:hover,
-.toggle-group .toggle-on:active,
-.toggle-group .toggle-on:active:hover {
-    background: #006B2E;
-    border-color: #006B2E;
-    color: #FFFFFF;
-    padding: 4px 5px 4px 0;
-    border: 0;
-}
-.toggle-group .toggle-off,
-.toggle-group .toggle-off.btn-xs,
-.toggle-group .toggle-off:hover,
-.toggle-group .toggle-off:active,
-.toggle-group .toggle-off:active:hover {
-    background: #D42124;
-    border-color: #D42124;
-    color: #FFFFFF;
-    padding: 4px 0 4px 5px;
-    border: 0;
-}
-.toggle-group .toggle-handle,
-.toggle-group .toggle-handle:hover,
-.toggle-group .toggle-handle:active,
-.toggle-group .toggle-handle:active:hover {
-    background: #F5F5F5;
-    border: 0;
-    border-radius: 2px;
-    height: 19px;
-    margin-top: 2px;
-    padding: 5px;
-}
-.toggle .btn-success .toggle-handle {
-    box-shadow: -2px 0 1px rgba(0, 0, 0, .2);
-}
-.toggle .btn-danger .toggle-handle {
-    box-shadow: 2px 0 1px rgba(0, 0, 0, .2);
-}
-
-span.badge {
-    background-color: #3C8DBC;
-}
-
-.btn:focus {
-    outline: none;
-}
-.btn + .btn {
-    margin-left: 5px;
-}
-
-button.btn:active {
-    position: relative;
-    top: 1px;
-}
-
-.btn,
-.btn:hover,
-.btn:active,
-.btn:focus,
-.btn:active:hover  {
-    background: #CCC;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    box-shadow: none;
-    color: #222222;
-    display: inline-block;
-    line-height: 1.42857143;
-    opacity: 1;
-    outline: none;
-    padding: 6px 12px;
-    text-align: center;
-}
-
-.btn-primary,
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary:focus,
-.btn-primary:active:hover {
-    background-color: #3C8DBC;
-    border-color: transparent;
-    color: #FFFFFF;
-}
-.btn-default,
-.btn-default:hover,
-.btn-default:active,
-.btn-default:focus,
-.btn-default:active:hover {
-    border-color: transparent;
-}
-
-.btn-danger,
-.btn-danger:hover,
-.btn-danger:active,
-.btn-danger:focus,
-.btn-danger:active:hover {
-    background-color: #D42124;
-    border-color: transparent;
-    color: #FFFFFF;
-}
-
-.btn-success,
-.btn-success:hover,
-.btn-success:active,
-.btn-success:focus,
-.btn-success:active:hover {
-    background-color: #006B2E;
-    border-color: transparent;
-    color: #FFFFFF;
-}
-
-.btn-secondary,
-.btn-secondary:hover,
-.btn-secondary:active,
-.btn-secondary:focus,
-.btn-secondary:active:hover {
-    background: transparent;
-    color: #3C8DBC;
-    text-decoration: underline;
-}
-.btn-secondary:hover {
-    text-decoration: none;
-}
-
-.btn-primary,
-.btn-danger,
-.btn-success {
-    font-weight: bold;
-}
-
-.btn i {
-    font-size: 16px;
-    margin-right: 2px;
-}
-
-.btn-flat,
-.btn-flat:hover,
-.btn-flat:active,
-.btn-flat:focus,
-.btn-flat:active:hover {
-    border-radius: 0;
-}
-
-.form-inline .form-control {
-    margin-bottom: 5px;
-}
-.form-control,
-.form-inline .form-control {
-    border: 1px solid #AAA;
-    border-radius: 0;
-    box-shadow: 0 0 3px rgba(0, 0, 0, .15);
-    color: #222222;
-    -webkit-transition: none;
-    transition: none;
-}
-.form-control:focus {
-    border-color: #444;
-    box-shadow: 0 0 3px rgba(0, 0, 0, .15);
-}
-
-.has-error .error-block {
-    color: #D42124;
-    font-weight: bold;
-    padding-top: 5px;
-}
-.has-error .error-block .label-danger {
-    margin-right: 3px;
-}
-.has-error .error-block ul {
-    margin: .5em 0 .5em 1.5em;
-}
-.has-error .error-block ul li {
-    margin-bottom: .5em;
-}
-
-.help-block,
-.has-error .help-block {
-    color: #737373;
-    font-size: 13px;
-}
-.nullable-control {
-   padding-top: 5px;
-}
-
-.form-actions.stuck {
-    bottom: 0;
-    position: fixed;
-    background-color: #F5F5F5;
-    box-shadow: 0 -1px 4px #CCC;
-    height: 52px;
-    padding-top: 10px;
-    height: 85px;
-    padding-bottom: 45px;
-}
-
-form:not(.form-horizontal) .field-checkbox label {
-    padding-top: 23px;
-}
-
-.field-collection .collection-empty {
-    margin: .5em 0;
-}
-
-.select2-container {
-    width: 100% !important;
-}
-.select2-container--bootstrap .select2-selection {
-    border: 1px solid #AAA;
-    border-radius: 0;
-    box-shadow: 0 0 3px rgba(0, 0, 0, .15);
-    color: #222222;
-    -webkit-transition: none;
-    transition: none;
-}
-.select2-container--bootstrap .select2-selection .select2-search--inline {
-    margin: 0;
-}
-.select2-container--bootstrap .select2-selection--single .select2-selection__rendered {
-    color: #222222;
-    padding-top: 4px;
-}
-.select2-container--bootstrap .select2-results__option {
-    margin-bottom: 0;
-}
-.select2-container--bootstrap .select2-results__option[aria-selected=true] {
-    background-color: #CCC;
-    font-weight: bold;
-}
-.select2-container--bootstrap .select2-results__option--highlighted[aria-selected] {
-    background-color: #3C8DBC;
-}
-.select2-container--bootstrap .select2-selection--multiple .select2-selection__choice {
-    color: #222222;
-}
-.select2-container--bootstrap .select2-selection--multiple .select2-selection__choice__remove {
-    color: #D42124;
-    font-weight: bold;
-    position: relative;
-    top: -1px;
-}
-.select2-container--bootstrap .select2-search--dropdown .select2-search__field {
-    border: 1px solid #444;
-    border-radius: 0;
-    margin: 5px 10px;
-    padding: 6px;
-    width: 96%;
-}
-.select2-search--inline .select2-search__field:focus {
-    outline: 0;
-    border: 0;
-}
-
-.easyadmin-vich-image img {
-    border: 3px solid #FFFFFF;
-    box-shadow: 0 0 3px #AAA;
-    max-height: 300px;
-    max-width: 400px;
-}
-.easyadmin-vich-image input[type="file"],
-.easyadmin-vich-file input[type="file"] {
-    padding-top: 7px;
-}
-.easyadmin-vich-file a {
-    display: inline-block;
-    padding-top: 7px;
-}
-.easyadmin-vich-file .field-checkbox {
-    margin-bottom: 0;
-}
-.easyadmin-vich-file .field-checkbox .col-sm-2,
-.easyadmin-vich-image .field-checkbox .col-sm-2 {
-    display: none;
-}
-
-.easyadmin-thumbnail img {
-    border: 3px solid #FFFFFF;
-    box-shadow: 0 0 3px #AAA;
-    max-height: 100px;
-    max-width: 100%;
-}
-.easyadmin-thumbnail img:hover {
-    cursor: zoom-in;
-}
-.featherlight .easyadmin-lightbox:hover {
-    cursor: zoom-out;
-}
-.easyadmin-lightbox {
-    display: none;
-}
-.featherlight .easyadmin-lightbox {
-    display: block;
-}
-.easyadmin-lightbox img {
-    max-width: 100%;
-}
-
-.modal-dialog .modal-content {
-    border-radius: 0;
-}
-.modal-dialog .modal-content .modal-body h4 {
-    font-size: 21px;
-    margin: .5em 0;
-}
-.modal-dialog .modal-footer {
-    background: #F5F5F5;
-    border-top: 1px solid #CCC;
-    margin-top: 1.5em;
-}
-
-
-.content-wrapper {
-    background: #F5F5F5;
-}
-.fixed .content-wrapper {
-    padding-top: 50px;
-}
-
-.main-header {
-    background: #3C8DBC;
-}
-.main-header .logo {
-    background: rgba(0, 0, 0, 0.15);
-    color: #FFFFFF;
-    font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;     font-weight: bold;
-    height: 40px;
-}
-.main-header .logo-lg {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-.main-header .logo-mini {
-    font-weight: bold;
-    text-align: center;
-}
-.main-header .logo-long .logo-lg {
-    font-size: 16px;
-}
-.main-header > img {
-    margin-top: -2px;
-    max-height: 26px;
-    max-width: 94%;
-}
-.main-header li {
-    margin-bottom: 0;
-}
-
-.main-header > .navbar {
-    background-color: #3C8DBC;
-    color: #FFFFFF;
-    min-height: 40px;
-}
-
-.main-header .navbar .sidebar-toggle {
-    color: #FFFFFF;
-    padding: 10px;
-}
-.main-header .navbar .sidebar-toggle:hover {
-    background: rgba(0, 0, 0, 0.15);
-}
-
-.navbar-custom-menu .user-menu {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 13px;
-    font-weight: bold;
-    padding: 10px;
-}
-
-#content #main {
-    padding-bottom: 3em;
-}
-.content {
-    padding-top: 10px;
-}
-.content-header {
-    padding: 12px 15px 0 15px;
-}
-.content-header h1 {
-    margin: 0;
-    font-size: 24px;
-}
-
-.main-sidebar,
-.wrapper {
-    background-color: rgb(34, 34, 34);
-}
-.main-sidebar {
-    padding-top: 40px;
-}
-
-.sidebar-menu li.header {
-    color: #FFFFFF;
-    font-size: 12px;
-    font-weight: bold;
-    opacity: 0.4;
-    text-transform: uppercase;
-}
-.treeview-menu > li.header {
-    padding-left: 28px;
-}
-
-.sidebar-menu > li > a,
-.sidebar-menu .treeview-menu > li > a {
-    color: #FFFFFF;
-    opacity: 0.8;
-    border-left: 3px solid transparent;
-    display: block;
-    font-weight: bold;
-}
-.sidebar-menu .treeview-menu > li > a {
-    font-size: 13px;
-    padding: 8px 5px 8px 25px;
-}
-.sidebar-menu > li:hover > a,
-.sidebar-menu > li.active > a,
-.sidebar-menu .treeview-menu > li:hover > a,
-.sidebar-menu .treeview-menu > li.active > a {
-    color: #FFFFFF;
-    background: rgb(15, 15, 15);
-    border-left-color: rgb(115, 115, 115);
-    opacity: 1;
-}
-
-.sidebar-menu > li > a > .fa {
-    width: 22px;
-}
-
-.sidebar-menu .treeview-menu {
-    background: rgb(60, 60, 60);
-    margin: 0;
-    padding: 0;
-}
-
-.sidebar-menu > li.active.submenu-active > a {
-    background: rgb(34, 34, 34);
-    border-left-color: transparent;
-}
-.sidebar-menu li > a > .pull-right {
-    font-weight: bold;
-    text-align: right;
-}
-.sidebar-menu li.active > a > .fa-angle-left {
-    top: 30px;
-    right: 0;
-}
-.sidebar-collapse .sidebar-menu > li > a > .fa {
-    width: 28px;
-}
-
-body.easyadmin h1.title {
-    margin-bottom: 10px;
-}
-
-
-body.list .global-actions {
-    display: table;
-    width: 100%;
-}
-body.list .global-actions .button-action {
-    display: table-cell;
-    padding-left: 10px;
-    vertical-align: middle;
-    width: 120px;
-}
-body.list .global-actions .button-action a {
-    float: right;
-}
-body.list .global-actions .form-action {
-    display: table-cell;
-    width: 100%;
-}
-body.list .global-actions .form-action .input-group {
-    width: 100%;
-}
-
-body.list .global-actions .form-control {
-    box-shadow: none;
-}
-body.list .global-actions .input-group-btn > button.btn:not(:last-child) {
-    border-bottom-right-radius: 3px;
-    border-top-right-radius: 3px;
-}
-body.list .global-actions .input-group-btn a.btn {
-    border-radius: 3px;
-    margin-left: 10px;
-}
-
-body.list .table-responsive,
-body.list table {
-    background: transparent;
-    border: 0;
-}
-body.list table thead {
-    display: none;
-}
-body.list .table tbody {
-    background: transparent;
-    border: 0;
-}
-body.list table tbody tr {
-    background: #FFFFFF;
-    border: 1px solid #CCC;
-    display: block;
-    margin-bottom: 1em;
-}
-body.list table tbody td {
-    border-bottom: 1px solid #DDD;
-    border-top: 0;
-    display: block;
-    text-align: right;
-    vertical-align: middle;
-}
-body.list table tbody td:last-child {
-    border-bottom: 0;
-}
-table td:before {
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
-}
-table td:after {
-    clear: both;
-    content: "";
-    display: block;
-}
-
-body.list table tbody td.image .easyadmin-thumbnail img {
-    border-width: 2px;
-    max-height: 50px;
-    max-width: 150px;
-}
-body.list table tbody td.association .badge {
-    font-size: 13px;
-}
-body.list table tbody td.actions a {
-    font-weight: bold;
-    margin-left: 10px;
-}
-
-body.list .table tbody span.highlight {
-    background: #FF9;
-    border-radius: 2px;
-    padding: 1px;
-}
-body.list .table tbody .no-results span.highlight,
-body.list .table tbody .actions span.highlight {
-    background: 0;
-    border-radius: 0;
-}
-
-body.list .pagination {
-    float: right;
-    margin: 0;
-}
-body.list .pagination > .disabled > span {
-    background: transparent;
-    border: 1px solid transparent;
-    color: #737373;
-}
-body.list .pagination > li > a {
-    background: #FFFFFF;
-    border-color: #CCC;
-    border-radius: 0;
-    color: #222222;
-}
-body.list .pagination > li > a:hover {
-    background: #3C8DBC;
-    color: #FFFFFF;
-}
-.pagination > li > a,
-.pagination > li > span {
-    padding: 6px 8px;
-}
-body.list .pagination > li i {
-    padding: 0 3px;
-}
-body.list .pagination.last-page li:nth-child(2) {
-    position: relative;
-    z-index: 1;
-}
-
-form label.control-label.required:after {
-    content: "\\00a0*";
-    color: #D42124;
-    font-size: 16px;
-    position: absolute;
-}
-
-body.new textarea {
-    min-height: 250px;
-}
-body.new .field-collection-action {
-    margin: -15px 0 10px;
-}
-body.new .field-collection-item-action {
-    margin: 5px 0 0;
-}
-
-body.new #form-actions-row button,
-body.new #form-actions-row a.btn {
-    margin-bottom: 10px;
-}
-body.new .form-horizontal #form-actions-row {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-body.edit textarea {
-    min-height: 250px;
-}
-body.edit .field-collection-action {
-    margin: -15px 0 10px;
-}
-body.edit .field-collection-item-action {
-    margin: 5px 0 0;
-}
-
-body.edit #form-actions-row button,
-body.edit #form-actions-row a.btn {
-    margin-bottom: 10px;
-}
-body.edit .form-horizontal #form-actions-row {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-body.show .form-control {
-    background: #FFFFFF;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    height: auto;
-}
-body.show .form-control.text {
-    min-height: 34px;
-    max-height: 250px;
-    overflow-y: auto;
-}
-
-body.error .error-description {
-    background: #FFFFFF;
-    border: 1px solid #F5F5F5;
-    box-shadow: 0 0 3px #CCC;
-    margin: 2em auto 2em;
-    max-width: 90%;
-    min-height: 150px;
-    padding: 0;
-}
-body.error .error-description h1 {
-    background: #D42124;
-    color: #FFFFFF;
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 0;
-    padding: 10px;
-    text-transform: uppercase;
-}
-body.error .error-message {
-    font-size: 16px;
-    padding: 15px;
-}
-
-
-@media (min-width: 768px) {
-    ul, ol {
-        margin-left: 2em;
+        return $this->services['easyadmin.autocomplete'] = new \JavierEguiluz\Bundle\EasyAdminBundle\Search\Autocomplete($this->get('easyadmin.config.manager'), new \JavierEguiluz\Bundle\EasyAdminBundle\Search\Finder($this->get('easyadmin.query_builder')), $this->get('property_accessor'));
     }
 
-    .main-header > .navbar {
-      min-height: 50px;
-    }
-    .main-header .logo {
-        text-align: left;
-        height: 50px;
-    }
-    .main-header .logo img {
-        max-height: 48px;
-    }
-
-    .main-header .navbar .sidebar-toggle {
-        padding: 15px;
-    }
-    .navbar-custom-menu .user-menu {
-        padding: 17px 15px 13px;
-    }
-    .navbar-custom-menu .user-menu i {
-        padding-right: 4px;
+    /**
+     * Gets the 'easyadmin.cache.manager' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Cache\CacheManager A JavierEguiluz\Bundle\EasyAdminBundle\Cache\CacheManager instance.
+     */
+    protected function getEasyadmin_Cache_ManagerService()
+    {
+        return $this->services['easyadmin.cache.manager'] = new \JavierEguiluz\Bundle\EasyAdminBundle\Cache\CacheManager((__DIR__.'/easy_admin'));
     }
 
-    .main-sidebar {
-        padding-top: 50px;
-    }
-
-        body.list table {
-        background: #FFFFFF;
-        border: 1px solid #CCC;
-    }
-    body.list table thead {
-        display: table-header-group;
-    }
-    body.list table thead th {
-        background: #EEE;
-        padding: 0;
-    }
-    body.list table thead th i {
-        color: #AAA;
-        padding: 0 3px;
-    }
-    body.list table thead th a,
-    body.list table thead th span {
-        color: #222222;
-        display: block;
-        padding: 10px 6px;
-        white-space: nowrap;
-    }
-    body.list table thead th a:hover {
-        background: #CCC;
-        text-decoration: none;
-    }
-    body.list table thead th.sorted,
-    body.list table thead th.sorted a {
-        background: #3C8DBC;
-        color: #FFFFFF;
-    }
-    body.list table thead th.sorted a:hover i,
-    body.list table thead th.sorted i {
-        color: #FFFFFF;
-    }
-    body.list th.boolean, body.list td.boolean,
-    body.list th.toggle, body.list td.toggle,
-    body.list td.image {
-        text-align: center;
-    }
-
-    body.list .table thead tr th {
-        border-bottom: 2px solid #CCC;
-    }
-    body.list .table thead tr th.sorted {
-        border-bottom: 2px outset #3C8DBC;
-    }
-        body.list .table thead tr th:first-child.sorted {
-        border-left: 1px solid #3C8DBC;
-        border-top: 1px solid #3C8DBC;
-    }
-    body.list .table tbody {
-        border-bottom: 2px double #CCC;
-    }
-    body.list table tbody tr {
-        border: 0;
-        display: table-row;
-        margin-bottom: 0;
-    }
-    body.list table tbody td {
-        border-bottom: 0;
-        border-top: 1px solid #DDD;
-        display: table-cell;
-        text-align: left;
-    }
-    table td:before {
-        content: none;
-        float: none;
-    }
-    body.list table tbody td.sorted {
-        background: #F5F5F5;
-        border-color: #DDD;
-    }
-    body.list .table tbody tr:hover td {
-        background: #F5F5F5;
-    }
-    body.list table tbody td.actions a {
-        margin-left: 0;
-        margin-right: 10px;
-    }
-
-    .field-date select + select,
-    .field-time select + select,
-    .field-datetime select + select {
-        margin-left: 2px;
-    }
-
-    body.error .error-description {
-        max-width: 70%;
-    }
-
-    .pagination > li > a,
-    .pagination > li > span {
-        padding: 6px 12px;
-    }
-
-    .form-inline .form-control {
-        margin-bottom: 0;
-    }
-
-    body.new .form-horizontal #form-actions-row {
-        margin-left: 16.66666667%;
-    }
-
-    body.edit .form-horizontal #form-actions-row {
-        margin-left: 16.66666667%;
-    }
-}
-'), 'default_entity_name' => 'Formateur', 'default_menu_item' => NULL, 'homepage' => array('route' => 'easyadmin', 'params' => array('action' => 'list', 'entity' => 'Formateur'))), $this->get('property_accessor'));
+    /**
+     * Gets the 'easyadmin.config.manager' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Configuration\ConfigManager A JavierEguiluz\Bundle\EasyAdminBundle\Configuration\ConfigManager instance.
+     */
+    protected function getEasyadmin_Config_ManagerService()
+    {
+        return $this->services['easyadmin.config.manager'] = new \JavierEguiluz\Bundle\EasyAdminBundle\Configuration\ConfigManager($this);
     }
 
     /**
@@ -1804,7 +918,20 @@ body.error .error-message {
 
         $c = new \Symfony\Component\Form\FormTypeGuesserChain(array(0 => $a, 1 => $b));
 
-        return $this->services['easyadmin.form.type'] = new \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType($this->get('easyadmin.configurator'), array(3 => new \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\Configurator\CollectionTypeConfigurator(), 2 => new \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\Configurator\CheckboxTypeConfigurator(), 1 => new \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\Configurator\RequiredOptionConfigurator($c), 0 => new \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\Configurator\EntityTypeConfigurator($c)));
+        return $this->services['easyadmin.form.type'] = new \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType($this->get('easyadmin.config.manager'), array(4 => new \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\Configurator\AutocompleteTypeConfigurator(), 3 => new \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\Configurator\CollectionTypeConfigurator(), 2 => new \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\Configurator\CheckboxTypeConfigurator(), 1 => new \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\Configurator\RequiredOptionConfigurator($c), 0 => new \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\Configurator\EntityTypeConfigurator($c)));
+    }
+
+    /**
+     * Gets the 'easyadmin.form.type.autocomplete' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminAutocompleteType A JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminAutocompleteType instance.
+     */
+    protected function getEasyadmin_Form_Type_AutocompleteService()
+    {
+        return $this->services['easyadmin.form.type.autocomplete'] = new \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminAutocompleteType();
     }
 
     /**
@@ -1921,7 +1048,7 @@ body.error .error-message {
      */
     protected function getForm_RegistryService()
     {
-        return $this->services['form.registry'] = new \Symfony\Component\Form\FormRegistry(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension($this, array('form' => 'form.type.form', 'birthday' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'collection' => 'form.type.collection', 'country' => 'form.type.country', 'date' => 'form.type.date', 'datetime' => 'form.type.datetime', 'email' => 'form.type.email', 'file' => 'form.type.file', 'hidden' => 'form.type.hidden', 'integer' => 'form.type.integer', 'language' => 'form.type.language', 'locale' => 'form.type.locale', 'money' => 'form.type.money', 'number' => 'form.type.number', 'password' => 'form.type.password', 'percent' => 'form.type.percent', 'radio' => 'form.type.radio', 'repeated' => 'form.type.repeated', 'search' => 'form.type.search', 'textarea' => 'form.type.textarea', 'text' => 'form.type.text', 'time' => 'form.type.time', 'timezone' => 'form.type.timezone', 'url' => 'form.type.url', 'button' => 'form.type.button', 'submit' => 'form.type.submit', 'reset' => 'form.type.reset', 'currency' => 'form.type.currency', 'entity' => 'form.type.entity', 'easyadmin' => 'easyadmin.form.type', 'vich_file' => 'vich_uploader.form.type.file', 'vich_image' => 'vich_uploader.form.type.image', 'rating' => 'star_rating.type'), array('form' => array(0 => 'form.type_extension.form.http_foundation', 1 => 'form.type_extension.form.validator', 2 => 'form.type_extension.csrf', 3 => 'form.type_extension.form.data_collector', 4 => 'easyadmin.form.type.extension'), 'repeated' => array(0 => 'form.type_extension.repeated.validator'), 'submit' => array(0 => 'form.type_extension.submit.validator')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'))), $this->get('form.resolved_type_factory'));
+        return $this->services['form.registry'] = new \Symfony\Component\Form\FormRegistry(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension($this, array('form' => 'form.type.form', 'birthday' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'collection' => 'form.type.collection', 'country' => 'form.type.country', 'date' => 'form.type.date', 'datetime' => 'form.type.datetime', 'email' => 'form.type.email', 'file' => 'form.type.file', 'hidden' => 'form.type.hidden', 'integer' => 'form.type.integer', 'language' => 'form.type.language', 'locale' => 'form.type.locale', 'money' => 'form.type.money', 'number' => 'form.type.number', 'password' => 'form.type.password', 'percent' => 'form.type.percent', 'radio' => 'form.type.radio', 'repeated' => 'form.type.repeated', 'search' => 'form.type.search', 'textarea' => 'form.type.textarea', 'text' => 'form.type.text', 'time' => 'form.type.time', 'timezone' => 'form.type.timezone', 'url' => 'form.type.url', 'button' => 'form.type.button', 'submit' => 'form.type.submit', 'reset' => 'form.type.reset', 'currency' => 'form.type.currency', 'entity' => 'form.type.entity', 'easyadmin' => 'easyadmin.form.type', 'easyadmin_autocomplete' => 'easyadmin.form.type.autocomplete', 'vich_file' => 'vich_uploader.form.type.file', 'vich_image' => 'vich_uploader.form.type.image', 'rating' => 'star_rating.type'), array('form' => array(0 => 'form.type_extension.form.http_foundation', 1 => 'form.type_extension.form.validator', 2 => 'form.type_extension.csrf', 3 => 'form.type_extension.form.data_collector', 4 => 'easyadmin.form.type.extension'), 'repeated' => array(0 => 'form.type_extension.repeated.validator'), 'submit' => array(0 => 'form.type_extension.submit.validator')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'))), $this->get('form.resolved_type_factory'));
     }
 
     /**
@@ -3016,7 +2143,7 @@ body.error .error-message {
         $instance->add($d);
         $instance->add(new \Symfony\Bundle\SwiftmailerBundle\DataCollector\MessageDataCollector($this));
         $instance->add(new \Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector($this->get('security.token_storage', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
-        $instance->add(new \JavierEguiluz\Bundle\EasyAdminBundle\DataCollector\EasyAdminDataCollector($this->get('easyadmin.configurator')));
+        $instance->add(new \JavierEguiluz\Bundle\EasyAdminBundle\DataCollector\EasyAdminDataCollector($this->get('easyadmin.config.manager')));
         $instance->add($this->get('data_collector.dump'));
 
         return $instance;
@@ -4582,7 +3709,7 @@ body.error .error-message {
         $instance->addExtension(new \Twig_Extension_Debug());
         $instance->addExtension(new \Symfony\Bundle\AsseticBundle\Twig\AsseticExtension($this->get('assetic.asset_factory'), $this->get('templating.name_parser'), false, array(), array(0 => 'AvanzuAdminThemeBundle'), new \Symfony\Bundle\AsseticBundle\DefaultValueSupplier($this)));
         $instance->addExtension(new \Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension());
-        $instance->addExtension(new \JavierEguiluz\Bundle\EasyAdminBundle\Twig\EasyAdminTwigExtension($this->get('easyadmin.configurator'), $this->get('property_accessor'), true));
+        $instance->addExtension(new \JavierEguiluz\Bundle\EasyAdminBundle\Twig\EasyAdminTwigExtension($this->get('easyadmin.config.manager'), $this->get('property_accessor'), true));
         $instance->addExtension(new \Vich\UploaderBundle\Twig\Extension\UploaderExtension($this->get('vich_uploader.templating.helper.uploader_helper')));
         $instance->addExtension($this->get('avanzu_admin_theme.widget_extension.class'));
         $instance->addExtension($this->get('twig.extension.nomaya_social_bar'));
@@ -4848,7 +3975,7 @@ body.error .error-message {
         if ($lazyLoad) {
             $container = $this;
 
-            return $this->services['vich_uploader.download_handler'] = new VichUploaderBundleHandlerDownloadHandler_0000000068b8e4d20000000061f6ff3540adef88e1ce7356ec78729336304f7b(
+            return $this->services['vich_uploader.download_handler'] = new VichUploaderBundleHandlerDownloadHandler_0000000031ce2b60000000001a57ab343c6b334300e435587111272351cb6f0c(
                 function (&$wrappedInstance, \ProxyManager\Proxy\LazyLoadingInterface $proxy) use ($container) {
                     $wrappedInstance = $container->getVichUploader_DownloadHandlerService(false);
 
@@ -4968,7 +4095,7 @@ body.error .error-message {
         if ($lazyLoad) {
             $container = $this;
 
-            return $this->services['vich_uploader.upload_handler'] = new VichUploaderBundleHandlerUploadHandler_0000000068b8e4d50000000061f6ff3540adef88e1ce7356ec78729336304f7b(
+            return $this->services['vich_uploader.upload_handler'] = new VichUploaderBundleHandlerUploadHandler_0000000031ce2b62000000001a57ab343c6b334300e435587111272351cb6f0c(
                 function (&$wrappedInstance, \ProxyManager\Proxy\LazyLoadingInterface $proxy) use ($container) {
                     $wrappedInstance = $container->getVichUploader_UploadHandlerService(false);
 
@@ -5346,7 +4473,7 @@ body.error .error-message {
             'kernel.root_dir' => $this->targetDirs[2],
             'kernel.environment' => 'dev',
             'kernel.debug' => true,
-            'kernel.name' => 'app',
+            'kernel.name' => 'ap_',
             'kernel.cache_dir' => __DIR__,
             'kernel.logs_dir' => ($this->targetDirs[2].'\\logs'),
             'kernel.bundles' => array(
@@ -5967,64 +5094,20 @@ body.error .error-message {
                     'menu' => array(
                         0 => array(
                             'entity' => 'Formateur',
-                            'icon' => 'fa-group',
-                            'children' => array(
-
-                            ),
-                            'default' => false,
-                            'target' => false,
-                            'menu_index' => 0,
-                            'submenu_index' => -1,
-                            'type' => 'entity',
-                            'label' => 'Formateurs',
-                            'params' => array(
-
-                            ),
+                            'icon' => 'group',
                         ),
                         1 => array(
                             'entity' => 'Cours',
-                            'icon' => 'fa-book',
-                            'children' => array(
-
-                            ),
-                            'default' => false,
-                            'target' => false,
-                            'menu_index' => 1,
-                            'submenu_index' => -1,
-                            'type' => 'entity',
-                            'label' => 'Cours',
-                            'params' => array(
-
-                            ),
+                            'icon' => 'book',
                         ),
                         2 => array(
                             'entity' => 'Organisme',
-                            'icon' => 'fa-home',
-                            'children' => array(
-
-                            ),
-                            'default' => false,
-                            'target' => false,
-                            'menu_index' => 2,
-                            'submenu_index' => -1,
-                            'type' => 'entity',
-                            'label' => 'Organismes',
-                            'params' => array(
-
-                            ),
+                            'icon' => 'home',
                         ),
                         3 => array(
                             'label' => 'Front office',
                             'url' => 'http://localhost/Mooc_web/web/app_dev.php/',
-                            'icon' => 'fa-list',
-                            'children' => array(
-
-                            ),
-                            'default' => false,
-                            'target' => false,
-                            'menu_index' => 3,
-                            'submenu_index' => -1,
-                            'type' => 'link',
+                            'icon' => 'list',
                         ),
                     ),
                     'theme' => 'default',
@@ -6044,46 +5127,6 @@ body.error .error-message {
                             'mime_type' => 'image/x-icon',
                         ),
                     ),
-                    'templates' => array(
-                        'layout' => '@EasyAdmin/default/layout.html.twig',
-                        'menu' => '@EasyAdmin/default/menu.html.twig',
-                        'edit' => '@EasyAdmin/default/edit.html.twig',
-                        'list' => '@EasyAdmin/default/list.html.twig',
-                        'new' => '@EasyAdmin/default/new.html.twig',
-                        'show' => '@EasyAdmin/default/show.html.twig',
-                        'exception' => '@EasyAdmin/default/exception.html.twig',
-                        'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig',
-                        'paginator' => '@EasyAdmin/default/paginator.html.twig',
-                        'field_array' => '@EasyAdmin/default/field_array.html.twig',
-                        'field_association' => '@EasyAdmin/default/field_association.html.twig',
-                        'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig',
-                        'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig',
-                        'field_date' => '@EasyAdmin/default/field_date.html.twig',
-                        'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig',
-                        'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig',
-                        'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig',
-                        'field_email' => '@EasyAdmin/default/field_email.html.twig',
-                        'field_float' => '@EasyAdmin/default/field_float.html.twig',
-                        'field_guid' => '@EasyAdmin/default/field_guid.html.twig',
-                        'field_id' => '@EasyAdmin/default/field_id.html.twig',
-                        'field_image' => '@EasyAdmin/default/field_image.html.twig',
-                        'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig',
-                        'field_integer' => '@EasyAdmin/default/field_integer.html.twig',
-                        'field_object' => '@EasyAdmin/default/field_object.html.twig',
-                        'field_raw' => '@EasyAdmin/default/field_raw.html.twig',
-                        'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig',
-                        'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig',
-                        'field_string' => '@EasyAdmin/default/field_string.html.twig',
-                        'field_tel' => '@EasyAdmin/default/field_tel.html.twig',
-                        'field_text' => '@EasyAdmin/default/field_text.html.twig',
-                        'field_time' => '@EasyAdmin/default/field_time.html.twig',
-                        'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig',
-                        'field_url' => '@EasyAdmin/default/field_url.html.twig',
-                        'label_empty' => '@EasyAdmin/default/label_empty.html.twig',
-                        'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig',
-                        'label_null' => '@EasyAdmin/default/label_null.html.twig',
-                        'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig',
-                    ),
                 ),
                 'site_name' => 'MOO<i><font color="black">Comité</font></i>',
                 'entities' => array(
@@ -6093,456 +5136,72 @@ body.error .error-message {
                         'list' => array(
                             'title' => 'Liste des formateurs',
                             'fields' => array(
-                                'nom' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'nom',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'nom',
-                                    'property' => 'nom',
-                                ),
-                                'prenom' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'prenom',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'prenom',
-                                    'property' => 'prenom',
-                                ),
-                                'email' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'email',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'email',
-                                    'property' => 'email',
-                                ),
-                                'avatar' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => 'Photo',
-                                    'type' => 'image',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'image',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_image.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'avatar',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'avatar',
+                                0 => 'nom',
+                                1 => 'prenom',
+                                2 => 'email',
+                                3 => array(
                                     'property' => 'avatar',
+                                    'type' => 'image',
+                                    'label' => 'Photo',
                                     'base_path' => 'http://localhost/Mooc_web/web/uploads/img/avatar/',
                                 ),
-                                'Organisme' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'association',
-                                    'fieldType' => 'entity',
-                                    'dataType' => 'association',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_association.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'Organisme',
-                                    'joinColumns' => array(
-                                        0 => array(
-                                            'name' => 'Organisme_id',
-                                            'unique' => false,
-                                            'nullable' => true,
-                                            'onDelete' => NULL,
-                                            'columnDefinition' => NULL,
-                                            'referencedColumnName' => 'idorganisme',
-                                        ),
-                                    ),
-                                    'cascade' => array(
-
-                                    ),
-                                    'inversedBy' => NULL,
-                                    'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Organisme',
-                                    'fetch' => 2,
-                                    'mappedBy' => NULL,
-                                    'isOwningSide' => true,
-                                    'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur',
-                                    'isCascadeRemove' => false,
-                                    'isCascadePersist' => false,
-                                    'isCascadeRefresh' => false,
-                                    'isCascadeMerge' => false,
-                                    'isCascadeDetach' => false,
-                                    'sourceToTargetKeyColumns' => array(
-                                        'Organisme_id' => 'idorganisme',
-                                    ),
-                                    'joinColumnFieldNames' => array(
-                                        'Organisme_id' => 'Organisme_id',
-                                    ),
-                                    'targetToSourceKeyColumns' => array(
-                                        'idorganisme' => 'Organisme_id',
-                                    ),
-                                    'orphanRemoval' => false,
-                                    'associationType' => 2,
-                                    'property' => 'Organisme',
-                                ),
-                                'cv' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => 'CV',
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => 'easy_admin/Formateur/cv.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'cv',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'cv',
+                                4 => 'Organisme',
+                                5 => array(
                                     'property' => 'cv',
+                                    'label' => 'CV',
+                                    'template' => 'cv.html.twig',
                                     'base_path' => '/file/cv',
                                 ),
-                                'etat' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => 'Valide',
-                                    'type' => 'toggle',
-                                    'fieldType' => 'checkbox',
-                                    'dataType' => 'toggle',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_toggle.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'etat',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'etat',
+                                6 => array(
                                     'property' => 'etat',
+                                    'type' => 'toggle',
+                                    'label' => 'Valide',
                                 ),
                             ),
                             'actions' => array(
-                                'show' => array(
+                                0 => array(
                                     'name' => 'show',
-                                    'type' => 'method',
                                     'label' => '',
-                                    'css_class' => ' action-show',
                                     'icon' => 'search',
                                 ),
-                                'delete' => array(
+                                1 => array(
                                     'name' => 'delete',
-                                    'type' => 'method',
                                     'label' => '',
-                                    'css_class' => 'text-danger action-delete',
                                     'icon' => 'trash',
                                 ),
-                                'edit' => array(
+                                2 => array(
                                     'name' => 'edit',
                                     'type' => 'method',
                                     'label' => '',
-                                    'css_class' => 'text-primary action-edit',
-                                    'icon' => 'pencil',
                                     'class' => '',
-                                ),
-                                'new' => array(
-                                    'name' => 'new',
-                                    'type' => 'method',
-                                    'label' => 'action.new',
-                                    'css_class' => 'btn btn-primary action-new',
-                                    'icon' => NULL,
-                                ),
-                                'search' => array(
-                                    'name' => 'search',
-                                    'type' => 'method',
-                                    'label' => 'action.search',
-                                    'css_class' => ' action-search',
-                                    'icon' => NULL,
+                                    'icon' => 'pencil',
                                 ),
                             ),
                         ),
                         'show' => array(
                             'show' => NULL,
                             'fields' => array(
-                                'avatar' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => 'Photo',
-                                    'type' => 'image',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'image',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_image.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'avatar',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'avatar',
+                                0 => array(
                                     'property' => 'avatar',
+                                    'type' => 'image',
+                                    'label' => 'Photo',
                                     'base_path' => 'http://localhost/Mooc_web/web/uploads/img/avatar/',
                                 ),
-                                'nom' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'nom',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'nom',
-                                    'property' => 'nom',
-                                ),
-                                'prenom' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'prenom',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'prenom',
-                                    'property' => 'prenom',
-                                ),
-                                'email' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'email',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'email',
-                                    'property' => 'email',
-                                ),
-                                'cv' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => 'CV',
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => 'easy_admin/Formateur/cv.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'cv',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'cv',
+                                1 => 'nom',
+                                2 => 'prenom',
+                                3 => 'email',
+                                4 => array(
                                     'property' => 'cv',
+                                    'label' => 'CV',
+                                    'template' => 'cv.html.twig',
                                     'base_path' => '/file/cv',
                                 ),
-                                'etat' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => 'Valide',
-                                    'type' => 'toggle',
-                                    'fieldType' => 'checkbox',
-                                    'dataType' => 'toggle',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_toggle.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'etat',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'etat',
+                                5 => array(
                                     'property' => 'etat',
+                                    'type' => 'toggle',
+                                    'label' => 'Valide',
                                 ),
-                                'Organisme' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'association',
-                                    'fieldType' => 'entity',
-                                    'dataType' => 'association',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_association.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'Organisme',
-                                    'joinColumns' => array(
-                                        0 => array(
-                                            'name' => 'Organisme_id',
-                                            'unique' => false,
-                                            'nullable' => true,
-                                            'onDelete' => NULL,
-                                            'columnDefinition' => NULL,
-                                            'referencedColumnName' => 'idorganisme',
-                                        ),
-                                    ),
-                                    'cascade' => array(
-
-                                    ),
-                                    'inversedBy' => NULL,
-                                    'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Organisme',
-                                    'fetch' => 2,
-                                    'mappedBy' => NULL,
-                                    'isOwningSide' => true,
-                                    'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur',
-                                    'isCascadeRemove' => false,
-                                    'isCascadePersist' => false,
-                                    'isCascadeRefresh' => false,
-                                    'isCascadeMerge' => false,
-                                    'isCascadeDetach' => false,
-                                    'sourceToTargetKeyColumns' => array(
-                                        'Organisme_id' => 'idorganisme',
-                                    ),
-                                    'joinColumnFieldNames' => array(
-                                        'Organisme_id' => 'Organisme_id',
-                                    ),
-                                    'targetToSourceKeyColumns' => array(
-                                        'idorganisme' => 'Organisme_id',
-                                    ),
-                                    'orphanRemoval' => false,
-                                    'associationType' => 2,
-                                    'property' => 'Organisme',
-                                ),
-                            ),
-                            'actions' => array(
-                                'edit' => array(
-                                    'name' => 'edit',
-                                    'type' => 'method',
-                                    'label' => 'action.edit',
-                                    'css_class' => 'btn btn-primary action-edit',
-                                    'icon' => 'edit',
-                                ),
-                                'delete' => array(
-                                    'name' => 'delete',
-                                    'type' => 'method',
-                                    'label' => 'action.delete',
-                                    'css_class' => 'btn btn-default action-delete',
-                                    'icon' => 'trash-o',
-                                ),
-                                'list' => array(
-                                    'name' => 'list',
-                                    'type' => 'method',
-                                    'label' => 'action.list',
-                                    'css_class' => 'btn btn-secondary action-list',
-                                    'icon' => NULL,
-                                ),
+                                6 => 'Organisme',
                             ),
                         ),
                         'form' => array(
@@ -6563,1107 +5222,43 @@ body.error .error-message {
                             ),
                         ),
                         'name' => 'Formateur',
-                        'new' => array(
-                            'fields' => array(
-                                'nom' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'nom',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'nom',
-                                    'property' => 'nom',
-                                ),
-                                'prenom' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'prenom',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'prenom',
-                                    'property' => 'prenom',
-                                ),
-                                'email' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'email',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'email',
-                                    'property' => 'email',
-                                ),
-                                'Organisme' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'association',
-                                    'fieldType' => 'entity',
-                                    'dataType' => 'association',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'Organisme',
-                                    'joinColumns' => array(
-                                        0 => array(
-                                            'name' => 'Organisme_id',
-                                            'unique' => false,
-                                            'nullable' => true,
-                                            'onDelete' => NULL,
-                                            'columnDefinition' => NULL,
-                                            'referencedColumnName' => 'idorganisme',
-                                        ),
-                                    ),
-                                    'cascade' => array(
-
-                                    ),
-                                    'inversedBy' => NULL,
-                                    'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Organisme',
-                                    'fetch' => 2,
-                                    'mappedBy' => NULL,
-                                    'isOwningSide' => true,
-                                    'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur',
-                                    'isCascadeRemove' => false,
-                                    'isCascadePersist' => false,
-                                    'isCascadeRefresh' => false,
-                                    'isCascadeMerge' => false,
-                                    'isCascadeDetach' => false,
-                                    'sourceToTargetKeyColumns' => array(
-                                        'Organisme_id' => 'idorganisme',
-                                    ),
-                                    'joinColumnFieldNames' => array(
-                                        'Organisme_id' => 'Organisme_id',
-                                    ),
-                                    'targetToSourceKeyColumns' => array(
-                                        'idorganisme' => 'Organisme_id',
-                                    ),
-                                    'orphanRemoval' => false,
-                                    'associationType' => 2,
-                                    'property' => 'Organisme',
-                                ),
-                                'login' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'login',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'login',
-                                    'property' => 'login',
-                                ),
-                                'password' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'password',
-                                    'fieldType' => 'password',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'password',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'password',
-                                    'property' => 'password',
-                                ),
-                                'etat' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => 'Valide',
-                                    'type' => 'boolean',
-                                    'fieldType' => 'checkbox',
-                                    'dataType' => 'toggle',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'etat',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'etat',
-                                    'property' => 'etat',
-                                ),
-                            ),
-                            'form_options' => array(
-
-                            ),
-                            'actions' => array(
-                                'list' => array(
-                                    'name' => 'list',
-                                    'type' => 'method',
-                                    'label' => 'action.list',
-                                    'css_class' => 'btn btn-secondary action-list',
-                                    'icon' => NULL,
-                                ),
-                            ),
-                        ),
-                        'edit' => array(
-                            'fields' => array(
-                                'nom' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'nom',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'nom',
-                                    'property' => 'nom',
-                                ),
-                                'prenom' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'prenom',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'prenom',
-                                    'property' => 'prenom',
-                                ),
-                                'email' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'email',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'email',
-                                    'property' => 'email',
-                                ),
-                                'Organisme' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'association',
-                                    'fieldType' => 'entity',
-                                    'dataType' => 'association',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'Organisme',
-                                    'joinColumns' => array(
-                                        0 => array(
-                                            'name' => 'Organisme_id',
-                                            'unique' => false,
-                                            'nullable' => true,
-                                            'onDelete' => NULL,
-                                            'columnDefinition' => NULL,
-                                            'referencedColumnName' => 'idorganisme',
-                                        ),
-                                    ),
-                                    'cascade' => array(
-
-                                    ),
-                                    'inversedBy' => NULL,
-                                    'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Organisme',
-                                    'fetch' => 2,
-                                    'mappedBy' => NULL,
-                                    'isOwningSide' => true,
-                                    'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur',
-                                    'isCascadeRemove' => false,
-                                    'isCascadePersist' => false,
-                                    'isCascadeRefresh' => false,
-                                    'isCascadeMerge' => false,
-                                    'isCascadeDetach' => false,
-                                    'sourceToTargetKeyColumns' => array(
-                                        'Organisme_id' => 'idorganisme',
-                                    ),
-                                    'joinColumnFieldNames' => array(
-                                        'Organisme_id' => 'Organisme_id',
-                                    ),
-                                    'targetToSourceKeyColumns' => array(
-                                        'idorganisme' => 'Organisme_id',
-                                    ),
-                                    'orphanRemoval' => false,
-                                    'associationType' => 2,
-                                    'property' => 'Organisme',
-                                ),
-                                'login' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'login',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'login',
-                                    'property' => 'login',
-                                ),
-                                'password' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'password',
-                                    'fieldType' => 'password',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'password',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'password',
-                                    'property' => 'password',
-                                ),
-                                'etat' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => 'Valide',
-                                    'type' => 'boolean',
-                                    'fieldType' => 'checkbox',
-                                    'dataType' => 'toggle',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'etat',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'etat',
-                                    'property' => 'etat',
-                                ),
-                            ),
-                            'form_options' => array(
-
-                            ),
-                            'actions' => array(
-                                'delete' => array(
-                                    'name' => 'delete',
-                                    'type' => 'method',
-                                    'label' => 'action.delete',
-                                    'css_class' => 'btn btn-default action-delete',
-                                    'icon' => 'trash-o',
-                                ),
-                                'list' => array(
-                                    'name' => 'list',
-                                    'type' => 'method',
-                                    'label' => 'action.list',
-                                    'css_class' => 'btn btn-secondary action-list',
-                                    'icon' => NULL,
-                                ),
-                            ),
-                        ),
-                        'search' => array(
-                            'fields' => array(
-                                'cin' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'cin',
-                                    'scale' => 0,
-                                    'length' => 8,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'cin',
-                                    'id' => true,
-                                    'property' => 'cin',
-                                ),
-                                'nom' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'nom',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'nom',
-                                    'property' => 'nom',
-                                ),
-                                'prenom' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'prenom',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'prenom',
-                                    'property' => 'prenom',
-                                ),
-                                'email' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'email',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'email',
-                                    'property' => 'email',
-                                ),
-                                'avatar' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'avatar',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'avatar',
-                                    'property' => 'avatar',
-                                ),
-                                'cv' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'cv',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'cv',
-                                    'property' => 'cv',
-                                ),
-                                'login' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'login',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'login',
-                                    'property' => 'login',
-                                ),
-                            ),
-                        ),
-                        'disabled_actions' => array(
-
-                        ),
-                        'primary_key_field_name' => 'cin',
-                        'properties' => array(
-                            'cin' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'cin',
-                                'scale' => 0,
-                                'length' => 8,
-                                'unique' => false,
-                                'nullable' => false,
-                                'precision' => 0,
-                                'columnName' => 'cin',
-                                'id' => true,
-                                'property' => 'cin',
-                            ),
-                            'nom' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'nom',
-                                'scale' => 0,
-                                'length' => 45,
-                                'unique' => false,
-                                'nullable' => false,
-                                'precision' => 0,
-                                'columnName' => 'nom',
-                                'property' => 'nom',
-                            ),
-                            'prenom' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'prenom',
-                                'scale' => 0,
-                                'length' => 45,
-                                'unique' => false,
-                                'nullable' => false,
-                                'precision' => 0,
-                                'columnName' => 'prenom',
-                                'property' => 'prenom',
-                            ),
-                            'email' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'email',
-                                'scale' => 0,
-                                'length' => 45,
-                                'unique' => false,
-                                'nullable' => false,
-                                'precision' => 0,
-                                'columnName' => 'email',
-                                'property' => 'email',
-                            ),
-                            'etat' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'boolean',
-                                'fieldType' => 'checkbox',
-                                'dataType' => 'toggle',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'etat',
-                                'scale' => 0,
-                                'length' => NULL,
-                                'unique' => false,
-                                'nullable' => true,
-                                'precision' => 0,
-                                'columnName' => 'etat',
-                                'property' => 'etat',
-                            ),
-                            'avatar' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'avatar',
-                                'scale' => 0,
-                                'length' => NULL,
-                                'unique' => false,
-                                'nullable' => true,
-                                'precision' => 0,
-                                'columnName' => 'avatar',
-                                'property' => 'avatar',
-                            ),
-                            'cv' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'cv',
-                                'scale' => 0,
-                                'length' => NULL,
-                                'unique' => false,
-                                'nullable' => true,
-                                'precision' => 0,
-                                'columnName' => 'cv',
-                                'property' => 'cv',
-                            ),
-                            'login' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'login',
-                                'scale' => 0,
-                                'length' => 45,
-                                'unique' => false,
-                                'nullable' => false,
-                                'precision' => 0,
-                                'columnName' => 'login',
-                                'property' => 'login',
-                            ),
-                            'password' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'password',
-                                'scale' => 0,
-                                'length' => 45,
-                                'unique' => false,
-                                'nullable' => false,
-                                'precision' => 0,
-                                'columnName' => 'password',
-                                'property' => 'password',
-                            ),
-                            'Organisme' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'association',
-                                'fieldType' => 'entity',
-                                'dataType' => 'association',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'Organisme',
-                                'joinColumns' => array(
-                                    0 => array(
-                                        'name' => 'Organisme_id',
-                                        'unique' => false,
-                                        'nullable' => true,
-                                        'onDelete' => NULL,
-                                        'columnDefinition' => NULL,
-                                        'referencedColumnName' => 'idorganisme',
-                                    ),
-                                ),
-                                'cascade' => array(
-
-                                ),
-                                'inversedBy' => NULL,
-                                'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Organisme',
-                                'fetch' => 2,
-                                'mappedBy' => NULL,
-                                'isOwningSide' => true,
-                                'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur',
-                                'isCascadeRemove' => false,
-                                'isCascadePersist' => false,
-                                'isCascadeRefresh' => false,
-                                'isCascadeMerge' => false,
-                                'isCascadeDetach' => false,
-                                'sourceToTargetKeyColumns' => array(
-                                    'Organisme_id' => 'idorganisme',
-                                ),
-                                'joinColumnFieldNames' => array(
-                                    'Organisme_id' => 'Organisme_id',
-                                ),
-                                'targetToSourceKeyColumns' => array(
-                                    'idorganisme' => 'Organisme_id',
-                                ),
-                                'orphanRemoval' => false,
-                                'associationType' => 2,
-                                'property' => 'Organisme',
-                            ),
-                        ),
-                        'templates' => array(
-                            'layout' => '@EasyAdmin/default/layout.html.twig',
-                            'menu' => '@EasyAdmin/default/menu.html.twig',
-                            'edit' => '@EasyAdmin/default/edit.html.twig',
-                            'list' => '@EasyAdmin/default/list.html.twig',
-                            'new' => '@EasyAdmin/default/new.html.twig',
-                            'show' => '@EasyAdmin/default/show.html.twig',
-                            'exception' => '@EasyAdmin/default/exception.html.twig',
-                            'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig',
-                            'paginator' => '@EasyAdmin/default/paginator.html.twig',
-                            'field_array' => '@EasyAdmin/default/field_array.html.twig',
-                            'field_association' => '@EasyAdmin/default/field_association.html.twig',
-                            'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig',
-                            'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig',
-                            'field_date' => '@EasyAdmin/default/field_date.html.twig',
-                            'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig',
-                            'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig',
-                            'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig',
-                            'field_email' => '@EasyAdmin/default/field_email.html.twig',
-                            'field_float' => '@EasyAdmin/default/field_float.html.twig',
-                            'field_guid' => '@EasyAdmin/default/field_guid.html.twig',
-                            'field_id' => '@EasyAdmin/default/field_id.html.twig',
-                            'field_image' => '@EasyAdmin/default/field_image.html.twig',
-                            'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig',
-                            'field_integer' => '@EasyAdmin/default/field_integer.html.twig',
-                            'field_object' => '@EasyAdmin/default/field_object.html.twig',
-                            'field_raw' => '@EasyAdmin/default/field_raw.html.twig',
-                            'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig',
-                            'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig',
-                            'field_string' => '@EasyAdmin/default/field_string.html.twig',
-                            'field_tel' => '@EasyAdmin/default/field_tel.html.twig',
-                            'field_text' => '@EasyAdmin/default/field_text.html.twig',
-                            'field_time' => '@EasyAdmin/default/field_time.html.twig',
-                            'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig',
-                            'field_url' => '@EasyAdmin/default/field_url.html.twig',
-                            'label_empty' => '@EasyAdmin/default/label_empty.html.twig',
-                            'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig',
-                            'label_null' => '@EasyAdmin/default/label_null.html.twig',
-                            'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig',
-                        ),
                     ),
                     'Cours' => array(
                         'class' => 'Mooc\\MoocBundle\\Entity\\Cours',
                         'list' => array(
                             'title' => 'Liste des cours à valider',
                             'fields' => array(
-                                'nomCours' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'nomCours',
-                                    'scale' => 0,
-                                    'length' => 255,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'nom_cours',
-                                    'property' => 'nomCours',
-                                ),
-                                'description' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'description',
-                                    'scale' => 0,
-                                    'length' => 255,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'description',
-                                    'property' => 'description',
-                                ),
-                                'difficulte' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'difficulte',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'difficulte',
-                                    'property' => 'difficulte',
-                                ),
-                                'objectif' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'objectif',
-                                    'scale' => 0,
-                                    'length' => 255,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'objectif',
-                                    'property' => 'objectif',
-                                ),
-                                'cinformateur' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => 'Formateur',
-                                    'type' => 'association',
-                                    'fieldType' => 'entity',
-                                    'dataType' => 'association',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_association.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'cinformateur',
-                                    'joinColumns' => array(
-                                        0 => array(
-                                            'name' => 'cinformateur',
-                                            'unique' => false,
-                                            'nullable' => true,
-                                            'onDelete' => 'CASCADE',
-                                            'columnDefinition' => NULL,
-                                            'referencedColumnName' => 'cin',
-                                        ),
-                                    ),
-                                    'cascade' => array(
-
-                                    ),
-                                    'inversedBy' => NULL,
-                                    'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur',
-                                    'fetch' => 2,
-                                    'mappedBy' => NULL,
-                                    'isOwningSide' => true,
-                                    'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours',
-                                    'isCascadeRemove' => false,
-                                    'isCascadePersist' => false,
-                                    'isCascadeRefresh' => false,
-                                    'isCascadeMerge' => false,
-                                    'isCascadeDetach' => false,
-                                    'sourceToTargetKeyColumns' => array(
-                                        'cinformateur' => 'cin',
-                                    ),
-                                    'joinColumnFieldNames' => array(
-                                        'cinformateur' => 'cinformateur',
-                                    ),
-                                    'targetToSourceKeyColumns' => array(
-                                        'cin' => 'cinformateur',
-                                    ),
-                                    'orphanRemoval' => false,
-                                    'associationType' => 2,
+                                0 => 'nomCours',
+                                1 => 'description',
+                                2 => 'difficulte',
+                                3 => 'objectif',
+                                4 => array(
                                     'property' => 'cinformateur',
+                                    'label' => 'Formateur',
                                 ),
-                                'etat' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
+                                5 => array(
+                                    'property' => 'etat',
                                     'label' => 'Etat',
                                     'type' => 'toggle',
-                                    'fieldType' => 'checkbox',
-                                    'dataType' => 'toggle',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_toggle.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'etat',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'etat',
-                                    'property' => 'etat',
                                 ),
                             ),
                             'actions' => array(
-                                'show' => array(
+                                0 => array(
                                     'name' => 'show',
-                                    'type' => 'method',
                                     'label' => '',
-                                    'css_class' => ' action-show',
                                     'icon' => 'search',
                                 ),
-                                'delete' => array(
+                                1 => array(
                                     'name' => 'delete',
-                                    'type' => 'method',
                                     'label' => '',
-                                    'css_class' => 'text-danger action-delete',
                                     'icon' => 'trash',
                                 ),
-                                'edit' => array(
+                                2 => array(
                                     'name' => 'edit',
                                     'type' => 'method',
                                     'label' => '',
-                                    'css_class' => 'text-primary action-edit',
-                                    'icon' => '',
                                     'class' => '',
-                                ),
-                                'new' => array(
-                                    'name' => 'new',
-                                    'type' => 'method',
-                                    'label' => 'action.new',
-                                    'css_class' => 'btn btn-primary action-new',
-                                    'icon' => NULL,
-                                ),
-                                'search' => array(
-                                    'name' => 'search',
-                                    'type' => 'method',
-                                    'label' => 'action.search',
-                                    'css_class' => ' action-search',
-                                    'icon' => NULL,
+                                    'icon' => '',
                                 ),
                             ),
                         ),
@@ -7684,1128 +5279,6 @@ body.error .error-message {
                             ),
                         ),
                         'name' => 'Cours',
-                        'label' => 'Cours',
-                        'new' => array(
-                            'fields' => array(
-                                'nomCours' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'nomCours',
-                                    'scale' => 0,
-                                    'length' => 255,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'nom_cours',
-                                    'property' => 'nomCours',
-                                ),
-                                'description' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'description',
-                                    'scale' => 0,
-                                    'length' => 255,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'description',
-                                    'property' => 'description',
-                                ),
-                                'difficulte' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'difficulte',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'difficulte',
-                                    'property' => 'difficulte',
-                                ),
-                                'objectif' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'objectif',
-                                    'scale' => 0,
-                                    'length' => 255,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'objectif',
-                                    'property' => 'objectif',
-                                ),
-                                'cinformateur' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => 'CIN formateur',
-                                    'type' => 'association',
-                                    'fieldType' => 'entity',
-                                    'dataType' => 'association',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'cinformateur',
-                                    'joinColumns' => array(
-                                        0 => array(
-                                            'name' => 'cinformateur',
-                                            'unique' => false,
-                                            'nullable' => true,
-                                            'onDelete' => 'CASCADE',
-                                            'columnDefinition' => NULL,
-                                            'referencedColumnName' => 'cin',
-                                        ),
-                                    ),
-                                    'cascade' => array(
-
-                                    ),
-                                    'inversedBy' => NULL,
-                                    'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur',
-                                    'fetch' => 2,
-                                    'mappedBy' => NULL,
-                                    'isOwningSide' => true,
-                                    'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours',
-                                    'isCascadeRemove' => false,
-                                    'isCascadePersist' => false,
-                                    'isCascadeRefresh' => false,
-                                    'isCascadeMerge' => false,
-                                    'isCascadeDetach' => false,
-                                    'sourceToTargetKeyColumns' => array(
-                                        'cinformateur' => 'cin',
-                                    ),
-                                    'joinColumnFieldNames' => array(
-                                        'cinformateur' => 'cinformateur',
-                                    ),
-                                    'targetToSourceKeyColumns' => array(
-                                        'cin' => 'cinformateur',
-                                    ),
-                                    'orphanRemoval' => false,
-                                    'associationType' => 2,
-                                    'property' => 'cinformateur',
-                                ),
-                                'etat' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => 'Valide',
-                                    'type' => 'boolean',
-                                    'fieldType' => 'checkbox',
-                                    'dataType' => 'toggle',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'etat',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'etat',
-                                    'property' => 'etat',
-                                ),
-                            ),
-                            'form_options' => array(
-
-                            ),
-                            'actions' => array(
-                                'list' => array(
-                                    'name' => 'list',
-                                    'type' => 'method',
-                                    'label' => 'action.list',
-                                    'css_class' => 'btn btn-secondary action-list',
-                                    'icon' => NULL,
-                                ),
-                            ),
-                        ),
-                        'edit' => array(
-                            'fields' => array(
-                                'nomCours' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'nomCours',
-                                    'scale' => 0,
-                                    'length' => 255,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'nom_cours',
-                                    'property' => 'nomCours',
-                                ),
-                                'description' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'description',
-                                    'scale' => 0,
-                                    'length' => 255,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'description',
-                                    'property' => 'description',
-                                ),
-                                'difficulte' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'difficulte',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'difficulte',
-                                    'property' => 'difficulte',
-                                ),
-                                'objectif' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'objectif',
-                                    'scale' => 0,
-                                    'length' => 255,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'objectif',
-                                    'property' => 'objectif',
-                                ),
-                                'cinformateur' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => 'CIN formateur',
-                                    'type' => 'association',
-                                    'fieldType' => 'entity',
-                                    'dataType' => 'association',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'cinformateur',
-                                    'joinColumns' => array(
-                                        0 => array(
-                                            'name' => 'cinformateur',
-                                            'unique' => false,
-                                            'nullable' => true,
-                                            'onDelete' => 'CASCADE',
-                                            'columnDefinition' => NULL,
-                                            'referencedColumnName' => 'cin',
-                                        ),
-                                    ),
-                                    'cascade' => array(
-
-                                    ),
-                                    'inversedBy' => NULL,
-                                    'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur',
-                                    'fetch' => 2,
-                                    'mappedBy' => NULL,
-                                    'isOwningSide' => true,
-                                    'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours',
-                                    'isCascadeRemove' => false,
-                                    'isCascadePersist' => false,
-                                    'isCascadeRefresh' => false,
-                                    'isCascadeMerge' => false,
-                                    'isCascadeDetach' => false,
-                                    'sourceToTargetKeyColumns' => array(
-                                        'cinformateur' => 'cin',
-                                    ),
-                                    'joinColumnFieldNames' => array(
-                                        'cinformateur' => 'cinformateur',
-                                    ),
-                                    'targetToSourceKeyColumns' => array(
-                                        'cin' => 'cinformateur',
-                                    ),
-                                    'orphanRemoval' => false,
-                                    'associationType' => 2,
-                                    'property' => 'cinformateur',
-                                ),
-                                'etat' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => 'Valide',
-                                    'type' => 'boolean',
-                                    'fieldType' => 'checkbox',
-                                    'dataType' => 'toggle',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'etat',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'etat',
-                                    'property' => 'etat',
-                                ),
-                            ),
-                            'form_options' => array(
-
-                            ),
-                            'actions' => array(
-                                'delete' => array(
-                                    'name' => 'delete',
-                                    'type' => 'method',
-                                    'label' => 'action.delete',
-                                    'css_class' => 'btn btn-default action-delete',
-                                    'icon' => 'trash-o',
-                                ),
-                                'list' => array(
-                                    'name' => 'list',
-                                    'type' => 'method',
-                                    'label' => 'action.list',
-                                    'css_class' => 'btn btn-secondary action-list',
-                                    'icon' => NULL,
-                                ),
-                            ),
-                        ),
-                        'search' => array(
-                            'fields' => array(
-                                'idcours' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'integer',
-                                    'fieldType' => 'integer',
-                                    'dataType' => 'integer',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'idcours',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'idcours',
-                                    'id' => true,
-                                    'property' => 'idcours',
-                                ),
-                                'nomCours' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'nomCours',
-                                    'scale' => 0,
-                                    'length' => 255,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'nom_cours',
-                                    'property' => 'nomCours',
-                                ),
-                                'description' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'description',
-                                    'scale' => 0,
-                                    'length' => 255,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'description',
-                                    'property' => 'description',
-                                ),
-                                'difficulte' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'difficulte',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'difficulte',
-                                    'property' => 'difficulte',
-                                ),
-                                'objectif' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'objectif',
-                                    'scale' => 0,
-                                    'length' => 255,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'objectif',
-                                    'property' => 'objectif',
-                                ),
-                                'video' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'video',
-                                    'scale' => 0,
-                                    'length' => 100,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'video',
-                                    'property' => 'video',
-                                ),
-                            ),
-                        ),
-                        'show' => array(
-                            'fields' => array(
-                                'idcours' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'integer',
-                                    'fieldType' => 'integer',
-                                    'dataType' => 'integer',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_integer.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'idcours',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'idcours',
-                                    'id' => true,
-                                    'property' => 'idcours',
-                                ),
-                                'nomCours' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'nomCours',
-                                    'scale' => 0,
-                                    'length' => 255,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'nom_cours',
-                                    'property' => 'nomCours',
-                                ),
-                                'description' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'description',
-                                    'scale' => 0,
-                                    'length' => 255,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'description',
-                                    'property' => 'description',
-                                ),
-                                'difficulte' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'difficulte',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'difficulte',
-                                    'property' => 'difficulte',
-                                ),
-                                'objectif' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'objectif',
-                                    'scale' => 0,
-                                    'length' => 255,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'objectif',
-                                    'property' => 'objectif',
-                                ),
-                                'video' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'video',
-                                    'scale' => 0,
-                                    'length' => 100,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'video',
-                                    'property' => 'video',
-                                ),
-                                'etat' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'boolean',
-                                    'fieldType' => 'checkbox',
-                                    'dataType' => 'toggle',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_toggle.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'etat',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'etat',
-                                    'property' => 'etat',
-                                ),
-                                'idquiz' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'association',
-                                    'fieldType' => 'entity',
-                                    'dataType' => 'association',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_association.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'idquiz',
-                                    'joinColumns' => array(
-                                        0 => array(
-                                            'name' => 'idQuiz',
-                                            'unique' => false,
-                                            'nullable' => true,
-                                            'onDelete' => NULL,
-                                            'columnDefinition' => NULL,
-                                            'referencedColumnName' => 'id',
-                                        ),
-                                    ),
-                                    'cascade' => array(
-
-                                    ),
-                                    'inversedBy' => NULL,
-                                    'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Quiz',
-                                    'fetch' => 2,
-                                    'mappedBy' => NULL,
-                                    'isOwningSide' => true,
-                                    'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours',
-                                    'isCascadeRemove' => false,
-                                    'isCascadePersist' => false,
-                                    'isCascadeRefresh' => false,
-                                    'isCascadeMerge' => false,
-                                    'isCascadeDetach' => false,
-                                    'sourceToTargetKeyColumns' => array(
-                                        'idQuiz' => 'id',
-                                    ),
-                                    'joinColumnFieldNames' => array(
-                                        'idQuiz' => 'idQuiz',
-                                    ),
-                                    'targetToSourceKeyColumns' => array(
-                                        'id' => 'idQuiz',
-                                    ),
-                                    'orphanRemoval' => false,
-                                    'associationType' => 2,
-                                    'property' => 'idquiz',
-                                ),
-                                'cinformateur' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'association',
-                                    'fieldType' => 'entity',
-                                    'dataType' => 'association',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_association.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'cinformateur',
-                                    'joinColumns' => array(
-                                        0 => array(
-                                            'name' => 'cinformateur',
-                                            'unique' => false,
-                                            'nullable' => true,
-                                            'onDelete' => 'CASCADE',
-                                            'columnDefinition' => NULL,
-                                            'referencedColumnName' => 'cin',
-                                        ),
-                                    ),
-                                    'cascade' => array(
-
-                                    ),
-                                    'inversedBy' => NULL,
-                                    'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur',
-                                    'fetch' => 2,
-                                    'mappedBy' => NULL,
-                                    'isOwningSide' => true,
-                                    'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours',
-                                    'isCascadeRemove' => false,
-                                    'isCascadePersist' => false,
-                                    'isCascadeRefresh' => false,
-                                    'isCascadeMerge' => false,
-                                    'isCascadeDetach' => false,
-                                    'sourceToTargetKeyColumns' => array(
-                                        'cinformateur' => 'cin',
-                                    ),
-                                    'joinColumnFieldNames' => array(
-                                        'cinformateur' => 'cinformateur',
-                                    ),
-                                    'targetToSourceKeyColumns' => array(
-                                        'cin' => 'cinformateur',
-                                    ),
-                                    'orphanRemoval' => false,
-                                    'associationType' => 2,
-                                    'property' => 'cinformateur',
-                                ),
-                            ),
-                            'actions' => array(
-                                'edit' => array(
-                                    'name' => 'edit',
-                                    'type' => 'method',
-                                    'label' => 'action.edit',
-                                    'css_class' => 'btn btn-primary action-edit',
-                                    'icon' => 'edit',
-                                ),
-                                'delete' => array(
-                                    'name' => 'delete',
-                                    'type' => 'method',
-                                    'label' => 'action.delete',
-                                    'css_class' => 'btn btn-default action-delete',
-                                    'icon' => 'trash-o',
-                                ),
-                                'list' => array(
-                                    'name' => 'list',
-                                    'type' => 'method',
-                                    'label' => 'action.list',
-                                    'css_class' => 'btn btn-secondary action-list',
-                                    'icon' => NULL,
-                                ),
-                            ),
-                        ),
-                        'disabled_actions' => array(
-
-                        ),
-                        'primary_key_field_name' => 'idcours',
-                        'properties' => array(
-                            'idcours' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'integer',
-                                'fieldType' => 'integer',
-                                'dataType' => 'integer',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'idcours',
-                                'scale' => 0,
-                                'length' => NULL,
-                                'unique' => false,
-                                'nullable' => false,
-                                'precision' => 0,
-                                'columnName' => 'idcours',
-                                'id' => true,
-                                'property' => 'idcours',
-                            ),
-                            'nomCours' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'nomCours',
-                                'scale' => 0,
-                                'length' => 255,
-                                'unique' => false,
-                                'nullable' => false,
-                                'precision' => 0,
-                                'columnName' => 'nom_cours',
-                                'property' => 'nomCours',
-                            ),
-                            'description' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'description',
-                                'scale' => 0,
-                                'length' => 255,
-                                'unique' => false,
-                                'nullable' => false,
-                                'precision' => 0,
-                                'columnName' => 'description',
-                                'property' => 'description',
-                            ),
-                            'difficulte' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'difficulte',
-                                'scale' => 0,
-                                'length' => 45,
-                                'unique' => false,
-                                'nullable' => false,
-                                'precision' => 0,
-                                'columnName' => 'difficulte',
-                                'property' => 'difficulte',
-                            ),
-                            'objectif' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'objectif',
-                                'scale' => 0,
-                                'length' => 255,
-                                'unique' => false,
-                                'nullable' => false,
-                                'precision' => 0,
-                                'columnName' => 'objectif',
-                                'property' => 'objectif',
-                            ),
-                            'video' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'video',
-                                'scale' => 0,
-                                'length' => 100,
-                                'unique' => false,
-                                'nullable' => true,
-                                'precision' => 0,
-                                'columnName' => 'video',
-                                'property' => 'video',
-                            ),
-                            'etat' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'boolean',
-                                'fieldType' => 'checkbox',
-                                'dataType' => 'toggle',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'etat',
-                                'scale' => 0,
-                                'length' => NULL,
-                                'unique' => false,
-                                'nullable' => true,
-                                'precision' => 0,
-                                'columnName' => 'etat',
-                                'property' => 'etat',
-                            ),
-                            'idquiz' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'association',
-                                'fieldType' => 'entity',
-                                'dataType' => 'association',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'idquiz',
-                                'joinColumns' => array(
-                                    0 => array(
-                                        'name' => 'idQuiz',
-                                        'unique' => false,
-                                        'nullable' => true,
-                                        'onDelete' => NULL,
-                                        'columnDefinition' => NULL,
-                                        'referencedColumnName' => 'id',
-                                    ),
-                                ),
-                                'cascade' => array(
-
-                                ),
-                                'inversedBy' => NULL,
-                                'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Quiz',
-                                'fetch' => 2,
-                                'mappedBy' => NULL,
-                                'isOwningSide' => true,
-                                'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours',
-                                'isCascadeRemove' => false,
-                                'isCascadePersist' => false,
-                                'isCascadeRefresh' => false,
-                                'isCascadeMerge' => false,
-                                'isCascadeDetach' => false,
-                                'sourceToTargetKeyColumns' => array(
-                                    'idQuiz' => 'id',
-                                ),
-                                'joinColumnFieldNames' => array(
-                                    'idQuiz' => 'idQuiz',
-                                ),
-                                'targetToSourceKeyColumns' => array(
-                                    'id' => 'idQuiz',
-                                ),
-                                'orphanRemoval' => false,
-                                'associationType' => 2,
-                                'property' => 'idquiz',
-                            ),
-                            'cinformateur' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'association',
-                                'fieldType' => 'entity',
-                                'dataType' => 'association',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'cinformateur',
-                                'joinColumns' => array(
-                                    0 => array(
-                                        'name' => 'cinformateur',
-                                        'unique' => false,
-                                        'nullable' => true,
-                                        'onDelete' => 'CASCADE',
-                                        'columnDefinition' => NULL,
-                                        'referencedColumnName' => 'cin',
-                                    ),
-                                ),
-                                'cascade' => array(
-
-                                ),
-                                'inversedBy' => NULL,
-                                'targetEntity' => 'Mooc\\MoocBundle\\Entity\\Formateur',
-                                'fetch' => 2,
-                                'mappedBy' => NULL,
-                                'isOwningSide' => true,
-                                'sourceEntity' => 'Mooc\\MoocBundle\\Entity\\Cours',
-                                'isCascadeRemove' => false,
-                                'isCascadePersist' => false,
-                                'isCascadeRefresh' => false,
-                                'isCascadeMerge' => false,
-                                'isCascadeDetach' => false,
-                                'sourceToTargetKeyColumns' => array(
-                                    'cinformateur' => 'cin',
-                                ),
-                                'joinColumnFieldNames' => array(
-                                    'cinformateur' => 'cinformateur',
-                                ),
-                                'targetToSourceKeyColumns' => array(
-                                    'cin' => 'cinformateur',
-                                ),
-                                'orphanRemoval' => false,
-                                'associationType' => 2,
-                                'property' => 'cinformateur',
-                            ),
-                        ),
-                        'templates' => array(
-                            'layout' => '@EasyAdmin/default/layout.html.twig',
-                            'menu' => '@EasyAdmin/default/menu.html.twig',
-                            'edit' => '@EasyAdmin/default/edit.html.twig',
-                            'list' => '@EasyAdmin/default/list.html.twig',
-                            'new' => '@EasyAdmin/default/new.html.twig',
-                            'show' => '@EasyAdmin/default/show.html.twig',
-                            'exception' => '@EasyAdmin/default/exception.html.twig',
-                            'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig',
-                            'paginator' => '@EasyAdmin/default/paginator.html.twig',
-                            'field_array' => '@EasyAdmin/default/field_array.html.twig',
-                            'field_association' => '@EasyAdmin/default/field_association.html.twig',
-                            'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig',
-                            'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig',
-                            'field_date' => '@EasyAdmin/default/field_date.html.twig',
-                            'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig',
-                            'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig',
-                            'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig',
-                            'field_email' => '@EasyAdmin/default/field_email.html.twig',
-                            'field_float' => '@EasyAdmin/default/field_float.html.twig',
-                            'field_guid' => '@EasyAdmin/default/field_guid.html.twig',
-                            'field_id' => '@EasyAdmin/default/field_id.html.twig',
-                            'field_image' => '@EasyAdmin/default/field_image.html.twig',
-                            'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig',
-                            'field_integer' => '@EasyAdmin/default/field_integer.html.twig',
-                            'field_object' => '@EasyAdmin/default/field_object.html.twig',
-                            'field_raw' => '@EasyAdmin/default/field_raw.html.twig',
-                            'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig',
-                            'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig',
-                            'field_string' => '@EasyAdmin/default/field_string.html.twig',
-                            'field_tel' => '@EasyAdmin/default/field_tel.html.twig',
-                            'field_text' => '@EasyAdmin/default/field_text.html.twig',
-                            'field_time' => '@EasyAdmin/default/field_time.html.twig',
-                            'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig',
-                            'field_url' => '@EasyAdmin/default/field_url.html.twig',
-                            'label_empty' => '@EasyAdmin/default/label_empty.html.twig',
-                            'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig',
-                            'label_null' => '@EasyAdmin/default/label_null.html.twig',
-                            'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig',
-                        ),
                     ),
                     'Organisme' => array(
                         'class' => 'Mooc\\MoocBundle\\Entity\\Organisme',
@@ -8817,1567 +5290,65 @@ body.error .error-message {
                         'label' => 'Organismes',
                         'list' => array(
                             'actions' => array(
-                                'show' => array(
+                                0 => array(
                                     'name' => 'show',
-                                    'type' => 'method',
                                     'label' => 'Détails',
-                                    'css_class' => ' action-show',
                                     'icon' => 'search',
-                                ),
-                                'edit' => array(
-                                    'name' => 'edit',
-                                    'type' => 'method',
-                                    'label' => 'action.edit',
-                                    'css_class' => 'text-primary action-edit',
-                                    'icon' => NULL,
-                                ),
-                                'delete' => array(
-                                    'name' => 'delete',
-                                    'type' => 'method',
-                                    'label' => 'action.delete',
-                                    'css_class' => 'text-danger action-delete',
-                                    'icon' => NULL,
-                                ),
-                                'new' => array(
-                                    'name' => 'new',
-                                    'type' => 'method',
-                                    'label' => 'action.new',
-                                    'css_class' => 'btn btn-primary action-new',
-                                    'icon' => NULL,
-                                ),
-                                'search' => array(
-                                    'name' => 'search',
-                                    'type' => 'method',
-                                    'label' => 'action.search',
-                                    'css_class' => ' action-search',
-                                    'icon' => NULL,
                                 ),
                             ),
                             'title' => 'Liste des Organismes',
                             'fields' => array(
-                                'logo' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => 'Logo',
-                                    'type' => 'image',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'image',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_image.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'logo',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'logo',
+                                0 => array(
                                     'property' => 'logo',
+                                    'type' => 'image',
+                                    'label' => 'Logo',
                                     'base_path' => 'http://localhost/Mooc_web/web/uploads/img/logo/',
                                 ),
-                                'nom' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => 'Nom organisme',
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'nom',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'nom',
+                                1 => array(
                                     'property' => 'nom',
+                                    'label' => 'Nom organisme',
                                 ),
-                                'email' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'email',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'email',
-                                    'property' => 'email',
-                                ),
-                                'siteweb' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => 'Site web',
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'siteweb',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'siteweb',
+                                2 => 'email',
+                                3 => array(
                                     'property' => 'siteweb',
+                                    'label' => 'Site web',
                                 ),
-                                'adresse' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'adresse',
-                                    'scale' => 0,
-                                    'length' => 100,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'adresse',
-                                    'property' => 'adresse',
-                                ),
-                                'telephone' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'telephone',
-                                    'scale' => 0,
-                                    'length' => 10,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'telephone',
-                                    'property' => 'telephone',
-                                ),
-                                'etat' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'integer',
-                                    'fieldType' => 'integer',
-                                    'dataType' => 'integer',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => 'easy_admin/Organisme/etat.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'etat',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'etat',
+                                4 => 'adresse',
+                                5 => 'telephone',
+                                6 => array(
                                     'property' => 'etat',
+                                    'template' => 'etat.html.twig',
                                 ),
                             ),
                         ),
                         'show' => array(
                             'fields' => array(
-                                'logo' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => 'Logo',
-                                    'type' => 'image',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'image',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_image.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'logo',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'logo',
+                                0 => array(
                                     'property' => 'logo',
+                                    'type' => 'image',
+                                    'label' => 'Logo',
                                     'base_path' => 'http://localhost/Mooc_web/web/uploads/img/logo/',
                                 ),
-                                'nom' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => 'Nom organisme',
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'nom',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'nom',
+                                1 => array(
                                     'property' => 'nom',
+                                    'label' => 'Nom organisme',
                                 ),
-                                'email' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'email',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'email',
-                                    'property' => 'email',
-                                ),
-                                'siteweb' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => 'Site web',
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'siteweb',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'siteweb',
+                                2 => 'email',
+                                3 => array(
                                     'property' => 'siteweb',
+                                    'label' => 'Site web',
                                 ),
-                                'adresse' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'adresse',
-                                    'scale' => 0,
-                                    'length' => 100,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'adresse',
-                                    'property' => 'adresse',
-                                ),
-                                'telephone' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'telephone',
-                                    'scale' => 0,
-                                    'length' => 10,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'telephone',
-                                    'property' => 'telephone',
-                                ),
-                                'description' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_string.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'description',
-                                    'scale' => 0,
-                                    'length' => 255,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'description',
-                                    'property' => 'description',
-                                ),
-                                'etat' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
+                                4 => 'adresse',
+                                5 => 'telephone',
+                                6 => 'description',
+                                7 => array(
+                                    'property' => 'etat',
                                     'label' => 'Valide',
                                     'type' => 'toggle',
-                                    'fieldType' => 'integer',
-                                    'dataType' => 'toggle',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => '@EasyAdmin/default/field_toggle.html.twig',
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'etat',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'etat',
-                                    'property' => 'etat',
-                                ),
-                            ),
-                            'actions' => array(
-                                'edit' => array(
-                                    'name' => 'edit',
-                                    'type' => 'method',
-                                    'label' => 'action.edit',
-                                    'css_class' => 'btn btn-primary action-edit',
-                                    'icon' => 'edit',
-                                ),
-                                'delete' => array(
-                                    'name' => 'delete',
-                                    'type' => 'method',
-                                    'label' => 'action.delete',
-                                    'css_class' => 'btn btn-default action-delete',
-                                    'icon' => 'trash-o',
-                                ),
-                                'list' => array(
-                                    'name' => 'list',
-                                    'type' => 'method',
-                                    'label' => 'action.list',
-                                    'css_class' => 'btn btn-secondary action-list',
-                                    'icon' => NULL,
                                 ),
                             ),
                         ),
                         'name' => 'Organisme',
-                        'edit' => array(
-                            'fields' => array(
-                                'nom' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'nom',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'nom',
-                                    'property' => 'nom',
-                                ),
-                                'email' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'email',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'email',
-                                    'property' => 'email',
-                                ),
-                                'siteweb' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'siteweb',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'siteweb',
-                                    'property' => 'siteweb',
-                                ),
-                                'adresse' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'adresse',
-                                    'scale' => 0,
-                                    'length' => 100,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'adresse',
-                                    'property' => 'adresse',
-                                ),
-                                'telephone' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'telephone',
-                                    'scale' => 0,
-                                    'length' => 10,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'telephone',
-                                    'property' => 'telephone',
-                                ),
-                                'description' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'description',
-                                    'scale' => 0,
-                                    'length' => 255,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'description',
-                                    'property' => 'description',
-                                ),
-                                'logo' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'logo',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'logo',
-                                    'property' => 'logo',
-                                ),
-                                'login' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'login',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'login',
-                                    'property' => 'login',
-                                ),
-                                'password' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'password',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'password',
-                                    'property' => 'password',
-                                ),
-                                'etat' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'integer',
-                                    'fieldType' => 'integer',
-                                    'dataType' => 'integer',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'etat',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'etat',
-                                    'property' => 'etat',
-                                ),
-                                'complete' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'complete',
-                                    'scale' => 0,
-                                    'length' => 20,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'complete',
-                                    'property' => 'complete',
-                                ),
-                            ),
-                            'form_options' => array(
-
-                            ),
-                            'actions' => array(
-                                'delete' => array(
-                                    'name' => 'delete',
-                                    'type' => 'method',
-                                    'label' => 'action.delete',
-                                    'css_class' => 'btn btn-default action-delete',
-                                    'icon' => 'trash-o',
-                                ),
-                                'list' => array(
-                                    'name' => 'list',
-                                    'type' => 'method',
-                                    'label' => 'action.list',
-                                    'css_class' => 'btn btn-secondary action-list',
-                                    'icon' => NULL,
-                                ),
-                            ),
-                        ),
-                        'new' => array(
-                            'fields' => array(
-                                'nom' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'nom',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'nom',
-                                    'property' => 'nom',
-                                ),
-                                'email' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'email',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'email',
-                                    'property' => 'email',
-                                ),
-                                'siteweb' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'siteweb',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'siteweb',
-                                    'property' => 'siteweb',
-                                ),
-                                'adresse' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'adresse',
-                                    'scale' => 0,
-                                    'length' => 100,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'adresse',
-                                    'property' => 'adresse',
-                                ),
-                                'telephone' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'telephone',
-                                    'scale' => 0,
-                                    'length' => 10,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'telephone',
-                                    'property' => 'telephone',
-                                ),
-                                'description' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'description',
-                                    'scale' => 0,
-                                    'length' => 255,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'description',
-                                    'property' => 'description',
-                                ),
-                                'logo' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'logo',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'logo',
-                                    'property' => 'logo',
-                                ),
-                                'login' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'login',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'login',
-                                    'property' => 'login',
-                                ),
-                                'password' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'password',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'password',
-                                    'property' => 'password',
-                                ),
-                                'etat' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'integer',
-                                    'fieldType' => 'integer',
-                                    'dataType' => 'integer',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'etat',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'etat',
-                                    'property' => 'etat',
-                                ),
-                                'complete' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'complete',
-                                    'scale' => 0,
-                                    'length' => 20,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'complete',
-                                    'property' => 'complete',
-                                ),
-                            ),
-                            'form_options' => array(
-
-                            ),
-                            'actions' => array(
-                                'list' => array(
-                                    'name' => 'list',
-                                    'type' => 'method',
-                                    'label' => 'action.list',
-                                    'css_class' => 'btn btn-secondary action-list',
-                                    'icon' => NULL,
-                                ),
-                            ),
-                        ),
-                        'search' => array(
-                            'fields' => array(
-                                'idorganisme' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'integer',
-                                    'fieldType' => 'integer',
-                                    'dataType' => 'integer',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'idorganisme',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'idorganisme',
-                                    'id' => true,
-                                    'property' => 'idorganisme',
-                                ),
-                                'nom' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'nom',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'nom',
-                                    'property' => 'nom',
-                                ),
-                                'email' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'email',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'email',
-                                    'property' => 'email',
-                                ),
-                                'siteweb' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'siteweb',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'siteweb',
-                                    'property' => 'siteweb',
-                                ),
-                                'adresse' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'adresse',
-                                    'scale' => 0,
-                                    'length' => 100,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'adresse',
-                                    'property' => 'adresse',
-                                ),
-                                'telephone' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'telephone',
-                                    'scale' => 0,
-                                    'length' => 10,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'telephone',
-                                    'property' => 'telephone',
-                                ),
-                                'description' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'description',
-                                    'scale' => 0,
-                                    'length' => 255,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'description',
-                                    'property' => 'description',
-                                ),
-                                'logo' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'logo',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'logo',
-                                    'property' => 'logo',
-                                ),
-                                'login' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'login',
-                                    'scale' => 0,
-                                    'length' => 45,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'login',
-                                    'property' => 'login',
-                                ),
-                                'etat' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'integer',
-                                    'fieldType' => 'integer',
-                                    'dataType' => 'integer',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'etat',
-                                    'scale' => 0,
-                                    'length' => NULL,
-                                    'unique' => false,
-                                    'nullable' => true,
-                                    'precision' => 0,
-                                    'columnName' => 'etat',
-                                    'property' => 'etat',
-                                ),
-                                'complete' => array(
-                                    'css_class' => '',
-                                    'format' => NULL,
-                                    'help' => NULL,
-                                    'label' => NULL,
-                                    'type' => 'string',
-                                    'fieldType' => 'text',
-                                    'dataType' => 'string',
-                                    'virtual' => false,
-                                    'sortable' => true,
-                                    'template' => NULL,
-                                    'type_options' => array(
-
-                                    ),
-                                    'fieldName' => 'complete',
-                                    'scale' => 0,
-                                    'length' => 20,
-                                    'unique' => false,
-                                    'nullable' => false,
-                                    'precision' => 0,
-                                    'columnName' => 'complete',
-                                    'property' => 'complete',
-                                ),
-                            ),
-                        ),
-                        'primary_key_field_name' => 'idorganisme',
-                        'properties' => array(
-                            'idorganisme' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'integer',
-                                'fieldType' => 'integer',
-                                'dataType' => 'integer',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'idorganisme',
-                                'scale' => 0,
-                                'length' => NULL,
-                                'unique' => false,
-                                'nullable' => false,
-                                'precision' => 0,
-                                'columnName' => 'idorganisme',
-                                'id' => true,
-                                'property' => 'idorganisme',
-                            ),
-                            'nom' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'nom',
-                                'scale' => 0,
-                                'length' => 45,
-                                'unique' => false,
-                                'nullable' => false,
-                                'precision' => 0,
-                                'columnName' => 'nom',
-                                'property' => 'nom',
-                            ),
-                            'email' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'email',
-                                'scale' => 0,
-                                'length' => 45,
-                                'unique' => false,
-                                'nullable' => false,
-                                'precision' => 0,
-                                'columnName' => 'email',
-                                'property' => 'email',
-                            ),
-                            'siteweb' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'siteweb',
-                                'scale' => 0,
-                                'length' => 45,
-                                'unique' => false,
-                                'nullable' => true,
-                                'precision' => 0,
-                                'columnName' => 'siteweb',
-                                'property' => 'siteweb',
-                            ),
-                            'adresse' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'adresse',
-                                'scale' => 0,
-                                'length' => 100,
-                                'unique' => false,
-                                'nullable' => false,
-                                'precision' => 0,
-                                'columnName' => 'adresse',
-                                'property' => 'adresse',
-                            ),
-                            'telephone' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'telephone',
-                                'scale' => 0,
-                                'length' => 10,
-                                'unique' => false,
-                                'nullable' => true,
-                                'precision' => 0,
-                                'columnName' => 'telephone',
-                                'property' => 'telephone',
-                            ),
-                            'description' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'description',
-                                'scale' => 0,
-                                'length' => 255,
-                                'unique' => false,
-                                'nullable' => true,
-                                'precision' => 0,
-                                'columnName' => 'description',
-                                'property' => 'description',
-                            ),
-                            'document' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'blob',
-                                'fieldType' => 'textarea',
-                                'dataType' => 'blob',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'document',
-                                'scale' => 0,
-                                'length' => NULL,
-                                'unique' => false,
-                                'nullable' => true,
-                                'precision' => 0,
-                                'columnName' => 'document',
-                                'property' => 'document',
-                            ),
-                            'logo' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'logo',
-                                'scale' => 0,
-                                'length' => NULL,
-                                'unique' => false,
-                                'nullable' => true,
-                                'precision' => 0,
-                                'columnName' => 'logo',
-                                'property' => 'logo',
-                            ),
-                            'login' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'login',
-                                'scale' => 0,
-                                'length' => 45,
-                                'unique' => false,
-                                'nullable' => false,
-                                'precision' => 0,
-                                'columnName' => 'login',
-                                'property' => 'login',
-                            ),
-                            'password' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'password',
-                                'scale' => 0,
-                                'length' => 45,
-                                'unique' => false,
-                                'nullable' => false,
-                                'precision' => 0,
-                                'columnName' => 'password',
-                                'property' => 'password',
-                            ),
-                            'etat' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'integer',
-                                'fieldType' => 'integer',
-                                'dataType' => 'integer',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'etat',
-                                'scale' => 0,
-                                'length' => NULL,
-                                'unique' => false,
-                                'nullable' => true,
-                                'precision' => 0,
-                                'columnName' => 'etat',
-                                'property' => 'etat',
-                            ),
-                            'complete' => array(
-                                'css_class' => '',
-                                'format' => NULL,
-                                'help' => NULL,
-                                'label' => NULL,
-                                'type' => 'string',
-                                'fieldType' => 'text',
-                                'dataType' => 'string',
-                                'virtual' => false,
-                                'sortable' => true,
-                                'template' => NULL,
-                                'type_options' => array(
-
-                                ),
-                                'fieldName' => 'complete',
-                                'scale' => 0,
-                                'length' => 20,
-                                'unique' => false,
-                                'nullable' => false,
-                                'precision' => 0,
-                                'columnName' => 'complete',
-                                'property' => 'complete',
-                            ),
-                        ),
-                        'templates' => array(
-                            'layout' => '@EasyAdmin/default/layout.html.twig',
-                            'menu' => '@EasyAdmin/default/menu.html.twig',
-                            'edit' => '@EasyAdmin/default/edit.html.twig',
-                            'list' => '@EasyAdmin/default/list.html.twig',
-                            'new' => '@EasyAdmin/default/new.html.twig',
-                            'show' => '@EasyAdmin/default/show.html.twig',
-                            'exception' => '@EasyAdmin/default/exception.html.twig',
-                            'flash_messages' => '@EasyAdmin/default/flash_messages.html.twig',
-                            'paginator' => '@EasyAdmin/default/paginator.html.twig',
-                            'field_array' => '@EasyAdmin/default/field_array.html.twig',
-                            'field_association' => '@EasyAdmin/default/field_association.html.twig',
-                            'field_bigint' => '@EasyAdmin/default/field_bigint.html.twig',
-                            'field_boolean' => '@EasyAdmin/default/field_boolean.html.twig',
-                            'field_date' => '@EasyAdmin/default/field_date.html.twig',
-                            'field_datetime' => '@EasyAdmin/default/field_datetime.html.twig',
-                            'field_datetimetz' => '@EasyAdmin/default/field_datetimetz.html.twig',
-                            'field_decimal' => '@EasyAdmin/default/field_decimal.html.twig',
-                            'field_email' => '@EasyAdmin/default/field_email.html.twig',
-                            'field_float' => '@EasyAdmin/default/field_float.html.twig',
-                            'field_guid' => '@EasyAdmin/default/field_guid.html.twig',
-                            'field_id' => '@EasyAdmin/default/field_id.html.twig',
-                            'field_image' => '@EasyAdmin/default/field_image.html.twig',
-                            'field_json_array' => '@EasyAdmin/default/field_json_array.html.twig',
-                            'field_integer' => '@EasyAdmin/default/field_integer.html.twig',
-                            'field_object' => '@EasyAdmin/default/field_object.html.twig',
-                            'field_raw' => '@EasyAdmin/default/field_raw.html.twig',
-                            'field_simple_array' => '@EasyAdmin/default/field_simple_array.html.twig',
-                            'field_smallint' => '@EasyAdmin/default/field_smallint.html.twig',
-                            'field_string' => '@EasyAdmin/default/field_string.html.twig',
-                            'field_tel' => '@EasyAdmin/default/field_tel.html.twig',
-                            'field_text' => '@EasyAdmin/default/field_text.html.twig',
-                            'field_time' => '@EasyAdmin/default/field_time.html.twig',
-                            'field_toggle' => '@EasyAdmin/default/field_toggle.html.twig',
-                            'field_url' => '@EasyAdmin/default/field_url.html.twig',
-                            'label_empty' => '@EasyAdmin/default/label_empty.html.twig',
-                            'label_inaccessible' => '@EasyAdmin/default/label_inaccessible.html.twig',
-                            'label_null' => '@EasyAdmin/default/label_null.html.twig',
-                            'label_undefined' => '@EasyAdmin/default/label_undefined.html.twig',
-                        ),
                     ),
                 ),
                 'formats' => array(
@@ -10409,934 +5380,8 @@ body.error .error-message {
 
                     ),
                 ),
-                '_internal' => array(
-                    'custom_css' => '
-
-
-.sf-toolbarreset {
-    -webkit-font-smoothing: subpixel-antialiased;
-    -moz-osx-font-smoothing: auto;
-}
-
-body {
-    font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
-}
-
-a        { color: #205081; }
-a:hover  { opacity: 0.9; }
-a:active { outline: 0; }
-
-#main a:active {
-    position: relative;
-    top: 1px;
-}
-
-a.text-primary,
-a.text-primary:focus {
-    color: #205081;
-}
-a.text-danger,
-a.text-danger:focus {
-    color: #D42124;
-}
-a.text-primary:hover,
-a.text-danger:hover {
-    opacity: 0.9;
-}
-
-ul, ol {
-    margin: 1em 0 1em 1em;
-    padding: 0;
-}
-li {
-    margin-bottom: 1em;
-}
-
-ul.inline {
-    list-style: none;
-    margin: 0;
-}
-ul.inline li {
-    margin: 0;
-}
-
-div.flash {
-    padding: .5em;
-}
-div.flash-success {
-    background: #006B2E;
-    color: #FFFFFF;
-}
-div.flash-error {
-    background: #D42124;
-    color: #FFFFFF;
-}
-div.flash-error strong {
-    padding-right: .5em;
-}
-
-.label:not([class*=label-]) {
-    background: #252525;
-}
-.label {
-    color: #FFFFFF;
-    display: inline-block;
-    font-size: 11px;
-    padding: 4px;
-    text-transform: uppercase;
-}
-
-.label-success {
-        background: #006B2E !important;
-}
-.label-danger {
-        background: #D42124 !iportant;
-}
-.label-empty {
-    background: transparent;
-    border: 2px dotted;
-    border-radius: 4px;
-    color: #CCC;
-    padding: 4px 8px;
-}
-
-.boolean .label,
-.toggle .label {
-    min-width: 33px;
-}
-
-.toggle.btn-xs {
- width: 44px;
-}
-.toggle-group .btn,
-.toggle-group .btn:hover {
-   border-radius: 3px;
-   font-size: 10px;
-   font-weight: bold;
-   text-transform: uppercase;
-}
-.toggle-group .btn {
-   padding: 4px 6px;
-}
-.toggle-group .btn:hover {
-    border: 0;
-}
-.toggle-group .btn + .btn {
-    margin-left: 0;
-}
-.toggle-group .toggle-on,
-.toggle-group .toggle-on.btn-xs,
-.toggle-group .toggle-on:hover,
-.toggle-group .toggle-on:active,
-.toggle-group .toggle-on:active:hover {
-    background: #006B2E;
-    border-color: #006B2E;
-    color: #FFFFFF;
-    padding: 4px 5px 4px 0;
-    border: 0;
-}
-.toggle-group .toggle-off,
-.toggle-group .toggle-off.btn-xs,
-.toggle-group .toggle-off:hover,
-.toggle-group .toggle-off:active,
-.toggle-group .toggle-off:active:hover {
-    background: #D42124;
-    border-color: #D42124;
-    color: #FFFFFF;
-    padding: 4px 0 4px 5px;
-    border: 0;
-}
-.toggle-group .toggle-handle,
-.toggle-group .toggle-handle:hover,
-.toggle-group .toggle-handle:active,
-.toggle-group .toggle-handle:active:hover {
-    background: #F5F5F5;
-    border: 0;
-    border-radius: 2px;
-    height: 19px;
-    margin-top: 2px;
-    padding: 5px;
-}
-.toggle .btn-success .toggle-handle {
-    box-shadow: -2px 0 1px rgba(0, 0, 0, .2);
-}
-.toggle .btn-danger .toggle-handle {
-    box-shadow: 2px 0 1px rgba(0, 0, 0, .2);
-}
-
-span.badge {
-    background-color: #3C8DBC;
-}
-
-.btn:focus {
-    outline: none;
-}
-.btn + .btn {
-    margin-left: 5px;
-}
-
-button.btn:active {
-    position: relative;
-    top: 1px;
-}
-
-.btn,
-.btn:hover,
-.btn:active,
-.btn:focus,
-.btn:active:hover  {
-    background: #CCC;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    box-shadow: none;
-    color: #222222;
-    display: inline-block;
-    line-height: 1.42857143;
-    opacity: 1;
-    outline: none;
-    padding: 6px 12px;
-    text-align: center;
-}
-
-.btn-primary,
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary:focus,
-.btn-primary:active:hover {
-    background-color: #3C8DBC;
-    border-color: transparent;
-    color: #FFFFFF;
-}
-.btn-default,
-.btn-default:hover,
-.btn-default:active,
-.btn-default:focus,
-.btn-default:active:hover {
-    border-color: transparent;
-}
-
-.btn-danger,
-.btn-danger:hover,
-.btn-danger:active,
-.btn-danger:focus,
-.btn-danger:active:hover {
-    background-color: #D42124;
-    border-color: transparent;
-    color: #FFFFFF;
-}
-
-.btn-success,
-.btn-success:hover,
-.btn-success:active,
-.btn-success:focus,
-.btn-success:active:hover {
-    background-color: #006B2E;
-    border-color: transparent;
-    color: #FFFFFF;
-}
-
-.btn-secondary,
-.btn-secondary:hover,
-.btn-secondary:active,
-.btn-secondary:focus,
-.btn-secondary:active:hover {
-    background: transparent;
-    color: #3C8DBC;
-    text-decoration: underline;
-}
-.btn-secondary:hover {
-    text-decoration: none;
-}
-
-.btn-primary,
-.btn-danger,
-.btn-success {
-    font-weight: bold;
-}
-
-.btn i {
-    font-size: 16px;
-    margin-right: 2px;
-}
-
-.btn-flat,
-.btn-flat:hover,
-.btn-flat:active,
-.btn-flat:focus,
-.btn-flat:active:hover {
-    border-radius: 0;
-}
-
-.form-inline .form-control {
-    margin-bottom: 5px;
-}
-.form-control,
-.form-inline .form-control {
-    border: 1px solid #AAA;
-    border-radius: 0;
-    box-shadow: 0 0 3px rgba(0, 0, 0, .15);
-    color: #222222;
-    -webkit-transition: none;
-    transition: none;
-}
-.form-control:focus {
-    border-color: #444;
-    box-shadow: 0 0 3px rgba(0, 0, 0, .15);
-}
-
-.has-error .error-block {
-    color: #D42124;
-    font-weight: bold;
-    padding-top: 5px;
-}
-.has-error .error-block .label-danger {
-    margin-right: 3px;
-}
-.has-error .error-block ul {
-    margin: .5em 0 .5em 1.5em;
-}
-.has-error .error-block ul li {
-    margin-bottom: .5em;
-}
-
-.help-block,
-.has-error .help-block {
-    color: #737373;
-    font-size: 13px;
-}
-.nullable-control {
-   padding-top: 5px;
-}
-
-.form-actions.stuck {
-    bottom: 0;
-    position: fixed;
-    background-color: #F5F5F5;
-    box-shadow: 0 -1px 4px #CCC;
-    height: 52px;
-    padding-top: 10px;
-    height: 85px;
-    padding-bottom: 45px;
-}
-
-form:not(.form-horizontal) .field-checkbox label {
-    padding-top: 23px;
-}
-
-.field-collection .collection-empty {
-    margin: .5em 0;
-}
-
-.select2-container {
-    width: 100%% !important;
-}
-.select2-container--bootstrap .select2-selection {
-    border: 1px solid #AAA;
-    border-radius: 0;
-    box-shadow: 0 0 3px rgba(0, 0, 0, .15);
-    color: #222222;
-    -webkit-transition: none;
-    transition: none;
-}
-.select2-container--bootstrap .select2-selection .select2-search--inline {
-    margin: 0;
-}
-.select2-container--bootstrap .select2-selection--single .select2-selection__rendered {
-    color: #222222;
-    padding-top: 4px;
-}
-.select2-container--bootstrap .select2-results__option {
-    margin-bottom: 0;
-}
-.select2-container--bootstrap .select2-results__option[aria-selected=true] {
-    background-color: #CCC;
-    font-weight: bold;
-}
-.select2-container--bootstrap .select2-results__option--highlighted[aria-selected] {
-    background-color: #3C8DBC;
-}
-.select2-container--bootstrap .select2-selection--multiple .select2-selection__choice {
-    color: #222222;
-}
-.select2-container--bootstrap .select2-selection--multiple .select2-selection__choice__remove {
-    color: #D42124;
-    font-weight: bold;
-    position: relative;
-    top: -1px;
-}
-.select2-container--bootstrap .select2-search--dropdown .select2-search__field {
-    border: 1px solid #444;
-    border-radius: 0;
-    margin: 5px 10px;
-    padding: 6px;
-    width: 96%%;
-}
-.select2-search--inline .select2-search__field:focus {
-    outline: 0;
-    border: 0;
-}
-
-.easyadmin-vich-image img {
-    border: 3px solid #FFFFFF;
-    box-shadow: 0 0 3px #AAA;
-    max-height: 300px;
-    max-width: 400px;
-}
-.easyadmin-vich-image input[type="file"],
-.easyadmin-vich-file input[type="file"] {
-    padding-top: 7px;
-}
-.easyadmin-vich-file a {
-    display: inline-block;
-    padding-top: 7px;
-}
-.easyadmin-vich-file .field-checkbox {
-    margin-bottom: 0;
-}
-.easyadmin-vich-file .field-checkbox .col-sm-2,
-.easyadmin-vich-image .field-checkbox .col-sm-2 {
-    display: none;
-}
-
-.easyadmin-thumbnail img {
-    border: 3px solid #FFFFFF;
-    box-shadow: 0 0 3px #AAA;
-    max-height: 100px;
-    max-width: 100%%;
-}
-.easyadmin-thumbnail img:hover {
-    cursor: zoom-in;
-}
-.featherlight .easyadmin-lightbox:hover {
-    cursor: zoom-out;
-}
-.easyadmin-lightbox {
-    display: none;
-}
-.featherlight .easyadmin-lightbox {
-    display: block;
-}
-.easyadmin-lightbox img {
-    max-width: 100%%;
-}
-
-.modal-dialog .modal-content {
-    border-radius: 0;
-}
-.modal-dialog .modal-content .modal-body h4 {
-    font-size: 21px;
-    margin: .5em 0;
-}
-.modal-dialog .modal-footer {
-    background: #F5F5F5;
-    border-top: 1px solid #CCC;
-    margin-top: 1.5em;
-}
-
-
-.content-wrapper {
-    background: #F5F5F5;
-}
-.fixed .content-wrapper {
-    padding-top: 50px;
-}
-
-.main-header {
-    background: #3C8DBC;
-}
-.main-header .logo {
-    background: rgba(0, 0, 0, 0.15);
-    color: #FFFFFF;
-    font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;     font-weight: bold;
-    height: 40px;
-}
-.main-header .logo-lg {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-.main-header .logo-mini {
-    font-weight: bold;
-    text-align: center;
-}
-.main-header .logo-long .logo-lg {
-    font-size: 16px;
-}
-.main-header > img {
-    margin-top: -2px;
-    max-height: 26px;
-    max-width: 94%%;
-}
-.main-header li {
-    margin-bottom: 0;
-}
-
-.main-header > .navbar {
-    background-color: #3C8DBC;
-    color: #FFFFFF;
-    min-height: 40px;
-}
-
-.main-header .navbar .sidebar-toggle {
-    color: #FFFFFF;
-    padding: 10px;
-}
-.main-header .navbar .sidebar-toggle:hover {
-    background: rgba(0, 0, 0, 0.15);
-}
-
-.navbar-custom-menu .user-menu {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 13px;
-    font-weight: bold;
-    padding: 10px;
-}
-
-#content #main {
-    padding-bottom: 3em;
-}
-.content {
-    padding-top: 10px;
-}
-.content-header {
-    padding: 12px 15px 0 15px;
-}
-.content-header h1 {
-    margin: 0;
-    font-size: 24px;
-}
-
-.main-sidebar,
-.wrapper {
-    background-color: rgb(34, 34, 34);
-}
-.main-sidebar {
-    padding-top: 40px;
-}
-
-.sidebar-menu li.header {
-    color: #FFFFFF;
-    font-size: 12px;
-    font-weight: bold;
-    opacity: 0.4;
-    text-transform: uppercase;
-}
-.treeview-menu > li.header {
-    padding-left: 28px;
-}
-
-.sidebar-menu > li > a,
-.sidebar-menu .treeview-menu > li > a {
-    color: #FFFFFF;
-    opacity: 0.8;
-    border-left: 3px solid transparent;
-    display: block;
-    font-weight: bold;
-}
-.sidebar-menu .treeview-menu > li > a {
-    font-size: 13px;
-    padding: 8px 5px 8px 25px;
-}
-.sidebar-menu > li:hover > a,
-.sidebar-menu > li.active > a,
-.sidebar-menu .treeview-menu > li:hover > a,
-.sidebar-menu .treeview-menu > li.active > a {
-    color: #FFFFFF;
-    background: rgb(15, 15, 15);
-    border-left-color: rgb(115, 115, 115);
-    opacity: 1;
-}
-
-.sidebar-menu > li > a > .fa {
-    width: 22px;
-}
-
-.sidebar-menu .treeview-menu {
-    background: rgb(60, 60, 60);
-    margin: 0;
-    padding: 0;
-}
-
-.sidebar-menu > li.active.submenu-active > a {
-    background: rgb(34, 34, 34);
-    border-left-color: transparent;
-}
-.sidebar-menu li > a > .pull-right {
-    font-weight: bold;
-    text-align: right;
-}
-.sidebar-menu li.active > a > .fa-angle-left {
-    top: 30px;
-    right: 0;
-}
-.sidebar-collapse .sidebar-menu > li > a > .fa {
-    width: 28px;
-}
-
-body.easyadmin h1.title {
-    margin-bottom: 10px;
-}
-
-
-body.list .global-actions {
-    display: table;
-    width: 100%%;
-}
-body.list .global-actions .button-action {
-    display: table-cell;
-    padding-left: 10px;
-    vertical-align: middle;
-    width: 120px;
-}
-body.list .global-actions .button-action a {
-    float: right;
-}
-body.list .global-actions .form-action {
-    display: table-cell;
-    width: 100%%;
-}
-body.list .global-actions .form-action .input-group {
-    width: 100%%;
-}
-
-body.list .global-actions .form-control {
-    box-shadow: none;
-}
-body.list .global-actions .input-group-btn > button.btn:not(:last-child) {
-    border-bottom-right-radius: 3px;
-    border-top-right-radius: 3px;
-}
-body.list .global-actions .input-group-btn a.btn {
-    border-radius: 3px;
-    margin-left: 10px;
-}
-
-body.list .table-responsive,
-body.list table {
-    background: transparent;
-    border: 0;
-}
-body.list table thead {
-    display: none;
-}
-body.list .table tbody {
-    background: transparent;
-    border: 0;
-}
-body.list table tbody tr {
-    background: #FFFFFF;
-    border: 1px solid #CCC;
-    display: block;
-    margin-bottom: 1em;
-}
-body.list table tbody td {
-    border-bottom: 1px solid #DDD;
-    border-top: 0;
-    display: block;
-    text-align: right;
-    vertical-align: middle;
-}
-body.list table tbody td:last-child {
-    border-bottom: 0;
-}
-table td:before {
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
-}
-table td:after {
-    clear: both;
-    content: "";
-    display: block;
-}
-
-body.list table tbody td.image .easyadmin-thumbnail img {
-    border-width: 2px;
-    max-height: 50px;
-    max-width: 150px;
-}
-body.list table tbody td.association .badge {
-    font-size: 13px;
-}
-body.list table tbody td.actions a {
-    font-weight: bold;
-    margin-left: 10px;
-}
-
-body.list .table tbody span.highlight {
-    background: #FF9;
-    border-radius: 2px;
-    padding: 1px;
-}
-body.list .table tbody .no-results span.highlight,
-body.list .table tbody .actions span.highlight {
-    background: 0;
-    border-radius: 0;
-}
-
-body.list .pagination {
-    float: right;
-    margin: 0;
-}
-body.list .pagination > .disabled > span {
-    background: transparent;
-    border: 1px solid transparent;
-    color: #737373;
-}
-body.list .pagination > li > a {
-    background: #FFFFFF;
-    border-color: #CCC;
-    border-radius: 0;
-    color: #222222;
-}
-body.list .pagination > li > a:hover {
-    background: #3C8DBC;
-    color: #FFFFFF;
-}
-.pagination > li > a,
-.pagination > li > span {
-    padding: 6px 8px;
-}
-body.list .pagination > li i {
-    padding: 0 3px;
-}
-body.list .pagination.last-page li:nth-child(2) {
-    position: relative;
-    z-index: 1;
-}
-
-form label.control-label.required:after {
-    content: "\\00a0*";
-    color: #D42124;
-    font-size: 16px;
-    position: absolute;
-}
-
-body.new textarea {
-    min-height: 250px;
-}
-body.new .field-collection-action {
-    margin: -15px 0 10px;
-}
-body.new .field-collection-item-action {
-    margin: 5px 0 0;
-}
-
-body.new #form-actions-row button,
-body.new #form-actions-row a.btn {
-    margin-bottom: 10px;
-}
-body.new .form-horizontal #form-actions-row {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-body.edit textarea {
-    min-height: 250px;
-}
-body.edit .field-collection-action {
-    margin: -15px 0 10px;
-}
-body.edit .field-collection-item-action {
-    margin: 5px 0 0;
-}
-
-body.edit #form-actions-row button,
-body.edit #form-actions-row a.btn {
-    margin-bottom: 10px;
-}
-body.edit .form-horizontal #form-actions-row {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-body.show .form-control {
-    background: #FFFFFF;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    height: auto;
-}
-body.show .form-control.text {
-    min-height: 34px;
-    max-height: 250px;
-    overflow-y: auto;
-}
-
-body.error .error-description {
-    background: #FFFFFF;
-    border: 1px solid #F5F5F5;
-    box-shadow: 0 0 3px #CCC;
-    margin: 2em auto 2em;
-    max-width: 90%%;
-    min-height: 150px;
-    padding: 0;
-}
-body.error .error-description h1 {
-    background: #D42124;
-    color: #FFFFFF;
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 0;
-    padding: 10px;
-    text-transform: uppercase;
-}
-body.error .error-message {
-    font-size: 16px;
-    padding: 15px;
-}
-
-
-@media (min-width: 768px) {
-    ul, ol {
-        margin-left: 2em;
-    }
-
-    .main-header > .navbar {
-      min-height: 50px;
-    }
-    .main-header .logo {
-        text-align: left;
-        height: 50px;
-    }
-    .main-header .logo img {
-        max-height: 48px;
-    }
-
-    .main-header .navbar .sidebar-toggle {
-        padding: 15px;
-    }
-    .navbar-custom-menu .user-menu {
-        padding: 17px 15px 13px;
-    }
-    .navbar-custom-menu .user-menu i {
-        padding-right: 4px;
-    }
-
-    .main-sidebar {
-        padding-top: 50px;
-    }
-
-        body.list table {
-        background: #FFFFFF;
-        border: 1px solid #CCC;
-    }
-    body.list table thead {
-        display: table-header-group;
-    }
-    body.list table thead th {
-        background: #EEE;
-        padding: 0;
-    }
-    body.list table thead th i {
-        color: #AAA;
-        padding: 0 3px;
-    }
-    body.list table thead th a,
-    body.list table thead th span {
-        color: #222222;
-        display: block;
-        padding: 10px 6px;
-        white-space: nowrap;
-    }
-    body.list table thead th a:hover {
-        background: #CCC;
-        text-decoration: none;
-    }
-    body.list table thead th.sorted,
-    body.list table thead th.sorted a {
-        background: #3C8DBC;
-        color: #FFFFFF;
-    }
-    body.list table thead th.sorted a:hover i,
-    body.list table thead th.sorted i {
-        color: #FFFFFF;
-    }
-    body.list th.boolean, body.list td.boolean,
-    body.list th.toggle, body.list td.toggle,
-    body.list td.image {
-        text-align: center;
-    }
-
-    body.list .table thead tr th {
-        border-bottom: 2px solid #CCC;
-    }
-    body.list .table thead tr th.sorted {
-        border-bottom: 2px outset #3C8DBC;
-    }
-        body.list .table thead tr th:first-child.sorted {
-        border-left: 1px solid #3C8DBC;
-        border-top: 1px solid #3C8DBC;
-    }
-    body.list .table tbody {
-        border-bottom: 2px double #CCC;
-    }
-    body.list table tbody tr {
-        border: 0;
-        display: table-row;
-        margin-bottom: 0;
-    }
-    body.list table tbody td {
-        border-bottom: 0;
-        border-top: 1px solid #DDD;
-        display: table-cell;
-        text-align: left;
-    }
-    table td:before {
-        content: none;
-        float: none;
-    }
-    body.list table tbody td.sorted {
-        background: #F5F5F5;
-        border-color: #DDD;
-    }
-    body.list .table tbody tr:hover td {
-        background: #F5F5F5;
-    }
-    body.list table tbody td.actions a {
-        margin-left: 0;
-        margin-right: 10px;
-    }
-
-    .field-date select + select,
-    .field-time select + select,
-    .field-datetime select + select {
-        margin-left: 2px;
-    }
-
-    body.error .error-description {
-        max-width: 70%%;
-    }
-
-    .pagination > li > a,
-    .pagination > li > span {
-        padding: 6px 12px;
-    }
-
-    .form-inline .form-control {
-        margin-bottom: 0;
-    }
-
-    body.new .form-horizontal #form-actions-row {
-        margin-left: 16.66666667%%;
-    }
-
-    body.edit .form-horizontal #form-actions-row {
-        margin-left: 16.66666667%%;
-    }
-}
-',
-                ),
-                'default_entity_name' => 'Formateur',
-                'default_menu_item' => NULL,
-                'homepage' => array(
-                    'route' => 'easyadmin',
-                    'params' => array(
-                        'action' => 'list',
-                        'entity' => 'Formateur',
-                    ),
-                ),
             ),
+            'easyadmin.cache.dir' => (__DIR__.'/easy_admin'),
             'vich_uploader.default_filename_attribute_suffix' => '_name',
             'vich_uploader.mappings' => array(
                 'formateur_image' => array(
@@ -11534,23 +5579,23 @@ body.error .error-message {
     }
 }
 
-class VichUploaderBundleHandlerDownloadHandler_0000000068b8e4d20000000061f6ff3540adef88e1ce7356ec78729336304f7b extends \Vich\UploaderBundle\Handler\DownloadHandler implements \ProxyManager\Proxy\VirtualProxyInterface
+class VichUploaderBundleHandlerDownloadHandler_0000000031ce2b60000000001a57ab343c6b334300e435587111272351cb6f0c extends \Vich\UploaderBundle\Handler\DownloadHandler implements \ProxyManager\Proxy\VirtualProxyInterface
 {
 
     /**
      * @var \Closure|null initializer responsible for generating the wrapped object
      */
-    private $valueHolder5738b5067cdcd184939722 = null;
+    private $valueHolder5738e8b2a6073463668684 = null;
 
     /**
      * @var \Closure|null initializer responsible for generating the wrapped object
      */
-    private $initializer5738b5067ce1c585174038 = null;
+    private $initializer5738e8b2a623a911621203 = null;
 
     /**
      * @var bool[] map of public properties of the parent class
      */
-    private static $publicProperties5738b5067cd3b133233422 = array(
+    private static $publicProperties5738e8b2a574f592195879 = array(
         
     );
 
@@ -11559,9 +5604,9 @@ class VichUploaderBundleHandlerDownloadHandler_0000000068b8e4d20000000061f6ff354
      */
     public function downloadObject($object, $field, $className = null, $fileName = null)
     {
-        $this->initializer5738b5067ce1c585174038 && $this->initializer5738b5067ce1c585174038->__invoke($this->valueHolder5738b5067cdcd184939722, $this, 'downloadObject', array('object' => $object, 'field' => $field, 'className' => $className, 'fileName' => $fileName), $this->initializer5738b5067ce1c585174038);
+        $this->initializer5738e8b2a623a911621203 && $this->initializer5738e8b2a623a911621203->__invoke($this->valueHolder5738e8b2a6073463668684, $this, 'downloadObject', array('object' => $object, 'field' => $field, 'className' => $className, 'fileName' => $fileName), $this->initializer5738e8b2a623a911621203);
 
-        return $this->valueHolder5738b5067cdcd184939722->downloadObject($object, $field, $className, $fileName);
+        return $this->valueHolder5738e8b2a6073463668684->downloadObject($object, $field, $className, $fileName);
     }
 
     /**
@@ -11571,7 +5616,7 @@ class VichUploaderBundleHandlerDownloadHandler_0000000068b8e4d20000000061f6ff354
      */
     public function __construct($initializer)
     {
-        $this->initializer5738b5067ce1c585174038 = $initializer;
+        $this->initializer5738e8b2a623a911621203 = $initializer;
     }
 
     /**
@@ -11579,16 +5624,16 @@ class VichUploaderBundleHandlerDownloadHandler_0000000068b8e4d20000000061f6ff354
      */
     public function & __get($name)
     {
-        $this->initializer5738b5067ce1c585174038 && $this->initializer5738b5067ce1c585174038->__invoke($this->valueHolder5738b5067cdcd184939722, $this, '__get', array('name' => $name), $this->initializer5738b5067ce1c585174038);
+        $this->initializer5738e8b2a623a911621203 && $this->initializer5738e8b2a623a911621203->__invoke($this->valueHolder5738e8b2a6073463668684, $this, '__get', array('name' => $name), $this->initializer5738e8b2a623a911621203);
 
-        if (isset(self::$publicProperties5738b5067cd3b133233422[$name])) {
-            return $this->valueHolder5738b5067cdcd184939722->$name;
+        if (isset(self::$publicProperties5738e8b2a574f592195879[$name])) {
+            return $this->valueHolder5738e8b2a6073463668684->$name;
         }
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5738b5067cdcd184939722;
+            $targetObject = $this->valueHolder5738e8b2a6073463668684;
 
             $backtrace = debug_backtrace(false);
             trigger_error('Undefined property: ' . get_parent_class($this) . '::$' . $name . ' in ' . $backtrace[0]['file'] . ' on line ' . $backtrace[0]['line'], \E_USER_NOTICE);
@@ -11596,7 +5641,7 @@ class VichUploaderBundleHandlerDownloadHandler_0000000068b8e4d20000000061f6ff354
             return;
         }
 
-        $targetObject = $this->valueHolder5738b5067cdcd184939722;
+        $targetObject = $this->valueHolder5738e8b2a6073463668684;
         $accessor = function & () use ($targetObject, $name) {
             return $targetObject->$name;
         };
@@ -11614,18 +5659,18 @@ class VichUploaderBundleHandlerDownloadHandler_0000000068b8e4d20000000061f6ff354
      */
     public function __set($name, $value)
     {
-        $this->initializer5738b5067ce1c585174038 && $this->initializer5738b5067ce1c585174038->__invoke($this->valueHolder5738b5067cdcd184939722, $this, '__set', array('name' => $name, 'value' => $value), $this->initializer5738b5067ce1c585174038);
+        $this->initializer5738e8b2a623a911621203 && $this->initializer5738e8b2a623a911621203->__invoke($this->valueHolder5738e8b2a6073463668684, $this, '__set', array('name' => $name, 'value' => $value), $this->initializer5738e8b2a623a911621203);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5738b5067cdcd184939722;
+            $targetObject = $this->valueHolder5738e8b2a6073463668684;
 
             return $targetObject->$name = $value;;
             return;
         }
 
-        $targetObject = $this->valueHolder5738b5067cdcd184939722;
+        $targetObject = $this->valueHolder5738e8b2a6073463668684;
         $accessor = function & () use ($targetObject, $name, $value) {
             return $targetObject->$name = $value;
         };
@@ -11642,18 +5687,18 @@ class VichUploaderBundleHandlerDownloadHandler_0000000068b8e4d20000000061f6ff354
      */
     public function __isset($name)
     {
-        $this->initializer5738b5067ce1c585174038 && $this->initializer5738b5067ce1c585174038->__invoke($this->valueHolder5738b5067cdcd184939722, $this, '__isset', array('name' => $name), $this->initializer5738b5067ce1c585174038);
+        $this->initializer5738e8b2a623a911621203 && $this->initializer5738e8b2a623a911621203->__invoke($this->valueHolder5738e8b2a6073463668684, $this, '__isset', array('name' => $name), $this->initializer5738e8b2a623a911621203);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5738b5067cdcd184939722;
+            $targetObject = $this->valueHolder5738e8b2a6073463668684;
 
             return isset($targetObject->$name);;
             return;
         }
 
-        $targetObject = $this->valueHolder5738b5067cdcd184939722;
+        $targetObject = $this->valueHolder5738e8b2a6073463668684;
         $accessor = function () use ($targetObject, $name) {
             return isset($targetObject->$name);
         };
@@ -11670,18 +5715,18 @@ class VichUploaderBundleHandlerDownloadHandler_0000000068b8e4d20000000061f6ff354
      */
     public function __unset($name)
     {
-        $this->initializer5738b5067ce1c585174038 && $this->initializer5738b5067ce1c585174038->__invoke($this->valueHolder5738b5067cdcd184939722, $this, '__unset', array('name' => $name), $this->initializer5738b5067ce1c585174038);
+        $this->initializer5738e8b2a623a911621203 && $this->initializer5738e8b2a623a911621203->__invoke($this->valueHolder5738e8b2a6073463668684, $this, '__unset', array('name' => $name), $this->initializer5738e8b2a623a911621203);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5738b5067cdcd184939722;
+            $targetObject = $this->valueHolder5738e8b2a6073463668684;
 
             unset($targetObject->$name);;
             return;
         }
 
-        $targetObject = $this->valueHolder5738b5067cdcd184939722;
+        $targetObject = $this->valueHolder5738e8b2a6073463668684;
         $accessor = function () use ($targetObject, $name) {
             unset($targetObject->$name);
         };
@@ -11695,16 +5740,16 @@ class VichUploaderBundleHandlerDownloadHandler_0000000068b8e4d20000000061f6ff354
 
     public function __clone()
     {
-        $this->initializer5738b5067ce1c585174038 && $this->initializer5738b5067ce1c585174038->__invoke($this->valueHolder5738b5067cdcd184939722, $this, '__clone', array(), $this->initializer5738b5067ce1c585174038);
+        $this->initializer5738e8b2a623a911621203 && $this->initializer5738e8b2a623a911621203->__invoke($this->valueHolder5738e8b2a6073463668684, $this, '__clone', array(), $this->initializer5738e8b2a623a911621203);
 
-        $this->valueHolder5738b5067cdcd184939722 = clone $this->valueHolder5738b5067cdcd184939722;
+        $this->valueHolder5738e8b2a6073463668684 = clone $this->valueHolder5738e8b2a6073463668684;
     }
 
     public function __sleep()
     {
-        $this->initializer5738b5067ce1c585174038 && $this->initializer5738b5067ce1c585174038->__invoke($this->valueHolder5738b5067cdcd184939722, $this, '__sleep', array(), $this->initializer5738b5067ce1c585174038);
+        $this->initializer5738e8b2a623a911621203 && $this->initializer5738e8b2a623a911621203->__invoke($this->valueHolder5738e8b2a6073463668684, $this, '__sleep', array(), $this->initializer5738e8b2a623a911621203);
 
-        return array('valueHolder5738b5067cdcd184939722');
+        return array('valueHolder5738e8b2a6073463668684');
     }
 
     public function __wakeup()
@@ -11716,7 +5761,7 @@ class VichUploaderBundleHandlerDownloadHandler_0000000068b8e4d20000000061f6ff354
      */
     public function setProxyInitializer(\Closure $initializer = null)
     {
-        $this->initializer5738b5067ce1c585174038 = $initializer;
+        $this->initializer5738e8b2a623a911621203 = $initializer;
     }
 
     /**
@@ -11724,7 +5769,7 @@ class VichUploaderBundleHandlerDownloadHandler_0000000068b8e4d20000000061f6ff354
      */
     public function getProxyInitializer()
     {
-        return $this->initializer5738b5067ce1c585174038;
+        return $this->initializer5738e8b2a623a911621203;
     }
 
     /**
@@ -11732,7 +5777,7 @@ class VichUploaderBundleHandlerDownloadHandler_0000000068b8e4d20000000061f6ff354
      */
     public function initializeProxy()
     {
-        return $this->initializer5738b5067ce1c585174038 && $this->initializer5738b5067ce1c585174038->__invoke($this->valueHolder5738b5067cdcd184939722, $this, 'initializeProxy', array(), $this->initializer5738b5067ce1c585174038);
+        return $this->initializer5738e8b2a623a911621203 && $this->initializer5738e8b2a623a911621203->__invoke($this->valueHolder5738e8b2a6073463668684, $this, 'initializeProxy', array(), $this->initializer5738e8b2a623a911621203);
     }
 
     /**
@@ -11740,7 +5785,7 @@ class VichUploaderBundleHandlerDownloadHandler_0000000068b8e4d20000000061f6ff354
      */
     public function isProxyInitialized()
     {
-        return null !== $this->valueHolder5738b5067cdcd184939722;
+        return null !== $this->valueHolder5738e8b2a6073463668684;
     }
 
     /**
@@ -11748,29 +5793,29 @@ class VichUploaderBundleHandlerDownloadHandler_0000000068b8e4d20000000061f6ff354
      */
     public function getWrappedValueHolderValue()
     {
-        return $this->valueHolder5738b5067cdcd184939722;
+        return $this->valueHolder5738e8b2a6073463668684;
     }
 
 
 }
 
-class VichUploaderBundleHandlerUploadHandler_0000000068b8e4d50000000061f6ff3540adef88e1ce7356ec78729336304f7b extends \Vich\UploaderBundle\Handler\UploadHandler implements \ProxyManager\Proxy\VirtualProxyInterface
+class VichUploaderBundleHandlerUploadHandler_0000000031ce2b62000000001a57ab343c6b334300e435587111272351cb6f0c extends \Vich\UploaderBundle\Handler\UploadHandler implements \ProxyManager\Proxy\VirtualProxyInterface
 {
 
     /**
      * @var \Closure|null initializer responsible for generating the wrapped object
      */
-    private $valueHolder5738b5067f760791305817 = null;
+    private $valueHolder5738e8b2afe41063568843 = null;
 
     /**
      * @var \Closure|null initializer responsible for generating the wrapped object
      */
-    private $initializer5738b5067f7bb697995852 = null;
+    private $initializer5738e8b2afe86237555317 = null;
 
     /**
      * @var bool[] map of public properties of the parent class
      */
-    private static $publicProperties5738b5067f696559494610 = array(
+    private static $publicProperties5738e8b2afdc6693768014 = array(
         
     );
 
@@ -11779,9 +5824,9 @@ class VichUploaderBundleHandlerUploadHandler_0000000068b8e4d50000000061f6ff3540a
      */
     public function upload($obj, $fieldName)
     {
-        $this->initializer5738b5067f7bb697995852 && $this->initializer5738b5067f7bb697995852->__invoke($this->valueHolder5738b5067f760791305817, $this, 'upload', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5738b5067f7bb697995852);
+        $this->initializer5738e8b2afe86237555317 && $this->initializer5738e8b2afe86237555317->__invoke($this->valueHolder5738e8b2afe41063568843, $this, 'upload', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5738e8b2afe86237555317);
 
-        return $this->valueHolder5738b5067f760791305817->upload($obj, $fieldName);
+        return $this->valueHolder5738e8b2afe41063568843->upload($obj, $fieldName);
     }
 
     /**
@@ -11789,9 +5834,9 @@ class VichUploaderBundleHandlerUploadHandler_0000000068b8e4d50000000061f6ff3540a
      */
     public function inject($obj, $fieldName)
     {
-        $this->initializer5738b5067f7bb697995852 && $this->initializer5738b5067f7bb697995852->__invoke($this->valueHolder5738b5067f760791305817, $this, 'inject', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5738b5067f7bb697995852);
+        $this->initializer5738e8b2afe86237555317 && $this->initializer5738e8b2afe86237555317->__invoke($this->valueHolder5738e8b2afe41063568843, $this, 'inject', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5738e8b2afe86237555317);
 
-        return $this->valueHolder5738b5067f760791305817->inject($obj, $fieldName);
+        return $this->valueHolder5738e8b2afe41063568843->inject($obj, $fieldName);
     }
 
     /**
@@ -11799,9 +5844,9 @@ class VichUploaderBundleHandlerUploadHandler_0000000068b8e4d50000000061f6ff3540a
      */
     public function clean($obj, $fieldName)
     {
-        $this->initializer5738b5067f7bb697995852 && $this->initializer5738b5067f7bb697995852->__invoke($this->valueHolder5738b5067f760791305817, $this, 'clean', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5738b5067f7bb697995852);
+        $this->initializer5738e8b2afe86237555317 && $this->initializer5738e8b2afe86237555317->__invoke($this->valueHolder5738e8b2afe41063568843, $this, 'clean', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5738e8b2afe86237555317);
 
-        return $this->valueHolder5738b5067f760791305817->clean($obj, $fieldName);
+        return $this->valueHolder5738e8b2afe41063568843->clean($obj, $fieldName);
     }
 
     /**
@@ -11809,9 +5854,9 @@ class VichUploaderBundleHandlerUploadHandler_0000000068b8e4d50000000061f6ff3540a
      */
     public function remove($obj, $fieldName)
     {
-        $this->initializer5738b5067f7bb697995852 && $this->initializer5738b5067f7bb697995852->__invoke($this->valueHolder5738b5067f760791305817, $this, 'remove', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5738b5067f7bb697995852);
+        $this->initializer5738e8b2afe86237555317 && $this->initializer5738e8b2afe86237555317->__invoke($this->valueHolder5738e8b2afe41063568843, $this, 'remove', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5738e8b2afe86237555317);
 
-        return $this->valueHolder5738b5067f760791305817->remove($obj, $fieldName);
+        return $this->valueHolder5738e8b2afe41063568843->remove($obj, $fieldName);
     }
 
     /**
@@ -11821,7 +5866,7 @@ class VichUploaderBundleHandlerUploadHandler_0000000068b8e4d50000000061f6ff3540a
      */
     public function __construct($initializer)
     {
-        $this->initializer5738b5067f7bb697995852 = $initializer;
+        $this->initializer5738e8b2afe86237555317 = $initializer;
     }
 
     /**
@@ -11829,16 +5874,16 @@ class VichUploaderBundleHandlerUploadHandler_0000000068b8e4d50000000061f6ff3540a
      */
     public function & __get($name)
     {
-        $this->initializer5738b5067f7bb697995852 && $this->initializer5738b5067f7bb697995852->__invoke($this->valueHolder5738b5067f760791305817, $this, '__get', array('name' => $name), $this->initializer5738b5067f7bb697995852);
+        $this->initializer5738e8b2afe86237555317 && $this->initializer5738e8b2afe86237555317->__invoke($this->valueHolder5738e8b2afe41063568843, $this, '__get', array('name' => $name), $this->initializer5738e8b2afe86237555317);
 
-        if (isset(self::$publicProperties5738b5067f696559494610[$name])) {
-            return $this->valueHolder5738b5067f760791305817->$name;
+        if (isset(self::$publicProperties5738e8b2afdc6693768014[$name])) {
+            return $this->valueHolder5738e8b2afe41063568843->$name;
         }
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5738b5067f760791305817;
+            $targetObject = $this->valueHolder5738e8b2afe41063568843;
 
             $backtrace = debug_backtrace(false);
             trigger_error('Undefined property: ' . get_parent_class($this) . '::$' . $name . ' in ' . $backtrace[0]['file'] . ' on line ' . $backtrace[0]['line'], \E_USER_NOTICE);
@@ -11846,7 +5891,7 @@ class VichUploaderBundleHandlerUploadHandler_0000000068b8e4d50000000061f6ff3540a
             return;
         }
 
-        $targetObject = $this->valueHolder5738b5067f760791305817;
+        $targetObject = $this->valueHolder5738e8b2afe41063568843;
         $accessor = function & () use ($targetObject, $name) {
             return $targetObject->$name;
         };
@@ -11864,18 +5909,18 @@ class VichUploaderBundleHandlerUploadHandler_0000000068b8e4d50000000061f6ff3540a
      */
     public function __set($name, $value)
     {
-        $this->initializer5738b5067f7bb697995852 && $this->initializer5738b5067f7bb697995852->__invoke($this->valueHolder5738b5067f760791305817, $this, '__set', array('name' => $name, 'value' => $value), $this->initializer5738b5067f7bb697995852);
+        $this->initializer5738e8b2afe86237555317 && $this->initializer5738e8b2afe86237555317->__invoke($this->valueHolder5738e8b2afe41063568843, $this, '__set', array('name' => $name, 'value' => $value), $this->initializer5738e8b2afe86237555317);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5738b5067f760791305817;
+            $targetObject = $this->valueHolder5738e8b2afe41063568843;
 
             return $targetObject->$name = $value;;
             return;
         }
 
-        $targetObject = $this->valueHolder5738b5067f760791305817;
+        $targetObject = $this->valueHolder5738e8b2afe41063568843;
         $accessor = function & () use ($targetObject, $name, $value) {
             return $targetObject->$name = $value;
         };
@@ -11892,18 +5937,18 @@ class VichUploaderBundleHandlerUploadHandler_0000000068b8e4d50000000061f6ff3540a
      */
     public function __isset($name)
     {
-        $this->initializer5738b5067f7bb697995852 && $this->initializer5738b5067f7bb697995852->__invoke($this->valueHolder5738b5067f760791305817, $this, '__isset', array('name' => $name), $this->initializer5738b5067f7bb697995852);
+        $this->initializer5738e8b2afe86237555317 && $this->initializer5738e8b2afe86237555317->__invoke($this->valueHolder5738e8b2afe41063568843, $this, '__isset', array('name' => $name), $this->initializer5738e8b2afe86237555317);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5738b5067f760791305817;
+            $targetObject = $this->valueHolder5738e8b2afe41063568843;
 
             return isset($targetObject->$name);;
             return;
         }
 
-        $targetObject = $this->valueHolder5738b5067f760791305817;
+        $targetObject = $this->valueHolder5738e8b2afe41063568843;
         $accessor = function () use ($targetObject, $name) {
             return isset($targetObject->$name);
         };
@@ -11920,18 +5965,18 @@ class VichUploaderBundleHandlerUploadHandler_0000000068b8e4d50000000061f6ff3540a
      */
     public function __unset($name)
     {
-        $this->initializer5738b5067f7bb697995852 && $this->initializer5738b5067f7bb697995852->__invoke($this->valueHolder5738b5067f760791305817, $this, '__unset', array('name' => $name), $this->initializer5738b5067f7bb697995852);
+        $this->initializer5738e8b2afe86237555317 && $this->initializer5738e8b2afe86237555317->__invoke($this->valueHolder5738e8b2afe41063568843, $this, '__unset', array('name' => $name), $this->initializer5738e8b2afe86237555317);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5738b5067f760791305817;
+            $targetObject = $this->valueHolder5738e8b2afe41063568843;
 
             unset($targetObject->$name);;
             return;
         }
 
-        $targetObject = $this->valueHolder5738b5067f760791305817;
+        $targetObject = $this->valueHolder5738e8b2afe41063568843;
         $accessor = function () use ($targetObject, $name) {
             unset($targetObject->$name);
         };
@@ -11945,16 +5990,16 @@ class VichUploaderBundleHandlerUploadHandler_0000000068b8e4d50000000061f6ff3540a
 
     public function __clone()
     {
-        $this->initializer5738b5067f7bb697995852 && $this->initializer5738b5067f7bb697995852->__invoke($this->valueHolder5738b5067f760791305817, $this, '__clone', array(), $this->initializer5738b5067f7bb697995852);
+        $this->initializer5738e8b2afe86237555317 && $this->initializer5738e8b2afe86237555317->__invoke($this->valueHolder5738e8b2afe41063568843, $this, '__clone', array(), $this->initializer5738e8b2afe86237555317);
 
-        $this->valueHolder5738b5067f760791305817 = clone $this->valueHolder5738b5067f760791305817;
+        $this->valueHolder5738e8b2afe41063568843 = clone $this->valueHolder5738e8b2afe41063568843;
     }
 
     public function __sleep()
     {
-        $this->initializer5738b5067f7bb697995852 && $this->initializer5738b5067f7bb697995852->__invoke($this->valueHolder5738b5067f760791305817, $this, '__sleep', array(), $this->initializer5738b5067f7bb697995852);
+        $this->initializer5738e8b2afe86237555317 && $this->initializer5738e8b2afe86237555317->__invoke($this->valueHolder5738e8b2afe41063568843, $this, '__sleep', array(), $this->initializer5738e8b2afe86237555317);
 
-        return array('valueHolder5738b5067f760791305817');
+        return array('valueHolder5738e8b2afe41063568843');
     }
 
     public function __wakeup()
@@ -11966,7 +6011,7 @@ class VichUploaderBundleHandlerUploadHandler_0000000068b8e4d50000000061f6ff3540a
      */
     public function setProxyInitializer(\Closure $initializer = null)
     {
-        $this->initializer5738b5067f7bb697995852 = $initializer;
+        $this->initializer5738e8b2afe86237555317 = $initializer;
     }
 
     /**
@@ -11974,7 +6019,7 @@ class VichUploaderBundleHandlerUploadHandler_0000000068b8e4d50000000061f6ff3540a
      */
     public function getProxyInitializer()
     {
-        return $this->initializer5738b5067f7bb697995852;
+        return $this->initializer5738e8b2afe86237555317;
     }
 
     /**
@@ -11982,7 +6027,7 @@ class VichUploaderBundleHandlerUploadHandler_0000000068b8e4d50000000061f6ff3540a
      */
     public function initializeProxy()
     {
-        return $this->initializer5738b5067f7bb697995852 && $this->initializer5738b5067f7bb697995852->__invoke($this->valueHolder5738b5067f760791305817, $this, 'initializeProxy', array(), $this->initializer5738b5067f7bb697995852);
+        return $this->initializer5738e8b2afe86237555317 && $this->initializer5738e8b2afe86237555317->__invoke($this->valueHolder5738e8b2afe41063568843, $this, 'initializeProxy', array(), $this->initializer5738e8b2afe86237555317);
     }
 
     /**
@@ -11990,7 +6035,7 @@ class VichUploaderBundleHandlerUploadHandler_0000000068b8e4d50000000061f6ff3540a
      */
     public function isProxyInitialized()
     {
-        return null !== $this->valueHolder5738b5067f760791305817;
+        return null !== $this->valueHolder5738e8b2afe41063568843;
     }
 
     /**
@@ -11998,7 +6043,7 @@ class VichUploaderBundleHandlerUploadHandler_0000000068b8e4d50000000061f6ff3540a
      */
     public function getWrappedValueHolderValue()
     {
-        return $this->valueHolder5738b5067f760791305817;
+        return $this->valueHolder5738e8b2afe41063568843;
     }
 
 
