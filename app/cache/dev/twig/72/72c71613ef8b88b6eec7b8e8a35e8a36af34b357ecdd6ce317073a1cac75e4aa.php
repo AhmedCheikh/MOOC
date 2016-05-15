@@ -15,7 +15,6 @@ class __TwigTemplate_6e43dcb13c405272da1a87829e18aa5015153070b4b859269a7d741b65f
             'javascripts_head' => array($this, 'block_javascripts_head'),
             'avanzu_admin_header' => array($this, 'block_avanzu_admin_header'),
             'avanzu_logo' => array($this, 'block_avanzu_logo'),
-            'avanzu_navbar' => array($this, 'block_avanzu_navbar'),
             'avanzu_sidebar' => array($this, 'block_avanzu_sidebar'),
             'page_title' => array($this, 'block_page_title'),
             'page_subtitle' => array($this, 'block_page_subtitle'),
@@ -76,7 +75,7 @@ class __TwigTemplate_6e43dcb13c405272da1a87829e18aa5015153070b4b859269a7d741b65f
     ";
         // line 36
         $this->displayBlock('avanzu_admin_header', $context, $blocks);
-        // line 69
+        // line 86
         echo "    
 
         <!-- Left side column. contains the logo and sidebar -->
@@ -85,9 +84,9 @@ class __TwigTemplate_6e43dcb13c405272da1a87829e18aa5015153070b4b859269a7d741b65f
             <section class=\"sidebar\">
                 
                 ";
-        // line 76
+        // line 93
         $this->displayBlock('avanzu_sidebar', $context, $blocks);
-        // line 121
+        // line 133
         echo "        </section>
             <!-- /.sidebar -->
         </aside>
@@ -98,47 +97,47 @@ class __TwigTemplate_6e43dcb13c405272da1a87829e18aa5015153070b4b859269a7d741b65f
             <section class=\"content-header\">
                 <h1>
                     ";
-        // line 130
+        // line 142
         $this->displayBlock('page_title', $context, $blocks);
-        // line 131
+        // line 143
         echo "                    <small>";
         $this->displayBlock('page_subtitle', $context, $blocks);
         echo "</small>
                 </h1>
                 ";
-        // line 133
+        // line 145
         $this->displayBlock('avanzu_breadcrumb', $context, $blocks);
-        // line 136
+        // line 148
         echo "            </section>
 
             <!-- Main content -->
             <section class=\"content\">
                 ";
-        // line 140
+        // line 152
         $this->displayBlock('page_content', $context, $blocks);
-        // line 141
+        // line 153
         echo "            </section>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
 
     ";
-        // line 146
+        // line 158
         $this->displayBlock('avanzu_admin_footer', $context, $blocks);
-        // line 154
+        // line 166
         echo "
     </div>
 <!-- ./wrapper -->
 
 ";
-        // line 159
+        // line 171
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 164
+        // line 176
         echo "
 ";
-        // line 166
+        // line 178
         $this->displayBlock('javascripts_inline', $context, $blocks);
-        // line 168
+        // line 180
         echo "</body>
 </html>
 ";
@@ -190,25 +189,48 @@ class __TwigTemplate_6e43dcb13c405272da1a87829e18aa5015153070b4b859269a7d741b65f
                     <span class=\"sr-only\">Toggle navigation</span>
                     <span class=\"icon-bar\"></span>
                 </a>
-                ";
-        // line 51
-        if (( !(null === $this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array())) && $this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_FULLY"))) {
-            // line 52
-            echo "                    <div class=\"navbar-custom-menu\">
+                
+                    <div class=\"navbar-custom-menu\">
                         <ul class=\"nav navbar-nav\">
-                            ";
-            // line 54
-            $this->displayBlock('avanzu_navbar', $context, $blocks);
-            // line 60
-            echo "                            <li>
-                               <a href=\"#\" data-toggle=\"control-sidebar\"><i class=\"fa fa-gears\"></i></a>
-                            </li>
+                          
+                            <li class=\"dropdown user user-menu\">
+                <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">
+                  <img src=\"";
+        // line 57
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("uploads/img/avatar/admin.png"), "html", null, true);
+        echo "\" class=\"user-image\" alt=\"User Image\">
+                  <span class=\"hidden-xs\">Administrateur</span>
+                </a>
+                <ul class=\"dropdown-menu\">
+                  <!-- User image -->
+                  <li class=\"user-header\">
+                    <img src=\"";
+        // line 63
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("uploads/img/avatar/admin.png"), "html", null, true);
+        echo "\" class=\"img-circle\" alt=\"User Image\">
+                    <p>
+                      Administrateur
+                      <small>MOOC</small>
+                    </p>
+                  </li>
+                  <!-- Menu Body -->
+                  
+                  <!-- Menu Footer-->
+                  <li class=\"user-footer\">
+                    
+                    <div class=\"pull-right\">
+                      <a href=\"";
+        // line 75
+        echo $this->env->getExtension('routing')->getPath("mooc_mooc_log_out_admin");
+        echo "\" class=\"btn btn-default btn-flat\">Sign out</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
                         </ul>
                     </div>
-                ";
-        }
-        // line 66
-        echo "            </nav>
+               
+            </nav>
         </header>
     ";
     }
@@ -227,34 +249,12 @@ class __TwigTemplate_6e43dcb13c405272da1a87829e18aa5015153070b4b859269a7d741b65f
             ";
     }
 
-    // line 54
-    public function block_avanzu_navbar($context, array $blocks = array())
-    {
-        // line 55
-        echo "                                ";
-        echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('http_kernel')->controller("AvanzuAdminThemeBundle:Navbar:messages"));
-        echo "
-                                ";
-        // line 56
-        echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('http_kernel')->controller("AvanzuAdminThemeBundle:Navbar:notifications"));
-        echo "
-                                ";
-        // line 57
-        echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('http_kernel')->controller("AvanzuAdminThemeBundle:Navbar:tasks"));
-        echo "
-                                ";
-        // line 58
-        echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('http_kernel')->controller("AvanzuAdminThemeBundle:Navbar:user"));
-        echo "
-                            ";
-    }
-
-    // line 76
+    // line 93
     public function block_avanzu_sidebar($context, array $blocks = array())
     {
-        // line 77
+        // line 94
         echo "                    ";
-        // line 82
+        // line 99
         echo "               
                 
 
@@ -263,7 +263,7 @@ class __TwigTemplate_6e43dcb13c405272da1a87829e18aa5015153070b4b859269a7d741b65f
             <li class=\"header\">MAIN NAVIGATION</li>
             <li>
               <a href='";
-        // line 89
+        // line 106
         echo $this->env->getExtension('routing')->getPath("avanzu_admin_dashboard");
         echo "'>
                 <i class=\"fa fa-dashboard\"></i> <span>Dashboard</span> 
@@ -271,7 +271,7 @@ class __TwigTemplate_6e43dcb13c405272da1a87829e18aa5015153070b4b859269a7d741b65f
             </li>
             <li>
               <a href='";
-        // line 94
+        // line 111
         echo $this->env->getExtension('routing')->getPath("charts");
         echo "'>
                 <i class=\"fa fa-pie-chart\"></i>
@@ -280,7 +280,7 @@ class __TwigTemplate_6e43dcb13c405272da1a87829e18aa5015153070b4b859269a7d741b65f
             </li>
             <li>
                 <a href='";
-        // line 100
+        // line 117
         echo $this->env->getExtension('routing')->getPath("liste_organisme");
         echo "'>
                     <i class=\"fa fa-table\"></i> <span>Organismes</span> <small class=\"label pull-right bg-red\">2</small>
@@ -288,16 +288,11 @@ class __TwigTemplate_6e43dcb13c405272da1a87829e18aa5015153070b4b859269a7d741b65f
                 
             </li>
              
-            <li>
-              <a href=\"pages/calendar.html\">
-                <i class=\"fa fa-calendar\"></i> <span>Calendar</span>
-                <small class=\"label pull-right bg-red\">3</small>
-              </a>
-            </li>
+            
             <li>
             <li>
               <a href='";
-        // line 114
+        // line 126
         echo $this->env->getExtension('routing')->getPath("liste_formateur");
         echo "'>
                 <i class=\"fa fa-users\"></i> <span>Formateurs</span>
@@ -308,36 +303,36 @@ class __TwigTemplate_6e43dcb13c405272da1a87829e18aa5015153070b4b859269a7d741b65f
                  ";
     }
 
-    // line 130
+    // line 142
     public function block_page_title($context, array $blocks = array())
     {
         echo "Blank page";
     }
 
-    // line 131
+    // line 143
     public function block_page_subtitle($context, array $blocks = array())
     {
     }
 
-    // line 133
+    // line 145
     public function block_avanzu_breadcrumb($context, array $blocks = array())
     {
-        // line 134
+        // line 146
         echo "                    ";
         echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('http_kernel')->controller("AvanzuAdminThemeBundle:Breadcrumb:breadcrumb", array("request" => $this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "request", array()), "title" => $this->renderBlock("page_title", $context, $blocks))));
         echo "
                 ";
     }
 
-    // line 140
+    // line 152
     public function block_page_content($context, array $blocks = array())
     {
     }
 
-    // line 146
+    // line 158
     public function block_avanzu_admin_footer($context, array $blocks = array())
     {
-        // line 147
+        // line 159
         echo "        <footer class=\"main-footer\">
             <div class=\"pull-right hidden-xs\">
                 ESPRIT
@@ -347,20 +342,20 @@ class __TwigTemplate_6e43dcb13c405272da1a87829e18aa5015153070b4b859269a7d741b65f
     ";
     }
 
-    // line 159
+    // line 171
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 160
+        // line 172
         echo "
     <script src=\"";
-        // line 161
+        // line 173
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl((("bundles/avanzuadmintheme/static/" . $this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "environment", array())) . "/scripts/admin-lte-all.js")), "html", null, true);
         echo "\"></script>
     
 ";
     }
 
-    // line 166
+    // line 178
     public function block_javascripts_inline($context, array $blocks = array())
     {
     }
@@ -377,7 +372,7 @@ class __TwigTemplate_6e43dcb13c405272da1a87829e18aa5015153070b4b859269a7d741b65f
 
     public function getDebugInfo()
     {
-        return array (  364 => 166,  357 => 161,  354 => 160,  351 => 159,  341 => 147,  338 => 146,  333 => 140,  326 => 134,  323 => 133,  318 => 131,  312 => 130,  301 => 114,  284 => 100,  275 => 94,  267 => 89,  258 => 82,  256 => 77,  253 => 76,  247 => 58,  243 => 57,  239 => 56,  234 => 55,  231 => 54,  224 => 41,  220 => 39,  217 => 38,  211 => 66,  203 => 60,  201 => 54,  197 => 52,  195 => 51,  186 => 44,  184 => 38,  181 => 37,  178 => 36,  167 => 25,  164 => 24,  157 => 17,  154 => 16,  148 => 13,  142 => 168,  140 => 166,  137 => 164,  135 => 159,  129 => 154,  127 => 146,  120 => 141,  118 => 140,  112 => 136,  110 => 133,  104 => 131,  102 => 130,  91 => 121,  89 => 76,  80 => 69,  78 => 36,  72 => 33,  68 => 31,  65 => 24,  60 => 21,  56 => 19,  53 => 16,  48 => 13,  35 => 2,  33 => 1,);
+        return array (  359 => 178,  352 => 173,  349 => 172,  346 => 171,  336 => 159,  333 => 158,  328 => 152,  321 => 146,  318 => 145,  313 => 143,  307 => 142,  296 => 126,  284 => 117,  275 => 111,  267 => 106,  258 => 99,  256 => 94,  253 => 93,  246 => 41,  242 => 39,  239 => 38,  224 => 75,  209 => 63,  200 => 57,  185 => 44,  183 => 38,  180 => 37,  177 => 36,  166 => 25,  163 => 24,  156 => 17,  153 => 16,  147 => 13,  141 => 180,  139 => 178,  136 => 176,  134 => 171,  128 => 166,  126 => 158,  119 => 153,  117 => 152,  111 => 148,  109 => 145,  103 => 143,  101 => 142,  90 => 133,  88 => 93,  79 => 86,  77 => 36,  71 => 33,  67 => 31,  64 => 24,  59 => 21,  55 => 19,  52 => 16,  47 => 13,  34 => 2,  32 => 1,);
     }
 }
 /* {% import "AvanzuAdminThemeBundle:layout:macros.html.twig" as macro %}*/
@@ -430,21 +425,38 @@ class __TwigTemplate_6e43dcb13c405272da1a87829e18aa5015153070b4b859269a7d741b65f
 /*                     <span class="sr-only">Toggle navigation</span>*/
 /*                     <span class="icon-bar"></span>*/
 /*                 </a>*/
-/*                 {% if app.user is not null and is_granted('IS_AUTHENTICATED_FULLY') %}*/
+/*                 */
 /*                     <div class="navbar-custom-menu">*/
 /*                         <ul class="nav navbar-nav">*/
-/*                             {% block avanzu_navbar %}*/
-/*                                 {{ render(controller('AvanzuAdminThemeBundle:Navbar:messages')) }}*/
-/*                                 {{ render(controller('AvanzuAdminThemeBundle:Navbar:notifications')) }}*/
-/*                                 {{ render(controller('AvanzuAdminThemeBundle:Navbar:tasks')) }}*/
-/*                                 {{ render(controller('AvanzuAdminThemeBundle:Navbar:user')) }}*/
-/*                             {% endblock %}*/
-/*                             <li>*/
-/*                                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>*/
-/*                             </li>*/
+/*                           */
+/*                             <li class="dropdown user user-menu">*/
+/*                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">*/
+/*                   <img src="{{asset('uploads/img/avatar/admin.png')}}" class="user-image" alt="User Image">*/
+/*                   <span class="hidden-xs">Administrateur</span>*/
+/*                 </a>*/
+/*                 <ul class="dropdown-menu">*/
+/*                   <!-- User image -->*/
+/*                   <li class="user-header">*/
+/*                     <img src="{{asset('uploads/img/avatar/admin.png')}}" class="img-circle" alt="User Image">*/
+/*                     <p>*/
+/*                       Administrateur*/
+/*                       <small>MOOC</small>*/
+/*                     </p>*/
+/*                   </li>*/
+/*                   <!-- Menu Body -->*/
+/*                   */
+/*                   <!-- Menu Footer-->*/
+/*                   <li class="user-footer">*/
+/*                     */
+/*                     <div class="pull-right">*/
+/*                       <a href="{{path('mooc_mooc_log_out_admin')}}" class="btn btn-default btn-flat">Sign out</a>*/
+/*                     </div>*/
+/*                   </li>*/
+/*                 </ul>*/
+/*               </li>*/
 /*                         </ul>*/
 /*                     </div>*/
-/*                 {% endif %}*/
+/*                */
 /*             </nav>*/
 /*         </header>*/
 /*     {% endblock %}*/
@@ -485,12 +497,7 @@ class __TwigTemplate_6e43dcb13c405272da1a87829e18aa5015153070b4b859269a7d741b65f
 /*                 */
 /*             </li>*/
 /*              */
-/*             <li>*/
-/*               <a href="pages/calendar.html">*/
-/*                 <i class="fa fa-calendar"></i> <span>Calendar</span>*/
-/*                 <small class="label pull-right bg-red">3</small>*/
-/*               </a>*/
-/*             </li>*/
+/*             */
 /*             <li>*/
 /*             <li>*/
 /*               <a href='{{path('liste_formateur')}}'>*/

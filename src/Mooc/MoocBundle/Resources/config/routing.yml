@@ -1,6 +1,14 @@
 mooc_mooc_homepage:
     path:     /
     defaults: { _controller: MoocMoocBundle:Default:index }
+    
+mooc_mooc_log_out_admin:
+    path:     /logoutadmin
+    defaults: { _controller: MoocMoocBundle:Admin:logoutadmin}
+    
+mooc_mooc_log_out_comite:
+    path:     /logoutcomite
+    defaults: { _controller: MoocMoocBundle:Comite:logoutcomite}
 
 mooc_mooc_contact:
     path:     /contact
@@ -287,13 +295,13 @@ mooc_suivre_cour_apprenant:
     path:     /CoursApprenant
     defaults: { _controller: MoocMoocBundle:Apprenant:suivreCours}    
     
-mooc_supprimer_cours_apprenant:
-    path:     /{idCourSuivi}/{login}
-    defaults: { _controller: MoocMoocBundle:Apprenant:supprimer}
-    
-mooc_editer_password_apprenant:
-    path:   /{login}
-    defaults: { _controller: MoocMoocBundle:Apprenant:editPassword}    
+#mooc_supprimer_cours_apprenant:
+#    path:     /{idCourSuivi}/{login}
+#    defaults: { _controller: MoocMoocBundle:Apprenant:supprimer}
+#    
+#mooc_editer_password_apprenant:
+#    path:   /{login}
+#    defaults: { _controller: MoocMoocBundle:Apprenant:editPassword}    
        
     
     

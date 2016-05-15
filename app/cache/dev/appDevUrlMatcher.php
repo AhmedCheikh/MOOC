@@ -136,6 +136,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\DefaultController::indexAction',  '_route' => 'mooc_mooc_homepage',);
         }
 
+        if (0 === strpos($pathinfo, '/logout')) {
+            // mooc_mooc_log_out_admin
+            if ($pathinfo === '/logoutadmin') {
+                return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\AdminController::logoutadminAction',  '_route' => 'mooc_mooc_log_out_admin',);
+            }
+
+            // mooc_mooc_log_out_comite
+            if ($pathinfo === '/logoutcomite') {
+                return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ComiteController::logoutcomiteAction',  '_route' => 'mooc_mooc_log_out_comite',);
+            }
+
+        }
+
         // mooc_mooc_contact
         if ($pathinfo === '/contact') {
             return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ContactController::sendAction',  '_route' => 'mooc_mooc_contact',);
@@ -514,16 +527,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ApprenantController::suivreCoursAction',  '_route' => 'mooc_suivre_cour_apprenant',);
         }
 
-        // mooc_supprimer_cours_apprenant
-        if (preg_match('#^/(?P<idCourSuivi>[^/]++)/(?P<login>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_supprimer_cours_apprenant')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ApprenantController::supprimerAction',));
-        }
-
-        // mooc_editer_password_apprenant
-        if (preg_match('#^/(?P<login>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_editer_password_apprenant')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ApprenantController::editPasswordAction',));
-        }
-
         // mooc_consult_cours_apprenant
         if (0 === strpos($pathinfo, '/consulterCours') && preg_match('#^/consulterCours/(?P<cours>[^/]++)/(?P<login>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_consult_cours_apprenant')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ApprenantController::consultAction',));
@@ -718,84 +721,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return $this->redirect($pathinfo.'/', 'avanzu_admin_home');
                 }
 
-                return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::dashboardAction',  '_route' => 'avanzu_admin_home',);
-            }
-
-            // avanzu_admin_profile
-            if (0 === strpos($pathinfo, '/admin/profile') && preg_match('#^/admin/profile/(?P<userid>[^/]++)/?$#s', $pathinfo, $matches)) {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'avanzu_admin_profile');
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'avanzu_admin_profile')), array ());
-            }
-
-            // avanzu_admin_logout
-            if ($pathinfo === '/admin/logout') {
-                return array('_route' => 'avanzu_admin_logout');
-            }
-
-            if (0 === strpos($pathinfo, '/admin/tasks')) {
-                // avanzu_admin_all_tasks
-                if (rtrim($pathinfo, '/') === '/admin/tasks') {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'avanzu_admin_all_tasks');
-                    }
-
-                    return array('_route' => 'avanzu_admin_all_tasks');
-                }
-
-                // avanzu_admin_show_task
-                if (preg_match('#^/admin/tasks/(?P<taskid>[^/]++)/?$#s', $pathinfo, $matches)) {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'avanzu_admin_show_task');
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'avanzu_admin_show_task')), array ());
-                }
-
-            }
-
-            if (0 === strpos($pathinfo, '/admin/notifications')) {
-                // avanzu_admin_all_notifications
-                if (rtrim($pathinfo, '/') === '/admin/notifications') {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'avanzu_admin_all_notifications');
-                    }
-
-                    return array('_route' => 'avanzu_admin_all_notifications');
-                }
-
-                // avanzu_admin_show_notification
-                if (preg_match('#^/admin/notifications/(?P<notifyid>[^/]++)/?$#s', $pathinfo, $matches)) {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'avanzu_admin_show_notification');
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'avanzu_admin_show_notification')), array ());
-                }
-
-            }
-
-            if (0 === strpos($pathinfo, '/admin/messages')) {
-                // avanzu_admin_all_messages
-                if (rtrim($pathinfo, '/') === '/admin/messages') {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'avanzu_admin_all_messages');
-                    }
-
-                    return array('_route' => 'avanzu_admin_all_messages');
-                }
-
-                // avanzu_admin_show_message
-                if (preg_match('#^/admin/messages/(?P<messageid>[^/]++)/?$#s', $pathinfo, $matches)) {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'avanzu_admin_show_message');
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'avanzu_admin_show_message')), array ());
-                }
-
+                return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DashboardController::dashboardAction',  '_route' => 'avanzu_admin_home',);
             }
 
             // avanzu_admin_demo
@@ -804,47 +730,22 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return $this->redirect($pathinfo.'/', 'avanzu_admin_demo');
                 }
 
-                return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::dashboardAction',  '_route' => 'avanzu_admin_demo',);
+                return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DashboardController::dashboardAction',  '_route' => 'avanzu_admin_demo',);
+            }
+
+            // admin_mail
+            if ($pathinfo === '/admin/admin-mail') {
+                return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::adminMailAction',  '_route' => 'admin_mail',);
             }
 
             if (0 === strpos($pathinfo, '/admin/d')) {
-                if (0 === strpos($pathinfo, '/admin/demo-admin')) {
-                    // avanzu_admin_form_demo
-                    if (rtrim($pathinfo, '/') === '/admin/demo-admin/form-demo') {
-                        if (substr($pathinfo, -1) !== '/') {
-                            return $this->redirect($pathinfo.'/', 'avanzu_admin_form_demo');
-                        }
-
-                        return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::formAction',  '_route' => 'avanzu_admin_form_demo',);
-                    }
-
-                    // avanzu_admin_login_demo
-                    if (rtrim($pathinfo, '/') === '/admin/demo-admin/login') {
-                        if (substr($pathinfo, -1) !== '/') {
-                            return $this->redirect($pathinfo.'/', 'avanzu_admin_login_demo');
-                        }
-
-                        return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::loginAction',  '_route' => 'avanzu_admin_login_demo',);
-                    }
-
-                    // avanzu_admin_dash_demo
-                    if (rtrim($pathinfo, '/') === '/admin/demo-admin/dashboard') {
-                        if (substr($pathinfo, -1) !== '/') {
-                            return $this->redirect($pathinfo.'/', 'avanzu_admin_dash_demo');
-                        }
-
-                        return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::dashboardAction',  '_route' => 'avanzu_admin_dash_demo',);
-                    }
-
-                }
-
                 // avanzu_admin_dashboard
                 if (rtrim($pathinfo, '/') === '/admin/dashboard') {
                     if (substr($pathinfo, -1) !== '/') {
                         return $this->redirect($pathinfo.'/', 'avanzu_admin_dashboard');
                     }
 
-                    return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::dashboard2Action',  '_route' => 'avanzu_admin_dashboard',);
+                    return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DashboardController::dashboardAction',  '_route' => 'avanzu_admin_dashboard',);
                 }
 
                 if (0 === strpos($pathinfo, '/admin/demo-admin/ui-elements')) {
@@ -870,10 +771,15 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
-            if (0 === strpos($pathinfo, '/admin/liste-')) {
+            if (0 === strpos($pathinfo, '/admin/liste')) {
                 // liste_organisme
                 if ($pathinfo === '/admin/liste-organisme') {
-                    return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::listeOrganismeAction',  '_route' => 'liste_organisme',);
+                    return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\OrganismeController::listeOrganismeAction',  '_route' => 'liste_organisme',);
+                }
+
+                // liste_organisme2
+                if ($pathinfo === '/admin/listee-organisme') {
+                    return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\OrganismeController::listeOrganisme2Action',  '_route' => 'liste_organisme2',);
                 }
 
                 // liste_formateur
@@ -885,7 +791,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             // charts
             if ($pathinfo === '/admin/charts') {
-                return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::chartsAction',  '_route' => 'charts',);
+                return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\ChartsController::chartsAction',  '_route' => 'charts',);
             }
 
             // test
@@ -895,17 +801,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             // details_organisme
             if (0 === strpos($pathinfo, '/admin/details-organisme') && preg_match('#^/admin/details\\-organisme/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'details_organisme')), array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::detailsOrganismeAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'details_organisme')), array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\OrganismeController::detailsOrganismeAction',));
             }
 
             // valider_organisme
-            if (0 === strpos($pathinfo, '/admin/valider-organisme') && preg_match('#^/admin/valider\\-organisme/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'valider_organisme')), array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::validerOrganismeAction',));
+            if (0 === strpos($pathinfo, '/admin/valider-organisme') && preg_match('#^/admin/valider\\-organisme/(?P<id>[^/]++)/(?P<mail>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'valider_organisme')), array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\OrganismeController::validerOrganismeAction',));
             }
 
             // bloquer_organisme
             if (0 === strpos($pathinfo, '/admin/bloquer-organisme') && preg_match('#^/admin/bloquer\\-organisme/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'bloquer_organisme')), array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::bloquerOrganismeAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'bloquer_organisme')), array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\OrganismeController::bloquerOrganismeAction',));
             }
 
             // supprimer_organisme
@@ -915,7 +821,12 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             // print
             if ($pathinfo === '/admin/print') {
-                return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::printAction',  '_route' => 'print',);
+                return array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\OrganismeController::printAction',  '_route' => 'print',);
+            }
+
+            // admin_mail_organisme
+            if (0 === strpos($pathinfo, '/admin/mail-organisme') && preg_match('#^/admin/mail\\-organisme/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_mail_organisme')), array (  '_controller' => 'Avanzu\\AdminThemeBundle\\Controller\\DefaultController::SendmailAction',));
             }
 
         }

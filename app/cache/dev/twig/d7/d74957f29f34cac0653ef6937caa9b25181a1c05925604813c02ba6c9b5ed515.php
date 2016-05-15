@@ -455,14 +455,14 @@ class __TwigTemplate_af45a04dc415743d57a2a23f7ab142791440a6e0440f65dbe5b1e34b8d9
                                             <div class=\"form-group \">
                                                 <label for=\"cname\" class=\"control-label col-lg-2\">Charger Video <span class=\"required\">*</span></label>
                                                 <div class=\"col-lg-10\">
-                                                    <input type=\"file\" id=\"exampleInputFile\">
+                                                    <input type=\"file\" id=\"exampleInputFile\"  name=\"video\">
                                                 </div>
                                             </div> 
 
                                             <div class=\"form-group \">
                                                 <label for=\"cname\" class=\"control-label col-lg-2\">Charger document <span class=\"required\">*</span></label>
                                                 <div class=\"col-lg-10\">
-                                                    <input type=\"file\" id=\"exampleInputFile\">
+                                                    <input type=\"file\" id=\"exampleInputFile\"  name=\"presentation\">
                                                 </div>
                                             </div> 
                                             <div class=\"form-group \">
@@ -961,14 +961,14 @@ class __TwigTemplate_af45a04dc415743d57a2a23f7ab142791440a6e0440f65dbe5b1e34b8d9
 /*                                             <div class="form-group ">*/
 /*                                                 <label for="cname" class="control-label col-lg-2">Charger Video <span class="required">*</span></label>*/
 /*                                                 <div class="col-lg-10">*/
-/*                                                     <input type="file" id="exampleInputFile">*/
+/*                                                     <input type="file" id="exampleInputFile"  name="video">*/
 /*                                                 </div>*/
 /*                                             </div> */
 /* */
 /*                                             <div class="form-group ">*/
 /*                                                 <label for="cname" class="control-label col-lg-2">Charger document <span class="required">*</span></label>*/
 /*                                                 <div class="col-lg-10">*/
-/*                                                     <input type="file" id="exampleInputFile">*/
+/*                                                     <input type="file" id="exampleInputFile"  name="presentation">*/
 /*                                                 </div>*/
 /*                                             </div> */
 /*                                             <div class="form-group ">*/

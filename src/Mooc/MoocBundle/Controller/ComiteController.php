@@ -61,5 +61,11 @@ class ComiteController extends Controller {
             return $this->render('MoocMoocBundle:Comite:loginComite.html.twig');
         }
     }
+    
+    public function logoutcomiteAction(Request $request) {
+        $session = $this->getRequest()->getSession();
+        $session->clear();
+        return $this->render('MoocMoocBundle:Comite:logincomite.html.twig');
+    }
 }
 

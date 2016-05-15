@@ -1,0 +1,1 @@
+<?php return unserialize('a:1:{i:0;O:54:"Vich\\UploaderBundle\\Mapping\\Annotation\\UploadableField":2:{s:10:"' . "\0" . '*' . "\0" . 'mapping";s:16:"formateur_images";s:19:"' . "\0" . '*' . "\0" . 'fileNameProperty";s:6:"avatar";}}');

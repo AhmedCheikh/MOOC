@@ -1,0 +1,446 @@
+<?php
+
+/* AvanzuAdminThemeBundle:Default:Organismes2.html.twig */
+class __TwigTemplate_f91cd1eca94cafa0f51539d40b66e7f4ed8a53726ba5a9ee6667716391dfa315 extends Twig_Template
+{
+    public function __construct(Twig_Environment $env)
+    {
+        parent::__construct($env);
+
+        // line 1
+        $this->parent = $this->loadTemplate("AvanzuAdminThemeBundle:layout:base-layout.html.twig", "AvanzuAdminThemeBundle:Default:Organismes2.html.twig", 1);
+        $this->blocks = array(
+            'stylesheets' => array($this, 'block_stylesheets'),
+            'page_title' => array($this, 'block_page_title'),
+            'avanzu_sidebar' => array($this, 'block_avanzu_sidebar'),
+            'page_content' => array($this, 'block_page_content'),
+            'javascripts_inline' => array($this, 'block_javascripts_inline'),
+        );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "AvanzuAdminThemeBundle:layout:base-layout.html.twig";
+    }
+
+    protected function doDisplay(array $context, array $blocks = array())
+    {
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 3
+    public function block_stylesheets($context, array $blocks = array())
+    {
+        // line 4
+        echo "        ";
+        $this->displayParentBlock("stylesheets", $context, $blocks);
+        echo "
+        <link rel=\"stylesheet\" href=\"";
+        // line 5
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl((("bundles/avanzuadmintheme/static/" . $this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "environment", array())) . "/styles/dataTables.bootstrap.css")), "html", null, true);
+        echo "\">
+        ";
+    }
+
+    // line 8
+    public function block_page_title($context, array $blocks = array())
+    {
+        echo "Organismes";
+    }
+
+    // line 9
+    public function block_avanzu_sidebar($context, array $blocks = array())
+    {
+        // line 10
+        echo "                    ";
+        // line 15
+        echo "               
+                
+
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class=\"sidebar-menu\">
+            <li class=\"header\">MAIN NAVIGATION</li>
+            <li>
+              <a href='";
+        // line 22
+        echo $this->env->getExtension('routing')->getPath("avanzu_admin_demo");
+        echo "'>
+                <i class=\"fa fa-dashboard\"></i> <span>Dashboard</span> 
+              </a>
+            </li>
+            <li>
+              <a href='";
+        // line 27
+        echo $this->env->getExtension('routing')->getPath("charts");
+        echo "'>
+                <i class=\"fa fa-pie-chart\"></i>
+                <span>Statistiques</span>
+              </a>
+            </li>
+            <li>
+                <a href='";
+        // line 33
+        echo $this->env->getExtension('routing')->getPath("liste_organisme");
+        echo "'>
+                    <i class=\"fa fa-table\"></i> <span>Organismes</span> <small class=\"label pull-right bg-red\">";
+        // line 34
+        echo twig_escape_filter($this->env, (isset($context["nbonv"]) ? $context["nbonv"] : $this->getContext($context, "nbonv")), "html", null, true);
+        echo " non valide</small>
+                </a>
+                
+            </li>
+            
+            <li>
+              <a href='";
+        // line 40
+        echo $this->env->getExtension('routing')->getPath("liste_formateur");
+        echo "'>
+                <i class=\"fa fa-users\"></i> <span>Formateurs</span>
+                <small class=\"label pull-right bg-red\">";
+        // line 42
+        echo twig_escape_filter($this->env, (isset($context["nbfnv"]) ? $context["nbfnv"] : $this->getContext($context, "nbfnv")), "html", null, true);
+        echo " non valide</small>
+              </a>
+            </li>
+            <li>
+                 ";
+    }
+
+    // line 48
+    public function block_page_content($context, array $blocks = array())
+    {
+        echo " 
+    <div id=\"notzi\"></div>
+    <div class=\"row\"> 
+            <div class=\"col-xs-12\">
+    <div class=\"box\">
+                <div class=\"box-header\">
+                  <h3 class=\"box-title\">La liste complète des organismes</h3>
+                </div><!-- /.box-header -->
+                <div class=\"box-body\">
+                  <table id=\"example1\" class=\"table table-bordered table-striped\">
+                    <thead>
+                      <tr>
+                        <th>Organisme</th>
+                        <th>E-mail</th>
+                        <th>Téléphone</th>
+                        <th>Adresse</th>
+                        <th>Etat</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        ";
+        // line 69
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["listeOrganisme"]) ? $context["listeOrganisme"] : $this->getContext($context, "listeOrganisme")));
+        foreach ($context['_seq'] as $context["_key"] => $context["organisme"]) {
+            // line 70
+            echo "                      <tr>
+                        
+                        <td>";
+            // line 72
+            echo twig_escape_filter($this->env, $this->getAttribute($context["organisme"], "nom", array()), "html", null, true);
+            echo "</td>
+                        <td>";
+            // line 73
+            echo twig_escape_filter($this->env, $this->getAttribute($context["organisme"], "email", array()), "html", null, true);
+            echo "</td>
+                        <td> ";
+            // line 74
+            echo twig_escape_filter($this->env, $this->getAttribute($context["organisme"], "telephone", array()), "html", null, true);
+            echo "</td>
+                        <td>";
+            // line 75
+            echo twig_escape_filter($this->env, $this->getAttribute($context["organisme"], "adresse", array()), "html", null, true);
+            echo "</td>
+                        ";
+            // line 76
+            if (($this->getAttribute($context["organisme"], "etat", array()) == 0)) {
+                // line 77
+                echo "                            <td><span class=\"label label-danger\">Non valide</span></td>
+                        ";
+            } else {
+                // line 79
+                echo "                            <td><span class=\"label label-success\">Valide</span></td>
+                            ";
+            }
+            // line 81
+            echo "                        <td><div class=\"btn-group\">
+                      <button type=\"button\" class=\"btn btn-info\">Action</button>
+                      <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\">
+                        <span class=\"caret\"></span>
+                        <span class=\"sr-only\">Toggle Dropdown</span>
+                      </button>
+                      <ul class=\"dropdown-menu\" role=\"menu\">
+                          <li><i class=\"fa fa-info-circle\"><a href=\"";
+            // line 88
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("details_organisme", array("id" => $this->getAttribute($context["organisme"], "idorganisme", array()))), "html", null, true);
+            echo "\" >    Détails</a></i></li>
+                          <li><i class=\"fa fa-list-alt\"><a href=\"";
+            // line 89
+            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl(("uploads/file/document/" . $this->getAttribute($context["organisme"], "document", array()))), "html", null, true);
+            echo "\">    Documents</a></i></li>
+                        
+                         ";
+            // line 91
+            if (($this->getAttribute($context["organisme"], "etat", array()) == 0)) {
+                // line 92
+                echo "                        <li><i class=\"fa fa-check\"><a href=\"";
+                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("valider_organisme", array("id" => $this->getAttribute($context["organisme"], "idorganisme", array()), "mail" => $this->getAttribute($context["organisme"], "email", array()))), "html", null, true);
+                echo "\">    Valider</a></i></li>
+                        ";
+            } else {
+                // line 94
+                echo "                        <li><i class=\"fa fa-times-circle\"><a href=\"";
+                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("bloquer_organisme", array("id" => $this->getAttribute($context["organisme"], "idorganisme", array()))), "html", null, true);
+                echo "\">    Bloquer</a></i></li>
+                        ";
+            }
+            // line 96
+            echo "                        <li class=\"divider\"></li>
+                        <li><i class=\"fa fa-trash-o\"><a href=\"";
+            // line 97
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("supprimer_organisme", array("id" => $this->getAttribute($context["organisme"], "idorganisme", array()))), "html", null, true);
+            echo "\">    Supprimer</a></i></li>
+                      </ul>
+                    </div></td>
+                      </tr>
+                      ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['organisme'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 102
+        echo "                      
+                      </tbody> 
+                  </table>
+                      <a href=\"";
+        // line 105
+        echo $this->env->getExtension('routing')->getPath("print");
+        echo "\" target=\"_blank\" class=\"btn btn-default\"><i class=\"fa fa-print\"></i> Print</a>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div>
+        </div>
+    
+";
+        // line 111
+        $this->displayBlock('javascripts_inline', $context, $blocks);
+        // line 151
+        echo "    
+    ";
+    }
+
+    // line 111
+    public function block_javascripts_inline($context, array $blocks = array())
+    {
+        // line 112
+        echo "    <script>
+      \$(function () {
+        \$(\"#example1\").DataTable();
+        \$('#example2').DataTable({
+          \"paging\": true,
+          \"lengthChange\": false,
+          \"searching\": false,
+          \"ordering\": true,
+          \"info\": true,
+          \"autoWidth\": false
+        });
+      });
+      
+      function notzi(message, type) {
+    
+    var html =  '<div class=\"alert alert-' + type + ' alert-dismissable page-alert\">';
+    html +=     '<button type=\"button\" class=\"close\"><span aria-hidden=\"true\">×</span><span class=\"sr-only\">Close</span></button>';
+    html +=     message;
+    html +=     '</div>';    
+    
+    \$(html).hide().prependTo('#notzi').slideDown(200);
+};
+
+\$( function () {
+    
+    notzi('Un mail a été envoyé à l\\'organisme concerné ', 'success');
+    
+   
+    
+    \$('.page-alert .close').click( function(e) {
+        e.preventDefault();
+        \$(this).closest('.page-alert').slideUp(200);
+    });
+    
+});
+    </script>
+    
+    
+";
+    }
+
+    public function getTemplateName()
+    {
+        return "AvanzuAdminThemeBundle:Default:Organismes2.html.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  239 => 112,  236 => 111,  231 => 151,  229 => 111,  220 => 105,  215 => 102,  204 => 97,  201 => 96,  195 => 94,  189 => 92,  187 => 91,  182 => 89,  178 => 88,  169 => 81,  165 => 79,  161 => 77,  159 => 76,  155 => 75,  151 => 74,  147 => 73,  143 => 72,  139 => 70,  135 => 69,  110 => 48,  101 => 42,  96 => 40,  87 => 34,  83 => 33,  74 => 27,  66 => 22,  57 => 15,  55 => 10,  52 => 9,  46 => 8,  40 => 5,  35 => 4,  32 => 3,  11 => 1,);
+    }
+}
+/* {% extends 'AvanzuAdminThemeBundle:layout:base-layout.html.twig' %}*/
+/* */
+/* {% block stylesheets %}*/
+/*         {{ parent() }}*/
+/*         <link rel="stylesheet" href="{{asset('bundles/avanzuadmintheme/static/'~ app.environment ~'/styles/dataTables.bootstrap.css') }}">*/
+/*         {% endblock %}*/
+/* */
+/* {% block page_title %}Organismes{% endblock %}*/
+/* {% block avanzu_sidebar %}*/
+/*                     {#{% if app.user is not null and is_granted('IS_AUTHENTICATED_FULLY') %}*/
+/*                         {{ render(controller('AvanzuAdminThemeBundle:Sidebar:userPanel')) }}*/
+/*                         {{ render(controller('AvanzuAdminThemeBundle:Sidebar:searchForm')) }}*/
+/*                     {% endif %}*/
+/*                     {{ render(controller('AvanzuAdminThemeBundle:Sidebar:menu', {'request':app.request})) }}#}*/
+/*                */
+/*                 */
+/* */
+/*           <!-- sidebar menu: : style can be found in sidebar.less -->*/
+/*           <ul class="sidebar-menu">*/
+/*             <li class="header">MAIN NAVIGATION</li>*/
+/*             <li>*/
+/*               <a href='{{path('avanzu_admin_demo')}}'>*/
+/*                 <i class="fa fa-dashboard"></i> <span>Dashboard</span> */
+/*               </a>*/
+/*             </li>*/
+/*             <li>*/
+/*               <a href='{{path('charts')}}'>*/
+/*                 <i class="fa fa-pie-chart"></i>*/
+/*                 <span>Statistiques</span>*/
+/*               </a>*/
+/*             </li>*/
+/*             <li>*/
+/*                 <a href='{{path('liste_organisme')}}'>*/
+/*                     <i class="fa fa-table"></i> <span>Organismes</span> <small class="label pull-right bg-red">{{nbonv}} non valide</small>*/
+/*                 </a>*/
+/*                 */
+/*             </li>*/
+/*             */
+/*             <li>*/
+/*               <a href='{{path('liste_formateur')}}'>*/
+/*                 <i class="fa fa-users"></i> <span>Formateurs</span>*/
+/*                 <small class="label pull-right bg-red">{{nbfnv}} non valide</small>*/
+/*               </a>*/
+/*             </li>*/
+/*             <li>*/
+/*                  {% endblock %}*/
+/* */
+/* {% block page_content %} */
+/*     <div id="notzi"></div>*/
+/*     <div class="row"> */
+/*             <div class="col-xs-12">*/
+/*     <div class="box">*/
+/*                 <div class="box-header">*/
+/*                   <h3 class="box-title">La liste complète des organismes</h3>*/
+/*                 </div><!-- /.box-header -->*/
+/*                 <div class="box-body">*/
+/*                   <table id="example1" class="table table-bordered table-striped">*/
+/*                     <thead>*/
+/*                       <tr>*/
+/*                         <th>Organisme</th>*/
+/*                         <th>E-mail</th>*/
+/*                         <th>Téléphone</th>*/
+/*                         <th>Adresse</th>*/
+/*                         <th>Etat</th>*/
+/*                         <th>Actions</th>*/
+/*                       </tr>*/
+/*                     </thead>*/
+/*                     <tbody>*/
+/*                         {% for organisme in listeOrganisme %}*/
+/*                       <tr>*/
+/*                         */
+/*                         <td>{{organisme.nom}}</td>*/
+/*                         <td>{{organisme.email}}</td>*/
+/*                         <td> {{organisme.telephone}}</td>*/
+/*                         <td>{{organisme.adresse}}</td>*/
+/*                         {% if organisme.etat == 0 %}*/
+/*                             <td><span class="label label-danger">Non valide</span></td>*/
+/*                         {% else %}*/
+/*                             <td><span class="label label-success">Valide</span></td>*/
+/*                             {% endif %}*/
+/*                         <td><div class="btn-group">*/
+/*                       <button type="button" class="btn btn-info">Action</button>*/
+/*                       <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">*/
+/*                         <span class="caret"></span>*/
+/*                         <span class="sr-only">Toggle Dropdown</span>*/
+/*                       </button>*/
+/*                       <ul class="dropdown-menu" role="menu">*/
+/*                           <li><i class="fa fa-info-circle"><a href="{{ path('details_organisme', {'id': organisme.idorganisme}) }}" >    Détails</a></i></li>*/
+/*                           <li><i class="fa fa-list-alt"><a href="{{asset('uploads/file/document/' ~ organisme.document)}}">    Documents</a></i></li>*/
+/*                         */
+/*                          {% if organisme.etat == 0 %}*/
+/*                         <li><i class="fa fa-check"><a href="{{ path('valider_organisme', {'id': organisme.idorganisme,'mail': organisme.email}) }}">    Valider</a></i></li>*/
+/*                         {% else %}*/
+/*                         <li><i class="fa fa-times-circle"><a href="{{ path('bloquer_organisme', {'id': organisme.idorganisme}) }}">    Bloquer</a></i></li>*/
+/*                         {% endif %}*/
+/*                         <li class="divider"></li>*/
+/*                         <li><i class="fa fa-trash-o"><a href="{{ path('supprimer_organisme', {'id': organisme.idorganisme}) }}">    Supprimer</a></i></li>*/
+/*                       </ul>*/
+/*                     </div></td>*/
+/*                       </tr>*/
+/*                       {% endfor %}*/
+/*                       */
+/*                       </tbody> */
+/*                   </table>*/
+/*                       <a href="{{ path('print')}}" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>*/
+/*                 </div><!-- /.box-body -->*/
+/*               </div><!-- /.box -->*/
+/*             </div>*/
+/*         </div>*/
+/*     */
+/* {% block javascripts_inline %}*/
+/*     <script>*/
+/*       $(function () {*/
+/*         $("#example1").DataTable();*/
+/*         $('#example2').DataTable({*/
+/*           "paging": true,*/
+/*           "lengthChange": false,*/
+/*           "searching": false,*/
+/*           "ordering": true,*/
+/*           "info": true,*/
+/*           "autoWidth": false*/
+/*         });*/
+/*       });*/
+/*       */
+/*       function notzi(message, type) {*/
+/*     */
+/*     var html =  '<div class="alert alert-' + type + ' alert-dismissable page-alert">';*/
+/*     html +=     '<button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>';*/
+/*     html +=     message;*/
+/*     html +=     '</div>';    */
+/*     */
+/*     $(html).hide().prependTo('#notzi').slideDown(200);*/
+/* };*/
+/* */
+/* $( function () {*/
+/*     */
+/*     notzi('Un mail a été envoyé à l\'organisme concerné ', 'success');*/
+/*     */
+/*    */
+/*     */
+/*     $('.page-alert .close').click( function(e) {*/
+/*         e.preventDefault();*/
+/*         $(this).closest('.page-alert').slideUp(200);*/
+/*     });*/
+/*     */
+/* });*/
+/*     </script>*/
+/*     */
+/*     */
+/* {% endblock %}*/
+/*     */
+/*     {% endblock %}*/

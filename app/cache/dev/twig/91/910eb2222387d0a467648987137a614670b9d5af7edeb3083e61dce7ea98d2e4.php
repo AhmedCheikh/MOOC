@@ -228,7 +228,10 @@ class __TwigTemplate_6a92f556be056f73cad741200c1b16ea7d8275b594b370828e759d47fee
                   </div><!-- /. tools -->
                 </div>
                 <div class=\"box-body\">
-                  <form action=\"#\" method=\"post\">
+                  <form action=\"";
+        // line 135
+        echo $this->env->getExtension('routing')->getPath("admin_mail");
+        echo "\" method=\"post\">
                     <div class=\"form-group\">
                       <input type=\"email\" class=\"form-control\" name=\"emailto\" placeholder=\"Email to:\">
                     </div>
@@ -236,12 +239,13 @@ class __TwigTemplate_6a92f556be056f73cad741200c1b16ea7d8275b594b370828e759d47fee
                       <input type=\"text\" class=\"form-control\" name=\"subject\" placeholder=\"Subject\">
                     </div>
                     <div>
-                      <textarea class=\"textarea\" placeholder=\"Message\" style=\"width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;\"></textarea>
+                      <textarea name=\"Message\" class=\"textarea\" placeholder=\"Message\" style=\"width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;\"></textarea>
                     </div>
+                    <button type=\"submit\" class=\"pull-right btn btn-default\" id=\"sendEmail\">Send <i class=\"fa fa-arrow-circle-right\"></i></button>
                   </form>
                 </div>
                 <div class=\"box-footer clearfix\">
-                  <button class=\"pull-right btn btn-default\" id=\"sendEmail\">Send <i class=\"fa fa-arrow-circle-right\"></i></button>
+                  
                 </div>
               </div>
 
@@ -267,75 +271,9 @@ class __TwigTemplate_6a92f556be056f73cad741200c1b16ea7d8275b594b370828e759d47fee
                 </div><!-- /.box-body -->
                 
               </div><!-- /.box -->
+             
 
-              <!-- Calendar -->
-              <div class=\"box box-solid bg-green-gradient\">
-                <div class=\"box-header\">
-                  <i class=\"fa fa-calendar\"></i>
-                  <h3 class=\"box-title\">Calendar</h3>
-                  <!-- tools box -->
-                  <div class=\"pull-right box-tools\">
-                    <!-- button with a dropdown -->
-                    <div class=\"btn-group\">
-                      <button class=\"btn btn-success btn-sm dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-bars\"></i></button>
-                      <ul class=\"dropdown-menu pull-right\" role=\"menu\">
-                        <li><a href=\"#\">Add new event</a></li>
-                        <li><a href=\"#\">Clear events</a></li>
-                        <li class=\"divider\"></li>
-                        <li><a href=\"#\">View calendar</a></li>
-                      </ul>
-                    </div>
-                    <button class=\"btn btn-success btn-sm\" data-widget=\"collapse\"><i class=\"fa fa-minus\"></i></button>
-                    <button class=\"btn btn-success btn-sm\" data-widget=\"remove\"><i class=\"fa fa-times\"></i></button>
-                  </div><!-- /. tools -->
-                </div><!-- /.box-header -->
-                <div class=\"box-body no-padding\">
-                  <!--The calendar -->
-                  <div id=\"calendar\" style=\"width: 100%\"></div>
-                </div><!-- /.box-body -->
-                <div class=\"box-footer text-black\">
-                  <div class=\"row\">
-                    <div class=\"col-sm-6\">
-                      <!-- Progress bars -->
-                      <div class=\"clearfix\">
-                        <span class=\"pull-left\">Task #1</span>
-                        <small class=\"pull-right\">90%</small>
-                      </div>
-                      <div class=\"progress xs\">
-                        <div class=\"progress-bar progress-bar-green\" style=\"width: 90%;\"></div>
-                      </div>
-
-                      <div class=\"clearfix\">
-                        <span class=\"pull-left\">Task #2</span>
-                        <small class=\"pull-right\">70%</small>
-                      </div>
-                      <div class=\"progress xs\">
-                        <div class=\"progress-bar progress-bar-green\" style=\"width: 70%;\"></div>
-                      </div>
-                    </div><!-- /.col -->
-                    <div class=\"col-sm-6\">
-                      <div class=\"clearfix\">
-                        <span class=\"pull-left\">Task #3</span>
-                        <small class=\"pull-right\">60%</small>
-                      </div>
-                      <div class=\"progress xs\">
-                        <div class=\"progress-bar progress-bar-green\" style=\"width: 60%;\"></div>
-                      </div>
-
-                      <div class=\"clearfix\">
-                        <span class=\"pull-left\">Task #4</span>
-                        <small class=\"pull-right\">40%</small>
-                      </div>
-                      <div class=\"progress xs\">
-                        <div class=\"progress-bar progress-bar-green\" style=\"width: 40%;\"></div>
-                      </div>
-                    </div><!-- /.col -->
-                  </div><!-- /.row -->
-                </div>
-              </div><!-- /.box -->
-
-            </section><!-- right col -->
-          </div><!-- /.row (main row) -->
+              
 
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
@@ -343,32 +281,32 @@ class __TwigTemplate_6a92f556be056f73cad741200c1b16ea7d8275b594b370828e759d47fee
 ";
     }
 
-    // line 249
+    // line 184
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 250
+        // line 185
         echo "    ";
         $this->displayParentBlock("javascripts", $context, $blocks);
         echo "
     <script src=\"";
-        // line 251
+        // line 186
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl((("bundles/avanzuadmintheme/static/" . $this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "environment", array())) . "/scripts/admin-lte-morris.js")), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 252
+        // line 187
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl((("bundles/avanzuadmintheme/static/" . $this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "environment", array())) . "/scripts/morris.min.js")), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 253
+        // line 188
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"), "html", null, true);
         echo "\"></script>
 ";
     }
 
-    // line 256
+    // line 191
     public function block_javascripts_inline($context, array $blocks = array())
     {
-        // line 257
+        // line 192
         echo "    <script>
   \$(document).ready(function () {
     \"use strict\";
@@ -387,217 +325,217 @@ class __TwigTemplate_6a92f556be056f73cad741200c1b16ea7d8275b594b370828e759d47fee
       data: [{
     m: '2015-01', // <-- valid timestamp strings
     a: ";
-        // line 274
+        // line 209
         echo twig_escape_filter($this->env, (isset($context["anjan"]) ? $context["anjan"] : $this->getContext($context, "anjan")), "html", null, true);
         echo ",
     b: ";
-        // line 275
+        // line 210
         echo twig_escape_filter($this->env, (isset($context["ijan"]) ? $context["ijan"] : $this->getContext($context, "ijan")), "html", null, true);
         echo ",
     c: ";
-        // line 276
+        // line 211
         echo twig_escape_filter($this->env, (isset($context["wjan"]) ? $context["wjan"] : $this->getContext($context, "wjan")), "html", null, true);
         echo ",
     d: ";
-        // line 277
+        // line 212
         echo twig_escape_filter($this->env, (isset($context["jjan"]) ? $context["jjan"] : $this->getContext($context, "jjan")), "html", null, true);
         echo "
   }, {
     m: '2015-02',
     a: ";
-        // line 280
+        // line 215
         echo twig_escape_filter($this->env, (isset($context["anfev"]) ? $context["anfev"] : $this->getContext($context, "anfev")), "html", null, true);
         echo ",
     b: ";
-        // line 281
+        // line 216
         echo twig_escape_filter($this->env, (isset($context["ifev"]) ? $context["ifev"] : $this->getContext($context, "ifev")), "html", null, true);
         echo ",
     c: ";
-        // line 282
+        // line 217
         echo twig_escape_filter($this->env, (isset($context["wfev"]) ? $context["wfev"] : $this->getContext($context, "wfev")), "html", null, true);
         echo ",
     d: ";
-        // line 283
+        // line 218
         echo twig_escape_filter($this->env, (isset($context["jfev"]) ? $context["jfev"] : $this->getContext($context, "jfev")), "html", null, true);
         echo "
   }, {
     m: '2015-03',
     a: ";
-        // line 286
+        // line 221
         echo twig_escape_filter($this->env, (isset($context["anmars"]) ? $context["anmars"] : $this->getContext($context, "anmars")), "html", null, true);
         echo ",
     b: ";
-        // line 287
+        // line 222
         echo twig_escape_filter($this->env, (isset($context["imars"]) ? $context["imars"] : $this->getContext($context, "imars")), "html", null, true);
         echo ",
     c: ";
-        // line 288
+        // line 223
         echo twig_escape_filter($this->env, (isset($context["wmars"]) ? $context["wmars"] : $this->getContext($context, "wmars")), "html", null, true);
         echo ",
     d: ";
-        // line 289
+        // line 224
         echo twig_escape_filter($this->env, (isset($context["jmars"]) ? $context["jmars"] : $this->getContext($context, "jmars")), "html", null, true);
         echo "
   }, {
     m: '2015-04',
     a: ";
-        // line 292
+        // line 227
         echo twig_escape_filter($this->env, (isset($context["anav"]) ? $context["anav"] : $this->getContext($context, "anav")), "html", null, true);
         echo ",
     b: ";
-        // line 293
+        // line 228
         echo twig_escape_filter($this->env, (isset($context["iav"]) ? $context["iav"] : $this->getContext($context, "iav")), "html", null, true);
         echo ",
     c: ";
-        // line 294
+        // line 229
         echo twig_escape_filter($this->env, (isset($context["wav"]) ? $context["wav"] : $this->getContext($context, "wav")), "html", null, true);
         echo ",
     d: ";
-        // line 295
+        // line 230
         echo twig_escape_filter($this->env, (isset($context["jav"]) ? $context["jav"] : $this->getContext($context, "jav")), "html", null, true);
         echo "
   }, {
     m: '2015-05',
     a: ";
-        // line 298
+        // line 233
         echo twig_escape_filter($this->env, (isset($context["anmai"]) ? $context["anmai"] : $this->getContext($context, "anmai")), "html", null, true);
         echo ",
     b: ";
-        // line 299
+        // line 234
         echo twig_escape_filter($this->env, (isset($context["imai"]) ? $context["imai"] : $this->getContext($context, "imai")), "html", null, true);
         echo ",
     c: ";
-        // line 300
+        // line 235
         echo twig_escape_filter($this->env, (isset($context["wmai"]) ? $context["wmai"] : $this->getContext($context, "wmai")), "html", null, true);
         echo ",
     d: ";
-        // line 301
+        // line 236
         echo twig_escape_filter($this->env, (isset($context["jmai"]) ? $context["jmai"] : $this->getContext($context, "jmai")), "html", null, true);
         echo "
   }, {
     m: '2015-06',
     a: ";
-        // line 304
+        // line 239
         echo twig_escape_filter($this->env, (isset($context["anjuin"]) ? $context["anjuin"] : $this->getContext($context, "anjuin")), "html", null, true);
         echo ",
     b: ";
-        // line 305
+        // line 240
         echo twig_escape_filter($this->env, (isset($context["ijuin"]) ? $context["ijuin"] : $this->getContext($context, "ijuin")), "html", null, true);
         echo ",
     c: ";
-        // line 306
+        // line 241
         echo twig_escape_filter($this->env, (isset($context["wjuin"]) ? $context["wjuin"] : $this->getContext($context, "wjuin")), "html", null, true);
         echo ",
     d: ";
-        // line 307
+        // line 242
         echo twig_escape_filter($this->env, (isset($context["jjuin"]) ? $context["jjuin"] : $this->getContext($context, "jjuin")), "html", null, true);
         echo "
   }, {
     m: '2015-07',
     a: ";
-        // line 310
+        // line 245
         echo twig_escape_filter($this->env, (isset($context["anjuillet"]) ? $context["anjuillet"] : $this->getContext($context, "anjuillet")), "html", null, true);
         echo ",
     b: ";
-        // line 311
+        // line 246
         echo twig_escape_filter($this->env, (isset($context["ijuillet"]) ? $context["ijuillet"] : $this->getContext($context, "ijuillet")), "html", null, true);
         echo ",
     c: ";
-        // line 312
+        // line 247
         echo twig_escape_filter($this->env, (isset($context["wjuillet"]) ? $context["wjuillet"] : $this->getContext($context, "wjuillet")), "html", null, true);
         echo ",
     d: ";
-        // line 313
+        // line 248
         echo twig_escape_filter($this->env, (isset($context["jjuillet"]) ? $context["jjuillet"] : $this->getContext($context, "jjuillet")), "html", null, true);
         echo "
   }, {
     m: '2015-08',
     a: ";
-        // line 316
+        // line 251
         echo twig_escape_filter($this->env, (isset($context["anaout"]) ? $context["anaout"] : $this->getContext($context, "anaout")), "html", null, true);
         echo ",
     b: ";
-        // line 317
+        // line 252
         echo twig_escape_filter($this->env, (isset($context["iaout"]) ? $context["iaout"] : $this->getContext($context, "iaout")), "html", null, true);
         echo ",
     c: ";
-        // line 318
+        // line 253
         echo twig_escape_filter($this->env, (isset($context["waout"]) ? $context["waout"] : $this->getContext($context, "waout")), "html", null, true);
         echo ",
     d: ";
-        // line 319
+        // line 254
         echo twig_escape_filter($this->env, (isset($context["jaout"]) ? $context["jaout"] : $this->getContext($context, "jaout")), "html", null, true);
         echo "
   }, {
     m: '2015-09',
     a: ";
-        // line 322
+        // line 257
         echo twig_escape_filter($this->env, (isset($context["ansep"]) ? $context["ansep"] : $this->getContext($context, "ansep")), "html", null, true);
         echo ",
     b: ";
-        // line 323
+        // line 258
         echo twig_escape_filter($this->env, (isset($context["isep"]) ? $context["isep"] : $this->getContext($context, "isep")), "html", null, true);
         echo ",
     c: ";
-        // line 324
+        // line 259
         echo twig_escape_filter($this->env, (isset($context["wsep"]) ? $context["wsep"] : $this->getContext($context, "wsep")), "html", null, true);
         echo ",
     d: ";
-        // line 325
+        // line 260
         echo twig_escape_filter($this->env, (isset($context["jsep"]) ? $context["jsep"] : $this->getContext($context, "jsep")), "html", null, true);
         echo "
   }, {
     m: '2015-10',
     a: ";
-        // line 328
+        // line 263
         echo twig_escape_filter($this->env, (isset($context["anoc"]) ? $context["anoc"] : $this->getContext($context, "anoc")), "html", null, true);
         echo ",
     b: ";
-        // line 329
+        // line 264
         echo twig_escape_filter($this->env, (isset($context["ioc"]) ? $context["ioc"] : $this->getContext($context, "ioc")), "html", null, true);
         echo ",
     c: ";
-        // line 330
+        // line 265
         echo twig_escape_filter($this->env, (isset($context["woc"]) ? $context["woc"] : $this->getContext($context, "woc")), "html", null, true);
         echo ",
     d: ";
-        // line 331
+        // line 266
         echo twig_escape_filter($this->env, (isset($context["joc"]) ? $context["joc"] : $this->getContext($context, "joc")), "html", null, true);
         echo "
   }, {
     m: '2015-11',
     a: ";
-        // line 334
+        // line 269
         echo twig_escape_filter($this->env, (isset($context["annov"]) ? $context["annov"] : $this->getContext($context, "annov")), "html", null, true);
         echo ",
     b: ";
-        // line 335
+        // line 270
         echo twig_escape_filter($this->env, (isset($context["inov"]) ? $context["inov"] : $this->getContext($context, "inov")), "html", null, true);
         echo ",
     c: ";
-        // line 336
+        // line 271
         echo twig_escape_filter($this->env, (isset($context["wnov"]) ? $context["wnov"] : $this->getContext($context, "wnov")), "html", null, true);
         echo ",
     d: ";
-        // line 337
+        // line 272
         echo twig_escape_filter($this->env, (isset($context["jnov"]) ? $context["jnov"] : $this->getContext($context, "jnov")), "html", null, true);
         echo "
   }, {
     m: '2015-12',
     a: ";
-        // line 340
+        // line 275
         echo twig_escape_filter($this->env, (isset($context["andec"]) ? $context["andec"] : $this->getContext($context, "andec")), "html", null, true);
         echo ",
     b: ";
-        // line 341
+        // line 276
         echo twig_escape_filter($this->env, (isset($context["idec"]) ? $context["idec"] : $this->getContext($context, "idec")), "html", null, true);
         echo ",
     c: ";
-        // line 342
+        // line 277
         echo twig_escape_filter($this->env, (isset($context["wdec"]) ? $context["wdec"] : $this->getContext($context, "wdec")), "html", null, true);
         echo ",
     d: ";
-        // line 343
+        // line 278
         echo twig_escape_filter($this->env, (isset($context["jdec"]) ? $context["jdec"] : $this->getContext($context, "jdec")), "html", null, true);
         echo "
   }, ],
@@ -627,19 +565,19 @@ class __TwigTemplate_6a92f556be056f73cad741200c1b16ea7d8275b594b370828e759d47fee
       
       data: [
         {label:\"Android\", value:";
-        // line 370
+        // line 305
         echo twig_escape_filter($this->env, (isset($context["nband"]) ? $context["nband"] : $this->getContext($context, "nband")), "html", null, true);
         echo " },
         {label:\"iOS\", value:";
-        // line 371
+        // line 306
         echo twig_escape_filter($this->env, (isset($context["nbiOS"]) ? $context["nbiOS"] : $this->getContext($context, "nbiOS")), "html", null, true);
         echo " },
         {label:\"Windows Phone\", value:";
-        // line 372
+        // line 307
         echo twig_escape_filter($this->env, (isset($context["nbWP"]) ? $context["nbWP"] : $this->getContext($context, "nbWP")), "html", null, true);
         echo " },
         {label:\"J2ME\", value:";
-        // line 373
+        // line 308
         echo twig_escape_filter($this->env, (isset($context["nbJ2ME"]) ? $context["nbJ2ME"] : $this->getContext($context, "nbJ2ME")), "html", null, true);
         echo " },
         
@@ -655,217 +593,217 @@ class __TwigTemplate_6a92f556be056f73cad741200c1b16ea7d8275b594b370828e759d47fee
       data: [{
     m: '2015-01', // <-- valid timestamp strings
     a: ";
-        // line 386
+        // line 321
         echo twig_escape_filter($this->env, (isset($context["anjan"]) ? $context["anjan"] : $this->getContext($context, "anjan")), "html", null, true);
         echo ",
     b: ";
-        // line 387
+        // line 322
         echo twig_escape_filter($this->env, (isset($context["ijan"]) ? $context["ijan"] : $this->getContext($context, "ijan")), "html", null, true);
         echo ",
     c: ";
-        // line 388
+        // line 323
         echo twig_escape_filter($this->env, (isset($context["wjan"]) ? $context["wjan"] : $this->getContext($context, "wjan")), "html", null, true);
         echo ",
     d: ";
-        // line 389
+        // line 324
         echo twig_escape_filter($this->env, (isset($context["jjan"]) ? $context["jjan"] : $this->getContext($context, "jjan")), "html", null, true);
         echo "
   }, {
     m: '2015-02',
     a: ";
-        // line 392
+        // line 327
         echo twig_escape_filter($this->env, (isset($context["anfev"]) ? $context["anfev"] : $this->getContext($context, "anfev")), "html", null, true);
         echo ",
     b: ";
-        // line 393
+        // line 328
         echo twig_escape_filter($this->env, (isset($context["ifev"]) ? $context["ifev"] : $this->getContext($context, "ifev")), "html", null, true);
         echo ",
     c: ";
-        // line 394
+        // line 329
         echo twig_escape_filter($this->env, (isset($context["wfev"]) ? $context["wfev"] : $this->getContext($context, "wfev")), "html", null, true);
         echo ",
     d: ";
-        // line 395
+        // line 330
         echo twig_escape_filter($this->env, (isset($context["jfev"]) ? $context["jfev"] : $this->getContext($context, "jfev")), "html", null, true);
         echo "
   }, {
     m: '2015-03',
     a: ";
-        // line 398
+        // line 333
         echo twig_escape_filter($this->env, (isset($context["anmars"]) ? $context["anmars"] : $this->getContext($context, "anmars")), "html", null, true);
         echo ",
     b: ";
-        // line 399
+        // line 334
         echo twig_escape_filter($this->env, (isset($context["imars"]) ? $context["imars"] : $this->getContext($context, "imars")), "html", null, true);
         echo ",
     c: ";
-        // line 400
+        // line 335
         echo twig_escape_filter($this->env, (isset($context["wmars"]) ? $context["wmars"] : $this->getContext($context, "wmars")), "html", null, true);
         echo ",
     d: ";
-        // line 401
+        // line 336
         echo twig_escape_filter($this->env, (isset($context["jmars"]) ? $context["jmars"] : $this->getContext($context, "jmars")), "html", null, true);
         echo "
   }, {
     m: '2015-04',
     a: ";
-        // line 404
+        // line 339
         echo twig_escape_filter($this->env, (isset($context["anav"]) ? $context["anav"] : $this->getContext($context, "anav")), "html", null, true);
         echo ",
     b: ";
-        // line 405
+        // line 340
         echo twig_escape_filter($this->env, (isset($context["iav"]) ? $context["iav"] : $this->getContext($context, "iav")), "html", null, true);
         echo ",
     c: ";
-        // line 406
+        // line 341
         echo twig_escape_filter($this->env, (isset($context["wav"]) ? $context["wav"] : $this->getContext($context, "wav")), "html", null, true);
         echo ",
     d: ";
-        // line 407
+        // line 342
         echo twig_escape_filter($this->env, (isset($context["jav"]) ? $context["jav"] : $this->getContext($context, "jav")), "html", null, true);
         echo "
   }, {
     m: '2015-05',
     a: ";
-        // line 410
+        // line 345
         echo twig_escape_filter($this->env, (isset($context["anmai"]) ? $context["anmai"] : $this->getContext($context, "anmai")), "html", null, true);
         echo ",
     b: ";
-        // line 411
+        // line 346
         echo twig_escape_filter($this->env, (isset($context["imai"]) ? $context["imai"] : $this->getContext($context, "imai")), "html", null, true);
         echo ",
     c: ";
-        // line 412
+        // line 347
         echo twig_escape_filter($this->env, (isset($context["wmai"]) ? $context["wmai"] : $this->getContext($context, "wmai")), "html", null, true);
         echo ",
     d: ";
-        // line 413
+        // line 348
         echo twig_escape_filter($this->env, (isset($context["jmai"]) ? $context["jmai"] : $this->getContext($context, "jmai")), "html", null, true);
         echo "
   }, {
     m: '2015-06',
     a: ";
-        // line 416
+        // line 351
         echo twig_escape_filter($this->env, (isset($context["anjuin"]) ? $context["anjuin"] : $this->getContext($context, "anjuin")), "html", null, true);
         echo ",
     b: ";
-        // line 417
+        // line 352
         echo twig_escape_filter($this->env, (isset($context["ijuin"]) ? $context["ijuin"] : $this->getContext($context, "ijuin")), "html", null, true);
         echo ",
     c: ";
-        // line 418
+        // line 353
         echo twig_escape_filter($this->env, (isset($context["wjuin"]) ? $context["wjuin"] : $this->getContext($context, "wjuin")), "html", null, true);
         echo ",
     d: ";
-        // line 419
+        // line 354
         echo twig_escape_filter($this->env, (isset($context["jjuin"]) ? $context["jjuin"] : $this->getContext($context, "jjuin")), "html", null, true);
         echo "
   }, {
     m: '2015-07',
     a: ";
-        // line 422
+        // line 357
         echo twig_escape_filter($this->env, (isset($context["anjuillet"]) ? $context["anjuillet"] : $this->getContext($context, "anjuillet")), "html", null, true);
         echo ",
     b: ";
-        // line 423
+        // line 358
         echo twig_escape_filter($this->env, (isset($context["ijuillet"]) ? $context["ijuillet"] : $this->getContext($context, "ijuillet")), "html", null, true);
         echo ",
     c: ";
-        // line 424
+        // line 359
         echo twig_escape_filter($this->env, (isset($context["wjuillet"]) ? $context["wjuillet"] : $this->getContext($context, "wjuillet")), "html", null, true);
         echo ",
     d: ";
-        // line 425
+        // line 360
         echo twig_escape_filter($this->env, (isset($context["jjuillet"]) ? $context["jjuillet"] : $this->getContext($context, "jjuillet")), "html", null, true);
         echo "
   }, {
     m: '2015-08',
     a: ";
-        // line 428
+        // line 363
         echo twig_escape_filter($this->env, (isset($context["anaout"]) ? $context["anaout"] : $this->getContext($context, "anaout")), "html", null, true);
         echo ",
     b: ";
-        // line 429
+        // line 364
         echo twig_escape_filter($this->env, (isset($context["iaout"]) ? $context["iaout"] : $this->getContext($context, "iaout")), "html", null, true);
         echo ",
     c: ";
-        // line 430
+        // line 365
         echo twig_escape_filter($this->env, (isset($context["waout"]) ? $context["waout"] : $this->getContext($context, "waout")), "html", null, true);
         echo ",
     d: ";
-        // line 431
+        // line 366
         echo twig_escape_filter($this->env, (isset($context["jaout"]) ? $context["jaout"] : $this->getContext($context, "jaout")), "html", null, true);
         echo "
   }, {
     m: '2015-09',
     a: ";
-        // line 434
+        // line 369
         echo twig_escape_filter($this->env, (isset($context["ansep"]) ? $context["ansep"] : $this->getContext($context, "ansep")), "html", null, true);
         echo ",
     b: ";
-        // line 435
+        // line 370
         echo twig_escape_filter($this->env, (isset($context["isep"]) ? $context["isep"] : $this->getContext($context, "isep")), "html", null, true);
         echo ",
     c: ";
-        // line 436
+        // line 371
         echo twig_escape_filter($this->env, (isset($context["wsep"]) ? $context["wsep"] : $this->getContext($context, "wsep")), "html", null, true);
         echo ",
     d: ";
-        // line 437
+        // line 372
         echo twig_escape_filter($this->env, (isset($context["jsep"]) ? $context["jsep"] : $this->getContext($context, "jsep")), "html", null, true);
         echo "
   }, {
     m: '2015-10',
     a: ";
-        // line 440
+        // line 375
         echo twig_escape_filter($this->env, (isset($context["anoc"]) ? $context["anoc"] : $this->getContext($context, "anoc")), "html", null, true);
         echo ",
     b: ";
-        // line 441
+        // line 376
         echo twig_escape_filter($this->env, (isset($context["ioc"]) ? $context["ioc"] : $this->getContext($context, "ioc")), "html", null, true);
         echo ",
     c: ";
-        // line 442
+        // line 377
         echo twig_escape_filter($this->env, (isset($context["woc"]) ? $context["woc"] : $this->getContext($context, "woc")), "html", null, true);
         echo ",
     d: ";
-        // line 443
+        // line 378
         echo twig_escape_filter($this->env, (isset($context["joc"]) ? $context["joc"] : $this->getContext($context, "joc")), "html", null, true);
         echo "
   }, {
     m: '2015-11',
     a: ";
-        // line 446
+        // line 381
         echo twig_escape_filter($this->env, (isset($context["annov"]) ? $context["annov"] : $this->getContext($context, "annov")), "html", null, true);
         echo ",
     b: ";
-        // line 447
+        // line 382
         echo twig_escape_filter($this->env, (isset($context["inov"]) ? $context["inov"] : $this->getContext($context, "inov")), "html", null, true);
         echo ",
     c: ";
-        // line 448
+        // line 383
         echo twig_escape_filter($this->env, (isset($context["wnov"]) ? $context["wnov"] : $this->getContext($context, "wnov")), "html", null, true);
         echo ",
     d: ";
-        // line 449
+        // line 384
         echo twig_escape_filter($this->env, (isset($context["jnov"]) ? $context["jnov"] : $this->getContext($context, "jnov")), "html", null, true);
         echo "
   }, {
     m: '2015-12',
     a: ";
-        // line 452
+        // line 387
         echo twig_escape_filter($this->env, (isset($context["andec"]) ? $context["andec"] : $this->getContext($context, "andec")), "html", null, true);
         echo ",
     b: ";
-        // line 453
+        // line 388
         echo twig_escape_filter($this->env, (isset($context["idec"]) ? $context["idec"] : $this->getContext($context, "idec")), "html", null, true);
         echo ",
     c: ";
-        // line 454
+        // line 389
         echo twig_escape_filter($this->env, (isset($context["wdec"]) ? $context["wdec"] : $this->getContext($context, "wdec")), "html", null, true);
         echo ",
     d: ";
-        // line 455
+        // line 390
         echo twig_escape_filter($this->env, (isset($context["jdec"]) ? $context["jdec"] : $this->getContext($context, "jdec")), "html", null, true);
         echo "
   }, ],
@@ -898,7 +836,7 @@ class __TwigTemplate_6a92f556be056f73cad741200c1b16ea7d8275b594b370828e759d47fee
 
     public function getDebugInfo()
     {
-        return array (  869 => 455,  865 => 454,  861 => 453,  857 => 452,  851 => 449,  847 => 448,  843 => 447,  839 => 446,  833 => 443,  829 => 442,  825 => 441,  821 => 440,  815 => 437,  811 => 436,  807 => 435,  803 => 434,  797 => 431,  793 => 430,  789 => 429,  785 => 428,  779 => 425,  775 => 424,  771 => 423,  767 => 422,  761 => 419,  757 => 418,  753 => 417,  749 => 416,  743 => 413,  739 => 412,  735 => 411,  731 => 410,  725 => 407,  721 => 406,  717 => 405,  713 => 404,  707 => 401,  703 => 400,  699 => 399,  695 => 398,  689 => 395,  685 => 394,  681 => 393,  677 => 392,  671 => 389,  667 => 388,  663 => 387,  659 => 386,  643 => 373,  639 => 372,  635 => 371,  631 => 370,  601 => 343,  597 => 342,  593 => 341,  589 => 340,  583 => 337,  579 => 336,  575 => 335,  571 => 334,  565 => 331,  561 => 330,  557 => 329,  553 => 328,  547 => 325,  543 => 324,  539 => 323,  535 => 322,  529 => 319,  525 => 318,  521 => 317,  517 => 316,  511 => 313,  507 => 312,  503 => 311,  499 => 310,  493 => 307,  489 => 306,  485 => 305,  481 => 304,  475 => 301,  471 => 300,  467 => 299,  463 => 298,  457 => 295,  453 => 294,  449 => 293,  445 => 292,  439 => 289,  435 => 288,  431 => 287,  427 => 286,  421 => 283,  417 => 282,  413 => 281,  409 => 280,  403 => 277,  399 => 276,  395 => 275,  391 => 274,  372 => 257,  369 => 256,  363 => 253,  359 => 252,  355 => 251,  350 => 250,  347 => 249,  191 => 96,  181 => 89,  172 => 83,  162 => 76,  153 => 70,  137 => 57,  126 => 50,  117 => 45,  112 => 43,  103 => 37,  99 => 36,  90 => 30,  82 => 25,  73 => 18,  71 => 13,  68 => 12,  62 => 11,  56 => 10,  50 => 7,  46 => 6,  42 => 5,  37 => 4,  34 => 3,  11 => 1,);
+        return array (  807 => 390,  803 => 389,  799 => 388,  795 => 387,  789 => 384,  785 => 383,  781 => 382,  777 => 381,  771 => 378,  767 => 377,  763 => 376,  759 => 375,  753 => 372,  749 => 371,  745 => 370,  741 => 369,  735 => 366,  731 => 365,  727 => 364,  723 => 363,  717 => 360,  713 => 359,  709 => 358,  705 => 357,  699 => 354,  695 => 353,  691 => 352,  687 => 351,  681 => 348,  677 => 347,  673 => 346,  669 => 345,  663 => 342,  659 => 341,  655 => 340,  651 => 339,  645 => 336,  641 => 335,  637 => 334,  633 => 333,  627 => 330,  623 => 329,  619 => 328,  615 => 327,  609 => 324,  605 => 323,  601 => 322,  597 => 321,  581 => 308,  577 => 307,  573 => 306,  569 => 305,  539 => 278,  535 => 277,  531 => 276,  527 => 275,  521 => 272,  517 => 271,  513 => 270,  509 => 269,  503 => 266,  499 => 265,  495 => 264,  491 => 263,  485 => 260,  481 => 259,  477 => 258,  473 => 257,  467 => 254,  463 => 253,  459 => 252,  455 => 251,  449 => 248,  445 => 247,  441 => 246,  437 => 245,  431 => 242,  427 => 241,  423 => 240,  419 => 239,  413 => 236,  409 => 235,  405 => 234,  401 => 233,  395 => 230,  391 => 229,  387 => 228,  383 => 227,  377 => 224,  373 => 223,  369 => 222,  365 => 221,  359 => 218,  355 => 217,  351 => 216,  347 => 215,  341 => 212,  337 => 211,  333 => 210,  329 => 209,  310 => 192,  307 => 191,  301 => 188,  297 => 187,  293 => 186,  288 => 185,  285 => 184,  233 => 135,  191 => 96,  181 => 89,  172 => 83,  162 => 76,  153 => 70,  137 => 57,  126 => 50,  117 => 45,  112 => 43,  103 => 37,  99 => 36,  90 => 30,  82 => 25,  73 => 18,  71 => 13,  68 => 12,  62 => 11,  56 => 10,  50 => 7,  46 => 6,  42 => 5,  37 => 4,  34 => 3,  11 => 1,);
     }
 }
 /* {% extends 'AvanzuAdminThemeBundle:layout:base-layout.html.twig' %}*/
@@ -1035,7 +973,7 @@ class __TwigTemplate_6a92f556be056f73cad741200c1b16ea7d8275b594b370828e759d47fee
 /*                   </div><!-- /. tools -->*/
 /*                 </div>*/
 /*                 <div class="box-body">*/
-/*                   <form action="#" method="post">*/
+/*                   <form action="{{path('admin_mail')}}" method="post">*/
 /*                     <div class="form-group">*/
 /*                       <input type="email" class="form-control" name="emailto" placeholder="Email to:">*/
 /*                     </div>*/
@@ -1043,12 +981,13 @@ class __TwigTemplate_6a92f556be056f73cad741200c1b16ea7d8275b594b370828e759d47fee
 /*                       <input type="text" class="form-control" name="subject" placeholder="Subject">*/
 /*                     </div>*/
 /*                     <div>*/
-/*                       <textarea class="textarea" placeholder="Message" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>*/
+/*                       <textarea name="Message" class="textarea" placeholder="Message" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>*/
 /*                     </div>*/
+/*                     <button type="submit" class="pull-right btn btn-default" id="sendEmail">Send <i class="fa fa-arrow-circle-right"></i></button>*/
 /*                   </form>*/
 /*                 </div>*/
 /*                 <div class="box-footer clearfix">*/
-/*                   <button class="pull-right btn btn-default" id="sendEmail">Send <i class="fa fa-arrow-circle-right"></i></button>*/
+/*                   */
 /*                 </div>*/
 /*               </div>*/
 /* */
@@ -1074,75 +1013,9 @@ class __TwigTemplate_6a92f556be056f73cad741200c1b16ea7d8275b594b370828e759d47fee
 /*                 </div><!-- /.box-body -->*/
 /*                 */
 /*               </div><!-- /.box -->*/
+/*              */
 /* */
-/*               <!-- Calendar -->*/
-/*               <div class="box box-solid bg-green-gradient">*/
-/*                 <div class="box-header">*/
-/*                   <i class="fa fa-calendar"></i>*/
-/*                   <h3 class="box-title">Calendar</h3>*/
-/*                   <!-- tools box -->*/
-/*                   <div class="pull-right box-tools">*/
-/*                     <!-- button with a dropdown -->*/
-/*                     <div class="btn-group">*/
-/*                       <button class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></button>*/
-/*                       <ul class="dropdown-menu pull-right" role="menu">*/
-/*                         <li><a href="#">Add new event</a></li>*/
-/*                         <li><a href="#">Clear events</a></li>*/
-/*                         <li class="divider"></li>*/
-/*                         <li><a href="#">View calendar</a></li>*/
-/*                       </ul>*/
-/*                     </div>*/
-/*                     <button class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>*/
-/*                     <button class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i></button>*/
-/*                   </div><!-- /. tools -->*/
-/*                 </div><!-- /.box-header -->*/
-/*                 <div class="box-body no-padding">*/
-/*                   <!--The calendar -->*/
-/*                   <div id="calendar" style="width: 100%"></div>*/
-/*                 </div><!-- /.box-body -->*/
-/*                 <div class="box-footer text-black">*/
-/*                   <div class="row">*/
-/*                     <div class="col-sm-6">*/
-/*                       <!-- Progress bars -->*/
-/*                       <div class="clearfix">*/
-/*                         <span class="pull-left">Task #1</span>*/
-/*                         <small class="pull-right">90%</small>*/
-/*                       </div>*/
-/*                       <div class="progress xs">*/
-/*                         <div class="progress-bar progress-bar-green" style="width: 90%;"></div>*/
-/*                       </div>*/
-/* */
-/*                       <div class="clearfix">*/
-/*                         <span class="pull-left">Task #2</span>*/
-/*                         <small class="pull-right">70%</small>*/
-/*                       </div>*/
-/*                       <div class="progress xs">*/
-/*                         <div class="progress-bar progress-bar-green" style="width: 70%;"></div>*/
-/*                       </div>*/
-/*                     </div><!-- /.col -->*/
-/*                     <div class="col-sm-6">*/
-/*                       <div class="clearfix">*/
-/*                         <span class="pull-left">Task #3</span>*/
-/*                         <small class="pull-right">60%</small>*/
-/*                       </div>*/
-/*                       <div class="progress xs">*/
-/*                         <div class="progress-bar progress-bar-green" style="width: 60%;"></div>*/
-/*                       </div>*/
-/* */
-/*                       <div class="clearfix">*/
-/*                         <span class="pull-left">Task #4</span>*/
-/*                         <small class="pull-right">40%</small>*/
-/*                       </div>*/
-/*                       <div class="progress xs">*/
-/*                         <div class="progress-bar progress-bar-green" style="width: 40%;"></div>*/
-/*                       </div>*/
-/*                     </div><!-- /.col -->*/
-/*                   </div><!-- /.row -->*/
-/*                 </div>*/
-/*               </div><!-- /.box -->*/
-/* */
-/*             </section><!-- right col -->*/
-/*           </div><!-- /.row (main row) -->*/
+/*               */
 /* */
 /*         </section><!-- /.content -->*/
 /*       </div><!-- /.content-wrapper -->*/

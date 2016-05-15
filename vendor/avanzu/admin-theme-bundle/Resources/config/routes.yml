@@ -1,43 +1,19 @@
 avanzu_admin_home:
   path: /
-  defaults: {_controller: AvanzuAdminThemeBundle:Default:dashboard}
-avanzu_admin_profile:
-  path: /profile/{userid}/
-avanzu_admin_logout:
-  path: /logout
-avanzu_admin_all_tasks:
-  path: /tasks/
-avanzu_admin_show_task:
-  path: /tasks/{taskid}/
-avanzu_admin_all_notifications:
-  path: /notifications/
-avanzu_admin_show_notification:
-  path: /notifications/{notifyid}/
-avanzu_admin_all_messages:
-  path: /messages/
-avanzu_admin_show_message:
-  path: /messages/{messageid}/
-
+  defaults: {_controller: AvanzuAdminThemeBundle:Dashboard:dashboard}
 
 
 avanzu_admin_demo:
   path: /
-  defaults: {_controller: AvanzuAdminThemeBundle:Default:dashboard}
-avanzu_admin_form_demo:
-  path: /demo-admin/form-demo/
-  defaults: {_controller: AvanzuAdminThemeBundle:Default:form}
+  defaults: {_controller: AvanzuAdminThemeBundle:Dashboard:dashboard}
 
-avanzu_admin_login_demo:
-  path: /demo-admin/login/
-  defaults: {_controller: AvanzuAdminThemeBundle:Default:login}
+admin_mail:
+    path: /admin-mail
+    defaults: {_controller: AvanzuAdminThemeBundle:Default:adminMail}
 
-avanzu_admin_dash_demo:
-  path: /demo-admin/dashboard/
-  defaults: {_controller: AvanzuAdminThemeBundle:Default:dashboard}
-  
 avanzu_admin_dashboard:
   path: /dashboard/
-  defaults: {_controller: AvanzuAdminThemeBundle:Default:dashboard2}
+  defaults: {_controller: AvanzuAdminThemeBundle:Dashboard:dashboard}
 
 avanzu_admin_ui_gen_demo:
   path: /demo-admin/ui-elements/general/
@@ -49,7 +25,11 @@ avanzu_admin_ui_icon_demo:
   
 liste_organisme:
   path: /liste-organisme
-  defaults: {_controller: AvanzuAdminThemeBundle:Default:listeOrganisme}
+  defaults: {_controller: AvanzuAdminThemeBundle:Organisme:listeOrganisme}
+  
+liste_organisme2:
+  path: /listee-organisme
+  defaults: {_controller: AvanzuAdminThemeBundle:Organisme:listeOrganisme2}
   
 liste_formateur:
   path: /liste-formateur
@@ -57,7 +37,7 @@ liste_formateur:
   
 charts:
   path: /charts
-  defaults: {_controller: AvanzuAdminThemeBundle:Default:charts}
+  defaults: {_controller: AvanzuAdminThemeBundle:Charts:charts}
   
 test:
   path: /test
@@ -65,15 +45,15 @@ test:
   
 details_organisme:
   path: /details-organisme/{id}
-  defaults: {_controller: AvanzuAdminThemeBundle:Default:detailsOrganisme}  
+  defaults: {_controller: AvanzuAdminThemeBundle:Organisme:detailsOrganisme}  
     
 valider_organisme: 
-  path: /valider-organisme/{id}
-  defaults: {_controller: AvanzuAdminThemeBundle:Default:validerOrganisme}  
+  path: /valider-organisme/{id}/{mail}
+  defaults: {_controller: AvanzuAdminThemeBundle:Organisme:validerOrganisme}  
   
 bloquer_organisme: 
   path: /bloquer-organisme/{id}
-  defaults: {_controller: AvanzuAdminThemeBundle:Default:bloquerOrganisme} 
+  defaults: {_controller: AvanzuAdminThemeBundle:Organisme:bloquerOrganisme} 
   
 supprimer_organisme: 
   path: /supprimer-organisme/{id}
@@ -81,7 +61,12 @@ supprimer_organisme:
   
 print: 
   path: /print
-  defaults: {_controller: AvanzuAdminThemeBundle:Default:print}
+  defaults: {_controller: AvanzuAdminThemeBundle:Organisme:print}
+  
+admin_mail_organisme: 
+  path: /mail-organisme/{id}
+  defaults: {_controller: AvanzuAdminThemeBundle:Default:Sendmail}
+  
     
     
   

@@ -176,26 +176,30 @@ class __TwigTemplate_7d7e29428d79a9abc4c58ca781fcacc3135a88aeb6a1e694ef4ed94c8fa
             // line 87
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("details_organisme", array("id" => $this->getAttribute($context["organisme"], "idorganisme", array()))), "html", null, true);
             echo "\" >    Détails</a></i></li>
-                          <li><i class=\"fa fa-list-alt\"><a href=\"#\">    Documents</a></i></li>
-                        ";
-            // line 89
+                          <li><i class=\"fa fa-list-alt\"><a href=\"";
+            // line 88
+            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl(("uploads/file/document/" . $this->getAttribute($context["organisme"], "document", array()))), "html", null, true);
+            echo "\">    Documents</a></i></li>
+                        
+                         ";
+            // line 90
             if (($this->getAttribute($context["organisme"], "etat", array()) == 0)) {
-                // line 90
+                // line 91
                 echo "                        <li><i class=\"fa fa-check\"><a href=\"";
-                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("valider_organisme", array("id" => $this->getAttribute($context["organisme"], "idorganisme", array()))), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("valider_organisme", array("id" => $this->getAttribute($context["organisme"], "idorganisme", array()), "mail" => $this->getAttribute($context["organisme"], "email", array()))), "html", null, true);
                 echo "\">    Valider</a></i></li>
                         ";
             } else {
-                // line 92
+                // line 93
                 echo "                        <li><i class=\"fa fa-times-circle\"><a href=\"";
                 echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("bloquer_organisme", array("id" => $this->getAttribute($context["organisme"], "idorganisme", array()))), "html", null, true);
                 echo "\">    Bloquer</a></i></li>
                         ";
             }
-            // line 94
+            // line 95
             echo "                        <li class=\"divider\"></li>
                         <li><i class=\"fa fa-trash-o\"><a href=\"";
-            // line 95
+            // line 96
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("supprimer_organisme", array("id" => $this->getAttribute($context["organisme"], "idorganisme", array()))), "html", null, true);
             echo "\">    Supprimer</a></i></li>
                       </ul>
@@ -206,12 +210,12 @@ class __TwigTemplate_7d7e29428d79a9abc4c58ca781fcacc3135a88aeb6a1e694ef4ed94c8fa
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['organisme'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 100
+        // line 101
         echo "                      
                       </tbody> 
                   </table>
                       <a href=\"";
-        // line 103
+        // line 104
         echo $this->env->getExtension('routing')->getPath("print");
         echo "\" target=\"_blank\" class=\"btn btn-default\"><i class=\"fa fa-print\"></i> Print</a>
                 </div><!-- /.box-body -->
@@ -220,17 +224,17 @@ class __TwigTemplate_7d7e29428d79a9abc4c58ca781fcacc3135a88aeb6a1e694ef4ed94c8fa
         </div>
     
 ";
-        // line 109
+        // line 110
         $this->displayBlock('javascripts_inline', $context, $blocks);
-        // line 124
+        // line 127
         echo "    
     ";
     }
 
-    // line 109
+    // line 110
     public function block_javascripts_inline($context, array $blocks = array())
     {
-        // line 110
+        // line 111
         echo "    <script>
       \$(function () {
         \$(\"#example1\").DataTable();
@@ -244,6 +248,8 @@ class __TwigTemplate_7d7e29428d79a9abc4c58ca781fcacc3135a88aeb6a1e694ef4ed94c8fa
         });
       });
     </script>
+    
+    
 ";
     }
 
@@ -259,7 +265,7 @@ class __TwigTemplate_7d7e29428d79a9abc4c58ca781fcacc3135a88aeb6a1e694ef4ed94c8fa
 
     public function getDebugInfo()
     {
-        return array (  234 => 110,  231 => 109,  226 => 124,  224 => 109,  215 => 103,  210 => 100,  199 => 95,  196 => 94,  190 => 92,  184 => 90,  182 => 89,  177 => 87,  168 => 80,  164 => 78,  160 => 76,  158 => 75,  154 => 74,  150 => 73,  146 => 72,  142 => 71,  138 => 69,  134 => 68,  110 => 48,  101 => 42,  96 => 40,  87 => 34,  83 => 33,  74 => 27,  66 => 22,  57 => 15,  55 => 10,  52 => 9,  46 => 8,  40 => 5,  35 => 4,  32 => 3,  11 => 1,);
+        return array (  238 => 111,  235 => 110,  230 => 127,  228 => 110,  219 => 104,  214 => 101,  203 => 96,  200 => 95,  194 => 93,  188 => 91,  186 => 90,  181 => 88,  177 => 87,  168 => 80,  164 => 78,  160 => 76,  158 => 75,  154 => 74,  150 => 73,  146 => 72,  142 => 71,  138 => 69,  134 => 68,  110 => 48,  101 => 42,  96 => 40,  87 => 34,  83 => 33,  74 => 27,  66 => 22,  57 => 15,  55 => 10,  52 => 9,  46 => 8,  40 => 5,  35 => 4,  32 => 3,  11 => 1,);
     }
 }
 /* {% extends 'AvanzuAdminThemeBundle:layout:base-layout.html.twig' %}*/
@@ -349,9 +355,10 @@ class __TwigTemplate_7d7e29428d79a9abc4c58ca781fcacc3135a88aeb6a1e694ef4ed94c8fa
 /*                       </button>*/
 /*                       <ul class="dropdown-menu" role="menu">*/
 /*                           <li><i class="fa fa-info-circle"><a href="{{ path('details_organisme', {'id': organisme.idorganisme}) }}" >    Détails</a></i></li>*/
-/*                           <li><i class="fa fa-list-alt"><a href="#">    Documents</a></i></li>*/
-/*                         {% if organisme.etat == 0 %}*/
-/*                         <li><i class="fa fa-check"><a href="{{ path('valider_organisme', {'id': organisme.idorganisme}) }}">    Valider</a></i></li>*/
+/*                           <li><i class="fa fa-list-alt"><a href="{{asset('uploads/file/document/' ~ organisme.document)}}">    Documents</a></i></li>*/
+/*                         */
+/*                          {% if organisme.etat == 0 %}*/
+/*                         <li><i class="fa fa-check"><a href="{{ path('valider_organisme', {'id': organisme.idorganisme,'mail': organisme.email}) }}">    Valider</a></i></li>*/
 /*                         {% else %}*/
 /*                         <li><i class="fa fa-times-circle"><a href="{{ path('bloquer_organisme', {'id': organisme.idorganisme}) }}">    Bloquer</a></i></li>*/
 /*                         {% endif %}*/
@@ -384,6 +391,8 @@ class __TwigTemplate_7d7e29428d79a9abc4c58ca781fcacc3135a88aeb6a1e694ef4ed94c8fa
 /*         });*/
 /*       });*/
 /*     </script>*/
+/*     */
+/*     */
 /* {% endblock %}*/
 /*     */
 /*     {% endblock %}*/

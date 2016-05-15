@@ -16,7 +16,7 @@ easy_admin:
             list :
                 
                 title: "Liste des formateurs"
-                fields: ['nom', 'prenom', 'email',{ property: 'avatar', type: 'image',label: 'Photo', base_path: 'http://localhost/Mooc_3A2_web/web/uploads/img/avatar/' },Organisme,{property: 'cv' , label: 'CV',template: 'cv.html.twig', base_path: %app.path.formateur_cv%  },{ property: 'etat', type: 'toggle', label: 'Valide' }]
+                fields: ['nom', 'prenom', 'email',{ property: 'avatar', type: 'image',label: 'Photo', base_path: 'http://localhost/Mooc_web/web/uploads/img/avatar/' },Organisme,{property: 'cv' , label: 'CV',template: 'cv.html.twig', base_path: %app.path.formateur_cv%  },{ property: 'etat', type: 'toggle', label: 'Valide' }]
                 actions:
                     - { name: 'show', label: '', icon: 'search' }
                     - { name: 'delete', label: '', icon: 'trash' }
@@ -25,7 +25,7 @@ easy_admin:
                 
             show :
                 show :
-                fields: [{property: 'avatar', type: 'image',label: 'Photo', base_path: 'http://localhost/Mooc_3A2_web/web/uploads/img/avatar/'},'nom', 'prenom', 'email',{property: 'cv' , label: 'CV',template: 'cv.html.twig', base_path: %app.path.formateur_cv%  },{ property: 'etat', type: 'toggle', label: 'Valide' },Organisme]
+                fields: [{property: 'avatar', type: 'image',label: 'Photo', base_path: 'http://localhost/Mooc_web/web/uploads/img/avatar/'},'nom', 'prenom', 'email',{property: 'cv' , label: 'CV',template: 'cv.html.twig', base_path: %app.path.formateur_cv%  },{ property: 'etat', type: 'toggle', label: 'Valide' },Organisme]
             form:
                 fields: ['nom', 'prenom', 'email','Organisme',login,{property: 'password',type: 'password'},{property: 'etat', label: 'Valide'}]
             
@@ -38,7 +38,7 @@ easy_admin:
                 
                     - { name: 'show', label: '', icon: 'search' }
                     - { name: 'delete', label: '', icon: 'trash' }
-                    - { name: edit, type: method, label: '', class: '', icon: pencil }
+                    - { name: 'edit', type: 'method', label: '', class: '', icon: '' }
                     
             form : 
                 fields: ['nomCours','description','difficulte','objectif',{property: 'cinformateur', label: 'CIN formateur'},{property: 'etat', label: 'Valide'}]
@@ -50,6 +50,6 @@ easy_admin:
             list:
                 actions: [ { name: 'show',label: 'Détails', icon: 'search' } ]
                 title: "Liste des Organismes"
-                fields: [{property: 'nom', label: 'Nom organisme'},email,{property: 'siteweb',label: 'Site web'},adresse,telephone,description,etat]
+                fields: [{property: 'logo', type: 'image',label: 'Logo', base_path: 'http://localhost/Mooc_web/web/uploads/img/logo/'},{property: 'nom', label: 'Nom organisme'},email,{property: 'siteweb',label: 'Site web'},adresse,telephone,{property: 'etat', template: 'etat.html.twig'}]
             show:
-                fields: [{property: 'nom', label: 'Nom organisme'},email,{property: 'siteweb',label: 'Site web'},adresse,telephone,description,{property: 'etat',label: 'Valide',type: 'toggle'}]
+                fields: [{property: 'logo', type: 'image',label: 'Logo', base_path: 'http://localhost/Mooc_web/web/uploads/img/logo/'},{property: 'nom', label: 'Nom organisme'},email,{property: 'siteweb',label: 'Site web'},adresse,telephone,description,{property: 'etat',label: 'Valide',type: 'toggle'}]

@@ -202,6 +202,7 @@
   'AvanzuAdminThemeBundle:Default:index.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\vendor\\avanzu\\admin-theme-bundle/Resources/views/Default/index.html.twig',
   'AvanzuAdminThemeBundle:Default:login.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\vendor\\avanzu\\admin-theme-bundle/Resources/views/Default/login.html.twig',
   'AvanzuAdminThemeBundle:Default:Organismes.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\vendor\\avanzu\\admin-theme-bundle/Resources/views/Default/Organismes.html.twig',
+  'AvanzuAdminThemeBundle:Default:Organismes2.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\vendor\\avanzu\\admin-theme-bundle/Resources/views/Default/Organismes2.html.twig',
   'AvanzuAdminThemeBundle:Default:print.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\vendor\\avanzu\\admin-theme-bundle/Resources/views/Default/print.html.twig',
   'AvanzuAdminThemeBundle:Default:test.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\vendor\\avanzu\\admin-theme-bundle/Resources/views/Default/test.html.twig',
   'AvanzuAdminThemeBundle:Exception:exception_full.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\vendor\\avanzu\\admin-theme-bundle/Resources/views/Exception/exception_full.html.twig',
@@ -275,4 +276,5 @@
   '::base.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\app/Resources\\views/base.html.twig',
   ':default:index.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\app/Resources\\views/default/index.html.twig',
   ':easy_admin/Formateur:cv.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\app/Resources\\views/easy_admin/Formateur/cv.html.twig',
+  ':easy_admin/organisme:etat.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\app/Resources\\views/easy_admin/organisme/etat.html.twig',
 );

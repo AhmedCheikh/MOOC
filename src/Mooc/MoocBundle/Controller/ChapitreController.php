@@ -31,6 +31,7 @@ class ChapitreController extends Controller {
         $listeChapitres = $em->getRepository('MoocMoocBundle:Chapitre')->findBy(array('idcours' =>$id));
         return $this->render('MoocMoocBundle:Chapitre:listechapitreApprenant.html.twig', array('listeChapitres' => $listeChapitres,'id'=>$id));
     }
+    
 
     public function afficheChapitreAction($id) {
         $em = $this->getDoctrine()->getManager();
@@ -55,11 +56,11 @@ class ChapitreController extends Controller {
             $em2 = $this->getDoctrine()->getManager();
             $chapitre->setIdquiz($em2->getRepository('MoocMoocBundle:Quiz')->find($q));
             $chapitre->setIdcours($em2->getRepository('MoocMoocBundle:Cours')->find($id));
-
-             $chapitre->setPresentation($request->get('presentation'));
+            $p=$request->files->get('presentation')->getClientOriginalName();
+             $chapitre->setPresentation($p);
             $chapitre->setObjectif($request->get('objectif'));
-          
-            $chapitre->setVideo($request->get('video'));
+            $x=$request->files->get('video')->getClientOriginalName();
+            $chapitre->setVideo($x);
             
 
             $em = $this->getDoctrine()->getManager();
@@ -80,9 +81,9 @@ class ChapitreController extends Controller {
         if ($request->getMethod() == 'POST') {
             $chapitre->setTitre($request->get('titre'));
             $chapitre->setIdquiz($request->get('q'));
-            //$chapitre->setPresentation($request->get('presentation'));
+            $chapitre->setPresentation($request->files->get('presentation')->getClientOriginalName());
             $chapitre->setObjectif($request->get('objectif'));
-            $chapitre->setVideo($request->get('video'));
+            $chapitre->setVideo($request->files->get('video')->getClientOriginalName());
             $em = $this->getDoctrine()->getManager();
             $em->persist($chapitre);
             $em->flush();

@@ -78,7 +78,7 @@ class Cours
      *
      * @ORM\ManyToOne(targetEntity="Formateur")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="cinformateur", referencedColumnName="cin")
+     *   @ORM\JoinColumn(name="cinformateur", referencedColumnName="cin",onDelete="CASCADE")
      * })
      */
     private $cinformateur;

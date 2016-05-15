@@ -136,23 +136,20 @@ class __TwigTemplate_241fd354e3481ab7f605b92ee4bd59d613bc52a49df76ec1bca3d447699
                 <div class=\"box-footer\">
                   <div class=\"row\">
                     <div class=\"col-sm-4 border-right\">
-                      <div class=\"description-block\">
-                        <h5 class=\"description-header\">3,200</h5>
-                        <span class=\"description-text\">SALES</span>
-                      </div><!-- /.description-block -->
-                    </div><!-- /.col -->
-                    <div class=\"col-sm-4 border-right\">
-                      <div class=\"description-block\">
-                        <h5 class=\"description-header\">13,000</h5>
-                        <span class=\"description-text\">FOLLOWERS</span>
-                      </div><!-- /.description-block -->
-                    </div><!-- /.col -->
-                    <div class=\"col-sm-4\">
-                      <div class=\"description-block\">
-                        <h5 class=\"description-header\">35</h5>
-                        <span class=\"description-text\">PRODUCTS</span>
-                      </div><!-- /.description-block -->
-                    </div><!-- /.col -->
+                        ";
+            // line 62
+            if (($this->getAttribute($context["l"], "etat", array()) == 0)) {
+                // line 63
+                echo "                        <span class=\"label label-danger\">Non valide</span>
+                       ";
+            } else {
+                // line 65
+                echo "                            <span class=\"label label-default\">Valide</span>
+                            ";
+            }
+            // line 67
+            echo "                    </div><!-- /.col -->
+                    
                   </div><!-- /.row -->
                 </div>
               </div><!-- /.widget-user -->
@@ -162,7 +159,7 @@ class __TwigTemplate_241fd354e3481ab7f605b92ee4bd59d613bc52a49df76ec1bca3d447699
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['l'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 84
+        // line 74
         echo "          <!-- /.widget-user -->
         </div>
     
@@ -182,7 +179,7 @@ class __TwigTemplate_241fd354e3481ab7f605b92ee4bd59d613bc52a49df76ec1bca3d447699
 
     public function getDebugInfo()
     {
-        return array (  166 => 84,  133 => 57,  127 => 54,  120 => 53,  116 => 51,  112 => 49,  110 => 48,  104 => 44,  100 => 43,  94 => 41,  85 => 36,  80 => 34,  71 => 28,  67 => 27,  58 => 21,  50 => 16,  41 => 9,  39 => 4,  36 => 3,  30 => 2,  11 => 1,);
+        return array (  163 => 74,  151 => 67,  147 => 65,  143 => 63,  141 => 62,  133 => 57,  127 => 54,  120 => 53,  116 => 51,  112 => 49,  110 => 48,  104 => 44,  100 => 43,  94 => 41,  85 => 36,  80 => 34,  71 => 28,  67 => 27,  58 => 21,  50 => 16,  41 => 9,  39 => 4,  36 => 3,  30 => 2,  11 => 1,);
     }
 }
 /* {% extends 'AvanzuAdminThemeBundle:layout:base-layout.html.twig' %}*/
@@ -246,23 +243,13 @@ class __TwigTemplate_241fd354e3481ab7f605b92ee4bd59d613bc52a49df76ec1bca3d447699
 /*                 <div class="box-footer">*/
 /*                   <div class="row">*/
 /*                     <div class="col-sm-4 border-right">*/
-/*                       <div class="description-block">*/
-/*                         <h5 class="description-header">3,200</h5>*/
-/*                         <span class="description-text">SALES</span>*/
-/*                       </div><!-- /.description-block -->*/
+/*                         {%if l.etat == 0 %}*/
+/*                         <span class="label label-danger">Non valide</span>*/
+/*                        {%else%}*/
+/*                             <span class="label label-default">Valide</span>*/
+/*                             {%endif%}*/
 /*                     </div><!-- /.col -->*/
-/*                     <div class="col-sm-4 border-right">*/
-/*                       <div class="description-block">*/
-/*                         <h5 class="description-header">13,000</h5>*/
-/*                         <span class="description-text">FOLLOWERS</span>*/
-/*                       </div><!-- /.description-block -->*/
-/*                     </div><!-- /.col -->*/
-/*                     <div class="col-sm-4">*/
-/*                       <div class="description-block">*/
-/*                         <h5 class="description-header">35</h5>*/
-/*                         <span class="description-text">PRODUCTS</span>*/
-/*                       </div><!-- /.description-block -->*/
-/*                     </div><!-- /.col -->*/
+/*                     */
 /*                   </div><!-- /.row -->*/
 /*                 </div>*/
 /*               </div><!-- /.widget-user -->*/
