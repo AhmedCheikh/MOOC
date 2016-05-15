@@ -1,6 +1,15 @@
 mooc_mooc_homepage:
     path:     /
     defaults: { _controller: MoocMoocBundle:Default:index }
+
+mooc_mooc_contact:
+    path:     /contact
+    defaults: { _controller: MoocMoocBundle:Contact:send }
+
+mooc_mooc_about:
+    path:     /about
+    defaults: { _controller: MoocMoocBundle:About:info }
+
 mooc_mooc_logadmin:
     path:     /loginadmin
     defaults: { _controller: MoocMoocBundle:Admin:loginAdmin} 
@@ -12,15 +21,7 @@ mooc_mooc_logcomite:
 mooc_mooc_logOrganisme:
     path:     /logOrganisme
     defaults: { _controller: MoocMoocBundle:Organisme:loginOrganisme}  
-    
-mooc_mooc_contact:
-    path:     /contact
-    defaults: { _controller: MoocMoocBundle:Contact:send }
-
-mooc_mooc_about:
-    path:     /about
-    defaults: { _controller: MoocMoocBundle:About:info }
-    
+     
 mooc_mooc_listecours:
     path:     /listecours
     defaults: { _controller: MoocMoocBundle:Cours:affichecours}
@@ -89,25 +90,71 @@ mooc_mooc_listeinvitation:
     path:     /listeinvitation/{cin}
     defaults: { _controller: MoocMoocBundle:Formateur:listeinvitation} 
     
+mooc_mooc_repondreorganisme:
+    path:     /repondreorganisme/{cin}/{login}
+    defaults: { _controller: MoocMoocBundle:Formateur:repondreorganisme}  
+    
+mooc_mooc_refuserinvitation:
+    path:     /refuserinvitation/{cin}/{login}
+    defaults: { _controller: MoocMoocBundle:Formateur:refuserinvitation}
+
+mooc_mooc_accepterinvitation:
+    path:     /accepterinvitation/{cin}/{login}
+    defaults: { _controller: MoocMoocBundle:Formateur:accepterinvitation}
+
+mooc_mooc_nombreinvitation:
+    path:     /nombreinvitation
+    defaults: { _controller: MoocMoocBundle:Formateur:nombreinvitation}
+
+mooc_mooc_rechercherOrganisme:
+    path:     /rechercherOrganisme{cin}
+    defaults: { _controller: MoocMoocBundle:Formateur:rechercherOrganisme}
+    
+    
+mooc_mooc_modifier_qz:
+    path:     /ModifierQZ/{id}
+    defaults: { _controller: MoocMoocBundle:Quiz:modifierQuiz}
+    
+mooc_mooc_modifier_question:
+    path:     /ModifierQuestion/{idquestion}/{idquiz}
+    defaults: { _controller: MoocMoocBundle:Question:modifierQuestion}
+    
+mooc_mooc_supprimer_question:
+    path:     /SupprimerQuestion/{idquestion}/{idquiz}
+    defaults: { _controller: MoocMoocBundle:Question:supprimerQuestion}
+    
+mooc_mooc_modifier_test:
+    path:     /testmodifier/{id}
+    defaults: { _controller: MoocMoocBundle:Quiz:testmodifier} 
+    
+mooc_mooc_passer_quiz:
+    path:     /validerQuiz/{id}
+    defaults: { _controller: MoocMoocBundle:Quiz:PasserQuiz} 
+
+mooc_mooc_note:
+    path:     /note/{note}/{id}
+    defaults: { _controller: MoocMoocBundle:Quiz:Note} 
+
+mooc_mooc_afficher_chapitreForm:
+    path:     /AfficherChapitreForm/{id}
+    defaults: { _controller: MoocMoocBundle:Chapitre:afficheChapitreForm}
+    
+    
     
 mooc_mooc_listechapitre:
-    path:     /listechapitres
+    path:     /listechapitres/{id}
     defaults: { _controller: MoocMoocBundle:Chapitre:affichelistChapitres}
     
 mooc_mooc_listechapitreApp:
-    path:     /listechapitresApp/{idcours}
+    path:     /listechapitresApp/{id}
     defaults: { _controller: MoocMoocBundle:Chapitre:affichelistChapitresApp}
     
-mooc_mooc_PasserQuizNonChrono:
-    path:     /PasserQuizNonChro
-    defaults: { _controller: MoocMoocBundle:quiz:passerQuizChro}
-    
 mooc_mooc_Ajouter_chapitre:
-    path:     /AjouterChapitre
+    path:     /AjouterChapitre/{id}
     defaults: { _controller: MoocMoocBundle:Chapitre:ajouterChapitre}
    
 mooc_mooc_Modifier_chapitre:
-    path:     /ModifierChapitre/{id}
+    path:     /ModifierChapitre/{id}/{idcours}
     defaults: { _controller: MoocMoocBundle:Chapitre:modifierChapitre}
     
 mooc_mooc_Ajouter_quiz:
@@ -123,7 +170,7 @@ mooc_mooc_listeQuiz:
     defaults: { _controller: MoocMoocBundle:Quiz:affichelistquiz}
     
 mooc_mooc_Supprimer_chapitre:
-    path:     /SupprimerChapitre/{id}
+    path:     /SupprimerChapitre/{id}/{idcours}
     defaults: { _controller: MoocMoocBundle:Chapitre:supprimerChapitre}
     
 mooc_mooc_Supprimer_quiz:
@@ -134,6 +181,10 @@ mooc_mooc_afficher_chapitre:
     path:     /AfficherChapitre/{id}
     defaults: { _controller: MoocMoocBundle:Chapitre:afficheChapitre}
     
+mooc_mooc_afficher_chapitreForm:
+    path:     /AfficherChapitreForm/{id}
+    defaults: { _controller: MoocMoocBundle:Chapitre:afficheChapitreForm}
+    
 mooc_mooc_afficher_quiz:
     path:     /AfficherQuiz/{id}
     defaults: { _controller: MoocMoocBundle:Quiz:afficheQuiz}
@@ -142,9 +193,6 @@ mooc_mooc_afficher_test:
     path:     /test/{id}
     defaults: { _controller: MoocMoocBundle:Quiz:test}  
     
-mooc_mooc_passer_quiz:
-    path:     /validerQuiz
-    defaults: { _controller: MoocMoocBundle:Quiz:PasserQuiz} 
     
 mooc_mooc_afficher_quiz_chrono:
     path:     /AfficherQuizChrono/{id}
@@ -159,12 +207,12 @@ mooc_mooc_modifier_quiz:
     defaults: { _controller: MoocMoocBundle:Quiz:afficheQuizModifier}
     
 mooc_mooc_modifier_question:
-    path:     /ModifierQuestion/{idquestion}
+    path:     /ModifierQuestion/{idquestion}/{idquiz}
     defaults: { _controller: MoocMoocBundle:Question:modifierQuestion}
     
 mooc_mooc_modifier_test:
     path:     /testmodifier/{id}
-    defaults: { _controller: MoocMoocBundle:Quiz:testmodifier}    
+    defaults: { _controller: MoocMoocBundle:Quiz:testmodifier}  
     
 mooc_mooc_delCours:
     path:     /DeleteCours/{id}

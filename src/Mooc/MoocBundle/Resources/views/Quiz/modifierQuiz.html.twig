@@ -8,7 +8,7 @@
         <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
         <link rel="shortcut icon" href="img/favicon.png">
 
-        <title>liste chapitre</title>
+        <title>Modifier Quiz</title>
 
         <!-- Bootstrap CSS -->    
         <link href="{{asset('bundles/moocmooc/css/profilformateur/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -311,8 +311,7 @@
                                 <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
                             <ul class="sub">
-                                <li><a class="" href="{{path ('mooc_mooc_listechapitre')}}">Chapitre</a></li>
-                                <li><a class="" href="{{path ('mooc_mooc_listeQuiz')}}">Quiz</a></li>
+
                                 <li><a class="" href="buttons.html">Vidéos</a></li>
                                 <li><a class="" href="grids.html">Présentation</a></li>
                             </ul>
@@ -370,20 +369,27 @@
                             <section class="panel">
                                 <header class="panel-heading">                                   
                                     <center>
-                                        <b> <label style="color:blue;font-weight:bold;font-size: 150%;"> Quiz : {{ quiz.titre}}</label></b>                                     <a class="btn btn-success" href="{{path ('mooc_mooc_modifier_qz',{'idquiz':(quiz.id)})}}"><i class="icon_check_alt2"></i></a>
+                                        <b> <label style="color:blue;font-weight:bold;font-size: 150%;"> Quiz : {{ quiz.titre}}</label></b> <a class="btn btn-success" href="{{path('mooc_mooc_modifier_qz',{'id':(quiz.id)})}}"><i class="icon_check_alt2"></i></a>
                                     </center>
                                 </header>
                                 <div class="panel-body">
                                     <div class="form">
 
-                                        {% for q in question %} 
 
-                                            <label style="color:blue;background-color:beige;font-size: 250%;" >{{ q.question}} </label>
-                                            <a class="btn btn-success" href="{{path ('mooc_mooc_modifier_question',{'idquestion':q.id})}}"><i class="icon_check_alt2"></i></a>
+                                        {% for q in rep %} 
+                       
+                                            <label style="color:blue;background-color:beige;font-size: 250%;" >{{q["0"].idquestion.question}}</label>
+                                            <a class="btn btn-success" href="{{path ('mooc_mooc_modifier_question',{'idquestion':q["0"].idquestion.id,'idquiz':quiz.id})}}"><i class="icon_check_alt2"></i></a><br>
 
-                                            <table>
-                                                <tr><td style="font-size: 150%;">{% render controller('MoocMoocBundle:Quiz:test',{'id': q.id}) %}  </td></tr></table>
+
+                                            {% for i in 0..3 %}
+                                                <table>
+
+                                                    <label style="color:black;font-size: 200%" >{{q[i].rep}}</label><br>
+
+                                                </table>
                                             {% endfor %}
+                                        {% endfor %}
 
                                     </div>
                                 </div>

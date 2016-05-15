@@ -311,8 +311,7 @@
                                 <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
                             <ul class="sub">
-                                <li><a class="" href="{{path ('mooc_mooc_listechapitre')}}">Chapitre</a></li>
-                                <li><a class="" href="{{path ('mooc_mooc_listeQuiz')}}">Quiz</a></li>
+
                                 <li><a class="" href="buttons.html">Vidéos</a></li>
                                 <li><a class="" href="grids.html">Présentation</a></li>
                             </ul>
@@ -373,14 +372,20 @@
                                 </header>
                                 <div class="panel-body">
                                     <div class="form">
-                                        <form class="form-validate form-horizontal" id="feedback_form" method="POST" action="{{path ('mooc_mooc_passer_quiz')}}">
-<input type="text" style="display:none;" name="id" value="{{quiz.id}}">
-                                            {% for q in question %} 
+                                        <form class="form-validate form-horizontal" id="feedback_form" method="POST" action="{{path ('mooc_mooc_passer_quiz',{'id':quiz.id})}}">
 
-                                                <label style="color:blue;background-color:beige;font-size: 250%;" >{{ q.question}} </label><br>
-                                                <table>
-                                                    <tr><td style="font-size: 150%;">{% render controller('MoocMoocBundle:Quiz:test',{'id': q.id}) %}  </td></tr></table>
+                                            {% for q in rep %} 
+
+                                                <label style="color:blue;background-color:beige;font-size: 250%;" >{{q["0"].idquestion.question}}</label><br>
+                                                
+                                                 {% for i in 0..3 %}
+                                                    <table>
+
+                                                        <input type="checkbox" name="{{i}}" value="{{q[i].etat}}" /><label style="color:black;font-size: 150%" >{{q[i].rep}}</label><br>
+
+                                                    </table>
                                                 {% endfor %}
+                                            {% endfor %}
                                             <button class="btn btn-primary" type="submit">valider</button>
 
                                             </section>

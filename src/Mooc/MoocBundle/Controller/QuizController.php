@@ -26,17 +26,16 @@ class QuizController extends Controller {
     }
 
     public function afficheQuizAction($id) {
+        $tab = array();
         $em = $this->getDoctrine()->getManager();
         $quiz = $em->getRepository('MoocMoocBundle:Quiz')->find($id);
 
         $question = $em->getRepository('MoocMoocBundle:Question')->findBy(array('idquiz' => $id));
-        return $this->render('MoocMoocBundle:Quiz:afficherQuiz.html.twig', array('question' => $question, 'quiz' => $quiz));
-    }
-
-    public function testAction($id) {
-        $em = $this->getDoctrine()->getManager();
-        $rep = $em->getRepository('MoocMoocBundle:Reponse')->findBy(array('idquestion' => $id));
-        return $this->render('MoocMoocBundle:Quiz:test.html.twig', array('rep' => $rep));
+        foreach ($question as $q) {
+            $rep = $em->getRepository('MoocMoocBundle:Reponse')->findBy(array('idquestion' => $q->getId()));
+            array_push($tab, $rep);
+        }
+        return $this->render('MoocMoocBundle:Quiz:afficherQuiz.html.twig', array('quiz' => $quiz, 'rep' => $tab));
     }
 
     public function ajouterQuizAction(Request $request) {
@@ -48,7 +47,6 @@ class QuizController extends Controller {
             $em = $this->getDoctrine()->getManager();
             $em->persist($quiz);
             $em->flush();
-            //return $this->redirectToRoute('mooc_mooc_Ajouter_question', array('idquiz' => $quiz->getId()));
             return $this->redirectToRoute('mooc_mooc_Ajouter_question', array('idquiz' => $quiz->getId()));
         }
         return $this->render('MoocMoocBundle:Quiz:ajouterQuiz.html.twig');
@@ -62,50 +60,51 @@ class QuizController extends Controller {
         return $this->redirectToRoute('mooc_mooc_listeQuiz');
     }
 
-    public function PasserQuizAction(Request $request) {
-
+    public function PasserQuizAction(Request $request, $id) {
         $note = 0;
-        if (isset($_POST['etat']) && $_POST['etat'] === '1') {
-            $note = $note + 4;
+        for ($i = 0; $i < 4; $i++) {
+            if ((isset($_POST[$i]) == 1)) {
+                $note = $note + 4;
+            } else if ((isset($_POST[$i]) == 0)) {
+                $note = $note - 1;
+            } else {
+                $note = note + 0;
+            }
         }
-        if (isset($_POST['id']))
-            $id = $_POST['id'];
         return $this->redirectToRoute('mooc_mooc_note', array('note' => $note, 'id' => $id));
     }
 
     public function afficheQuizChronoAction($id) {
+        $tab = array();
         $em = $this->getDoctrine()->getManager();
         $quiz = $em->getRepository('MoocMoocBundle:Quiz')->find($id);
 
         $question = $em->getRepository('MoocMoocBundle:Question')->findBy(array('idquiz' => $id));
-        return $this->render('MoocMoocBundle:Quiz:afficherQuizChronometre.html.twig', array('question' => $question, 'quiz' => $quiz));
-    }
-
-    public function NoteAction($note,$id) {
-        return $this->render('MoocMoocBundle:Quiz:note.html.twig', array('note' => $note, 'id' => $id));
+        foreach ($question as $q) {
+            $rep = $em->getRepository('MoocMoocBundle:Reponse')->findBy(array('idquestion' => $q->getId()));
+            array_push($tab, $rep);
+        }
+        return $this->render('MoocMoocBundle:Quiz:afficherQuizChronometre.html.twig', array('quiz' => $quiz, 'rep' => $tab));
     }
 
     public function afficheQuizModifierAction($id) {
+        $tab = array();
         $em = $this->getDoctrine()->getManager();
         $quiz = $em->getRepository('MoocMoocBundle:Quiz')->find($id);
 
         $question = $em->getRepository('MoocMoocBundle:Question')->findBy(array('idquiz' => $id));
-        return $this->render('MoocMoocBundle:Quiz:modifierQuiz.html.twig', array('question' => $question, 'quiz' => $quiz));
+        foreach ($question as $q) {
+            $rep = $em->getRepository('MoocMoocBundle:Reponse')->findBy(array('idquestion' => $q->getId()));
+            array_push($tab, $rep);
+        }
+        return $this->render('MoocMoocBundle:Quiz:modifierQuiz.html.twig', array('quiz' => $quiz, 'rep' => $tab));
     }
 
-    public function testModifierAction($id) {
+    public function modifierQuizAction($id, Request $request) {
         $em = $this->getDoctrine()->getManager();
-        $rep = $em->getRepository('MoocMoocBundle:Reponse')->findBy(array('idquestion' => $id));
-        return $this->render('MoocMoocBundle:Quiz:testmodifier.html.twig', array('rep' => $rep));
-    }
-    
-    
-    public function modifierQuizAction($idquiz, Request $request) {
-        $em = $this->getDoctrine()->getManager();
-        $q = $em->getRepository('MoocMoocBundle:Quiz')->find($idquiz);
+        $q = $em->getRepository('MoocMoocBundle:Quiz')->find($id);
         $titre = $q->getTitre();
         $type = $q->getType();
-
 
         if ($request->getMethod() == 'POST') {
 
@@ -114,9 +113,16 @@ class QuizController extends Controller {
 
             $em = $this->getDoctrine()->getManager();
             $em->flush();
-            return $this->redirectToRoute('mooc_mooc_listeQuiz');
+            return $this->redirectToRoute('mooc_mooc_modifier_quiz', array('id' => $id));
         }
-        return $this->render('MoocMoocBundle:Quiz:modifierQZ.html.twig', array('idquiz' => $idquiz, 'titre' => $titre, 'type' => $type));
+        return $this->render('MoocMoocBundle:Quiz:modifierQZ.html.twig', array('idquiz' => $id, 'titre' => $titre, 'type' => $type));
     }
+    
+    
+
+    public function NoteAction($note,$id) {
+        return $this->render('MoocMoocBundle:Quiz:note.html.twig', array('note' => $note,'id'=> $id));
+    }
+
 
 }

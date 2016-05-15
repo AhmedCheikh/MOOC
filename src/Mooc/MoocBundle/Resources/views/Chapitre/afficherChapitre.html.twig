@@ -8,7 +8,7 @@
         <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
         <link rel="shortcut icon" href="img/favicon.png">
 
-        <title>liste chapitre</title>
+        <title>Afficher chapitre</title>
 
         <!-- Bootstrap CSS -->    
         <link href="{{asset('bundles/moocmooc/css/profilformateur/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -311,8 +311,6 @@
                                 <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
                             <ul class="sub">
-                                <li><a class="" href="{{path ('mooc_mooc_listechapitre')}}">Chapitre</a></li>
-                                <li><a class="" href="{{path ('mooc_mooc_listeQuiz')}}">Quiz</a></li>
                                 <li><a class="" href="buttons.html">Vidéos</a></li>
                                 <li><a class="" href="grids.html">Présentation</a></li>
                             </ul>
@@ -373,11 +371,12 @@
                                     </header>
                                     <br>
                                     <p> <span style="color:blue;font-weight:bold"> Objectif : </span> {{chapitre.objectif}} </p> 
-                                    <p> <span style="color:green;font-weight:bold"><a href="{{asset('file/cv/video/CV_ZNAIDI.pdf')}}" download="CV_ZNAIDI.pdf">Télécharger Chapitre</a></span> ||  <span style="color:red;font-weight:bold"><a href="{{path ('mooc_mooc_afficher_quiz',{'id':chapitre.idquiz.getId()})}}">Passer Quiz</a></span> </p>
+                                    <p> <span style="color:green;font-weight:bold"><a href="{{asset('uploads/file/cv/'~chapitre.presentation)}}" 
+                                                                                      download="{{chapitre.presentation}}">Télécharger Chapitre</a></span> ||  <span style="color:red;font-weight:bold"><a href="{{path ('mooc_mooc_afficher_quiz',{'id':chapitre.idquiz.getId()})}}">Passer Quiz</a></span> </p>
 
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <video width="800" controls >
                                         <br>
-                                        <source src="{{asset('bundles/moocmooc/video/IPhone.mp4')}}" type="video/mp4">
+                                        <source src="{{asset('uploads/file/'~chapitre.video)}}" type="video/mp4">
                                     </video>
                                     <br>
                                 </section>

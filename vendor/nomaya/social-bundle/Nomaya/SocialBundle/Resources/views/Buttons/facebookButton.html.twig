@@ -1,5 +1,5 @@
 {% if url is not defined or url == null %}
-    {% set url = app.request.uri %}
+    {% set url = "https://www.facebook.com/MOOC-1126207164109545" %}
 {% endif %}
 
 {% spaceless %}
@@ -15,3 +15,4 @@
 
  <div class="fb-like" data-href="{{url}}" data-send="{{send}}" data-layout="{{layout}}" data-width="{{width}}" data-show-faces="{{showFaces}}" data-share="{{share}}"></div>
 {% endspaceless %}
+

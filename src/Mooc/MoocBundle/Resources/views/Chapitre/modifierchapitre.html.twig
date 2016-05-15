@@ -372,7 +372,7 @@
                                 </header>
                                 <div class="panel-body">
                                     <div class="form">
-                                        <form class="form-validate form-horizontal" id="feedback_form" method="POST" action="{{path('mooc_mooc_Modifier_chapitre',{'id':idchapitre})}}">
+                                        <form class="form-validate form-horizontal" id="feedback_form" method="POST" action="{{path('mooc_mooc_Modifier_chapitre',{'id':idchapitre,'idcours':id})}}">
                                             <div class="form-group ">
                                                 <label for="cname" class="control-label col-lg-2">Nom chapitre <span class="required">*</span></label>
                                                 <div class="col-lg-10">
@@ -400,7 +400,7 @@
                                                 </div>
                                             </div> 
                                             <div class="form-group ">
-                                                <label for="cemail" class="control-label col-lg-2">Quiz du cour <span class="required">*</span></label>
+                                                <label for="cemail" class="control-label col-lg-2">Quiz du chapitre <span class="required">*<a class="btn btn-primary" href="{{path ('mooc_mooc_Ajouter_quiz')}}"><i class="icon_plus_alt2"></i></a></span></label>
                                                 <div class="col-lg-10">
                                                     <select class="form-control m-bot15">
                                                         {% for quiz in listeQuiz %}

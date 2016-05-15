@@ -136,27 +136,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\DefaultController::indexAction',  '_route' => 'mooc_mooc_homepage',);
         }
 
-        if (0 === strpos($pathinfo, '/log')) {
-            if (0 === strpos($pathinfo, '/login')) {
-                // mooc_mooc_logadmin
-                if ($pathinfo === '/loginadmin') {
-                    return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\AdminController::loginAdminAction',  '_route' => 'mooc_mooc_logadmin',);
-                }
-
-                // mooc_mooc_logcomite
-                if ($pathinfo === '/logincomite') {
-                    return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ComiteController::loginComiteAction',  '_route' => 'mooc_mooc_logcomite',);
-                }
-
-            }
-
-            // mooc_mooc_logOrganisme
-            if ($pathinfo === '/logOrganisme') {
-                return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\OrganismeController::loginOrganismeAction',  '_route' => 'mooc_mooc_logOrganisme',);
-            }
-
-        }
-
         // mooc_mooc_contact
         if ($pathinfo === '/contact') {
             return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ContactController::sendAction',  '_route' => 'mooc_mooc_contact',);
@@ -168,6 +147,27 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         if (0 === strpos($pathinfo, '/l')) {
+            if (0 === strpos($pathinfo, '/log')) {
+                if (0 === strpos($pathinfo, '/login')) {
+                    // mooc_mooc_logadmin
+                    if ($pathinfo === '/loginadmin') {
+                        return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\AdminController::loginAdminAction',  '_route' => 'mooc_mooc_logadmin',);
+                    }
+
+                    // mooc_mooc_logcomite
+                    if ($pathinfo === '/logincomite') {
+                        return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ComiteController::loginComiteAction',  '_route' => 'mooc_mooc_logcomite',);
+                    }
+
+                }
+
+                // mooc_mooc_logOrganisme
+                if ($pathinfo === '/logOrganisme') {
+                    return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\OrganismeController::loginOrganismeAction',  '_route' => 'mooc_mooc_logOrganisme',);
+                }
+
+            }
+
             if (0 === strpos($pathinfo, '/liste')) {
                 // mooc_mooc_listecours
                 if ($pathinfo === '/listecours') {
@@ -259,39 +259,97 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_inviterOrganisme')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\FormateurController::inviterOrganismeAction',));
         }
 
-        if (0 === strpos($pathinfo, '/liste')) {
-            // mooc_mooc_listeinvitation
-            if (0 === strpos($pathinfo, '/listeinvitation') && preg_match('#^/listeinvitation/(?P<cin>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_listeinvitation')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\FormateurController::listeinvitationAction',));
+        // mooc_mooc_listeinvitation
+        if (0 === strpos($pathinfo, '/listeinvitation') && preg_match('#^/listeinvitation/(?P<cin>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_listeinvitation')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\FormateurController::listeinvitationAction',));
+        }
+
+        if (0 === strpos($pathinfo, '/re')) {
+            // mooc_mooc_repondreorganisme
+            if (0 === strpos($pathinfo, '/repondreorganisme') && preg_match('#^/repondreorganisme/(?P<cin>[^/]++)/(?P<login>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_repondreorganisme')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\FormateurController::repondreorganismeAction',));
             }
 
-            if (0 === strpos($pathinfo, '/listechapitres')) {
-                // mooc_mooc_listechapitre
-                if ($pathinfo === '/listechapitres') {
-                    return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ChapitreController::affichelistChapitresAction',  '_route' => 'mooc_mooc_listechapitre',);
-                }
-
-                // mooc_mooc_listechapitreApp
-                if (0 === strpos($pathinfo, '/listechapitresApp') && preg_match('#^/listechapitresApp/(?P<idcours>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_listechapitreApp')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ChapitreController::affichelistChapitresAppAction',));
-                }
-
+            // mooc_mooc_refuserinvitation
+            if (0 === strpos($pathinfo, '/refuserinvitation') && preg_match('#^/refuserinvitation/(?P<cin>[^/]++)/(?P<login>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_refuserinvitation')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\FormateurController::refuserinvitationAction',));
             }
 
         }
 
-        // mooc_mooc_PasserQuizNonChrono
-        if ($pathinfo === '/PasserQuizNonChro') {
-            return array (  '_controller' => 'MoocMoocBundle:quiz:passerQuizChro',  '_route' => 'mooc_mooc_PasserQuizNonChrono',);
+        // mooc_mooc_accepterinvitation
+        if (0 === strpos($pathinfo, '/accepterinvitation') && preg_match('#^/accepterinvitation/(?P<cin>[^/]++)/(?P<login>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_accepterinvitation')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\FormateurController::accepterinvitationAction',));
+        }
+
+        // mooc_mooc_nombreinvitation
+        if ($pathinfo === '/nombreinvitation') {
+            return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\FormateurController::nombreinvitationAction',  '_route' => 'mooc_mooc_nombreinvitation',);
+        }
+
+        // mooc_mooc_rechercherOrganisme
+        if (0 === strpos($pathinfo, '/rechercherOrganisme') && preg_match('#^/rechercherOrganisme(?P<cin>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_rechercherOrganisme')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\FormateurController::rechercherOrganismeAction',));
+        }
+
+        if (0 === strpos($pathinfo, '/ModifierQ')) {
+            // mooc_mooc_modifier_qz
+            if (0 === strpos($pathinfo, '/ModifierQZ') && preg_match('#^/ModifierQZ/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_modifier_qz')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\QuizController::modifierQuizAction',));
+            }
+
+            // mooc_mooc_modifier_question
+            if (0 === strpos($pathinfo, '/ModifierQuestion') && preg_match('#^/ModifierQuestion/(?P<idquestion>[^/]++)/(?P<idquiz>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_modifier_question')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\QuestionController::modifierQuestionAction',));
+            }
+
+        }
+
+        // mooc_mooc_supprimer_question
+        if (0 === strpos($pathinfo, '/SupprimerQuestion') && preg_match('#^/SupprimerQuestion/(?P<idquestion>[^/]++)/(?P<idquiz>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_supprimer_question')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\QuestionController::supprimerQuestionAction',));
+        }
+
+        // mooc_mooc_modifier_test
+        if (0 === strpos($pathinfo, '/testmodifier') && preg_match('#^/testmodifier/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_modifier_test')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\QuizController::testmodifierAction',));
+        }
+
+        // mooc_mooc_passer_quiz
+        if (0 === strpos($pathinfo, '/validerQuiz') && preg_match('#^/validerQuiz/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_passer_quiz')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\QuizController::PasserQuizAction',));
+        }
+
+        // mooc_mooc_note
+        if (0 === strpos($pathinfo, '/note') && preg_match('#^/note/(?P<note>[^/]++)/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_note')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\QuizController::NoteAction',));
+        }
+
+        // mooc_mooc_afficher_chapitreForm
+        if (0 === strpos($pathinfo, '/AfficherChapitreForm') && preg_match('#^/AfficherChapitreForm/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_afficher_chapitreForm')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ChapitreController::afficheChapitreFormAction',));
+        }
+
+        if (0 === strpos($pathinfo, '/listechapitres')) {
+            // mooc_mooc_listechapitre
+            if (preg_match('#^/listechapitres/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_listechapitre')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ChapitreController::affichelistChapitresAction',));
+            }
+
+            // mooc_mooc_listechapitreApp
+            if (0 === strpos($pathinfo, '/listechapitresApp') && preg_match('#^/listechapitresApp/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_listechapitreApp')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ChapitreController::affichelistChapitresAppAction',));
+            }
+
         }
 
         // mooc_mooc_Ajouter_chapitre
-        if ($pathinfo === '/AjouterChapitre') {
-            return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ChapitreController::ajouterChapitreAction',  '_route' => 'mooc_mooc_Ajouter_chapitre',);
+        if (0 === strpos($pathinfo, '/AjouterChapitre') && preg_match('#^/AjouterChapitre/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_Ajouter_chapitre')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ChapitreController::ajouterChapitreAction',));
         }
 
         // mooc_mooc_Modifier_chapitre
-        if (0 === strpos($pathinfo, '/ModifierChapitre') && preg_match('#^/ModifierChapitre/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+        if (0 === strpos($pathinfo, '/ModifierChapitre') && preg_match('#^/ModifierChapitre/(?P<id>[^/]++)/(?P<idcours>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_Modifier_chapitre')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ChapitreController::modifierChapitreAction',));
         }
 
@@ -315,7 +373,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         if (0 === strpos($pathinfo, '/Supprimer')) {
             // mooc_mooc_Supprimer_chapitre
-            if (0 === strpos($pathinfo, '/SupprimerChapitre') && preg_match('#^/SupprimerChapitre/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            if (0 === strpos($pathinfo, '/SupprimerChapitre') && preg_match('#^/SupprimerChapitre/(?P<id>[^/]++)/(?P<idcours>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_Supprimer_chapitre')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\ChapitreController::supprimerChapitreAction',));
             }
 
@@ -344,37 +402,14 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_afficher_test')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\QuizController::testAction',));
         }
 
-        // mooc_mooc_passer_quiz
-        if ($pathinfo === '/validerQuiz') {
-            return array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\QuizController::PasserQuizAction',  '_route' => 'mooc_mooc_passer_quiz',);
-        }
-
         // mooc_mooc_afficher_quiz_chrono
         if (0 === strpos($pathinfo, '/AfficherQuizChrono') && preg_match('#^/AfficherQuizChrono/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_afficher_quiz_chrono')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\QuizController::afficheQuizChronoAction',));
         }
 
-        // mooc_mooc_note
-        if (0 === strpos($pathinfo, '/note') && preg_match('#^/note/(?P<note>[^/]++)/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_note')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\QuizController::NoteAction',));
-        }
-
-        if (0 === strpos($pathinfo, '/ModifierQu')) {
-            // mooc_mooc_modifier_quiz
-            if (0 === strpos($pathinfo, '/ModifierQuiz') && preg_match('#^/ModifierQuiz/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_modifier_quiz')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\QuizController::afficheQuizModifierAction',));
-            }
-
-            // mooc_mooc_modifier_question
-            if (0 === strpos($pathinfo, '/ModifierQuestion') && preg_match('#^/ModifierQuestion/(?P<idquestion>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_modifier_question')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\QuestionController::modifierQuestionAction',));
-            }
-
-        }
-
-        // mooc_mooc_modifier_test
-        if (0 === strpos($pathinfo, '/testmodifier') && preg_match('#^/testmodifier/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_modifier_test')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\QuizController::testmodifierAction',));
+        // mooc_mooc_modifier_quiz
+        if (0 === strpos($pathinfo, '/ModifierQuiz') && preg_match('#^/ModifierQuiz/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'mooc_mooc_modifier_quiz')), array (  '_controller' => 'Mooc\\MoocBundle\\Controller\\QuizController::afficheQuizModifierAction',));
         }
 
         // mooc_mooc_delCours

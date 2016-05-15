@@ -6,7 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 
-
 /**
  * Chapitre
  *
@@ -35,7 +34,7 @@ class Chapitre {
     /**
      * @var string
      *
-     * @ORM\Column(name="presentation", type="string",length=255, nullable=false)
+     * @ORM\Column(name="presentation", type="string",length=255, nullable=true)
      */
     private $presentation;
 
@@ -52,17 +51,17 @@ class Chapitre {
      * @ORM\Column(name="video", type="string", length=255, nullable=true)
      */
     private $video;
-   
 
     /**
      * @var \Cours
      *
      * @ORM\ManyToOne(targetEntity="Cours")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idcours", referencedColumnName="idcours")
+     *   @ORM\JoinColumn(name="idcours", referencedColumnName="idcours", onDelete="CASCADE")
      * })
      */
     private $idcours;
+
 
     /**
      * @var \Quiz
@@ -74,7 +73,6 @@ class Chapitre {
      */
     private $idquiz;
 
-   
     function getId() {
         return $this->id;
     }
@@ -93,14 +91,6 @@ class Chapitre {
 
     function getVideo() {
         return $this->video;
-    }
-
-    function getIdcours() {
-        return $this->idcours;
-    }
-
-    function getIdquiz() {
-        return $this->idquiz;
     }
 
     function setId($id) {
@@ -128,15 +118,51 @@ class Chapitre {
         return $this;
     }
 
-
-    function setIdcours(\Cours $idcours) {
+/**
+     * Set idcours
+     *
+     * @param \Mooc\MoocBundle\Entity\Cours $idcours
+     * @return Chapitre
+     */
+    public function setIdcours($idcours )
+    {
         $this->idcours = $idcours;
+
         return $this;
     }
 
-    function setIdquiz(\Quiz $idquiz) {
+    /**
+     * Get idcours
+     *
+     * @return \Mooc\MoocBundle\Entity\Cours 
+     */
+    public function getIdcours()
+    {
+        return $this->idcours;
+    }
+
+
+    /**
+     * Set idquiz
+     *
+     * @param \Mooc\MoocBundle\Entity\Quiz $idquiz
+     * @return Chapitre
+     */
+    public function setIdquiz($idquiz)
+    {
         $this->idquiz = $idquiz;
+
         return $this;
+    }
+
+    /**
+     * Get idquiz
+     *
+     * @return \Mooc\MoocBundle\Entity\Quiz 
+     */
+    public function getIdquiz()
+    {
+        return $this->idquiz;
     }
 
 

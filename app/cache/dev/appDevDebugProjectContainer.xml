@@ -24,6 +24,7 @@
       <parameter key="NomayaSocialBundle">Nomaya\SocialBundle\NomayaSocialBundle</parameter>
       <parameter key="StarRatingBundle">blackknight467\StarRatingBundle\StarRatingBundle</parameter>
       <parameter key="GregwarImageBundle">Gregwar\ImageBundle\GregwarImageBundle</parameter>
+      <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -793,7 +794,7 @@
                 <parameter key="type_options" type="collection"/>
                 <parameter key="fieldName">avatar</parameter>
                 <parameter key="scale">0</parameter>
-                <parameter key="length">null</parameter>
+                <parameter key="length">255</parameter>
                 <parameter key="unique">false</parameter>
                 <parameter key="nullable">true</parameter>
                 <parameter key="precision">0</parameter>
@@ -806,47 +807,21 @@
                 <parameter key="format">null</parameter>
                 <parameter key="help">null</parameter>
                 <parameter key="label">null</parameter>
-                <parameter key="type">association</parameter>
-                <parameter key="fieldType">entity</parameter>
-                <parameter key="dataType">association</parameter>
-                <parameter key="virtual">false</parameter>
-                <parameter key="sortable">true</parameter>
-                <parameter key="template">@EasyAdmin/default/field_association.html.twig</parameter>
+                <parameter key="type">text</parameter>
+                <parameter key="fieldType">null</parameter>
+                <parameter key="dataType">text</parameter>
+                <parameter key="virtual">true</parameter>
+                <parameter key="sortable">false</parameter>
+                <parameter key="template">@EasyAdmin/default/field_text.html.twig</parameter>
                 <parameter key="type_options" type="collection"/>
+                <parameter key="columnName">Organisme</parameter>
                 <parameter key="fieldName">Organisme</parameter>
-                <parameter key="joinColumns" type="collection">
-                  <parameter type="collection">
-                    <parameter key="name">Organisme_id</parameter>
-                    <parameter key="unique">false</parameter>
-                    <parameter key="nullable">true</parameter>
-                    <parameter key="onDelete">null</parameter>
-                    <parameter key="columnDefinition">null</parameter>
-                    <parameter key="referencedColumnName">idorganisme</parameter>
-                  </parameter>
-                </parameter>
-                <parameter key="cascade" type="collection"/>
-                <parameter key="inversedBy">null</parameter>
-                <parameter key="targetEntity">Mooc\MoocBundle\Entity\Organisme</parameter>
-                <parameter key="fetch">2</parameter>
-                <parameter key="mappedBy">null</parameter>
-                <parameter key="isOwningSide">true</parameter>
-                <parameter key="sourceEntity">Mooc\MoocBundle\Entity\Formateur</parameter>
-                <parameter key="isCascadeRemove">false</parameter>
-                <parameter key="isCascadePersist">false</parameter>
-                <parameter key="isCascadeRefresh">false</parameter>
-                <parameter key="isCascadeMerge">false</parameter>
-                <parameter key="isCascadeDetach">false</parameter>
-                <parameter key="sourceToTargetKeyColumns" type="collection">
-                  <parameter key="Organisme_id">idorganisme</parameter>
-                </parameter>
-                <parameter key="joinColumnFieldNames" type="collection">
-                  <parameter key="Organisme_id">Organisme_id</parameter>
-                </parameter>
-                <parameter key="targetToSourceKeyColumns" type="collection">
-                  <parameter key="idorganisme">Organisme_id</parameter>
-                </parameter>
-                <parameter key="orphanRemoval">false</parameter>
-                <parameter key="associationType">2</parameter>
+                <parameter key="id">false</parameter>
+                <parameter key="length">null</parameter>
+                <parameter key="nullable">false</parameter>
+                <parameter key="precision">0</parameter>
+                <parameter key="scale">0</parameter>
+                <parameter key="unique">false</parameter>
                 <parameter key="property">Organisme</parameter>
               </parameter>
               <parameter key="cv" type="collection">
@@ -854,9 +829,9 @@
                 <parameter key="format">null</parameter>
                 <parameter key="help">null</parameter>
                 <parameter key="label">CV</parameter>
-                <parameter key="type">string</parameter>
-                <parameter key="fieldType">text</parameter>
-                <parameter key="dataType">string</parameter>
+                <parameter key="type">blob</parameter>
+                <parameter key="fieldType">textarea</parameter>
+                <parameter key="dataType">blob</parameter>
                 <parameter key="virtual">false</parameter>
                 <parameter key="sortable">true</parameter>
                 <parameter key="template">easy_admin/Formateur/cv.html.twig</parameter>
@@ -877,7 +852,7 @@
                 <parameter key="help">null</parameter>
                 <parameter key="label">Valide</parameter>
                 <parameter key="type">toggle</parameter>
-                <parameter key="fieldType">checkbox</parameter>
+                <parameter key="fieldType">integer</parameter>
                 <parameter key="dataType">toggle</parameter>
                 <parameter key="virtual">false</parameter>
                 <parameter key="sortable">true</parameter>
@@ -949,7 +924,7 @@
                 <parameter key="type_options" type="collection"/>
                 <parameter key="fieldName">avatar</parameter>
                 <parameter key="scale">0</parameter>
-                <parameter key="length">null</parameter>
+                <parameter key="length">255</parameter>
                 <parameter key="unique">false</parameter>
                 <parameter key="nullable">true</parameter>
                 <parameter key="precision">0</parameter>
@@ -1025,9 +1000,9 @@
                 <parameter key="format">null</parameter>
                 <parameter key="help">null</parameter>
                 <parameter key="label">CV</parameter>
-                <parameter key="type">string</parameter>
-                <parameter key="fieldType">text</parameter>
-                <parameter key="dataType">string</parameter>
+                <parameter key="type">blob</parameter>
+                <parameter key="fieldType">textarea</parameter>
+                <parameter key="dataType">blob</parameter>
                 <parameter key="virtual">false</parameter>
                 <parameter key="sortable">true</parameter>
                 <parameter key="template">easy_admin/Formateur/cv.html.twig</parameter>
@@ -1048,7 +1023,7 @@
                 <parameter key="help">null</parameter>
                 <parameter key="label">Valide</parameter>
                 <parameter key="type">toggle</parameter>
-                <parameter key="fieldType">checkbox</parameter>
+                <parameter key="fieldType">integer</parameter>
                 <parameter key="dataType">toggle</parameter>
                 <parameter key="virtual">false</parameter>
                 <parameter key="sortable">true</parameter>
@@ -1068,47 +1043,21 @@
                 <parameter key="format">null</parameter>
                 <parameter key="help">null</parameter>
                 <parameter key="label">null</parameter>
-                <parameter key="type">association</parameter>
-                <parameter key="fieldType">entity</parameter>
-                <parameter key="dataType">association</parameter>
-                <parameter key="virtual">false</parameter>
-                <parameter key="sortable">true</parameter>
-                <parameter key="template">@EasyAdmin/default/field_association.html.twig</parameter>
+                <parameter key="type">text</parameter>
+                <parameter key="fieldType">null</parameter>
+                <parameter key="dataType">text</parameter>
+                <parameter key="virtual">true</parameter>
+                <parameter key="sortable">false</parameter>
+                <parameter key="template">@EasyAdmin/default/field_text.html.twig</parameter>
                 <parameter key="type_options" type="collection"/>
+                <parameter key="columnName">Organisme</parameter>
                 <parameter key="fieldName">Organisme</parameter>
-                <parameter key="joinColumns" type="collection">
-                  <parameter type="collection">
-                    <parameter key="name">Organisme_id</parameter>
-                    <parameter key="unique">false</parameter>
-                    <parameter key="nullable">true</parameter>
-                    <parameter key="onDelete">null</parameter>
-                    <parameter key="columnDefinition">null</parameter>
-                    <parameter key="referencedColumnName">idorganisme</parameter>
-                  </parameter>
-                </parameter>
-                <parameter key="cascade" type="collection"/>
-                <parameter key="inversedBy">null</parameter>
-                <parameter key="targetEntity">Mooc\MoocBundle\Entity\Organisme</parameter>
-                <parameter key="fetch">2</parameter>
-                <parameter key="mappedBy">null</parameter>
-                <parameter key="isOwningSide">true</parameter>
-                <parameter key="sourceEntity">Mooc\MoocBundle\Entity\Formateur</parameter>
-                <parameter key="isCascadeRemove">false</parameter>
-                <parameter key="isCascadePersist">false</parameter>
-                <parameter key="isCascadeRefresh">false</parameter>
-                <parameter key="isCascadeMerge">false</parameter>
-                <parameter key="isCascadeDetach">false</parameter>
-                <parameter key="sourceToTargetKeyColumns" type="collection">
-                  <parameter key="Organisme_id">idorganisme</parameter>
-                </parameter>
-                <parameter key="joinColumnFieldNames" type="collection">
-                  <parameter key="Organisme_id">Organisme_id</parameter>
-                </parameter>
-                <parameter key="targetToSourceKeyColumns" type="collection">
-                  <parameter key="idorganisme">Organisme_id</parameter>
-                </parameter>
-                <parameter key="orphanRemoval">false</parameter>
-                <parameter key="associationType">2</parameter>
+                <parameter key="id">false</parameter>
+                <parameter key="length">null</parameter>
+                <parameter key="nullable">false</parameter>
+                <parameter key="precision">0</parameter>
+                <parameter key="scale">0</parameter>
+                <parameter key="unique">false</parameter>
                 <parameter key="property">Organisme</parameter>
               </parameter>
             </parameter>
@@ -1224,47 +1173,21 @@
                 <parameter key="format">null</parameter>
                 <parameter key="help">null</parameter>
                 <parameter key="label">null</parameter>
-                <parameter key="type">association</parameter>
-                <parameter key="fieldType">entity</parameter>
-                <parameter key="dataType">association</parameter>
-                <parameter key="virtual">false</parameter>
-                <parameter key="sortable">true</parameter>
+                <parameter key="type">text</parameter>
+                <parameter key="fieldType">textarea</parameter>
+                <parameter key="dataType">null</parameter>
+                <parameter key="virtual">true</parameter>
+                <parameter key="sortable">false</parameter>
                 <parameter key="template">null</parameter>
                 <parameter key="type_options" type="collection"/>
+                <parameter key="columnName">Organisme</parameter>
                 <parameter key="fieldName">Organisme</parameter>
-                <parameter key="joinColumns" type="collection">
-                  <parameter type="collection">
-                    <parameter key="name">Organisme_id</parameter>
-                    <parameter key="unique">false</parameter>
-                    <parameter key="nullable">true</parameter>
-                    <parameter key="onDelete">null</parameter>
-                    <parameter key="columnDefinition">null</parameter>
-                    <parameter key="referencedColumnName">idorganisme</parameter>
-                  </parameter>
-                </parameter>
-                <parameter key="cascade" type="collection"/>
-                <parameter key="inversedBy">null</parameter>
-                <parameter key="targetEntity">Mooc\MoocBundle\Entity\Organisme</parameter>
-                <parameter key="fetch">2</parameter>
-                <parameter key="mappedBy">null</parameter>
-                <parameter key="isOwningSide">true</parameter>
-                <parameter key="sourceEntity">Mooc\MoocBundle\Entity\Formateur</parameter>
-                <parameter key="isCascadeRemove">false</parameter>
-                <parameter key="isCascadePersist">false</parameter>
-                <parameter key="isCascadeRefresh">false</parameter>
-                <parameter key="isCascadeMerge">false</parameter>
-                <parameter key="isCascadeDetach">false</parameter>
-                <parameter key="sourceToTargetKeyColumns" type="collection">
-                  <parameter key="Organisme_id">idorganisme</parameter>
-                </parameter>
-                <parameter key="joinColumnFieldNames" type="collection">
-                  <parameter key="Organisme_id">Organisme_id</parameter>
-                </parameter>
-                <parameter key="targetToSourceKeyColumns" type="collection">
-                  <parameter key="idorganisme">Organisme_id</parameter>
-                </parameter>
-                <parameter key="orphanRemoval">false</parameter>
-                <parameter key="associationType">2</parameter>
+                <parameter key="id">false</parameter>
+                <parameter key="length">null</parameter>
+                <parameter key="nullable">false</parameter>
+                <parameter key="precision">0</parameter>
+                <parameter key="scale">0</parameter>
+                <parameter key="unique">false</parameter>
                 <parameter key="property">Organisme</parameter>
               </parameter>
               <parameter key="login" type="collection">
@@ -1314,9 +1237,9 @@
                 <parameter key="format">null</parameter>
                 <parameter key="help">null</parameter>
                 <parameter key="label">Valide</parameter>
-                <parameter key="type">boolean</parameter>
-                <parameter key="fieldType">checkbox</parameter>
-                <parameter key="dataType">toggle</parameter>
+                <parameter key="type">integer</parameter>
+                <parameter key="fieldType">integer</parameter>
+                <parameter key="dataType">integer</parameter>
                 <parameter key="virtual">false</parameter>
                 <parameter key="sortable">true</parameter>
                 <parameter key="template">null</parameter>
@@ -1412,47 +1335,21 @@
                 <parameter key="format">null</parameter>
                 <parameter key="help">null</parameter>
                 <parameter key="label">null</parameter>
-                <parameter key="type">association</parameter>
-                <parameter key="fieldType">entity</parameter>
-                <parameter key="dataType">association</parameter>
-                <parameter key="virtual">false</parameter>
-                <parameter key="sortable">true</parameter>
+                <parameter key="type">text</parameter>
+                <parameter key="fieldType">textarea</parameter>
+                <parameter key="dataType">null</parameter>
+                <parameter key="virtual">true</parameter>
+                <parameter key="sortable">false</parameter>
                 <parameter key="template">null</parameter>
                 <parameter key="type_options" type="collection"/>
+                <parameter key="columnName">Organisme</parameter>
                 <parameter key="fieldName">Organisme</parameter>
-                <parameter key="joinColumns" type="collection">
-                  <parameter type="collection">
-                    <parameter key="name">Organisme_id</parameter>
-                    <parameter key="unique">false</parameter>
-                    <parameter key="nullable">true</parameter>
-                    <parameter key="onDelete">null</parameter>
-                    <parameter key="columnDefinition">null</parameter>
-                    <parameter key="referencedColumnName">idorganisme</parameter>
-                  </parameter>
-                </parameter>
-                <parameter key="cascade" type="collection"/>
-                <parameter key="inversedBy">null</parameter>
-                <parameter key="targetEntity">Mooc\MoocBundle\Entity\Organisme</parameter>
-                <parameter key="fetch">2</parameter>
-                <parameter key="mappedBy">null</parameter>
-                <parameter key="isOwningSide">true</parameter>
-                <parameter key="sourceEntity">Mooc\MoocBundle\Entity\Formateur</parameter>
-                <parameter key="isCascadeRemove">false</parameter>
-                <parameter key="isCascadePersist">false</parameter>
-                <parameter key="isCascadeRefresh">false</parameter>
-                <parameter key="isCascadeMerge">false</parameter>
-                <parameter key="isCascadeDetach">false</parameter>
-                <parameter key="sourceToTargetKeyColumns" type="collection">
-                  <parameter key="Organisme_id">idorganisme</parameter>
-                </parameter>
-                <parameter key="joinColumnFieldNames" type="collection">
-                  <parameter key="Organisme_id">Organisme_id</parameter>
-                </parameter>
-                <parameter key="targetToSourceKeyColumns" type="collection">
-                  <parameter key="idorganisme">Organisme_id</parameter>
-                </parameter>
-                <parameter key="orphanRemoval">false</parameter>
-                <parameter key="associationType">2</parameter>
+                <parameter key="id">false</parameter>
+                <parameter key="length">null</parameter>
+                <parameter key="nullable">false</parameter>
+                <parameter key="precision">0</parameter>
+                <parameter key="scale">0</parameter>
+                <parameter key="unique">false</parameter>
                 <parameter key="property">Organisme</parameter>
               </parameter>
               <parameter key="login" type="collection">
@@ -1502,9 +1399,9 @@
                 <parameter key="format">null</parameter>
                 <parameter key="help">null</parameter>
                 <parameter key="label">Valide</parameter>
-                <parameter key="type">boolean</parameter>
-                <parameter key="fieldType">checkbox</parameter>
-                <parameter key="dataType">toggle</parameter>
+                <parameter key="type">integer</parameter>
+                <parameter key="fieldType">integer</parameter>
+                <parameter key="dataType">integer</parameter>
                 <parameter key="virtual">false</parameter>
                 <parameter key="sortable">true</parameter>
                 <parameter key="template">null</parameter>
@@ -1624,6 +1521,27 @@
                 <parameter key="columnName">email</parameter>
                 <parameter key="property">email</parameter>
               </parameter>
+              <parameter key="etat" type="collection">
+                <parameter key="css_class"></parameter>
+                <parameter key="format">null</parameter>
+                <parameter key="help">null</parameter>
+                <parameter key="label">null</parameter>
+                <parameter key="type">integer</parameter>
+                <parameter key="fieldType">integer</parameter>
+                <parameter key="dataType">integer</parameter>
+                <parameter key="virtual">false</parameter>
+                <parameter key="sortable">true</parameter>
+                <parameter key="template">null</parameter>
+                <parameter key="type_options" type="collection"/>
+                <parameter key="fieldName">etat</parameter>
+                <parameter key="scale">0</parameter>
+                <parameter key="length">null</parameter>
+                <parameter key="unique">false</parameter>
+                <parameter key="nullable">true</parameter>
+                <parameter key="precision">0</parameter>
+                <parameter key="columnName">etat</parameter>
+                <parameter key="property">etat</parameter>
+              </parameter>
               <parameter key="avatar" type="collection">
                 <parameter key="css_class"></parameter>
                 <parameter key="format">null</parameter>
@@ -1638,33 +1556,12 @@
                 <parameter key="type_options" type="collection"/>
                 <parameter key="fieldName">avatar</parameter>
                 <parameter key="scale">0</parameter>
-                <parameter key="length">null</parameter>
+                <parameter key="length">255</parameter>
                 <parameter key="unique">false</parameter>
                 <parameter key="nullable">true</parameter>
                 <parameter key="precision">0</parameter>
                 <parameter key="columnName">avatar</parameter>
                 <parameter key="property">avatar</parameter>
-              </parameter>
-              <parameter key="cv" type="collection">
-                <parameter key="css_class"></parameter>
-                <parameter key="format">null</parameter>
-                <parameter key="help">null</parameter>
-                <parameter key="label">null</parameter>
-                <parameter key="type">string</parameter>
-                <parameter key="fieldType">text</parameter>
-                <parameter key="dataType">string</parameter>
-                <parameter key="virtual">false</parameter>
-                <parameter key="sortable">true</parameter>
-                <parameter key="template">null</parameter>
-                <parameter key="type_options" type="collection"/>
-                <parameter key="fieldName">cv</parameter>
-                <parameter key="scale">0</parameter>
-                <parameter key="length">null</parameter>
-                <parameter key="unique">false</parameter>
-                <parameter key="nullable">true</parameter>
-                <parameter key="precision">0</parameter>
-                <parameter key="columnName">cv</parameter>
-                <parameter key="property">cv</parameter>
               </parameter>
               <parameter key="login" type="collection">
                 <parameter key="css_class"></parameter>
@@ -1686,6 +1583,27 @@
                 <parameter key="precision">0</parameter>
                 <parameter key="columnName">login</parameter>
                 <parameter key="property">login</parameter>
+              </parameter>
+              <parameter key="role" type="collection">
+                <parameter key="css_class"></parameter>
+                <parameter key="format">null</parameter>
+                <parameter key="help">null</parameter>
+                <parameter key="label">null</parameter>
+                <parameter key="type">string</parameter>
+                <parameter key="fieldType">text</parameter>
+                <parameter key="dataType">string</parameter>
+                <parameter key="virtual">false</parameter>
+                <parameter key="sortable">true</parameter>
+                <parameter key="template">null</parameter>
+                <parameter key="type_options" type="collection"/>
+                <parameter key="fieldName">role</parameter>
+                <parameter key="scale">0</parameter>
+                <parameter key="length">45</parameter>
+                <parameter key="unique">false</parameter>
+                <parameter key="nullable">true</parameter>
+                <parameter key="precision">0</parameter>
+                <parameter key="columnName">role</parameter>
+                <parameter key="property">role</parameter>
               </parameter>
             </parameter>
           </parameter>
@@ -1782,9 +1700,9 @@
               <parameter key="format">null</parameter>
               <parameter key="help">null</parameter>
               <parameter key="label">null</parameter>
-              <parameter key="type">boolean</parameter>
-              <parameter key="fieldType">checkbox</parameter>
-              <parameter key="dataType">toggle</parameter>
+              <parameter key="type">integer</parameter>
+              <parameter key="fieldType">integer</parameter>
+              <parameter key="dataType">integer</parameter>
               <parameter key="virtual">false</parameter>
               <parameter key="sortable">true</parameter>
               <parameter key="template">null</parameter>
@@ -1812,7 +1730,7 @@
               <parameter key="type_options" type="collection"/>
               <parameter key="fieldName">avatar</parameter>
               <parameter key="scale">0</parameter>
-              <parameter key="length">null</parameter>
+              <parameter key="length">255</parameter>
               <parameter key="unique">false</parameter>
               <parameter key="nullable">true</parameter>
               <parameter key="precision">0</parameter>
@@ -1824,9 +1742,9 @@
               <parameter key="format">null</parameter>
               <parameter key="help">null</parameter>
               <parameter key="label">null</parameter>
-              <parameter key="type">string</parameter>
-              <parameter key="fieldType">text</parameter>
-              <parameter key="dataType">string</parameter>
+              <parameter key="type">blob</parameter>
+              <parameter key="fieldType">textarea</parameter>
+              <parameter key="dataType">blob</parameter>
               <parameter key="virtual">false</parameter>
               <parameter key="sortable">true</parameter>
               <parameter key="template">null</parameter>
@@ -1882,53 +1800,26 @@
               <parameter key="columnName">password</parameter>
               <parameter key="property">password</parameter>
             </parameter>
-            <parameter key="Organisme" type="collection">
+            <parameter key="role" type="collection">
               <parameter key="css_class"></parameter>
               <parameter key="format">null</parameter>
               <parameter key="help">null</parameter>
               <parameter key="label">null</parameter>
-              <parameter key="type">association</parameter>
-              <parameter key="fieldType">entity</parameter>
-              <parameter key="dataType">association</parameter>
+              <parameter key="type">string</parameter>
+              <parameter key="fieldType">text</parameter>
+              <parameter key="dataType">string</parameter>
               <parameter key="virtual">false</parameter>
               <parameter key="sortable">true</parameter>
               <parameter key="template">null</parameter>
               <parameter key="type_options" type="collection"/>
-              <parameter key="fieldName">Organisme</parameter>
-              <parameter key="joinColumns" type="collection">
-                <parameter type="collection">
-                  <parameter key="name">Organisme_id</parameter>
-                  <parameter key="unique">false</parameter>
-                  <parameter key="nullable">true</parameter>
-                  <parameter key="onDelete">null</parameter>
-                  <parameter key="columnDefinition">null</parameter>
-                  <parameter key="referencedColumnName">idorganisme</parameter>
-                </parameter>
-              </parameter>
-              <parameter key="cascade" type="collection"/>
-              <parameter key="inversedBy">null</parameter>
-              <parameter key="targetEntity">Mooc\MoocBundle\Entity\Organisme</parameter>
-              <parameter key="fetch">2</parameter>
-              <parameter key="mappedBy">null</parameter>
-              <parameter key="isOwningSide">true</parameter>
-              <parameter key="sourceEntity">Mooc\MoocBundle\Entity\Formateur</parameter>
-              <parameter key="isCascadeRemove">false</parameter>
-              <parameter key="isCascadePersist">false</parameter>
-              <parameter key="isCascadeRefresh">false</parameter>
-              <parameter key="isCascadeMerge">false</parameter>
-              <parameter key="isCascadeDetach">false</parameter>
-              <parameter key="sourceToTargetKeyColumns" type="collection">
-                <parameter key="Organisme_id">idorganisme</parameter>
-              </parameter>
-              <parameter key="joinColumnFieldNames" type="collection">
-                <parameter key="Organisme_id">Organisme_id</parameter>
-              </parameter>
-              <parameter key="targetToSourceKeyColumns" type="collection">
-                <parameter key="idorganisme">Organisme_id</parameter>
-              </parameter>
-              <parameter key="orphanRemoval">false</parameter>
-              <parameter key="associationType">2</parameter>
-              <parameter key="property">Organisme</parameter>
+              <parameter key="fieldName">role</parameter>
+              <parameter key="scale">0</parameter>
+              <parameter key="length">45</parameter>
+              <parameter key="unique">false</parameter>
+              <parameter key="nullable">true</parameter>
+              <parameter key="precision">0</parameter>
+              <parameter key="columnName">role</parameter>
+              <parameter key="property">role</parameter>
             </parameter>
           </parameter>
           <parameter key="templates" type="collection">
@@ -5698,6 +5589,12 @@ body.error .error-message {
     <parameter key="gregwar_image.web_dir">C:\wamp\www\Mooc_Web\app/../web</parameter>
     <parameter key="image.handling.class">Gregwar\ImageBundle\Services\ImageHandling</parameter>
     <parameter key="image.handler.class">Gregwar\ImageBundle\ImageHandler</parameter>
+    <parameter key="knp_paginator.class">Knp\Component\Pager\Paginator</parameter>
+    <parameter key="knp_paginator.helper.processor.class">Knp\Bundle\PaginatorBundle\Helper\Processor</parameter>
+    <parameter key="knp_paginator.template.pagination">KnpPaginatorBundle:Pagination:sliding.html.twig</parameter>
+    <parameter key="knp_paginator.template.filtration">KnpPaginatorBundle:Pagination:filtration.html.twig</parameter>
+    <parameter key="knp_paginator.template.sortable">KnpPaginatorBundle:Pagination:sortable_link.html.twig</parameter>
+    <parameter key="knp_paginator.page_range">5</parameter>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -7820,6 +7717,14 @@ body.error .error-message {
         </argument>
         <argument>0</argument>
       </call>
+      <call method="addListenerService">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument>knp_paginator.subscriber.sliding_pagination</argument>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
       <call method="addSubscriberService">
         <argument>response_listener</argument>
         <argument>Symfony\Component\HttpKernel\EventListener\ResponseListener</argument>
@@ -7915,6 +7820,46 @@ body.error .error-message {
       <call method="addSubscriberService">
         <argument>web_profiler.debug_toolbar</argument>
         <argument>Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument>knp_paginator.subscriber.paginate</argument>
+          <argument>before</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument>knp_paginator.subscriber.paginate</argument>
+          <argument>pagination</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument>knp_paginator.subscriber.sortable</argument>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument>knp_paginator.subscriber.filtration</argument>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument>knp_paginator.subscriber.sliding_pagination</argument>
+          <argument>pagination</argument>
+        </argument>
+        <argument>1</argument>
       </call>
     </service>
     <service id="debug.controller_resolver" class="Symfony\Component\HttpKernel\Controller\TraceableControllerResolver">
@@ -8461,6 +8406,9 @@ body.error .error-message {
       </call>
       <call method="addExtension">
         <argument type="service" id="twig.extension.image"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="knp_paginator.twig.extension.pagination"/>
       </call>
       <call method="addExtension">
         <argument type="service">
@@ -9281,7 +9229,7 @@ body.error .error-message {
                   <argument key="type_options" type="collection"/>
                   <argument key="fieldName">avatar</argument>
                   <argument key="scale">0</argument>
-                  <argument key="length">null</argument>
+                  <argument key="length">255</argument>
                   <argument key="unique">false</argument>
                   <argument key="nullable">true</argument>
                   <argument key="precision">0</argument>
@@ -9294,47 +9242,21 @@ body.error .error-message {
                   <argument key="format">null</argument>
                   <argument key="help">null</argument>
                   <argument key="label">null</argument>
-                  <argument key="type">association</argument>
-                  <argument key="fieldType">entity</argument>
-                  <argument key="dataType">association</argument>
-                  <argument key="virtual">false</argument>
-                  <argument key="sortable">true</argument>
-                  <argument key="template">@EasyAdmin/default/field_association.html.twig</argument>
+                  <argument key="type">text</argument>
+                  <argument key="fieldType">null</argument>
+                  <argument key="dataType">text</argument>
+                  <argument key="virtual">true</argument>
+                  <argument key="sortable">false</argument>
+                  <argument key="template">@EasyAdmin/default/field_text.html.twig</argument>
                   <argument key="type_options" type="collection"/>
+                  <argument key="columnName">Organisme</argument>
                   <argument key="fieldName">Organisme</argument>
-                  <argument key="joinColumns" type="collection">
-                    <argument type="collection">
-                      <argument key="name">Organisme_id</argument>
-                      <argument key="unique">false</argument>
-                      <argument key="nullable">true</argument>
-                      <argument key="onDelete">null</argument>
-                      <argument key="columnDefinition">null</argument>
-                      <argument key="referencedColumnName">idorganisme</argument>
-                    </argument>
-                  </argument>
-                  <argument key="cascade" type="collection"/>
-                  <argument key="inversedBy">null</argument>
-                  <argument key="targetEntity">Mooc\MoocBundle\Entity\Organisme</argument>
-                  <argument key="fetch">2</argument>
-                  <argument key="mappedBy">null</argument>
-                  <argument key="isOwningSide">true</argument>
-                  <argument key="sourceEntity">Mooc\MoocBundle\Entity\Formateur</argument>
-                  <argument key="isCascadeRemove">false</argument>
-                  <argument key="isCascadePersist">false</argument>
-                  <argument key="isCascadeRefresh">false</argument>
-                  <argument key="isCascadeMerge">false</argument>
-                  <argument key="isCascadeDetach">false</argument>
-                  <argument key="sourceToTargetKeyColumns" type="collection">
-                    <argument key="Organisme_id">idorganisme</argument>
-                  </argument>
-                  <argument key="joinColumnFieldNames" type="collection">
-                    <argument key="Organisme_id">Organisme_id</argument>
-                  </argument>
-                  <argument key="targetToSourceKeyColumns" type="collection">
-                    <argument key="idorganisme">Organisme_id</argument>
-                  </argument>
-                  <argument key="orphanRemoval">false</argument>
-                  <argument key="associationType">2</argument>
+                  <argument key="id">false</argument>
+                  <argument key="length">null</argument>
+                  <argument key="nullable">false</argument>
+                  <argument key="precision">0</argument>
+                  <argument key="scale">0</argument>
+                  <argument key="unique">false</argument>
                   <argument key="property">Organisme</argument>
                 </argument>
                 <argument key="cv" type="collection">
@@ -9342,9 +9264,9 @@ body.error .error-message {
                   <argument key="format">null</argument>
                   <argument key="help">null</argument>
                   <argument key="label">CV</argument>
-                  <argument key="type">string</argument>
-                  <argument key="fieldType">text</argument>
-                  <argument key="dataType">string</argument>
+                  <argument key="type">blob</argument>
+                  <argument key="fieldType">textarea</argument>
+                  <argument key="dataType">blob</argument>
                   <argument key="virtual">false</argument>
                   <argument key="sortable">true</argument>
                   <argument key="template">easy_admin/Formateur/cv.html.twig</argument>
@@ -9365,7 +9287,7 @@ body.error .error-message {
                   <argument key="help">null</argument>
                   <argument key="label">Valide</argument>
                   <argument key="type">toggle</argument>
-                  <argument key="fieldType">checkbox</argument>
+                  <argument key="fieldType">integer</argument>
                   <argument key="dataType">toggle</argument>
                   <argument key="virtual">false</argument>
                   <argument key="sortable">true</argument>
@@ -9437,7 +9359,7 @@ body.error .error-message {
                   <argument key="type_options" type="collection"/>
                   <argument key="fieldName">avatar</argument>
                   <argument key="scale">0</argument>
-                  <argument key="length">null</argument>
+                  <argument key="length">255</argument>
                   <argument key="unique">false</argument>
                   <argument key="nullable">true</argument>
                   <argument key="precision">0</argument>
@@ -9513,9 +9435,9 @@ body.error .error-message {
                   <argument key="format">null</argument>
                   <argument key="help">null</argument>
                   <argument key="label">CV</argument>
-                  <argument key="type">string</argument>
-                  <argument key="fieldType">text</argument>
-                  <argument key="dataType">string</argument>
+                  <argument key="type">blob</argument>
+                  <argument key="fieldType">textarea</argument>
+                  <argument key="dataType">blob</argument>
                   <argument key="virtual">false</argument>
                   <argument key="sortable">true</argument>
                   <argument key="template">easy_admin/Formateur/cv.html.twig</argument>
@@ -9536,7 +9458,7 @@ body.error .error-message {
                   <argument key="help">null</argument>
                   <argument key="label">Valide</argument>
                   <argument key="type">toggle</argument>
-                  <argument key="fieldType">checkbox</argument>
+                  <argument key="fieldType">integer</argument>
                   <argument key="dataType">toggle</argument>
                   <argument key="virtual">false</argument>
                   <argument key="sortable">true</argument>
@@ -9556,47 +9478,21 @@ body.error .error-message {
                   <argument key="format">null</argument>
                   <argument key="help">null</argument>
                   <argument key="label">null</argument>
-                  <argument key="type">association</argument>
-                  <argument key="fieldType">entity</argument>
-                  <argument key="dataType">association</argument>
-                  <argument key="virtual">false</argument>
-                  <argument key="sortable">true</argument>
-                  <argument key="template">@EasyAdmin/default/field_association.html.twig</argument>
+                  <argument key="type">text</argument>
+                  <argument key="fieldType">null</argument>
+                  <argument key="dataType">text</argument>
+                  <argument key="virtual">true</argument>
+                  <argument key="sortable">false</argument>
+                  <argument key="template">@EasyAdmin/default/field_text.html.twig</argument>
                   <argument key="type_options" type="collection"/>
+                  <argument key="columnName">Organisme</argument>
                   <argument key="fieldName">Organisme</argument>
-                  <argument key="joinColumns" type="collection">
-                    <argument type="collection">
-                      <argument key="name">Organisme_id</argument>
-                      <argument key="unique">false</argument>
-                      <argument key="nullable">true</argument>
-                      <argument key="onDelete">null</argument>
-                      <argument key="columnDefinition">null</argument>
-                      <argument key="referencedColumnName">idorganisme</argument>
-                    </argument>
-                  </argument>
-                  <argument key="cascade" type="collection"/>
-                  <argument key="inversedBy">null</argument>
-                  <argument key="targetEntity">Mooc\MoocBundle\Entity\Organisme</argument>
-                  <argument key="fetch">2</argument>
-                  <argument key="mappedBy">null</argument>
-                  <argument key="isOwningSide">true</argument>
-                  <argument key="sourceEntity">Mooc\MoocBundle\Entity\Formateur</argument>
-                  <argument key="isCascadeRemove">false</argument>
-                  <argument key="isCascadePersist">false</argument>
-                  <argument key="isCascadeRefresh">false</argument>
-                  <argument key="isCascadeMerge">false</argument>
-                  <argument key="isCascadeDetach">false</argument>
-                  <argument key="sourceToTargetKeyColumns" type="collection">
-                    <argument key="Organisme_id">idorganisme</argument>
-                  </argument>
-                  <argument key="joinColumnFieldNames" type="collection">
-                    <argument key="Organisme_id">Organisme_id</argument>
-                  </argument>
-                  <argument key="targetToSourceKeyColumns" type="collection">
-                    <argument key="idorganisme">Organisme_id</argument>
-                  </argument>
-                  <argument key="orphanRemoval">false</argument>
-                  <argument key="associationType">2</argument>
+                  <argument key="id">false</argument>
+                  <argument key="length">null</argument>
+                  <argument key="nullable">false</argument>
+                  <argument key="precision">0</argument>
+                  <argument key="scale">0</argument>
+                  <argument key="unique">false</argument>
                   <argument key="property">Organisme</argument>
                 </argument>
               </argument>
@@ -9712,47 +9608,21 @@ body.error .error-message {
                   <argument key="format">null</argument>
                   <argument key="help">null</argument>
                   <argument key="label">null</argument>
-                  <argument key="type">association</argument>
-                  <argument key="fieldType">entity</argument>
-                  <argument key="dataType">association</argument>
-                  <argument key="virtual">false</argument>
-                  <argument key="sortable">true</argument>
+                  <argument key="type">text</argument>
+                  <argument key="fieldType">textarea</argument>
+                  <argument key="dataType">null</argument>
+                  <argument key="virtual">true</argument>
+                  <argument key="sortable">false</argument>
                   <argument key="template">null</argument>
                   <argument key="type_options" type="collection"/>
+                  <argument key="columnName">Organisme</argument>
                   <argument key="fieldName">Organisme</argument>
-                  <argument key="joinColumns" type="collection">
-                    <argument type="collection">
-                      <argument key="name">Organisme_id</argument>
-                      <argument key="unique">false</argument>
-                      <argument key="nullable">true</argument>
-                      <argument key="onDelete">null</argument>
-                      <argument key="columnDefinition">null</argument>
-                      <argument key="referencedColumnName">idorganisme</argument>
-                    </argument>
-                  </argument>
-                  <argument key="cascade" type="collection"/>
-                  <argument key="inversedBy">null</argument>
-                  <argument key="targetEntity">Mooc\MoocBundle\Entity\Organisme</argument>
-                  <argument key="fetch">2</argument>
-                  <argument key="mappedBy">null</argument>
-                  <argument key="isOwningSide">true</argument>
-                  <argument key="sourceEntity">Mooc\MoocBundle\Entity\Formateur</argument>
-                  <argument key="isCascadeRemove">false</argument>
-                  <argument key="isCascadePersist">false</argument>
-                  <argument key="isCascadeRefresh">false</argument>
-                  <argument key="isCascadeMerge">false</argument>
-                  <argument key="isCascadeDetach">false</argument>
-                  <argument key="sourceToTargetKeyColumns" type="collection">
-                    <argument key="Organisme_id">idorganisme</argument>
-                  </argument>
-                  <argument key="joinColumnFieldNames" type="collection">
-                    <argument key="Organisme_id">Organisme_id</argument>
-                  </argument>
-                  <argument key="targetToSourceKeyColumns" type="collection">
-                    <argument key="idorganisme">Organisme_id</argument>
-                  </argument>
-                  <argument key="orphanRemoval">false</argument>
-                  <argument key="associationType">2</argument>
+                  <argument key="id">false</argument>
+                  <argument key="length">null</argument>
+                  <argument key="nullable">false</argument>
+                  <argument key="precision">0</argument>
+                  <argument key="scale">0</argument>
+                  <argument key="unique">false</argument>
                   <argument key="property">Organisme</argument>
                 </argument>
                 <argument key="login" type="collection">
@@ -9802,9 +9672,9 @@ body.error .error-message {
                   <argument key="format">null</argument>
                   <argument key="help">null</argument>
                   <argument key="label">Valide</argument>
-                  <argument key="type">boolean</argument>
-                  <argument key="fieldType">checkbox</argument>
-                  <argument key="dataType">toggle</argument>
+                  <argument key="type">integer</argument>
+                  <argument key="fieldType">integer</argument>
+                  <argument key="dataType">integer</argument>
                   <argument key="virtual">false</argument>
                   <argument key="sortable">true</argument>
                   <argument key="template">null</argument>
@@ -9900,47 +9770,21 @@ body.error .error-message {
                   <argument key="format">null</argument>
                   <argument key="help">null</argument>
                   <argument key="label">null</argument>
-                  <argument key="type">association</argument>
-                  <argument key="fieldType">entity</argument>
-                  <argument key="dataType">association</argument>
-                  <argument key="virtual">false</argument>
-                  <argument key="sortable">true</argument>
+                  <argument key="type">text</argument>
+                  <argument key="fieldType">textarea</argument>
+                  <argument key="dataType">null</argument>
+                  <argument key="virtual">true</argument>
+                  <argument key="sortable">false</argument>
                   <argument key="template">null</argument>
                   <argument key="type_options" type="collection"/>
+                  <argument key="columnName">Organisme</argument>
                   <argument key="fieldName">Organisme</argument>
-                  <argument key="joinColumns" type="collection">
-                    <argument type="collection">
-                      <argument key="name">Organisme_id</argument>
-                      <argument key="unique">false</argument>
-                      <argument key="nullable">true</argument>
-                      <argument key="onDelete">null</argument>
-                      <argument key="columnDefinition">null</argument>
-                      <argument key="referencedColumnName">idorganisme</argument>
-                    </argument>
-                  </argument>
-                  <argument key="cascade" type="collection"/>
-                  <argument key="inversedBy">null</argument>
-                  <argument key="targetEntity">Mooc\MoocBundle\Entity\Organisme</argument>
-                  <argument key="fetch">2</argument>
-                  <argument key="mappedBy">null</argument>
-                  <argument key="isOwningSide">true</argument>
-                  <argument key="sourceEntity">Mooc\MoocBundle\Entity\Formateur</argument>
-                  <argument key="isCascadeRemove">false</argument>
-                  <argument key="isCascadePersist">false</argument>
-                  <argument key="isCascadeRefresh">false</argument>
-                  <argument key="isCascadeMerge">false</argument>
-                  <argument key="isCascadeDetach">false</argument>
-                  <argument key="sourceToTargetKeyColumns" type="collection">
-                    <argument key="Organisme_id">idorganisme</argument>
-                  </argument>
-                  <argument key="joinColumnFieldNames" type="collection">
-                    <argument key="Organisme_id">Organisme_id</argument>
-                  </argument>
-                  <argument key="targetToSourceKeyColumns" type="collection">
-                    <argument key="idorganisme">Organisme_id</argument>
-                  </argument>
-                  <argument key="orphanRemoval">false</argument>
-                  <argument key="associationType">2</argument>
+                  <argument key="id">false</argument>
+                  <argument key="length">null</argument>
+                  <argument key="nullable">false</argument>
+                  <argument key="precision">0</argument>
+                  <argument key="scale">0</argument>
+                  <argument key="unique">false</argument>
                   <argument key="property">Organisme</argument>
                 </argument>
                 <argument key="login" type="collection">
@@ -9990,9 +9834,9 @@ body.error .error-message {
                   <argument key="format">null</argument>
                   <argument key="help">null</argument>
                   <argument key="label">Valide</argument>
-                  <argument key="type">boolean</argument>
-                  <argument key="fieldType">checkbox</argument>
-                  <argument key="dataType">toggle</argument>
+                  <argument key="type">integer</argument>
+                  <argument key="fieldType">integer</argument>
+                  <argument key="dataType">integer</argument>
                   <argument key="virtual">false</argument>
                   <argument key="sortable">true</argument>
                   <argument key="template">null</argument>
@@ -10112,6 +9956,27 @@ body.error .error-message {
                   <argument key="columnName">email</argument>
                   <argument key="property">email</argument>
                 </argument>
+                <argument key="etat" type="collection">
+                  <argument key="css_class"></argument>
+                  <argument key="format">null</argument>
+                  <argument key="help">null</argument>
+                  <argument key="label">null</argument>
+                  <argument key="type">integer</argument>
+                  <argument key="fieldType">integer</argument>
+                  <argument key="dataType">integer</argument>
+                  <argument key="virtual">false</argument>
+                  <argument key="sortable">true</argument>
+                  <argument key="template">null</argument>
+                  <argument key="type_options" type="collection"/>
+                  <argument key="fieldName">etat</argument>
+                  <argument key="scale">0</argument>
+                  <argument key="length">null</argument>
+                  <argument key="unique">false</argument>
+                  <argument key="nullable">true</argument>
+                  <argument key="precision">0</argument>
+                  <argument key="columnName">etat</argument>
+                  <argument key="property">etat</argument>
+                </argument>
                 <argument key="avatar" type="collection">
                   <argument key="css_class"></argument>
                   <argument key="format">null</argument>
@@ -10126,33 +9991,12 @@ body.error .error-message {
                   <argument key="type_options" type="collection"/>
                   <argument key="fieldName">avatar</argument>
                   <argument key="scale">0</argument>
-                  <argument key="length">null</argument>
+                  <argument key="length">255</argument>
                   <argument key="unique">false</argument>
                   <argument key="nullable">true</argument>
                   <argument key="precision">0</argument>
                   <argument key="columnName">avatar</argument>
                   <argument key="property">avatar</argument>
-                </argument>
-                <argument key="cv" type="collection">
-                  <argument key="css_class"></argument>
-                  <argument key="format">null</argument>
-                  <argument key="help">null</argument>
-                  <argument key="label">null</argument>
-                  <argument key="type">string</argument>
-                  <argument key="fieldType">text</argument>
-                  <argument key="dataType">string</argument>
-                  <argument key="virtual">false</argument>
-                  <argument key="sortable">true</argument>
-                  <argument key="template">null</argument>
-                  <argument key="type_options" type="collection"/>
-                  <argument key="fieldName">cv</argument>
-                  <argument key="scale">0</argument>
-                  <argument key="length">null</argument>
-                  <argument key="unique">false</argument>
-                  <argument key="nullable">true</argument>
-                  <argument key="precision">0</argument>
-                  <argument key="columnName">cv</argument>
-                  <argument key="property">cv</argument>
                 </argument>
                 <argument key="login" type="collection">
                   <argument key="css_class"></argument>
@@ -10174,6 +10018,27 @@ body.error .error-message {
                   <argument key="precision">0</argument>
                   <argument key="columnName">login</argument>
                   <argument key="property">login</argument>
+                </argument>
+                <argument key="role" type="collection">
+                  <argument key="css_class"></argument>
+                  <argument key="format">null</argument>
+                  <argument key="help">null</argument>
+                  <argument key="label">null</argument>
+                  <argument key="type">string</argument>
+                  <argument key="fieldType">text</argument>
+                  <argument key="dataType">string</argument>
+                  <argument key="virtual">false</argument>
+                  <argument key="sortable">true</argument>
+                  <argument key="template">null</argument>
+                  <argument key="type_options" type="collection"/>
+                  <argument key="fieldName">role</argument>
+                  <argument key="scale">0</argument>
+                  <argument key="length">45</argument>
+                  <argument key="unique">false</argument>
+                  <argument key="nullable">true</argument>
+                  <argument key="precision">0</argument>
+                  <argument key="columnName">role</argument>
+                  <argument key="property">role</argument>
                 </argument>
               </argument>
             </argument>
@@ -10270,9 +10135,9 @@ body.error .error-message {
                 <argument key="format">null</argument>
                 <argument key="help">null</argument>
                 <argument key="label">null</argument>
-                <argument key="type">boolean</argument>
-                <argument key="fieldType">checkbox</argument>
-                <argument key="dataType">toggle</argument>
+                <argument key="type">integer</argument>
+                <argument key="fieldType">integer</argument>
+                <argument key="dataType">integer</argument>
                 <argument key="virtual">false</argument>
                 <argument key="sortable">true</argument>
                 <argument key="template">null</argument>
@@ -10300,7 +10165,7 @@ body.error .error-message {
                 <argument key="type_options" type="collection"/>
                 <argument key="fieldName">avatar</argument>
                 <argument key="scale">0</argument>
-                <argument key="length">null</argument>
+                <argument key="length">255</argument>
                 <argument key="unique">false</argument>
                 <argument key="nullable">true</argument>
                 <argument key="precision">0</argument>
@@ -10312,9 +10177,9 @@ body.error .error-message {
                 <argument key="format">null</argument>
                 <argument key="help">null</argument>
                 <argument key="label">null</argument>
-                <argument key="type">string</argument>
-                <argument key="fieldType">text</argument>
-                <argument key="dataType">string</argument>
+                <argument key="type">blob</argument>
+                <argument key="fieldType">textarea</argument>
+                <argument key="dataType">blob</argument>
                 <argument key="virtual">false</argument>
                 <argument key="sortable">true</argument>
                 <argument key="template">null</argument>
@@ -10370,53 +10235,26 @@ body.error .error-message {
                 <argument key="columnName">password</argument>
                 <argument key="property">password</argument>
               </argument>
-              <argument key="Organisme" type="collection">
+              <argument key="role" type="collection">
                 <argument key="css_class"></argument>
                 <argument key="format">null</argument>
                 <argument key="help">null</argument>
                 <argument key="label">null</argument>
-                <argument key="type">association</argument>
-                <argument key="fieldType">entity</argument>
-                <argument key="dataType">association</argument>
+                <argument key="type">string</argument>
+                <argument key="fieldType">text</argument>
+                <argument key="dataType">string</argument>
                 <argument key="virtual">false</argument>
                 <argument key="sortable">true</argument>
                 <argument key="template">null</argument>
                 <argument key="type_options" type="collection"/>
-                <argument key="fieldName">Organisme</argument>
-                <argument key="joinColumns" type="collection">
-                  <argument type="collection">
-                    <argument key="name">Organisme_id</argument>
-                    <argument key="unique">false</argument>
-                    <argument key="nullable">true</argument>
-                    <argument key="onDelete">null</argument>
-                    <argument key="columnDefinition">null</argument>
-                    <argument key="referencedColumnName">idorganisme</argument>
-                  </argument>
-                </argument>
-                <argument key="cascade" type="collection"/>
-                <argument key="inversedBy">null</argument>
-                <argument key="targetEntity">Mooc\MoocBundle\Entity\Organisme</argument>
-                <argument key="fetch">2</argument>
-                <argument key="mappedBy">null</argument>
-                <argument key="isOwningSide">true</argument>
-                <argument key="sourceEntity">Mooc\MoocBundle\Entity\Formateur</argument>
-                <argument key="isCascadeRemove">false</argument>
-                <argument key="isCascadePersist">false</argument>
-                <argument key="isCascadeRefresh">false</argument>
-                <argument key="isCascadeMerge">false</argument>
-                <argument key="isCascadeDetach">false</argument>
-                <argument key="sourceToTargetKeyColumns" type="collection">
-                  <argument key="Organisme_id">idorganisme</argument>
-                </argument>
-                <argument key="joinColumnFieldNames" type="collection">
-                  <argument key="Organisme_id">Organisme_id</argument>
-                </argument>
-                <argument key="targetToSourceKeyColumns" type="collection">
-                  <argument key="idorganisme">Organisme_id</argument>
-                </argument>
-                <argument key="orphanRemoval">false</argument>
-                <argument key="associationType">2</argument>
-                <argument key="property">Organisme</argument>
+                <argument key="fieldName">role</argument>
+                <argument key="scale">0</argument>
+                <argument key="length">45</argument>
+                <argument key="unique">false</argument>
+                <argument key="nullable">true</argument>
+                <argument key="precision">0</argument>
+                <argument key="columnName">role</argument>
+                <argument key="property">role</argument>
               </argument>
             </argument>
             <argument key="templates" type="collection">
@@ -14311,6 +14149,46 @@ body.error .error-message {
       <argument type="service" id="image.handling"/>
       <argument>C:\wamp\www\Mooc_Web\app/../web</argument>
     </service>
+    <service id="knp_paginator" class="Knp\Component\Pager\Paginator">
+      <argument type="service" id="debug.event_dispatcher"/>
+      <call method="setDefaultPaginatorOptions">
+        <argument type="collection">
+          <argument key="pageParameterName">page</argument>
+          <argument key="sortFieldParameterName">sort</argument>
+          <argument key="sortDirectionParameterName">direction</argument>
+          <argument key="filterFieldParameterName">filterField</argument>
+          <argument key="filterValueParameterName">filterValue</argument>
+          <argument key="distinct">true</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="knp_paginator.subscriber.paginate" class="Knp\Component\Pager\Event\Subscriber\Paginate\PaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sortable" class="Knp\Component\Pager\Event\Subscriber\Sortable\SortableSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.filtration" class="Knp\Component\Pager\Event\Subscriber\Filtration\FiltrationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sliding_pagination" class="Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
+      <argument type="collection">
+        <argument key="defaultPaginationTemplate">KnpPaginatorBundle:Pagination:sliding.html.twig</argument>
+        <argument key="defaultSortableTemplate">KnpPaginatorBundle:Pagination:sortable_link.html.twig</argument>
+        <argument key="defaultFiltrationTemplate">KnpPaginatorBundle:Pagination:filtration.html.twig</argument>
+        <argument key="defaultPageRange">5</argument>
+      </argument>
+    </service>
+    <service id="knp_paginator.helper.processor" class="Knp\Bundle\PaginatorBundle\Helper\Processor">
+      <argument type="service" id="router"/>
+      <argument type="service" id="translator"/>
+    </service>
+    <service id="knp_paginator.twig.extension.pagination" class="Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="knp_paginator.helper.processor"/>
+    </service>
     <service id="data_collector.dump" class="Symfony\Component\HttpKernel\DataCollector\DumpDataCollector">
       <tag name="data_collector" id="dump" template="@Debug/Profiler/dump.html.twig"/>
       <argument type="service" id="debug.stopwatch" on-invalid="ignore"/>
@@ -14707,6 +14585,10 @@ body.error .error-message {
       <call method="addPath">
         <argument>C:\wamp\www\Mooc_Web\vendor\blackknight467\star-rating-bundle\blackknight467\StarRatingBundle/Resources/views</argument>
         <argument>StarRating</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp\www\Mooc_Web\vendor\knplabs\knp-paginator-bundle/Resources/views</argument>
+        <argument>KnpPaginator</argument>
       </call>
       <call method="addPath">
         <argument>C:\wamp\www\Mooc_Web\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>
