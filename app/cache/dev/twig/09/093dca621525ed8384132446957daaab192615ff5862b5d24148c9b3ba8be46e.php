@@ -230,10 +230,10 @@ class __TwigTemplate_ead67989077948a3d099f87a4086c51a556fdbf47b31479992734620893
                                 </li>
                                 <li>
                                     <a href=\"#\">
-                                        <span class=\"photo\"><img alt=\"avatar\" src=\"";
+                                        <span class=\"photo\"> <img alt=\"avatar\" src=\"";
         // line 167
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl($this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "avatar", array())), "html", null, true);
-        echo "\"></span>
+        echo twig_escape_filter($this->env, $this->getAttribute($this->env->getExtension('image')->image(("bundles/moocmooc/css/profilformateur/img/" . $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "avatar", array()))), "resize", array(0 => 35, 1 => 35), "method"), "html", null, true);
+        echo "\"> </span>
                                         <span class=\"subject\">
                                             <span class=\"from\">Greg  Martin</span>
                                             <span class=\"time\">1 min</span>
@@ -349,7 +349,7 @@ class __TwigTemplate_ead67989077948a3d099f87a4086c51a556fdbf47b31479992734620893
                                 <span class=\"profile-ava\">
  <img alt=\"avatar\" src=\"";
         // line 269
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl($this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "logo", array())), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute($this->env->getExtension('image')->image(("bundles/moocmooc/css/profilformateur/img/" . $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "logo", array()))), "resize", array(0 => 35, 1 => 35), "method"), "html", null, true);
         echo "\">                                </span>
                                 <span class=\"username\"> ";
         // line 270
@@ -479,23 +479,22 @@ class __TwigTemplate_ead67989077948a3d099f87a4086c51a556fdbf47b31479992734620893
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "nom", array()), "html", null, true);
         echo "</h4>               
                               <div class=\"follow-ava\">
-                                  <img src=\"";
+ <img alt=\"avatar\" src=\"";
         // line 371
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/avatar-mini2.jpg"), "html", null, true);
-        echo "\" alt=\"\">
-                              </div>
+        echo twig_escape_filter($this->env, $this->getAttribute($this->env->getExtension('image')->image(("bundles/moocmooc/css/profilformateur/img/" . $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "avatar", array()))), "resize", array(0 => 35, 1 => 35), "method"), "html", null, true);
+        echo "\">                               </div>
                              
                             </div>
                           
                                 <div class=\"col-lg-4 col-sm-4 follow-info\">
                                         <p>Salut je m'appelle ";
-        // line 377
+        // line 376
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "prenom", array()), "html", null, true);
         echo " ";
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "nom", array()), "html", null, true);
         echo " et je suis un formateur chez mooc j'ai des tutos mobile j'espère que vous les aprréciez</p>
                                         <p>";
-        // line 378
+        // line 377
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "email", array()), "html", null, true);
         echo "</p>
                                         <p>suivez mooc sur <i class=\"fa fa-twitter\">mooc</i></p>
@@ -518,7 +517,7 @@ class __TwigTemplate_ead67989077948a3d099f87a4086c51a556fdbf47b31479992734620893
                                                             <ul>
                                                                 <li class=\"active\">
                                                                     \t\t\t\t\t                                      <a  class=\"btn btn-primary\"  href=\"";
-        // line 398
+        // line 397
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_InviterFormateur", array("cin" => $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "cin", array()), "login" => $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "login", array()), "nbr" => (isset($context["nbr"]) ? $context["nbr"] : $this->getContext($context, "nbr")))), "html", null, true);
         echo "\" hidden=\"true\" >Inviter <i class=\"icon_plus_alt2\" ></i></a>
 
@@ -552,7 +551,7 @@ class __TwigTemplate_ead67989077948a3d099f87a4086c51a556fdbf47b31479992734620893
                                     <section class=\"panel\">
                                       <div class=\"bio-graph-heading\">
                                         <p>Salut je m'appelle ";
-        // line 429
+        // line 428
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "prenom", array()), "html", null, true);
         echo " ";
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "nom", array()), "html", null, true);
@@ -563,7 +562,7 @@ class __TwigTemplate_ead67989077948a3d099f87a4086c51a556fdbf47b31479992734620893
                                           <div class=\"row\">
                                               <div class=\"bio-row\">
                                                   <p><span>Nom </span>:";
-        // line 435
+        // line 434
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "nom", array()), "html", null, true);
         echo "  </p>
                                               </div>
@@ -573,7 +572,7 @@ class __TwigTemplate_ead67989077948a3d099f87a4086c51a556fdbf47b31479992734620893
                                               
                                               <div class=\"bio-row\">
                                                   <p><span>Prenom</span>: ";
-        // line 442
+        // line 441
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "prenom", array()), "html", null, true);
         echo "</p>
                                               </div>
@@ -581,7 +580,7 @@ class __TwigTemplate_ead67989077948a3d099f87a4086c51a556fdbf47b31479992734620893
                                             
                                               <div class=\"bio-row\">
                                                   <p><span>Email </span>: ";
-        // line 447
+        // line 446
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "email", array()), "html", null, true);
         echo "</p>
                                               </div>
@@ -631,7 +630,7 @@ class __TwigTemplate_ead67989077948a3d099f87a4086c51a556fdbf47b31479992734620893
 
     public function getDebugInfo()
     {
-        return array (  585 => 447,  577 => 442,  567 => 435,  556 => 429,  522 => 398,  499 => 378,  493 => 377,  484 => 371,  479 => 369,  446 => 339,  436 => 332,  426 => 325,  417 => 319,  406 => 311,  397 => 305,  374 => 285,  356 => 270,  352 => 269,  304 => 224,  280 => 203,  265 => 191,  250 => 179,  235 => 167,  100 => 35,  96 => 34,  92 => 33,  88 => 32,  84 => 31,  80 => 30,  75 => 28,  71 => 27,  66 => 25,  61 => 23,  57 => 22,  52 => 20,  48 => 19,  42 => 16,  37 => 14,  28 => 8,  19 => 1,);
+        return array (  584 => 446,  576 => 441,  566 => 434,  555 => 428,  521 => 397,  498 => 377,  492 => 376,  484 => 371,  479 => 369,  446 => 339,  436 => 332,  426 => 325,  417 => 319,  406 => 311,  397 => 305,  374 => 285,  356 => 270,  352 => 269,  304 => 224,  280 => 203,  265 => 191,  250 => 179,  235 => 167,  100 => 35,  96 => 34,  92 => 33,  88 => 32,  84 => 31,  80 => 30,  75 => 28,  71 => 27,  66 => 25,  61 => 23,  57 => 22,  52 => 20,  48 => 19,  42 => 16,  37 => 14,  28 => 8,  19 => 1,);
     }
 }
 /* <html>*/
@@ -800,7 +799,7 @@ class __TwigTemplate_ead67989077948a3d099f87a4086c51a556fdbf47b31479992734620893
 /*                                 </li>*/
 /*                                 <li>*/
 /*                                     <a href="#">*/
-/*                                         <span class="photo"><img alt="avatar" src="{{asset(Formateur.avatar)}}"></span>*/
+/*                                         <span class="photo"> <img alt="avatar" src="{{ image('bundles/moocmooc/css/profilformateur/img/'~Formateur.avatar).resize(35,35) }}"> </span>*/
 /*                                         <span class="subject">*/
 /*                                             <span class="from">Greg  Martin</span>*/
 /*                                             <span class="time">1 min</span>*/
@@ -902,7 +901,7 @@ class __TwigTemplate_ead67989077948a3d099f87a4086c51a556fdbf47b31479992734620893
 /*                         <li class="dropdown">*/
 /*                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">*/
 /*                                 <span class="profile-ava">*/
-/*  <img alt="avatar" src="{{asset(Organisme.logo)}}">                                </span>*/
+/*  <img alt="avatar" src="{{ image('bundles/moocmooc/css/profilformateur/img/'~Organisme.logo).resize(35,35) }}">                                </span>*/
 /*                                 <span class="username"> {{Organisme.nom}}</span>*/
 /*                                 <b class="caret"></b>*/
 /*                             </a>*/
@@ -1004,8 +1003,7 @@ class __TwigTemplate_ead67989077948a3d099f87a4086c51a556fdbf47b31479992734620893
 /*                             <div class="col-lg-2 col-sm-2">*/
 /*                               <h4>{{Formateur.nom}}</h4>               */
 /*                               <div class="follow-ava">*/
-/*                                   <img src="{{asset('bundles/moocmooc/css/profilformateur/img/avatar-mini2.jpg')}}" alt="">*/
-/*                               </div>*/
+/*  <img alt="avatar" src="{{ image('bundles/moocmooc/css/profilformateur/img/'~Formateur.avatar).resize(35,35) }}">                               </div>*/
 /*                              */
 /*                             </div>*/
 /*                           */

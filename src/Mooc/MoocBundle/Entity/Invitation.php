@@ -6,9 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Invitation
- *
- * @ORM\Table(name="invitation")
- * @ORM\Entity
+ * 
+* @ORM\Table(name="invitation")
+ * @ORM\Entity(repositoryClass="Mooc\MoocBundle\Entity\InvitationRepository")
  */
 class Invitation
 {

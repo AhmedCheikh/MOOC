@@ -481,8 +481,8 @@ class __TwigTemplate_dce757d3b4eaa9da85db5c7cb94d66dbdee51279bd71a35a069f6022173
                               <div class=\"follow-ava\">
  <img alt=\"avatar\" src=\"";
         // line 371
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl($this->getAttribute((isset($context["Organisme2"]) ? $context["Organisme2"] : $this->getContext($context, "Organisme2")), "logo", array())), "html", null, true);
-        echo "\">                               </div>
+        echo twig_escape_filter($this->env, $this->getAttribute($this->env->getExtension('image')->image(("bundles/moocmooc/css/profilformateur/img/" . $this->getAttribute((isset($context["Organisme2"]) ? $context["Organisme2"] : $this->getContext($context, "Organisme2")), "logo", array()))), "resize", array(0 => 35, 1 => 35), "method"), "html", null, true);
+        echo "\">                                </div>
                               
                             </div>
                             <div class=\"col-lg-4 col-sm-4 follow-info\">
@@ -995,7 +995,7 @@ class __TwigTemplate_dce757d3b4eaa9da85db5c7cb94d66dbdee51279bd71a35a069f6022173
 /*                             <div class="col-lg-2 col-sm-2">*/
 /*                               <h4>{{Organisme2.nom}}</h4>               */
 /*                               <div class="follow-ava">*/
-/*  <img alt="avatar" src="{{asset(Organisme2.logo)}}">                               </div>*/
+/*  <img alt="avatar" src="{{ image('bundles/moocmooc/css/profilformateur/img/'~Organisme2.logo).resize(35,35) }}">                                </div>*/
 /*                               */
 /*                             </div>*/
 /*                             <div class="col-lg-4 col-sm-4 follow-info">*/

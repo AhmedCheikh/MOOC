@@ -16,7 +16,7 @@ class OrganismeRepository extends EntityRepository {
 
        public function nombreInvit($name){
         $query = $this->getEntityManager()
-                ->createQuery("select count(i) from MoocMoocBundle:Invitation i where i.nom_des= :p");
+                ->createQuery("select count(i) from MoocMoocBundle:Invitation i where i.nomDes= :p");
                  $query->setParameter('p', $name);
         return $query->getSingleScalarResult();
     }

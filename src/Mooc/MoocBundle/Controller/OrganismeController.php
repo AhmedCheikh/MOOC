@@ -366,8 +366,8 @@ public function inscriptionOrganismeMailAction($id){
 
         $em3 = $this->getDoctrine()->getManager();
         $invitation = new Invitation();
-        $invitation->setNom_exp($organisme->getNom());
-        $invitation->setNom_des($formateur->getNom());
+        $invitation->setNomExp($organisme->getNom());
+        $invitation->setNomDes($formateur->getNom());
         $invitation->setEtat(0);
         $dat = new \DateTime('now');
         $invitation->setDate_invit($dat);
@@ -423,7 +423,7 @@ public function inscriptionOrganismeMailAction($id){
         $Organisme = $repository->findOneBy(array('nom' => $name));
         $em2 = $this->getDoctrine()->getManager();
         $repository2 = $em2->getRepository('MoocMoocBundle:Formateur');
-        $Formateur = $repository2->findOneBy(array('nom' => $Invitation->getNom_exp()));
+        $Formateur = $repository2->findOneBy(array('nom' => $Invitation->getNomExp()));
         $Formateur->setOrganisme($Organisme);
          $em2->persist($Formateur);
         $em2->flush();

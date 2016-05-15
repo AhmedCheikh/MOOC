@@ -189,7 +189,7 @@ class __TwigTemplate_0d166ed61ddacc2640e46cab56e41284fed53daa9af7763de15b9a593c7
                                         <span class=\"label label-primary\"><i class=\"icon_profile\"></i></span> 
                                         Demande d'integration de ";
             // line 110
-            echo twig_escape_filter($this->env, $this->getAttribute($context["inv"], "nom_exp", array()), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["inv"], "nomExp", array()), "html", null, true);
             echo "
                                         <span class=\"small italic pull-right\"></span>
                                     </a>
@@ -659,7 +659,7 @@ class __TwigTemplate_0d166ed61ddacc2640e46cab56e41284fed53daa9af7763de15b9a593c7
 /*                                      */
 /*                                     <a href="{{path('mooc_mooc_ListeInvit', {'name':name,'nbr':nbr})}}">*/
 /*                                         <span class="label label-primary"><i class="icon_profile"></i></span> */
-/*                                         Demande d'integration de {{ inv.nom_exp }}*/
+/*                                         Demande d'integration de {{ inv.nomExp }}*/
 /*                                         <span class="small italic pull-right"></span>*/
 /*                                     </a>*/
 /*                                     */

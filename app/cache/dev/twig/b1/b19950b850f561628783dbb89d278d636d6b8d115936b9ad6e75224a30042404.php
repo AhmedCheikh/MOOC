@@ -347,10 +347,10 @@ class __TwigTemplate_59ff46e1bb3f9a9462b9b6db6907c95d89a2c2956a28df7eb6e0a4f80fa
                         <li class=\"dropdown\">
                             <a data-toggle=\"dropdown\" class=\"dropdown-toggle\" href=\"#\">
                                 <span class=\"profile-ava\">
- <img alt=\"avatar\" src=\"";
+ <img alt=\"avatar\"   src=\"";
         // line 269
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl($this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "logo", array())), "html", null, true);
-        echo "\">                                </span>
+        echo twig_escape_filter($this->env, $this->getAttribute($this->env->getExtension('image')->image(("bundles/moocmooc/css/profilformateur/img/" . $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "logo", array()))), "resize", array(0 => 35, 1 => 35), "method"), "html", null, true);
+        echo "\">                                 </span>
                                 <span class=\"username\"> ";
         // line 270
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "nom", array()), "html", null, true);
@@ -481,8 +481,8 @@ class __TwigTemplate_59ff46e1bb3f9a9462b9b6db6907c95d89a2c2956a28df7eb6e0a4f80fa
                               <div class=\"follow-ava\">
                                   <img src=\"";
         // line 371
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/ult1.png"), "html", null, true);
-        echo "\" alt=\"\">
+        echo twig_escape_filter($this->env, $this->getAttribute($this->env->getExtension('image')->image(("bundles/moocmooc/css/profilformateur/img/" . $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "avatar", array()))), "resize", array(0 => 35, 1 => 35), "method"), "html", null, true);
+        echo "\"> \" alt=\"\">
                               </div>
                              
                             </div>
@@ -895,7 +895,7 @@ class __TwigTemplate_59ff46e1bb3f9a9462b9b6db6907c95d89a2c2956a28df7eb6e0a4f80fa
 /*                         <li class="dropdown">*/
 /*                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">*/
 /*                                 <span class="profile-ava">*/
-/*  <img alt="avatar" src="{{asset(Organisme.logo)}}">                                </span>*/
+/*  <img alt="avatar"   src="{{ image('bundles/moocmooc/css/profilformateur/img/'~Organisme.logo).resize(35,35) }}">                                 </span>*/
 /*                                 <span class="username"> {{Organisme.nom}}</span>*/
 /*                                 <b class="caret"></b>*/
 /*                             </a>*/
@@ -997,7 +997,7 @@ class __TwigTemplate_59ff46e1bb3f9a9462b9b6db6907c95d89a2c2956a28df7eb6e0a4f80fa
 /*                             <div class="col-lg-2 col-sm-2">*/
 /*                               <h4>{{Formateur.nom}}</h4>               */
 /*                               <div class="follow-ava">*/
-/*                                   <img src="{{asset('bundles/moocmooc/css/profilformateur/img/ult1.png')}}" alt="">*/
+/*                                   <img src="{{ image('bundles/moocmooc/css/profilformateur/img/'~Formateur.avatar).resize(35,35) }}"> " alt="">*/
 /*                               </div>*/
 /*                              */
 /*                             </div>*/

@@ -349,7 +349,7 @@ class __TwigTemplate_17db319c265787ce78583b8a37e95521b2dfe46c70d34d2444c8e5ed5eb
                                 <span class=\"profile-ava\">
  <img alt=\"avatar\" src=\"";
         // line 269
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl($this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "logo", array())), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute($this->env->getExtension('image')->image(("bundles/moocmooc/css/profilformateur/img/" . $this->getAttribute((isset($context["Organisme"]) ? $context["Organisme"] : $this->getContext($context, "Organisme")), "logo", array()))), "resize", array(0 => 35, 1 => 35), "method"), "html", null, true);
         echo "\">                                </span>
                                 <span class=\"username\"> ";
         // line 270
@@ -910,7 +910,7 @@ class __TwigTemplate_17db319c265787ce78583b8a37e95521b2dfe46c70d34d2444c8e5ed5eb
 /*                         <li class="dropdown">*/
 /*                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">*/
 /*                                 <span class="profile-ava">*/
-/*  <img alt="avatar" src="{{asset(Organisme.logo)}}">                                </span>*/
+/*  <img alt="avatar" src="{{ image('bundles/moocmooc/css/profilformateur/img/'~Organisme.logo).resize(35,35) }}">                                </span>*/
 /*                                 <span class="username"> {{Organisme.nom}}</span>*/
 /*                                 <b class="caret"></b>*/
 /*                             </a>*/

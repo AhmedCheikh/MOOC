@@ -3975,7 +3975,7 @@ class appDevDebugProjectContainer extends Container
         if ($lazyLoad) {
             $container = $this;
 
-            return $this->services['vich_uploader.download_handler'] = new VichUploaderBundleHandlerDownloadHandler_0000000031ce2b60000000001a57ab343c6b334300e435587111272351cb6f0c(
+            return $this->services['vich_uploader.download_handler'] = new VichUploaderBundleHandlerDownloadHandler_0000000077cc50e70000000077e32e483c6b334300e435587111272351cb6f0c(
                 function (&$wrappedInstance, \ProxyManager\Proxy\LazyLoadingInterface $proxy) use ($container) {
                     $wrappedInstance = $container->getVichUploader_DownloadHandlerService(false);
 
@@ -4095,7 +4095,7 @@ class appDevDebugProjectContainer extends Container
         if ($lazyLoad) {
             $container = $this;
 
-            return $this->services['vich_uploader.upload_handler'] = new VichUploaderBundleHandlerUploadHandler_0000000031ce2b62000000001a57ab343c6b334300e435587111272351cb6f0c(
+            return $this->services['vich_uploader.upload_handler'] = new VichUploaderBundleHandlerUploadHandler_0000000077cc50e50000000077e32e483c6b334300e435587111272351cb6f0c(
                 function (&$wrappedInstance, \ProxyManager\Proxy\LazyLoadingInterface $proxy) use ($container) {
                     $wrappedInstance = $container->getVichUploader_UploadHandlerService(false);
 
@@ -5579,23 +5579,23 @@ class appDevDebugProjectContainer extends Container
     }
 }
 
-class VichUploaderBundleHandlerDownloadHandler_0000000031ce2b60000000001a57ab343c6b334300e435587111272351cb6f0c extends \Vich\UploaderBundle\Handler\DownloadHandler implements \ProxyManager\Proxy\VirtualProxyInterface
+class VichUploaderBundleHandlerDownloadHandler_0000000077cc50e70000000077e32e483c6b334300e435587111272351cb6f0c extends \Vich\UploaderBundle\Handler\DownloadHandler implements \ProxyManager\Proxy\VirtualProxyInterface
 {
 
     /**
      * @var \Closure|null initializer responsible for generating the wrapped object
      */
-    private $valueHolder5738e8b2a6073463668684 = null;
+    private $valueHolder5738fe6669ca2396386118 = null;
 
     /**
      * @var \Closure|null initializer responsible for generating the wrapped object
      */
-    private $initializer5738e8b2a623a911621203 = null;
+    private $initializer5738fe6669e87224452430 = null;
 
     /**
      * @var bool[] map of public properties of the parent class
      */
-    private static $publicProperties5738e8b2a574f592195879 = array(
+    private static $publicProperties5738fe6669216819029248 = array(
         
     );
 
@@ -5604,9 +5604,9 @@ class VichUploaderBundleHandlerDownloadHandler_0000000031ce2b60000000001a57ab343
      */
     public function downloadObject($object, $field, $className = null, $fileName = null)
     {
-        $this->initializer5738e8b2a623a911621203 && $this->initializer5738e8b2a623a911621203->__invoke($this->valueHolder5738e8b2a6073463668684, $this, 'downloadObject', array('object' => $object, 'field' => $field, 'className' => $className, 'fileName' => $fileName), $this->initializer5738e8b2a623a911621203);
+        $this->initializer5738fe6669e87224452430 && $this->initializer5738fe6669e87224452430->__invoke($this->valueHolder5738fe6669ca2396386118, $this, 'downloadObject', array('object' => $object, 'field' => $field, 'className' => $className, 'fileName' => $fileName), $this->initializer5738fe6669e87224452430);
 
-        return $this->valueHolder5738e8b2a6073463668684->downloadObject($object, $field, $className, $fileName);
+        return $this->valueHolder5738fe6669ca2396386118->downloadObject($object, $field, $className, $fileName);
     }
 
     /**
@@ -5616,7 +5616,7 @@ class VichUploaderBundleHandlerDownloadHandler_0000000031ce2b60000000001a57ab343
      */
     public function __construct($initializer)
     {
-        $this->initializer5738e8b2a623a911621203 = $initializer;
+        $this->initializer5738fe6669e87224452430 = $initializer;
     }
 
     /**
@@ -5624,16 +5624,16 @@ class VichUploaderBundleHandlerDownloadHandler_0000000031ce2b60000000001a57ab343
      */
     public function & __get($name)
     {
-        $this->initializer5738e8b2a623a911621203 && $this->initializer5738e8b2a623a911621203->__invoke($this->valueHolder5738e8b2a6073463668684, $this, '__get', array('name' => $name), $this->initializer5738e8b2a623a911621203);
+        $this->initializer5738fe6669e87224452430 && $this->initializer5738fe6669e87224452430->__invoke($this->valueHolder5738fe6669ca2396386118, $this, '__get', array('name' => $name), $this->initializer5738fe6669e87224452430);
 
-        if (isset(self::$publicProperties5738e8b2a574f592195879[$name])) {
-            return $this->valueHolder5738e8b2a6073463668684->$name;
+        if (isset(self::$publicProperties5738fe6669216819029248[$name])) {
+            return $this->valueHolder5738fe6669ca2396386118->$name;
         }
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5738e8b2a6073463668684;
+            $targetObject = $this->valueHolder5738fe6669ca2396386118;
 
             $backtrace = debug_backtrace(false);
             trigger_error('Undefined property: ' . get_parent_class($this) . '::$' . $name . ' in ' . $backtrace[0]['file'] . ' on line ' . $backtrace[0]['line'], \E_USER_NOTICE);
@@ -5641,7 +5641,7 @@ class VichUploaderBundleHandlerDownloadHandler_0000000031ce2b60000000001a57ab343
             return;
         }
 
-        $targetObject = $this->valueHolder5738e8b2a6073463668684;
+        $targetObject = $this->valueHolder5738fe6669ca2396386118;
         $accessor = function & () use ($targetObject, $name) {
             return $targetObject->$name;
         };
@@ -5659,18 +5659,18 @@ class VichUploaderBundleHandlerDownloadHandler_0000000031ce2b60000000001a57ab343
      */
     public function __set($name, $value)
     {
-        $this->initializer5738e8b2a623a911621203 && $this->initializer5738e8b2a623a911621203->__invoke($this->valueHolder5738e8b2a6073463668684, $this, '__set', array('name' => $name, 'value' => $value), $this->initializer5738e8b2a623a911621203);
+        $this->initializer5738fe6669e87224452430 && $this->initializer5738fe6669e87224452430->__invoke($this->valueHolder5738fe6669ca2396386118, $this, '__set', array('name' => $name, 'value' => $value), $this->initializer5738fe6669e87224452430);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5738e8b2a6073463668684;
+            $targetObject = $this->valueHolder5738fe6669ca2396386118;
 
             return $targetObject->$name = $value;;
             return;
         }
 
-        $targetObject = $this->valueHolder5738e8b2a6073463668684;
+        $targetObject = $this->valueHolder5738fe6669ca2396386118;
         $accessor = function & () use ($targetObject, $name, $value) {
             return $targetObject->$name = $value;
         };
@@ -5687,18 +5687,18 @@ class VichUploaderBundleHandlerDownloadHandler_0000000031ce2b60000000001a57ab343
      */
     public function __isset($name)
     {
-        $this->initializer5738e8b2a623a911621203 && $this->initializer5738e8b2a623a911621203->__invoke($this->valueHolder5738e8b2a6073463668684, $this, '__isset', array('name' => $name), $this->initializer5738e8b2a623a911621203);
+        $this->initializer5738fe6669e87224452430 && $this->initializer5738fe6669e87224452430->__invoke($this->valueHolder5738fe6669ca2396386118, $this, '__isset', array('name' => $name), $this->initializer5738fe6669e87224452430);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5738e8b2a6073463668684;
+            $targetObject = $this->valueHolder5738fe6669ca2396386118;
 
             return isset($targetObject->$name);;
             return;
         }
 
-        $targetObject = $this->valueHolder5738e8b2a6073463668684;
+        $targetObject = $this->valueHolder5738fe6669ca2396386118;
         $accessor = function () use ($targetObject, $name) {
             return isset($targetObject->$name);
         };
@@ -5715,18 +5715,18 @@ class VichUploaderBundleHandlerDownloadHandler_0000000031ce2b60000000001a57ab343
      */
     public function __unset($name)
     {
-        $this->initializer5738e8b2a623a911621203 && $this->initializer5738e8b2a623a911621203->__invoke($this->valueHolder5738e8b2a6073463668684, $this, '__unset', array('name' => $name), $this->initializer5738e8b2a623a911621203);
+        $this->initializer5738fe6669e87224452430 && $this->initializer5738fe6669e87224452430->__invoke($this->valueHolder5738fe6669ca2396386118, $this, '__unset', array('name' => $name), $this->initializer5738fe6669e87224452430);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5738e8b2a6073463668684;
+            $targetObject = $this->valueHolder5738fe6669ca2396386118;
 
             unset($targetObject->$name);;
             return;
         }
 
-        $targetObject = $this->valueHolder5738e8b2a6073463668684;
+        $targetObject = $this->valueHolder5738fe6669ca2396386118;
         $accessor = function () use ($targetObject, $name) {
             unset($targetObject->$name);
         };
@@ -5740,16 +5740,16 @@ class VichUploaderBundleHandlerDownloadHandler_0000000031ce2b60000000001a57ab343
 
     public function __clone()
     {
-        $this->initializer5738e8b2a623a911621203 && $this->initializer5738e8b2a623a911621203->__invoke($this->valueHolder5738e8b2a6073463668684, $this, '__clone', array(), $this->initializer5738e8b2a623a911621203);
+        $this->initializer5738fe6669e87224452430 && $this->initializer5738fe6669e87224452430->__invoke($this->valueHolder5738fe6669ca2396386118, $this, '__clone', array(), $this->initializer5738fe6669e87224452430);
 
-        $this->valueHolder5738e8b2a6073463668684 = clone $this->valueHolder5738e8b2a6073463668684;
+        $this->valueHolder5738fe6669ca2396386118 = clone $this->valueHolder5738fe6669ca2396386118;
     }
 
     public function __sleep()
     {
-        $this->initializer5738e8b2a623a911621203 && $this->initializer5738e8b2a623a911621203->__invoke($this->valueHolder5738e8b2a6073463668684, $this, '__sleep', array(), $this->initializer5738e8b2a623a911621203);
+        $this->initializer5738fe6669e87224452430 && $this->initializer5738fe6669e87224452430->__invoke($this->valueHolder5738fe6669ca2396386118, $this, '__sleep', array(), $this->initializer5738fe6669e87224452430);
 
-        return array('valueHolder5738e8b2a6073463668684');
+        return array('valueHolder5738fe6669ca2396386118');
     }
 
     public function __wakeup()
@@ -5761,7 +5761,7 @@ class VichUploaderBundleHandlerDownloadHandler_0000000031ce2b60000000001a57ab343
      */
     public function setProxyInitializer(\Closure $initializer = null)
     {
-        $this->initializer5738e8b2a623a911621203 = $initializer;
+        $this->initializer5738fe6669e87224452430 = $initializer;
     }
 
     /**
@@ -5769,7 +5769,7 @@ class VichUploaderBundleHandlerDownloadHandler_0000000031ce2b60000000001a57ab343
      */
     public function getProxyInitializer()
     {
-        return $this->initializer5738e8b2a623a911621203;
+        return $this->initializer5738fe6669e87224452430;
     }
 
     /**
@@ -5777,7 +5777,7 @@ class VichUploaderBundleHandlerDownloadHandler_0000000031ce2b60000000001a57ab343
      */
     public function initializeProxy()
     {
-        return $this->initializer5738e8b2a623a911621203 && $this->initializer5738e8b2a623a911621203->__invoke($this->valueHolder5738e8b2a6073463668684, $this, 'initializeProxy', array(), $this->initializer5738e8b2a623a911621203);
+        return $this->initializer5738fe6669e87224452430 && $this->initializer5738fe6669e87224452430->__invoke($this->valueHolder5738fe6669ca2396386118, $this, 'initializeProxy', array(), $this->initializer5738fe6669e87224452430);
     }
 
     /**
@@ -5785,7 +5785,7 @@ class VichUploaderBundleHandlerDownloadHandler_0000000031ce2b60000000001a57ab343
      */
     public function isProxyInitialized()
     {
-        return null !== $this->valueHolder5738e8b2a6073463668684;
+        return null !== $this->valueHolder5738fe6669ca2396386118;
     }
 
     /**
@@ -5793,29 +5793,29 @@ class VichUploaderBundleHandlerDownloadHandler_0000000031ce2b60000000001a57ab343
      */
     public function getWrappedValueHolderValue()
     {
-        return $this->valueHolder5738e8b2a6073463668684;
+        return $this->valueHolder5738fe6669ca2396386118;
     }
 
 
 }
 
-class VichUploaderBundleHandlerUploadHandler_0000000031ce2b62000000001a57ab343c6b334300e435587111272351cb6f0c extends \Vich\UploaderBundle\Handler\UploadHandler implements \ProxyManager\Proxy\VirtualProxyInterface
+class VichUploaderBundleHandlerUploadHandler_0000000077cc50e50000000077e32e483c6b334300e435587111272351cb6f0c extends \Vich\UploaderBundle\Handler\UploadHandler implements \ProxyManager\Proxy\VirtualProxyInterface
 {
 
     /**
      * @var \Closure|null initializer responsible for generating the wrapped object
      */
-    private $valueHolder5738e8b2afe41063568843 = null;
+    private $valueHolder5738fe6676f48924926973 = null;
 
     /**
      * @var \Closure|null initializer responsible for generating the wrapped object
      */
-    private $initializer5738e8b2afe86237555317 = null;
+    private $initializer5738fe6676f92609752330 = null;
 
     /**
      * @var bool[] map of public properties of the parent class
      */
-    private static $publicProperties5738e8b2afdc6693768014 = array(
+    private static $publicProperties5738fe6676ec1642431795 = array(
         
     );
 
@@ -5824,9 +5824,9 @@ class VichUploaderBundleHandlerUploadHandler_0000000031ce2b62000000001a57ab343c6
      */
     public function upload($obj, $fieldName)
     {
-        $this->initializer5738e8b2afe86237555317 && $this->initializer5738e8b2afe86237555317->__invoke($this->valueHolder5738e8b2afe41063568843, $this, 'upload', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5738e8b2afe86237555317);
+        $this->initializer5738fe6676f92609752330 && $this->initializer5738fe6676f92609752330->__invoke($this->valueHolder5738fe6676f48924926973, $this, 'upload', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5738fe6676f92609752330);
 
-        return $this->valueHolder5738e8b2afe41063568843->upload($obj, $fieldName);
+        return $this->valueHolder5738fe6676f48924926973->upload($obj, $fieldName);
     }
 
     /**
@@ -5834,9 +5834,9 @@ class VichUploaderBundleHandlerUploadHandler_0000000031ce2b62000000001a57ab343c6
      */
     public function inject($obj, $fieldName)
     {
-        $this->initializer5738e8b2afe86237555317 && $this->initializer5738e8b2afe86237555317->__invoke($this->valueHolder5738e8b2afe41063568843, $this, 'inject', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5738e8b2afe86237555317);
+        $this->initializer5738fe6676f92609752330 && $this->initializer5738fe6676f92609752330->__invoke($this->valueHolder5738fe6676f48924926973, $this, 'inject', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5738fe6676f92609752330);
 
-        return $this->valueHolder5738e8b2afe41063568843->inject($obj, $fieldName);
+        return $this->valueHolder5738fe6676f48924926973->inject($obj, $fieldName);
     }
 
     /**
@@ -5844,9 +5844,9 @@ class VichUploaderBundleHandlerUploadHandler_0000000031ce2b62000000001a57ab343c6
      */
     public function clean($obj, $fieldName)
     {
-        $this->initializer5738e8b2afe86237555317 && $this->initializer5738e8b2afe86237555317->__invoke($this->valueHolder5738e8b2afe41063568843, $this, 'clean', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5738e8b2afe86237555317);
+        $this->initializer5738fe6676f92609752330 && $this->initializer5738fe6676f92609752330->__invoke($this->valueHolder5738fe6676f48924926973, $this, 'clean', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5738fe6676f92609752330);
 
-        return $this->valueHolder5738e8b2afe41063568843->clean($obj, $fieldName);
+        return $this->valueHolder5738fe6676f48924926973->clean($obj, $fieldName);
     }
 
     /**
@@ -5854,9 +5854,9 @@ class VichUploaderBundleHandlerUploadHandler_0000000031ce2b62000000001a57ab343c6
      */
     public function remove($obj, $fieldName)
     {
-        $this->initializer5738e8b2afe86237555317 && $this->initializer5738e8b2afe86237555317->__invoke($this->valueHolder5738e8b2afe41063568843, $this, 'remove', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5738e8b2afe86237555317);
+        $this->initializer5738fe6676f92609752330 && $this->initializer5738fe6676f92609752330->__invoke($this->valueHolder5738fe6676f48924926973, $this, 'remove', array('obj' => $obj, 'fieldName' => $fieldName), $this->initializer5738fe6676f92609752330);
 
-        return $this->valueHolder5738e8b2afe41063568843->remove($obj, $fieldName);
+        return $this->valueHolder5738fe6676f48924926973->remove($obj, $fieldName);
     }
 
     /**
@@ -5866,7 +5866,7 @@ class VichUploaderBundleHandlerUploadHandler_0000000031ce2b62000000001a57ab343c6
      */
     public function __construct($initializer)
     {
-        $this->initializer5738e8b2afe86237555317 = $initializer;
+        $this->initializer5738fe6676f92609752330 = $initializer;
     }
 
     /**
@@ -5874,16 +5874,16 @@ class VichUploaderBundleHandlerUploadHandler_0000000031ce2b62000000001a57ab343c6
      */
     public function & __get($name)
     {
-        $this->initializer5738e8b2afe86237555317 && $this->initializer5738e8b2afe86237555317->__invoke($this->valueHolder5738e8b2afe41063568843, $this, '__get', array('name' => $name), $this->initializer5738e8b2afe86237555317);
+        $this->initializer5738fe6676f92609752330 && $this->initializer5738fe6676f92609752330->__invoke($this->valueHolder5738fe6676f48924926973, $this, '__get', array('name' => $name), $this->initializer5738fe6676f92609752330);
 
-        if (isset(self::$publicProperties5738e8b2afdc6693768014[$name])) {
-            return $this->valueHolder5738e8b2afe41063568843->$name;
+        if (isset(self::$publicProperties5738fe6676ec1642431795[$name])) {
+            return $this->valueHolder5738fe6676f48924926973->$name;
         }
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5738e8b2afe41063568843;
+            $targetObject = $this->valueHolder5738fe6676f48924926973;
 
             $backtrace = debug_backtrace(false);
             trigger_error('Undefined property: ' . get_parent_class($this) . '::$' . $name . ' in ' . $backtrace[0]['file'] . ' on line ' . $backtrace[0]['line'], \E_USER_NOTICE);
@@ -5891,7 +5891,7 @@ class VichUploaderBundleHandlerUploadHandler_0000000031ce2b62000000001a57ab343c6
             return;
         }
 
-        $targetObject = $this->valueHolder5738e8b2afe41063568843;
+        $targetObject = $this->valueHolder5738fe6676f48924926973;
         $accessor = function & () use ($targetObject, $name) {
             return $targetObject->$name;
         };
@@ -5909,18 +5909,18 @@ class VichUploaderBundleHandlerUploadHandler_0000000031ce2b62000000001a57ab343c6
      */
     public function __set($name, $value)
     {
-        $this->initializer5738e8b2afe86237555317 && $this->initializer5738e8b2afe86237555317->__invoke($this->valueHolder5738e8b2afe41063568843, $this, '__set', array('name' => $name, 'value' => $value), $this->initializer5738e8b2afe86237555317);
+        $this->initializer5738fe6676f92609752330 && $this->initializer5738fe6676f92609752330->__invoke($this->valueHolder5738fe6676f48924926973, $this, '__set', array('name' => $name, 'value' => $value), $this->initializer5738fe6676f92609752330);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5738e8b2afe41063568843;
+            $targetObject = $this->valueHolder5738fe6676f48924926973;
 
             return $targetObject->$name = $value;;
             return;
         }
 
-        $targetObject = $this->valueHolder5738e8b2afe41063568843;
+        $targetObject = $this->valueHolder5738fe6676f48924926973;
         $accessor = function & () use ($targetObject, $name, $value) {
             return $targetObject->$name = $value;
         };
@@ -5937,18 +5937,18 @@ class VichUploaderBundleHandlerUploadHandler_0000000031ce2b62000000001a57ab343c6
      */
     public function __isset($name)
     {
-        $this->initializer5738e8b2afe86237555317 && $this->initializer5738e8b2afe86237555317->__invoke($this->valueHolder5738e8b2afe41063568843, $this, '__isset', array('name' => $name), $this->initializer5738e8b2afe86237555317);
+        $this->initializer5738fe6676f92609752330 && $this->initializer5738fe6676f92609752330->__invoke($this->valueHolder5738fe6676f48924926973, $this, '__isset', array('name' => $name), $this->initializer5738fe6676f92609752330);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5738e8b2afe41063568843;
+            $targetObject = $this->valueHolder5738fe6676f48924926973;
 
             return isset($targetObject->$name);;
             return;
         }
 
-        $targetObject = $this->valueHolder5738e8b2afe41063568843;
+        $targetObject = $this->valueHolder5738fe6676f48924926973;
         $accessor = function () use ($targetObject, $name) {
             return isset($targetObject->$name);
         };
@@ -5965,18 +5965,18 @@ class VichUploaderBundleHandlerUploadHandler_0000000031ce2b62000000001a57ab343c6
      */
     public function __unset($name)
     {
-        $this->initializer5738e8b2afe86237555317 && $this->initializer5738e8b2afe86237555317->__invoke($this->valueHolder5738e8b2afe41063568843, $this, '__unset', array('name' => $name), $this->initializer5738e8b2afe86237555317);
+        $this->initializer5738fe6676f92609752330 && $this->initializer5738fe6676f92609752330->__invoke($this->valueHolder5738fe6676f48924926973, $this, '__unset', array('name' => $name), $this->initializer5738fe6676f92609752330);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder5738e8b2afe41063568843;
+            $targetObject = $this->valueHolder5738fe6676f48924926973;
 
             unset($targetObject->$name);;
             return;
         }
 
-        $targetObject = $this->valueHolder5738e8b2afe41063568843;
+        $targetObject = $this->valueHolder5738fe6676f48924926973;
         $accessor = function () use ($targetObject, $name) {
             unset($targetObject->$name);
         };
@@ -5990,16 +5990,16 @@ class VichUploaderBundleHandlerUploadHandler_0000000031ce2b62000000001a57ab343c6
 
     public function __clone()
     {
-        $this->initializer5738e8b2afe86237555317 && $this->initializer5738e8b2afe86237555317->__invoke($this->valueHolder5738e8b2afe41063568843, $this, '__clone', array(), $this->initializer5738e8b2afe86237555317);
+        $this->initializer5738fe6676f92609752330 && $this->initializer5738fe6676f92609752330->__invoke($this->valueHolder5738fe6676f48924926973, $this, '__clone', array(), $this->initializer5738fe6676f92609752330);
 
-        $this->valueHolder5738e8b2afe41063568843 = clone $this->valueHolder5738e8b2afe41063568843;
+        $this->valueHolder5738fe6676f48924926973 = clone $this->valueHolder5738fe6676f48924926973;
     }
 
     public function __sleep()
     {
-        $this->initializer5738e8b2afe86237555317 && $this->initializer5738e8b2afe86237555317->__invoke($this->valueHolder5738e8b2afe41063568843, $this, '__sleep', array(), $this->initializer5738e8b2afe86237555317);
+        $this->initializer5738fe6676f92609752330 && $this->initializer5738fe6676f92609752330->__invoke($this->valueHolder5738fe6676f48924926973, $this, '__sleep', array(), $this->initializer5738fe6676f92609752330);
 
-        return array('valueHolder5738e8b2afe41063568843');
+        return array('valueHolder5738fe6676f48924926973');
     }
 
     public function __wakeup()
@@ -6011,7 +6011,7 @@ class VichUploaderBundleHandlerUploadHandler_0000000031ce2b62000000001a57ab343c6
      */
     public function setProxyInitializer(\Closure $initializer = null)
     {
-        $this->initializer5738e8b2afe86237555317 = $initializer;
+        $this->initializer5738fe6676f92609752330 = $initializer;
     }
 
     /**
@@ -6019,7 +6019,7 @@ class VichUploaderBundleHandlerUploadHandler_0000000031ce2b62000000001a57ab343c6
      */
     public function getProxyInitializer()
     {
-        return $this->initializer5738e8b2afe86237555317;
+        return $this->initializer5738fe6676f92609752330;
     }
 
     /**
@@ -6027,7 +6027,7 @@ class VichUploaderBundleHandlerUploadHandler_0000000031ce2b62000000001a57ab343c6
      */
     public function initializeProxy()
     {
-        return $this->initializer5738e8b2afe86237555317 && $this->initializer5738e8b2afe86237555317->__invoke($this->valueHolder5738e8b2afe41063568843, $this, 'initializeProxy', array(), $this->initializer5738e8b2afe86237555317);
+        return $this->initializer5738fe6676f92609752330 && $this->initializer5738fe6676f92609752330->__invoke($this->valueHolder5738fe6676f48924926973, $this, 'initializeProxy', array(), $this->initializer5738fe6676f92609752330);
     }
 
     /**
@@ -6035,7 +6035,7 @@ class VichUploaderBundleHandlerUploadHandler_0000000031ce2b62000000001a57ab343c6
      */
     public function isProxyInitialized()
     {
-        return null !== $this->valueHolder5738e8b2afe41063568843;
+        return null !== $this->valueHolder5738fe6676f48924926973;
     }
 
     /**
@@ -6043,7 +6043,7 @@ class VichUploaderBundleHandlerUploadHandler_0000000031ce2b62000000001a57ab343c6
      */
     public function getWrappedValueHolderValue()
     {
-        return $this->valueHolder5738e8b2afe41063568843;
+        return $this->valueHolder5738fe6676f48924926973;
     }
 
 

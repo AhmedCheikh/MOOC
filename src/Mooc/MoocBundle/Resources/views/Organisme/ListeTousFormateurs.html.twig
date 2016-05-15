@@ -266,7 +266,7 @@
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="profile-ava">
-                                 <img alt="avatar" src="{{asset(Organisme.logo)}}">
+                                <img alt="avatar" src="{{ image('bundles/moocmooc/css/profilformateur/img/'~Organisme.logo).resize(35,35) }}"> 
                                 </span>
                                 <span class="username"> {{Organisme.nom}}</span>
                                 <b class="caret"></b>
@@ -421,7 +421,7 @@
                                  <td>{{Formateur.prenom}}</td>
                                    <td>{{Formateur.email}}</td>
                                   
-                                   <td><img alt="avatar" src="{{asset(Formateur.avatar)}}"></td>
+                                   <td> <img alt="avatar" src="{{ image('bundles/moocmooc/css/profilformateur/img/'~Formateur.avatar).resize(35,35) }}"> </td>
                                {#    <td><img alt="avatar" src="{{asset('bundles/moocmooc/css/profilformateur/img/'+Formateur.avatar)}}"></td>#}
                                 
                                  

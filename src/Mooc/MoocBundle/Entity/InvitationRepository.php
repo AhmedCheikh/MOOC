@@ -21,7 +21,7 @@ class InvitationRepository  extends EntityRepository {
     public function chercherInvit($nom, $etat) {
         $qb = $this->createQueryBuilder('c');
 
-        $qb->where('c.nom_des = :n')
+        $qb->where('c.nomDes = :n')
                 ->andWhere('c.etat = :e')
                 ->orderBy('c.id', 'DESC');
 

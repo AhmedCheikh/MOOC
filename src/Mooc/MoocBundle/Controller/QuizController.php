@@ -35,7 +35,15 @@ class QuizController extends Controller {
         $quiz = $em->getRepository('MoocMoocBundle:Quiz')->find($id);
 
         $question = $em->getRepository('MoocMoocBundle:Question')->findBy(array('idquiz' => $id));
-        foreach ($question as $q) {
+        
+     $l = sizeof($question);
+     
+        $list= array();
+       for ($i = 0; $i < 5; $i++) {
+            $v = mt_rand(0, $l-1);
+           $list[$i] = $question[$v];
+        }
+        foreach ($list as $q) {
             $rep = $em->getRepository('MoocMoocBundle:Reponse')->findBy(array('idquestion' => $q->getId()));
             array_push($tab, $rep);
         }
@@ -92,7 +100,14 @@ class QuizController extends Controller {
         $quiz = $em->getRepository('MoocMoocBundle:Quiz')->find($id);
 
         $question = $em->getRepository('MoocMoocBundle:Question')->findBy(array('idquiz' => $id));
-        foreach ($question as $q) {
+        $l = sizeof($question);
+     
+        $list= array();
+       for ($i = 0; $i < 5; $i++) {
+            $v = mt_rand(0, $l-1);
+           $list[$i] = $question[$v];
+        }
+        foreach ($list as $q) {
             $rep = $em->getRepository('MoocMoocBundle:Reponse')->findBy(array('idquestion' => $q->getId()));
             array_push($tab, $rep);
         }
