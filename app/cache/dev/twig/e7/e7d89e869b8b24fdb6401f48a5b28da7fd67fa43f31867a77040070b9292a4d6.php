@@ -183,7 +183,7 @@ class __TwigTemplate_d95c90c374080018e1a6583aaca593d1411a56862b2b40c5f9648efd2e1
         echo " </p> 
                                     <p> <span style=\"color:green;font-weight:bold\"><a href=\"";
         // line 97
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl(("uploads/file/cv/" . $this->getAttribute((isset($context["chapitre"]) ? $context["chapitre"] : $this->getContext($context, "chapitre")), "presentation", array()))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl(("uploads/file/" . $this->getAttribute((isset($context["chapitre"]) ? $context["chapitre"] : $this->getContext($context, "chapitre")), "presentation", array()))), "html", null, true);
         echo "\" 
                                                                                       download=\"";
         // line 98
@@ -339,7 +339,7 @@ class __TwigTemplate_d95c90c374080018e1a6583aaca593d1411a56862b2b40c5f9648efd2e1
 /*                                     </header>*/
 /*                                     <br>*/
 /*                                     <p> <span style="color:blue;font-weight:bold"> Objectif : </span> {{chapitre.objectif}} </p> */
-/*                                     <p> <span style="color:green;font-weight:bold"><a href="{{asset('uploads/file/cv/'~chapitre.presentation)}}" */
+/*                                     <p> <span style="color:green;font-weight:bold"><a href="{{asset('uploads/file/'~chapitre.presentation)}}" */
 /*                                                                                       download="{{chapitre.presentation}}">Télécharger Chapitre</a></span> ||  <span style="color:red;font-weight:bold"><a href="{{path ('mooc_mooc_afficher_quiz',{'login': apprenant.login ,'id':chapitre.idquiz.getId()})}}">Passer Quiz</a></span> </p>*/
 /* */
 /*                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <video width="800" controls >*/

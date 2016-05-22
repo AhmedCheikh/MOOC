@@ -354,7 +354,10 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
                                                 </div>
                                             </div>
                                             <div class=\"form-group \">
-                                                <label for=\"cemail\" class=\"control-label col-lg-2\">Quiz du cour <span class=\"required\">*</span></label>
+                                                <label for=\"cemail\" class=\"control-label col-lg-2\">Quiz du cour <span class=\"required\">*<a class=\"btn btn-primary\" href=\"";
+        // line 232
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_Ajouter_quiz", array("cin" => $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "cin", array()))), "html", null, true);
+        echo "\"><i class=\"icon_plus_alt2\"></i></a></span></label>
                                                 <div class=\"col-lg-10\">
                                                     <select class=\"form-control m-bot15\" name=\"idQuiz\" id=\"idQuizCour\">
                                                         ";
@@ -485,7 +488,7 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
 
     public function getDebugInfo()
     {
-        return array (  468 => 306,  464 => 305,  459 => 303,  455 => 302,  451 => 301,  447 => 300,  443 => 299,  439 => 298,  377 => 238,  366 => 236,  362 => 235,  348 => 224,  327 => 206,  310 => 192,  305 => 190,  298 => 186,  293 => 184,  286 => 180,  281 => 178,  268 => 168,  263 => 166,  255 => 161,  250 => 159,  241 => 153,  218 => 133,  206 => 124,  195 => 118,  190 => 116,  178 => 107,  175 => 106,  165 => 102,  161 => 101,  156 => 98,  152 => 97,  145 => 93,  122 => 75,  116 => 72,  102 => 61,  60 => 22,  56 => 21,  51 => 19,  47 => 18,  41 => 15,  36 => 13,  29 => 9,  19 => 1,);
+        return array (  471 => 306,  467 => 305,  462 => 303,  458 => 302,  454 => 301,  450 => 300,  446 => 299,  442 => 298,  380 => 238,  369 => 236,  365 => 235,  359 => 232,  348 => 224,  327 => 206,  310 => 192,  305 => 190,  298 => 186,  293 => 184,  286 => 180,  281 => 178,  268 => 168,  263 => 166,  255 => 161,  250 => 159,  241 => 153,  218 => 133,  206 => 124,  195 => 118,  190 => 116,  178 => 107,  175 => 106,  165 => 102,  161 => 101,  156 => 98,  152 => 97,  145 => 93,  122 => 75,  116 => 72,  102 => 61,  60 => 22,  56 => 21,  51 => 19,  47 => 18,  41 => 15,  36 => 13,  29 => 9,  19 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -719,7 +722,7 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
 /*                                                 </div>*/
 /*                                             </div>*/
 /*                                             <div class="form-group ">*/
-/*                                                 <label for="cemail" class="control-label col-lg-2">Quiz du cour <span class="required">*</span></label>*/
+/*                                                 <label for="cemail" class="control-label col-lg-2">Quiz du cour <span class="required">*<a class="btn btn-primary" href="{{path ('mooc_mooc_Ajouter_quiz',{'cin':Formateur.cin})}}"><i class="icon_plus_alt2"></i></a></span></label>*/
 /*                                                 <div class="col-lg-10">*/
 /*                                                     <select class="form-control m-bot15" name="idQuiz" id="idQuizCour">*/
 /*                                                         {%for q in Quiz%}*/

@@ -50,7 +50,22 @@ class QuizController extends Controller {
         return $this->render('MoocMoocBundle:Quiz:afficherQuiz.html.twig', array('quiz' => $quiz, 'rep' => $tab,'apprenant' =>$Apprenant));
     }
 
-    public function ajouterQuizAction(Request $request) {
+ public function ajouterQuizAction(Request $request) {
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('MoocMoocBundle:Formateur');
+        $Formateur = $repository->findOneBy(array('cin' => $request->get('cin')));
+
+        //***************** BLOC Compteur des apréciationet des invitation*****************//
+        $var = $request->get('cin');
+        $qr = $em->createQuery("select m from MoocMoocBundle:Invitation m where m.nomDes = :a and m.etat = 0")
+                ->setParameter('a', $var);
+        $inv = $qr->getResult();
+        $querycom = $em->createQuery('select cs.appreciation from MoocMoocBundle:Coursuivi cs ,MoocMoocBundle:Cours c where c.cinformateur = :a and c.idcours = cs.idCours and cs.appreciation = 5 ')
+                ->setParameter('a', $var);
+        $Coursuivi = $querycom->getResult();
+        $j = sizeof($Coursuivi);
+        //***************** BLOC Compteur des apréciationet des invitation*****************/
+
         if ($request->getMethod() == 'POST') {
             $quiz = new Quiz();
             $quiz->setTitre($request->get('titre'));
@@ -59,18 +74,43 @@ class QuizController extends Controller {
             $em = $this->getDoctrine()->getManager();
             $em->persist($quiz);
             $em->flush();
-            return $this->redirectToRoute('mooc_mooc_Ajouter_question', array('idquiz' => $quiz->getId()));
+            return $this->render('MoocMoocBundle:Question:ajouterQuestion.html.twig', array('idquiz' => $quiz->getId(), 'Formateur' => $Formateur, 'lstinvit' => $inv, 'nbaprec' => $j, 'nbrInvit' => count($inv)));
         }
-        return $this->render('MoocMoocBundle:Quiz:ajouterQuiz.html.twig');
+        return $this->render('MoocMoocBundle:Quiz:ajouterQuiz.html.twig', array('Formateur' => $Formateur, 'lstinvit' => $inv, 'nbaprec' => $j, 'nbrInvit' => count($inv)));
     }
 
-    public function supprimerQuizAction($id) {
+    public function supprimerQuizAction($id,Request $request) {
         $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('MoocMoocBundle:Formateur');
+        $Formateur = $repository->findOneBy(array('cin' => $request->get('cin')));
+
+        //***************** BLOC Compteur des apréciationet des invitation*****************//
+        $var = $request->get('cin');
+        $qr = $em->createQuery("select m from MoocMoocBundle:Invitation m where m.nomDes = :a and m.etat = 0")
+                ->setParameter('a', $var);
+        $inv = $qr->getResult();
+        $querycom = $em->createQuery('select cs.appreciation from MoocMoocBundle:Coursuivi cs ,MoocMoocBundle:Cours c where c.cinformateur = :a and c.idcours = cs.idCours and cs.appreciation = 5 ')
+                ->setParameter('a', $var);
+        $Coursuivi = $querycom->getResult();
+        $j = sizeof($Coursuivi);
+        //***************** BLOC Compteur des apréciationet des invitation*****************/
+
+        $dql = "SELECT a FROM MoocMoocBundle:Cours a where a.cinformateur = $var";
+        $query = $em->createQuery($dql);
+        
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+                $query, /* query NOT result */ $request->query->getInt('page', 1)/* page number */, 5/* limit per page */
+        );
+
+        
         $quiz = $em->getRepository('MoocMoocBundle:Quiz')->find($id);
         $em->remove($quiz);
         $em->flush();
-        return $this->redirectToRoute('mooc_mooc_listeQuiz');
-    }
+        
+        return $this->render('MoocMoocBundle:Formateur:listecourformateur.html.twig', array('Formateur' => $Formateur, 'cin' => $Formateur->getCin(), 'pagination' => $pagination, 'lstinvit' => $inv, 'nbaprec' => $j, 'nbrInvit' => count($inv)));
+
+        }
 
     public function PasserQuizAction($id,Request $request) {
          $em1 = $this->getDoctrine()->getManager();
@@ -114,21 +154,49 @@ class QuizController extends Controller {
         return $this->render('MoocMoocBundle:Quiz:afficherQuizChronometre.html.twig', array('quiz' => $quiz, 'rep' => $tab,'apprenant' =>$Apprenant));
     }
 
-    public function afficheQuizModifierAction($id) {
+    public function afficheQuizModifierAction($id, Request $request) {
         $tab = array();
         $em = $this->getDoctrine()->getManager();
         $quiz = $em->getRepository('MoocMoocBundle:Quiz')->find($id);
+        $repository = $em->getRepository('MoocMoocBundle:Formateur');
+        $Formateur = $repository->findOneBy(array('cin' => $request->get('cin')));
+
+        //***************** BLOC Compteur des apréciationet des invitation*****************//
+        $var = $request->get('cin');
+        $qr = $em->createQuery("select m from MoocMoocBundle:Invitation m where m.nomDes = :a and m.etat = 0")
+                ->setParameter('a', $var);
+        $inv = $qr->getResult();
+        $querycom = $em->createQuery('select cs.appreciation from MoocMoocBundle:Coursuivi cs ,MoocMoocBundle:Cours c where c.cinformateur = :a and c.idcours = cs.idCours and cs.appreciation = 5 ')
+                ->setParameter('a', $var);
+        $Coursuivi = $querycom->getResult();
+        $j = sizeof($Coursuivi);
+        //***************** BLOC Compteur des apréciationet des invitation*****************/
+
 
         $question = $em->getRepository('MoocMoocBundle:Question')->findBy(array('idquiz' => $id));
         foreach ($question as $q) {
             $rep = $em->getRepository('MoocMoocBundle:Reponse')->findBy(array('idquestion' => $q->getId()));
             array_push($tab, $rep);
         }
-        return $this->render('MoocMoocBundle:Quiz:modifierQuiz.html.twig', array('quiz' => $quiz, 'rep' => $tab));
+        return $this->render('MoocMoocBundle:Quiz:modifierQuiz.html.twig', array('quiz' => $quiz, 'rep' => $tab, 'Formateur' => $Formateur, 'lstinvit' => $inv, 'nbaprec' => $j, 'nbrInvit' => count($inv)));
     }
 
-    public function modifierQuizAction($id, Request $request) {
+      public function modifierQuizAction($id, Request $request) {
         $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('MoocMoocBundle:Formateur');
+        $Formateur = $repository->findOneBy(array('cin' => $request->get('cin')));
+
+        //***************** BLOC Compteur des apréciationet des invitation*****************//
+        $var = $request->get('cin');
+        $qr = $em->createQuery("select m from MoocMoocBundle:Invitation m where m.nomDes = :a and m.etat = 0")
+                ->setParameter('a', $var);
+        $inv = $qr->getResult();
+        $querycom = $em->createQuery('select cs.appreciation from MoocMoocBundle:Coursuivi cs ,MoocMoocBundle:Cours c where c.cinformateur = :a and c.idcours = cs.idCours and cs.appreciation = 5 ')
+                ->setParameter('a', $var);
+        $Coursuivi = $querycom->getResult();
+        $j = sizeof($Coursuivi);
+        //***************** BLOC Compteur des apréciationet des invitation*****************/
+
         $q = $em->getRepository('MoocMoocBundle:Quiz')->find($id);
         $titre = $q->getTitre();
         $type = $q->getType();
@@ -140,9 +208,10 @@ class QuizController extends Controller {
 
             $em = $this->getDoctrine()->getManager();
             $em->flush();
-            return $this->redirectToRoute('mooc_mooc_modifier_quiz', array('id' => $id));
-        }
-        return $this->render('MoocMoocBundle:Quiz:modifierQZ.html.twig', array('idquiz' => $id, 'titre' => $titre, 'type' => $type));
+            //return $this->render('MoocMoocBundle:Quiz:modifierQuiz.html.twig', array('id' => $id, 'Formateur' => $Formateur, 'lstinvit' => $inv, 'nbaprec' => $j, 'nbrInvit' => count($inv)));
+            return $this->afficheQuizModifierAction($id, $request);
+            }
+        return $this->render('MoocMoocBundle:Quiz:modifierQZ.html.twig', array('idquiz' => $id, 'titre' => $titre, 'type' => $type, 'Formateur' => $Formateur, 'lstinvit' => $inv, 'nbaprec' => $j, 'nbrInvit' => count($inv)));
     }
     
     

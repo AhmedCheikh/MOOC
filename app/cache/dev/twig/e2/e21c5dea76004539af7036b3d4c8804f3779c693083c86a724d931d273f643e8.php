@@ -156,11 +156,10 @@ class __TwigTemplate_9c0360c37b053b963789cd36909beea2b9e19c280ce2cc8c0da6320d15c
                     <!--overview start-->
                     <div class=\"row\">
                         <div class=\"col-lg-12\">
-                            <h3 class=\"page-header\"><i class=\"fa fa-laptop\"></i> Profil Formateur</h3>
                             <h2>     
                                 <div>
                                     ";
-        // line 85
+        // line 84
         echo $this->env->getExtension('nomaya_social_bar')->getSocialButtons();
         echo "
                                 </div><br>
@@ -179,39 +178,39 @@ class __TwigTemplate_9c0360c37b053b963789cd36909beea2b9e19c280ce2cc8c0da6320d15c
                             <section class=\"panel\">
                                 <header class=\"panel-heading\">                                   
                                     <center><b> <label style=\"color:blue;font-weight:bold;font-size: 150%;\"> Quiz : ";
-        // line 101
+        // line 100
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["quiz"]) ? $context["quiz"] : $this->getContext($context, "quiz")), "titre", array()), "html", null, true);
         echo "</label></b></center>
                                 </header>
                                 <div class=\"panel-body\">
                                     <div class=\"form\">
                                         <form name=\"f1\" class=\"form-validate form-horizontal\" id=\"feedback_form\" method=\"POST\" action=\"";
-        // line 105
+        // line 104
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_passer_quiz", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()), "id" => $this->getAttribute((isset($context["quiz"]) ? $context["quiz"] : $this->getContext($context, "quiz")), "id", array()))), "html", null, true);
         echo "\">
 
                                            ";
-        // line 107
+        // line 106
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["rep"]) ? $context["rep"] : $this->getContext($context, "rep")));
         foreach ($context['_seq'] as $context["_key"] => $context["q"]) {
             echo " 
 
                                                 <label style=\"color:blue;background-color:beige;font-size: 250%;\" >";
-            // line 109
+            // line 108
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($context["q"], "0", array(), "array"), "idquestion", array()), "question", array()), "html", null, true);
             echo "</label><br>
                                                 
                                                  ";
-            // line 111
+            // line 110
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(range(0, 3));
             foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
-                // line 112
+                // line 111
                 echo "                                                    <table>
 
                                                         <input type=\"checkbox\" name=\"";
-                // line 114
+                // line 113
                 echo twig_escape_filter($this->env, $context["i"], "html", null, true);
                 echo "\" value=\"";
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["q"], $context["i"], array(), "array"), "etat", array()), "html", null, true);
@@ -225,13 +224,13 @@ class __TwigTemplate_9c0360c37b053b963789cd36909beea2b9e19c280ce2cc8c0da6320d15c
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 118
+            // line 117
             echo "                                            ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['q'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 119
+        // line 118
         echo "
                                             <button class=\"btn btn-primary\"  type=\"submit\">valider</button>
                                         </form>
@@ -254,10 +253,10 @@ class __TwigTemplate_9c0360c37b053b963789cd36909beea2b9e19c280ce2cc8c0da6320d15c
 ";
     }
 
-    // line 140
+    // line 139
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 141
+        // line 140
         echo "    ";
         $this->displayParentBlock("javascripts", $context, $blocks);
         echo "
@@ -313,7 +312,7 @@ class __TwigTemplate_9c0360c37b053b963789cd36909beea2b9e19c280ce2cc8c0da6320d15c
 
     public function getDebugInfo()
     {
-        return array (  261 => 141,  258 => 140,  235 => 119,  229 => 118,  215 => 114,  211 => 112,  207 => 111,  202 => 109,  195 => 107,  190 => 105,  183 => 101,  164 => 85,  151 => 74,  148 => 73,  122 => 49,  111 => 41,  101 => 34,  93 => 28,  90 => 27,  82 => 23,  79 => 22,  70 => 17,  66 => 16,  61 => 14,  57 => 13,  51 => 10,  46 => 8,  40 => 5,  35 => 4,  32 => 3,  11 => 1,);
+        return array (  260 => 140,  257 => 139,  234 => 118,  228 => 117,  214 => 113,  210 => 111,  206 => 110,  201 => 108,  194 => 106,  189 => 104,  182 => 100,  163 => 84,  151 => 74,  148 => 73,  122 => 49,  111 => 41,  101 => 34,  93 => 28,  90 => 27,  82 => 23,  79 => 22,  70 => 17,  66 => 16,  61 => 14,  57 => 13,  51 => 10,  46 => 8,  40 => 5,  35 => 4,  32 => 3,  11 => 1,);
     }
 }
 /* {% extends "MoocMoocBundle:Apprenant:EspaceApprenant.html.twig" %}*/
@@ -397,7 +396,6 @@ class __TwigTemplate_9c0360c37b053b963789cd36909beea2b9e19c280ce2cc8c0da6320d15c
 /*                     <!--overview start-->*/
 /*                     <div class="row">*/
 /*                         <div class="col-lg-12">*/
-/*                             <h3 class="page-header"><i class="fa fa-laptop"></i> Profil Formateur</h3>*/
 /*                             <h2>     */
 /*                                 <div>*/
 /*                                     {{ socialButtons() }}*/

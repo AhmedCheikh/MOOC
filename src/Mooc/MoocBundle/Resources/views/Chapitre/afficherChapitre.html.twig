@@ -94,7 +94,7 @@
                                     </header>
                                     <br>
                                     <p> <span style="color:blue;font-weight:bold"> Objectif : </span> {{chapitre.objectif}} </p> 
-                                    <p> <span style="color:green;font-weight:bold"><a href="{{asset('uploads/file/cv/'~chapitre.presentation)}}" 
+                                    <p> <span style="color:green;font-weight:bold"><a href="{{asset('uploads/file/'~chapitre.presentation)}}" 
                                                                                       download="{{chapitre.presentation}}">Télécharger Chapitre</a></span> ||  <span style="color:red;font-weight:bold"><a href="{{path ('mooc_mooc_afficher_quiz',{'login': apprenant.login ,'id':chapitre.idquiz.getId()})}}">Passer Quiz</a></span> </p>
 
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <video width="800" controls >

@@ -21,6 +21,21 @@ use Mooc\MoocBundle\Entity\Reponse;
 class QuestionController extends Controller {
 
     public function ajouterQuestionAction(Request $request, $idquiz) {
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('MoocMoocBundle:Formateur');
+        $Formateur = $repository->findOneBy(array('cin' => $request->get('cin')));
+        //***************** BLOC Compteur des apréciationet des invitation*****************//
+        $var = $request->get('cin');
+
+        $qr = $em->createQuery("select m from MoocMoocBundle:Invitation m where m.nomDes = :a and m.etat = 0")
+                ->setParameter('a', $var);
+        $inv = $qr->getResult();
+        $querycom = $em->createQuery('select cs.appreciation from MoocMoocBundle:Coursuivi cs ,MoocMoocBundle:Cours c where c.cinformateur = :a and c.idcours = cs.idCours and cs.appreciation = 5 ')
+                ->setParameter('a', $var);
+        $Coursuivi = $querycom->getResult();
+        $j = sizeof($Coursuivi);
+        //***************** BLOC Compteur des apréciationet des invitation*****************/
+
         if ($request->getMethod() == 'POST') {
             $question = new Question();
 
@@ -61,16 +76,33 @@ class QuestionController extends Controller {
             $em->persist($reponse4);
 
             $em->flush();
-            return $this->redirectToRoute('mooc_mooc_Ajouter_question', array('idquiz' => $idquiz));
+            return $this->render('MoocMoocBundle:Question:ajouterQuestion.html.twig', array('idquiz' => $idquiz, 'Formateur' => $Formateur, 'lstinvit' => $inv, 'nbaprec' => $j, 'nbrInvit' => count($inv)));
         }
-        return $this->render('MoocMoocBundle:Question:ajouterQuestion.html.twig', array('idquiz' => $idquiz));
+        return $this->render('MoocMoocBundle:Question:ajouterQuestion.html.twig', array('idquiz' => $idquiz, 'Formateur' => $Formateur, 'lstinvit' => $inv, 'nbaprec' => $j, 'nbrInvit' => count($inv)));
     }
 
     public function modifierQuestionAction($idquestion, $idquiz, Request $request) {
         $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('MoocMoocBundle:Formateur');
+        $Formateur = $repository->findOneBy(array('cin' => $request->get('cin')));
+        //***************** BLOC Compteur des apréciationet des invitation*****************//
+        $var = $request->get('cin');
+
+        $qr = $em->createQuery("select m from MoocMoocBundle:Invitation m where m.nomDes = :a and m.etat = 0")
+                ->setParameter('a', $var);
+        $inv = $qr->getResult();
+        $querycom = $em->createQuery('select cs.appreciation from MoocMoocBundle:Coursuivi cs ,MoocMoocBundle:Cours c where c.cinformateur = :a and c.idcours = cs.idCours and cs.appreciation = 5 ')
+                ->setParameter('a', $var);
+        $Coursuivi = $querycom->getResult();
+        $j = sizeof($Coursuivi);
+        //***************** BLOC Compteur des apréciationet des invitation*****************/
+        $quiz = $em->getRepository('MoocMoocBundle:Quiz')->find($idquiz);
         $quest = $em->getRepository('MoocMoocBundle:Question')->find($idquestion);
         $q = $quest->getQuestion($quest);
         $listreponse = $em->getRepository('MoocMoocBundle:Reponse')->findBy(array('idquestion' => $idquestion));
+
+        $tab = array();
+        $question = $em->getRepository('MoocMoocBundle:Question')->findBy(array('idquiz' => $idquiz));
 
         if ($request->getMethod() == 'POST') {
 
@@ -89,19 +121,47 @@ class QuestionController extends Controller {
             $listreponse[3]->setRep($request->get('reponse4'));
             $listreponse[3]->setEtat($request->get('rep4'));
 
+            foreach ($question as $q) {
+                $rep = $em->getRepository('MoocMoocBundle:Reponse')->findBy(array('idquestion' => $q->getId()));
+                array_push($tab, $rep);
+            }
+
             $em = $this->getDoctrine()->getManager();
             $em->flush();
-            return $this->redirectToRoute('mooc_mooc_modifier_quiz', array('id' => $idquiz));
+            return $this->render('MoocMoocBundle:Quiz:modifierQuiz.html.twig', array('quiz' => $quiz, 'rep' => $tab, 'Formateur' => $Formateur, 'lstinvit' => $inv, 'nbaprec' => $j, 'nbrInvit' => count($inv)));
         }
-        return $this->render('MoocMoocBundle:Question:modifierQuestion.html.twig', array('idquestion' => $idquestion, 'question' => $q, 'listreponse' => $listreponse, 'idquiz' => $idquiz));
+        return $this->render('MoocMoocBundle:Question:modifierQuestion.html.twig', array('idquestion' => $idquestion, 'question' => $q, 'listreponse' => $listreponse, 'idquiz' => $idquiz, 'Formateur' => $Formateur, 'lstinvit' => $inv, 'nbaprec' => $j, 'nbrInvit' => count($inv)));
     }
 
-    public function supprimerQuestionAction($idquestion,$idquiz) {
+    public function supprimerQuestionAction($idquestion, $idquiz, Request $request) {
         $em = $this->getDoctrine()->getManager();
-        $question = $em->getRepository('MoocMoocBundle:Question')->find($idquestion);
-        $em->remove($question);
+        $repository = $em->getRepository('MoocMoocBundle:Formateur');
+        $Formateur = $repository->findOneBy(array('cin' => $request->get('cin')));
+        //***************** BLOC Compteur des apréciationet des invitation*****************//
+        $var = $request->get('cin');
+
+        $qr = $em->createQuery("select m from MoocMoocBundle:Invitation m where m.nomDes = :a and m.etat = 0")
+                ->setParameter('a', $var);
+        $inv = $qr->getResult();
+        $querycom = $em->createQuery('select cs.appreciation from MoocMoocBundle:Coursuivi cs ,MoocMoocBundle:Cours c where c.cinformateur = :a and c.idcours = cs.idCours and cs.appreciation = 5 ')
+                ->setParameter('a', $var);
+        $Coursuivi = $querycom->getResult();
+        $j = sizeof($Coursuivi);
+        //***************** BLOC Compteur des apréciationet des invitation*****************/
+        $tab = array();
+        $quiz = $em->getRepository('MoocMoocBundle:Quiz')->find($idquiz);
+
+        $qu = $em->getRepository('MoocMoocBundle:Question')->find($idquestion);
+
+        $em->remove($qu);
         $em->flush();
-        return $this->redirectToRoute('mooc_mooc_modifier_quiz', array('id' => $idquiz));
+        $question = $em->getRepository('MoocMoocBundle:Question')->findBy(array('idquiz' => $idquiz));
+        foreach ($question as $q) {
+            $rep = $em->getRepository('MoocMoocBundle:Reponse')->findBy(array('idquestion' => $q->getId()));
+            array_push($tab, $rep);
+        }
+        $em->flush();
+        return $this->render('MoocMoocBundle:Quiz:modifierQuiz.html.twig', array('quiz' => $quiz, 'rep' => $tab, 'Formateur' => $Formateur, 'lstinvit' => $inv, 'nbaprec' => $j, 'nbrInvit' => count($inv)));
     }
 
 }

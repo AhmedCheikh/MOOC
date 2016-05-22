@@ -232,7 +232,7 @@ class __TwigTemplate_59968fe9e5d61397a67243997446fe4e024186762ec522ae64284b67a45
                                     <a href=\"#\">
                                         <span class=\"photo\"><img alt=\"avatar\" src=\"";
         // line 167
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/esprit.jpg"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/esprit.png"), "html", null, true);
         echo "\"></span>
                                         <span class=\"subject\">
                                             <span class=\"from\">Greg  Martin</span>
@@ -247,7 +247,7 @@ class __TwigTemplate_59968fe9e5d61397a67243997446fe4e024186762ec522ae64284b67a45
                                     <a href=\"#\">
                                         <span class=\"photo\"><img alt=\"avatar\" src=\"";
         // line 179
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/esprit.jpg"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/esprit.png"), "html", null, true);
         echo "\"></span>
                                         <span class=\"subject\">
                                             <span class=\"from\">Bob   Mckenzie</span>
@@ -262,7 +262,7 @@ class __TwigTemplate_59968fe9e5d61397a67243997446fe4e024186762ec522ae64284b67a45
                                     <a href=\"#\">
                                         <span class=\"photo\"><img alt=\"avatar\" src=\"";
         // line 191
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/esprit.PNG"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/esprit.png"), "html", null, true);
         echo "\"></span>
                                         <span class=\"subject\">
                                             <span class=\"from\">Phillip   Park</span>
@@ -277,7 +277,7 @@ class __TwigTemplate_59968fe9e5d61397a67243997446fe4e024186762ec522ae64284b67a45
                                     <a href=\"#\">
                                         <span class=\"photo\"><img alt=\"avatar\" src=\"";
         // line 203
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/esprit.PNG"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/esprit.png"), "html", null, true);
         echo "\"></span>
                                         <span class=\"subject\">
                                             <span class=\"from\">Ray   Munoz</span>
@@ -545,7 +545,7 @@ class __TwigTemplate_59968fe9e5d61397a67243997446fe4e024186762ec522ae64284b67a45
             echo "</td>
                                   <td><img alt=\"avatar\" src=\"";
             // line 421
-            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl($this->getAttribute($context["Organisme1"], "logo", array())), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($this->env->getExtension('image')->image(("bundles/moocmooc/css/profilformateur/img/" . $this->getAttribute($context["Organisme1"], "logo", array()))), "resize", array(0 => 35, 1 => 35), "method"), "html", null, true);
             echo "\"></td>
                                 
                                  
@@ -765,7 +765,7 @@ class __TwigTemplate_59968fe9e5d61397a67243997446fe4e024186762ec522ae64284b67a45
 /*                                 </li>*/
 /*                                 <li>*/
 /*                                     <a href="#">*/
-/*                                         <span class="photo"><img alt="avatar" src="{{asset('bundles/moocmooc/css/profilformateur/img/esprit.jpg')}}"></span>*/
+/*                                         <span class="photo"><img alt="avatar" src="{{asset('bundles/moocmooc/css/profilformateur/img/esprit.png')}}"></span>*/
 /*                                         <span class="subject">*/
 /*                                             <span class="from">Greg  Martin</span>*/
 /*                                             <span class="time">1 min</span>*/
@@ -777,7 +777,7 @@ class __TwigTemplate_59968fe9e5d61397a67243997446fe4e024186762ec522ae64284b67a45
 /*                                 </li>*/
 /*                                 <li>*/
 /*                                     <a href="#">*/
-/*                                         <span class="photo"><img alt="avatar" src="{{asset('bundles/moocmooc/css/profilformateur/img/esprit.jpg')}}"></span>*/
+/*                                         <span class="photo"><img alt="avatar" src="{{asset('bundles/moocmooc/css/profilformateur/img/esprit.png')}}"></span>*/
 /*                                         <span class="subject">*/
 /*                                             <span class="from">Bob   Mckenzie</span>*/
 /*                                             <span class="time">5 mins</span>*/
@@ -789,7 +789,7 @@ class __TwigTemplate_59968fe9e5d61397a67243997446fe4e024186762ec522ae64284b67a45
 /*                                 </li>*/
 /*                                 <li>*/
 /*                                     <a href="#">*/
-/*                                         <span class="photo"><img alt="avatar" src="{{asset('bundles/moocmooc/css/profilformateur/img/esprit.PNG')}}"></span>*/
+/*                                         <span class="photo"><img alt="avatar" src="{{asset('bundles/moocmooc/css/profilformateur/img/esprit.png')}}"></span>*/
 /*                                         <span class="subject">*/
 /*                                             <span class="from">Phillip   Park</span>*/
 /*                                             <span class="time">2 hrs</span>*/
@@ -801,7 +801,7 @@ class __TwigTemplate_59968fe9e5d61397a67243997446fe4e024186762ec522ae64284b67a45
 /*                                 </li>*/
 /*                                 <li>*/
 /*                                     <a href="#">*/
-/*                                         <span class="photo"><img alt="avatar" src="{{asset('bundles/moocmooc/css/profilformateur/img/esprit.PNG')}}"></span>*/
+/*                                         <span class="photo"><img alt="avatar" src="{{asset('bundles/moocmooc/css/profilformateur/img/esprit.png')}}"></span>*/
 /*                                         <span class="subject">*/
 /*                                             <span class="from">Ray   Munoz</span>*/
 /*                                             <span class="time">1 day</span>*/
@@ -1019,7 +1019,7 @@ class __TwigTemplate_59968fe9e5d61397a67243997446fe4e024186762ec522ae64284b67a45
 /*                                  <td>{{Organisme1.nom}}</td>*/
 /*                                  <td>{{Organisme1.adresse}}</td>*/
 /*                                    <td>{{Organisme1.email}}</td>*/
-/*                                   <td><img alt="avatar" src="{{asset(Organisme1.logo)}}"></td>*/
+/*                                   <td><img alt="avatar" src="{{image('bundles/moocmooc/css/profilformateur/img/'~Organisme1.logo).resize(35,35)}}"></td>*/
 /*                                 */
 /*                                  */
 /*                                  <td> */

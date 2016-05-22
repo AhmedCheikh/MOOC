@@ -3,8 +3,6 @@
 namespace Mooc\MoocBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Formateur
@@ -19,7 +17,7 @@ class Formateur
      *
      * @ORM\Column(name="cin", type="string", length=8, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     *
      */
     private $cin;
 
@@ -45,23 +43,23 @@ class Formateur
     private $email;
 
     /**
-     * @var bool
+     * @var integer
      *
-     * @ORM\Column(name="etat", type="boolean", nullable=true)
+     * @ORM\Column(name="etat", type="integer", nullable=true)
      */
     private $etat;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="avatar", type="string", nullable=true)
+     * @ORM\Column(name="avatar", type="string", length=255, nullable=true)
      */
     private $avatar;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="cv", type="string", nullable=true)
+     * @ORM\Column(name="cv", type="string", length=255, nullable=true)
      */
     private $cv;
 
@@ -78,157 +76,119 @@ class Formateur
      * @ORM\Column(name="password", type="string", length=45, nullable=false)
      */
     private $password;
-    
-   /**
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="role", type="string", length=45, nullable=true)
+     */
+    private $role;
+	
+	/**
      * @ORM\ManyToOne(targetEntity="Organisme")
-     * @ORM\JoinColumn(name="Organisme_id", referencedColumnName="idorganisme")
+     * @ORM\JoinColumn(name="Organisme_id", referencedColumnName="idorganisme", nullable=true, onDelete="CASCADE")
      */
     private $Organisme;
-    
-    /**
-     * This unmapped property stores the binary contents of the file which stores
-     * the cv subscribed by the user.
-     *
-     * @Vich\UploadableField(mapping="formateur_cv", fileNameProperty="cv")
-     *
-     * @var File
-     */
-    private $cvFile;
-    
-    /**
-     * This unmapped property stores the binary contents of the file which stores
-     * the avatar subscribed by the user.
-     *
-     * @Vich\UploadableField(mapping="formateur_images", fileNameProperty="avatar")
-     *
-     * @var File
-     */
-    private $avatarFile;
-    
-    public function getOrganisme() {
+	
+	public function getOrganisme() {
         return $this->Organisme;
     }
-
-    public function setOrganisme($Organisme) {
+    
+	public function setOrganisme($Organisme) {
         $this->Organisme = $Organisme;
         return $this;
     }
-    function getCin() {
+	
+    public function getCin() {
         return $this->cin;
     }
 
-    function getNom() {
+    public function getNom() {
         return $this->nom;
     }
 
-    function getPrenom() {
+    public function getPrenom() {
         return $this->prenom;
     }
 
-    function getEmail() {
+    public function getEmail() {
         return $this->email;
     }
 
-    function getEtat() {
+    public function getEtat() {
         return $this->etat;
     }
 
-    function getAvatar() {
+    public function getAvatar() {
         return $this->avatar;
     }
 
-    function getCv() {
+    public function getCv() {
         return $this->cv;
     }
 
-    function getLogin() {
+    public function getLogin() {
         return $this->login;
     }
 
-    function getPassword() {
+    public function getPassword() {
         return $this->password;
     }
 
-    function setCin($cin) {
+    public function setCin($cin) {
         $this->cin = $cin;
         return $this;
     }
 
-    function setNom($nom) {
+    public function setNom($nom) {
         $this->nom = $nom;
         return $this;
     }
 
-    function setPrenom($prenom) {
+    public function setPrenom($prenom) {
         $this->prenom = $prenom;
         return $this;
     }
 
-    function setEmail($email) {
+    public function setEmail($email) {
         $this->email = $email;
         return $this;
     }
 
-    function setEtat($etat) {
+    public function setEtat($etat) {
         $this->etat = $etat;
         return $this;
     }
 
-    function setAvatar($avatar) {
+    public function setAvatar($avatar) {
         $this->avatar = $avatar;
         return $this;
     }
 
-    function setCv($cv) {
+    public function setCv($cv) {
         $this->cv = $cv;
         return $this;
     }
 
-    function setLogin($login) {
+    public function setLogin($login) {
         $this->login = $login;
         return $this;
     }
 
-    function setPassword($password) {
+    public function setPassword($password) {
         $this->password = $password;
         return $this;
     }
 
-    /**
-     * @param File $cv
-     */
-    public function setCvFile(File $cv = null)
-    {
-        $this->cvFile = $cv;
+    public function getRole() {
+        return $this->role;
     }
 
-    /**
-     * @return File
-     */
-    public function getCvFile()
-    {
-        return $this->cvFile;
-    }
-    
-    /**
-     * @param File $avatar
-     */
-    public function setAvatarFile(File $avatar = null)
-    {
-        $this->avatarFile = $avatar;
+    public function setRole($role) {
+        $this->role = $role;
+        return $this;
     }
 
-    /**
-     * @return File
-     */
-    public function getAvatarFile()
-    {
-        return $this->avatarFile;
-    }
-    
-    public function __toString() {
-        return $this->getLogin();
-    }
 
 
 }

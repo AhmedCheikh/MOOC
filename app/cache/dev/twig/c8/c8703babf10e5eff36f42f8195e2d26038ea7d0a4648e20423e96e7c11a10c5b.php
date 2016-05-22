@@ -147,11 +147,10 @@ class __TwigTemplate_6ba9e9c9d7e6460693f8e673080ed4b759bad3969df6f938953284a90e0
                     <!--overview start-->
                     <div class=\"row\">
                         <div class=\"col-lg-12\">
-                            <h3 class=\"page-header\"><i class=\"fa fa-laptop\"></i> Profil Formateur</h3>
                             <h2>     
                                 <div>
                                     ";
-        // line 75
+        // line 74
         echo $this->env->getExtension('nomaya_social_bar')->getSocialButtons();
         echo "
                                 </div><br>
@@ -170,39 +169,39 @@ class __TwigTemplate_6ba9e9c9d7e6460693f8e673080ed4b759bad3969df6f938953284a90e0
                             <section class=\"panel\">
                                 <header class=\"panel-heading\">                                   
                                     <center><b> <label style=\"color:blue;font-weight:bold;font-size: 150%;\"> Quiz : ";
-        // line 91
+        // line 90
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["quiz"]) ? $context["quiz"] : $this->getContext($context, "quiz")), "titre", array()), "html", null, true);
         echo "</label></b></center>
                                 </header>
                                 <div class=\"panel-body\">
                                     <div class=\"form\">
                                         <form class=\"form-validate form-horizontal\" id=\"feedback_form\" method=\"POST\" action=\"";
-        // line 95
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_passer_quiz", array("id" => $this->getAttribute((isset($context["quiz"]) ? $context["quiz"] : $this->getContext($context, "quiz")), "id", array()))), "html", null, true);
+        // line 94
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_passer_quiz", array("login" => $this->getAttribute((isset($context["apprenant"]) ? $context["apprenant"] : $this->getContext($context, "apprenant")), "login", array()), "id" => $this->getAttribute((isset($context["quiz"]) ? $context["quiz"] : $this->getContext($context, "quiz")), "id", array()))), "html", null, true);
         echo "\">
 
                                             ";
-        // line 97
+        // line 96
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["rep"]) ? $context["rep"] : $this->getContext($context, "rep")));
         foreach ($context['_seq'] as $context["_key"] => $context["q"]) {
             echo " 
 
                                                 <label style=\"color:blue;background-color:beige;font-size: 250%;\" >";
-            // line 99
+            // line 98
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($context["q"], "0", array(), "array"), "idquestion", array()), "question", array()), "html", null, true);
             echo "</label><br>
                                                 
                                                  ";
-            // line 101
+            // line 100
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(range(0, 3));
             foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
-                // line 102
+                // line 101
                 echo "                                                    <table>
 
                                                         <input type=\"checkbox\" name=\"";
-                // line 104
+                // line 103
                 echo twig_escape_filter($this->env, $context["i"], "html", null, true);
                 echo "\" value=\"";
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["q"], $context["i"], array(), "array"), "etat", array()), "html", null, true);
@@ -216,13 +215,13 @@ class __TwigTemplate_6ba9e9c9d7e6460693f8e673080ed4b759bad3969df6f938953284a90e0
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 108
+            // line 107
             echo "                                            ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['q'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 109
+        // line 108
         echo "                                            <button class=\"btn btn-primary\" type=\"submit\">valider</button>
 
                                             </section>
@@ -240,10 +239,10 @@ class __TwigTemplate_6ba9e9c9d7e6460693f8e673080ed4b759bad3969df6f938953284a90e0
 ";
     }
 
-    // line 125
+    // line 124
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 126
+        // line 125
         echo "    ";
         $this->displayParentBlock("javascripts", $context, $blocks);
         echo "
@@ -265,7 +264,7 @@ class __TwigTemplate_6ba9e9c9d7e6460693f8e673080ed4b759bad3969df6f938953284a90e0
 
     public function getDebugInfo()
     {
-        return array (  247 => 126,  244 => 125,  226 => 109,  220 => 108,  206 => 104,  202 => 102,  198 => 101,  193 => 99,  186 => 97,  181 => 95,  174 => 91,  155 => 75,  144 => 66,  141 => 65,  122 => 49,  111 => 41,  101 => 34,  93 => 28,  90 => 27,  82 => 23,  79 => 22,  70 => 17,  66 => 16,  61 => 14,  57 => 13,  51 => 10,  46 => 8,  40 => 5,  35 => 4,  32 => 3,  11 => 1,);
+        return array (  246 => 125,  243 => 124,  225 => 108,  219 => 107,  205 => 103,  201 => 101,  197 => 100,  192 => 98,  185 => 96,  180 => 94,  173 => 90,  154 => 74,  144 => 66,  141 => 65,  122 => 49,  111 => 41,  101 => 34,  93 => 28,  90 => 27,  82 => 23,  79 => 22,  70 => 17,  66 => 16,  61 => 14,  57 => 13,  51 => 10,  46 => 8,  40 => 5,  35 => 4,  32 => 3,  11 => 1,);
     }
 }
 /* {% extends "MoocMoocBundle:Apprenant:EspaceApprenant.html.twig" %}*/
@@ -339,7 +338,6 @@ class __TwigTemplate_6ba9e9c9d7e6460693f8e673080ed4b759bad3969df6f938953284a90e0
 /*                     <!--overview start-->*/
 /*                     <div class="row">*/
 /*                         <div class="col-lg-12">*/
-/*                             <h3 class="page-header"><i class="fa fa-laptop"></i> Profil Formateur</h3>*/
 /*                             <h2>     */
 /*                                 <div>*/
 /*                                     {{ socialButtons() }}*/
@@ -362,7 +360,7 @@ class __TwigTemplate_6ba9e9c9d7e6460693f8e673080ed4b759bad3969df6f938953284a90e0
 /*                                 </header>*/
 /*                                 <div class="panel-body">*/
 /*                                     <div class="form">*/
-/*                                         <form class="form-validate form-horizontal" id="feedback_form" method="POST" action="{{path ('mooc_mooc_passer_quiz',{'id':quiz.id})}}">*/
+/*                                         <form class="form-validate form-horizontal" id="feedback_form" method="POST" action="{{path ('mooc_mooc_passer_quiz',{'login': apprenant.login,'id':quiz.id})}}">*/
 /* */
 /*                                             {% for q in rep %} */
 /* */

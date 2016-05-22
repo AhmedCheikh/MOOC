@@ -533,11 +533,11 @@ class __TwigTemplate_e3210ccf2ee81c7c53aa59946cb1ff247e6c3a9ac421939dbbe989147d0
             echo "                                  <tr>
                                  <td>";
             // line 419
-            echo twig_escape_filter($this->env, $this->getAttribute($context["inv"], "nom_exp", array()), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["inv"], "nomExp", array()), "html", null, true);
             echo "</td>
                                  <td>";
             // line 420
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["inv"], "date_invit", array()), "d/m/Y"), "html", null, true);
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["inv"], "dateInvit", array()), "d/m/Y"), "html", null, true);
             echo "</td>
                                   
                                  
@@ -547,7 +547,7 @@ class __TwigTemplate_e3210ccf2ee81c7c53aa59946cb1ff247e6c3a9ac421939dbbe989147d0
                                   <div class=\"btn-group\">
                                       <a class=\"btn btn-primary\" href=\"";
             // line 427
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_ProfilFormateur1", array("nom" => $this->getAttribute($context["inv"], "nom_exp", array()), "name" => (isset($context["name"]) ? $context["name"] : $this->getContext($context, "name")), "id" => $this->getAttribute($context["inv"], "id", array()))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_ProfilFormateur1", array("nom" => $this->getAttribute($context["inv"], "nomExp", array()), "name" => (isset($context["name"]) ? $context["name"] : $this->getContext($context, "name")), "id" => $this->getAttribute($context["inv"], "id", array()))), "html", null, true);
             echo "\"><i class=\"icon_zoom-in_alt\"></i></a>
                                            <a class=\"btn btn-success\" href=\"";
             // line 428
@@ -1018,15 +1018,15 @@ class __TwigTemplate_e3210ccf2ee81c7c53aa59946cb1ff247e6c3a9ac421939dbbe989147d0
 /*                               */
 /*                               {% for inv in listeInvitation %}*/
 /*                                   <tr>*/
-/*                                  <td>{{inv.nom_exp}}</td>*/
-/*                                  <td>{{inv.date_invit | date('d/m/Y')}}</td>*/
+/*                                  <td>{{inv.nomExp}}</td>*/
+/*                                  <td>{{inv.dateInvit | date('d/m/Y')}}</td>*/
 /*                                   */
 /*                                  */
 /*                                 */
 /*                                  */
 /*                                  <td>*/
 /*                                   <div class="btn-group">*/
-/*                                       <a class="btn btn-primary" href="{{path('mooc_mooc_ProfilFormateur1', {'nom':inv.nom_exp,'name':name,'id':inv.id})}}"><i class="icon_zoom-in_alt"></i></a>*/
+/*                                       <a class="btn btn-primary" href="{{path('mooc_mooc_ProfilFormateur1', {'nom':inv.nomExp,'name':name,'id':inv.id})}}"><i class="icon_zoom-in_alt"></i></a>*/
 /*                                            <a class="btn btn-success" href="{{path('mooc_mooc_Organisme_AccepterInvit', {'id':inv.id,'name':name,'nbr':nbr})}} "><i class="icon_check_alt2"></i></a>*/
 /*                                                                                         */
 /*                                  */

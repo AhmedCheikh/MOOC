@@ -29,7 +29,7 @@ class __TwigTemplate_85d0329e6bfa1072ff49a11b98978fd0634daec45a29f488be59e88dc41
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/favicon.png"), "html", null, true);
         echo "\">
 
-        <title>Acceuil formateur</title>
+        <title>Liste Chapitre</title>
         <link rel=\"stylesheet\" href=\"";
         // line 12
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/css/bootstrap.min.css"), "html", null, true);
@@ -372,6 +372,10 @@ class __TwigTemplate_85d0329e6bfa1072ff49a11b98978fd0634daec45a29f488be59e88dc41
         // line 213
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "cin", array()), "html", null, true);
         echo "</h3>
+                            <h2>  ";
+        // line 214
+        echo $this->env->getExtension('nomaya_social_bar')->getSocialButtons();
+        echo " <br></h2>
                             <ol class=\"breadcrumb\">
                                 <li><i class=\"fa fa-home\"></i><a href=\"#\">Acceuil</a></li>
                                 <li><i class=\"fa fa-laptop\"></i>Profil</li>\t\t\t\t\t\t  \t
@@ -397,35 +401,35 @@ class __TwigTemplate_85d0329e6bfa1072ff49a11b98978fd0634daec45a29f488be59e88dc41
                                         </tr>
 
                                         ";
-        // line 238
+        // line 239
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["listeChapitres"]) ? $context["listeChapitres"] : $this->getContext($context, "listeChapitres")));
         foreach ($context['_seq'] as $context["_key"] => $context["chapitre"]) {
-            // line 239
+            // line 240
             echo "                                            <tr>
                                                 <td><a href=\"";
-            // line 240
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_afficher_chapitreForm", array("id" => $this->getAttribute($context["chapitre"], "id", array()))), "html", null, true);
+            // line 241
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_afficher_chapitreForm", array("cin" => $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "cin", array()), "id" => $this->getAttribute($context["chapitre"], "id", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["chapitre"], "titre", array()), "html", null, true);
             echo "</a></td>
                                                 <td>";
-            // line 241
+            // line 242
             echo twig_escape_filter($this->env, $this->getAttribute($context["chapitre"], "objectif", array()), "html", null, true);
             echo "</td>
                                                 <td>
                                                     <div class=\"btn-group\">
                                                         <a class=\"btn btn-primary\" href=\"";
-            // line 244
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_Ajouter_chapitre", array("id" => (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")))), "html", null, true);
+            // line 245
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_Ajouter_chapitre", array("cin" => $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "cin", array()), "id" => (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")))), "html", null, true);
             echo "\"><i class=\"icon_plus_alt2\"></i></a>
                                                         <a class=\"btn btn-success\" href=\"";
-            // line 245
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_Modifier_chapitre", array("id" => $this->getAttribute($context["chapitre"], "id", array()), "idcours" => (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")))), "html", null, true);
+            // line 246
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_Modifier_chapitre", array("cin" => $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "cin", array()), "id" => $this->getAttribute($context["chapitre"], "id", array()), "idcours" => (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")))), "html", null, true);
             echo "\"><i class=\"icon_check_alt2\"></i></a>
                                                         <a class=\"btn btn-danger\" href=\"";
-            // line 246
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_Supprimer_chapitre", array("id" => $this->getAttribute($context["chapitre"], "id", array()), "idcours" => (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")))), "html", null, true);
+            // line 247
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_Supprimer_chapitre", array("cin" => $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "cin", array()), "id" => $this->getAttribute($context["chapitre"], "id", array()), "idcours" => (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")))), "html", null, true);
             echo "\"><i class=\"icon_close_alt2\"></i></a>
                                                     </div>
                                                 </td>
@@ -436,7 +440,7 @@ class __TwigTemplate_85d0329e6bfa1072ff49a11b98978fd0634daec45a29f488be59e88dc41
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['chapitre'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 252
+        // line 253
         echo "                                    </tbody>
                                 </table>
                             </section>
@@ -452,113 +456,113 @@ class __TwigTemplate_85d0329e6bfa1072ff49a11b98978fd0634daec45a29f488be59e88dc41
 
        <!-- javascripts -->
     <script src=\"";
-        // line 266
+        // line 267
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 267
+        // line 268
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery-ui-1.10.4.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 268
+        // line 269
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery-1.8.3.min.js"), "html", null, true);
         echo "\"></script>
     <script type=\"text/javascript\" src=\"";
-        // line 269
+        // line 270
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery-ui-1.9.2.custom.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 270
+        // line 271
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 271
+        // line 272
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.scrollTo.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 272
+        // line 273
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/assets/jquery-knob/js/jquery.knob.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 273
+        // line 274
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.sparkline.js"), "html", null, true);
         echo "\" type=\"text/javascript\"></script>
     <script src=\"";
-        // line 274
+        // line 275
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 275
+        // line 276
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/owl.carousel.js"), "html", null, true);
         echo "\" ></script>
 
     <!--script for this page only-->
     <script src=\"";
-        // line 278
+        // line 279
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/calendar-custom.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 279
+        // line 280
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.rateit.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 280
+        // line 281
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.customSelect.min.js"), "html", null, true);
         echo "\" ></script>
     <script src=\"";
-        // line 281
+        // line 282
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/assets/chart-master/Chart.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 282
+        // line 283
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/scripts.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 283
+        // line 284
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/sparkline-chart.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 284
+        // line 285
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/easy-pie-chart.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 285
+        // line 286
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery-jvectormap-1.2.2.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 286
+        // line 287
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery-jvectormap-world-mill-en.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 287
+        // line 288
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/xcharts.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 288
+        // line 289
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.autosize.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 289
+        // line 290
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.placeholder.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 290
+        // line 291
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/gdp-data.js"), "html", null, true);
         echo "\"></script>\t
     <script src=\"";
-        // line 291
+        // line 292
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/morris.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 292
+        // line 293
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/sparklines.js"), "html", null, true);
         echo "\"></script>\t
     <script src=\"";
-        // line 293
+        // line 294
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/charts.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 294
+        // line 295
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.slimscroll.min.js"), "html", null, true);
         echo "\"></script>
     <script>
@@ -626,7 +630,7 @@ class __TwigTemplate_85d0329e6bfa1072ff49a11b98978fd0634daec45a29f488be59e88dc41
 
     public function getDebugInfo()
     {
-        return array (  562 => 294,  558 => 293,  554 => 292,  550 => 291,  546 => 290,  542 => 289,  538 => 288,  534 => 287,  530 => 286,  526 => 285,  522 => 284,  518 => 283,  514 => 282,  510 => 281,  506 => 280,  502 => 279,  498 => 278,  492 => 275,  488 => 274,  484 => 273,  480 => 272,  476 => 271,  472 => 270,  468 => 269,  464 => 268,  460 => 267,  456 => 266,  440 => 252,  428 => 246,  424 => 245,  420 => 244,  414 => 241,  408 => 240,  405 => 239,  401 => 238,  373 => 213,  355 => 198,  350 => 196,  343 => 192,  338 => 190,  331 => 186,  326 => 184,  313 => 174,  308 => 172,  300 => 167,  295 => 165,  286 => 159,  263 => 139,  251 => 130,  240 => 124,  235 => 122,  223 => 113,  220 => 112,  210 => 108,  206 => 107,  201 => 104,  197 => 103,  190 => 99,  167 => 81,  161 => 78,  147 => 67,  110 => 33,  106 => 32,  102 => 31,  98 => 30,  94 => 29,  90 => 28,  83 => 24,  79 => 23,  75 => 22,  71 => 21,  67 => 20,  63 => 19,  59 => 18,  55 => 17,  51 => 16,  47 => 15,  43 => 14,  39 => 13,  35 => 12,  29 => 9,  19 => 1,);
+        return array (  566 => 295,  562 => 294,  558 => 293,  554 => 292,  550 => 291,  546 => 290,  542 => 289,  538 => 288,  534 => 287,  530 => 286,  526 => 285,  522 => 284,  518 => 283,  514 => 282,  510 => 281,  506 => 280,  502 => 279,  496 => 276,  492 => 275,  488 => 274,  484 => 273,  480 => 272,  476 => 271,  472 => 270,  468 => 269,  464 => 268,  460 => 267,  444 => 253,  432 => 247,  428 => 246,  424 => 245,  418 => 242,  412 => 241,  409 => 240,  405 => 239,  377 => 214,  373 => 213,  355 => 198,  350 => 196,  343 => 192,  338 => 190,  331 => 186,  326 => 184,  313 => 174,  308 => 172,  300 => 167,  295 => 165,  286 => 159,  263 => 139,  251 => 130,  240 => 124,  235 => 122,  223 => 113,  220 => 112,  210 => 108,  206 => 107,  201 => 104,  197 => 103,  190 => 99,  167 => 81,  161 => 78,  147 => 67,  110 => 33,  106 => 32,  102 => 31,  98 => 30,  94 => 29,  90 => 28,  83 => 24,  79 => 23,  75 => 22,  71 => 21,  67 => 20,  63 => 19,  59 => 18,  55 => 17,  51 => 16,  47 => 15,  43 => 14,  39 => 13,  35 => 12,  29 => 9,  19 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -639,7 +643,7 @@ class __TwigTemplate_85d0329e6bfa1072ff49a11b98978fd0634daec45a29f488be59e88dc41
 /*         <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">*/
 /*         <link rel="shortcut icon" href="{{asset('bundles/moocmooc/css/profilformateur/img/favicon.png')}}">*/
 /* */
-/*         <title>Acceuil formateur</title>*/
+/*         <title>Liste Chapitre</title>*/
 /*         <link rel="stylesheet" href="{{asset('bundles/moocmooc/css/profilformateur/css/bootstrap.min.css')}}">*/
 /*         <link href="{{asset('bundles/moocmooc/css/profilformateur/css/bootstrap-theme.css')}}" rel="stylesheet">*/
 /*         <link href="{{asset('bundles/moocmooc/css/profilformateur/css/elegant-icons-style.css')}}" rel="stylesheet" />*/
@@ -842,6 +846,7 @@ class __TwigTemplate_85d0329e6bfa1072ff49a11b98978fd0634daec45a29f488be59e88dc41
 /*                     <div class="row">*/
 /*                         <div class="col-lg-12">*/
 /*                             <h3 class="page-header"><i class="fa fa-laptop"></i>Formateur {{Formateur.cin}}</h3>*/
+/*                             <h2>  {{ socialButtons() }} <br></h2>*/
 /*                             <ol class="breadcrumb">*/
 /*                                 <li><i class="fa fa-home"></i><a href="#">Acceuil</a></li>*/
 /*                                 <li><i class="fa fa-laptop"></i>Profil</li>						  	*/
@@ -868,13 +873,13 @@ class __TwigTemplate_85d0329e6bfa1072ff49a11b98978fd0634daec45a29f488be59e88dc41
 /* */
 /*                                         {% for chapitre in listeChapitres %}*/
 /*                                             <tr>*/
-/*                                                 <td><a href="{{path ('mooc_mooc_afficher_chapitreForm',{'id':chapitre.id})}}">{{chapitre.titre}}</a></td>*/
+/*                                                 <td><a href="{{path ('mooc_mooc_afficher_chapitreForm',{'cin':Formateur.cin,'id':chapitre.id})}}">{{chapitre.titre}}</a></td>*/
 /*                                                 <td>{{chapitre.objectif}}</td>*/
 /*                                                 <td>*/
 /*                                                     <div class="btn-group">*/
-/*                                                         <a class="btn btn-primary" href="{{path ('mooc_mooc_Ajouter_chapitre',{'id':id})}}"><i class="icon_plus_alt2"></i></a>*/
-/*                                                         <a class="btn btn-success" href="{{path ('mooc_mooc_Modifier_chapitre',{'id':chapitre.id,'idcours':id})}}"><i class="icon_check_alt2"></i></a>*/
-/*                                                         <a class="btn btn-danger" href="{{path ('mooc_mooc_Supprimer_chapitre',{'id':chapitre.id,'idcours':id})}}"><i class="icon_close_alt2"></i></a>*/
+/*                                                         <a class="btn btn-primary" href="{{path ('mooc_mooc_Ajouter_chapitre',{'cin':Formateur.cin,'id':id})}}"><i class="icon_plus_alt2"></i></a>*/
+/*                                                         <a class="btn btn-success" href="{{path ('mooc_mooc_Modifier_chapitre',{'cin':Formateur.cin,'id':chapitre.id,'idcours':id})}}"><i class="icon_check_alt2"></i></a>*/
+/*                                                         <a class="btn btn-danger" href="{{path ('mooc_mooc_Supprimer_chapitre',{'cin':Formateur.cin,'id':chapitre.id,'idcours':id})}}"><i class="icon_close_alt2"></i></a>*/
 /*                                                     </div>*/
 /*                                                 </td>*/
 /* */
