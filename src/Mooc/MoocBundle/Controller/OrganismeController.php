@@ -68,7 +68,7 @@ public function inscriptionOrganismeMailAction($id){
             $telephone = $request->get('telephone');
             $description = $request->get('description');
             $complete = 1;
-
+   $em = $this->getDoctrine()->getManager();
             $Organisme = $em->getRepository('MoocMoocBundle:Organisme')->find($id);
 
             $Organisme->setSiteweb($siteweb);
@@ -76,7 +76,7 @@ public function inscriptionOrganismeMailAction($id){
             $Organisme->setDescription($description);
             $Organisme->setComplete($complete);
 
-            $em = $this->getDoctrine()->getManager();
+         
             $em->persist($Organisme);
             $em->flush();
         }
@@ -281,7 +281,7 @@ public function inscriptionOrganismeMailAction($id){
         $em = $this->getDoctrine()->getManager();
         $Invitation = $em->getRepository('MoocMoocBundle:Invitation')->findOneBy(array('id' => $id));
         $dat = new \DateTime('now');
-        $Invitation->setDate_vue($dat);
+        $Invitation->setDateVue($dat);
         $Invitation->setEtat(1);
         $em->flush();
         $em3 = $this->getDoctrine()->getManager();
@@ -333,17 +333,22 @@ public function inscriptionOrganismeMailAction($id){
         return $this->render('MoocMoocBundle:Organisme:ProfilFormateur2.html.twig', array('Organisme' => $Organisme, 'Formateur' => $Formateur,'nbr'=>$nbr));
     }
     public function ListeInvitAction($name, $nbr) {
+$em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('MoocMoocBundle:Invitation');
+        $query = $em->createQuery('select f.nom , i.dateInvit, i.id from MoocMoocBundle:Formateur f ,MoocMoocBundle:Invitation i where i.etat = :a and f.cin = i.nomExp ')
+                ->setParameter('a',0);
+            $listeInvitation=$query->getResult();
 
+//
+//        $repository = $this->getDoctrine()
+//                ->getManager()
+//                ->getRepository('MoocMoocBundle:Invitation');
+//
+//        $listeInvitation = $repository->chercherInvit($name, 0);
 
-        $repository = $this->getDoctrine()
-                ->getManager()
-                ->getRepository('MoocMoocBundle:Invitation');
-
-        $listeInvitation = $repository->chercherInvit($name, 0);
-
-        $em1 = $this->getDoctrine()->getManager();
-        $repository1 = $em1->getRepository('MoocMoocBundle:Organisme');
-        $Organisme = $repository1->findOneBy(array('nom' => $name));
+//        $em1 = $this->getDoctrine()->getManager();
+//        $repository1 = $em1->getRepository('MoocMoocBundle:Organisme');
+//        $Organisme = $repository1->findOneBy(array('nom' => $name));
 
         return $this->render('MoocMoocBundle:Organisme:ListeInvitation.html.twig', array('listeInvitation' => $listeInvitation, 'name' => $name, 'nbr' => $nbr));
     }
@@ -370,7 +375,7 @@ public function inscriptionOrganismeMailAction($id){
         $invitation->setNomDes($formateur->getNom());
         $invitation->setEtat(0);
         $dat = new \DateTime('now');
-        $invitation->setDate_invit($dat);
+        $invitation->setDateInvit($dat);
         $em3->persist($invitation);
         $em3->flush();
         
@@ -423,13 +428,13 @@ public function inscriptionOrganismeMailAction($id){
         $Organisme = $repository->findOneBy(array('nom' => $name));
         $em2 = $this->getDoctrine()->getManager();
         $repository2 = $em2->getRepository('MoocMoocBundle:Formateur');
-        $Formateur = $repository2->findOneBy(array('nom' => $Invitation->getNomExp()));
+        $Formateur = $repository2->findOneBy(array('cin' => $Invitation->getNomExp()));
         $Formateur->setOrganisme($Organisme);
          $em2->persist($Formateur);
         $em2->flush();
         $Invitation->setEtat(1);
         $dat = new \DateTime('now');
-        $Invitation->setDate_confi($dat);
+        $Invitation->setDateConfi($dat);
         $em3 = $this->getDoctrine()->getManager();
        
         $em3->persist($Invitation);

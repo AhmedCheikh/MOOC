@@ -472,11 +472,11 @@ class __TwigTemplate_9fb651abed561849a65997837c45082b3c60339fa63e07542204d387369
             echo "\"><i class=\"icon_plus_alt2\"></i></a>
                                                                          <a class=\"btn btn-success\" href=\"";
             // line 262
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_updateCours", array("id" => $this->getAttribute($context["l"], "idcours", array()))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_updateCours", array("cin" => $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "cin", array()), "id" => $this->getAttribute($context["l"], "idcours", array()), "idquiz" => $this->getAttribute($this->getAttribute($context["l"], "idquiz", array()), "id", array()))), "html", null, true);
             echo "\"><i class=\"icon_check_alt2\"></i></a>
                                                                          <a class=\"btn btn-danger\" href=\"";
             // line 263
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_delCours", array("id" => $this->getAttribute($context["l"], "idcours", array()))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_delCours", array("cin" => $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "cin", array()), "id" => $this->getAttribute($context["l"], "idcours", array()))), "html", null, true);
             echo "\"><i class=\"icon_close_alt2\"></i></a>
                                                                     </div>
                                                                 </td>
@@ -852,8 +852,8 @@ class __TwigTemplate_9fb651abed561849a65997837c45082b3c60339fa63e07542204d387369
 /*                                                                 <td>*/
 /*                                                                     <div class="btn-group">*/
 /*                                                                         <a class="btn btn-primary" href="{{path('mooc_mooc_listechapitre', {'cin':Formateur.cin,'id':l.idcours})}}"><i class="icon_plus_alt2"></i></a>*/
-/*                                                                          <a class="btn btn-success" href="{{path('mooc_mooc_updateCours', {'id':l.idcours})}}"><i class="icon_check_alt2"></i></a>*/
-/*                                                                          <a class="btn btn-danger" href="{{path('mooc_mooc_delCours', {'id':l.idcours})}}"><i class="icon_close_alt2"></i></a>*/
+/*                                                                          <a class="btn btn-success" href="{{path('mooc_mooc_updateCours', {'cin':Formateur.cin,'id':l.idcours,'idquiz':l.idquiz.id})}}"><i class="icon_check_alt2"></i></a>*/
+/*                                                                          <a class="btn btn-danger" href="{{path('mooc_mooc_delCours', {'cin':Formateur.cin,'id':l.idcours})}}"><i class="icon_close_alt2"></i></a>*/
 /*                                                                     </div>*/
 /*                                                                 </td>*/
 /*                                                             </tr>*/

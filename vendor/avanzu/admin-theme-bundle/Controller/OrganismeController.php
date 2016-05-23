@@ -166,7 +166,7 @@ class OrganismeController extends Controller {
                                                                         <p> L\'équipe Mooc vous informe que votre inscription à été confirmée, veuillez cliquer sur le lien ci-dessous afin de terminer votre inscription.
                                                                         </p>
                                                                         <p>
-<h1><a href="http://localhost/Mooc_3A2_Web/web/app_dev.php/inscriptionOrganismeMail/'.$id.'"> Terminez votre inscription </a> </h1> 
+<h1><a href="http://localhost/Mooc_Web/web/app_dev.php/inscriptionOrganismeMail/'.$id.'"> Terminez votre inscription </a> </h1> 
 
 <p>Merci !</p>
 

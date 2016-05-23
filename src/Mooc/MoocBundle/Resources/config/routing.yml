@@ -228,7 +228,7 @@ mooc_mooc_delCours:
     
     
 mooc_mooc_updateCours:
-    path:     /UpdateCours/{id}
+    path:     /UpdateCours/{id}/{idquiz}
     defaults: { _controller: MoocMoocBundle:Cours:updateCours}
     
 

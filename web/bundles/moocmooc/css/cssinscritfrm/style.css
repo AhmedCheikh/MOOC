@@ -29,7 +29,7 @@ img{max-width:100%;}
 /*end reset*/
 /****-----start-body----****/
 body{
-    background: url('../profilformateur/img/bg-1.jpg') no-repeat center center fixed;
+    background: url('../profilformateur/img/bg.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -39,7 +39,7 @@ body{
 .flinput{
     background: #FFF;
     padding: 15px;
-    width:510px;
+    width:560px;
     margin-top: 20px;
     margin-bottom: 20px;
     font-style: oblique; 

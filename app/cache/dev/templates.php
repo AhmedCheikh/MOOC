@@ -272,6 +272,8 @@
   'SensioDistributionBundle:Configurator:steps.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle/Resources/views/Configurator/steps.html.twig',
   '::base.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\app/Resources\\views/base.html.twig',
   ':default:index.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\app/Resources\\views/default/index.html.twig',
+  ':easy_admin/Cours:video.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\app/Resources\\views/easy_admin/Cours/video.html.twig',
+  ':easy_admin/Cours:video2.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\app/Resources\\views/easy_admin/Cours/video2.html.twig',
   ':easy_admin/Formateur:cv.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\app/Resources\\views/easy_admin/Formateur/cv.html.twig',
   ':easy_admin/organisme:etat.html.twig' => 'C:\\wamp\\www\\Mooc_Web\\app/Resources\\views/easy_admin/organisme/etat.html.twig',
 );

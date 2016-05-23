@@ -5,19 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
         <meta name="author" content="GeeksLabs">
-        <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
         <link rel="shortcut icon" href="{{asset('bundles/moocmooc/css/profilformateur/img/favicon.png')}}">
 
-        <title>Publier cour</title>
-        <!-- Bootstrap CSS -->    
+        <title>Publier cour</title> 
         <link href="{{asset('bundles/moocmooc/css/profilformateur/css/bootstrap.min.css')}}" rel="stylesheet">
-        <!-- bootstrap theme -->
         <link href="{{asset('bundles/moocmooc/css/profilformateur/css/bootstrap-theme.css')}}" rel="stylesheet">
-        <!--external css-->
-        <!-- font icon -->
         <link href="{{asset('bundles/moocmooc/css/profilformateur/css/elegant-icons-style.css')}}" rel="stylesheet">
         <link href="{{asset('bundles/moocmooc/css/profilformateur/css/font-awesome.min.css')}}" rel="stylesheet">
-        <!-- Custom styles -->
         <link href="{{asset('bundles/moocmooc/css/profilformateur/css/style.css')}}" rel="stylesheet">	
         <link href="{{asset('bundles/moocmooc/css/profilformateur/css/style-responsive.css')}}" rel="stylesheet">
 
@@ -229,11 +223,12 @@
                                                 </div>
                                             </div>
                                             <div class="form-group ">
-                                                <label for="cemail" class="control-label col-lg-2">Quiz du cour <span class="required">*<a class="btn btn-primary" href="{{path ('mooc_mooc_Ajouter_quiz',{'cin':Formateur.cin})}}"><i class="icon_plus_alt2"></i></a></span></label>
+                                                 <label for="cemail" class="control-label col-lg-2">Quiz du cour <span class="required">*<a class="btn btn-primary" href="{{path ('mooc_mooc_Ajouter_quiz',{'cin':Formateur.cin})}}"><i class="icon_plus_alt2"></i></a></span></label>
+                                                <label for="cemail" class="control-label col-lg-2"> <span class="required">*</span></label>
                                                 <div class="col-lg-10">
                                                     <select class="form-control m-bot15" name="idQuiz" id="idQuizCour">
                                                         {%for q in Quiz%}
-                                                        <option value = '{{q.id}}'>{{q.id}}</option>
+                                                        <option value = '{{q.id}}'>{{q.titre}}</option>
                                                         {%endfor%}
                                                     </select>
                                                 </div>
@@ -263,7 +258,7 @@
                                                         <input type="file" class="flinput" title="choisir votre image de profile" name="video" required></div>
                                                     </div>
                                                     <br/>
-                                                </div> 
+                                         
 
                                                 <div class="form-group ">
                                                     <span for="ccomment" class="control-label col-lg-2">Description*</span>
@@ -279,6 +274,7 @@
                                                     </div>
                                                 </div>
                                         </form>
+                                      </div> 
                                     </div>
 
                                 </div>

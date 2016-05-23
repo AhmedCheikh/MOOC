@@ -48,9 +48,22 @@ class CoursController extends Controller {
          return $this->render('MoocMoocBundle:Formateur:listecourformateur.html.twig', array('Formateur' => $formateur, 'Lstcours' => $lstcours, 'cin' => $formateur->getCin()));
     }
     
-     public function updateCoursAction($id) {
+     public function updateCoursAction($id,Request $request,$idquiz) {
+             $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('MoocMoocBundle:Formateur');
+        $Formateur = $repository->findOneBy(array('cin' => $request->get('cin')));
 
-        return $this->render('MoocMoocBundle:Formateur:updateCours.html.twig', array('id' => $id));
+        //***************** BLOC Compteur des apréciationet des invitation*****************//
+        $var = $request->get('cin');
+        $qr = $em->createQuery("select m from MoocMoocBundle:Invitation m where m.nomDes = :a and m.etat = 0")
+                ->setParameter('a', $var);
+        $inv = $qr->getResult();
+        $querycom = $em->createQuery('select cs.appreciation from MoocMoocBundle:Coursuivi cs ,MoocMoocBundle:Cours c where c.cinformateur = :a and c.idcours = cs.idCours and cs.appreciation = 5 ')
+                ->setParameter('a', $var);
+        $Coursuivi = $querycom->getResult();
+        $j = sizeof($Coursuivi);
+        //***************** BLOC Compteur des apréciationet des invitation*****************//
+        return $this->render('MoocMoocBundle:Formateur:updateCours.html.twig', array('id' => $id, 'idquiz'=>$idquiz,'Formateur' => $Formateur, 'lstinvit' => $inv, 'nbaprec' => $j, 'nbrInvit' => count($inv)));
     }
     
     

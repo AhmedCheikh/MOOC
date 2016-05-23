@@ -345,7 +345,7 @@ class __TwigTemplate_ebe9e276e19c65a758a990064acaf8890ef5965184e4c99a6a2ec9dbc6e
                     </div>
                     <!-- Today status end -->
                     <div class=\"proorg\">
-                        <div id='cover_container' style=\"background:url('../../..//..//..//..//web/bundles/moocmooc/css/profilformateur/img/covermooc.jpg');\">
+                        <div id='cover_container' style=\"background:url('../..//..//..//..//..//web/bundles/moocmooc/css/profilformateur/css/..//img/covermooc.jpg');\">
                             <div id='info_box'>
                                 <div id=\"profile_img\"><img src=\"";
         // line 222
@@ -690,7 +690,7 @@ class __TwigTemplate_ebe9e276e19c65a758a990064acaf8890ef5965184e4c99a6a2ec9dbc6e
 /*                     </div>*/
 /*                     <!-- Today status end -->*/
 /*                     <div class="proorg">*/
-/*                         <div id='cover_container' style="background:url('../../..//..//..//..//web/bundles/moocmooc/css/profilformateur/img/covermooc.jpg');">*/
+/*                         <div id='cover_container' style="background:url('../..//..//..//..//..//web/bundles/moocmooc/css/profilformateur/css/..//img/covermooc.jpg');">*/
 /*                             <div id='info_box'>*/
 /*                                 <div id="profile_img"><img src="{{asset('uploads/uploads/ent.jpg')}}" class='avatar_img'/></div>*/
 /*                                 <div id="info-box">*/

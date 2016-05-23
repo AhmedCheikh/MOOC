@@ -33,7 +33,7 @@ easy_admin:
             class : Mooc\MoocBundle\Entity\Cours
             list : 
                 title: "Liste des cours à valider"
-                fields: ['nomCours','description','difficulte','objectif',{property: 'cinformateur', label: 'Formateur'},{property: 'etat', label: 'Etat' , type: 'toggle'}]
+                fields: ['nomCours','description','difficulte','objectif',{property: video,template: video.html.twig,label: Vidéo},{property: 'cinformateur', label: 'Formateur'},{property: 'etat', label: 'Etat' , type: 'toggle'}]
                 actions:
                 
                     - { name: 'show', label: '', icon: 'search' }
@@ -42,7 +42,9 @@ easy_admin:
                     
             form : 
                 fields: ['nomCours','description','difficulte','objectif',{property: 'cinformateur', label: 'CIN formateur'},{property: 'etat', label: 'Valide'}]
-        
+            show : 
+                fields: [{property: video,template: video2.html.twig,label: Vidéo},'nomCours','description','difficulte','objectif',{property: 'cinformateur', label: 'Formateur'},{property: 'etat', label: 'Valide' , type: 'toggle'}]
+            
         Organisme:
             class: Mooc\MoocBundle\Entity\Organisme
             disabled_actions: ['edit', 'delete', 'new']

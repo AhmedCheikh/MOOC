@@ -744,6 +744,11 @@
               <parameter>difficulte</parameter>
               <parameter>objectif</parameter>
               <parameter type="collection">
+                <parameter key="property">video</parameter>
+                <parameter key="template">video.html.twig</parameter>
+                <parameter key="label">Vidéo</parameter>
+              </parameter>
+              <parameter type="collection">
                 <parameter key="property">cinformateur</parameter>
                 <parameter key="label">Formateur</parameter>
               </parameter>
@@ -786,6 +791,28 @@
               <parameter type="collection">
                 <parameter key="property">etat</parameter>
                 <parameter key="label">Valide</parameter>
+              </parameter>
+            </parameter>
+          </parameter>
+          <parameter key="show" type="collection">
+            <parameter key="fields" type="collection">
+              <parameter type="collection">
+                <parameter key="property">video</parameter>
+                <parameter key="template">video2.html.twig</parameter>
+                <parameter key="label">Vidéo</parameter>
+              </parameter>
+              <parameter>nomCours</parameter>
+              <parameter>description</parameter>
+              <parameter>difficulte</parameter>
+              <parameter>objectif</parameter>
+              <parameter type="collection">
+                <parameter key="property">cinformateur</parameter>
+                <parameter key="label">Formateur</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="property">etat</parameter>
+                <parameter key="label">Valide</parameter>
+                <parameter key="type">toggle</parameter>
               </parameter>
             </parameter>
           </parameter>

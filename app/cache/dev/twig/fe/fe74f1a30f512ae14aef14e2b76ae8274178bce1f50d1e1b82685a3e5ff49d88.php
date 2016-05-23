@@ -23,40 +23,34 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
         <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
         <meta name=\"description\" content=\"Creative - Bootstrap 3 Responsive Admin Template\">
         <meta name=\"author\" content=\"GeeksLabs\">
-        <meta name=\"keyword\" content=\"Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal\">
         <link rel=\"shortcut icon\" href=\"";
-        // line 9
+        // line 8
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/favicon.png"), "html", null, true);
         echo "\">
 
-        <title>Publier cour</title>
-        <!-- Bootstrap CSS -->    
+        <title>Publier cour</title> 
         <link href=\"";
-        // line 13
+        // line 11
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/css/bootstrap.min.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
-        <!-- bootstrap theme -->
         <link href=\"";
-        // line 15
+        // line 12
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/css/bootstrap-theme.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
-        <!--external css-->
-        <!-- font icon -->
         <link href=\"";
-        // line 18
+        // line 13
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/css/elegant-icons-style.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
         <link href=\"";
-        // line 19
+        // line 14
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/css/font-awesome.min.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
-        <!-- Custom styles -->
         <link href=\"";
-        // line 21
+        // line 15
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/css/style.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">\t
         <link href=\"";
-        // line 22
+        // line 16
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/css/style-responsive.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
 
@@ -98,7 +92,7 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
                             <a data-toggle=\"dropdown\" class=\"dropdown-toggle\" href=\"#\">
                                 <span class=\"icon-task-l\"></i>
                                     <span class=\"badge bg-important\">";
-        // line 61
+        // line 55
         echo twig_escape_filter($this->env, (isset($context["nbaprec"]) ? $context["nbaprec"] : $this->getContext($context, "nbaprec")), "html", null, true);
         echo "</span>
                             </a>
@@ -112,13 +106,13 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
                                         <div class=\"task-info\">
                                             <div class=\"desc\">pourcentage d'appreciation</div>
                                             <div class=\"percent\">";
-        // line 72
+        // line 66
         echo twig_escape_filter($this->env, (isset($context["nbaprec"]) ? $context["nbaprec"] : $this->getContext($context, "nbaprec")), "html", null, true);
         echo "0%</div>
                                         </div>
                                         <div class=\"progress progress-striped active\">
                                             <div class=\"progress-bar\"  role=\"progressbar\" aria-valuenow=\"";
-        // line 75
+        // line 69
         echo twig_escape_filter($this->env, (isset($context["nbaprec"]) ? $context["nbaprec"] : $this->getContext($context, "nbaprec")), "html", null, true);
         echo "0\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: ";
         echo twig_escape_filter($this->env, (isset($context["nbaprec"]) ? $context["nbaprec"] : $this->getContext($context, "nbaprec")), "html", null, true);
@@ -141,27 +135,27 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
 
                                 <i class=\"icon-bell-l\"></i>
                                 <span class=\"badge bg-important\">";
-        // line 93
+        // line 87
         echo twig_escape_filter($this->env, (isset($context["nbrInvit"]) ? $context["nbrInvit"] : $this->getContext($context, "nbrInvit")), "html", null, true);
         echo "</span>
                             </a>
                             <ul class=\"dropdown-menu extended notification\">
                                 <div class=\"notify-arrow notify-arrow-blue\"></div>
                                 ";
-        // line 97
+        // line 91
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["lstinvit"]) ? $context["lstinvit"] : $this->getContext($context, "lstinvit")));
         foreach ($context['_seq'] as $context["_key"] => $context["linv"]) {
-            // line 98
+            // line 92
             echo "                                    <li>
                                         <a href=\"#\">
                                             <span class=\"label label-danger\"><i class=\"icon_book_alt\"></i></span> 
                                             <strong><span style=\"color:blue;font-size:14px;\">";
-            // line 101
+            // line 95
             echo twig_escape_filter($this->env, $this->getAttribute($context["linv"], "nomExp", array()), "html", null, true);
             echo "</span></strong> vous invite
                                             <span class=\"small italic pull-right\">";
-            // line 102
+            // line 96
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["linv"], "dateInvit", array()), "m/d/Y"), "html", null, true);
             echo "</span>
                                         </a>
@@ -171,10 +165,10 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['linv'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 106
+        // line 100
         echo "                                <li>
                                     <a href=\"";
-        // line 107
+        // line 101
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_listeinvitation", array("cin" => $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "cin", array()))), "html", null, true);
         echo "\">Voir toutes les invitations</a>
                                 </li>
@@ -186,12 +180,12 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
                             <a data-toggle=\"dropdown\" class=\"dropdown-toggle\" href=\"#\">
                                 <span class=\"profile-ava\">
                                     <img  alt=\"\" src=\"";
-        // line 116
+        // line 110
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl(("uploads/uploads/" . $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "avatar", array()))), "html", null, true);
         echo "\" width=\"50\" height=\"50\"/>
                                 </span>
                                 <span class=\"username\">";
-        // line 118
+        // line 112
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "prenom", array()), "html", null, true);
         echo " ";
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "nom", array()), "html", null, true);
@@ -202,7 +196,7 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
                                 <div class=\"log-arrow-up\"></div>
                                 <li class=\"eborder-top\">
                                     <a href=\"";
-        // line 124
+        // line 118
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_profilformateur", array("cin" => $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "cin", array()))), "html", null, true);
         echo "\"><i class=\"icon_profile\"></i> Mon Profile</a>
                                 </li>
@@ -214,7 +208,7 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
                                 </li>
                                 <li>
                                     <a href=\"";
-        // line 133
+        // line 127
         echo $this->env->getExtension('routing')->getPath("mooc_mooc_log_out_formateur");
         echo "\"><i class=\"icon_key_alt\"></i> Log Out</a>
                                 </li>
@@ -237,7 +231,7 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
                     <ul class=\"sidebar-menu\">                
                         <li class=\"active\">
                             <a class=\"\" href=\"";
-        // line 153
+        // line 147
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_acceuilformateur", array("cin" => $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "cin", array()))), "html", null, true);
         echo "\">
                                 <i class=\"icon_house_alt\"></i>
@@ -246,12 +240,12 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
                         </li>
                         <li class=\"sub-menu\">
                             <a href=\"";
-        // line 159
+        // line 153
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_publiercourformateur", array("cin" => $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "cin", array()))), "html", null, true);
         echo "\" class=\"\">
                                 <i class=\"icon_document_alt\"></i>
                                 <span><img src=\"";
-        // line 161
+        // line 155
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/icons/publier.png"), "html", null, true);
         echo "\">  Publier Cours</span>
 
@@ -259,12 +253,12 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
                         </li>       
                         <li class=\"sub-menu\">
                             <a href=\"";
-        // line 166
+        // line 160
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_listecourformateur", array("cin" => $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "cin", array()))), "html", null, true);
         echo "\" class=\"\">
                                 <i class=\"icon_desktop\"></i>
                                 <span> <img src=\"";
-        // line 168
+        // line 162
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/icons/book.png"), "html", null, true);
         echo "\">  Liste Cour</span>
                                 <span class=\"menu-arrow arrow_carrot-right\"></span>
@@ -277,36 +271,36 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
                         </li>
                         <li>
                             <a class=\"\" href=\"";
-        // line 178
+        // line 172
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_listeformateurbconnect", array("cin" => $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "cin", array()))), "html", null, true);
         echo "\">
                                 <i class=\"icon_genius\"></i>
                                 <span><img src=\"";
-        // line 180
+        // line 174
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/icons/Formateurs.png"), "html", null, true);
         echo "\">   Liste Formateurs</span>
                             </a>
                         </li>
                         <li>                     
                             <a class=\"\" href=\"";
-        // line 184
+        // line 178
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_listeorganismeconnect", array("cin" => $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "cin", array()))), "html", null, true);
         echo "\">
                                 <i class=\"icon_piechart\"></i>
                                 <span><img src=\"";
-        // line 186
+        // line 180
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/icons/organisme.png"), "html", null, true);
         echo "\">   Liste Organismes</span>
                             </a>
                         </li>
                         <li class=\"sub-menu\">
                             <a href=\"";
-        // line 190
+        // line 184
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_listeinvitation", array("cin" => $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "cin", array()))), "html", null, true);
         echo "\" class=\"\">
                                 <i class=\"icon_documents_alt\"></i>
                                 <span><img src=\"";
-        // line 192
+        // line 186
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/img/icons/Demmande.png"), "html", null, true);
         echo "\">   Mes Demmandes</span>                               
                             </a>
@@ -323,7 +317,7 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
                     <div class=\"row\">
                         <div class=\"col-lg-12\">
                             <h3 class=\"page-header\"><i class=\"fa fa-laptop\"></i>Formateur ";
-        // line 206
+        // line 200
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "cin", array()), "html", null, true);
         echo "</h3>
                             <ol class=\"breadcrumb\">
@@ -344,7 +338,7 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
                                 <div class=\"panel-body\">
                                     <div class=\"form\">
                                         <form class=\"form-validate form-horizontal\" id=\"feedback_form\" method=\"POST\" action=\"";
-        // line 224
+        // line 218
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_publiercourformateur", array("cin" => $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "cin", array()))), "html", null, true);
         echo "\" enctype=\"multipart/form-data\">
                                             <div class=\"form-group \">
@@ -354,29 +348,30 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
                                                 </div>
                                             </div>
                                             <div class=\"form-group \">
-                                                <label for=\"cemail\" class=\"control-label col-lg-2\">Quiz du cour <span class=\"required\">*<a class=\"btn btn-primary\" href=\"";
-        // line 232
+                                                 <label for=\"cemail\" class=\"control-label col-lg-2\">Quiz du cour <span class=\"required\">*<a class=\"btn btn-primary\" href=\"";
+        // line 226
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mooc_mooc_Ajouter_quiz", array("cin" => $this->getAttribute((isset($context["Formateur"]) ? $context["Formateur"] : $this->getContext($context, "Formateur")), "cin", array()))), "html", null, true);
         echo "\"><i class=\"icon_plus_alt2\"></i></a></span></label>
+                                                <label for=\"cemail\" class=\"control-label col-lg-2\"> <span class=\"required\">*</span></label>
                                                 <div class=\"col-lg-10\">
                                                     <select class=\"form-control m-bot15\" name=\"idQuiz\" id=\"idQuizCour\">
                                                         ";
-        // line 235
+        // line 230
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["Quiz"]) ? $context["Quiz"] : $this->getContext($context, "Quiz")));
         foreach ($context['_seq'] as $context["_key"] => $context["q"]) {
-            // line 236
+            // line 231
             echo "                                                        <option value = '";
             echo twig_escape_filter($this->env, $this->getAttribute($context["q"], "id", array()), "html", null, true);
             echo "'>";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["q"], "id", array()), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["q"], "titre", array()), "html", null, true);
             echo "</option>
                                                         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['q'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 238
+        // line 233
         echo "                                                    </select>
                                                 </div>
                                             </div>
@@ -405,7 +400,7 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
                                                         <input type=\"file\" class=\"flinput\" title=\"choisir votre image de profile\" name=\"video\" required></div>
                                                     </div>
                                                     <br/>
-                                                </div> 
+                                         
 
                                                 <div class=\"form-group \">
                                                     <span for=\"ccomment\" class=\"control-label col-lg-2\">Description*</span>
@@ -421,6 +416,7 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
                                                     </div>
                                                 </div>
                                         </form>
+                                      </div> 
                                     </div>
 
                                 </div>
@@ -438,36 +434,36 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
         <!-- javascripts -->
 
         <script src=\"";
-        // line 298
+        // line 294
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 299
+        // line 295
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 300
+        // line 296
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.scrollTo.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 301
+        // line 297
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.nicescroll.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 302
+        // line 298
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/form-validation-script.js"), "html", null, true);
         echo "\"></script>
         <script type=\"text/javascript\" src=\"";
-        // line 303
+        // line 299
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/jquery.validate.min.js"), "html", null, true);
         echo "\"></script>
 
         <script src=\"";
-        // line 305
+        // line 301
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/scripts.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 306
+        // line 302
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/moocmooc/css/profilformateur/js/form-component.js"), "html", null, true);
         echo "\"></script>
 
@@ -488,7 +484,7 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
 
     public function getDebugInfo()
     {
-        return array (  471 => 306,  467 => 305,  462 => 303,  458 => 302,  454 => 301,  450 => 300,  446 => 299,  442 => 298,  380 => 238,  369 => 236,  365 => 235,  359 => 232,  348 => 224,  327 => 206,  310 => 192,  305 => 190,  298 => 186,  293 => 184,  286 => 180,  281 => 178,  268 => 168,  263 => 166,  255 => 161,  250 => 159,  241 => 153,  218 => 133,  206 => 124,  195 => 118,  190 => 116,  178 => 107,  175 => 106,  165 => 102,  161 => 101,  156 => 98,  152 => 97,  145 => 93,  122 => 75,  116 => 72,  102 => 61,  60 => 22,  56 => 21,  51 => 19,  47 => 18,  41 => 15,  36 => 13,  29 => 9,  19 => 1,);
+        return array (  467 => 302,  463 => 301,  458 => 299,  454 => 298,  450 => 297,  446 => 296,  442 => 295,  438 => 294,  375 => 233,  364 => 231,  360 => 230,  353 => 226,  342 => 218,  321 => 200,  304 => 186,  299 => 184,  292 => 180,  287 => 178,  280 => 174,  275 => 172,  262 => 162,  257 => 160,  249 => 155,  244 => 153,  235 => 147,  212 => 127,  200 => 118,  189 => 112,  184 => 110,  172 => 101,  169 => 100,  159 => 96,  155 => 95,  150 => 92,  146 => 91,  139 => 87,  116 => 69,  110 => 66,  96 => 55,  54 => 16,  50 => 15,  46 => 14,  42 => 13,  38 => 12,  34 => 11,  28 => 8,  19 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -498,19 +494,13 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
 /*         <meta name="viewport" content="width=device-width, initial-scale=1.0">*/
 /*         <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">*/
 /*         <meta name="author" content="GeeksLabs">*/
-/*         <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">*/
 /*         <link rel="shortcut icon" href="{{asset('bundles/moocmooc/css/profilformateur/img/favicon.png')}}">*/
 /* */
-/*         <title>Publier cour</title>*/
-/*         <!-- Bootstrap CSS -->    */
+/*         <title>Publier cour</title> */
 /*         <link href="{{asset('bundles/moocmooc/css/profilformateur/css/bootstrap.min.css')}}" rel="stylesheet">*/
-/*         <!-- bootstrap theme -->*/
 /*         <link href="{{asset('bundles/moocmooc/css/profilformateur/css/bootstrap-theme.css')}}" rel="stylesheet">*/
-/*         <!--external css-->*/
-/*         <!-- font icon -->*/
 /*         <link href="{{asset('bundles/moocmooc/css/profilformateur/css/elegant-icons-style.css')}}" rel="stylesheet">*/
 /*         <link href="{{asset('bundles/moocmooc/css/profilformateur/css/font-awesome.min.css')}}" rel="stylesheet">*/
-/*         <!-- Custom styles -->*/
 /*         <link href="{{asset('bundles/moocmooc/css/profilformateur/css/style.css')}}" rel="stylesheet">	*/
 /*         <link href="{{asset('bundles/moocmooc/css/profilformateur/css/style-responsive.css')}}" rel="stylesheet">*/
 /* */
@@ -722,11 +712,12 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
 /*                                                 </div>*/
 /*                                             </div>*/
 /*                                             <div class="form-group ">*/
-/*                                                 <label for="cemail" class="control-label col-lg-2">Quiz du cour <span class="required">*<a class="btn btn-primary" href="{{path ('mooc_mooc_Ajouter_quiz',{'cin':Formateur.cin})}}"><i class="icon_plus_alt2"></i></a></span></label>*/
+/*                                                  <label for="cemail" class="control-label col-lg-2">Quiz du cour <span class="required">*<a class="btn btn-primary" href="{{path ('mooc_mooc_Ajouter_quiz',{'cin':Formateur.cin})}}"><i class="icon_plus_alt2"></i></a></span></label>*/
+/*                                                 <label for="cemail" class="control-label col-lg-2"> <span class="required">*</span></label>*/
 /*                                                 <div class="col-lg-10">*/
 /*                                                     <select class="form-control m-bot15" name="idQuiz" id="idQuizCour">*/
 /*                                                         {%for q in Quiz%}*/
-/*                                                         <option value = '{{q.id}}'>{{q.id}}</option>*/
+/*                                                         <option value = '{{q.id}}'>{{q.titre}}</option>*/
 /*                                                         {%endfor%}*/
 /*                                                     </select>*/
 /*                                                 </div>*/
@@ -756,7 +747,7 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
 /*                                                         <input type="file" class="flinput" title="choisir votre image de profile" name="video" required></div>*/
 /*                                                     </div>*/
 /*                                                     <br/>*/
-/*                                                 </div> */
+/*                                          */
 /* */
 /*                                                 <div class="form-group ">*/
 /*                                                     <span for="ccomment" class="control-label col-lg-2">Description*</span>*/
@@ -772,6 +763,7 @@ class __TwigTemplate_bb9b3ba502de80ac4438155a99456a46e755732f6c8ee6fbf826575afbf
 /*                                                     </div>*/
 /*                                                 </div>*/
 /*                                         </form>*/
+/*                                       </div> */
 /*                                     </div>*/
 /* */
 /*                                 </div>*/

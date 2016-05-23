@@ -322,7 +322,7 @@ class FormateurController extends Controller {
         return $this->render('MoocMoocBundle:Formateur:loginformateur.html.twig');
     }
 
-    public function publiercourAction(Request $request, $cin) {
+     public function publiercourAction(Request $request, $cin) {
         $session = $this->getRequest()->getSession();
         $name = 'userformateur';
         $em = $this->getDoctrine()->getManager();
@@ -356,7 +356,7 @@ class FormateurController extends Controller {
             $status = 'saccess';
             $uploadedURL = '';
             $message = '';
-            $cour = new Cours();
+            
 
             if (($video instanceof UploadedFile) && ($video->getError() == '0')) {
                 if (($video->getSize() < 2000000000)) {
@@ -371,6 +371,7 @@ class FormateurController extends Controller {
                         $document->processFile();
                         $uploadedURL = $uploadedURL = $document->getUploadDirectory() . DIRECTORY_SEPARATOR . $document->getSubDirectory() . DIRECTORY_SEPARATOR . $video->getBasename();
 
+                        $cour = new Cours();
                         $cour->setNomCours($nom_cours);
                         $cour->setIdquiz($idQuiz);
                         $cour->setCinformateur($cinformateur);
@@ -399,7 +400,7 @@ class FormateurController extends Controller {
             return $this->render('MoocMoocBundle:Formateur:publiercour.html.twig', array('Quiz' => $quizs, 'Formateur' => $formateur, 'cin' => $formateur->getCin(), 'lstinvit' => $inv, 'nbaprec' => $j, 'nbrInvit' => count($inv)));
         }
     }
-
+    
     public function listecourformateurAction(Request $request, $cin) {
 //        $em = $this->getDoctrine()->getManager();
 //        $em2 = $this->getDoctrine()->getManager();
